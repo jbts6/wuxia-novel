@@ -58,7 +58,8 @@ function writeStagingDraft(novel, unit, value, attempt) {
 function runFlow(args, options = {}) {
   return spawnSync(process.execPath, [FLOW, ...args], {
     cwd: options.cwd || SKILL_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    input: options.input
   });
 }
 

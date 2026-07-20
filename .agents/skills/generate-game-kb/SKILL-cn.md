@@ -5,7 +5,7 @@ description: Use when a Chinese reference for the complete v4 source-grounded wu
 
 # generate-game-kb v4 中文参考
 
-这是完整 V4 流程。原文是唯一事实来源；候选、证据和最终知识数据使用 YAML，控制器状态、清单、报告和收据使用 JSON。所有写入都由 controller 签发的 `run`、`unit`、`attempt` 和 `staging_path` 驱动。
+这是完整 V4 流程。原文是唯一事实来源；accepted、证据和最终知识数据由 controller 序列化为 YAML，状态、Worker envelope、清单、报告和收据使用 JSON。子代理只读输入并返回 JSON，禁止写文件。
 
 新 V4 run 使用 `semantic_contract_version: 6`、`semantic_profile: domain-distill-v1` 和 `profile: v4`。版本 5 及更早的旧 run 只能查询、迁移或显式归档，不能原地升级。
 
@@ -25,17 +25,17 @@ Dashboard 直接读取这五个 YAML。完成前还必须看到 `assembly-report
 
 ## 章节作业
 
-- 普通作业是 2 至 3 个相邻章节，总长度不超过 36,000 个中日韩字符。
-- 超长单章或无法合并的尾章可以单独作业。
-- 子代理完整读取 descriptor 指定的每章原文，每章写一个 YAML。
-- 只使用 controller 当前签发的一个 `attempt` 和一个绝对 `staging_path`，不构造旧路径或新路径。
+- controller 将 2 至 3 个相邻章节组成调度 batch，总长度不超过 36,000 个中日韩字符；超长单章或尾章可以独立成 batch。
+- status 把 batch 展开为单章 assignment：每个子代理只处理一章、只返回一个 JSON envelope。
+- Worker 只读取绝对 `source_file`，`worker_write_paths = []`；不得创建、修改、移动或删除任何文件或目录。
+- Worker 看不到 `staging_path` 或输出位置。主代理经 guard 检查后把 envelope 原样通过 stdin 交给 controller，由 controller 序列化并写入 YAML。
 
 ## 阶段顺序
 
 ```text
-archive-existing -> prepare -> chapter:* -> accept -> basic-curate(可选)
+archive-existing -> prepare -> 单章 Worker -> guard -> submit-draft -> basic-curate(可选)
 -> plan-domains -> distill:factions -> distill:characters
--> distill:skills -> distill:items -> assemble -> verify -> install
+-> distill:skills -> distill:items -> guarded submit-draft -> assemble -> verify -> install
 -> verify --installed -> archive-run
 ```
 
@@ -51,14 +51,16 @@ archive-existing -> prepare -> chapter:* -> accept -> basic-curate(可选)
 node .agents/skills/generate-game-kb/scripts/flow.js refresh-domain-work "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit distill:characters --confirm --json
 ```
 
-不得手改 `input.json`、hash、plan 或 `progress.json`，也不得刷新已 accepted 的域。
+领域子代理只读取 controller 生成的 `worker-input.json`，`worker_write_paths = []`，每个子代理只返回一个 JSON envelope。不得手改 input、hash、plan 或 `progress.json`，也不得刷新已 accepted 的域。
 
 每阶段后执行 `status --json`，只执行返回的 `next_action` 和 `next_units`。真实测试书使用 `古龙/剑神一笑`：
 
 ```text
 node .agents/skills/generate-game-kb/scripts/flow.js prepare "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
 node .agents/skills/generate-game-kb/scripts/flow.js status "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
-node .agents/skills/generate-game-kb/scripts/flow.js accept "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit chapter:001 --draft "C:\git\wuxia-novel\古龙\剑神一笑\.game-kb-work\runs\run-jian-shen-yi-xiao\staging\chapter_001_attempt_01.yaml" --json
+node .agents/skills/generate-game-kb/scripts/flow.js guard-open "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit chapter:001 --json
+node .agents/skills/generate-game-kb/scripts/flow.js guard-check "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --guard-id <guard-id> --json
+node .agents/skills/generate-game-kb/scripts/flow.js submit-draft "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --batch chapter-batch-001-003 --unit chapter:001 --attempt 1 --guard-id <guard-id> --json
 node .agents/skills/generate-game-kb/scripts/flow.js retry-unit "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit chapter:001 --confirm --json
 ```
 
@@ -66,4 +68,4 @@ node .agents/skills/generate-game-kb/scripts/flow.js retry-unit "C:\git\wuxia-no
 
 ## 安全边界
 
-拒绝的草稿和错误记录必须保留。不要手动复制、改名、删除 staging/accepted/final 文件，也不要凭文件存在判断完成；只有 controller 的验证、安装和归档收据可以证明完成。
+拒绝的 envelope、草稿和错误记录必须保留。`staging/` 是 controller 私有目录；不要手动复制、改名、删除 staging/accepted/final 文件，也不要凭文件存在判断完成。只有 controller 的验证、安装和归档收据可以证明完成。

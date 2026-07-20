@@ -36,25 +36,33 @@ test('V4 Skill has valid discovery metadata and no forbidden workflow wording', 
   assert.doesNotMatch(`${skill}\n${extraction}`, /事件|对话|dialogue|dialog|event/i);
 });
 
-test('V4 Skill defines dynamic chapter jobs and one controller-current path', () => {
+test('V4 Skill separates scheduler batches from single-chapter zero-write workers', () => {
   assert.match(skill, /2\s*(?:至|-)\s*3\s*章/);
   assert.match(skill, /36[，,]?000\s*(?:个)?中日韩字符/);
-  assert.match(skill, /相邻/);
-  assert.match(skill, /attempt/);
-  assert.match(skill, /staging_path/);
-  assert.doesNotMatch(skill, /staging_paths/);
-  assert.match(extraction, /2\s*(?:至|-)\s*3\s*章/);
+  assert.match(skill, /调度[^\n]*(?:batch|批次)|(?:batch|批次)[^\n]*调度/i);
+  assert.match(skill, /(?:每个|一个)[^\n]*子代理[^\n]*(?:一章|一个章节)|子代理[^\n]*(?:只|仅)[^\n]*(?:一章|一个章节)/);
+  assert.match(skill, /worker_write_paths[^\n]*\[\]/i);
+  assert.match(extraction, /WORKER_WRITE_PATHS\s*=\s*\[\]/i);
   assert.match(extraction, /完整读取[^\n]*原文/);
-  assert.match(extraction, /唯一的 `?staging_path/);
+  assert.match(extraction, /(?:JSON envelope|JSON 封装|JSON 信封)/i);
+  assert.doesNotMatch(extraction, /staging_path|output_path/i);
 });
 
-test('V4 chapter workers persist and report progress after each chapter', () => {
+test('V4 chapter workers never write files and use the guarded controller broker', () => {
   for (const contract of [skill, extraction]) {
-    assert.match(contract, /每完成一章[^\n]*(?:立即|马上)[^\n]*staging_path/);
-    assert.match(contract, /每完成一章[^\n]*(?:立即|马上)[^\n]*(?:汇报|报告)/);
-    assert.match(contract, /(?:未开始|原文已读|提取中|YAML已写)/);
-    assert.match(contract, /不得[^\n]*(?:progress|控制器状态)/);
+    assert.match(contract, /子代理[^\n]*(?:不得|不能)[^\n]*(?:创建|修改|移动|删除|写)[^\n]*(?:文件|目录)/);
+    assert.match(contract, /(?:stdin|标准输入)/i);
+    assert.match(contract, /(?:controller|控制器)[^\n]*(?:序列化|写入)[^\n]*YAML/i);
   }
+  assert.match(skill, /guard-open[\s\S]*guard-check[\s\S]*submit-draft/);
+});
+
+test('V4 domain workers use read-only controller input and return JSON envelopes', () => {
+  assert.match(distill, /worker-input\.json/i);
+  assert.match(distill, /WORKER_WRITE_PATHS\s*=\s*\[\]/i);
+  assert.match(distill, /(?:JSON envelope|JSON 封装|JSON 信封)/i);
+  assert.match(distill, /(?:controller|控制器)[^\n]*(?:序列化|写入)[^\n]*YAML/i);
+  assert.doesNotMatch(distill, /staging_path|output_path/i);
 });
 
 test('V4 Skill documents bounded retry, manual review, and the complete YAML output', () => {
@@ -103,7 +111,9 @@ test('every V4 user-facing command has a concrete Jian Shen Yi Xiao example', ()
     'archive-existing',
     'prepare',
     'status',
-    'accept',
+    'guard-open',
+    'guard-check',
+    'submit-draft',
     'retry-unit',
     'refresh-domain-work',
     'import-chapters',
@@ -126,10 +136,14 @@ test('every V4 user-facing command has a concrete Jian Shen Yi Xiao example', ()
   }
 });
 
-test('V4 chapter example uses only the version-6 fields', () => {
-  const match = extraction.match(/```yaml\r?\n([\s\S]*?)\r?\n```/);
-  assert.ok(match, 'chapter example');
-  const draft = yaml.load(match[1]);
+test('V4 chapter envelope example uses only the version-6 fields', () => {
+  const match = extraction.match(/```json\r?\n([\s\S]*?)\r?\n```/);
+  assert.ok(match, 'chapter envelope example');
+  const envelope = JSON.parse(match[1]);
+  assert.deepEqual(Object.keys(envelope).sort(), [
+    'attempt', 'batch_id', 'draft', 'input_hash', 'schema_version', 'unit'
+  ]);
+  const draft = envelope.draft;
   assert.deepEqual(Object.keys(draft).sort(), [
     'chapter', 'chapter_summary', 'characters', 'factions', 'items',
     'schema_version', 'skills', 'source_hash', 'title'
@@ -149,5 +163,5 @@ test('V4 chapter example uses only the version-6 fields', () => {
   assert.deepEqual(Object.keys(draft.factions[0]).sort(), [
     'aliases', 'description', 'local_key', 'name', 'source_refs', 'type'
   ]);
-  assert.doesNotMatch(match[1], /\bbiography\b|\bidentity:|\bfaction:|\bitems:.*characters|named_in_source|holders?|owners?|members?|users?/i);
+  assert.doesNotMatch(match[1], /"biography"\s*:|"identity"\s*:|"faction"\s*:|named_in_source|"holders?"\s*:|"owners?"\s*:|"members?"\s*:|"users?"\s*:/i);
 });

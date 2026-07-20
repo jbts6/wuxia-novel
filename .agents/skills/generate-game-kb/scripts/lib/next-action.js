@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { packChapterJobs } = require('./chapter-batching');
+const { domainWorkerJob } = require('./semantic-work');
 const { pendingSubmissionJournals } = require('./submission-journal');
 const { unresolvedWorkerGuardReports } = require('./worker-guard');
 const { inspectWorkspaceFinal } = require('./verify');
@@ -155,7 +156,11 @@ function resolveNextAction({ paths, manifest, progress, installed }) {
     units[unit]?.status !== 'done' || units[unit]?.input_hash !== domainPlan.get(unit)
   ));
   if (unfinishedDomains.length > 0) {
-    return { next_action: 'accept-domains', next_units: unfinishedDomains };
+    return {
+      next_action: 'accept-domains',
+      next_units: unfinishedDomains,
+      domain_jobs: unfinishedDomains.map(unit => domainWorkerJob(paths, unit))
+    };
   }
 
   const assembly = currentAssembly(paths, manifest);

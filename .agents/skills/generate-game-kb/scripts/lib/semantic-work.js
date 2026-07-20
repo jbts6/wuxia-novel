@@ -33,6 +33,10 @@ function unitDirectory(root, unit) {
   return path.join(root, unit.replaceAll(':', '_'));
 }
 
+function workerInputPath(paths, unit) {
+  return path.join(unitDirectory(workRoot(paths, 'domain'), unit), 'worker-input.json');
+}
+
 function jsonBytes(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
@@ -48,6 +52,15 @@ function workerInput(paths, input, attempt = 1) {
     ...input,
     staging_path: stagingPathFor(paths, input.unit, attempt),
     attempt
+  };
+}
+
+function workerVisibleInput(input) {
+  const { staging_path: stagingPath, ...visible } = input || {};
+  void stagingPath;
+  return {
+    ...visible,
+    worker_write_paths: []
   };
 }
 
@@ -189,6 +202,10 @@ function writeWorkPlan(paths, plan) {
       {
         file: path.join(directory, 'bindings.json'),
         content: jsonBytes(bindingsDocument(plan, input))
+      },
+      {
+        file: workerInputPath(paths, input.unit),
+        content: jsonBytes(workerVisibleInput(input))
       }
     );
   }
@@ -213,7 +230,8 @@ function writeWorkItem(paths, stage, input, bindingsDocument, options = {}) {
   const directory = unitDirectory(root, storedInput?.unit);
   const files = [
     { file: path.join(directory, 'input.json'), content: jsonBytes(storedInput) },
-    { file: path.join(directory, 'bindings.json'), content: jsonBytes(bindingsDocument) }
+    { file: path.join(directory, 'bindings.json'), content: jsonBytes(bindingsDocument) },
+    { file: workerInputPath(paths, storedInput.unit), content: jsonBytes(workerVisibleInput(storedInput)) }
   ];
   const stale = files.find(entry => fs.existsSync(entry.file) && fs.readFileSync(entry.file, 'utf8') !== entry.content);
   let rotated = null;
@@ -231,6 +249,7 @@ function writeWorkItem(paths, stage, input, bindingsDocument, options = {}) {
         });
       }
       atomicWriteFile(inputFile, files[0].content);
+      atomicWriteFile(files[2].file, files[2].content);
       return { written: true, input: inputFile, bindings: bindingsFile, rotated: null };
     }
     if (options.rotateStale !== true) {
@@ -294,11 +313,13 @@ function readWorkItem(paths, unit) {
   const directory = unitDirectory(workRoot(paths, 'domain'), unit);
   const inputFile = path.join(directory, 'input.json');
   const bindingsFile = path.join(directory, 'bindings.json');
-  if (!fs.existsSync(inputFile) || !fs.existsSync(bindingsFile)) {
+  const visibleInputFile = workerInputPath(paths, unit);
+  if (!fs.existsSync(inputFile) || !fs.existsSync(bindingsFile) || !fs.existsSync(visibleInputFile)) {
     throw workItemError('WORK_ITEM_MISSING', 'Semantic work item is incomplete', { unit });
   }
   const input = readJson(inputFile);
   const bindings = readJson(bindingsFile);
+  const visibleInput = readJson(visibleInputFile);
   if (input?.unit !== unit || bindings?.unit !== unit || input?.input_hash !== bindings?.input_hash) {
     throw workItemError('WORK_ITEM_STALE', 'Semantic input and private bindings disagree', { unit });
   }
@@ -314,7 +335,16 @@ function readWorkItem(paths, unit) {
   }
   assertSourceFiles(paths, input);
   assertWorkerInput(paths, input);
-  return { input, bindings, input_file: inputFile, bindings_file: bindingsFile };
+  if (JSON.stringify(visibleInput) !== JSON.stringify(workerVisibleInput(input))) {
+    throw workItemError('WORK_ITEM_STALE', 'Worker-visible semantic input differs from controller input', { unit });
+  }
+  return {
+    input,
+    bindings,
+    input_file: inputFile,
+    bindings_file: bindingsFile,
+    worker_input_file: visibleInputFile
+  };
 }
 
 function assertWorkMatchesDescriptor(work, descriptor) {
@@ -394,7 +424,26 @@ function syncWorkItemAttempt(paths, unit, attempt) {
   if (work.input.attempt === attempt) return { written: false, input: work.input_file };
   const input = workerInput(paths, work.input, attempt);
   atomicWriteFile(work.input_file, jsonBytes(input));
+  atomicWriteFile(work.worker_input_file, jsonBytes(workerVisibleInput(input)));
   return { written: true, input: work.input_file };
+}
+
+function domainWorkerJob(paths, unit) {
+  const work = readWorkItem(paths, unit);
+  const suffix = unit.replace(/^distill:/, '').replace(/[^A-Za-z0-9._-]/g, '-');
+  return {
+    batch_id: `domain-batch-${suffix}`,
+    unit,
+    attempt: work.input.attempt,
+    input_hash: work.input.input_hash,
+    input_file: work.worker_input_file,
+    worker_write_paths: [],
+    submissions: [{
+      unit,
+      attempt: work.input.attempt,
+      input_hash: work.input.input_hash
+    }]
+  };
 }
 
 function readWorkPlan(paths, stage) {
@@ -431,6 +480,8 @@ module.exports = {
   semanticInputHash,
   refreshWorkPlanUnit,
   syncWorkItemAttempt,
+  domainWorkerJob,
+  workerInputPath,
   writeWorkItem,
   writeWorkPlan
 };

@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('node:assert/strict');
+const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 
@@ -18,9 +19,11 @@ const { DOMAIN_UNITS } = require('../scripts/lib/semantic-contract');
 const {
   readWorkPlan,
   serializedInputBytes,
+  domainWorkerJob,
+  workerInputPath,
   writeWorkPlan
 } = require('../scripts/lib/semantic-work');
-const { makeNovel, sourceRef, validChapterDraft } = require('./helpers');
+const { makeNovel, readJson, sourceRef, validChapterDraft } = require('./helpers');
 
 function fullRegistry() {
   const chapter = normalizeChapterDraft(validChapterDraft({
@@ -158,6 +161,39 @@ test('domain work plans use the existing durable idempotent work-plan store', ()
   assert.equal(writeWorkPlan(paths, plan).written, true);
   assert.equal(writeWorkPlan(paths, plan).written, false);
   assert.deepEqual(readWorkPlan(paths, 'domain'), { ...plan, inputs: expectedInputs });
+});
+
+test('domain workers receive controller-authored read-only input without output paths', () => {
+  const novel = makeNovel('领域零写入试书', '第一章 起始\n正文。\n');
+  const run = createOrResumeRun(novel, { runId: 'run-domain-zero-write' });
+  const paths = pathsFor(novel, run.run_id);
+  const plan = createDomainWorkPlan({ registry: fullRegistry(), accepted_hashes: {} });
+  writeWorkPlan(paths, plan);
+
+  assert.equal(typeof workerInputPath, 'function');
+  for (const input of plan.inputs) {
+    const file = workerInputPath(paths, input.unit);
+    assert.equal(fs.existsSync(file), true);
+    const visible = readJson(file);
+    assert.equal(visible.unit, input.unit);
+    assert.equal(visible.input_hash, input.input_hash);
+    assert.equal(visible.attempt, 1);
+    assert.deepEqual(visible.worker_write_paths, []);
+    assert.equal(JSON.stringify(visible).includes('staging_path'), false);
+    assert.equal(JSON.stringify(visible).includes('output_path'), false);
+  }
+
+  assert.equal(typeof domainWorkerJob, 'function');
+  const job = domainWorkerJob(paths, 'distill:factions');
+  assert.equal(job.unit, 'distill:factions');
+  assert.equal(job.attempt, 1);
+  assert.equal(job.worker_write_paths.length, 0);
+  assert.equal(job.input_file.endsWith('worker-input.json'), true);
+  assert.deepEqual(job.submissions, [{
+    unit: 'distill:factions',
+    attempt: 1,
+    input_hash: plan.inputs[0].input_hash
+  }]);
 });
 
 test('an oversized domain fails explicitly instead of truncating or returning category shards', () => {

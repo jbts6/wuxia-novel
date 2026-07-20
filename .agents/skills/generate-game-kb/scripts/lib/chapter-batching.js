@@ -261,9 +261,20 @@ function workerProjection(job) {
   };
 }
 
+function workerAssignments(job) {
+  const projection = workerProjection(job);
+  return projection.chapters.map((chapter, index) => ({
+    batch_id: projection.batch_id,
+    worker_write_paths: [],
+    chapters: [chapter],
+    submissions: [{ ...projection.submissions[index] }]
+  }));
+}
+
 module.exports = {
   DESCRIPTOR_FIELDS,
   packChapterJobs,
   validateChapterJob,
-  workerProjection
+  workerProjection,
+  workerAssignments
 };

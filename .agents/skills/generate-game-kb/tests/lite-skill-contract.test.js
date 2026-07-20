@@ -96,6 +96,8 @@ test('Lite skill defines the guard-gated zero-write worker lifecycle', () => {
   }
 
   assert.match(combined, /worker_write_paths[^\r\n]*\[\]/i);
+  assert.match(combined, /(?:scheduler|调度)[^\r\n]*(?:two or three|2\s*(?:至|-|到)\s*3|二至三)[^\r\n]*(?:chapter|章)/i);
+  assert.match(combined, /(?:worker|子代理)[^\r\n]*(?:exactly one|只|仅)[^\r\n]*(?:descriptor|chapter|章)/i);
   assert.match(combined, /source_file[^\r\n]*(?:absolute|绝对)/i);
   assert.match(combined, /lite-submit-draft[^\r\n]*(?:stdin|standard input|标准输入)/i);
   assert.match(combined, /lite-recover-draft[^\r\n]*--confirm/i);
@@ -143,7 +145,7 @@ test('Lite extraction prompt requires a zero-write identity-bound JSON envelope'
   assert.match(extraction, /WORKER_WRITE_PATHS\s*=\s*\[\]/i);
   assert.match(extraction, /do not[^\r\n]*(?:create|modify|move|delete)[\s\S]{0,100}(?:file|directory)/i);
   assert.match(extraction, /do not[^\r\n]*(?:call|run)[^\r\n]*(?:controller|script)/i);
-  assert.match(extraction, /one JSON envelope per descriptor/i);
+  assert.match(extraction, /exactly one JSON envelope/i);
   assert.match(extraction, /final[^\r\n]*message/i);
   assert.match(extraction, /(?:without|do not use)[^\r\n]*Markdown fence/i);
   assert.doesNotMatch(extraction, /staging_path/i);

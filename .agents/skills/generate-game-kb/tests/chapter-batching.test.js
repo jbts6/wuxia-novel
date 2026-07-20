@@ -35,6 +35,11 @@ function project(job) {
   return batching.workerProjection(job);
 }
 
+function assignments(job) {
+  assert.equal(typeof batching.workerAssignments, 'function');
+  return batching.workerAssignments(job);
+}
+
 function chapter(number, sourceCharCount) {
   const padded = String(number).padStart(3, '0');
   return {
@@ -147,6 +152,25 @@ test('worker projection exposes only read identity and an empty write set', () =
     'attempt'
   ]);
   assert.equal(path.isAbsolute(worker.chapters[0].source_file), true);
+});
+
+test('worker assignments isolate each chapter while preserving the controller batch', () => {
+  const input = manifest([chapter(1, 1000), chapter(2, 1000), chapter(3, 1000)]);
+  const [job] = pack(input);
+
+  const workerJobs = assignments(job);
+
+  assert.deepEqual(workerJobs.map(workerJob => workerJob.chapters.length), [1, 1, 1]);
+  assert.deepEqual(workerJobs.map(workerJob => workerJob.submissions.length), [1, 1, 1]);
+  assert.deepEqual(new Set(workerJobs.map(workerJob => workerJob.batch_id)).size, 1);
+  assert.deepEqual(workerJobs.map(workerJob => workerJob.chapters[0].unit), [
+    'chapter:001', 'chapter:002', 'chapter:003'
+  ]);
+  for (const workerJob of workerJobs) {
+    assert.deepEqual(workerJob.worker_write_paths, []);
+    assert.equal(JSON.stringify(workerJob).includes('staging_path'), false);
+    assert.equal(JSON.stringify(workerJob).includes('output_path'), false);
+  }
 });
 
 test('job validation rejects worker writes and malformed submission identities', () => {
@@ -347,9 +371,10 @@ test('job validation rejects escaped, mismatched, and path-list descriptors', ()
   }
 });
 
-test('extraction prompt requires one YAML per chapter and forbids cross-chapter evidence', () => {
+test('extraction prompt requires one zero-write JSON envelope per chapter', () => {
   const prompt = fs.readFileSync(path.resolve(__dirname, '..', 'prompts', 'extract-chapters.md'), 'utf8');
-  assert.match(prompt, /每章一个文件/);
-  assert.match(prompt, /不能把多个章节包在同一个 YAML/);
-  assert.match(prompt, /禁止[^\n]*跨章节[^\n]*证据/);
+  assert.match(prompt, /只处理一章，只返回一个 JSON envelope/);
+  assert.match(prompt, /WORKER_WRITE_PATHS\s*=\s*\[\]/);
+  assert.match(prompt, /controller 负责验证、序列化并写入 YAML/);
+  assert.match(prompt, /不得复制 batch 中其他章节的名称、证据或摘要/);
 });

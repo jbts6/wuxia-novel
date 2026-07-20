@@ -21,16 +21,18 @@ Treat controller status from `lite-status` as the only scheduler and acceptance
 authority. Follow only its `next_action` and `chapter_jobs`; never infer state
 from files, file counts, or worker prose.
 
-The controller packs ordinary work into adjacent jobs of two or three chapters
-with at most 36,000 CJK characters. Each worker-visible descriptor contains the
+The controller packs ordinary work into a scheduler batch of two or three chapters
+with at most 36,000 CJK characters, then exposes one single-chapter worker
+assignment per descriptor. Each worker-visible descriptor contains the
 controller-issued `run_id`, `batch_id`, `unit`, `attempt`, `input_hash`, and
 `source_file`; `source_file` is an absolute read-only path and
 `worker_write_paths = []`. The worker-visible payload contains no `staging_path`,
 output directory, output filename, or writable location.
 
 The worker must not create, modify, move, or delete any file or directory. The
-worker must not call controller or script commands. It reads only `source_file`
-and returns one JSON envelope per descriptor in its final worker message. Worker
+worker must not call controller or script commands. Each worker receives exactly one
+chapter descriptor, reads only its `source_file`, and returns exactly one JSON
+envelope in its final worker message. Worker
 prose cannot mark a unit accepted; only controller status can do so.
 
 Read [prompts/extract-chapters.md](prompts/extract-chapters.md) before assigning
@@ -39,7 +41,8 @@ chapter work. Read [examples.md](examples.md), or
 
 ## Guarded broker lifecycle
 
-Use this exact order for every controller-issued chapter job:
+Use this exact order for every controller-issued scheduler batch. Dispatch one
+worker per single-chapter assignment under the same `batch_id`:
 
 ```text
 lite-status

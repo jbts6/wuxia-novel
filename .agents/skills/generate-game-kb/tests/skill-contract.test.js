@@ -32,13 +32,25 @@ function yamlExampleAfter(text, heading) {
   return yaml.load(match[1]);
 }
 
-test('AI drafts, accepted artifacts, and final data are YAML while controller state stays JSON', () => {
+function jsonExampleAfter(text, heading) {
+  const headingIndex = text.indexOf(heading);
+  assert.notEqual(headingIndex, -1, heading);
+  const match = text.slice(headingIndex).match(/```json\r?\n([\s\S]*?)\r?\n```/);
+  assert.ok(match, heading);
+  return JSON.parse(match[1]);
+}
+
+test('workers return JSON envelopes while controller artifacts and final data stay YAML', () => {
   for (const [name, text] of docs) assert.match(text, /YAML/i, name);
+  for (const [name, text] of [['SKILL.md', skill], ['extract-chapters.md', extraction], ['distill-domain.md', domainPrompt]]) {
+    assert.match(text, /JSON[^\r\n]*(?:envelope|封装|信封)/i, name);
+  }
   assert.match(`${skill}\n${examples}`, /staging\/[\s\S]*\.yaml/);
   assert.match(skill, /accepted\/[\s\S]*\.yaml/);
   assert.match(skill, /accepted\/[\s\S]*\.yaml/);
   assert.match(skill, /final\/data\/[\s\S]*\.yaml/);
-  assert.match(skill, /progress\.json[\s\S]*(控制器|脚本生成|状态)/);
+  assert.match(skill, /progress\.json/);
+  assert.match(skill, /(?:controller|控制器)[^\r\n]*(?:序列化|状态)/i);
   assert.doesNotMatch(skill, /staging\/[^\r\n]*\.json|accepted\/[^\r\n]*\.json|final\/data\/[^\r\n]*\.json/);
 });
 
@@ -57,19 +69,19 @@ test('legacy domain documentation retains the shared four domain units in stable
 
 test('chapter drafts have four v6 entity arrays, nested techniques, and chapter_summary.summary', () => {
   for (const text of [extraction, schemas]) {
-    assert.match(text, /characters:/);
-    assert.match(text, /skills:[\s\S]*techniques:/);
-    assert.match(text, /items:/);
-    assert.match(text, /factions:/);
-    assert.match(text, /chapter_summary:[\s\S]*summary:/);
-    assert.match(text, /source_refs:/);
+    assert.match(text, /["']?characters["']?\s*:/);
+    assert.match(text, /["']?skills["']?\s*:[\s\S]*["']?techniques["']?\s*:/);
+    assert.match(text, /["']?items["']?\s*:/);
+    assert.match(text, /["']?factions["']?\s*:/);
+    assert.match(text, /["']?chapter_summary["']?\s*:[\s\S]*["']?summary["']?\s*:/);
+    assert.match(text, /["']?source_refs["']?\s*:/);
     assert.doesNotMatch(text, /^(?:events|locations|dialogues|techniques):/m);
     assert.doesNotMatch(text, /\bbiography\b|\bholders?\b|\bowners?\b|\bmembers?\b|\busers?\b/i);
   }
-  assert.match(extraction, /identities:/);
-  assert.match(extraction, /factions:/);
-  assert.match(extraction, /types:/);
-  assert.match(extraction, /description:/);
+  assert.match(extraction, /"identities"\s*:/);
+  assert.match(extraction, /"factions"\s*:/);
+  assert.match(extraction, /"types"\s*:/);
+  assert.match(extraction, /"description"\s*:/);
 });
 
 test('final documentation names five YAML files and only simplified top-level fields', () => {
@@ -85,7 +97,7 @@ test('final documentation names five YAML files and only simplified top-level fi
 });
 
 test('the v4 Skill path assembles accepted chapters and four domain decisions', () => {
-  const normalPath = /archive-existing[\s\S]*prepare[\s\S]*chapter[^\r\n]*accept[\s\S]*assemble[\s\S]*verify[\s\S]*install[\s\S]*verify[^\r\n]*--installed[\s\S]*archive-run/i;
+  const normalPath = /archive-existing[\s\S]*prepare[\s\S]*chapter[^\r\n]*submit-draft[\s\S]*assemble[\s\S]*verify[\s\S]*install[\s\S]*verify[^\r\n]*--installed[\s\S]*archive-run/i;
   assert.match(skill, normalPath);
   assert.match(skill, /plan-domains[\s\S]*distill:factions[\s\S]*distill:characters[\s\S]*distill:skills[\s\S]*distill:items/i);
   assert.doesNotMatch(skill, /\b(?:prepare-merge|assemble-merge|prepare-clean|assemble-clean|build-final|check-coverage|check-resolution)\b/);
@@ -111,23 +123,23 @@ test('the writable V4 Skill is semantic contract version 6 with a v4 profile and
   assert.match(skill, /版本 5[^\r\n]*(?:查询|归档|迁移)/);
 });
 
-test('current domain YAML examples use the writable semantic contract version 6', () => {
-  for (const [name, text, heading] of [
-    ['distill-domain.md', domainPrompt, '## YAML 模板'],
-    ['schemas.md', schemas, '## 域蒸馏草稿示例']
-  ]) {
-    const example = yamlExampleAfter(text, heading);
-    assert.equal(example.schema_version, 1, name);
-    assert.equal(example.semantic_contract_version, 6, name);
-    assert.match(example.unit, /^distill:/, name);
-  }
+test('current domain envelope and YAML examples use semantic contract version 6', () => {
+  const envelope = jsonExampleAfter(domainPrompt, '## JSON envelope');
+  assert.equal(envelope.schema_version, 1);
+  assert.equal(envelope.draft.semantic_contract_version, 6);
+  assert.match(envelope.draft.unit, /^distill:/);
+
+  const example = yamlExampleAfter(schemas, '## 域蒸馏草稿示例');
+  assert.equal(example.schema_version, 1);
+  assert.equal(example.semantic_contract_version, 6);
+  assert.match(example.unit, /^distill:/);
 });
 
 test('source grounding, bounded concurrency, and main-model-only acceptance remain explicit', () => {
   assert.match(skill, /source_refs/);
   assert.match(extraction, /完整读取.*章节原文/);
   assert.match(skill, /最多\s*5\s*个.*Worker|章节[^\r\n]*5\s*并发|并发.*5/);
-  assert.match(skill, /主模型.*串行.*accept/);
+  assert.match(skill, /主模型.*串行.*submit-draft/);
   assert.match(skill, /429.*5.*3|5\s*→\s*3/);
   assert.match(skill, /(?:第二|再次|持续).*429[^\r\n]*(?:停止|停机|halt)/i);
 });
@@ -156,7 +168,7 @@ test('two-submission and single-action recovery contracts are synchronized', () 
     assert.match(text, /next_units/i, name);
     assert.doesNotMatch(text, /最多\s*3\s*次提交|at most three[^\r\n]*submissions?|format repair|semantic remedy/i, name);
   }
-  assert.match(skill, /YAML[^\r\n]*(?:解析|parse)[^\r\n]*(?:语义|semantic)[^\r\n]*(?:同一|shared)[^\r\n]*(?:预算|budget)/i);
+  assert.match(skill, /JSON envelope[^\r\n]*(?:解析|parse)[^\r\n]*(?:语义|semantic)[^\r\n]*(?:同一|shared|共用)[^\r\n]*(?:预算|budget)/i);
   assert.match(fastProfile, /parse[^\r\n]*semantic[^\r\n]*shared[^\r\n]*budget/i);
 });
 

@@ -117,6 +117,54 @@ test('plan-domains reads accepted chapter YAML and creates the exact four domain
   }
 });
 
+test('domain workers submit one read-only envelope through the controller broker', () => {
+  const fixture = prepareAcceptedChapter('领域信封提交试书', 'run-domain-envelope');
+  pass(runFlow([
+    'plan-domains', fixture.novel, '--run', fixture.prepared.run_id, '--json'
+  ]), 'plan domains');
+
+  const status = pass(runFlow([
+    'status', fixture.novel, '--run', fixture.prepared.run_id, '--json'
+  ]), 'status domains');
+  assert.equal(status.next_action, 'accept-domains');
+  assert.equal(status.domain_jobs.length, 4);
+  for (const job of status.domain_jobs) {
+    assert.deepEqual(job.worker_write_paths, []);
+    assert.equal(fs.existsSync(job.input_file), true);
+    assert.equal(JSON.stringify(job).includes('staging_path'), false);
+    assert.equal(JSON.stringify(readJson(job.input_file)).includes('staging_path'), false);
+  }
+
+  const job = status.domain_jobs[0];
+  const opened = pass(runFlow([
+    'guard-open', fixture.novel, '--run', fixture.prepared.run_id,
+    '--unit', job.unit, '--json'
+  ]), 'guard open domain');
+  pass(runFlow([
+    'guard-check', fixture.novel, '--run', fixture.prepared.run_id,
+    '--guard-id', opened.guard_id, '--json'
+  ]), 'guard check domain');
+
+  const input = readJson(job.input_file);
+  const envelope = {
+    schema_version: 1,
+    batch_id: job.batch_id,
+    unit: job.unit,
+    attempt: job.attempt,
+    input_hash: job.input_hash,
+    draft: validDomainDraft(input)
+  };
+  const submitted = pass(runFlow([
+    'submit-draft', fixture.novel, '--run', fixture.prepared.run_id,
+    '--batch', job.batch_id, '--unit', job.unit,
+    '--attempt', String(job.attempt), '--guard-id', opened.guard_id, '--json'
+  ], { input: JSON.stringify(envelope) }), 'submit domain envelope');
+
+  assert.equal(submitted.status, 'done');
+  assert.equal(fs.existsSync(submitted.accepted_file), true);
+  assert.equal(fs.readFileSync(submitted.accepted_file, 'utf8').trimStart().startsWith('{'), false);
+});
+
 test('confirmed domain refresh rotates only an unattempted pending unit', () => {
   const fixture = prepareAcceptedChapter('领域安全刷新试书', 'run-domain-refresh');
   pass(runFlow([

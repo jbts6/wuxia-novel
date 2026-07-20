@@ -1,103 +1,82 @@
-# 域蒸馏提示词
+# 域蒸馏子代理合同
 
-你只处理输入工作项指定的一个领域。完整读取 `schemas.md`、本提示词和唯一 `input.json`。
+你只处理 controller 签发的一个领域 job。完整读取 `schemas.md`、本提示词和 job 指向的只读 `worker-input.json`。完整 v4 使用 `semantic_contract_version: 6` 与 `profile: v4`；旧合同 run 不得继续写入。
 
-当前 v4 完整构建通过本提示词处理四个域决策；新 run 使用 `semantic_contract_version: 6` 与 `profile: v4`。版本 5 及更早的旧 run 不得原地升级或继续写入。
+## Worker 边界
 
-## 输出格式：YAML
+- `WORKER_WRITE_PATHS = []`。不得创建、修改、移动或删除任何文件或目录。
+- `worker-input.json` 是 controller 生成的只读语义输入，不含任何写入位置。
+- 不得调用 controller、脚本、`accept` 或提交命令，不得自行重试或修改 `attempt`。
+- 每个子代理只处理一个 `distill:*` unit，最终消息只返回一个 JSON envelope，不使用 Markdown 围栏或附加说明。
+- 主代理在 guard 检查通过后把 envelope 原样经 stdin 交给 `submit-draft`；controller 负责校验、序列化和写入 YAML。
 
-**重要：输出 YAML 格式，不是 JSON。**
+四个域彼此独立，可并发生成；每个领域由独立子代理处理，固定顺序只用于展示和报告，主模型按 `factions`、`characters`、`skills`、`items` 串行提交。
 
-## 四个域（固定顺序仅用于展示与报告）
+## JSON envelope
 
-四个域彼此独立，可并发生成草稿；主模型仍串行调用 `accept`。
+从 job 与 `worker-input.json` 原样复制 `batch_id`、`unit`、`attempt` 和 `input_hash`。`draft.unit` 与 `draft.input_hash` 必须绑定相同身份。
 
-每个 `input.json` 都包含由 controller 写入的唯一 `staging_path` 和当前 `attempt`。
-只能把本次草稿写到该 `staging_path`；不得自行推导、改名或选择下一次路径。
-提交被拒绝后不得自动重试，必须等待 controller 提供下一份工作项。
-
-| 单元 | 处理类别 | 重点 | 固定展示顺序 |
-|---|---|---|---|
-| `distill:factions` | factions | 合并同名势力，统一 ID | 1 |
-| `distill:characters` | characters | 合并同名人物；按全书时间线判断 rank | 2 |
-| `distill:skills` | skills | 合并同名武功；按全书时间线判断 rank；招式必须有原文名称 | 3 |
-| `distill:items` | items | 只保留秘籍、剧情关键、高级药毒、神兵利器 | 4 |
-
-**重要**：characters 与 skills 的 faction 引用保持 `entry_ref` 延迟绑定，直到 `assemble` 在四个域决策齐备后统一解析。
-
-## YAML 模板
-
-```yaml
-schema_version: 1
-semantic_contract_version: 6
-unit: distill:factions
-input_hash: "sha256:xxx"
-
-decisions:
-  - entry_ref: "r000001"
-    action: keep
-    patch:
-      name: 青城派
-      aliases: []
-      type: 门派
-      description: null
-
-  - entry_ref: "r000002"
-    action: merge
-    target_ref: "r000001"
-    patch: {}
-
-  - entry_ref: "r000003"
-    action: reject
-    reason: duplicate
-    detail: 与 r000001 重复
-
-notes: []
+```json
+{
+  "schema_version": 1,
+  "batch_id": "domain-batch-factions",
+  "unit": "distill:factions",
+  "attempt": 1,
+  "input_hash": "sha256:controller-input-hash",
+  "draft": {
+    "schema_version": 1,
+    "semantic_contract_version": 6,
+    "unit": "distill:factions",
+    "input_hash": "sha256:controller-input-hash",
+    "decisions": [
+      {
+        "entry_ref": "r000001",
+        "action": "keep",
+        "patch": {
+          "name": "青城派",
+          "aliases": [],
+          "type": "门派",
+          "description": null
+        }
+      }
+    ],
+    "notes": []
+  }
+}
 ```
 
 ## 决策规则
 
-- **keep**：保留，patch 写必要字段
-- **merge**：合并到 target_ref
-- **reject**：使用有限 reason（duplicate、not_source_grounded 等）
-- **pending**：必须语义补救
+- **keep**：保留，patch 只写 `allowed_patch_fields` 允许且证据支持的字段。
+- **merge**：合并到同一工作项中的 `target_ref`。
+- **reject**：使用合同允许的有限 reason，并给出可核验 detail。
+- **pending**：仅在合同允许时使用；未解决 pending 会被 controller 拒绝。
+- 每个 `entry_ref` 必须且只能决策一次，不得创建输入中不存在的实体或引用。
 
 ## 各域判断
 
 ### distill:factions
-- 合并同名势力（如"青城派"和"青城"）
-- keep 补丁写可确认的 `name`、`aliases`、`type`；description 不确定时写 null 或省略
-- type 可选：门派、帮会、组织、朝廷、其他
+- 合并同名势力；保留可确认的 `name/aliases/type/description`。
+- type 使用 `门派/帮会/组织/朝廷/其他`，不确定字段为 null 或省略。
 
 ### distill:characters
-- 按 `source_files` 顺序完整读取全书原文，再按输入中的 `rank_contract` 综合定级
-- 证据足够时填写合法八级 rank；证据不足时 rank 为 null，不得取单章最高描写
-- 后期直接战果、真实失败、被克制和反转优先；传闻、自述和身份不能单独支持高 rank
-- level 只在证据足以可靠判断时填写，否则写 null 或省略
-- description 只在完整证据时间线支持时补充，否则写 null 或省略
-- `identities` 和 `factions` 使用数组；faction 引用使用工作项提供的 entry_ref，并保持到 assemble 再解析
+- 按 `source_files` 顺序完整读取全书原文，再按 `rank_contract` 综合定级。
+- 后期直接战果、真实失败、被克制和反转优先；传闻、自述和身份不能单独支持高 rank。
+- 证据不足时 `rank/level/description` 为 null 或省略，不取单章最高描写。
+- faction 与 skill 引用只能使用工作项提供的 `entry_ref`，延迟到 assemble 解析。
 
 ### distill:skills
-- 按 `source_files` 顺序完整读取全书原文，再按输入中的 `rank_contract` 判断该武功经可靠使用者展示、且未被后文推翻的稳定上限
-- 证据足够时填写合法八级 rank；证据不足时 rank 为 null
-- description、factions 不确定时写 null 或空数组
-- 后期直接战果、真实失败、被克制和反转优先；传闻、自述和身份不能单独支持高 rank
-- keep 补丁写可确认的 `types` 数组
-- 招式必须有原文明确名称，description 不确定时为 null
-- `factions` 使用数组；引用使用工作项提供的 faction entry_ref，并保持到 assemble 再解析
+- 按完整时间线判断可靠使用者展示且未被后文推翻的稳定上限。
+- 证据不足时 rank 为 null；招式必须有原文明确定名。
+- factions 只能使用工作项提供的 entry_ref，延迟到 assemble 解析。
 
 ### distill:items
-- 只保留秘籍、剧情关键、高级药毒、神兵利器、其他稀有特殊
-- description 和 inclusion_reason 不确定时写 null 或省略
-- 普通器具用 ordinary_item 拒绝
+- 只保留秘籍、剧情关键、高级药毒、神兵利器和其他稀有特殊。
+- 普通器具使用 `ordinary_item` 拒绝；不确定字段为 null 或省略。
 
-## 注意事项
+## 返回前检查
 
-1. 输出 YAML，不是 JSON
-2. factions/items 依据工作项保留的 `source_refs`；characters/skills 还必须读取工作项签发的全部 `source_files`
-3. 不得为了通过校验而编造字段；人物/武功 rank 按 `rank_contract` 从完整时间线得出
-4. 其他不确定字段保持 null 或省略
-5. entry_ref、unit、input_hash 以及输入中的 canonical_name/source_refs 绑定仍是硬约束，不得留空、改写或编造
-6. 只写输入中的 `staging_path`，不得修改 `attempt`，不调用 accept
-7. 不修改其他文件
-8. 不在书籍目录外写文件
+1. 最终消息只有一个可解析 JSON envelope，没有路径、围栏或说明文字。
+2. envelope 与 draft 的 unit/input_hash 身份一致，attempt 与 controller job 一致。
+3. factions/items 只使用既有 source_refs；characters/skills 已完整读取全部 source_files。
+4. 没有编造字段、实体、证据、rank 或引用，也没有执行任何文件写入。

@@ -121,23 +121,22 @@ function submitEnvelope(fixture, job, chapter, guardId, rawInput = null) {
   ], rawInput === null ? JSON.stringify(envelope) : rawInput);
 }
 
-test('two-chapter worker projection and no-op CLI guard roundtrip stay clean', t => {
+test('two-chapter scheduler batch exposes two single-chapter worker assignments', t => {
   const fixture = prepareTwoChapterFixture(t);
   assert.equal(fixture.status.next_action, 'accept-chapters');
-  assert.equal(fixture.status.chapter_jobs.length, 1);
+  assert.equal(fixture.status.chapter_jobs.length, 2);
 
-  const [job] = fixture.status.chapter_jobs;
-  assert.deepEqual(job.worker_write_paths, []);
-  assert.equal(job.chapters.length, 2);
-  assert.deepEqual(
-    job.submissions,
-    job.chapters.map(({ unit, attempt, input_hash: inputHash }) => ({
-      unit,
-      attempt,
-      input_hash: inputHash
-    }))
-  );
-  for (const chapter of job.chapters) {
+  const jobs = fixture.status.chapter_jobs;
+  assert.equal(new Set(jobs.map(job => job.batch_id)).size, 1);
+  for (const job of jobs) {
+    assert.deepEqual(job.worker_write_paths, []);
+    assert.equal(job.chapters.length, 1);
+    assert.deepEqual(job.submissions, [{
+      unit: job.chapters[0].unit,
+      attempt: job.chapters[0].attempt,
+      input_hash: job.chapters[0].input_hash
+    }]);
+    const [chapter] = job.chapters;
     assert.equal(path.isAbsolute(chapter.source_file), true);
     assert.equal(fs.existsSync(chapter.source_file), true);
     assert.equal(JSON.stringify(chapter).includes('staging_path'), false);
@@ -148,13 +147,14 @@ test('two-chapter worker projection and no-op CLI guard roundtrip stay clean', t
   assert.deepEqual(checked.violations, []);
 });
 
-test('status-issued two-chapter batch identity submits unchanged through the broker', t => {
+test('status-issued single-chapter assignments submit under one scheduler batch guard', t => {
   const fixture = prepareTwoChapterFixture(t);
-  const [job] = fixture.status.chapter_jobs;
+  const jobs = fixture.status.chapter_jobs;
   const { opened, checked } = openAndCheckGuard(fixture);
   assert.equal(checked.violation_count, 0);
 
-  for (const chapter of job.chapters) {
+  for (const job of jobs) {
+    const [chapter] = job.chapters;
     const envelope = validEnvelope(job, chapter);
     const submitted = requireSuccess(runFlow([
       'lite-submit-draft', fixture.novel, '--run', fixture.runId,

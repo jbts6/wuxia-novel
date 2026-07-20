@@ -15,6 +15,7 @@ const {
 const { stagingPathFor } = require('./paths');
 const { loadProgress } = require('./progress');
 const { sha256 } = require('./source');
+const { readWorkItem } = require('./semantic-work');
 const { assertCleanGuardForSubmission } = require('./worker-guard');
 
 const MAX_INPUT_BYTES = 10 * 1024 * 1024; // 10 MiB
@@ -42,19 +43,26 @@ function validateCliIdentity(paths, batchId, unit, attempt, { allowJournalReplay
   }
 
   const chapterMatch = /^chapter:(\d{3})$/.exec(unit);
-  if (!chapterMatch) {
-    throw new GameKbError('UNIT_UNSUPPORTED', 'Only chapter units are supported by the submission broker', { unit });
-  }
-
-  const chapterNumber = Number(chapterMatch[1]);
-  const chapter = manifest.chapters.find(c => c.number === chapterNumber);
-  if (!chapter) {
-    throw new GameKbError('UNIT_UNKNOWN', 'Chapter unit is not present in the manifest', { unit });
+  let inputHash;
+  let workAttempt = null;
+  if (chapterMatch) {
+    const chapterNumber = Number(chapterMatch[1]);
+    const chapter = manifest.chapters.find(candidate => candidate.number === chapterNumber);
+    if (!chapter) {
+      throw new GameKbError('UNIT_UNKNOWN', 'Chapter unit is not present in the manifest', { unit });
+    }
+    inputHash = chapter.input_hash;
+  } else if (/^distill:(factions|characters|skills|items)$/.test(unit)) {
+    const work = readWorkItem(paths, unit);
+    inputHash = work.input.input_hash;
+    workAttempt = work.input.attempt;
+  } else {
+    throw new GameKbError('UNIT_UNSUPPORTED', 'Submission broker supports chapter and domain worker units', { unit });
   }
 
   const progress = loadProgress(paths, manifest);
   const state = progress.units?.[unit];
-  const expectedAttempt = !state || state.input_hash !== chapter.input_hash ? 1 : (state.attempts || 0) + 1;
+  const expectedAttempt = !state || state.input_hash !== inputHash ? 1 : (state.attempts || 0) + 1;
 
   if (!allowJournalReplay && attempt !== expectedAttempt) {
     throw new GameKbError('SUBMISSION_CLI_IDENTITY_MISMATCH', 'CLI attempt does not match current state', {
@@ -64,15 +72,23 @@ function validateCliIdentity(paths, batchId, unit, attempt, { allowJournalReplay
     });
   }
 
-  if (!allowJournalReplay && state?.input_hash === chapter.input_hash && state.status === 'manual_review') {
+  if (!allowJournalReplay && workAttempt !== null && workAttempt !== expectedAttempt) {
+    throw new GameKbError('WORK_ITEM_STALE', 'Domain worker attempt differs from controller progress', {
+      unit,
+      work_attempt: workAttempt,
+      expected_attempt: expectedAttempt
+    });
+  }
+
+  if (!allowJournalReplay && state?.input_hash === inputHash && state.status === 'manual_review') {
     throw new GameKbError('UNIT_MANUAL_REVIEW', 'Manual-review unit requires an explicit reset', { unit });
   }
 
-  if (!allowJournalReplay && state?.input_hash === chapter.input_hash && state.status === 'done') {
+  if (!allowJournalReplay && state?.input_hash === inputHash && state.status === 'done') {
     throw new GameKbError('UNIT_ALREADY_DONE', 'Completed unchanged unit cannot be resubmitted', { unit });
   }
 
-  return { manifest, progress, chapter, expectedAttempt };
+  return { manifest, progress, inputHash, expectedAttempt };
 }
 
 function parseEnvelope(rawInput) {
@@ -129,7 +145,7 @@ function commitSubmissionToJournal(journal, options) {
   }
 }
 
-function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInput, faultAt }) {
+function submitWorkerEnvelope({ paths, guardId, batchId, unit, attempt, rawInput, faultAt }) {
   // 1. Validate transport bounds (before any journal binding)
   validateInputBounds(rawInput);
   if (!guardId) {
@@ -172,7 +188,7 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
   }
 
   // 3. Validate CLI identity
-  const { chapter } = validateCliIdentity(paths, batchId, unit, attempt, {
+  const { inputHash } = validateCliIdentity(paths, batchId, unit, attempt, {
     allowJournalReplay: Boolean(existingJournal)
   });
 
@@ -183,7 +199,7 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
     batchId,
     unit,
     attempt,
-    inputHash: chapter.input_hash
+    inputHash
   });
 
   // 5. Check serialization
@@ -196,7 +212,7 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
   // 7. If parseable, verify envelope identity before journal binding
   if (envelope && !parseError) {
     try {
-      verifyEnvelopeIdentity(envelope, batchId, unit, attempt, chapter.input_hash);
+      verifyEnvelopeIdentity(envelope, batchId, unit, attempt, inputHash);
     } catch (error) {
       // Identity mismatch consumes zero attempts — no journal binding
       throw error;
@@ -210,7 +226,7 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
     batchId,
     unit,
     attempt,
-    inputHash: chapter.input_hash,
+    inputHash,
     rawHash,
     guardId,
     guardOpenReceiptHash: guardProof.guard_open_receipt_hash,
@@ -233,7 +249,7 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
       target: parseError?.message || 'Envelope must be a JSON object'
     }];
 
-    const submissionId = `submission:${unit}:attempt:${attempt}:${chapter.input_hash}:${rawHash}`;
+    const submissionId = `submission:${unit}:attempt:${attempt}:${inputHash}:${rawHash}`;
 
     // Fault injection: after binding
     if (faultAt === 'binding') throw new GameKbError('SUBMISSION_FAULT_INJECTED', 'Fault after binding', { phase: faultAt });
@@ -242,7 +258,7 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
       paths,
       unit,
       attempt,
-      inputHash: chapter.input_hash,
+      inputHash,
       submissionId,
       evidenceText: rawInput,
       evidenceExtension: '.json',
@@ -267,13 +283,13 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
   if (faultAt === 'staging-written') throw new GameKbError('SUBMISSION_FAULT_INJECTED', 'Fault after staging-written', { phase: faultAt });
 
   // 11. Call commitSubmission with checkpoint callbacks
-  const submissionId = `submission:${unit}:attempt:${attempt}:${chapter.input_hash}:${rawHash}`;
+  const submissionId = `submission:${unit}:attempt:${attempt}:${inputHash}:${rawHash}`;
 
   return commitSubmissionToJournal(journal, {
     paths,
     unit,
     attempt,
-    inputHash: chapter.input_hash,
+    inputHash,
     submissionId,
     evidenceText: canonicalYaml,
     evidenceExtension: '.yaml',
@@ -288,4 +304,7 @@ function submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInpu
   });
 }
 
-module.exports = { submitChapterEnvelope };
+module.exports = {
+  submitChapterEnvelope: submitWorkerEnvelope,
+  submitWorkerEnvelope
+};

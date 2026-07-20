@@ -12,14 +12,15 @@ Do not call controller or script commands. Do not claim that a chapter was accep
 controller is the only scheduler, validator, serializer, and acceptance
 authority.
 
-The controller packs adjacent jobs of 2 or 3 chapters with no more than 36,000
-CJK characters in the combined source. An oversized chapter or unavoidable
-tail may run alone. Each descriptor exposes exactly one controller-issued
-attempt together with its `batch_id`, `unit`, and `input_hash`.
+The controller packs a scheduler batch of 2 or 3 chapters from adjacent source with no more
+than 36,000 CJK characters in the combined source. An oversized chapter or
+unavoidable tail may run alone. Each worker receives exactly one chapter
+descriptor from that batch with one controller-issued attempt together with
+its `batch_id`, `unit`, and `input_hash`.
 
-Return one JSON envelope per descriptor in your final message.
+Return exactly one JSON envelope in your final message.
 Do not use Markdown fences, file paths, validation claims, or surrounding prose. Return the
-envelopes in descriptor order. The main agent passes each unchanged envelope to
+envelope unchanged. The main agent passes it to
 the controller through stdin.
 
 ## Envelope contract

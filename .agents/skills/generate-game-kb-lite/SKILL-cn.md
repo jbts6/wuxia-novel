@@ -20,8 +20,9 @@ YAML 只由 controller 序列化。
   `attempt`、`input_hash` 与 `source_file`。`source_file` 是绝对只读路径，
   `worker_write_paths = []`；worker 可见 payload 不含 `staging_path`、输出目录、
   输出文件名或任何可写位置。
-- 普通作业动态分配相邻 2 至 3 章，合计不超过 36,000 个中日韩字符；
-  每章完整读取原文，每个 descriptor 返回一个 JSON envelope。
+- controller 将相邻 2 至 3 章组成调度 batch，合计不超过 36,000 个中日韩字符；
+  status 再把它展开为单章 assignment。同一 batch 中每个子代理只接收一个章节
+  descriptor、完整读取一章并只返回一个 JSON envelope。
 - worker 不得创建、修改、移动或删除任何文件或目录；worker 不得调用 controller
   或脚本命令。worker message 只返回 envelope，worker 文本不能标记章节已接收。
 
@@ -30,7 +31,8 @@ YAML 只由 controller 序列化。
 
 ## Guard 与 broker 生命周期
 
-每个 controller job 严格按以下顺序执行：
+每个 controller 调度 batch 严格按以下顺序执行；同一 `batch_id` 下每个单章
+assignment 派给一个独立子代理：
 
 ```text
 lite-status

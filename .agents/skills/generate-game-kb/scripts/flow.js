@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { GameKbError } = require('./lib/errors');
-const { workerProjection } = require('./lib/chapter-batching');
+const { workerAssignments } = require('./lib/chapter-batching');
 const { assembleRun } = require('./lib/assemble');
 const { archiveAbandoned, archiveExisting, archiveRun } = require('./lib/archive');
 const { acceptDraft, assertDraftPath, stableHash } = require('./lib/accept');
@@ -66,7 +66,7 @@ const {
   checkWorkerGuard,
   unresolvedWorkerGuardReports
 } = require('./lib/worker-guard');
-const { submitChapterEnvelope } = require('./lib/draft-submission');
+const { submitWorkerEnvelope } = require('./lib/draft-submission');
 const { preflightChapterDraft } = require('./lib/draft-preflight');
 const { recoverChapterDraft } = require('./lib/draft-recovery');
 const { readWorkerPool, recordWorkerBackoff } = require('./lib/worker-pool');
@@ -454,7 +454,7 @@ function verifyWorkspace(novelDir, runId, profile) {
 }
 
 function projectWorkerJobs(chapterJobs) {
-  return chapterJobs.map(job => workerProjection(job));
+  return chapterJobs.flatMap(job => workerAssignments(job));
 }
 
 function main(argv = process.argv.slice(2)) {
@@ -760,8 +760,22 @@ function main(argv = process.argv.slice(2)) {
       const manifest = readJson(paths.manifest);
       const progress = loadProgress(paths, manifest);
       const next = resolveNextAction({ paths, manifest, progress, installed: null });
-      if (!next.chapter_jobs) {
-        throw new GameKbError('NO_CHAPTER_JOBS', 'No chapter jobs available for guard', {});
+      const requestedUnit = flagValue(args, '--unit');
+      let job = null;
+      if (next.chapter_jobs) {
+        job = requestedUnit
+          ? next.chapter_jobs.find(candidate => candidate.submissions.some(submission => submission.unit === requestedUnit))
+          : next.chapter_jobs[0];
+      } else if (next.domain_jobs) {
+        if (!requestedUnit) {
+          throw new GameKbError('UNIT_REQUIRED', 'Domain guard-open requires --unit <id>');
+        }
+        job = next.domain_jobs.find(candidate => candidate.unit === requestedUnit);
+      }
+      if (!job) {
+        throw new GameKbError('NO_WORKER_JOB', 'No current worker job matches guard-open', {
+          unit: requestedUnit || null
+        });
       }
       const repositoryRoot = repositoryRootFor(novelDir);
       emit({
@@ -769,7 +783,7 @@ function main(argv = process.argv.slice(2)) {
         ...openWorkerGuard({
           repositoryRoot,
           paths,
-          job: next.chapter_jobs[0]
+          job
         })
       });
       return;
@@ -804,7 +818,7 @@ function main(argv = process.argv.slice(2)) {
       timingUnit = unit;
       // Read stdin synchronously
       const rawInput = fs.readFileSync(0, 'utf8');
-      emit(submitChapterEnvelope({ paths, guardId, batchId, unit, attempt, rawInput }));
+      emit(submitWorkerEnvelope({ paths, guardId, batchId, unit, attempt, rawInput }));
       return;
     }
     if (command === 'check-draft') {

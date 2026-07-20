@@ -44,7 +44,13 @@ test('tracked Jian Shen Yi Xiao corpus follows the production V4 prepare and sta
   assert.equal(first.next_action, 'accept-chapters');
   assert.equal(first.next_units.length, 20);
   assert.deepEqual(first.chapter_jobs, second.chapter_jobs);
-  assert.deepEqual(first.chapter_jobs.map(job => job.chapters.length), [3, 3, 3, 3, 3, 3, 2]);
+  assert.equal(first.chapter_jobs.length, 20);
+  assert.equal(first.chapter_jobs.every(job => job.chapters.length === 1), true);
+  const batchSizes = [...first.chapter_jobs.reduce((counts, job) => {
+    counts.set(job.batch_id, (counts.get(job.batch_id) || 0) + 1);
+    return counts;
+  }, new Map()).values()];
+  assert.deepEqual(batchSizes, [3, 3, 3, 3, 3, 3, 2]);
 
   const descriptors = first.chapter_jobs.flatMap(job => job.chapters);
   assert.equal(descriptors.length, 20);
