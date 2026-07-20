@@ -59,15 +59,26 @@ archive-existing
 ## 动态章节作业
 
 - controller 把相邻 2 至 3 章组成一个调度 batch，总长度不超过 36,000 个中日韩字符；超长单章或尾章可以独立成 batch。
-- status 把每个调度 batch 展开为单章 Worker assignment。同一 `batch_id` 可有 2 至 3 个 assignment，但每个子代理只接收一个 descriptor、只处理一章、只返回一个 JSON envelope。
+- status 把每个调度 batch 展开为单章 Worker assignment。
+- 同一 `batch_id` 可有 2 至 3 个 assignment；每个子代理只接收一个 descriptor、只处理一章、只返回一个 JSON envelope。
 - Worker descriptor 只含只读绝对 `source_file` 和 controller 身份字段，明确给出 `worker_write_paths = []`，不含 `staging_path`、输出目录或文件名。
 - 子代理不得创建、修改、移动或删除任何文件或目录，不得调用 controller 或脚本。主代理也不得创建临时草稿或改写 envelope。
-- 主代理按 `batch_id` 打开 guard，派发该 batch 的单章 Worker；全部返回后执行一次 `guard-check`，再把每个 envelope 原样通过标准输入逐章交给 `submit-draft`。
+- 每个窗口选择前 `concurrency_limit`（并发上限）个不同 `batch_id` 的全部 descriptor；正常最多 15 章，降级最多 9 章。`worker_pool.halted` 时不得派发。
+- 提取前，主代理为窗口内每个 batch 打开一个 guard，并保留 `batch_id` 到 `guard_id` 的映射。Claude Code 使用项目 Workflow `game-kb-chapter-extract(run_id, prompt_file, descriptors, concurrency_limit)`；其他平台使用等价的原生滚动子代理池。
+- 有排队 descriptor 时保持 `worker_pool.concurrency_limit` 个活跃 Worker；任一 Worker 返回后槽位释放，立即派发下一章。等待窗口全部 Worker 返回；全部 guard 检查完成以前不得提交任何 envelope。
+- 主代理按原始 `chapter_jobs` descriptor 顺序串行提交有效 envelope，并使用对应 batch 的 guard。任何 broker 拒绝、身份过期、重放冲突或命令失败都停止剩余提交并刷新 status。
+- 空或缺失 Worker 结果属于传输失败，不提交且不消耗 attempt；其他完整结果仍可在全部 guard 干净后提交。并发上限正常为 5、降级为 3；只有明确 429 才执行 `worker-backoff`，不得从空结果推断 429；第二个不同 batch 在 3 并发再次明确 429 时停止 Worker 池。
 - `古龙/剑神一笑/剑神一笑.txt` 的 20 章仍形成七个 controller 调度 batch，批次大小为 `[3, 3, 3, 3, 3, 3, 2]`，但 status 必须暴露 20 个单章 Worker assignment。
+
+```text
+章节提取：game-kb-chapter-extract 滚动池，每个 agent 只处理一章
+领域蒸馏：四个只读领域 Worker 可以并发生成
+所有 controller submit-draft：仅主模型串行执行
+```
 
 章节 YAML 顶层只能包含 `schema_version/chapter/title/source_hash/characters/skills/items/factions/chapter_summary`。四类候选和摘要都必须有可核验的 `source_refs`；不确定字段写 null 或省略。人物的 `identities/factions/skills` 与武功的 `aliases/types/factions` 都是数组；招式嵌套在 `skills[].techniques[]`，每个招式只保留原文明确名称和可核验的 `description`。
 
-并发池初始为 5；429 处理为 `5 → 3`，即同一 batch 首次明确 429 后降为 3；在 3 并发再次遇到不同 batch 的 429，停止 Worker 池并报告限流。传输失败不消耗提交次数。
+并发池的 controller 策略保持 `5 → 3`；明确 429 以外的传输失败不触发退避，也不消耗提交次数。
 
 ## 四域蒸馏
 
