@@ -219,6 +219,9 @@ function violationStillUnresolved(repositoryRoot, violation) {
 
   if (violation.change_kind === 'added') return current !== null;
   if (current === null) return true;
+  if (violation.change_kind === 'modified' && violation.entry_type === 'directory') {
+    return current.type !== 'directory';
+  }
   return current.type !== violation.entry_type
     || current.size !== violation.before.size
     || current.mtime_ns !== violation.before.mtime_ns;
@@ -377,7 +380,9 @@ function checkWorkerGuard({ repositoryRoot, paths, guardId }) {
         before: null,
         after: { size: after.size, mtime_ns: after.mtime_ns }
       });
-    } else if (before.type !== after.type || before.size !== after.size || before.mtime_ns !== after.mtime_ns) {
+    } else if (before.type !== after.type
+      || (before.type !== 'directory'
+        && (before.size !== after.size || before.mtime_ns !== after.mtime_ns))) {
       violations.push({
         change_kind: 'modified',
         repository_relative: normalizeRelative(after.path),
@@ -528,11 +533,14 @@ function assertCleanGuardForSubmission({ paths, guardId, batchId, unit, attempt,
     expectedRepositoryRoot: repositoryRootFor(paths.novel)
   });
 
-  if (checkResult.violations.length > 0) {
+  const unresolvedViolations = checkResult.violations.filter(violation => (
+    violationStillUnresolved(receipt.repository_root, violation)
+  ));
+  if (unresolvedViolations.length > 0) {
     throw new GameKbError('GUARD_VIOLATIONS_UNRESOLVED', 'Guard check has unresolved violations', {
       guard_id: guardId,
-      violation_count: checkResult.violation_count,
-      violations: checkResult.violations
+      violation_count: unresolvedViolations.length,
+      violations: unresolvedViolations
     });
   }
 

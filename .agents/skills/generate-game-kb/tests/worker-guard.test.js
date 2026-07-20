@@ -306,6 +306,77 @@ test('unresolvedWorkerGuardReports blocks scheduling when violations exist', () 
   }
 });
 
+test('checkWorkerGuard ignores derived mtime-only changes on existing directories', () => {
+  const repo = makeTempRepo();
+  try {
+    const paths = makePaths(repo);
+    fs.mkdirSync(paths.run, { recursive: true });
+
+    const { guard_id } = workerGuard.openWorkerGuard({
+      repositoryRoot: repo,
+      paths,
+      job: { batch_id: 'chapter-batch-001', chapters: [], worker_write_paths: [], submissions: [] }
+    });
+
+    fs.writeFileSync(path.join(repo, 'src', 'rogue.yaml'), 'rogue content');
+
+    const result = workerGuard.checkWorkerGuard({ repositoryRoot: repo, paths, guardId: guard_id });
+
+    assert.equal(result.violations.some(violation => (
+      violation.change_kind === 'modified' && violation.entry_type === 'directory'
+    )), false);
+    assert.equal(result.violations.some(violation => (
+      violation.change_kind === 'added' && violation.repository_relative === 'src/rogue.yaml'
+    )), true);
+  } finally {
+    cleanup(repo);
+  }
+});
+
+test('unresolvedWorkerGuardReports clears a removed rogue child and preserves receipt bytes', () => {
+  const repo = makeTempRepo();
+  try {
+    const paths = makePaths(repo);
+    fs.mkdirSync(paths.run, { recursive: true });
+
+    const { guard_id } = workerGuard.openWorkerGuard({
+      repositoryRoot: repo,
+      paths,
+      job: {
+        batch_id: 'chapter-batch-001',
+        unit: 'chapter:001',
+        attempt: 1,
+        input_hash: 'sha256:abc123'
+      }
+    });
+    const rogueFile = path.join(repo, 'src', 'rogue.yaml');
+    fs.writeFileSync(rogueFile, 'rogue content');
+    workerGuard.checkWorkerGuard({ repositoryRoot: repo, paths, guardId: guard_id });
+
+    const checkReceipt = path.join(paths.workerGuards, `${guard_id}-check.json`);
+    const receiptBefore = fs.readFileSync(checkReceipt);
+    assert.equal(workerGuard.unresolvedWorkerGuardReports(paths).length, 1);
+
+    fs.unlinkSync(rogueFile);
+
+    assert.deepEqual(workerGuard.unresolvedWorkerGuardReports(paths), []);
+    assert.deepEqual(fs.readFileSync(checkReceipt), receiptBefore);
+    assert.equal(
+      workerGuard.assertCleanGuardForSubmission({
+        paths,
+        guardId: guard_id,
+        batchId: 'chapter-batch-001',
+        unit: 'chapter:001',
+        attempt: 1,
+        inputHash: 'sha256:abc123'
+      }).guard_id,
+      guard_id
+    );
+  } finally {
+    cleanup(repo);
+  }
+});
+
 test('unresolvedWorkerGuardReports returns empty when guard has no violations', () => {
   const repo = makeTempRepo();
   try {
