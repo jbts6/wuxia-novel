@@ -1,75 +1,88 @@
 {
-  "schema_version": 1,
-  "semantic_contract_version": 2,
+  "schema_version": 2,
+  "semantic_contract_version": 6,
+  "profile": "v4",
   "installer": "generate-game-kb",
+  "run_id": "migration-v6-0541e37659717771",
   "source_hash": "sha256:bebe7cd169f4cead700c5c7a0e03054730385b29870d91b0d8ed7c44b81f405b",
-  "final_data_hash": "sha256:336340bb3332e6dc8513216356346d8fb90aec0005194fbc1d71c7849991311d",
+  "final_data_hash": "sha256:86d3e46ebeb2f597e43540d6840497976835a8dbdbd4b8e39a1c784bb006c2ee",
+  "id_plan_hash": "sha256:6d4f44cd20a34c60421ccd677c20ab1ce86816f8fa706a1c174bc36830c2c03b",
+  "migration_receipt_hash": "sha256:685f58cbda5b3a89e6790d197ee78fcb40b70133efcca8632565be4967561c07",
   "data_files": [
-    "chapter_summaries.json",
-    "characters.json",
-    "dialogues.json",
-    "events.json",
-    "factions.json",
-    "items.json",
-    "locations.json",
-    "skills.json",
-    "techniques.json"
+    "chapter_summaries.yaml",
+    "characters.yaml",
+    "factions.yaml",
+    "items.yaml",
+    "skills.yaml"
   ],
-  "report_hashes": {
-    "game_materials.json": "sha256:b4f7d69ff25142303557744f67099673a7d12cc0530e59be45eec268a5560208",
-    "quantity_report.json": "sha256:f6a011b663616209d356de446dd92c2f300b45e613a37d1ddf2aea5649d2cb12",
-    "quality_report.json": "sha256:fa19b3dcb7ac7a3e19bc4078c6ebf82c5085d40fa770ce6b8b235d9dcf043a5c"
+  "data_file_hashes": {
+    "chapter_summaries.yaml": "sha256:2b266c41892f81e6d31fe526dcc3c37f98765264aa9bda20d9ed332b48165da3",
+    "characters.yaml": "sha256:73cd634fb83062f4151f624e97cd4c4a8d56a9f9358de77e6a54f3496a00e321",
+    "factions.yaml": "sha256:324b7b92cd4b47e3c0cf2292fb1444ccc6416bdcad9c361f41ca82809d36e86c",
+    "items.yaml": "sha256:b671330165086530a553918ee13f6395d5516264fabf87c168692a0329db1585",
+    "skills.yaml": "sha256:26b45aa6b97ceaa81a2f14658f37165473cc151fb01e0c88f3ff81067c7554fc"
   },
+  "verification_report_hash": "sha256:43c2e0ef2f52d0c344210e6366ef1f25881c02068212d19b5523f463cdbd24c2",
   "chapters": [
     {
       "number": 1,
-      "title": "一"
+      "title": "一",
+      "input_hash": "sha256:2b86af442275ed58b77f4caaa32ca2963c46f953a6be79820e20f0869c653ad6"
     },
     {
       "number": 2,
-      "title": "二"
+      "title": "二",
+      "input_hash": "sha256:e843c921c7dbbf91258fb8a38a0c5e3abed99d2e9efb6d6df50982a41a509d39"
     },
     {
       "number": 3,
-      "title": "三"
+      "title": "三",
+      "input_hash": "sha256:018c7879f4605f1520f63709df3b0f4dd403a3d1185ddfc41fca9cdc103fc073"
     },
     {
       "number": 4,
-      "title": "四"
+      "title": "四",
+      "input_hash": "sha256:4b9f74bd43f0ff5181973d9bfa8435873bc67873b7f3ad65db12251ef8b12d3e"
     },
     {
       "number": 5,
-      "title": "五"
+      "title": "五",
+      "input_hash": "sha256:0336e3e79c723ffc58d84e4513919bc2d5f364857d042f0d3e7c13c14289479e"
     },
     {
       "number": 6,
-      "title": "六"
+      "title": "六",
+      "input_hash": "sha256:8610cc23b321521c62116a1fd1aaee09e934d8d07706e4872fff789e97f27be1"
     },
     {
       "number": 7,
-      "title": "七"
+      "title": "七",
+      "input_hash": "sha256:06bce8c05cad90bec70392860c71ba1026c9edbf8648cb4679fcbdeec5533acb"
     },
     {
       "number": 8,
-      "title": "八"
+      "title": "八",
+      "input_hash": "sha256:37999917c5f05cec96dea18053c3c8ef96719ac7414d38441bc635669197cd3e"
     },
     {
       "number": 9,
-      "title": "九"
+      "title": "九",
+      "input_hash": "sha256:27694af1e72b9fd545d8e98ebb780b6389804d68ff082d459b1e7a6a7deb8c53"
     },
     {
       "number": 10,
-      "title": "十"
+      "title": "十",
+      "input_hash": "sha256:f3a66e749b7aba53560c29a97928c1b88e4e0d69d962b3978e1e419e026c0089"
     }
   ],
-  "manual_review_count": 0,
-  "quality_sample_format": "fixed-v2",
-  "archive_root": "C:\\git\\wuxia-novel\\金庸\\雪山飞狐\\_archive\\2026-07-16T01-06-37-842Z-pre-generate-game-kb",
+  "archive_root": "C:\\git\\wuxia-novel\\金庸\\雪山飞狐\\_archive\\2026-07-20T04-20-51-659Z-pre-generate-game-kb",
   "archive_data": null,
   "backup_path": null,
+  "previous_final_data_hash": null,
+  "backup_final_data_hash": null,
   "original_data_state": "missing",
   "preserved_entries": [],
   "removed_stale_markers": [],
-  "started_at": "2026-07-16T01:06:37.842Z",
-  "installed_at": "2026-07-16T01:06:37.907Z"
+  "started_at": "2026-07-20T04:20:51.659Z",
+  "installed_at": "2026-07-20T04:20:51.697Z"
 }
