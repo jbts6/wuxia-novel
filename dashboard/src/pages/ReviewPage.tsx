@@ -5,7 +5,7 @@ import { PageHeader } from '../components/layout/PageHeader';
 import { Input } from '../components/ui/input';
 import { Button } from '../components/ui/button';
 import { Badge } from '../components/ui/badge';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
+import { NativeSelect } from '../components/ui/native-select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '../components/ui/dialog';
 import { CheckSquare, Trash2, RotateCcw, Filter } from 'lucide-react';
 import type { DataFileKey } from '../types/library';
@@ -106,36 +106,29 @@ export default function ReviewPage() {
           <div className="flex items-center gap-2">
             <Filter className="h-4 w-4" />
             <span className="text-sm font-medium">类型：</span>
-            <Select value={filter.type} onValueChange={handleTypeChange}>
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">全部</SelectItem>
-                {files.map((file) => (
-                  <SelectItem key={file.type} value={file.type}>
-                    {reviewFileLabel(file.type)}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <NativeSelect
+              className="w-32"
+              value={filter.type}
+              onChange={(e) => handleTypeChange(e.target.value as typeof filter.type | null)}
+              options={[
+                { value: 'all', label: '全部' },
+                ...files.map((file) => ({ value: file.type, label: reviewFileLabel(file.type) })),
+              ]}
+            />
           </div>
 
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium">状态：</span>
-            <Select
+            <NativeSelect
+              className="w-32"
               value={filter.status}
-              onValueChange={(status) => setFilter({ status: status as typeof filter.status })}
-            >
-              <SelectTrigger className="w-32">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">全部</SelectItem>
-                <SelectItem value="unmarked">未标记</SelectItem>
-                <SelectItem value="marked">已标记</SelectItem>
-              </SelectContent>
-            </Select>
+              onChange={(e) => setFilter({ status: e.target.value as typeof filter.status })}
+              options={[
+                { value: 'all', label: '全部' },
+                { value: 'unmarked', label: '未标记' },
+                { value: 'marked', label: '已标记' },
+              ]}
+            />
           </div>
 
           <Input

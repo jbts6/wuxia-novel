@@ -254,7 +254,7 @@ export default function Library() {
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     enableMultiSort: true,
-    isMultiSortEvent: (event: React.MouseEvent) => event.shiftKey,
+    isMultiSortEvent: (e: unknown) => e instanceof MouseEvent && e.shiftKey,
   });
 
   const selectBook = (book: LibraryBookStatus) => {
