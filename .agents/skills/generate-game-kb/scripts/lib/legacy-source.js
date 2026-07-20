@@ -313,6 +313,11 @@ function chapterRootCandidates(novel) {
   const roots = [];
   const runs = directoryChildren(path.join(novel, '.game-kb-work', 'runs'));
   for (const run of runs) roots.push(path.join(run, 'source', 'chapters'));
+  const genericArchives = directoryChildren(path.join(novel, '_archive'));
+  for (const archive of genericArchives) {
+    const archivedRuns = directoryChildren(path.join(archive, '.game-kb-work', 'runs'));
+    for (const run of archivedRuns) roots.push(path.join(run, 'source', 'chapters'));
+  }
   const archives = directoryChildren(path.join(novel, '_archive', 'generate-game-kb'));
   for (const archive of archives) roots.push(path.join(archive, 'source', 'chapters'));
   for (const archive of directoryChildren(path.join(novel, '_archive', 'generate-game-kb', 'abandoned'))) {

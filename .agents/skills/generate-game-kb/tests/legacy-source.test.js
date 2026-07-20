@@ -107,6 +107,31 @@ test('chooses the newest complete retained run before falling back to archive', 
   }
 });
 
+test('discovers chapter inventories inside the generic archive root used by legacy migration', () => {
+  const novel = temporaryNovel();
+  try {
+    const root = path.join(
+      novel,
+      '_archive',
+      'migration-legacy',
+      '.game-kb-work',
+      'runs',
+      'run-old',
+      'source',
+      'chapters'
+    );
+    fs.mkdirSync(root, { recursive: true });
+    fs.writeFileSync(path.join(root, 'ch_001.txt'), '第一章\n归档正文。\n', 'utf8');
+
+    const inventory = loadExistingChapterInventory(novel);
+
+    assert.equal(inventory.root, root);
+    assert.deepEqual(inventory.chapters.map(chapter => chapter.number), [1]);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+  }
+});
+
 test('rejects complete retained finals that cannot bind the current chapter inventory', () => {
   const novel = temporaryNovel();
   try {

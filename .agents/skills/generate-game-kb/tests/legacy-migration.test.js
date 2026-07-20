@@ -10,8 +10,10 @@ const { deferredPathsFor, pathsFor } = require('../scripts/lib/paths');
 const { verifyFinal } = require('../scripts/lib/verify');
 const {
   buildLegacyCandidate,
+  executeLegacyMigration,
   planLegacyMigration
 } = require('../scripts/lib/legacy-migration');
+const { verifyInstalled } = require('../scripts/lib/install');
 
 function temporaryNovel() {
   return fs.mkdtempSync(path.join(os.tmpdir(), 'legacy-migration-'));
@@ -81,11 +83,16 @@ function writeLegacyFixture(novel) {
 
 function writeNovelFixture() {
   const novel = temporaryNovel();
+  fs.writeFileSync(path.join(novel, 'fixture-source.txt'), '第一章 快剑\n阿飞拔剑出手。\n第二章 铁剑\n铁剑在手。\n', 'utf8');
   const chapters = path.join(novel, '.game-kb-work', 'runs', 'legacy-source', 'source', 'chapters');
   writeChapter(chapters, 1, '第一章 快剑\n阿飞拔剑出手。\n快剑出鞘。\n江湖会声名远播。\n');
   writeChapter(chapters, 2, '第二章 铁剑\n铁剑在手。\n独行客握剑。\n');
   writeLegacyFixture(novel);
   return novel;
+}
+
+function archiveManifest(novel, archiveId) {
+  return path.join(novel, '_archive', archiveId, 'archive-manifest.json');
 }
 
 test('pathsFor keeps novel identity while placing migration runs under an isolated work root', () => {
@@ -143,5 +150,90 @@ test('builds and verifies a deterministic isolated V6 candidate from legacy JSON
     fs.rmSync(novel, { recursive: true, force: true });
     fs.rmSync(firstRoot, { recursive: true, force: true });
     fs.rmSync(secondRoot, { recursive: true, force: true });
+  }
+});
+
+test('requires explicit confirmation and leaves the legacy tree untouched in plan mode', () => {
+  const novel = writeNovelFixture();
+  try {
+    const plan = planLegacyMigration(novel);
+    assert.throws(
+      () => executeLegacyMigration(plan, {
+        confirm: false,
+        stagingRoot: path.join(novel, '..', `${path.basename(novel)}-staging`),
+        runId: 'migration-confirm-required'
+      }),
+      error => error?.code === 'MIGRATION_CONFIRM_REQUIRED'
+    );
+    assert.equal(fs.existsSync(path.join(novel, 'data')), true);
+    assert.equal(fs.existsSync(path.join(novel, '_archive')), false);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+  }
+});
+
+for (const faultAt of ['after-candidate-write', 'after-archive', 'after-run-promote', 'after-install']) {
+  test(`archives the legacy payload after ${faultAt}`, () => {
+    const novel = writeNovelFixture();
+    const runId = `migration-${faultAt}`;
+    const stagingRoot = path.join(novel, '..', `${path.basename(novel)}-${faultAt}-staging`);
+    const plan = planLegacyMigration(novel);
+    try {
+      const result = executeLegacyMigration(plan, {
+        confirm: true,
+        faultAt,
+        runId,
+        stagingRoot
+      });
+      assert.equal(result.report.status, 'archived_after_migration_failure');
+      assert.equal(fs.existsSync(path.join(novel, 'data')), false);
+      const manifest = JSON.parse(fs.readFileSync(archiveManifest(novel, `${runId}-legacy`), 'utf8'));
+      assert.equal(manifest.status, 'archived');
+      assert.equal(result.report.archive_manifest, archiveManifest(novel, `${runId}-legacy`));
+    } finally {
+      fs.rmSync(novel, { recursive: true, force: true });
+      fs.rmSync(stagingRoot, { recursive: true, force: true });
+    }
+  });
+}
+
+test('installs and verifies a successful migration after archiving the legacy payload', () => {
+  const novel = writeNovelFixture();
+  const runId = 'migration-success';
+  const stagingRoot = path.join(novel, '..', `${path.basename(novel)}-success-staging`);
+  try {
+    const result = executeLegacyMigration(planLegacyMigration(novel), {
+      confirm: true,
+      runId,
+      stagingRoot
+    });
+    assert.equal(result.report.status, 'verified');
+    assert.equal(verifyInstalled(novel).passed, true);
+    assert.equal(fs.existsSync(path.join(novel, 'data', 'characters.yaml')), true);
+    assert.equal(fs.existsSync(archiveManifest(novel, `${runId}-legacy`)), true);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+    fs.rmSync(stagingRoot, { recursive: true, force: true });
+  }
+});
+
+test('reports archive_failed and preserves legacy data when archive movement rolls back', () => {
+  const novel = writeNovelFixture();
+  const runId = 'migration-archive-failed';
+  const stagingRoot = path.join(novel, '..', `${path.basename(novel)}-archive-failed-staging`);
+  try {
+    const result = executeLegacyMigration(planLegacyMigration(novel), {
+      confirm: true,
+      archiveFailAfterMoves: 0,
+      runId,
+      stagingRoot
+    });
+    assert.equal(result.report.status, 'archive_failed');
+    assert.equal(fs.existsSync(path.join(novel, 'data')), true);
+    assert.equal(fs.existsSync(path.join(novel, '_archive', `${runId}-legacy`)), false);
+    assert.equal(result.report.archive_manifest, null);
+  } finally {
+    fs.rmSync(novel, { recursive: true, force: true });
+    fs.rmSync(stagingRoot, { recursive: true, force: true });
   }
 });

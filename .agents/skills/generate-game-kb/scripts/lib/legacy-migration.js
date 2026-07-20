@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { semanticDecisionFile, stableHash } = require('./accept');
+const { archiveExisting } = require('./archive');
 const { assembleRun } = require('./assemble');
 const {
   ACCEPTED_SERIALIZATION,
@@ -35,6 +36,7 @@ const {
 const { sha256 } = require('./source');
 const { writeWorkPlan } = require('./semantic-work');
 const { verifyFinal } = require('./verify');
+const { installVerifiedData, verifyInstalled } = require('./install');
 
 const OPERATION = 'legacy-json-to-v6';
 const RECEIPT_CATEGORIES = Object.freeze([
@@ -43,6 +45,17 @@ const RECEIPT_CATEGORIES = Object.freeze([
   'items',
   'factions',
   'chapter_summaries'
+]);
+
+const MIGRATION_STATES = Object.freeze([
+  'planned',
+  'candidate_verified',
+  'legacy_archived',
+  'run_promoted',
+  'installed',
+  'verified',
+  'archived_after_migration_failure',
+  'archive_failed'
 ]);
 
 function migrationError(code, message, details = {}) {
@@ -212,6 +225,16 @@ function assertCurrentPlan(plan) {
   return current;
 }
 
+function assertPreparedPlan(plan, prepared) {
+  if (!prepared || prepared.publicPlan?.input_hash !== plan.input_hash) {
+    throw migrationError('MIGRATION_PLAN_STALE', 'Prepared migration inputs do not match the approved plan', {
+      expected: plan.input_hash,
+      actual: prepared?.publicPlan?.input_hash ?? null
+    });
+  }
+  return prepared;
+}
+
 function chapterDraft(chapter) {
   const candidates = category => (chapter[category] || []).map(record => {
     const value = structuredClone(record);
@@ -321,9 +344,22 @@ function assertStagingRoot(novelDir, stagingRoot) {
   return staging;
 }
 
-function buildLegacyCandidate(plan, { stagingRoot, runId, faultAt } = {}) {
-  const current = assertCurrentPlan(plan);
-  const workRoot = assertStagingRoot(plan.novel_dir, stagingRoot);
+function buildLegacyCandidate(plan, {
+  stagingRoot,
+  runId,
+  faultAt,
+  prepared,
+  allowNovelWorkRoot = false
+} = {}) {
+  const current = prepared ? assertPreparedPlan(plan, prepared) : assertCurrentPlan(plan);
+  const workRoot = allowNovelWorkRoot
+    ? path.resolve(stagingRoot)
+    : assertStagingRoot(plan.novel_dir, stagingRoot);
+  if (allowNovelWorkRoot && workRoot !== path.join(path.resolve(plan.novel_dir), '.game-kb-work')) {
+    throw migrationError('MIGRATION_PROMOTION_ROOT_INVALID', 'Promoted migration runs must use the canonical work root', {
+      work_root: workRoot
+    });
+  }
   const paths = pathsFor(plan.novel_dir, runId, { workRoot });
   if (fs.existsSync(paths.run)) {
     throw migrationError('MIGRATION_CANDIDATE_EXISTS', 'Migration candidate run already exists', {
@@ -479,9 +515,229 @@ function buildLegacyCandidate(plan, { stagingRoot, runId, faultAt } = {}) {
   };
 }
 
+function removeEmptyParents(directory, stopAt) {
+  let current = path.resolve(directory);
+  const boundary = path.resolve(stopAt);
+  while (current !== boundary && isWithin(boundary, current)) {
+    if (!fs.existsSync(current) || fs.readdirSync(current).length > 0) break;
+    fs.rmdirSync(current);
+    current = path.dirname(current);
+  }
+}
+
+function cleanupCandidateRun(novelDir, workRoot, runId) {
+  if (typeof workRoot !== 'string' || typeof runId !== 'string') return;
+  const paths = pathsFor(novelDir, runId, { workRoot });
+  fs.rmSync(paths.run, { recursive: true, force: true });
+  removeEmptyParents(path.dirname(paths.run), path.resolve(workRoot));
+}
+
+function cleanupInstalledFailure(novelDir, runId) {
+  const novel = path.resolve(novelDir);
+  fs.rmSync(path.join(novel, 'data'), { recursive: true, force: true });
+  fs.rmSync(path.join(novel, 'reports'), { recursive: true, force: true });
+  cleanupCandidateRun(novel, path.join(novel, '.game-kb-work'), runId);
+}
+
+function migrationArchiveId(runId) {
+  const safe = String(runId || '').slice(0, 120);
+  return `${safe}-legacy`;
+}
+
+function retryCommand(plan, runId, stagingRoot, archiveDir = null) {
+  const original = path.resolve(plan.source.data_root);
+  const source = archiveDir
+    ? path.join(archiveDir, path.relative(path.resolve(plan.novel_dir), original))
+    : original;
+  return [
+    'node',
+    '.agents/skills/generate-game-kb/scripts/flow.js',
+    'migrate-legacy',
+    JSON.stringify(path.resolve(plan.novel_dir)),
+    '--run',
+    JSON.stringify(runId),
+    '--from',
+    JSON.stringify(source),
+    '--staging-root',
+    JSON.stringify(path.resolve(stagingRoot)),
+    '--confirm'
+  ].join(' ');
+}
+
+function writeMigrationReport(file, report) {
+  atomicWriteJson(file, stableValue(report));
+  return file;
+}
+
+function injectedMigrationFault(point) {
+  throw migrationError('MIGRATION_FAULT_INJECTED', `Injected migration fault at ${point}`, { point });
+}
+
+function executeLegacyMigration(plan, {
+  confirm = false,
+  stagingRoot,
+  runId,
+  faultAt,
+  archiveFailAfterMoves
+} = {}) {
+  if (!confirm) {
+    throw migrationError('MIGRATION_CONFIRM_REQUIRED', 'Legacy migration requires explicit --confirm');
+  }
+  if (typeof runId !== 'string' || runId.trim() === '') {
+    throw migrationError('RUN_REQUIRED', 'Legacy migration requires an explicit run id');
+  }
+  const novel = path.resolve(plan?.novel_dir || '');
+  const staging = assertStagingRoot(novel, stagingRoot);
+  const prepared = inspectLegacy(novel, { explicitDataRoot: plan?.source?.data_root });
+  if (prepared.publicPlan.input_hash !== plan.input_hash) {
+    throw migrationError('MIGRATION_PLAN_STALE', 'Legacy migration inputs changed after planning', {
+      expected: plan.input_hash,
+      actual: prepared.publicPlan.input_hash
+    });
+  }
+
+  const archiveId = migrationArchiveId(runId);
+  const archivePath = path.join(novel, '_archive', archiveId);
+  const targetWorkRoot = path.join(novel, '.game-kb-work');
+  let archiveAttempted = false;
+  let archiveReceipt = null;
+  let stage = 'planned';
+  let candidate = null;
+  let promoted = null;
+  let installed = null;
+
+  try {
+    candidate = buildLegacyCandidate(plan, {
+      stagingRoot: staging,
+      runId,
+      prepared,
+      faultAt: faultAt === 'after-candidate-write' ? faultAt : undefined
+    });
+    stage = 'candidate_verified';
+
+    archiveAttempted = true;
+    archiveReceipt = archiveExisting(novel, {
+      archiveId,
+      ...(archiveFailAfterMoves === undefined ? {} : { failAfterMoves: archiveFailAfterMoves })
+    });
+    stage = 'legacy_archived';
+    if (faultAt === 'after-archive') injectedMigrationFault(faultAt);
+
+    promoted = buildLegacyCandidate(plan, {
+      stagingRoot: targetWorkRoot,
+      runId,
+      prepared,
+      allowNovelWorkRoot: true
+    });
+    stage = 'run_promoted';
+    cleanupCandidateRun(novel, staging, runId);
+    if (faultAt === 'after-run-promote') injectedMigrationFault(faultAt);
+
+    installed = installVerifiedData(novel, { runId, profile: PROFILE_V4 });
+    stage = 'installed';
+    if (faultAt === 'after-install') injectedMigrationFault(faultAt);
+
+    const verification = verifyInstalled(novel);
+    if (!verification.passed) {
+      throw migrationError('MIGRATION_INSTALLED_INVALID', 'Installed migration failed verification', {
+        blocking_errors: verification.blocking_errors
+      });
+    }
+    stage = 'verified';
+    const report = {
+      schema_version: 1,
+      operation: OPERATION,
+      semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+      run_id: runId,
+      novel_dir: novel,
+      state: stage,
+      status: stage,
+      archive_manifest: path.join(archivePath, 'archive-manifest.json'),
+      retry_command: null,
+      installed: {
+        final_data_hash: verification.final_data_hash,
+        source_hash: verification.source_hash
+      }
+    };
+    const reportPath = writeMigrationReport(path.join(novel, 'reports', 'migration-report.json'), report);
+    return { status: stage, report: { ...report, report_path: reportPath }, archive: archiveReceipt, candidate, promoted, installed };
+  } catch (error) {
+    if (archiveAttempted && !archiveReceipt) {
+      cleanupCandidateRun(novel, staging, runId);
+      cleanupCandidateRun(novel, targetWorkRoot, runId);
+      const report = {
+        schema_version: 1,
+        operation: OPERATION,
+        semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+        run_id: runId,
+        novel_dir: novel,
+        state: 'archive_failed',
+        status: 'archive_failed',
+        archive_manifest: null,
+        error: { code: error.code || 'ARCHIVE_MOVE_FAILED', message: error.message },
+        retry_command: retryCommand(plan, runId, staging)
+      };
+      const reportPath = writeMigrationReport(path.join(staging, 'migration-report.json'), report);
+      return { status: 'archive_failed', report: { ...report, report_path: reportPath }, error };
+    }
+
+    if (!archiveReceipt) {
+      archiveAttempted = true;
+      try {
+        archiveReceipt = archiveExisting(novel, {
+          archiveId,
+          ...(archiveFailAfterMoves === undefined ? {} : { failAfterMoves: archiveFailAfterMoves })
+        });
+        stage = 'legacy_archived';
+      } catch (archiveError) {
+        cleanupCandidateRun(novel, staging, runId);
+        cleanupCandidateRun(novel, targetWorkRoot, runId);
+        const report = {
+          schema_version: 1,
+          operation: OPERATION,
+          semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+          run_id: runId,
+          novel_dir: novel,
+          state: 'archive_failed',
+          status: 'archive_failed',
+          archive_manifest: null,
+          error: {
+            code: archiveError.code || 'ARCHIVE_MOVE_FAILED',
+            message: archiveError.message,
+            cause: error.code || error.message
+          },
+          retry_command: retryCommand(plan, runId, staging)
+        };
+        const reportPath = writeMigrationReport(path.join(staging, 'migration-report.json'), report);
+        return { status: 'archive_failed', report: { ...report, report_path: reportPath }, error: archiveError };
+      }
+    }
+
+    cleanupInstalledFailure(novel, runId);
+    cleanupCandidateRun(novel, staging, runId);
+    const report = {
+      schema_version: 1,
+      operation: OPERATION,
+      semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+      run_id: runId,
+      novel_dir: novel,
+      state: 'archived_after_migration_failure',
+      status: 'archived_after_migration_failure',
+      failed_at: stage,
+      archive_manifest: path.join(archivePath, 'archive-manifest.json'),
+      error: { code: error.code || 'MIGRATION_FAILED', message: error.message },
+      retry_command: retryCommand(plan, runId, staging, archivePath)
+    };
+    const reportPath = writeMigrationReport(path.join(archivePath, 'migration-report.json'), report);
+    return { status: 'archived_after_migration_failure', report: { ...report, report_path: reportPath }, error };
+  }
+}
+
 module.exports = {
+  MIGRATION_STATES,
   OPERATION,
   buildLegacyCandidate,
+  executeLegacyMigration,
   planLegacyMigration,
   writeMigrationReceipt
 };
