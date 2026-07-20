@@ -91,7 +91,7 @@
 - `local_key` 使用 `category:名称`，不要写正式 `id`、`candidate_key` 或其他 controller 字段。
 - `rank` 只能使用合同中的八级固定值；证据不足时为 null。
 - 人物 `level` 只能使用 `核心/重要/次要/龙套/背景`；证据不足时为 null。
-- `description` 只能复述本章原文直接支持的内容；不确定时为 null。
+- `description` 值只包含描述正文，不得添加“概述：”“描述：”等重复字段标签；内容只能复述本章原文直接支持的信息，不确定时为 null。
 - `aliases`、`identities`、`types`、`factions` 和 `skills` 按原文首次确认顺序去重。
 - `techniques` 只保留原文明确定名的招式；说明不确定时为 null。
 - 物品类型使用 `武器/防具/秘籍/丹药/暗器/其他`，只提取合同允许的关键物品。
