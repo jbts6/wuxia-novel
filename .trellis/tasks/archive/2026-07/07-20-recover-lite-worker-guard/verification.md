@@ -107,4 +107,3 @@ receipts and progress were not changed.
   worker is dispatched for Lite.
 - Canonical item types include `坐骑`, `异兽`, and `饰品`; unknown values still
   fail final verification.
-
