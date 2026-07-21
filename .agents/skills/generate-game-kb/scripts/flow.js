@@ -253,6 +253,7 @@ function publicRunResult(run, next) {
 function v7RunPipeline(novelDir, requestedRun) {
   const { receiveAvailableChapterOutputs } = require('./lib/chapter-receiver');
   const { advanceChapterWork } = require('./lib/chapter-work');
+  const { prepareNovel } = require('./lib/source');
 
   const run = createOrResumeRun(novelDir, { runId: requestedRun });
   if (run.semantic_contract_version && run.semantic_contract_version < 7) {
@@ -261,6 +262,9 @@ function v7RunPipeline(novelDir, requestedRun) {
     });
   }
   const paths = pathsFor(novelDir, run.run_id);
+  if (!run.resumed) {
+    prepareNovel(novelDir, { runId: run.run_id });
+  }
   const manifest = readJson(paths.manifest);
   let progress = loadChapterProgress(paths, manifest);
 
