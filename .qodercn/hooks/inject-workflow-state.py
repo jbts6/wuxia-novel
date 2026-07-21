@@ -101,7 +101,7 @@ def _detect_platform(input_data: dict) -> str | None:
         "CODEBUDDY_PROJECT_DIR": "codebuddy",
         "FACTORY_PROJECT_DIR": "droid",
         "GEMINI_PROJECT_DIR": "gemini",
-        "QODER_PROJECT_DIR": "qoder",
+        "QODER_PROJECT_DIR": "qodercn",
         "KIRO_PROJECT_DIR": "kiro",
         "COPILOT_PROJECT_DIR": "copilot",
         "TRAE_PROJECT_DIR": "trae",
@@ -118,8 +118,8 @@ def _detect_platform(input_data: dict) -> str | None:
         return "codex"
     if ".gemini" in script_parts:
         return "gemini"
-    if ".qoder" in script_parts:
-        return "qoder"
+    if ".qodercn" in script_parts:
+        return "qodercn"
     if ".codebuddy" in script_parts:
         return "codebuddy"
     if ".factory" in script_parts:

@@ -22,7 +22,7 @@ Common files:
 | OpenCode | `.opencode/package.json`, `.opencode/plugins/*` |
 | Kiro | `.kiro/hooks/` + platform config |
 | Gemini CLI | `.gemini/settings.json` |
-| Qoder | `.qoder/settings.json` |
+| Qoder | `.qodercn/settings.json` |
 | CodeBuddy | `.codebuddy/settings.json` |
 | GitHub Copilot | `.github/copilot/hooks.json` |
 | Factory Droid | `.factory/settings.json` |

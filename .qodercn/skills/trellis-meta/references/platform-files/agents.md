@@ -28,7 +28,7 @@ Agent files should not become generic chat prompts. They should define input sou
 | Codex | `.codex/agents/trellis-*.toml` |
 | Kiro | `.kiro/agents/trellis-*.json` |
 | Gemini CLI | `.gemini/agents/trellis-*.md` |
-| Qoder | `.qoder/agents/trellis-*.md` |
+| Qoder | `.qodercn/agents/trellis-*.md` |
 | CodeBuddy | `.codebuddy/agents/trellis-*.md` |
 | Factory Droid | `.factory/droids/trellis-*.md` |
 | Pi Agent | `.pi/agents/trellis-*.md` |

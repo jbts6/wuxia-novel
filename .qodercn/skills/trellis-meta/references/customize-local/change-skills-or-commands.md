@@ -83,7 +83,7 @@ If a command only repeats workflow rules, prefer making it reference/read `.trel
 | Codex | `.agents/skills/`, `.codex/skills/` |
 | Gemini CLI | `.agents/skills/`, `.gemini/commands/` |
 | Kiro | `.kiro/skills/` |
-| Qoder | `.qoder/skills/`, `.qoder/commands/` |
+| Qoder | `.qodercn/skills/`, `.qodercn/commands/` |
 | CodeBuddy | `.codebuddy/skills/`, `.codebuddy/commands/` |
 | GitHub Copilot | `.github/skills/`, `.github/prompts/` |
 | Factory Droid | `.factory/skills/`, `.factory/commands/` |
