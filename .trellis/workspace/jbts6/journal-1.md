@@ -1351,3 +1351,38 @@ Recovered remediated worker guards, hardened Claude workflow handoff, restored c
 ### Next Steps
 
 - None - task complete
+
+
+## Session 26: 简化 generate-game-kb 工作流
+
+**Date**: 2026-07-21
+**Task**: 简化 generate-game-kb 工作流
+**Branch**: `main`
+
+### Summary
+
+统一默认与 --deep 模式，删除旧闸门、分组与迁移子系统，保留双硬哈希门禁并新增高召回校验；全量 255 项测试通过。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `a080a7be` | (see git log) |
+| `41e27271` | (see git log) |
+| `1aa073e5` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
