@@ -7,6 +7,7 @@ const {
   validateEntitySemantics
 } = require('./semantic-contract');
 const { validateGroundedRecord } = require('./grounding');
+const { normalizeTypeArray } = require('./type-taxonomy');
 
 const CANDIDATE_ARRAYS = Object.freeze([
   'characters',
@@ -200,4 +201,149 @@ function normalizeChapterDraft(draft) {
   return normalized;
 }
 
-module.exports = { CANDIDATE_ARRAYS, candidateKey, normalizeChapterDraft, validateChapterDraft };
+const V7_WORKER_TOP_LEVEL = new Set(['characters', 'skills', 'items', 'factions', 'chapter_summary']);
+const V7_WORKER_FORBIDDEN_TOP = new Set([
+  'schema_version', 'chapter', 'title', 'source_hash', 'unit', 'cycle', 'attempt',
+  'input_hash', 'output_file', 'source_file', 'run_id', 'envelope'
+]);
+const V7_ENTITY_FORBIDDEN = new Set([
+  'id', 'local_key', 'candidate_key', 'schema_version', 'chapter', 'title',
+  'source_hash', 'unit', 'cycle', 'attempt', 'input_hash', 'output_file'
+]);
+const V7_TYPES_CATEGORIES = new Set(['skills', 'items', 'factions']);
+
+function validateWorkerSourceRefs(record, label, errors) {
+  if (!Array.isArray(record?.source_refs) || record.source_refs.length === 0) {
+    errors.push(issue('SOURCE_REFS_REQUIRED', `${label}.source_refs`));
+    return;
+  }
+  record.source_refs.forEach((ref, index) => {
+    const refPath = `${label}.source_refs[${index}]`;
+    if (!ref || typeof ref !== 'object' || Array.isArray(ref)) {
+      errors.push(issue('SOURCE_REF_INVALID', refPath));
+      return;
+    }
+    if (typeof ref.text !== 'string' || ref.text.trim() === '') errors.push(issue('SOURCE_TEXT_REQUIRED', `${refPath}.text`));
+    for (const field of ['line_start', 'line_end']) {
+      if (ref[field] !== undefined && !Number.isInteger(ref[field])) {
+        errors.push(issue('SOURCE_LINE_INVALID', `${refPath}.${field}`, ref[field]));
+      }
+    }
+  });
+}
+
+function validateWorkerChapterDraft(draft, expected) {
+  const errors = [];
+  if (!draft || typeof draft !== 'object' || Array.isArray(draft)) {
+    return [issue('CHAPTER_DRAFT_INVALID', '$')];
+  }
+  const topFields = Object.keys(draft);
+  const hasForbidden = topFields.some(field => V7_WORKER_FORBIDDEN_TOP.has(field));
+  const hasUnknown = topFields.some(field => !V7_WORKER_TOP_LEVEL.has(field));
+  if (hasForbidden || hasUnknown) {
+    errors.push(issue('WORKER_TOP_LEVEL_FIELDS_INVALID', '$', topFields.join(',')));
+  }
+  for (const category of CANDIDATE_ARRAYS) {
+    if (!Array.isArray(draft[category])) {
+      errors.push(issue('CATEGORY_ARRAY_REQUIRED', category));
+    }
+  }
+  if (errors.some(error => error.code === 'CATEGORY_ARRAY_REQUIRED')) return errors;
+
+  for (const category of CANDIDATE_ARRAYS) {
+    draft[category].forEach((record, index) => {
+      const label = `${category}[${index}]`;
+      if (!record || typeof record !== 'object' || Array.isArray(record)) {
+        errors.push(issue('CANDIDATE_INVALID', label));
+        return;
+      }
+      if (Object.hasOwn(record, 'type')) {
+        errors.push(issue('LEGACY_TYPE_FIELD', `${label}.type`, record.type));
+      }
+      for (const field of Object.keys(record)) {
+        if (V7_ENTITY_FORBIDDEN.has(field)) {
+          errors.push(issue('WORKER_FIELD_FORBIDDEN', `${label}.${field}`, field));
+        }
+      }
+      if (V7_TYPES_CATEGORIES.has(category) && record.types !== undefined) {
+        const typeResult = normalizeTypeArray(category, record.types, `$.${label}.types`);
+        errors.push(...typeResult.errors);
+      }
+      validateWorkerSourceRefs(record, label, errors);
+    });
+  }
+
+  if (!draft.chapter_summary || typeof draft.chapter_summary !== 'object' || Array.isArray(draft.chapter_summary)) {
+    errors.push(issue('SUMMARY_REQUIRED', 'chapter_summary'));
+  } else {
+    if (typeof draft.chapter_summary.summary !== 'string' || draft.chapter_summary.summary.trim() === '') {
+      errors.push(issue('SUMMARY_TEXT_REQUIRED', 'chapter_summary.summary'));
+    }
+    validateWorkerSourceRefs(draft.chapter_summary, 'chapter_summary', errors);
+  }
+  return errors;
+}
+
+function normalizeAcceptedChapterDraft(draft, expected) {
+  const errors = [];
+  for (const category of CANDIDATE_ARRAYS) {
+    (Array.isArray(draft?.[category]) ? draft[category] : []).forEach((record, index) => {
+      const label = `${category}[${index}]`;
+      for (const field of V7_ENTITY_FORBIDDEN) {
+        if (Object.hasOwn(record || {}, field)) {
+          errors.push(issue('WORKER_FIELD_FORBIDDEN', `${label}.${field}`, field));
+        }
+      }
+    });
+  }
+  for (const field of V7_WORKER_FORBIDDEN_TOP) {
+    if (Object.hasOwn(draft || {}, field)) {
+      errors.push(issue('WORKER_TOP_LEVEL_FIELDS_INVALID', field, field));
+    }
+  }
+  if (errors.length > 0) {
+    return { chapter: null, normalizations: [], errors };
+  }
+
+  const allNormalizations = [];
+  const chapter = {
+    schema_version: 7,
+    chapter: expected.number,
+    title: expected.title,
+    source_hash: expected.inputHash
+  };
+
+  for (const category of CANDIDATE_ARRAYS) {
+    chapter[category] = (Array.isArray(draft[category]) ? draft[category] : []).map((record, index) => {
+      const entity = { ...record };
+      entity.local_key = `${category.slice(0, -1)}:${record.name}`;
+      if (Array.isArray(entity.source_refs)) {
+        entity.source_refs = entity.source_refs.map(ref => ({ ...ref, chapter: expected.number }));
+      }
+      if (V7_TYPES_CATEGORIES.has(category) && Array.isArray(entity.types)) {
+        const typeResult = normalizeTypeArray(category, entity.types, `$.${category}[${index}].types`);
+        entity.types = typeResult.values;
+        allNormalizations.push(...typeResult.normalizations);
+      }
+      return entity;
+    });
+  }
+
+  chapter.chapter_summary = {
+    ...draft.chapter_summary,
+    ...(Array.isArray(draft.chapter_summary?.source_refs)
+      ? { source_refs: draft.chapter_summary.source_refs.map(ref => ({ ...ref, chapter: expected.number })) }
+      : {})
+  };
+  chapter.normalizations = allNormalizations;
+  return { chapter, normalizations: allNormalizations, errors: [] };
+}
+
+module.exports = {
+  CANDIDATE_ARRAYS,
+  candidateKey,
+  normalizeAcceptedChapterDraft,
+  normalizeChapterDraft,
+  validateChapterDraft,
+  validateWorkerChapterDraft
+};
