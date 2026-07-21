@@ -58,7 +58,8 @@ function pathsFor(novelDir, runId, options = {}) {
     finalData: path.join(run, 'final', 'data'),
     finalReports: path.join(run, 'final', 'reports'),
     assemblyReport: path.join(run, 'final', 'reports', 'assembly-report.json'),
-    verificationReport: path.join(run, 'final', 'reports', 'verification-report.json')
+    verificationReport: path.join(run, 'final', 'reports', 'verification-report.json'),
+    reviewReport: path.join(run, 'final', 'reports', 'game-kb-review.json')
   };
 }
 
