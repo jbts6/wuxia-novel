@@ -265,6 +265,9 @@ function validateWorkerChapterDraft(draft, expected) {
           errors.push(issue('WORKER_FIELD_FORBIDDEN', `${label}.${field}`, field));
         }
       }
+      if (typeof record.name !== 'string' || record.name.trim() === '') {
+        errors.push(issue('NAME_REQUIRED', `${label}.name`));
+      }
       if (V7_TYPES_CATEGORIES.has(category) && record.types !== undefined) {
         const typeResult = normalizeTypeArray(category, record.types, `$.${label}.types`);
         errors.push(...typeResult.errors);
