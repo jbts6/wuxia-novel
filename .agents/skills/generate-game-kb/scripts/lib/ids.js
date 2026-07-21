@@ -86,57 +86,77 @@ function validatePriorRecord(record, category) {
   }
 }
 
-function assignCategoryIds(category, records, priorRecords = []) {
-  const prior = priorIndexes(priorRecords);
+function assignCategoryIds(category, records, priorPlan = {}) {
   const entries = (Array.isArray(records) ? records : []).map(record => ({
     record,
-    canonicalName: String(record?.name ?? record?.canonical_name ?? '').trim(),
-    baseId: makeBaseId(category, record?.name ?? record?.canonical_name),
-    identityAnchor: identityAnchor(category, record)
+    canonicalName: String(record?.name ?? '').trim(),
+    baseId: makeBaseId(category, record?.name)
   }));
+
+  const namesSeen = new Set();
   for (const entry of entries) {
-    for (const field of ['identity_anchor', 'disambiguator', 'issued_id']) {
-      if (Object.hasOwn(entry.record || {}, field)) {
-        throw idError('ID_DISAMBIGUATOR_FORBIDDEN', 'Entity records cannot author controller ID state', {
-          category, field
-        });
-      }
+    if (namesSeen.has(entry.canonicalName)) {
+      throw idError('IDENTITY_COLLISION_REVIEW_REQUIRED', `Duplicate same-name records in ${category}`, {
+        category, name: entry.canonicalName
+      });
     }
-    entry.prior = prior.byAnchor.get(entry.identityAnchor)
-      || prior.byRegistry.get(entry.record?.registry_key)
-      || null;
-    validatePriorRecord(entry.prior, category);
+    namesSeen.add(entry.canonicalName);
   }
+
   const byBase = new Map();
   for (const entry of entries) {
     if (!byBase.has(entry.baseId)) byBase.set(entry.baseId, []);
     byBase.get(entry.baseId).push(entry);
   }
+
   const assigned = [];
-  for (const collisions of byBase.values()) {
+  const plan = [];
+  for (const [baseId, collisions] of byBase) {
     for (const entry of collisions) {
-      const needsDisambiguator = collisions.length > 1 || Boolean(entry.prior?.disambiguator);
-      const disambiguator = entry.prior?.disambiguator
-        || (needsDisambiguator ? alphabeticDigest(`${category}\0${entry.identityAnchor}`, 8) : null);
-      const id = entry.prior?.id || `${entry.baseId}${disambiguator ? `_${disambiguator}` : ''}`;
-      assigned.push({
-        ...entry.record,
-        id,
-        identity_anchor: entry.prior?.identity_anchor || entry.identityAnchor,
-        disambiguator
+      const priorEntry = priorPlan[entry.canonicalName];
+      let id;
+      let suffix = null;
+
+      if (priorEntry?.id) {
+        id = priorEntry.id;
+        suffix = priorEntry.suffix || null;
+      } else if (collisions.length > 1) {
+        suffix = alphabeticDigest(`${category}\0${entry.canonicalName}`, 8);
+        id = `${baseId}_${suffix}`;
+      } else {
+        id = baseId;
+      }
+
+      assigned.push({ ...entry.record, id });
+      plan.push({
+        category,
+        canonical_name: entry.canonicalName,
+        base_id: baseId,
+        collision: collisions.length > 1,
+        suffix_input: suffix ? `${category}\0${entry.canonicalName}` : null,
+        suffix,
+        issued_id: id
       });
     }
   }
-  return assigned.sort((left, right) => left.id.localeCompare(right.id));
+  return { records: assigned.sort((a, b) => a.id.localeCompare(b.id)), plan };
 }
 
-function assignStableIds(recordsByCategory, priorRegistry = {}) {
+function assignStableIds(recordsByCategory, priorPlan = {}) {
   const assigned = {};
+  const idPlan = {};
   for (const category of Object.keys(recordsByCategory || {}).sort()) {
     if (!PREFIX[category]) continue;
-    assigned[category] = assignCategoryIds(category, recordsByCategory[category], priorRegistry?.[category]);
+    const categoryPlan = priorPlan?.[category] || {};
+    const planByName = {};
+    for (const entry of Array.isArray(categoryPlan) ? categoryPlan : []) {
+      if (entry.canonical_name) planByName[entry.canonical_name] = entry;
+    }
+    const result = assignCategoryIds(category, recordsByCategory[category], planByName);
+    assigned[category] = result.records;
+    idPlan[category] = result.plan;
   }
-  return assigned;
+  return { recordsByCategory: assigned, idPlan };
 }
 
-module.exports = { PREFIX, alphabeticDigest, assignStableIds, identityAnchor, makeBaseId, nameSlug };
+module.exports = { PREFIX, alphabeticDigest, assignStableIds, makeBaseId, nameSlug };
