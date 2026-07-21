@@ -52,7 +52,8 @@
 - 所有被泛称规则过滤的候选必须保留名称、类别、章节、原始证据、过滤原因和 resolution 记录，并安装到独立的候选审查 report；不得因未进入终态 YAML 而丢失。
 - Dashboard 必须把候选审查 report 中的过滤记录展示为可查看详情的 warnings，使只有泛称但可能具有剧情重要性的候选仍可被人工发现和复核。
 - 五个终态 YAML 不增加 `deprecated` 字段，也不混入已过滤候选；Dashboard 的五文件读取合同保持不变，审查 report 走独立状态/警告通道。
-- 安装后的审查文件固定为 `reports/game-kb-review.json`，包含 report 版本、`source_hash`、`final_data_hash`、分类统计和完整 warning entries；每条 entry 至少包含代码、严重度、实体类别、名称、章节、`source_refs`、原因和 resolution，字段归并记录还需包含候选值与最终选择。
+- 安装后的审查文件固定为 `reports/game-kb-review.json`，只包含 report 版本、`source_hash`、`final_data_hash`、warning 分类统计和确需人工关注的 warning entries；每条 entry 至少包含代码、实体类别、名称、章节、`source_refs`、原因和 resolution，不记录已被确定性规则自动解决的 info。
+- 既有工作区 `final/reports/assembly-report.json` 承载完整确定性审计：`description`、`rank`、`level`、`types` 的全部候选值与证据、最终选择、选择规则，以及一对一类型别名规范化记录都必须可追溯；这些记录不重复写入 `game-kb-review.json`。
 - `/api/library/status` 只暴露每本书的审查 warning 数量和摘要；完整 entries 通过独立只读接口 `/api/library/review-report?path=<author>/<book>` 按需读取，不得加入 `/api/library/book-data`。
 - 缺少审查 report 的旧书返回空审查结果；report 哈希与当前源书或终态数据不一致时显示 `REVIEW_REPORT_STALE` warning，但不阻断旧书浏览。
 - 保留现有实体高召回要求、`LOW_RECALL` 门禁、`source_hash` 与 `final_data_hash` 硬门禁。
@@ -62,12 +63,12 @@
 - 别名只能在书级实体形成后去重汇总到 `aliases`，别名相同或某候选名称命中另一候选别名都不得触发自动归并。
 - 近似名称、包含关系、拼音相似或模型推断为同一人的候选保持分离；需要语义身份判断的情况不得由确定性归并器猜测。
 - 同一书级实体存在多个不同 `description` 时，controller 先做精确去重，再选择字符数最长的有证据描述；长度相同则按最早 `source_ref`、文本字典序确定唯一结果。
-- 未被选中的 `description` 及其章节证据必须保留在候选审查 report，不能静默丢弃。
+- 未被选中的 `description` 及其章节证据必须保留在 `assembly-report.json` 的确定性审计中，不能静默丢弃。
 - v7 默认流程不增加主代理或子代理执行的 AI 描述总结；主代理不得改写实体语义，AI 描述润色只能作为未来独立、可选且不阻断安装的后处理能力。
 - 同一书级人物或武功存在多个不同 `rank` 时，选择出现次数最多的值；最高票并列时选择其最新章节证据更晚的值，不得简单选择等级最高值。
-- `rank` 的全部候选值、出现次数、最新证据和最终选择必须写入候选审查 report。
+- `rank` 的全部候选值、出现次数、最新证据和最终选择必须写入 `assembly-report.json`。
 - 同一书级人物存在多个不同 `level` 时，按 `核心 > 重要 > 次要 > 龙套 > 背景` 选择剧情重要性最高的值，避免核心人物因大量普通出场被多数值降级。
-- `level` 的全部候选值、章节证据和最终选择必须写入候选审查 report。
+- `level` 的全部候选值、章节证据和最终选择必须写入 `assembly-report.json`。
 - 武功、物品和势力在 v7 中统一使用多值 `types`，书级归并时取全部成员候选值的稳定去重并集；“武器/暗器”“门派/朝廷”“门派/商会”等组合是合法的多重分类，不视为冲突。
 - v7 章节草稿、accepted 数据和终态 YAML 禁止再写单值 `type`；旧书不迁移，Dashboard 和只读扫描器必须继续兼容旧版单值 `type`，并在内存中按单元素数组展示。
 - 去重后不得从某个章节候选的旧 ID 中任意选择赢家；controller 必须先形成书级实体，再从书级实体的 canonical name 和稳定 identity key 生成最终 ID。
@@ -77,7 +78,7 @@
 - 两个实体规范中文名完全相同但又有明确证据表明不能合并时，controller 不自动生成随机 suffix，而是以身份碰撞进入 `manual_review`；没有稳定区分依据时不得发布两个同名 ID。
 - controller 可以执行有显式测试覆盖的一对一类型别名规范化；已知英文别名转换为唯一中文规范值时不消耗 attempt。
 - `items[].types`、`skills[].types` 与 `factions[].types` 分别使用独立、无歧义的闭合白名单；每个数组元素独立规范化，禁止自由翻译或跨字段复用模糊映射。
-- 每次类型规范化必须记录字段路径、原值、规范值和规则名；白名单外或有歧义的英文类型属于语义错误，必须重派 Worker，主代理不得猜测或翻译。
+- 每次类型规范化必须在 `assembly-report.json` 中记录字段路径、原值、规范值和规则名；白名单外或有歧义的英文类型属于语义错误，必须重派 Worker，主代理不得猜测或翻译。
 - 对用户和 AI 公开的正常命令面只保留：`run`、只读 `status`、用户授权后的 `retry-unit`、显式清理用 `archive-abandoned`。
 - 删除公开的 `prepare`、`extract-plan`、`submit`、`plan-domains`、`accept`、`assemble`、`verify`、`install`、`archive-run`、`archive-existing`；必要的底层函数继续由 `run` 和自动化测试直接调用，不再要求 AI 编排。
 - `run` 必须创建或恢复 run、接收已出现的章节结果文件、返回下一批章节 job，并在全部章节完成后自动执行组装、验证、安装和归档。
@@ -118,13 +119,14 @@
 - [ ] 泛称过滤使用保守规则：不能稳定指向单一实体的泛称不进入终态 YAML，稳定专指称号不被误删。
 - [ ] 每个被过滤候选都能在独立审查 report 中追溯到类别、章节、证据、过滤原因和 resolution，且 Dashboard 能以 warning 展示数量与详情。
 - [ ] 五个终态 YAML schema 不增加 `deprecated`，`/book-data` 仍精确返回五个核心 YAML；缺少审查 report 的旧书仍可正常读取。
-- [ ] `reports/game-kb-review.json` 绑定当前 `source_hash` 与 `final_data_hash`；状态接口只返回摘要，独立 review-report 接口返回完整 entries，陈旧报告产生非阻断 warning。
+- [ ] `reports/game-kb-review.json` 绑定当前 `source_hash` 与 `final_data_hash`，且只包含人工 warning，不包含 `info_count` 或已自动解决的字段归并记录；状态接口只返回 warning 摘要，独立 review-report 接口返回完整 warning entries，陈旧报告产生非阻断 warning。
+- [ ] `assembly-report.json` 对每个确定性 `description`、`rank`、`level`、`types` 决策和类型别名规范化保留全部候选、证据、规则与最终结果，并通过工作区验证确认可由 accepted candidates 重算。
 - [ ] 同一书中反复出现的高置信同一实体不会按章节生成多个最终 ID；测试覆盖跨章同名角色、武功、物品和势力的归并。
 - [ ] 只有“同类别 + 精确规范名称”触发自动归并；测试证明别名重合、近似名称、名称包含关系和拼音相似都不会误触发归并。
 - [ ] 自动归并后的 `aliases` 是全部成员候选别名的稳定去重并集，别名集合增加或排序变化不会改变实体 ID。
-- [ ] 多个不同 `description` 按“最长文本 -> 最早证据 -> 文本字典序”确定性选择，其他版本与证据进入审查 report；默认流程不派发 AI 总结任务。
-- [ ] `rank` 冲突按“出现次数最多 -> 最新章节证据”确定性选择，不使用章节最高值；report 可追溯完整票数、证据和最终选择。
-- [ ] 人物 `level` 冲突按固定剧情重要性顺序选择最高值，不能被多数普通出场降级；report 可追溯全部候选值与证据。
+- [ ] 多个不同 `description` 按“最长文本 -> 最早证据 -> 文本字典序”确定性选择，其他版本与证据进入 assembly report；默认流程不派发 AI 总结任务。
+- [ ] `rank` 冲突按“出现次数最多 -> 最新章节证据”确定性选择，不使用章节最高值；assembly report 可追溯完整票数、证据和最终选择。
+- [ ] 人物 `level` 冲突按固定剧情重要性顺序选择最高值，不能被多数普通出场降级；assembly report 可追溯全部候选值与证据。
 - [ ] 武功、物品和势力在 v7 中都只写 `types`，跨章值取稳定去重并集；合法多重分类不会触发冲突或 warning。
 - [ ] v7 校验拒绝物品、武功和势力的单值 `type`；Dashboard 与只读扫描器仍能读取旧书的 `type`，且无需改写旧 YAML。
 - [ ] 去重后的唯一实体获得无 hash 的稳定 base ID；只有真实 ID 碰撞才使用稳定 suffix，且为实体增加后续章节证据不会改变 ID。

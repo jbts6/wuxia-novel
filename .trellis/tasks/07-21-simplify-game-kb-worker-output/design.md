@@ -370,13 +370,13 @@ factions:
 - `rank` 使用既有八级量表，不取章节最高值。
 - 同一书级人物或武功的 rank 取出现次数最多的值；最高票并列时取最新章节证据更晚的值；仍并列时使用固定枚举顺序形成稳定结果。
 - 人物 `level` 取 `核心 > 重要 > 次要 > 龙套 > 背景` 中出现过的最高重要性。
-- 所有候选分布和最终选择进入 review report。
+- 所有候选分布和最终选择进入 assembly report 的确定性审计。
 
 ### 11.3 Description
 
 - 精确去重后选择字符数最长的有证据 description。
 - 长度相同时取最早 source ref；仍并列时按中文文本稳定排序。
-- 未选中的版本和证据进入 review report。
+- 未选中的版本和证据进入 assembly report 的确定性审计。
 - 嵌套技法按精确规范名称归并，其 description 使用相同规则。
 - v7 默认流程不进行 AI 总结或语义润色。
 
@@ -392,7 +392,7 @@ accepted chapters
   -> 字段确定性归并
   -> ID 规划
   -> 引用闭环解析
-  -> 五个终态 YAML + review report
+  -> 五个终态 YAML + assembly report + warning-only review report
 ```
 
 ### 12.1 自动归并键
@@ -452,7 +452,7 @@ aliases 只在实体分组后做稳定去重并集。
 - `techniques`：按精确规范名称归并，description 使用最长文本规则。
 - 章节摘要：按章节一对一保留，不跨章归并。
 
-任何确定性选择都必须可从 review report 追溯到成员 candidate key 和 source refs。
+任何确定性选择都必须可从 assembly report 追溯到成员 candidate key 和 source refs。
 
 ## 13. ID 规划
 
@@ -485,7 +485,44 @@ category + canonical Chinese name
 
 `id_plan.json` 继续记录 base、碰撞原因、suffix 输入和最终 ID，工作区验证重算并比对。
 
-## 14. Review report
+## 14. Assembly audit 与 Review warnings
+
+### 14.1 Assembly report
+
+沿用现有工作区报告：
+
+```text
+final/reports/assembly-report.json
+```
+
+在既有 source、accepted、candidate resolution、ID plan、final hash 和 counts 门禁字段之外，新增 `deterministic_audit`：
+
+```json
+{
+  "deterministic_audit": {
+    "field_decisions": [],
+    "type_normalizations": []
+  },
+  "deterministic_audit_hash": "sha256:..."
+}
+```
+
+每个 `description`、`rank`、`level`、`types` 确定性决策都生成一条 `field_decisions` 记录，不以是否存在冲突或形成 warning 为条件。记录至少包含：
+
+- `category`
+- `canonical_name`
+- `member_refs`
+- `source_refs`
+- `field`
+- `candidate_values`
+- `selected_value`
+- `selection_rule`
+
+每次一对一类型别名规范化生成一条 `type_normalizations` 记录，包含 `category`、`canonical_name`、`member_ref`、`source_ref`、`field_path`、`original_value`、`normalized_value` 和 `normalization_rule`。
+
+完整候选分布、票数、最新证据、未选中描述和规范化过程只保存在 assembly report，不复制到 Dashboard review report。工作区验证必须从 accepted candidates 重算 `deterministic_audit` 并核对其稳定哈希，不能只检查字段存在。
+
+### 14.2 Review report
 
 工作区路径：
 
@@ -508,7 +545,6 @@ reports/game-kb-review.json
   "final_data_hash": "...",
   "summary": {
     "warning_count": 0,
-    "info_count": 0,
     "by_code": {},
     "by_category": {}
   },
@@ -519,7 +555,7 @@ reports/game-kb-review.json
 每条 entry 至少包含：
 
 - `code`
-- `severity`: `info` 或 `warning`
+- `severity`: 固定为 `warning`
 - `category`
 - `name`
 - `chapter_numbers`
@@ -528,23 +564,12 @@ reports/game-kb-review.json
 - `reason`
 - `resolution`
 
-字段归并 entry 还包含：
-
-- `field`
-- `candidate_values`
-- `selected_value`
-- `selection_rule`
-
 典型代码：
 
 - `GENERIC_CANDIDATE_FILTERED`
-- `DESCRIPTION_VARIANTS_COLLAPSED`
-- `RANK_CONFLICT_RESOLVED`
-- `LEVEL_CONFLICT_RESOLVED`
-- `TYPE_ALIAS_NORMALIZED`
 - `IDENTITY_COLLISION_REVIEW_REQUIRED`
 
-已知一对一类型别名规范化可为 `info`；泛称过滤和可能影响人工判断的字段冲突为 `warning`。合法多 `types` 不生成 entry。
+review report 只保存确需人工关注的 warning。已被确定性规则解决的 description/rank/level/types 决策和一对一类型别名规范化不生成 review entry；合法多 `types` 也不生成 entry。泛称过滤、身份碰撞等需要人工发现或裁决的情况才进入该报告。
 
 ## 15. 验证、安装与归档
 
@@ -566,9 +591,9 @@ reports/game-kb-review.json
 新增门禁：
 
 - v7 三类实体只使用 `types`，不出现 `type`。
-- review report schema 有效。
-- report 的 source hash、final data hash 与当前产物一致。
-- report 的字段选择可回溯到 accepted candidate。
+- assembly report 与 warning-only review report schema 均有效。
+- 两份 report 的 source hash、final data hash 与当前产物一致。
+- assembly report 的确定性审计可从 accepted candidates 完整重算，且审计哈希一致。
 - assembly report 和 verification report 绑定 review report hash。
 
 新生成 run 的 review report 缺失、畸形或过期必须阻断安装。Dashboard 对已经安装的旧书采取非阻断 warning 是不同信任边界。
@@ -647,7 +672,6 @@ Dashboard 读取边界必须支持两种形状：
 review: {
   status: 'missing' | 'current' | 'stale' | 'invalid';
   warningCount: number;
-  infoCount: number;
   reportPath: string | null;
 }
 ```
@@ -655,7 +679,7 @@ review: {
 规则：
 
 - 旧书 missing 是正常状态，不降低 browseable/completed。
-- v7 当前报告返回 current 和计数。
+- v7 当前报告返回 current 和 warning 计数。
 - hash 不匹配返回 stale，并产生 `REVIEW_REPORT_STALE` 扫描 warning。
 - malformed 返回 invalid warning；对旧书不阻断浏览，对声明 v7 且应有报告的新书应使 completed=false，但不影响五文件可解析时的 browseable。
 
@@ -791,7 +815,7 @@ GET /api/library/review-report?path=<author>/<book>
 - 角色、武功、物品、势力跨章精确同名归并。
 - alias 重合、近似名、包含关系、拼音相似不归并。
 - aliases/types/引用数组稳定去重。
-- description 最长规则和全部变体 report。
+- description 最长规则和全部变体 assembly audit。
 - rank 多数规则、平票最新证据。
 - level 最高重要性。
 - 泛称过滤、专指称号保留。
@@ -801,7 +825,8 @@ GET /api/library/review-report?path=<author>/<book>
 
 ### 20.4 Report、验证、安装测试
 
-- review report schema、统计和 entry 追溯。
+- assembly deterministic audit schema、稳定哈希、重算与 entry 追溯。
+- warning-only review report schema、统计和人工 warning 追溯；拒绝 `info_count` 和自动解决 entry。
 - source/final hash stale 检测。
 - assembly/verification/install receipt 绑定 report hash。
 - 五 YAML + report 原子安装，任一失败恢复旧 data 和旧 report。
