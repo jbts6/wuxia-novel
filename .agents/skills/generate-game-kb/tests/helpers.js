@@ -160,7 +160,7 @@ function prepareAssembledRun({
     commands.push(args[0]);
     return requireFlowSuccess(runFlow(args), label);
   };
-  const prepared = invoke(['prepare', novel, '--run', runId, '--json'], 'prepare');
+  const prepared = invoke(['prepare', novel, '--run', runId, '--deep', '--json'], 'prepare');
   const paths = pathsFor(novel, prepared.run_id);
   const manifest = readJson(paths.manifest);
   for (const chapter of manifest.chapters) {
@@ -249,8 +249,46 @@ function validCleanedBook(overrides = {}) {
   });
 }
 
+function acceptAllChapters(novel, runId, draftForChapter = null) {
+  const paths = pathsFor(novel, runId);
+  const manifest = readJson(paths.manifest);
+  for (const chapter of manifest.chapters) {
+    const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
+    const chapterText = fs.readFileSync(chapter.file, 'utf8');
+    const evidenceText = chapterText.split(/\r?\n/).slice(1).find(line => line.trim() !== '')
+      || chapter.title;
+    const draft = draftForChapter
+      ? draftForChapter(chapter)
+      : validChapterDraft({
+        chapter: chapter.number,
+        title: chapter.title,
+        source_hash: chapter.input_hash,
+        characters: [{
+          local_key: 'character:甲', name: '甲', level: '核心', rank: '初窥门径',
+          aliases: [], identities: [], description: null, factions: [], skills: [],
+          source_refs: [sourceRef(chapter.number, evidenceText)]
+        }],
+        skills: [{
+          local_key: 'skill:内功', name: '玄门内功', rank: '初窥门径',
+          aliases: [], types: [], factions: [], description: null,
+          techniques: [{ name: '飞云掌', description: null }],
+          source_refs: [sourceRef(chapter.number, evidenceText)]
+        }],
+        chapter_summary: {
+          title: chapter.title,
+          summary: `第${chapter.number}章摘要。`,
+          source_refs: [sourceRef(chapter.number, evidenceText)]
+        }
+      });
+    const file = writeStagingDraft(novel, unit, draft);
+    const result = runFlow(['accept', novel, '--run', runId, '--unit', unit, '--draft', file, '--json']);
+    if (result.status !== 0) throw new Error(`accept ${unit}: ${result.stderr}`);
+  }
+}
+
 module.exports = {
   FLOW,
+  acceptAllChapters,
   makeNovel,
   makeNovelDirectory,
   parseJsonLine,

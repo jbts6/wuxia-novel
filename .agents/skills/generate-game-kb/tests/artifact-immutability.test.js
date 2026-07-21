@@ -43,7 +43,7 @@ function prepareAcceptedChapters() {
     '第三章 收束', '甲查明真相。'
   ].join('\n') + '\n';
   const novel = makeNovel('不可变测试书', source);
-  const prepared = assertPassed(flowJson(['prepare', novel]), 'prepare');
+  const prepared = assertPassed(flowJson(['prepare', novel, '--deep']), 'prepare');
   const paths = pathsFor(novel, prepared.run_id);
   const manifest = readJson(paths.manifest);
 

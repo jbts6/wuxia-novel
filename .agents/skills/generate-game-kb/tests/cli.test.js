@@ -7,13 +7,14 @@ const test = require('node:test');
 const yaml = require('js-yaml');
 
 const { assertDraftPath } = require('../scripts/lib/accept');
-const { MAX_DOMAIN_WORK_ITEM_BYTES } = require('../scripts/lib/domain-work');
 const { DATA_FILES } = require('../scripts/lib/install');
 const { pathsFor } = require('../scripts/lib/paths');
 const { resolveRun } = require('../scripts/lib/run');
-const { DOMAIN_UNITS, SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
+const { DOMAIN_UNITS, FINAL_FILES, SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
+const { INITIAL_CONCURRENCY_LIMIT } = require('../scripts/lib/worker-pool');
 const { readWorkItem } = require('../scripts/lib/semantic-work');
 const {
+  acceptAllChapters,
   makeNovel,
   makeNovelDirectory,
   parseJsonLine,
@@ -41,46 +42,7 @@ function writeJson(file, value) {
   fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
-function legacyMigrationFixture() {
-  const novel = makeNovel('迁移试书', '第一章 旧事\n旧人物出场。\n');
-  const chapters = path.join(novel, '.game-kb-work', 'runs', 'legacy-source', 'source', 'chapters');
-  fs.mkdirSync(chapters, { recursive: true });
-  fs.writeFileSync(path.join(chapters, 'ch_001.txt'), '第一章 旧事\n旧人物出场。\n', 'utf8');
-  const data = path.join(novel, 'data');
-  writeJson(path.join(data, 'characters.json'), [{
-    id: 'char_legacy',
-    name: '旧人物',
-    source_refs: [{ chapter: 1, text: '旧人物出场。' }]
-  }]);
-  writeJson(path.join(data, 'skills.json'), []);
-  writeJson(path.join(data, 'items.json'), []);
-  writeJson(path.join(data, 'factions.json'), []);
-  writeJson(path.join(data, 'chapter_summaries.json'), [{
-    chapter: 1,
-    title: '第一章 旧事',
-    summary: '旧人物出场。',
-    source_refs: []
-  }]);
-  return { data, novel };
-}
-
-function snapshotTree(root) {
-  const rows = [];
-  const visit = directory => {
-    for (const entry of fs.readdirSync(directory, { withFileTypes: true })
-      .sort((left, right) => left.name < right.name ? -1 : left.name > right.name ? 1 : 0)) {
-      const file = path.join(directory, entry.name);
-      const relative = path.relative(root, file).split(path.sep).join('/');
-      rows.push([entry.isDirectory() ? 'directory' : 'file', relative,
-        entry.isDirectory() ? null : fs.readFileSync(file).toString('base64')]);
-      if (entry.isDirectory()) visit(file);
-    }
-  };
-  visit(root);
-  return rows;
-}
-
-test('prepare creates a current v4 manifest and returns JSON', () => {
+test('prepare creates the single current contract in default mode and returns JSON', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   const result = runFlow(['prepare', novel, '--json']);
 
@@ -91,6 +53,8 @@ test('prepare creates a current v4 manifest and returns JSON', () => {
   assert.equal(readJson(activePaths(novel).manifest).chapters.length, 1);
   assert.equal(metadata.semantic_contract_version, SEMANTIC_CONTRACT_VERSION);
   assert.equal(metadata.semantic_profile, 'domain-distill-v1');
+  assert.equal(metadata.deep, false);
+  assert.equal(metadata.profile, undefined);
 });
 
 test('prepare without --run resumes the unique current run instead of archiving it', () => {
@@ -241,7 +205,7 @@ test('accept persists normalized current chapter YAML and marks the unit done', 
 
 test('plan-domains creates four current units and a rejected domain leaves its accepted sibling unchanged', () => {
   const novel = makeNovel('试书', '第一章 起始\n甲取得铁盒并拜入胡家。\n');
-  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
+  assert.equal(runFlow(['prepare', novel, '--deep', '--json']).status, 0);
   const paths = activePaths(novel);
   const chapter = readJson(paths.manifest).chapters[0];
   const chapterDraft = validChapterDraft({
@@ -297,37 +261,21 @@ test('plan-domains creates four current units and a rejected domain leaves its a
   assert.equal(progress['distill:items'].attempts, 1);
 });
 
-test('plan-domains fails explicitly instead of truncating an oversized current domain', () => {
-  const novel = makeNovel('试书', '第一章 起始\n甲连续讲述往事。\n');
-  assert.equal(runFlow(['prepare', novel, '--json']).status, 0);
-  const paths = activePaths(novel);
-  const chapter = readJson(paths.manifest).chapters[0];
-  const base = validChapterDraft();
-  const chapterDraft = validChapterDraft({
-    title: chapter.title,
-    source_hash: chapter.input_hash,
-    characters: [{
-      ...base.characters[0],
-      aliases: ['长'.repeat(MAX_DOMAIN_WORK_ITEM_BYTES)],
-      source_refs: [sourceRef(1, '甲连续讲述往事。')]
-    }],
-    skills: [],
-    chapter_summary: {
-      title: chapter.title,
-      summary: '甲连续讲述往事。',
-      source_refs: [sourceRef(1, '甲连续讲述往事。')]
-    }
-  });
-  const accepted = acceptDraft(novel, 'chapter:001', chapterDraft);
-  assert.equal(accepted.status, 0, accepted.stderr);
+test('plan-domains rejects a standard run without --deep', () => {
+  const novel = makeNovel('默认模式', '第一章 起始\n甲。\n');
+  const runId = 'run-standard-domains';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  acceptAllChapters(novel, runId);
 
-  const result = runFlow(['plan-domains', novel, '--json']);
+  const result = runFlow(['plan-domains', novel, '--run', runId, '--json']);
+
   assert.notEqual(result.status, 0);
-  const error = parseJsonLine(result.stderr);
-  assert.equal(error.code, 'DOMAIN_INPUT_TOO_LARGE');
-  assert.equal(error.details.unit, 'distill:characters');
-  assert.ok(error.details.input_bytes > error.details.max_bytes);
-  assert.equal(readJson(paths.progress).units['distill:characters'], undefined);
+  assert.match(result.stderr, /DEEP_MODE_REQUIRED/);
+  const paths = pathsFor(novel, runId);
+  assert.deepEqual(
+    Object.keys(readJson(paths.progress).units).filter(unit => unit.startsWith('distill:')),
+    []
+  );
 });
 
 test('assemble CLI projects the exact five deterministic YAML files', () => {
@@ -347,57 +295,232 @@ test('assemble CLI projects the exact five deterministic YAML files', () => {
   assert.deepEqual(fs.readdirSync(fixture.paths.finalData).sort(), [...DATA_FILES].sort());
 });
 
-test('migrate-legacy requires a run id and is read-only without --confirm', () => {
-  const fixture = legacyMigrationFixture();
-  const missingRun = runFlow([
-    'migrate-legacy', fixture.novel, '--from', fixture.data, '--json'
-  ]);
-  assert.notEqual(missingRun.status, 0);
-  assert.equal(parseJsonLine(missingRun.stderr).code, 'RUN_REQUIRED');
+// ---------------------------------------------------------------------------
+// Simplified command surface (no batch / no guard / flat units)
+// ---------------------------------------------------------------------------
 
-  const before = snapshotTree(fixture.novel);
-  const planned = runFlow([
-    'migrate-legacy', fixture.novel,
-    '--run', 'migration-cli-dry-run',
-    '--from', fixture.data,
-    '--json'
-  ]);
+test('extract-plan returns flat chapter units at five-wide concurrency with no batch form', () => {
+  const novel = makeNovel('提取计划书', '第一章 起始\n甲。\n第二章 续\n乙。\n第三章 终\n丙。\n');
+  const runId = 'run-extract-plan';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  const result = runFlow(['extract-plan', novel, '--run', runId, '--json']);
 
-  assert.equal(planned.status, 0, planned.stderr);
-  const output = JSON.parse(planned.stdout);
-  assert.equal(output.operation, 'legacy-json-to-v6');
-  assert.equal(output.source.data_root, fixture.data);
-  assert.deepEqual(snapshotTree(fixture.novel), before);
+  assert.equal(result.status, 0, result.stderr);
+  const plan = JSON.parse(result.stdout);
+  assert.equal(plan.stage, 'extract');
+  assert.equal(plan.concurrency, INITIAL_CONCURRENCY_LIMIT);
+  assert.equal(plan.concurrency, 5);
+  assert.equal(plan.count, 3);
+  assert.equal(plan.chapters.length, 3);
+  // The simplified contract has no batch concept.
+  assert.equal(plan.batch, undefined);
+  assert.equal(plan.batches, undefined);
+  assert.equal(plan.batch_id, undefined);
+  for (const item of plan.chapters) {
+    assert.match(item.unit, /^chapter:\d{3}$/);
+    assert.equal(typeof item.number, 'number');
+    assert.equal(typeof item.title, 'string');
+    assert.equal(typeof item.input_hash, 'string');
+    assert.equal(item.attempt, 1);
+  }
+  assert.deepEqual(plan.incomplete, plan.chapters.map(chapter => chapter.unit));
 });
 
-test('migrate-legacy executes only with --confirm and an explicit staging root', () => {
-  const fixture = legacyMigrationFixture();
-  const missingStaging = runFlow([
-    'migrate-legacy', fixture.novel,
-    '--run', 'migration-cli-confirm',
-    '--from', fixture.data,
-    '--confirm',
-    '--json'
-  ]);
-  assert.notEqual(missingStaging.status, 0);
-  assert.equal(parseJsonLine(missingStaging.stderr).code, 'MIGRATION_STAGING_REQUIRED');
+test('submit rejects empty stdin without writing staging, accepted, or progress', () => {
+  const novel = makeNovel('提交空输入', '第一章 起始\n甲。\n');
+  const runId = 'run-submit-empty';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  const paths = pathsFor(novel, runId);
 
-  const stagingRoot = path.join(path.dirname(fixture.novel), 'migration-cli-staging');
-  try {
-    const migrated = runFlow([
-      'migrate-legacy', fixture.novel,
-      '--run', 'migration-cli-confirm',
-      '--from', fixture.data,
-      '--staging-root', stagingRoot,
-      '--confirm',
-      '--json'
-    ]);
-    assert.equal(migrated.status, 0, migrated.stderr);
-    assert.equal(JSON.parse(migrated.stdout).status, 'verified');
-    const verified = runFlow(['verify', fixture.novel, '--installed', '--json']);
-    assert.equal(verified.status, 0, verified.stderr);
-    assert.equal(JSON.parse(verified.stdout).passed, true);
-  } finally {
-    fs.rmSync(stagingRoot, { recursive: true, force: true });
-  }
+  const result = runFlow(
+    ['submit', novel, '--run', runId, '--unit', 'chapter:001', '--attempt', '1', '--json'],
+    { input: '' }
+  );
+
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /SUBMISSION_INPUT_EMPTY/);
+  assert.equal(fs.readdirSync(paths.staging).length, 0, 'staging must stay empty');
+  assert.equal(readJson(paths.progress).units['chapter:001'].attempts, 0);
+  assert.equal(fs.existsSync(path.join(paths.chapters, 'ch_001.yaml')), false);
+});
+
+test('submit rejects a non-object envelope without side effects', () => {
+  const novel = makeNovel('提交坏信封', '第一章 起始\n甲。\n');
+  const runId = 'run-submit-bad';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  const paths = pathsFor(novel, runId);
+
+  const result = runFlow(
+    ['submit', novel, '--run', runId, '--unit', 'chapter:001', '--attempt', '1', '--json'],
+    { input: 'this is not json {' }
+  );
+
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /SUBMISSION_ENVELOPE_INVALID/);
+  assert.equal(fs.readdirSync(paths.staging).length, 0);
+  assert.equal(readJson(paths.progress).units['chapter:001'].attempts, 0);
+});
+
+test('submit rejects an identity-mismatched envelope without side effects', () => {
+  const novel = makeNovel('提交错身份', '第一章 起始\n甲。\n');
+  const runId = 'run-submit-identity';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  const paths = pathsFor(novel, runId);
+  const manifest = readJson(paths.manifest);
+  const envelope = {
+    schema_version: 1,
+    unit: 'chapter:001',
+    attempt: 1,
+    input_hash: `${manifest.chapters[0].input_hash}X`,
+    draft: validChapterDraft({ source_hash: manifest.chapters[0].input_hash })
+  };
+
+  const result = runFlow(
+    ['submit', novel, '--run', runId, '--unit', 'chapter:001', '--attempt', '1', '--json'],
+    { input: JSON.stringify(envelope) }
+  );
+
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /SUBMISSION_IDENTITY_MISMATCH/);
+  assert.equal(fs.readdirSync(paths.staging).length, 0);
+  assert.equal(readJson(paths.progress).units['chapter:001'].attempts, 0);
+  assert.equal(fs.existsSync(path.join(paths.chapters, 'ch_001.yaml')), false);
+});
+
+test('submit accepts a well-formed envelope and records the chapter as done', () => {
+  const novel = makeNovel('提交成功', '第一章 起始\n甲。\n');
+  const runId = 'run-submit-ok';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  const paths = pathsFor(novel, runId);
+  const manifest = readJson(paths.manifest);
+  const envelope = {
+    schema_version: 1,
+    unit: 'chapter:001',
+    attempt: 1,
+    input_hash: manifest.chapters[0].input_hash,
+    draft: validChapterDraft({ source_hash: manifest.chapters[0].input_hash })
+  };
+
+  const result = runFlow(
+    ['submit', novel, '--run', runId, '--unit', 'chapter:001', '--attempt', '1', '--json'],
+    { input: JSON.stringify(envelope) }
+  );
+
+  assert.equal(result.status, 0, result.stderr);
+  const progress = readJson(paths.progress).units['chapter:001'];
+  assert.equal(progress.status, 'done');
+  assert.equal(progress.attempts, 1);
+  assert.equal(fs.existsSync(path.join(paths.chapters, 'ch_001.yaml')), true);
+});
+
+test('submit rejects a replayed attempt without spending a second budget', () => {
+  const novel = makeNovel('提交重放', '第一章 起始\n甲。\n');
+  const runId = 'run-submit-replay';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  const paths = pathsFor(novel, runId);
+  const manifest = readJson(paths.manifest);
+  const envelope = {
+    schema_version: 1,
+    unit: 'chapter:001',
+    attempt: 1,
+    input_hash: manifest.chapters[0].input_hash,
+    draft: validChapterDraft({ source_hash: manifest.chapters[0].input_hash })
+  };
+  const input = JSON.stringify(envelope);
+
+  assert.equal(
+    runFlow(
+      ['submit', novel, '--run', runId, '--unit', 'chapter:001', '--attempt', '1', '--json'],
+      { input }
+    ).status,
+    0
+  );
+
+  const replay = runFlow(
+    ['submit', novel, '--run', runId, '--unit', 'chapter:001', '--attempt', '1', '--json'],
+    { input }
+  );
+  assert.notEqual(replay.status, 0);
+  assert.match(replay.stderr, /SUBMISSION_ATTEMPT_CONFLICT/);
+  assert.equal(readJson(paths.progress).units['chapter:001'].attempts, 1);
+});
+
+test('run returns a flat extract plan before any chapter is accepted', () => {
+  const novel = makeNovel('运行前提取', '第一章 起始\n甲。\n第二章 续\n乙。\n');
+  const runId = 'run-progressive';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+
+  const result = runFlow(['run', novel, '--run', runId, '--json']);
+
+  assert.equal(result.status, 0, result.stderr);
+  const plan = JSON.parse(result.stdout);
+  assert.equal(plan.stage, 'extract');
+  assert.equal(plan.concurrency, 5);
+  assert.equal(plan.count, 2);
+  assert.deepEqual(plan.incomplete, ['chapter:001', 'chapter:002']);
+});
+
+test('lite assemble creates the candidate registry without planning domain units', () => {
+  const novel = makeNovel('直接组装', '第一章 起始\n甲。\n');
+  const runId = 'run-direct-assemble';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  acceptAllChapters(novel, runId);
+
+  const result = runFlow(['assemble', novel, '--run', runId, '--json']);
+
+  assert.equal(result.status, 0, result.stderr);
+  const paths = pathsFor(novel, runId);
+  assert.equal(fs.existsSync(paths.candidateRegistry), true);
+  const domainUnits = Object.keys(readJson(paths.progress).units)
+    .filter(unit => unit.startsWith('distill:'));
+  assert.deepEqual(domainUnits, []);
+});
+
+test('run drives the lite pipeline end-to-end and archives five installed YAML files', () => {
+  const novel = makeNovel('运行端到端', '第一章 起始\n甲。\n第二章 续\n乙。\n第三章 终\n丙。\n');
+  const runId = 'run-e2e-lite';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  acceptAllChapters(novel, runId);
+
+  const result = runFlow(['run', novel, '--run', runId, '--json']);
+
+  assert.equal(result.status, 0, result.stderr);
+  const report = JSON.parse(result.stdout);
+  assert.equal(report.stage, 'archived');
+  const installed = fs.readdirSync(path.join(novel, 'data')).sort();
+  assert.deepEqual(installed, [...Object.values(FINAL_FILES)].sort());
+  assert.equal(installed.length, 5);
+});
+
+test('source_hash is a hard gate: a changed source blocks re-prepare', () => {
+  const novel = makeNovel('哈希源', '第一章 起始\n甲。\n');
+  assert.equal(runFlow(['prepare', novel, '--run', 'run-source', '--json']).status, 0);
+
+  fs.writeFileSync(path.join(novel, '哈希源.txt'), '第一章 起始\n乙完全不同的内容。\n');
+
+  const result = runFlow(['prepare', novel, '--run', 'run-source', '--json']);
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /RUN_SOURCE_CHANGED/);
+});
+
+test('final_data_hash is a hard gate: tampering assembled data fails verification', () => {
+  const novel = makeNovel('数据哈希', '第一章 起始\n甲。\n第二章 续\n乙。\n');
+  const runId = 'run-data-hash';
+  assert.equal(runFlow(['prepare', novel, '--run', runId, '--json']).status, 0);
+  acceptAllChapters(novel, runId);
+  assert.equal(runFlow(['assemble', novel, '--run', runId, '--json']).status, 0);
+
+  const paths = pathsFor(novel, runId);
+  const charFile = path.join(paths.finalData, 'characters.yaml');
+  const chars = yaml.load(fs.readFileSync(charFile, 'utf8')) || [];
+  chars.push({
+    id: 'char_tamper', name: '篡改者', level: '核心', rank: '初窥门径',
+    aliases: [], identities: [], description: null, factions: [], skills: [],
+    source_refs: [{ chapter: 1, text: '篡改' }]
+  });
+  fs.writeFileSync(charFile, yaml.dump(chars, { noRefs: true, lineWidth: -1 }), 'utf8');
+
+  const verified = runFlow(['verify', novel, '--run', runId, '--json']);
+  assert.notEqual(verified.status, 0);
+  assert.match(verified.stderr, /FINAL_VERIFICATION_FAILED|ASSEMBLY_FINAL_HASH_STALE/);
 });

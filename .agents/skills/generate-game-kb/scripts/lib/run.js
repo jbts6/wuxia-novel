@@ -12,12 +12,8 @@ const { atomicWriteJson, readJson } = require('./io');
 const { discoverSource, normalizeSource, sha256 } = require('./source');
 const { pathsFor } = require('./paths');
 const {
-  LEGACY_PROFILE_V5,
-  PROFILE_LITE,
-  PROFILE_V4,
   SEMANTIC_CONTRACT_VERSION,
-  SEMANTIC_PROFILE,
-  SUPPORTED_PROFILES
+  SEMANTIC_PROFILE
 } = require('./semantic-contract');
 const { EMPTY_DURATIONS } = require('./timing');
 const { ensureWorkerPool } = require('./worker-pool');
@@ -69,24 +65,18 @@ function readRunMetadata(runDir) {
   }
 }
 
-function normalizeProfile(profile) {
-  if (profile === undefined || profile === null) return PROFILE_V4;
-  if (profile === LEGACY_PROFILE_V5) {
-    throw new GameKbError(
-      'PROFILE_LEGACY',
-      'The legacy v5 profile is read-only; resume it through Lite migration',
-      { profile, replacement: PROFILE_LITE }
-    );
+function normalizeDeep(deep) {
+  if (deep === undefined || deep === null) return false;
+  if (typeof deep !== 'boolean') {
+    throw new GameKbError('DEEP_MODE_INVALID', 'Deep mode must be a boolean', { deep });
   }
-  if (!SUPPORTED_PROFILES.has(profile)) {
-    throw new GameKbError('PROFILE_UNSUPPORTED', 'Unknown game-kb profile', { profile });
-  }
-  return profile;
+  return deep;
 }
 
-function assertSemanticContract(metadata, action = 'continue', expectedProfile) {
+function assertSemanticContract(metadata, action = 'continue', expectedDeep) {
   if (metadata?.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION
-    || metadata?.semantic_profile !== SEMANTIC_PROFILE) {
+    || metadata?.semantic_profile !== SEMANTIC_PROFILE
+    || typeof metadata?.deep !== 'boolean') {
     throw new GameKbError(
       'LEGACY_SEMANTIC_CONTRACT',
       'This run is read-only under the current semantic contract',
@@ -96,19 +86,19 @@ function assertSemanticContract(metadata, action = 'continue', expectedProfile) 
         required_version: SEMANTIC_CONTRACT_VERSION,
         semantic_profile: metadata?.semantic_profile ?? null,
         required_profile: SEMANTIC_PROFILE,
+        deep: metadata?.deep ?? null,
         action
       }
     );
   }
-  const actualProfile = metadata.profile ?? PROFILE_V4;
-  if (expectedProfile !== undefined && actualProfile !== expectedProfile) {
+  if (expectedDeep !== undefined && metadata.deep !== expectedDeep) {
     throw new GameKbError(
-      'PROFILE_MISMATCH',
-      `Run profile ${actualProfile} cannot be written by profile ${expectedProfile}`,
+      'DEEP_MODE_MISMATCH',
+      `Run deep mode ${metadata.deep} cannot be written with --deep=${expectedDeep}`,
       {
         run_id: metadata?.run_id ?? null,
-        profile: actualProfile,
-        required_profile: expectedProfile,
+        deep: metadata.deep,
+        required_deep: expectedDeep,
         action
       }
     );
@@ -148,7 +138,7 @@ function ensureRunDirectories(paths) {
 function createOrResumeRun(novelDir, options = {}) {
   const novel = path.resolve(novelDir);
   const { sourceFile, sourceHash } = sourceState(novel);
-  const profile = normalizeProfile(options.profile);
+  const deep = normalizeDeep(options.deep);
   const runs = runDirectories(novel);
   let runId = options.runId;
   if (!runId) {
@@ -167,13 +157,7 @@ function createOrResumeRun(novelDir, options = {}) {
         source_hash: sourceHash
       });
     }
-    const storedProfile = metadata.profile ?? PROFILE_V4;
-    if (storedProfile === LEGACY_PROFILE_V5 && profile === PROFILE_LITE) {
-      metadata = { ...metadata, profile: PROFILE_LITE };
-      atomicWriteJson(paths.runJson, metadata);
-    } else {
-      assertSemanticContract(metadata, 'prepare', profile);
-    }
+    assertSemanticContract(metadata, 'prepare', deep);
     ensureRunDirectories(paths);
     ensureWorkerPool(paths);
     return {
@@ -183,7 +167,7 @@ function createOrResumeRun(novelDir, options = {}) {
       source_hash: sourceHash,
       semantic_contract_version: metadata.semantic_contract_version,
       semantic_profile: metadata.semantic_profile,
-      profile: metadata.profile ?? PROFILE_V4,
+      deep: metadata.deep,
       resumed: true
     };
   }
@@ -194,7 +178,7 @@ function createOrResumeRun(novelDir, options = {}) {
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     semantic_profile: SEMANTIC_PROFILE,
     accepted_serialization: ACCEPTED_SERIALIZATION,
-    profile,
+    deep,
     run_id: runId,
     source_file: sourceFile,
     source_hash: sourceHash,
@@ -212,35 +196,28 @@ function createOrResumeRun(novelDir, options = {}) {
     source_hash: sourceHash,
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     semantic_profile: SEMANTIC_PROFILE,
-    profile,
+    deep,
     resumed: false
   };
 }
 
-function resolveRun(novelDir, runId, expectedProfile) {
+function resolveRun(novelDir, runId, expectedDeep) {
   const runs = runDirectories(novelDir);
   if (runId) {
     const paths = pathsFor(novelDir, runId);
     if (!fs.existsSync(paths.runJson)) throw new GameKbError('RUN_MISSING', 'Requested run does not exist', { run_id: runId });
-    return assertSemanticContract({ ...readRunMetadata(paths.run), run_dir: paths.run }, 'resolve', expectedProfile);
+    return assertSemanticContract({ ...readRunMetadata(paths.run), run_dir: paths.run }, 'resolve', expectedDeep);
   }
   if (runs.length === 0) throw new GameKbError('RUN_REQUIRED', 'No eligible run exists; run prepare first');
   if (runs.length > 1) throw new GameKbError('RUN_AMBIGUOUS', 'Multiple eligible runs require --run <run-id>');
   const runDir = runs[0];
-  return assertSemanticContract({ ...readRunMetadata(runDir), run_dir: runDir }, 'resolve', expectedProfile);
+  return assertSemanticContract({ ...readRunMetadata(runDir), run_dir: runDir }, 'resolve', expectedDeep);
 }
 
-function resolveWritableRun(novelDir, runId, action = 'continue', expectedProfile) {
+function resolveWritableRun(novelDir, runId, action = 'continue', expectedDeep) {
   const metadata = resolveRun(novelDir, runId);
-  if (metadata.profile === LEGACY_PROFILE_V5) {
-    throw new GameKbError(
-      'PROFILE_LEGACY',
-      'The legacy v5 profile must be migrated with lite-prepare before writing',
-      { run_id: metadata.run_id, profile: metadata.profile, action }
-    );
-  }
   assertAcceptedSerialization(metadata, action);
-  return assertSemanticContract(metadata, action, expectedProfile);
+  return assertSemanticContract(metadata, action, expectedDeep);
 }
 
 module.exports = {
@@ -251,7 +228,7 @@ module.exports = {
   assertArchiveExistingAllowed,
   assertSemanticContract,
   createOrResumeRun,
-  normalizeProfile,
+  normalizeDeep,
   resolveRun,
   resolveWritableRun,
   sourceState

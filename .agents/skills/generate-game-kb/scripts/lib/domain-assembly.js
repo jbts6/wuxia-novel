@@ -249,8 +249,8 @@ function assembleGroundedBook({ manifest, chapters, registry, source_registry: s
         : {
             candidate_key: candidateKey,
             resolution: 'rejected',
-            reason: 'basic-curate-drop',
-            detail: 'Candidate was dropped by accepted basic curation'
+            reason: 'candidate-not-retained',
+            detail: 'Candidate is not present in the retained registry'
           });
     }
   }

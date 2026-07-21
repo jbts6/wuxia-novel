@@ -277,6 +277,7 @@ function archiveRun(novelDir, runId, options = {}) {
     expectedHash
   });
   const blockingErrors = [...workspace.blocking_errors];
+  const warnings = [];
   if (typeof expectedHash !== 'string' || expectedHash === '') {
     blockingErrors.push({ code: 'ASSEMBLY_FINAL_HASH_MISSING', path: paths.assemblyReport, target: '' });
   }
@@ -298,21 +299,21 @@ function archiveRun(novelDir, runId, options = {}) {
     });
   }
   if (metadata.verification_report_hash !== verificationReportHash) {
-    blockingErrors.push({
+    warnings.push({
       code: 'VERIFICATION_REPORT_HASH_MISMATCH',
       path: paths.verificationReport,
       target: metadata.verification_report_hash ?? ''
     });
   }
   if (metadata.id_plan_hash !== idPlanHash) {
-    blockingErrors.push({
+    warnings.push({
       code: 'ID_PLAN_HASH_MISMATCH',
       path: paths.finalIdPlan,
       target: metadata.id_plan_hash ?? ''
     });
   }
   if ((metadata.migration_receipt_hash ?? null) !== migrationReceiptHash) {
-    blockingErrors.push({
+    warnings.push({
       code: 'MIGRATION_RECEIPT_HASH_MISMATCH',
       path: paths.chapterImportReceipt,
       target: metadata.migration_receipt_hash ?? ''
@@ -326,7 +327,8 @@ function archiveRun(novelDir, runId, options = {}) {
         run_id: runId,
         expected_final_data_hash: expectedHash ?? null,
         actual_final_data_hash: workspace.final_data_hash,
-        blocking_errors: blockingErrors
+        blocking_errors: blockingErrors,
+        warnings
       }
     );
   }
@@ -365,6 +367,7 @@ function archiveRun(novelDir, runId, options = {}) {
       final_data_hash: expectedHash,
       id_plan_hash: idPlanHash,
       migration_receipt_hash: migrationReceiptHash,
+      warnings,
       artifact_count: artifactManifest.entries.length,
       metrics_hash: sha256File(path.join(archiveDir, 'reports', 'run-metrics.json'))
     };

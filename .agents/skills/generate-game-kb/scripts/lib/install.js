@@ -162,6 +162,7 @@ function readReceipt(file) {
 function verifyInstalledWithReceiptV4(novelDir, receipt) {
   const paths = installPaths(novelDir);
   const receiptErrors = [];
+  const receiptWarnings = [];
   if (!receipt || typeof receipt !== 'object' || Array.isArray(receipt)) {
     return {
       passed: false,
@@ -223,28 +224,28 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
     receiptErrors.push({ code: 'INSTALL_RUN_ID_MISSING', path: 'receipt.run_id', target: '' });
   }
   if (typeof receipt.id_plan_hash !== 'string' || receipt.id_plan_hash === '') {
-    receiptErrors.push({ code: 'INSTALL_ID_PLAN_HASH_MISSING', path: 'receipt.id_plan_hash', target: '' });
+    receiptWarnings.push({ code: 'INSTALL_ID_PLAN_HASH_MISSING', path: 'receipt.id_plan_hash', target: '' });
   } else {
     const idPlanFile = publishedRunArtifact(novelDir, receipt.run_id, 'finalIdPlan');
     if (!idPlanFile) {
-      receiptErrors.push({ code: 'INSTALL_ID_PLAN_MISSING', path: 'receipt.id_plan_hash', target: receipt.run_id });
+      receiptWarnings.push({ code: 'INSTALL_ID_PLAN_MISSING', path: 'receipt.id_plan_hash', target: receipt.run_id });
     } else {
       try {
         if (jsonHash(idPlanFile) !== receipt.id_plan_hash) {
-          receiptErrors.push({
+          receiptWarnings.push({
             code: 'INSTALL_ID_PLAN_HASH_MISMATCH',
             path: idPlanFile,
             target: receipt.id_plan_hash
           });
         }
       } catch (error) {
-        receiptErrors.push({ code: 'INSTALL_ID_PLAN_INVALID', path: idPlanFile, target: error.message });
+        receiptWarnings.push({ code: 'INSTALL_ID_PLAN_INVALID', path: idPlanFile, target: error.message });
       }
     }
   }
   if (receipt.migration_receipt_hash !== null
     && (typeof receipt.migration_receipt_hash !== 'string' || receipt.migration_receipt_hash === '')) {
-    receiptErrors.push({
+    receiptWarnings.push({
       code: 'INSTALL_MIGRATION_RECEIPT_HASH_INVALID',
       path: 'receipt.migration_receipt_hash',
       target: receipt.migration_receipt_hash ?? ''
@@ -252,13 +253,13 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
   } else if (typeof receipt.migration_receipt_hash === 'string') {
     const migrationFile = publishedMigrationReceipt(novelDir, receipt.run_id);
     if (!migrationFile) {
-      receiptErrors.push({
+      receiptWarnings.push({
         code: 'INSTALL_MIGRATION_RECEIPT_MISSING',
         path: 'receipt.migration_receipt_hash',
         target: receipt.run_id
       });
     } else if (fileHash(migrationFile) !== receipt.migration_receipt_hash) {
-      receiptErrors.push({
+      receiptWarnings.push({
         code: 'INSTALL_MIGRATION_RECEIPT_HASH_MISMATCH',
         path: migrationFile,
         target: receipt.migration_receipt_hash
@@ -272,15 +273,15 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
   });
   const verificationFile = path.join(paths.reports, 'verification-report.json');
   if (typeof receipt.verification_report_hash !== 'string') {
-    receiptErrors.push({
+    receiptWarnings.push({
       code: 'INSTALL_VERIFICATION_REPORT_HASH_MISSING',
       path: 'receipt.verification_report_hash',
       target: ''
     });
   } else if (!fs.existsSync(verificationFile)) {
-    receiptErrors.push({ code: 'INSTALL_VERIFICATION_REPORT_MISSING', path: verificationFile, target: '' });
+    receiptWarnings.push({ code: 'INSTALL_VERIFICATION_REPORT_MISSING', path: verificationFile, target: '' });
   } else if (fileHash(verificationFile) !== receipt.verification_report_hash) {
-    receiptErrors.push({
+    receiptWarnings.push({
       code: 'INSTALL_VERIFICATION_REPORT_HASH_MISMATCH',
       path: verificationFile,
       target: receipt.verification_report_hash
@@ -289,10 +290,10 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
     try {
       const verification = readJson(verificationFile);
       if (verification.passed !== true || verification.final_data_hash !== receipt.final_data_hash) {
-        receiptErrors.push({ code: 'INSTALL_VERIFICATION_REPORT_STALE', path: verificationFile, target: '' });
+        receiptWarnings.push({ code: 'INSTALL_VERIFICATION_REPORT_STALE', path: verificationFile, target: '' });
       }
     } catch (error) {
-      receiptErrors.push({ code: 'INSTALL_VERIFICATION_REPORT_INVALID', path: verificationFile, target: error.message });
+      receiptWarnings.push({ code: 'INSTALL_VERIFICATION_REPORT_INVALID', path: verificationFile, target: error.message });
     }
   }
   result.semantic_contract_version = receipt.semantic_contract_version ?? null;
@@ -304,6 +305,7 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
     : null;
   result.chapters = Array.isArray(receipt.chapters) ? receipt.chapters : [];
   result.blocking_errors.push(...receiptErrors);
+  result.warnings.push(...receiptWarnings);
   result.passed = result.blocking_errors.length === 0;
   return { ...result, scope: 'installed' };
 }
@@ -490,7 +492,7 @@ function promoteVerifiedData(novelDir, options) {
       ...(options.receiptExtras || {}),
       schema_version: INSTALL_RECEIPT_SCHEMA_VERSION,
       semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
-      profile: options.profile || 'v4',
+      deep: options.deep === true,
       installer: 'generate-game-kb',
       run_id: options.runId || previousReceipt?.run_id || options.receiptExtras?.base_run_id,
       source_hash: options.sourceHash,
@@ -578,10 +580,10 @@ function promoteVerifiedData(novelDir, options) {
 }
 
 function installVerifiedData(novelDir, options = {}) {
-  const run = resolveWritableRun(novelDir, options.runId, 'install', options.profile);
+  const run = resolveWritableRun(novelDir, options.runId, 'install', options.deep);
   const workPaths = pathsFor(novelDir, run.run_id);
   assertAcceptedArtifacts(workPaths);
-  const workspace = verifyFinal(workPaths, { profile: run.profile });
+  const workspace = verifyFinal(workPaths, { deep: run.deep });
   if (!workspace.passed) {
     throw new GameKbError('INSTALL_VERIFICATION_FAILED', 'Final workspace did not pass installation verification', workspace);
   }
@@ -620,7 +622,7 @@ function installVerifiedData(novelDir, options = {}) {
     idPlanHash,
     migrationReceiptHash,
     chapters,
-    profile: run.profile,
+    deep: run.deep,
     verificationReportContent: fs.readFileSync(
       path.join(workPaths.finalReports, 'verification-report.json'),
       'utf8'

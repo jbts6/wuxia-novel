@@ -19,7 +19,6 @@ const RUN_SCOPED_PATHS = [
   'progress',
   'manualReview',
   'quarantine',
-  'deferredTasks',
   'tasks',
   'overlays',
   'revisions',
@@ -75,7 +74,7 @@ test('fast-path run paths stay inside the run directory', () => {
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
   const paths = pathsFor(novel, 'run-lite');
 
-  for (const key of ['quarantine', 'deferredTasks', 'tasks', 'overlays', 'revisions']) {
+  for (const key of ['quarantine', 'tasks', 'overlays', 'revisions']) {
     assert.equal(isWithin(paths.run, paths[key]), true, key);
   }
 });

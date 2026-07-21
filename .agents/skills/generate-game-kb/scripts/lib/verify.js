@@ -5,7 +5,6 @@ const path = require('node:path');
 const yaml = require('js-yaml');
 
 const { stableHash } = require('./accept');
-const { applyBasicCurate, validateBasicCurateDraft } = require('./basic-curate');
 const { acceptedArtifactHash, assertAcceptedArtifacts } = require('./candidate-ledger');
 const { CANDIDATE_ARRAYS, validateChapterDraft } = require('./chapter-contract');
 const { assembleDomainMergedBook, assembleGroundedBook } = require('./domain-assembly');
@@ -19,8 +18,6 @@ const {
   FINAL_FIELDS,
   FINAL_FILES,
   ITEM_TYPES,
-  LEGACY_PROFILE_V5,
-  PROFILE_LITE,
   SEMANTIC_CONTRACT_VERSION,
   isPowerRank,
   validateEntitySemantics
@@ -233,12 +230,34 @@ function verificationError(error, fallbackPath) {
   };
 }
 
+// High-recall gate (user override): for novels of 5+ chapters, the four entity
+// final files (characters / skills / items / factions) must carry more than a
+// handful of deduplicated entities. A total <= 9 means the extraction stage
+// under-scanned the source and must be re-run before install/archive.
+const RECALL_ENTITY_CATEGORIES = ['characters', 'skills', 'items', 'factions'];
+const LOW_RECALL_THRESHOLD = 9;
+const LOW_RECALL_MIN_CHAPTERS = 5;
+
+function assertHighRecall(manifest, portable, paths, blockingErrors) {
+  const chapters = manifest.chapters || [];
+  if (chapters.length < LOW_RECALL_MIN_CHAPTERS) return;
+  const total = RECALL_ENTITY_CATEGORIES
+    .reduce((sum, category) => sum + (portable.counts?.[category] || 0), 0);
+  if (total <= LOW_RECALL_THRESHOLD) {
+    blockingErrors.push({
+      code: 'LOW_RECALL',
+      path: paths.finalData,
+      target: `total_entities=${total}, chapters=${chapters.length}`
+    });
+  }
+}
+
 function candidateTotal(registry) {
   return Object.values(registry?.categories || {}).flatMap(entries => entries || [])
     .reduce((total, entry) => total + (Array.isArray(entry.member_refs) ? entry.member_refs.length : 0), 0);
 }
 
-function verifyFinalV4(paths) {
+function verifyFinalDeep(paths) {
   const blockingErrors = [];
   const warnings = [];
   let manifest;
@@ -257,6 +276,7 @@ function verifyFinalV4(paths) {
   const portable = verifyDataRoot(paths.finalData, { chapters: manifest.chapters });
   blockingErrors.push(...portable.blocking_errors);
   warnings.push(...portable.warnings);
+  assertHighRecall(manifest, portable, paths, blockingErrors);
 
   try {
     assertAcceptedArtifacts(paths);
@@ -388,7 +408,7 @@ function verifyFinalV4(paths) {
   return result;
 }
 
-function verifyFinalLite(paths) {
+function verifyFinalDefault(paths) {
   const blockingErrors = [];
   const warnings = [];
   let manifest;
@@ -406,6 +426,7 @@ function verifyFinalLite(paths) {
 
   const portable = verifyDataRoot(paths.finalData, { chapters: manifest.chapters });
   blockingErrors.push(...portable.blocking_errors);
+  assertHighRecall(manifest, portable, paths, blockingErrors);
   try {
     assertAcceptedArtifacts(paths);
   } catch (error) {
@@ -436,25 +457,10 @@ function verifyFinalLite(paths) {
   try {
     registryHash = acceptedArtifactHash(paths, paths.candidateRegistry);
     registry = readJson(paths.candidateRegistry);
-    let effectiveRegistry = registry;
-    const curatePath = path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
-    if (fs.existsSync(curatePath)) {
-      acceptedArtifactHash(paths, curatePath);
-      const curate = readJson(curatePath);
-      const curateIssues = validateBasicCurateDraft(curate, registry);
-      if (curateIssues.length > 0 || curate.input_hash !== stableHash(registry)) {
-        blockingErrors.push({ code: 'BASIC_CURATE_ACCEPTED_INVALID', path: curatePath, target: '' });
-      } else {
-        effectiveRegistry = applyBasicCurate(registry, curate.decisions);
-        if (curate.curated_registry_hash !== stableHash(effectiveRegistry)) {
-          blockingErrors.push({ code: 'BASIC_CURATE_ACCEPTED_INVALID', path: curatePath, target: '' });
-        }
-      }
-    }
     assembledBook = assembleGroundedBook({
       manifest,
       chapters,
-      registry: effectiveRegistry,
+      registry,
       source_registry: registry
     });
   } catch (error) {
@@ -515,10 +521,8 @@ function verifyFinalLite(paths) {
 }
 
 function verifyFinal(paths, options = {}) {
-  const profile = options.profile || readJson(paths.runJson).profile || 'v4';
-  return [PROFILE_LITE, LEGACY_PROFILE_V5].includes(profile)
-    ? verifyFinalLite(paths)
-    : verifyFinalV4(paths);
+  const deep = options.deep ?? readJson(paths.runJson).deep ?? false;
+  return deep ? verifyFinalDeep(paths) : verifyFinalDefault(paths);
 }
 
 module.exports = {

@@ -4,7 +4,6 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { semanticDecisionFile, stableHash } = require('./accept');
-const { applyBasicCurate, validateBasicCurateDraft } = require('./basic-curate');
 const {
   acceptedArtifactHash,
   assertAcceptedArtifacts,
@@ -17,8 +16,7 @@ const { buildFinalData, writeFinalDataAtomic } = require('./finalize');
 const { atomicWriteJson, readJson, readYaml } = require('./io');
 const {
   DOMAIN_UNITS,
-  PROFILE_V4,
-  requiredDomainUnitsForProfile
+  requiredDomainUnitsForMode
 } = require('./semantic-contract');
 const { readWorkPlan } = require('./semantic-work');
 
@@ -111,7 +109,7 @@ function finalizeAssembly({ paths, manifest, book, report }) {
   };
 }
 
-function assembleRunV4({ paths, manifest, acceptedHashes, chapters, semanticContractVersion }) {
+function assembleRunDeep({ paths, manifest, acceptedHashes, chapters, semanticContractVersion }) {
   const { decisionHashes, decisions, plan } = loadDomainDecisions(paths);
   acceptedArtifactHash(paths, paths.candidateRegistry);
   const registry = readJson(paths.candidateRegistry);
@@ -137,30 +135,13 @@ function assembleRunV4({ paths, manifest, acceptedHashes, chapters, semanticCont
   });
 }
 
-function assembleRunLite({ paths, manifest, acceptedHashes, chapters, semanticContractVersion }) {
+function assembleRunStandard({ paths, manifest, acceptedHashes, chapters, semanticContractVersion }) {
   const registryHash = acceptedArtifactHash(paths, paths.candidateRegistry);
   const registry = readJson(paths.candidateRegistry);
-  const curatePath = path.join(path.dirname(paths.candidateRegistry), 'basic-curate.json');
-  let curatedRegistry = registry;
-  let curateHash = null;
-  if (fs.existsSync(curatePath)) {
-    curateHash = acceptedArtifactHash(paths, curatePath);
-    const artifact = readJson(curatePath);
-    const errors = validateBasicCurateDraft({
-      schema_version: artifact?.schema_version,
-      decisions: artifact?.decisions
-    }, registry);
-    curatedRegistry = errors.length === 0 ? applyBasicCurate(registry, artifact.decisions) : null;
-    if (artifact?.input_hash !== stableHash(registry)
-      || errors.length > 0
-      || artifact?.curated_registry_hash !== stableHash(curatedRegistry)) {
-      throw new GameKbError('BASIC_CURATE_ACCEPTED_INVALID', 'Accepted basic curation is invalid or stale', { errors });
-    }
-  }
   const book = assembleGroundedBook({
     manifest,
     chapters,
-    registry: curatedRegistry,
+    registry,
     source_registry: registry
   });
   return finalizeAssembly({
@@ -174,25 +155,24 @@ function assembleRunLite({ paths, manifest, acceptedHashes, chapters, semanticCo
       accepted_hashes: acceptedHashes,
       registry_ledger: registryLedgerEntry(paths),
       registry_hash: registryHash,
-      curate_hash: curateHash,
       candidate_count: candidateCount(registry)
     }
   });
 }
 
-function assembleRun({ paths, profile }) {
+function assembleRun({ paths, deep }) {
   assertAcceptedArtifacts(paths);
   const run = readJson(paths.runJson);
   const manifest = readJson(paths.manifest);
   const { acceptedHashes, chapters } = loadAcceptedChapters(paths, manifest);
-  const selectedProfile = profile || run.profile || PROFILE_V4;
-  const requiredDomains = requiredDomainUnitsForProfile(selectedProfile, run.semantic_contract_version);
+  const selectedDeep = deep ?? run.deep ?? false;
+  const requiredDomains = requiredDomainUnitsForMode(selectedDeep, run.semantic_contract_version);
   if (requiredDomains.length > 0) {
-    return assembleRunV4({
+    return assembleRunDeep({
       paths, manifest, acceptedHashes, chapters, semanticContractVersion: run.semantic_contract_version
     });
   }
-  return assembleRunLite({
+  return assembleRunStandard({
     paths, manifest, acceptedHashes, chapters, semanticContractVersion: run.semantic_contract_version
   });
 }

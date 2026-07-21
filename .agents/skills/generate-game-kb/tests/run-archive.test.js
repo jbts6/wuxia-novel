@@ -80,8 +80,8 @@ function alternateChapterDraft(chapter) {
 
 function runV4Lifecycle({ novel, runId, chapterDraft = null, install = true }) {
   const commands = [];
-  const run = createOrResumeRun(novel, { runId });
-  const prepared = invoke(novel, run.run_id, ['prepare'], commands);
+  const run = createOrResumeRun(novel, { runId, deep: true });
+  const prepared = invoke(novel, run.run_id, ['prepare', '--deep'], commands);
   const paths = pathsFor(novel, prepared.run_id);
   const manifest = readJson(paths.manifest);
 
@@ -182,15 +182,16 @@ const WORKSPACE_VERIFICATION_ARCHIVE_DRIFT_CASES = [
     mutate(report) {
       return { ...report, source_hash: 'sha256:stale-source' };
     }
-  },
-  {
-    name: 'unrecorded-bytes-with-current-fields',
-    expectedCode: 'VERIFICATION_REPORT_HASH_MISMATCH',
-    mutate(report) {
-      return { ...report, warnings: [...report.warnings, { code: 'UNRECORDED_REPORT_BYTES' }] };
-    }
   }
 ];
+
+const AUXILIARY_REPORT_DRIFT = {
+  name: 'unrecorded-bytes-with-current-fields',
+  expectedCode: 'VERIFICATION_REPORT_HASH_MISMATCH',
+  mutate(report) {
+    return { ...report, warnings: [...report.warnings, { code: 'UNRECORDED_REPORT_BYTES' }] };
+  }
+};
 
 for (const drift of WORKSPACE_VERIFICATION_ARCHIVE_DRIFT_CASES) {
   test(`archive-run rejects ${drift.name} verification evidence without mutating or moving the run`, () => {
@@ -217,6 +218,19 @@ for (const drift of WORKSPACE_VERIFICATION_ARCHIVE_DRIFT_CASES) {
     assert.equal(fs.existsSync(path.join(paths.run, 'archive-receipt.json')), false);
   });
 }
+
+test('archive-run records verification report byte drift as a warning', () => {
+  const drift = AUXILIARY_REPORT_DRIFT;
+  const { novel, paths, runId } = installedV4Fixture({ runId: `run-verification-${drift.name}` });
+  const verification = readJson(paths.verificationReport);
+  atomicWriteJson(paths.verificationReport, drift.mutate(verification));
+
+  const receipt = archiveRun(novel, runId);
+
+  assert.equal(fs.existsSync(paths.run), false);
+  assert.equal(fs.existsSync(receipt.archive_dir), true);
+  assert.equal(receipt.warnings.some(issue => issue.code === drift.expectedCode), true);
+});
 
 test('archive-run rejects a verified run that does not match installed identity', () => {
   const first = installedV4Fixture({ runId: 'run-a' });
@@ -360,7 +374,7 @@ test('missing v4 phases remain zero instead of receiving fabricated wall time', 
 
 test('script timing attributes plan-domains, assemble, and verify to distinct v4 phases', () => {
   const novel = makeNovel('阶段归属书', '第一章 起始\n甲。\n');
-  const run = createOrResumeRun(novel, { runId: 'run-phases' });
+  const run = createOrResumeRun(novel, { runId: 'run-phases', deep: true });
   const paths = pathsFor(novel, run.run_id);
   const metadata = readJson(paths.runJson);
   atomicWriteJson(paths.runJson, {

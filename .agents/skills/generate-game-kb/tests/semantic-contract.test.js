@@ -3,6 +3,7 @@
 const test = require('node:test');
 const assert = require('node:assert/strict');
 
+const semanticContract = require('../scripts/lib/semantic-contract');
 const {
   CHARACTER_LEVELS,
   DOMAIN_UNITS,
@@ -13,14 +14,11 @@ const {
   ITEM_TYPES,
   POWER_RANK_CONTRACT,
   POWER_RANKS,
-  LEGACY_PROFILE_V5,
-  PROFILE_LITE,
-  PROFILE_V4,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
   requiredDomainUnitsForContract,
-  requiredDomainUnitsForProfile
-} = require('../scripts/lib/semantic-contract');
+  requiredDomainUnitsForMode
+} = semanticContract;
 
 test('declares the version-6 fast-path YAML contract and retains domain unit names', () => {
   assert.equal(SEMANTIC_CONTRACT_VERSION, 6);
@@ -59,21 +57,19 @@ test('required domain units reject unsupported or mistyped semantic versions', (
   assert.deepEqual(requiredDomainUnitsForContract(6), DOMAIN_UNITS);
 });
 
-test('the active semantic contract selects domain units by run profile', () => {
+test('the single active semantic contract selects domain units only by --deep mode', () => {
   assert.deepEqual(
-    requiredDomainUnitsForProfile(PROFILE_V4, SEMANTIC_CONTRACT_VERSION),
+    requiredDomainUnitsForMode(true, SEMANTIC_CONTRACT_VERSION),
     DOMAIN_UNITS
   );
   assert.deepEqual(
-    requiredDomainUnitsForProfile(PROFILE_LITE, SEMANTIC_CONTRACT_VERSION),
+    requiredDomainUnitsForMode(false, SEMANTIC_CONTRACT_VERSION),
     []
   );
-  assert.equal(PROFILE_LITE, 'lite');
-  assert.equal(LEGACY_PROFILE_V5, 'v5');
-  assert.deepEqual(
-    requiredDomainUnitsForProfile(LEGACY_PROFILE_V5, SEMANTIC_CONTRACT_VERSION),
-    []
-  );
+  assert.equal(semanticContract.PROFILE_LITE, undefined);
+  assert.equal(semanticContract.PROFILE_V4, undefined);
+  assert.equal(semanticContract.LEGACY_PROFILE_V5, undefined);
+  assert.equal(semanticContract.requiredDomainUnitsForProfile, undefined);
 });
 
 test('centralizes enums used by chapter and final records', () => {

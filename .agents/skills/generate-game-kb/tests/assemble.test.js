@@ -74,7 +74,7 @@ function finalBytes(dataRoot) {
 
 test('assemble is a real command and fails closed until accepted inputs are complete', () => {
   const novel = makeNovel('组装命令试书', '第一章 起始\n甲初入江湖。\n');
-  const prepared = runFlow(['prepare', novel, '--run', 'run-assemble-red', '--json']);
+  const prepared = runFlow(['prepare', novel, '--run', 'run-assemble-red', '--deep', '--json']);
   assert.equal(prepared.status, 0, prepared.stderr);
 
   const result = runFlow(['assemble', novel, '--run', 'run-assemble-red', '--json']);
@@ -95,7 +95,7 @@ test('assemble projects exactly five deterministic YAML files from accepted chap
     '确定性组装试书',
     '第一章 起始\n甲修习玄门内功并使出飞云掌。\n第二章 续行\n甲离开山谷。\n第三章 终局\n甲返回故里。\n'
   );
-  const prepared = pass(runFlow(['prepare', novel, '--run', 'run-assemble-green', '--json']), 'prepare');
+  const prepared = pass(runFlow(['prepare', novel, '--run', 'run-assemble-green', '--deep', '--json']), 'prepare');
   const paths = pathsFor(novel, prepared.run_id);
   const manifest = readJson(paths.manifest);
 

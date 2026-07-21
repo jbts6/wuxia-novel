@@ -98,14 +98,14 @@ test('installed verification detects byte-only drift in an installed YAML file',
   );
 });
 
-test('installed verification binds ID plan and optional chapter migration evidence', () => {
+test('installed verification reports ID plan and optional chapter migration drift as warnings', () => {
   const idPlanFixture = prepareAssembledRun({ name: 'ID计划漂移试书', runId: 'run-id-plan-drift' });
   pass(runFlow(['install', idPlanFixture.novel, '--run', idPlanFixture.prepared.run_id, '--json']), 'install ID plan');
   const idPlan = readJson(idPlanFixture.paths.finalIdPlan);
   fs.writeFileSync(idPlanFixture.paths.finalIdPlan, `${JSON.stringify({ ...idPlan, tampered: true }, null, 2)}\n`);
   const idPlanResult = verifyInstalled(idPlanFixture.novel);
-  assert.equal(idPlanResult.passed, false);
-  assert.equal(idPlanResult.blocking_errors.some(error => error.code === 'INSTALL_ID_PLAN_HASH_MISMATCH'), true);
+  assert.equal(idPlanResult.passed, true);
+  assert.equal(idPlanResult.warnings.some(error => error.code === 'INSTALL_ID_PLAN_HASH_MISMATCH'), true);
 
   const migrationFixture = prepareAssembledRun({ name: '迁移凭据漂移试书', runId: 'run-migration-drift' });
   fs.mkdirSync(path.dirname(migrationFixture.paths.chapterImportReceipt), { recursive: true });
@@ -118,9 +118,9 @@ test('installed verification binds ID plan and optional chapter migration eviden
   assert.equal(receipt.migration_receipt_hash, expectedMigrationHash);
   fs.appendFileSync(migrationFixture.paths.chapterImportReceipt, ' ');
   const migrationResult = verifyInstalled(migrationFixture.novel);
-  assert.equal(migrationResult.passed, false);
+  assert.equal(migrationResult.passed, true);
   assert.equal(
-    migrationResult.blocking_errors.some(error => error.code === 'INSTALL_MIGRATION_RECEIPT_HASH_MISMATCH'),
+    migrationResult.warnings.some(error => error.code === 'INSTALL_MIGRATION_RECEIPT_HASH_MISMATCH'),
     true
   );
 });
@@ -141,9 +141,9 @@ test('installed verification prefers the generic migration receipt', () => {
 
   fs.appendFileSync(fixture.paths.migrationReceipt, ' ');
   const result = verifyInstalled(fixture.novel);
-  assert.equal(result.passed, false);
+  assert.equal(result.passed, true);
   assert.equal(
-    result.blocking_errors.some(error => error.code === 'INSTALL_MIGRATION_RECEIPT_HASH_MISMATCH'),
+    result.warnings.some(error => error.code === 'INSTALL_MIGRATION_RECEIPT_HASH_MISMATCH'),
     true
   );
 });

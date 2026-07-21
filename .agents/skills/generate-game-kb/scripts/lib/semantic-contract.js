@@ -2,10 +2,6 @@
 
 const SEMANTIC_CONTRACT_VERSION = 6;
 const SEMANTIC_PROFILE = 'domain-distill-v1';
-const PROFILE_V4 = 'v4';
-const PROFILE_LITE = 'lite';
-const LEGACY_PROFILE_V5 = 'v5';
-const SUPPORTED_PROFILES = new Set([PROFILE_V4, PROFILE_LITE]);
 const DOMAIN_UNITS = Object.freeze([
   'distill:factions',
   'distill:characters',
@@ -248,20 +244,15 @@ function requiredDomainUnitsForContract(version) {
   return DOMAIN_UNITS;
 }
 
-function requiredDomainUnitsForProfile(profile, version) {
+function requiredDomainUnitsForMode(deep, version) {
   requiredDomainUnitsForContract(version);
-  if (!SUPPORTED_PROFILES.has(profile) && profile !== LEGACY_PROFILE_V5) {
-    const error = new RangeError(`Unsupported game-kb profile: ${String(profile)}`);
-    error.code = 'SEMANTIC_PROFILE_UNSUPPORTED';
-    error.profile = profile;
+  if (typeof deep !== 'boolean') {
+    const error = new TypeError(`Deep mode must be boolean: ${String(deep)}`);
+    error.code = 'DEEP_MODE_INVALID';
+    error.deep = deep;
     throw error;
   }
-  return profile === PROFILE_V4 ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
-}
-
-function normalizeProfileForRead(profile) {
-  if (profile === undefined || profile === null) return PROFILE_V4;
-  return profile === LEGACY_PROFILE_V5 ? PROFILE_LITE : profile;
+  return deep ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
 }
 
 module.exports = {
@@ -274,16 +265,11 @@ module.exports = {
   ITEM_TYPES,
   POWER_RANK_CONTRACT,
   POWER_RANKS,
-  LEGACY_PROFILE_V5,
-  PROFILE_LITE,
-  PROFILE_V4,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
-  SUPPORTED_PROFILES,
   isPowerRank,
-  normalizeProfileForRead,
   normalizeEntitySemantics,
   requiredDomainUnitsForContract,
-  requiredDomainUnitsForProfile,
+  requiredDomainUnitsForMode,
   validateEntitySemantics
 };
