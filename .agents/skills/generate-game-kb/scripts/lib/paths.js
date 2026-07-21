@@ -146,4 +146,14 @@ function repositoryRootFor(novelDir) {
   return path.resolve(novelDir);
 }
 
-module.exports = { assertStagingIdentity, deferredPathsFor, pathsFor, repositoryRootFor, stagingPathFor };
+function chapterAttemptPaths(paths, unit, cycle, attempt) {
+  const safe = unit.replaceAll(':', '_');
+  const dir = path.join(paths.run, 'chapter-jobs', `cycle_${String(cycle).padStart(2, '0')}`);
+  return {
+    dir,
+    input: path.join(dir, `${safe}_attempt_${String(attempt).padStart(2, '0')}_input.json`),
+    output: path.join(dir, `${safe}_attempt_${String(attempt).padStart(2, '0')}_output.yaml`)
+  };
+}
+
+module.exports = { assertStagingIdentity, chapterAttemptPaths, deferredPathsFor, pathsFor, repositoryRootFor, stagingPathFor };
