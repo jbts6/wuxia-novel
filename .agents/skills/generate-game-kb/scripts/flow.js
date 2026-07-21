@@ -254,152 +254,131 @@ function runPipeline(novelDir, runId, deep = false) {
   };
 }
 
+function loadChapterProgress(paths, manifest) {
+  const { createProgress } = require('./lib/chapter-progress');
+  if (fs.existsSync(paths.progress)) {
+    return readJson(paths.progress);
+  }
+  return createProgress(manifest);
+}
+
+function saveChapterProgress(paths, progress) {
+  fs.mkdirSync(path.dirname(paths.progress), { recursive: true });
+  fs.writeFileSync(paths.progress, `${JSON.stringify(progress, null, 2)}\n`, 'utf8');
+}
+
+function publicRunResult(run, next) {
+  return {
+    semantic_contract_version: 7,
+    run_id: run.run_id,
+    novel_dir: run.novel_dir || run.novelDir,
+    status: next.status,
+    jobs: (next.jobs || []).map(job => ({ unit: job.unit, cycle: job.cycle, attempt: job.attempt, input: job.input, output: job.output })),
+    active_units: next.progress?.active_units || [],
+    manual_review: next.manual_review || []
+  };
+}
+
+function v7RunPipeline(novelDir, requestedRun) {
+  const { receiveAvailableChapterOutputs } = require('./lib/chapter-receiver');
+  const { advanceChapterWork } = require('./lib/chapter-work');
+
+  const run = createOrResumeRun(novelDir, { runId: requestedRun });
+  if (run.semantic_contract_version && run.semantic_contract_version < 7) {
+    throw new GameKbError('LEGACY_SEMANTIC_CONTRACT', 'Cannot run a legacy contract version', {
+      run_id: run.run_id, version: run.semantic_contract_version
+    });
+  }
+  const paths = pathsFor(novelDir, run.run_id);
+  const manifest = readJson(paths.manifest);
+  let progress = loadChapterProgress(paths, manifest);
+
+  const received = receiveAvailableChapterOutputs({ paths, manifest, progress });
+  progress = received.progress;
+
+  const next = advanceChapterWork({ paths, manifest, progress });
+  saveChapterProgress(paths, next.progress);
+
+  if (next.status === 'ready-to-assemble') {
+    assembleRun({ paths });
+    const { verifyFinal } = require('./lib/verify');
+    verifyFinal(novelDir, run.run_id);
+    installVerifiedData(novelDir, { runId: run.run_id });
+    archiveRun(novelDir, run.run_id);
+    return publicRunResult(run, { status: 'complete', progress: next.progress, jobs: [], manual_review: [] });
+  }
+
+  return publicRunResult(run, next);
+}
+
+function v7Status(novelDir, requestedRun) {
+  const { activeJobMetadata } = require('./lib/chapter-work');
+  const run = resolveRun(novelDir, requestedRun);
+  const paths = pathsFor(novelDir, run.run_id);
+  const result = {
+    semantic_contract_version: run.semantic_contract_version || 7,
+    run_id: run.run_id,
+    status: 'ok'
+  };
+  if (fs.existsSync(paths.progress)) {
+    const progress = readJson(paths.progress);
+    result.active_units = progress.active_units;
+    result.jobs = activeJobMetadata(paths, progress);
+    const manualReview = Object.entries(progress.units)
+      .filter(([, state]) => state.status === 'rejected' && state.attempt >= 2)
+      .map(([unit]) => unit);
+    result.manual_review = manualReview;
+  }
+  return result;
+}
+
+function v7RetryUnit(novelDir, requestedRun, args) {
+  const { issueRetryJob } = require('./lib/chapter-work');
+  const unit = flagValue(args, '--unit');
+  if (!unit) throw new GameKbError('UNIT_REQUIRED', 'retry-unit requires --unit <id>');
+  if (!args.includes('--confirm')) {
+    throw new GameKbError('CONFIRM_REQUIRED', 'retry-unit requires --confirm');
+  }
+  const run = resolveRun(novelDir, requestedRun);
+  if (run.semantic_contract_version && run.semantic_contract_version < 7) {
+    throw new GameKbError('LEGACY_SEMANTIC_CONTRACT', 'Cannot retry a legacy run', { run_id: run.run_id });
+  }
+  const paths = pathsFor(novelDir, run.run_id);
+  const manifest = readJson(paths.manifest);
+  const progress = loadChapterProgress(paths, manifest);
+  const state = progress.units[unit];
+  if (!state || (state.status !== 'rejected' || state.attempt < 2)) {
+    throw new GameKbError('RETRY_UNIT_NOT_REVIEWABLE', `Unit ${unit} is not in manual_review`, { unit, status: state?.status });
+  }
+  const { transitionProgress } = require('./lib/chapter-progress');
+  const reset = transitionProgress(progress, { type: 'retry-unit', unit, manifest });
+  const result = issueRetryJob({ paths, manifest, progress: reset, unit });
+  saveChapterProgress(paths, result.progress);
+  return { semantic_contract_version: 7, run_id: run.run_id, status: 'retried', unit, job: result.job };
+}
+
 function main(argv = process.argv.slice(2)) {
-  const commandStartedAt = process.hrtime.bigint();
-  let timingRunJson = null;
-  let timingUnit = '';
   const json = argv.includes('--json');
   const args = argv.filter(value => value !== '--json');
-  const [requestedCommand, novelDir] = args;
-  const command = requestedCommand;
+  const [command, novelDir] = args;
   const requestedRun = flagValue(args, '--run');
   const emit = result => {
-    const elapsedMs = Number(process.hrtime.bigint() - commandStartedAt) / 1e6;
-    const timing = recordScriptDuration(timingRunJson, elapsedMs, command, timingUnit);
-    const output = timing?.metrics_hash && result?.status === 'archived'
-      ? { ...result, metrics_hash: timing.metrics_hash }
-      : result;
-    process.stdout.write(`${JSON.stringify(output, null, json ? 0 : 2)}\n`);
+    process.stdout.write(`${JSON.stringify(result, null, json ? 0 : 2)}\n`);
   };
   try {
-    if (command === 'prepare') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'prepare requires <novel>');
-      const deep = deepFlag(args);
-      let selectedRun = requestedRun;
-      if (!selectedRun) {
-        try {
-          selectedRun = resolveRun(novelDir).run_id;
-        } catch (error) {
-          if (!(error instanceof GameKbError) || error.code !== 'RUN_REQUIRED') throw error;
-          assertArchiveExistingAllowed(novelDir);
-          archiveExisting(novelDir);
-        }
-      }
-      const run = createOrResumeRun(novelDir, { runId: selectedRun, deep });
-      const manifest = prepareNovel(novelDir, { runId: run.run_id });
-      timingRunJson = pathsFor(novelDir, run.run_id).runJson;
-      emit({
-        run_id: run.run_id,
-        run_dir: run.run_dir,
-        deep: run.deep,
-        resumed: run.resumed,
-        novel_dir: manifest.novel_dir,
-        source_file: manifest.source_file,
-        source_hash: manifest.source_hash,
-        source_char_count: manifest.source_char_count,
-        chapter_count: manifest.chapters.length,
-        manifest: pathsFor(novelDir, run.run_id).manifest
-      });
+    if (command === 'run') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'run requires <novel>');
+      emit(v7RunPipeline(novelDir, requestedRun));
       return;
     }
-    if (command === 'extract-plan') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'extract-plan requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      emit(extractPlan(paths, readJson(paths.manifest), loadProgress(paths, readJson(paths.manifest)), run.deep));
+    if (command === 'status') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'status requires <novel>');
+      emit(v7Status(novelDir, requestedRun));
       return;
     }
-    if (command === 'submit') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'submit requires <novel>');
-      const unit = flagValue(args, '--unit');
-      const attempt = Number(flagValue(args, '--attempt'));
-      if (!unit) throw new GameKbError('UNIT_REQUIRED', 'submit requires --unit <id>');
-      if (!Number.isInteger(attempt) || attempt < 1) throw new GameKbError('ATTEMPT_REQUIRED', 'submit requires --attempt <n>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      timingUnit = unit;
-      const rawInput = fs.readFileSync(0, 'utf8');
-      emit(submitWorkerEnvelope({ paths, unit, attempt, rawInput }));
-      return;
-    }
-    if (command === 'plan-domains') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'plan-domains requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      if (!run.deep) {
-        throw new GameKbError(
-          'DEEP_MODE_REQUIRED',
-          'plan-domains is available only for runs created with prepare --deep',
-          { run_id: run.run_id }
-        );
-      }
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      emit(planDomains(paths, readJson(paths.manifest)));
-      return;
-    }
-    if (command === 'assemble') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'assemble requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      const manifest = readJson(paths.manifest);
-      const progress = loadProgress(paths, manifest);
-      const selectedDeep = run.deep === true;
-      assertAssembleInputs(progress, manifest, run.semantic_contract_version, selectedDeep);
-      if (requiredDomainUnitsForMode(selectedDeep, run.semantic_contract_version).length === 0) {
-        ensureCandidateRegistry(paths, manifest, progress);
-      }
-      emit(assembleRun({ paths, deep: selectedDeep }));
-      return;
-    }
-    if (command === 'verify') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'verify requires <novel>');
-      if (args.includes('--installed')) {
-        const result = verifyInstalled(novelDir);
-        if (!result.passed) {
-          throw new GameKbError('INSTALLED_VERIFICATION_FAILED', 'Installed data did not pass verification', result);
-        }
-        emit(result);
-        return;
-      }
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      emit(verifyWorkspace(novelDir, run.run_id, run.deep));
-      return;
-    }
-    if (command === 'install') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'install requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      assertAcceptedArtifacts(paths);
-      emit(installVerifiedData(novelDir, { runId: run.run_id }));
-      return;
-    }
-    if (command === 'archive-run') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-run requires <novel>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const result = archiveRun(novelDir, run.run_id);
-      timingRunJson = path.join(result.archive_dir, 'run.json');
-      emit(result);
-      return;
-    }
-    if (command === 'archive-existing') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-existing requires <novel>');
-      try {
-        const existing = resolveRun(novelDir, requestedRun);
-        assertSemanticContract(existing, command, undefined);
-      } catch (error) {
-        if (!(error instanceof GameKbError) || !['RUN_REQUIRED', 'LEGACY_SEMANTIC_CONTRACT'].includes(error.code)) throw error;
-      }
-      assertArchiveExistingAllowed(novelDir);
-      const result = archiveExisting(novelDir, {
-        archiveId: flagValue(args, '--archive-id') || (requestedRun ? `before-${requestedRun}` : undefined)
-      });
-      emit(result);
+    if (command === 'retry-unit') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'retry-unit requires <novel>');
+      emit(v7RetryUnit(novelDir, requestedRun, args));
       return;
     }
     if (command === 'archive-abandoned') {
@@ -411,41 +390,6 @@ function main(argv = process.argv.slice(2)) {
       }));
       return;
     }
-    if (command === 'reset-unit' || command === 'retry-unit') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', `${command} requires <novel>`);
-      const unit = flagValue(args, '--unit');
-      if (!unit) throw new GameKbError('UNIT_REQUIRED', `${command} requires --unit <id>`);
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      timingUnit = unit;
-      const manifest = readJson(paths.manifest);
-      const progress = loadProgress(paths, manifest);
-      const updated = resetUnit(progress, unit, args.includes('--confirm'), command);
-      saveProgress(paths, updated);
-      emit({ reset: unit });
-      return;
-    }
-    if (command === 'accept') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'accept requires <novel>');
-      const unit = flagValue(args, '--unit');
-      const draft = flagValue(args, '--draft');
-      if (!unit) throw new GameKbError('UNIT_REQUIRED', 'accept requires --unit <id>');
-      if (!draft) throw new GameKbError('DRAFT_REQUIRED', 'accept requires --draft <path>');
-      const run = resolveWritableRun(novelDir, requestedRun, command);
-      const paths = pathsFor(novelDir, run.run_id);
-      timingRunJson = paths.runJson;
-      timingUnit = unit;
-      emit(acceptDraft({ paths, unit, draftPath: draft }));
-      return;
-    }
-    if (command === 'run') {
-      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'run requires <novel>');
-      const result = runPipeline(novelDir, requestedRun, deepFlag(args));
-      timingRunJson = pathsFor(novelDir, result.run_id).runJson;
-      emit(result);
-      return;
-    }
     throw new GameKbError('COMMAND_UNKNOWN', `Unknown command: ${command || '<missing>'}`);
   } catch (error) {
     fail(error, json);
@@ -454,4 +398,4 @@ function main(argv = process.argv.slice(2)) {
 
 if (require.main === module) main();
 
-module.exports = { main, runPipeline, extractPlan, planDomains, submitWorkerEnvelope };
+module.exports = { main, publicCommands: () => ['archive-abandoned', 'retry-unit', 'run', 'status'] };
