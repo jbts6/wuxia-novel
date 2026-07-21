@@ -7,8 +7,8 @@
 本任务只规划和实现新建的 v7 run。现有现场必须保持原样：
 
 - 《陆小凤传奇》v6 run 已由 WorkBuddy 完成，但终态实体未有效跨章去重；WorkBuddy 已关闭。
-- 《萧十一郎》v6 run 完成约一半；Claude Code 已关闭。
-- 两个现有 run、`.kb-scratch`、仓库根目录拆章文件和其他中间产物都不迁移、不续跑、不修补、不删除。
+- 《萧十一郎》v6 run 曾完成约一半；Claude Code 已关闭，用户已手动删除该 run，准备在 v7 完成后从头重跑。
+- 《陆小凤传奇》归档 v6 run、仓库根目录拆章文件和其他用户中间产物都不迁移、不续跑、不修补、不删除；用户已手动删除 `.kb-scratch` 和《萧十一郎》旧 run，新流程必须保持二者不存在。
 
 本设计不启动 Trellis 实施阶段。只有规划文档复核完成后，执行者才可显式运行 `task.py start`。
 
@@ -48,7 +48,7 @@ v7 不保留以下机制的兼容写入路径：
 ```text
 node .agents/skills/generate-game-kb/scripts/flow.js run <novel-dir> [--run <run-id>] --json
 node .agents/skills/generate-game-kb/scripts/flow.js status <novel-dir> [--run <run-id>] --json
-node .agents/skills/generate-game-kb/scripts/flow.js retry-unit <novel-dir> --run <run-id> --unit chapter:NNN --json
+node .agents/skills/generate-game-kb/scripts/flow.js retry-unit <novel-dir> --run <run-id> --unit chapter:NNN --confirm --json
 node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-dir> --run <run-id> --json
 ```
 
@@ -882,7 +882,7 @@ GET /api/library/review-report?path=<author>/<book>
 
 ### 风险：工作区已有未提交现场
 
-实施者必须在每个提交前检查 `git status`，只暂存本任务文件；不得清理或提交 `.kb-scratch`、根目录拆章文件、WorkBuddy/Claude 状态目录和其他用户产物。
+实施者必须在每个提交前检查 `git status`，只暂存本任务文件；不得重建 `.kb-scratch`，也不得清理或提交根目录拆章文件、WorkBuddy/Claude 状态目录和其他用户产物。
 
 ## 23. 实施交接原则
 
