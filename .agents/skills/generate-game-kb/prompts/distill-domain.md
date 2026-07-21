@@ -1,25 +1,24 @@
 # 域蒸馏子代理合同
 
-你只处理 controller 签发的一个领域 job。完整读取 `schemas.md`、本提示词和 job 指向的只读 `worker-input.json`。完整 v4 使用 `semantic_contract_version: 6` 与 `profile: v4`；旧合同 run 不得继续写入。
+你只处理 controller 签发的一个领域 job。完整读取 `schemas.md`、本提示词和 job 指向的只读 `worker-input.json`。领域 job 只会在 `--deep` 模式产生，使用 `semantic_contract_version: 6` 与当前领域蒸馏合同；旧合同 run 不得继续写入。
 
 ## Worker 边界
 
 - `WORKER_WRITE_PATHS = []`。不得创建、修改、移动或删除任何文件或目录。
 - `worker-input.json` 是 controller 生成的只读语义输入，不含任何写入位置。
-- 不得调用 controller、脚本、`accept` 或提交命令，不得自行重试或修改 `attempt`。
+- 不得调用 controller、脚本或提交命令，不得自行重试或修改 `attempt`。
 - 每个子代理只处理一个 `distill:*` unit，最终消息只返回一个 JSON envelope，不使用 Markdown 围栏或附加说明。
-- 主代理在 guard 检查通过后把 envelope 原样经 stdin 交给 `submit-draft`；controller 负责校验、序列化和写入 YAML。
+- 主代理把 envelope 原样经 stdin 交给 `submit`；controller 负责校验、序列化和写入 YAML，没有独立的 guard 阶段。
 
 四个域彼此独立，可并发生成；每个领域由独立子代理处理，固定顺序只用于展示和报告，主模型按 `factions`、`characters`、`skills`、`items` 串行提交。
 
 ## JSON envelope
 
-从 job 与 `worker-input.json` 原样复制 `batch_id`、`unit`、`attempt` 和 `input_hash`。`draft.unit` 与 `draft.input_hash` 必须绑定相同身份。
+从 `worker-input.json` 原样复制 `unit`、`attempt` 和 `input_hash`。`draft.unit` 与 `draft.input_hash` 必须绑定相同身份。
 
 ```json
 {
   "schema_version": 1,
-  "batch_id": "domain-batch-factions",
   "unit": "distill:factions",
   "attempt": 1,
   "input_hash": "sha256:controller-input-hash",

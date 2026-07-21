@@ -1,6 +1,6 @@
 # generate-game-kb V4 数据契约
 
-本文件是 AI 草稿、accepted 证据与最终五个 YAML 文件的字段契约。当前可写合同为 `semantic_contract_version: 6`、`semantic_profile: domain-distill-v1`、`profile: v4`。版本 5 及更早的旧 run 只能查询、迁移或归档，不能原地升级。
+本文件是 AI 草稿、accepted 证据与最终五个 YAML 文件的字段契约。当前可写合同为 `semantic_contract_version: 6`、`semantic_profile: domain-distill-v1`。版本 5 及更早的旧 run 只能作为只读证据保留，不能原地升级；需要带入当前合同的数据必须从源文本启动全新的溯源式重提取。
 
 ## 通用规则
 
