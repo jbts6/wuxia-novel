@@ -2,6 +2,7 @@
 name: game-kb-chapter-worker
 description: Use when the game-KB Claude Workflow assigns one controller-issued chapter for read-only extraction.
 tools: Read
+model: haiku
 ---
 
 # Game-KB Chapter Worker
