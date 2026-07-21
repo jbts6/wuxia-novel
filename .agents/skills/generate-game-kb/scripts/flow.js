@@ -6,43 +6,14 @@ const path = require('node:path');
 
 const { GameKbError } = require('./lib/errors');
 const { assembleRun } = require('./lib/assemble');
-const { archiveAbandoned, archiveExisting, archiveRun } = require('./lib/archive');
-const { acceptDraft, stableHash } = require('./lib/accept');
-const {
-  assertAcceptedArtifacts,
-  acceptedArtifactHash,
-  recordAcceptedArtifact
-} = require('./lib/candidate-ledger');
-const { buildCandidateRegistry } = require('./lib/candidate-registry');
-const { createDomainWorkPlan } = require('./lib/domain-work');
-const { installVerifiedData, verifyInstalled } = require('./lib/install');
-const { readJson, readYaml } = require('./lib/io');
+const { archiveAbandoned, archiveRun } = require('./lib/archive');
+const { installVerifiedData } = require('./lib/install');
+const { readJson } = require('./lib/io');
 const { pathsFor } = require('./lib/paths');
-const { writeWorkPlan } = require('./lib/semantic-work');
 const {
-  loadProgress,
-  resetUnit,
-  saveProgress,
-  syncPlannedUnits
-} = require('./lib/progress');
-const { prepareNovel } = require('./lib/source');
-const {
-  DOMAIN_UNITS,
-  SEMANTIC_PROFILE,
-  requiredDomainUnitsForMode
-} = require('./lib/semantic-contract');
-const {
-  ACCEPTED_SERIALIZATION,
-  assertArchiveExistingAllowed,
-  assertSemanticContract,
   createOrResumeRun,
-  resolveRun,
-  resolveWritableRun
+  resolveRun
 } = require('./lib/run');
-const { recordScriptDuration } = require('./lib/timing');
-const { verifyFinal } = require('./lib/verify');
-const { readWorkerPool } = require('./lib/worker-pool');
-const { submitWorkerEnvelope } = require('./lib/submit');
 
 function flagValue(args, flag) {
   const index = args.indexOf(flag);

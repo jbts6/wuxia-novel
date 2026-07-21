@@ -80,6 +80,11 @@ function writeImmutableJson(file, value, conflictCode) {
   writeImmutableFile(file, bytes, conflictCode);
 }
 
+function stableHash(value) {
+  const content = typeof value === 'string' ? value : `${JSON.stringify(value, null, 2)}\n`;
+  return `sha256:${crypto.createHash('sha256').update(content).digest('hex')}`;
+}
+
 module.exports = {
   atomicWriteFile,
   atomicWriteJson,
@@ -87,6 +92,7 @@ module.exports = {
   readJson,
   readYaml,
   serializeYaml,
+  stableHash,
   writeFileIfChanged,
   writeImmutableFile,
   writeImmutableJson

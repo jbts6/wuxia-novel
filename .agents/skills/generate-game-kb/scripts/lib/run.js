@@ -16,7 +16,6 @@ const {
   SEMANTIC_PROFILE
 } = require('./semantic-contract');
 const { EMPTY_DURATIONS } = require('./timing');
-const { ensureWorkerPool } = require('./worker-pool');
 
 const ACCEPTED_SERIALIZATION_READ_COMMANDS = new Set(['status', 'verify', 'archive-run']);
 
@@ -159,7 +158,6 @@ function createOrResumeRun(novelDir, options = {}) {
     }
     assertSemanticContract(metadata, 'prepare', deep);
     ensureRunDirectories(paths);
-    ensureWorkerPool(paths);
     return {
       run_id: runId,
       run_dir: paths.run,
@@ -188,7 +186,6 @@ function createOrResumeRun(novelDir, options = {}) {
   };
   atomicWriteJson(paths.runJson, metadata);
   initializeArtifactManifest(paths);
-  ensureWorkerPool(paths);
   return {
     run_id: runId,
     run_dir: paths.run,

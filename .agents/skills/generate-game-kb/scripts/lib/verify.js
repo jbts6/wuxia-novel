@@ -4,17 +4,14 @@ const fs = require('node:fs');
 const path = require('node:path');
 const yaml = require('js-yaml');
 
-const { stableHash } = require('./accept');
+const { stableHash } = require('./io');
 const { acceptedArtifactHash, assertAcceptedArtifacts } = require('./candidate-ledger');
 const { CANDIDATE_ARRAYS, validateChapterDraft } = require('./chapter-contract');
-const { assembleDomainMergedBook, assembleGroundedBook } = require('./domain-assembly');
-const { validateDomainDecisionDraft } = require('./domain-contract');
 const { hashFinalData, stableValue } = require('./final-data-hash');
 const { CATEGORY_FILES } = require('./finalize');
 const { atomicWriteJson, readJson, readYaml } = require('./io');
 const {
   CHARACTER_LEVELS,
-  DOMAIN_UNITS,
   FINAL_FIELDS,
   FINAL_FILES,
   ITEM_TYPES,
@@ -22,7 +19,6 @@ const {
   isPowerRank,
   validateEntitySemantics
 } = require('./semantic-contract');
-const { readWorkPlan } = require('./semantic-work');
 
 const ID_PATTERN = /^(char|item|skill|faction)_[a-z]+(?:_[a-z]+)*$/;
 const FILE_PREFIX = Object.freeze({
@@ -306,40 +302,6 @@ function verifyFinalDeep(paths) {
     }
   }
 
-  let plan = null;
-  let registry = null;
-  let assembledBook = null;
-  const decisionHashes = {};
-  try {
-    plan = readWorkPlan(paths, 'domain');
-    const units = (plan.inputs || []).map(input => input.unit);
-    if (JSON.stringify(units) !== JSON.stringify(DOMAIN_UNITS)) {
-      blockingErrors.push({ code: 'DOMAIN_PLAN_INVALID', path: paths.domainWork, target: units.join(',') });
-    }
-    const decisions = [];
-    for (const input of plan.inputs || []) {
-      const file = path.join(paths.domainDecisions, `${input.unit.replaceAll(':', '_')}.yaml`);
-      decisionHashes[input.unit] = acceptedArtifactHash(paths, file);
-      const decision = readYaml(file);
-      decisions.push(decision);
-      blockingErrors.push(...validateDomainDecisionDraft(decision, input).map(issue => ({
-        ...issue,
-        path: `${input.unit}.${issue.path}`
-      })));
-    }
-    acceptedArtifactHash(paths, paths.candidateRegistry);
-    registry = readJson(paths.candidateRegistry);
-    assembledBook = assembleDomainMergedBook({
-      manifest,
-      chapters,
-      registry,
-      work_plan: plan,
-      decisions
-    });
-  } catch (error) {
-    blockingErrors.push(verificationError(error, paths.domainWork));
-  }
-
   let assemblyReport = null;
   let idPlanHash = null;
   try {
@@ -359,16 +321,9 @@ function verifyFinalDeep(paths) {
       ['ASSEMBLY_CONTRACT_STALE', assemblyReport.semantic_contract_version, SEMANTIC_CONTRACT_VERSION],
       ['ASSEMBLY_SOURCE_STALE', assemblyReport.source_hash, manifest.source_hash],
       ['ASSEMBLY_ACCEPTED_HASH_STALE', stableValue(assemblyReport.accepted_hashes), stableValue(acceptedHashes)],
-      ['ASSEMBLY_DECISION_HASH_STALE', stableValue(assemblyReport.decision_hashes), stableValue(decisionHashes)],
       ['ASSEMBLY_ID_PLAN_HASH_STALE', assemblyReport.id_plan_hash, idPlanHash],
       ['ASSEMBLY_FINAL_HASH_STALE', assemblyReport.final_data_hash, portable.final_data_hash],
-      ['ASSEMBLY_COUNTS_STALE', stableValue(assemblyReport.counts), stableValue(expectedCounts)],
-      ['ASSEMBLY_CANDIDATE_COUNT_STALE', assemblyReport.candidate_count, registry ? candidateTotal(registry) : null],
-      [
-        'ASSEMBLY_RESOLUTION_COUNT_STALE',
-        assemblyReport.candidate_resolution_count,
-        assembledBook ? assembledBook.candidate_resolutions.length : null
-      ]
+      ['ASSEMBLY_COUNTS_STALE', stableValue(assemblyReport.counts), stableValue(expectedCounts)]
     ];
     for (const [code, actual, expected] of checks) {
       if (JSON.stringify(actual) !== JSON.stringify(expected)) {
@@ -452,17 +407,10 @@ function verifyFinalDefault(paths) {
   }
 
   let registry = null;
-  let assembledBook = null;
   let registryHash = null;
   try {
     registryHash = acceptedArtifactHash(paths, paths.candidateRegistry);
     registry = readJson(paths.candidateRegistry);
-    assembledBook = assembleGroundedBook({
-      manifest,
-      chapters,
-      registry,
-      source_registry: registry
-    });
   } catch (error) {
     blockingErrors.push(verificationError(error, paths.candidateRegistry));
   }
@@ -483,9 +431,7 @@ function verifyFinalDefault(paths) {
       ['ASSEMBLY_REGISTRY_HASH_STALE', assemblyReport.registry_hash, registryHash],
       ['ASSEMBLY_FINAL_HASH_STALE', assemblyReport.final_data_hash, portable.final_data_hash],
       ['ASSEMBLY_COUNTS_STALE', stableValue(assemblyReport.counts), stableValue(expectedCounts)],
-      ['ASSEMBLY_CANDIDATE_COUNT_STALE', assemblyReport.candidate_count, registry ? candidateTotal(registry) : null],
-      ['ASSEMBLY_RESOLUTION_COUNT_STALE', assemblyReport.candidate_resolution_count,
-        assembledBook ? assembledBook.candidate_resolutions.length : null]
+      ['ASSEMBLY_CANDIDATE_COUNT_STALE', assemblyReport.candidate_count, registry ? candidateTotal(registry) : null]
     ];
     for (const [code, actual, expected] of checks) {
       if (JSON.stringify(actual) !== JSON.stringify(expected)) {

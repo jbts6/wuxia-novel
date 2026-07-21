@@ -4,7 +4,7 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { stableHash } = require('./accept');
+const { stableHash } = require('./io');
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { pathsFor } = require('./paths');

@@ -1,6 +1,5 @@
 'use strict';
 
-const { REJECTION_REASONS: DOMAIN_REJECTION_REASONS } = require('./domain-contract');
 const {
   ITEM_INCLUSION_REASONS,
   isPowerRank,
@@ -17,7 +16,6 @@ const BOOK_CATEGORIES = Object.freeze([...ENTITY_CATEGORIES, 'chapter_summaries'
 const CHARACTER_LEVELS = new Set(['核心', '重要', '次要', '龙套', '背景']);
 const ITEM_REASONS = new Set(ITEM_INCLUSION_REASONS);
 const RESOLUTIONS = new Set(['merged_to', 'rejected']);
-const REJECTION_REASONS = new Set(Object.values(DOMAIN_REJECTION_REASONS).flat());
 
 function issue(code, path, target = '') {
   return { code, path, target };
@@ -192,7 +190,8 @@ function validateCandidateResolutions(book, chapters) {
       errors.push(issue('CANDIDATE_RESOLUTION_INVALID', `${label}.merged_to`, decision.merged_to));
     }
     if (decision.resolution === 'rejected'
-      && (!REJECTION_REASONS.has(decision.reason)
+      && (typeof decision.reason !== 'string'
+        || decision.reason.trim() === ''
         || typeof decision.detail !== 'string'
         || decision.detail.trim() === '')) {
       errors.push(issue('CANDIDATE_RESOLUTION_INVALID', label, decision.candidate_key));

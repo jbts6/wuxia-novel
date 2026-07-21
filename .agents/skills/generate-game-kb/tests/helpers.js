@@ -9,7 +9,6 @@ const yaml = require('js-yaml');
 const { pathsFor } = require('../scripts/lib/paths');
 const { resolveRun } = require('../scripts/lib/run');
 const { DOMAIN_UNITS, SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
-const { readWorkPlan } = require('../scripts/lib/semantic-work');
 const { sha256 } = require('../scripts/lib/source');
 
 const SKILL_ROOT = path.resolve(__dirname, '..');
