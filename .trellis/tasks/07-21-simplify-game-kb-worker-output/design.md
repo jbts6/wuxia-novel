@@ -892,3 +892,35 @@ GET /api/library/review-report?path=<author>/<book>
 - 不允许最后一次性提交全部 controller、Dashboard 和文档改动。
 - 实施者必须先读本设计、PRD、Trellis backend/frontend spec 和工作区未提交差异。
 - 用户已明确由其他 AI 执行，因此本会话不得运行 `task.py start` 或修改生产代码。
+
+## 24. v7 Worker 合同自包含补充
+
+真实 Qoder 运行证明，仅在 Skill、`schemas.md` 或 Claude 专用 agent 中描述
+Worker YAML 合同，不能保证其他宿主实际收到约束。新签发 job 必须在
+`input_file` 内携带结构化 `worker_contract`，宿主只读取该输入即可完成工作，
+不得依赖隐式 Skill 上下文、`.claude/agents/` 或自行寻找外部文档。
+
+`worker_contract` 由一个共享运行时模块生成，至少包含：
+
+- 单文档 YAML 格式和完整五字段 skeleton；
+- 四类实体、章节摘要与 `source_refs` 的必填字段；
+- Worker/Controller 字段所有权和禁止字段；
+- `name` 与每条 `source_refs[].text` 必须满足
+  `chapter_text.includes(value)`，否则不得输出该候选或引用；
+- 实体与 technique 的名称必须被自身至少一条 `source_refs[].text` 逐字覆盖；
+- `chapter_summary.summary.trim() !== ""`；
+- 写入后重新读取 YAML，并递归检查每个实体、technique、摘要和
+  `source_refs`，不能只检查顶层键；
+- 闭合 taxonomy、不得概括或改写证据、不得把描述性短语臆造成正式实体名；
+- `characters[].skills/factions` 与 `skills[].factions` 必须精确解析到本次
+  输出的对应候选，不能把悬空关系推迟到终态才暴露。
+
+`chapter-worker` 输入携带完整语义与逐字证据 preflight。
+`main-agent-repair` 输入携带同一输出结构合同及机械修复边界，但不获得
+`chapter_text`，不得新增、删除或改写任何语义内容。合同对象必须在两种 producer
+间保持同一版本和字段定义，避免修复稿再次发生结构漂移。
+
+拒绝稿的唯一归档位置是
+`drafts/<unit>/cycle_<NN>/attempt_<NN>.yaml`；revision 目录只保存
+`attempt_<NN>.errors.json`。repair input 的 `rejected_draft` 必须指向真实
+drafts 路径，并在签发测试中证明文件存在。

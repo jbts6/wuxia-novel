@@ -1063,3 +1063,76 @@ Required outcome:
 - `git diff --check`: exit 0;
 - `git status` contains only intentionally uncommitted user artifacts, never task implementation files;
 - both real-model gates completed or the task remains explicitly in progress with the external gate named as outstanding.
+
+### Task 14: 修复 Repair 路径并让 Worker Job 合同跨宿主自包含
+
+**Files:**
+- Create: `.agents/skills/generate-game-kb/scripts/lib/chapter-worker-contract.js`
+- Modify: `.agents/skills/generate-game-kb/scripts/lib/chapter-work.js`
+- Modify: `.agents/skills/generate-game-kb/tests/chapter-work.test.js`
+- Modify: `.agents/skills/generate-game-kb/tests/chapter-receiver.test.js`
+- Modify: `.agents/skills/generate-game-kb/tests/simplified-contract.test.js`
+- Modify: `.agents/skills/generate-game-kb/prompts/extract-chapters.md`
+- Modify: `.agents/skills/generate-game-kb/schemas.md`
+- Modify: `.agents/skills/generate-game-kb/examples.md`
+- Modify: `.agents/skills/generate-game-kb/SKILL.md`
+- Modify: `.claude/agents/game-kb-chapter-worker.md`
+- Modify: `.trellis/spec/backend/quality-guidelines.md`
+
+**Interfaces:**
+- `WORKER_CONTRACT_VERSION = 1`
+- `createWorkerContract(): object` returns a fresh structured contract for every input.
+- Both `chapterWorkerInput` and `repairInput` serialize the contract as
+  `worker_contract`; repair inputs still omit chapter source fields.
+
+- [x] **Step 1: Reproduce the rejected-draft path defect**
+
+Extend the syntax-only receiver test to assert
+`input.rejected_draft === draftPath(paths)` and that the file exists. Run:
+
+```powershell
+rtk node --test ".agents/skills/generate-game-kb/tests/chapter-receiver.test.js"
+```
+
+Expected before the fix: FAIL because the input points into `revisions/`.
+
+- [x] **Step 2: Fix the path and retain the repair isolation boundary**
+
+Change repair input generation to read the raw rejected YAML from `paths.drafts`, while
+keeping the error report in `paths.revisions`. Re-run the receiver test; expected 9/9 pass.
+
+- [x] **Step 3: Write failing self-contained input tests**
+
+Assert that both producer inputs contain `worker_contract` with the complete YAML skeleton,
+required/forbidden fields, exact-name and exact-quote substring checks, non-empty summary
+check, recursive `source_refs` checks, own-evidence coverage, taxonomy and relationship
+closure rules, and a producer-specific preflight.
+Assert repair inputs still omit `chapter_text/source_file/source_hash/taxonomies`.
+
+- [x] **Step 4: Implement the shared structured contract**
+
+Create `chapter-worker-contract.js` as the single runtime source and inject a fresh contract
+into both input shapes. Do not add a second validator or relax Controller validation.
+
+- [x] **Step 5: Make dispatch documentation input-only**
+
+Update Skill, prompt, schema, examples and Claude agent so every host is told to obey the
+embedded `worker_contract` and execute its recursive preflight before reporting completion.
+No host may be required to discover external contract files.
+
+- [x] **Step 6: Verify targeted and full controller gates**
+
+```powershell
+rtk node --test ".agents/skills/generate-game-kb/tests/chapter-work.test.js" ".agents/skills/generate-game-kb/tests/chapter-receiver.test.js" ".agents/skills/generate-game-kb/tests/simplified-contract.test.js"
+rtk node --test ".agents/skills/generate-game-kb/tests/*.test.js"
+rtk git diff --check
+```
+
+Expected: all tests pass, diff check exits 0, and no `.kb-scratch` appears.
+
+- [x] **Step 7: Commit independently**
+
+```powershell
+rtk git add -- ".agents/skills/generate-game-kb/scripts/lib/chapter-worker-contract.js" ".agents/skills/generate-game-kb/scripts/lib/chapter-work.js" ".agents/skills/generate-game-kb/tests/chapter-work.test.js" ".agents/skills/generate-game-kb/tests/chapter-receiver.test.js" ".agents/skills/generate-game-kb/tests/simplified-contract.test.js" ".agents/skills/generate-game-kb/prompts/extract-chapters.md" ".agents/skills/generate-game-kb/schemas.md" ".agents/skills/generate-game-kb/examples.md" ".agents/skills/generate-game-kb/SKILL.md" ".claude/agents/game-kb-chapter-worker.md" ".trellis/spec/backend/quality-guidelines.md"
+rtk git commit -m "fix(game-kb): make worker contracts self contained"
+```
