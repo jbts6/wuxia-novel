@@ -1,169 +1,355 @@
-# generate-game-kb V4 数据契约
+# generate-game-kb v7 数据合同
 
-本文件是 AI 草稿、accepted 证据与最终五个 YAML 文件的字段契约。当前可写合同为 `semantic_contract_version: 6`、`semantic_profile: domain-distill-v1`。版本 5 及更早的旧 run 只能作为只读证据保留，不能原地升级；需要带入当前合同的数据必须从源文本启动全新的溯源式重提取。
+当前可写合同为 `semantic_contract_version: 7`、
+`semantic_profile: chapter-direct-v1`。AI 只生成单章 Worker YAML；Controller
+补齐章节身份、保存 accepted 证据、确定性归并并投影最终五文件。
 
 ## 通用规则
 
-- AI 章节草稿使用章内 `local_key` 与名称型引用；域草稿只使用 controller 提供的 `entry_ref`。
-- AI 草稿、accepted 证据和最终数据使用 YAML；控制器状态、清单、收据和报告使用 JSON。
-- 每个实体至少保留一条 `source_refs`；最终五个文件不保留该字段。
-- 人物 `level` 只允许：核心、重要、次要、龙套、背景。
-- 章节和域层人物、武功的 `rank` 都可以是 null 或省略。只有完整全书时间线证据足够时才填写八级 rank，证据不足不阻断 keep。
-- 最终人物和武功的 rank 可以为 null；非空值必须由完整全书时间线支持。
-- `aliases`、`identities`、`factions`、`types`、`skills` 按首次确认顺序去重；人物和武功的 `factions` 在 `assemble` 延迟绑定。
-- 四个域彼此独立，可并发生成草稿；固定顺序只用于展示与报告，不代表处理依赖。
-- 每个 AI unit 最多 2 次提交。YAML 解析与语义错误共用同一提交预算，第二次失败或重复错误进入 `manual_review`。
-- `status --json` 只返回一个 `next_action`，并为 AI 阶段返回稳定排序的 `next_units`。
+- AI 草稿、accepted 证据与最终数据使用 YAML；运行状态、清单、报告和收据使用
+  JSON。
+- Worker 草稿不包含 Controller 身份字段、正式 ID 或章节局部 key。
+- accepted 证据包含 `local_key` 和精确 `source_refs`，并由
+  `artifact-manifest.json` 绑定内容哈希；一旦 accepted 不得改写。
+- 最终五文件不携带 `source_refs`。证据闭环与所有确定性选择保存在 accepted
+  证据和报告中。
+- `aliases`、`identities`、`factions`、`skills`、`types` 按首次
+  出现顺序去重。
+- `description` 为 `string | null`；人物与武功 `rank` 为
+  `string | null`。
 
-## 章节草稿示例
+## Worker YAML
+
+顶层恰好包含五个字段。以下是完整示例：
 
 ```yaml
-schema_version: 1
+characters:
+  - name: "陆小凤"
+    aliases: []
+    identities: ["四条眉毛"]
+    level: "核心"
+    rank: "登峰造极"
+    description: "以灵犀一指闻名的侠客。"
+    factions: []
+    skills: ["灵犀一指"]
+    source_refs:
+      - text: "陆小凤忽然伸出两根手指，夹住了剑锋。"
+        line_start: 18
+        line_end: 18
+
+skills:
+  - name: "灵犀一指"
+    aliases: []
+    types: ["指法"]
+    factions: []
+    rank: "登峰造极"
+    description: "以双指夹住兵刃。"
+    techniques:
+      - name: "灵犀一指"
+        description: "双指迎住来剑。"
+    source_refs:
+      - text: "灵犀一指，天下无双。"
+        line_start: 20
+        line_end: 20
+
+items:
+  - name: "孔雀翎"
+    aliases: []
+    types: ["武器", "暗器"]
+    description: "孔雀山庄的著名暗器。"
+    source_refs:
+      - text: "这就是孔雀翎。"
+        line_start: 31
+        line_end: 31
+
+factions:
+  - name: "青衣楼"
+    aliases: []
+    types: ["组织"]
+    description: "江湖中的秘密组织。"
+    source_refs:
+      - text: "青衣楼的令牌就在桌上。"
+        line_start: 42
+        line_end: 42
+
+chapter_summary:
+  summary: "陆小凤以灵犀一指接下袭击，并发现青衣楼令牌。"
+  source_refs:
+    - text: "陆小凤忽然伸出两根手指，夹住了剑锋。"
+      line_start: 18
+      line_end: 18
+```
+
+四个实体数组即使为空也必须存在。每条记录必须有非空 `name` 和至少一条
+`source_refs`；章节摘要必须有非空 `summary` 和至少一条
+`source_refs`。引用中的 `text` 必须在当前 `chapter_text` 逐字存在。
+`line_start/line_end` 可选，存在时必须为整数。
+
+Worker 顶层禁止：
+`schema_version/chapter/title/source_hash/unit/cycle/attempt/input_hash/output_file`。
+实体禁止正式 `id`、`local_key`、`candidate_key` 及任何 Controller
+身份字段。
+
+## accepted 章节 YAML
+
+Controller 校验 Worker YAML 后，规范化为：
+
+```yaml
+schema_version: 7
 chapter: 1
 title: "第一章 起始"
-source_hash: "sha256:chapter"
-factions:
-  - local_key: "faction:青城派"
-    name: "青城派"
-    aliases: []
-    type: "门派"
-    description: null
-    source_refs:
-      - chapter: 1
-        text: "原文锚点"
+source_hash: "sha256:chapter-input"
 characters:
-  - local_key: "character:甲"
-    name: "甲"
+  - name: "陆小凤"
     aliases: []
-    identities: ["侠客"]
+    identities: ["四条眉毛"]
     level: "核心"
-    rank: null
-    description: "甲在山谷中追查旧事。"
-    factions: ["faction:青城派"]
-    skills: ["skill:玄门内功"]
+    rank: "登峰造极"
+    description: "以灵犀一指闻名的侠客。"
+    factions: []
+    skills: ["灵犀一指"]
     source_refs:
       - chapter: 1
-        text: "原文锚点"
+        text: "陆小凤忽然伸出两根手指，夹住了剑锋。"
+    local_key: "character:陆小凤"
 skills:
-  - local_key: "skill:玄门内功"
-    name: "玄门内功"
+  - name: "无名毒术"
     aliases: []
-    types: ["内功"]
+    types: ["毒功"]
+    factions: []
     rank: null
     description: null
-    factions: ["faction:青城派"]
-    techniques:
-      - name: "飞云掌"
-        description: null
+    techniques: []
     source_refs:
       - chapter: 1
-        text: "原文锚点"
-items:
-  - local_key: "item:回生丹"
-    name: "回生丹"
-    aliases: []
-    type: "丹药"
-    description: null
-    source_refs:
-      - chapter: 1
-        text: "原文锚点"
+        text: "无名毒术已练了三年。"
+    local_key: "skill:无名毒术"
+items: []
+factions: []
 chapter_summary:
-  title: "第一章 起始"
-  summary: "甲在山谷中追查旧事。"
+  summary: "陆小凤接下袭击。"
   source_refs:
     - chapter: 1
-      text: "原文锚点"
+      text: "陆小凤忽然伸出两根手指，夹住了剑锋。"
+normalizations:
+  - field_path: "$.skills[0].types[0]"
+    original_value: "poison"
+    normalized_value: "毒功"
+    normalization_rule: "skills.poison"
 ```
 
-四个候选数组必须存在，即使为空。`chapter`、`source_hash` 和每条引用的章节号必须与 descriptor 一致。不得输出正式 ID、控制器字段或未经原文支持的字段。
+`chapter/title/source_hash/local_key/source_refs[].chapter` 全由 Controller
+注入。accepted 文件按 `unit + output_hash` 登记到 artifact ledger；同一目标
+只允许内容一致的幂等重放。
 
-## 域蒸馏草稿示例
+## types 受控数组
 
-四个域的固定展示顺序为 `distill:factions`、`distill:characters`、`distill:skills`、`distill:items`；四个域彼此独立并可并发处理。
+`skills`、`items`、`factions` 都使用 `types: string[]`，不得使用单值
+`type`。
 
-```yaml
-schema_version: 1
-semantic_contract_version: 6
-unit: "distill:factions"
-input_hash: "sha256:input"
-decisions:
-  - entry_ref: "r000001"
-    action: "keep"
-    patch:
-      name: "青城派"
-      aliases: []
-      type: "门派"
-      description: "川西武林门派。"
-notes: []
+| 类别 | 允许值 |
+|---|---|
+| skills | 内功、心法、外功、轻功、身法、剑法、刀法、枪法、棍法、棒法、鞭法、拳法、掌法、腿法、爪法、指法、点穴、擒拿、暗器、毒功、医术、易容、音律、阵法、奇门、合击、其他 |
+| items | 武器、防具、秘籍、丹药、暗器、坐骑、异兽、饰品、其他 |
+| factions | 门派、帮会、组织、家族、世家、朝廷、官府、商会、镖局、教派、寺院、部族、王朝、山庄、其他 |
+
+Controller 先精确匹配白名单，再对 key 执行 NFKC、小写化以及移除空白、下划线、
+连字符的一对一别名匹配。`Internal_Skill`、`sword-skill` 与
+`poison` 可分别归一化为 `内功`、`剑法`、`毒功`。未命中值以
+`TYPE_VALUE_UNKNOWN` 拒绝；不使用编辑距离或子串猜测。
+
+## 枚举
+
+人物 `level`：
+
+```text
+核心、重要、次要、龙套、背景
 ```
 
-`action` 只允许 `keep`、`merge`、`reject`、`pending`。人物和武功的输入工作项包含按章节顺序排列的全书 `source_files` 与 `rank_contract`，必须完整读取后再判断稳定 rank。后期直接战果、真实失败、被克制和反转优先于早期描写；传闻、自述和身份不能单独支持高 rank。证据不足时 rank 为 null。
+人物与武功 `rank`：
 
-## 最终文件
+```text
+平平无奇、初窥门径、略有小成、登堂入室、
+炉火纯青、出神入化、登峰造极、返璞归真
+```
 
-最终数据严格为五个顶层 YAML 文件，供 Dashboard 读取：`characters.yaml`、`skills.yaml`、`items.yaml`、`factions.yaml`、`chapter_summaries.yaml`。
+章节证据不足以支持稳定 rank 时使用 `null`。
+
+## assembly-report.json
+
+```json
+{
+  "schema_version": 7,
+  "source_hash": "sha256:source",
+  "final_data_hash": "sha256:data",
+  "deterministic_audit_hash": "sha256:audit",
+  "review_report_hash": "sha256:review",
+  "deterministic_audit": {
+    "field_decisions": [
+      {
+        "category": "characters",
+        "canonical_name": "陆小凤",
+        "member_refs": ["ch001:character:陆小凤"],
+        "source_refs": [{ "chapter": 1, "text": "陆小凤忽然伸出两根手指。" }],
+        "field": "description",
+        "candidate_values": [
+          {
+            "value": "以灵犀一指闻名的侠客。",
+            "member_refs": ["ch001:character:陆小凤"],
+            "source_refs": [{ "chapter": 1, "text": "陆小凤忽然伸出两根手指。" }],
+            "occurrences": 1,
+            "unicode_length": 11
+          }
+        ],
+        "selected_value": "以灵犀一指闻名的侠客。",
+        "selection_rule": "longest_unicode_then_earliest_source_ref_then_text"
+      }
+    ],
+    "type_normalizations": [
+      {
+        "category": "skills",
+        "canonical_name": "无名毒术",
+        "member_ref": "ch001:skill:无名毒术",
+        "source_ref": { "chapter": 1, "text": "无名毒术已练了三年。" },
+        "field_path": "$.skills[0].types[0]",
+        "original_value": "poison",
+        "normalized_value": "毒功",
+        "normalization_rule": "skills.poison"
+      }
+    ]
+  },
+  "chapter_count": 1,
+  "entity_counts": {
+    "characters": 1,
+    "skills": 1,
+    "items": 0,
+    "factions": 0,
+    "chapter_summaries": 1
+  }
+}
+```
+
+`deterministic_audit_hash` 对完整 `deterministic_audit` 计算稳定哈希；
+`final_data_hash` 使用与五文件验证器相同的 `hashFinalData` 算法。
+
+## game-kb-review.json
+
+这是只含 warning 的非阻塞报告：
+
+```json
+{
+  "report_version": 1,
+  "source_hash": "sha256:source",
+  "final_data_hash": "sha256:data",
+  "summary": {
+    "warning_count": 1,
+    "by_code": { "GENERIC_CANDIDATE_FILTERED": 1 },
+    "by_category": { "characters": 1 }
+  },
+  "entries": [
+    {
+      "code": "GENERIC_CANDIDATE_FILTERED",
+      "severity": "warning",
+      "category": "characters",
+      "name": "店小二",
+      "chapter_numbers": [1],
+      "source_refs": [{ "chapter": 1, "text": "店小二端来一壶酒。" }],
+      "member_refs": ["ch001:character:店小二"],
+      "reason": "confirmed_generic_name",
+      "resolution": "filtered"
+    }
+  ]
+}
+```
+
+同章不同局部 key 共享同一精确名称时，组装写入
+`IDENTITY_COLLISION_REVIEW_REQUIRED` 并进入人工复核；该情况会阻断组装，
+不会降级为普通 warning。
+
+## 最终五文件
+
+`<novel>/data/` 必须恰好包含以下顶层数组 YAML。
 
 ### characters.yaml
 
 ```yaml
-- id: "char_jia"
-  name: "甲"
+- id: "char_lu_xiao_feng"
+  name: "陆小凤"
   aliases: []
-  identities: ["侠客"]
+  identities: ["四条眉毛"]
   level: "核心"
-  rank: null
-  description: "甲在江湖中追查旧事。"
-  factions: ["faction_qing_cheng"]
-  skills: ["skill_xuan_men_nei_gong"]
+  rank: "登峰造极"
+  description: "以灵犀一指闻名的侠客。"
+  factions: []
+  skills: ["skill_ling_xi_yi_zhi"]
 ```
+
+字段恰好为
+`id/name/aliases/identities/level/rank/description/factions/skills`。
 
 ### skills.yaml
 
 ```yaml
-- id: "skill_xuan_men_nei_gong"
-  name: "玄门内功"
+- id: "skill_ling_xi_yi_zhi"
+  name: "灵犀一指"
   aliases: []
-  types: ["内功"]
-  factions: ["faction_qing_cheng"]
-  rank: null
-  description: "调息养气。"
+  types: ["指法"]
+  factions: []
+  rank: "登峰造极"
+  description: "以双指夹住兵刃。"
   techniques:
-    - name: "飞云掌"
-      description: "掌势迅疾。"
+    - name: "灵犀一指"
+      description: "双指迎住来剑。"
 ```
+
+字段恰好为
+`id/name/aliases/types/factions/rank/description/techniques`；每个 technique
+恰好含 `name/description`。
 
 ### items.yaml
 
 ```yaml
-- id: "item_hui_sheng_dan"
-  name: "回生丹"
+- id: "item_kong_que_ling"
+  name: "孔雀翎"
   aliases: []
-  type: "丹药"
-  description: "用于救治重伤。"
+  types: ["武器", "暗器"]
+  description: "孔雀山庄的著名暗器。"
 ```
+
+字段恰好为 `id/name/aliases/types/description`。
 
 ### factions.yaml
 
 ```yaml
-- id: "faction_qing_cheng"
-  name: "青城派"
+- id: "faction_qing_yi_lou"
+  name: "青衣楼"
   aliases: []
-  type: "门派"
-  description: "川西武林门派。"
+  types: ["组织"]
+  description: "江湖中的秘密组织。"
 ```
+
+字段恰好为 `id/name/aliases/types/description`。
 
 ### chapter_summaries.yaml
 
 ```yaml
 - chapter: 1
-  title: "第1章"
-  summary: "第1章摘要。"
+  title: "第一章 起始"
+  summary: "陆小凤接下袭击，并发现青衣楼令牌。"
 ```
 
-## 验证与收据
+字段恰好为 `chapter/title/summary`，章节号必须连续覆盖 manifest。
 
-- 最终人物、武功的 rank 可为空；非空值必须是合同八级之一。
-- 普通物品不得进入 items；稳定 ID、引用闭包和 source_refs 必须完整。
-- workspace 验证重新读取 accepted 证据，并核对 `assembly-report.json` 的输入哈希、候选闭包和五文件哈希。
-- 安装收据必须绑定 `final_data_hash`、`id_plan_hash`、`verification_report_hash`；归档收据还绑定 artifact manifest hash、final data hash、id plan hash、verification report hash 和可选 `migration_receipt_hash`。
-- 只有 `verification-report.json`、`verify --installed` 和归档收据全部通过才算完成。
+## 验证、安装与归档
+
+- workspace 验证重新读取 accepted 章节及 artifact ledger，核对证据、五文件
+  schema、引用闭环、`assembly-report.json`、`game-kb-review.json` 与当前字节。
+- accepted 章节在写入后必须出现在 artifact ledger；未登记的 accepted 文件以
+  `ACCEPTED_ARTIFACT_UNTRACKED` 失败。
+- `manual_review.json` 缺失等价于没有待处理项；存在且非空时阻断最终验证。
+- 安装以同一事务发布五个 data YAML、assembly/review/verification 三类报告及
+  收据；失败时全部回滚。
+- 验证报告直接绑定 `source_hash`、`final_data_hash`、
+  `deterministic_audit_hash` 与 `review_report_hash`。安装回执直接绑定源、终态、
+  review 和 verification report 哈希；归档回执直接绑定 assembly、verification、
+  install、review、artifact manifest 与 ID plan 哈希，不得从旧工作区报告回退。

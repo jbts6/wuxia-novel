@@ -45,14 +45,6 @@ function cjkCharCount(value) {
   return (String(value).match(/[\u3400-\u9fff\uf900-\ufaff]/g) || []).length;
 }
 
-function chapterStagingPaths(paths, number) {
-  const unit = `chapter_${String(number).padStart(3, '0')}`;
-  return [1, 2].map(attempt => path.join(
-    paths.staging,
-    `${unit}_attempt_${String(attempt).padStart(2, '0')}.yaml`
-  ));
-}
-
 function splitChapters(sourceText, fallbackTitle = '第一章') {
   const source = normalizeSource(sourceText);
   const lines = source.split('\n');
@@ -119,8 +111,7 @@ function prepareNovel(novelDir, options = {}) {
       title: chapter.title,
       file,
       input_hash: sha256(chapter.content),
-      source_char_count: cjkCharCount(chapter.content),
-      staging_paths: chapterStagingPaths(paths, chapter.number)
+      source_char_count: cjkCharCount(chapter.content)
     };
   });
 

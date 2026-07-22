@@ -15,23 +15,17 @@ const RUN_SCOPED_PATHS = [
   'runJson',
   'manifest',
   'artifactManifest',
-  'workerPool',
   'progress',
   'manualReview',
-  'quarantine',
   'tasks',
-  'overlays',
   'revisions',
   'sourceOriginal',
   'sourceChapters',
-  'semanticWork',
-  'domainWork',
   'staging',
   'drafts',
   'accepted',
   'chapters',
   'candidateRegistry',
-  'domainDecisions',
   'reports',
   'runMetrics',
   'finalRoot',
@@ -39,7 +33,8 @@ const RUN_SCOPED_PATHS = [
   'finalData',
   'finalReports',
   'assemblyReport',
-  'verificationReport'
+  'verificationReport',
+  'reviewReport'
 ];
 
 function isWithin(parent, candidate) {
@@ -70,11 +65,11 @@ test('fast-path metadata and artifact paths are scoped below the explicit run id
   }
 });
 
-test('fast-path run paths stay inside the run directory', () => {
+test('v7 direct chapter paths stay inside the run directory', () => {
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
   const paths = pathsFor(novel, 'run-lite');
 
-  for (const key of ['quarantine', 'tasks', 'overlays', 'revisions']) {
+  for (const key of ['tasks', 'staging', 'drafts', 'revisions', 'accepted']) {
     assert.equal(isWithin(paths.run, paths[key]), true, key);
   }
 });
@@ -84,14 +79,14 @@ test('creating or resuming a current run restores only durable current work dire
   createOrResumeRun(novel, { runId: 'run-a' });
   const paths = pathsFor(novel, 'run-a');
 
-  for (const directory of [paths.staging, paths.domainWork, paths.domainDecisions]) {
+  for (const directory of [paths.staging]) {
     assert.equal(fs.statSync(directory).isDirectory(), true);
     fs.rmSync(directory, { recursive: true });
   }
 
   const resumed = createOrResumeRun(novel, { runId: 'run-a' });
   assert.equal(resumed.resumed, true);
-  for (const directory of [paths.staging, paths.domainWork, paths.domainDecisions]) {
+  for (const directory of [paths.staging]) {
     assert.equal(fs.statSync(directory).isDirectory(), true);
   }
 });

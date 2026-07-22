@@ -56,7 +56,7 @@ test('split recognizes a sequential series of bare Chinese numeral chapter headi
   assert.equal(chapters[1].content, '二\n乙。\n');
 });
 
-test('prepare refreshes an unattempted pending chapter instead of marking it stale', () => {
+test('prepare refreshes unissued chapters into v7 pending progress without transport paths', () => {
   const novel = makeNovel('试书', '尚未识别章节。\n');
   const first = prepareNovel(novel);
   fs.writeFileSync(path.join(novel, '试书.txt'), '一\n甲。\n二\n乙。\n', 'utf8');
@@ -67,9 +67,13 @@ test('prepare refreshes an unattempted pending chapter instead of marking it sta
   ), 'utf8'));
 
   assert.equal(second.chapters.length, 2);
+  assert.equal(Object.hasOwn(second.chapters[0], 'staging_paths'), false);
+  assert.equal(progress.schema_version, 7);
+  assert.deepEqual(progress.active_units, []);
   assert.equal(progress.units['chapter:001'].status, 'pending');
-  assert.equal(progress.units['chapter:001'].attempts, 0);
-  assert.equal(progress.units['chapter:001'].input_hash, second.chapters[0].input_hash);
+  assert.equal(progress.units['chapter:001'].cycle, 0);
+  assert.equal(progress.units['chapter:001'].attempt, 0);
+  assert.equal(progress.units['chapter:001'].input_hash, null);
   assert.equal(progress.units['chapter:002'].status, 'pending');
 
   progress.units['chapter:001'].status = 'stale';

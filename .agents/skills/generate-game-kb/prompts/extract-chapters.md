@@ -7,8 +7,8 @@
 - 不返回 envelope，不调用 controller、CLI、接收或提交命令。
 - 不创建、修改、移动或删除 `output_file` 之外的任何文件。
 - 不改写 `unit/cycle/attempt/producer/input_hash/input_file/output_file` 等 controller 身份字段。
-- YAML 顶层固定为 `schema_version/chapter/title/source_hash/characters/items/skills/factions/chapter_summary/normalizations`。
-- `schema_version` 固定为 7；实体使用章节局部 `local_key`，不得生成正式 ID 或 controller candidate key。
+- YAML 顶层恰好为 `characters/skills/items/factions/chapter_summary`；四个实体数组即使为空也必须存在。
+- 不输出 `schema_version/chapter/title/source_hash/normalizations`；这些字段和章节局部 `local_key` 由 controller 写入 accepted YAML。不得生成正式 ID 或 controller candidate key。
 - 所有实体和章节摘要必须保留当前章节的精确 `source_refs`；不得使用记忆或其他章节证据。
 - `skills/items/factions` 使用闭合的 `types` 数组，不使用 legacy `type`。
 - 写完后重新读取 `output_file`，确认它是单个可解析 YAML 文档且没有额外顶层字段。

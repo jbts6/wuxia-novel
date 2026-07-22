@@ -3,15 +3,149 @@ name: generate-game-kb
 description: 从中文武侠小说生成溯源证据完备的游戏知识库（角色/武功/物品/势力/章节摘要）。当用户需要根据小说目录产出结构化、可溯源的游戏素材知识库时使用。
 ---
 
-# generate-game-kb — v7 直写版
+# generate-game-kb
 
-从一本中文武侠小说生成游戏知识库。controller（`scripts/flow.js`）把源书拆成章节单元，AI 派发隔离的子代理逐章抽取实体并直接写 YAML 到唯一输出文件，controller 自动接收、校验、归并、组装并安装五个终态 YAML 文件。
+从一本中文武侠小说生成游戏知识库。当前可写合同固定为
+`semantic_contract_version: 7`、`semantic_profile: chapter-direct-v1`。
+Controller 把小说拆成单章 job；每个 Worker 只读一个 `input_file`，把一份
+YAML 直接写到唯一的 `output_file`。Controller 负责接收、校验、归并、审计、
+安装与归档。
 
-使用 `semantic_contract_version: 7`、`semantic_profile: chapter-direct-v1`。
+## 公开命令
 
-## 最终产物
+```text
+run <novel> [--run <id>]                              # 创建或继续运行
+status <novel> [--run <id>]                           # 只读恢复状态和活跃 job 路径
+retry-unit <novel> --run <id> --unit <u> --confirm   # 用户确认后开启新周期
+archive-abandoned <novel> [--run <id>]                # 原样归档废弃运行
+```
 
-成功安装后，`<novel>/data/` 必须恰好包含五个 YAML：
+调用入口：
+
+```text
+node .agents/skills/generate-game-kb/scripts/flow.js <command> ... --json
+```
+
+旧版本运行只允许 `status` 与 `archive-abandoned`；任何继续写入都必须从新的
+v7 run 开始。归档废弃运行不会解析、迁移或改写其内部文件。
+
+## 必须执行的循环
+
+1. 调用 `run`。
+2. 当返回 `status: "jobs"` 时，只派发本次 `jobs` 数组中的 job。
+3. 等这些 Worker 写完各自的 `output_file`。
+4. 再次调用 `run`；Controller 会发现输出并推进状态。
+5. 重复以上步骤，直到返回 `status: "complete"`。
+
+`waiting` 表示当前固定窗口仍有在途单元，返回值不会签发新 job。此时等待，
+不要自行补位。若会话中断，调用 `status` 恢复 `active_units` 以及每个活跃
+job 的 `input_file`、`output_file`、`producer`、`cycle` 和 `attempt`，
+不得根据目录猜路径。
+
+### `run` / `status` 稳定返回
+
+```json
+{
+  "semantic_contract_version": 7,
+  "run_id": "run-example",
+  "status": "jobs",
+  "jobs": [
+    {
+      "unit": "chapter:001",
+      "cycle": 1,
+      "attempt": 1,
+      "producer": "chapter-worker",
+      "input_file": "绝对路径",
+      "output_file": "绝对路径",
+      "input_hash": "sha256"
+    }
+  ],
+  "active_units": ["chapter:001"],
+  "progress": { "accepted": 0, "total": 1 },
+  "manual_review": null
+}
+```
+
+状态只有以下处理方式：
+
+| status | 动作 |
+|---|---|
+| `jobs` | 按 `producer` 派发返回的 job，然后再次 `run` |
+| `waiting` | 等待当前窗口，不派发新章节；需要恢复路径时调用 `status` |
+| `manual_review` | 停止自动推进，向用户报告失败单元 |
+| `complete` | 五文件已验证、安装并归档，结束 |
+
+固定窗口最多包含五章。窗口中的全部章节 accepted 前，Controller 不会签发下一
+窗口。
+
+## Worker 调度
+
+- `producer: chapter-worker`：派发章节 Worker。它只读取 job 的
+  `input_file`，完整扫描其中的 `chapter_text`，并只写
+  `output_file`。
+- `producer: main-agent-repair`：由主代理执行机械修复。它只读取拒绝稿、
+  错误报告和 `allowed_repair_codes`，不读取小说原文，不改变语义。
+
+Worker 输出是单个纯 YAML 文档，顶层恰好为：
+
+```yaml
+characters: []
+skills: []
+items: []
+factions: []
+chapter_summary:
+  summary: "本章发生的关键事件。"
+  source_refs:
+    - text: "当前章节中逐字存在的原文"
+      line_start: 1
+      line_end: 1
+```
+
+四个实体数组必须存在，即使为空。Worker 不写
+`schema_version/chapter/title/source_hash/unit/cycle/attempt/input_hash`，不写
+正式 `id`、`local_key` 或 `candidate_key`。这些身份字段由 Controller
+写入 accepted YAML。Worker 不调用 Controller 命令，也不写
+`output_file` 之外的路径。
+
+完整字段与示例见 [schemas.md](schemas.md)，可执行示例见
+[examples.md](examples.md)，Worker 提示合同见
+[prompts/extract-chapters.md](prompts/extract-chapters.md)。
+
+## 两次 attempt 与人工确认
+
+每个单元的每个 cycle 最多两次：
+
+- attempt 1 是完整章节抽取。
+- 若第一次只出现允许的 YAML 机械错误，attempt 2 使用
+  `main-agent-repair`，因此机械修复会消耗第二次机会。
+- 若第一次是证据、字段或语义错误，attempt 2 仍使用 `chapter-worker`，输入会
+  携带前次错误。
+- 第二次失败进入 `manual_review`。只有用户明确同意后，才可调用
+  `retry-unit ... --confirm` 开启新 cycle；主代理不得自行重置或改进度文件。
+
+## 抽取与证据
+
+- 每章穷举所有有明确名称的角色、武功、物品和势力；龙套、背景角色及有名的
+  一次性实体也应保留。
+- 每个实体与章节摘要至少有一条当前章节的 `source_refs`，其中 `text` 必须
+  在本章原文逐字存在，并包含实体名称。不得依赖记忆或其他章节。
+- 人物 `level` 只允许：核心、重要、次要、龙套、背景。
+- 人物和武功 `rank` 可为 `null`；非空时使用八级表。证据不足时保持
+  `null`，不要猜测。
+- `skills/items/factions` 使用 `types: string[]`。Controller 只做一对一
+  机械别名归一化；例如 `poison` 归一化为 `毒功`。未知值以
+  `TYPE_VALUE_UNKNOWN` 拒绝，不做相似度猜测。
+
+## 确定性归并与完成条件
+
+- 只按“类别 + NFKC/trim 后的精确名称”归并；别名、拼音或近似名不触发自动
+  合并。
+- 同一章内不同 `local_key` 的同名实体进入人工复核并阻断组装。
+- 泛称候选被过滤为 warning，不进入终态；专指称号仍可保留。
+- 描述取 Unicode 最长值；同长按最早证据位置和文本排序。人物 level 取最高剧情
+  重要性，rank 依次按多数票、最新证据、较低 rank 索引决胜，types 取稳定并集。
+
+成功后 `<novel>/data/` 恰好包含：
 
 ```text
 characters.yaml
@@ -21,126 +155,7 @@ factions.yaml
 chapter_summaries.yaml
 ```
 
-## 命令面（v7 仅四个命令）
-
-```text
-run <novel> [--run <id>]                # 推进管线：准备、派发、接收、组装、安装、归档
-status <novel> [--run <id>]             # 只读：查看进度、活跃 job、manual_review
-retry-unit <novel> --run <id> --unit <u> --confirm  # 用户确认后为 manual_review 单元开启新周期
-archive-abandoned <novel> [--run <id>]  # 归档废弃 run（不解析、不迁移）
-```
-
-## 核心循环
-
-主代理只需反复调用 `run`：
-
-```
-1. 调用 run → 返回 jobs（最多 5 个章节）
-2. 为每个 job 派发一个子代理（Worker）
-3. Worker 读取 input_file，写 YAML 到 output_file
-4. 再次调用 run → controller 自动接收已有输出，推进状态
-5. 重复 1-4 直到 status 为 complete
-```
-
-### `run` 返回状态
-
-| status | 含义 | 主代理动作 |
-|--------|------|-----------|
-| `jobs` | 有新章节 job 需要派发 | 派发 Worker，写完后再次 run |
-| `waiting` | 当前窗口有未完成单元 | 等待 Worker 完成，再次 run |
-| `dispatched` | 重试 job 已签发 | 派发修复 Worker |
-| `manual_review` | 有单元两次失败 | 告知用户，等用户 retry-unit |
-| `complete` | 全部完成并归档 | 结束 |
-
-### 固定窗口规则
-
-- 每次最多 5 个章节同时在途（`active_units.length <= 5`）
-- 当前窗口全部 accepted 前不签发新章节
-- `waiting` 不返回新 job，主代理不得自行补位
-
-## Worker 合同
-
-Worker 读取 controller 生成的 `input_file`（JSON），写 YAML 到 `output_file`。
-
-### Worker 输出格式（纯 YAML，无 envelope）
-
-```yaml
-characters:
-  - name: "陆小凤"
-    aliases: []
-    identities: []
-    level: "核心"
-    rank: "登堂入室"
-    description: "..."
-    factions: []
-    skills: []
-    source_refs:
-      - text: "原文证据"
-        line_start: 10
-        line_end: 12
-
-skills:
-  - name: "灵犀一指"
-    aliases: []
-    types: ["指法"]
-    factions: []
-    rank: "登峰造极"
-    description: "..."
-    techniques:
-      - name: "灵犀一指"
-        description: "..."
-    source_refs: [...]
-
-items:
-  - name: "孔雀翎"
-    aliases: []
-    types: ["武器", "暗器"]
-    description: "..."
-    source_refs: [...]
-
-factions:
-  - name: "青衣楼"
-    aliases: []
-    types: ["组织"]
-    description: "..."
-    source_refs: [...]
-
-chapter_summary:
-  summary: "本章摘要..."
-  source_refs: [...]
-```
-
-### Worker 禁止事项
-
-- 不得输出 envelope、unit、cycle、attempt、schema_version、chapter、title、source_hash
-- 不得输出 `id`、`local_key`、`candidate_key`
-- 不得使用单值 `type` 字段（必须用 `types: string[]`）
-- 不得调用 controller 命令
-- 不得写入 output_file 以外的任何路径
-
-### types 白名单
-
-- **skills**: 内功、心法、外功、轻功、身法、剑法、刀法、枪法、棍法、棒法、鞭法、拳法、掌法、腿法、爪法、指法、点穴、擒拿、暗器、毒功、医术、易容、音律、阵法、奇门、合击、其他
-- **items**: 武器、防具、秘籍、丹药、暗器、坐骑、异兽、饰品、其他
-- **factions**: 门派、帮会、组织、家族、世家、朝廷、官府、商会、镖局、教派、寺院、部族、王朝、山庄、其他
-
-## 两次 Attempt 与修复
-
-- 每章每周期最多 2 个 attempt
-- 第一次失败若仅为 YAML 机械错误（代码围栏、缩进、引号、空集合），controller 标记 `repair_allowed: true`
-- 修复 Worker 只读取拒绝稿和错误报告，不读小说原文，不修改语义字段
-- 第二次失败进入 `manual_review`，只有用户 `retry-unit --confirm` 才能开启新周期
-
-## 实体高召回（强制）
-
-- 每章必须穷举所有有名字的角色、武功、物品、势力
-- 宁多勿漏：龙套、背景角色、提及但未出场的角色都要收录
-- source_refs 必须引用原文真实存在的文字片段
-- 泛称（店小二、管家婆、表哥）会被 controller 自动过滤为 warning
-
-## 归并规则
-
-- 只按"类别 + 精确规范名称"归并
-- 别名、近似名、拼音相似不触发归并
-- description 取最长、rank 取多数票、level 取最高优先级
-- types 取稳定并集
+`assembly-report.json` 绑定确定性字段决策、类型归一化和最终数据哈希；
+`game-kb-review.json` 只记录非阻塞 warning；`verification-report.json` 是
+安装前硬门禁。验证报告直接绑定确定性审计与复核哈希；安装回执绑定源、终态、
+复核与验证哈希；归档回执再绑定 assembly、安装和 artifact manifest 哈希。

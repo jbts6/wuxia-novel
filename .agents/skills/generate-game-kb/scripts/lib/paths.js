@@ -22,7 +22,6 @@ function pathsFor(novelDir, runId, options = {}) {
   const runs = path.join(work, 'runs');
   const id = assertRunId(runId);
   const run = path.join(runs, id);
-  const semanticWork = path.join(run, 'work');
   return {
     novel,
     work,
@@ -32,23 +31,17 @@ function pathsFor(novelDir, runId, options = {}) {
     runJson: path.join(run, 'run.json'),
     manifest: path.join(run, 'manifest.json'),
     artifactManifest: path.join(run, 'artifact-manifest.json'),
-    workerPool: path.join(run, 'worker-pool.json'),
     progress: path.join(run, 'progress.json'),
     manualReview: path.join(run, 'manual_review.json'),
-    quarantine: path.join(run, 'quarantine'),
     tasks: path.join(run, 'tasks'),
-    overlays: path.join(run, 'overlays'),
     revisions: path.join(run, 'revisions'),
     sourceOriginal: path.join(run, 'source', 'original.txt'),
     sourceChapters: path.join(run, 'source', 'chapters'),
-    semanticWork,
-    domainWork: path.join(semanticWork, 'domain'),
     staging: path.join(run, 'staging'),
     drafts: path.join(run, 'drafts'),
     accepted: path.join(run, 'accepted'),
     chapters: path.join(run, 'accepted', 'chapters'),
     candidateRegistry: path.join(run, 'accepted', 'candidate-registry.json'),
-    domainDecisions: path.join(run, 'accepted', 'domain-decisions'),
     reports: path.join(run, 'reports'),
     migrationReceipt: path.join(run, 'reports', 'migration-receipt.json'),
     chapterImportReceipt: path.join(run, 'reports', 'chapter-import-receipt.json'),
@@ -104,11 +97,6 @@ function assertManagedPath(paths, root, candidate, code, label) {
     }
   }
   return resolved;
-}
-
-function stagingPathFor(paths, unit, attempt) {
-  const file = `${unit.replaceAll(':', '_')}_attempt_${String(attempt).padStart(2, '0')}.yaml`;
-  return assertStagingIdentity(paths, path.join(paths.staging, file));
 }
 
 function deferredPathsFor(novelDir, runId) {
@@ -187,4 +175,4 @@ function chapterAttemptPaths(paths, unit, cycle, attempt) {
   };
 }
 
-module.exports = { assertStagingIdentity, chapterAttemptPaths, deferredPathsFor, pathsFor, repositoryRootFor, stagingPathFor };
+module.exports = { assertStagingIdentity, chapterAttemptPaths, deferredPathsFor, pathsFor, repositoryRootFor };

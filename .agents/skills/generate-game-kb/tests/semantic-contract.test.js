@@ -6,7 +6,6 @@ const assert = require('node:assert/strict');
 const semanticContract = require('../scripts/lib/semantic-contract');
 const {
   CHARACTER_LEVELS,
-  DOMAIN_UNITS,
   ENTITY_FIELD_CONTRACTS,
   FINAL_FIELDS,
   FINAL_FILES,
@@ -16,20 +15,15 @@ const {
   POWER_RANKS,
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
-  requiredDomainUnitsForContract,
-  requiredDomainUnitsForMode,
   validateEntitySemantics
 } = semanticContract;
 
-test('declares the version-7 direct-chapter YAML contract and retains domain unit names', () => {
+test('declares the version-7 direct-chapter YAML contract without domain APIs', () => {
   assert.equal(SEMANTIC_CONTRACT_VERSION, 7);
   assert.equal(SEMANTIC_PROFILE, 'chapter-direct-v1');
-  assert.deepEqual(DOMAIN_UNITS, [
-    'distill:factions',
-    'distill:characters',
-    'distill:skills',
-    'distill:items'
-  ]);
+  assert.equal(semanticContract.DOMAIN_UNITS, undefined);
+  assert.equal(semanticContract.requiredDomainUnitsForContract, undefined);
+  assert.equal(semanticContract.requiredDomainUnitsForMode, undefined);
   assert.deepEqual(FINAL_FILES, {
     characters: 'characters.yaml',
     skills: 'skills.yaml',
@@ -37,40 +31,10 @@ test('declares the version-7 direct-chapter YAML contract and retains domain uni
     factions: 'factions.yaml',
     chapter_summaries: 'chapter_summaries.yaml'
   });
-
-  for (const legacyUnit of ['distill:plot', 'distill:martial', 'distill:world']) {
-    assert.equal(DOMAIN_UNITS.includes(legacyUnit), false);
-  }
   for (const filename of Object.values(FINAL_FILES)) {
     assert.match(filename, /\.yaml$/);
     assert.doesNotMatch(filename, /\.json$/);
   }
-});
-
-test('required domain units reject unsupported or mistyped semantic versions', () => {
-  for (const version of ['7', 3, 4, 5, 6, null, undefined]) {
-    assert.throws(
-      () => requiredDomainUnitsForContract(version),
-      error => error.code === 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED'
-      && error.version === version
-    );
-  }
-  assert.deepEqual(requiredDomainUnitsForContract(7), DOMAIN_UNITS);
-});
-
-test('the single active semantic contract selects domain units only by --deep mode', () => {
-  assert.deepEqual(
-    requiredDomainUnitsForMode(true, SEMANTIC_CONTRACT_VERSION),
-    DOMAIN_UNITS
-  );
-  assert.deepEqual(
-    requiredDomainUnitsForMode(false, SEMANTIC_CONTRACT_VERSION),
-    []
-  );
-  assert.equal(semanticContract.PROFILE_LITE, undefined);
-  assert.equal(semanticContract.PROFILE_V4, undefined);
-  assert.equal(semanticContract.LEGACY_PROFILE_V5, undefined);
-  assert.equal(semanticContract.requiredDomainUnitsForProfile, undefined);
 });
 
 test('centralizes enums used by chapter and final records', () => {

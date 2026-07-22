@@ -2,14 +2,6 @@
 
 const SEMANTIC_CONTRACT_VERSION = 7;
 const SEMANTIC_PROFILE = 'chapter-direct-v1';
-const DOMAIN_UNITS = Object.freeze([
-  'distill:factions',
-  'distill:characters',
-  'distill:skills',
-  'distill:items'
-]);
-const NO_DOMAIN_UNITS = Object.freeze([]);
-const SUPPORTED_SEMANTIC_CONTRACT_VERSIONS = new Set([SEMANTIC_CONTRACT_VERSION]);
 const FINAL_FILES = Object.freeze({
   characters: 'characters.yaml',
   skills: 'skills.yaml',
@@ -234,30 +226,8 @@ function isPowerRank(value) {
   return typeof value === 'string' && POWER_RANK_SET.has(value);
 }
 
-function requiredDomainUnitsForContract(version) {
-  if (!SUPPORTED_SEMANTIC_CONTRACT_VERSIONS.has(version)) {
-    const error = new RangeError(`Unsupported semantic contract version: ${String(version)}`);
-    error.code = 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED';
-    error.version = version;
-    throw error;
-  }
-  return DOMAIN_UNITS;
-}
-
-function requiredDomainUnitsForMode(deep, version) {
-  requiredDomainUnitsForContract(version);
-  if (typeof deep !== 'boolean') {
-    const error = new TypeError(`Deep mode must be boolean: ${String(deep)}`);
-    error.code = 'DEEP_MODE_INVALID';
-    error.deep = deep;
-    throw error;
-  }
-  return deep ? DOMAIN_UNITS : NO_DOMAIN_UNITS;
-}
-
 module.exports = {
   CHARACTER_LEVELS,
-  DOMAIN_UNITS,
   ENTITY_FIELD_CONTRACTS,
   FINAL_FIELDS,
   FINAL_FILES,
@@ -269,7 +239,5 @@ module.exports = {
   SEMANTIC_PROFILE,
   isPowerRank,
   normalizeEntitySemantics,
-  requiredDomainUnitsForContract,
-  requiredDomainUnitsForMode,
   validateEntitySemantics
 };

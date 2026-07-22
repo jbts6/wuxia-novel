@@ -11,7 +11,6 @@ const FIXTURE = path.join(__dirname, 'fixtures', 'representative-21-chapter-timi
 const PHASES = [
   'prepare_ms',
   'chapter_extraction_ms',
-  'domain_distill_ms',
   'assemble_ms',
   'verify_ms',
   'install_ms',
@@ -22,10 +21,8 @@ test('representative 21-chapter run stays within the 45-minute budget', () => {
   const fixture = JSON.parse(fs.readFileSync(FIXTURE, 'utf8'));
   const units = Object.entries(fixture.progress.units);
   const chapters = units.filter(([unit]) => unit.startsWith('chapter:'));
-  const domains = units.filter(([unit]) => unit.startsWith('distill:'));
 
   assert.equal(chapters.length, 21);
-  assert.equal(domains.length, 4);
   for (const [unit, state] of units) {
     assert.ok(state.attempts <= 2, `${unit} exceeded the two-submission budget`);
   }
@@ -45,7 +42,6 @@ test('representative 21-chapter run stays within the 45-minute budget', () => {
   assert.equal(Object.hasOwn(metrics.phase_durations, 'installed_verify_ms'), false);
   assert.deepEqual(metrics.ai_units, {
     chapter: { planned: 21, done: 21, attempts: 24, corrections: 3 },
-    domain: { planned: 4, done: 4, attempts: 6, corrections: 2 },
-    total: { planned: 25, done: 25, attempts: 30, corrections: 5 }
+    total: { planned: 21, done: 21, attempts: 24, corrections: 3 }
   });
 });

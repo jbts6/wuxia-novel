@@ -1,35 +1,90 @@
-# Command examples
+# generate-game-kb v7 示例
 
-The following commands use the real test book `古龙/剑神一笑`. Worker envelopes go directly to stdin and must never be written to a temporary file. There is no `batch_id`; `submit` performs all input validation inline.
+以下示例使用 `古龙/剑神一笑`。公开命令只有
+`run/status/retry-unit/archive-abandoned`。
 
-## One-shot orchestration (recommended)
+## 创建并推进运行
 
-```text
-node .agents/skills/generate-game-kb/scripts/flow.js run "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+```powershell
+node .agents/skills/generate-game-kb/scripts/flow.js run "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao-v7 --json
 ```
 
-`run` returns the `extract` plan while chapters are incomplete; dispatch one sub-agent per `chapter:NNN` and pipe each returned envelope to `submit`; then run `run` again. Once chapters (and, with `--deep`, domains) are complete, `run` assembles, verifies, installs, verifies the install, and archives.
+首次调用返回最多五个 job：
 
-## Step-by-step
-
-```text
-node .agents/skills/generate-game-kb/scripts/flow.js prepare "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
-node .agents/skills/generate-game-kb/scripts/flow.js extract-plan "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
-node .agents/skills/generate-game-kb/scripts/flow.js submit "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --unit chapter:001 --attempt 1 --json
-node .agents/skills/generate-game-kb/scripts/flow.js assemble "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
-node .agents/skills/generate-game-kb/scripts/flow.js verify "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
-node .agents/skills/generate-game-kb/scripts/flow.js install "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
-node .agents/skills/generate-game-kb/scripts/flow.js verify "C:\git\wuxia-novel\古龙\剑神一笑" --installed --json
-node .agents/skills/generate-game-kb/scripts/flow.js archive-run "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao --json
+```json
+{
+  "semantic_contract_version": 7,
+  "run_id": "run-jian-shen-yi-xiao-v7",
+  "status": "jobs",
+  "jobs": [
+    {
+      "unit": "chapter:001",
+      "cycle": 1,
+      "attempt": 1,
+      "producer": "chapter-worker",
+      "input_file": "C:\\...\\tasks\\chapter_001\\cycle_01\\attempt_01.json",
+      "output_file": "C:\\...\\staging\\chapter_001\\cycle_01\\attempt_01.yaml",
+      "input_hash": "sha256"
+    }
+  ],
+  "active_units": ["chapter:001"],
+  "progress": { "accepted": 0, "total": 20 },
+  "manual_review": null
+}
 ```
 
-`unit` is a generic controller work unit. `chapter:001` is one chapter unit; `distill:characters` is one full-book domain unit (only present with `--deep`). `submit` checks that `unit`, `attempt`, and `input_hash` in the envelope match the CLI and the manifest; a malformed or identity-mismatched envelope fails without writing staging, accepted evidence, or progress.
-
-## Deep mode (four domain distill units)
+为每个返回的 job 派发一个 Worker。Worker 的任务说明只需要：
 
 ```text
-node .agents/skills/generate-game-kb/scripts/flow.js run "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao-deep --deep --json
-# When run returns stage=plan-domains, produce a decision for each distill unit and accept it:
-node .agents/skills/generate-game-kb/scripts/flow.js accept "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao-deep --unit distill:characters --draft domain-decision-characters.yaml --json
-node .agents/skills/generate-game-kb/scripts/flow.js run "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao-deep --deep --json
+读取 <input_file>，按其中引用的 v7 合同处理单章，
+把一个纯 YAML 文档写到 <output_file>；不要写其他路径。
 ```
+
+Worker 完成后再次执行同一条 `run` 命令。Controller 会自动接收已有输出：
+
+- 返回 `jobs`：派发本次返回的 job。
+- 返回 `waiting`：当前窗口还有未完成输出；等待后再调用 `run`。
+- 返回 `manual_review`：停止，向用户报告失败单元。
+- 返回 `complete`：五文件已验证、安装并归档。
+
+不要在 `waiting` 时从目录自行构造下一章 job。
+
+## 恢复中断会话
+
+```powershell
+node .agents/skills/generate-game-kb/scripts/flow.js status "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao-v7 --json
+```
+
+`status` 是只读命令。它返回活跃 job 的原始
+`input_file/output_file/producer/cycle/attempt`，用这些路径恢复派发。
+已正常归档的 run 返回 `status: "complete"`。
+
+## 用户确认后重试单章
+
+当 `run` 或 `status` 返回：
+
+```json
+{
+  "status": "manual_review",
+  "manual_review": ["chapter:007"]
+}
+```
+
+先向用户说明两次失败及错误。只有用户明确同意后执行：
+
+```powershell
+node .agents/skills/generate-game-kb/scripts/flow.js retry-unit "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao-v7 --unit chapter:007 --confirm --json
+```
+
+命令为该单元开启新 cycle 并返回新的 job。派发该 job，完成后回到 `run`
+循环。没有 `--confirm` 时命令必须失败。
+
+## 归档废弃运行
+
+```powershell
+node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao-v7 --json
+```
+
+该命令把所选 run 原样移动到
+`<novel>/_archive/generate-game-kb/<run-id>/`，不解析或改写其内部字节。用于
+放弃仍在进行或已经进入人工复核的 run；正常成功路径由 `run` 自动归档。
