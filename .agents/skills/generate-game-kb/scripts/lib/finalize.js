@@ -24,26 +24,37 @@ function uniqueInOrder(values) {
 
 function makeResolver(recordsByCategory, issues) {
   const indexes = {};
+  function add(index, key, id) {
+    if (typeof key !== 'string' || key.trim() === '') return;
+    if (!index.has(key)) index.set(key, new Set());
+    index.get(key).add(id);
+  }
+
   for (const category of ENTITY_CATEGORIES) {
-    const local = new Map();
+    const canonical = new Map();
+    const internal = new Map();
+    const aliases = new Map();
     for (const record of recordsByCategory[category] || []) {
-      const keys = [
+      add(canonical, record.name, record.id);
+      for (const key of [
         record.local_key,
         record.registry_key,
         ...(Array.isArray(record.member_local_keys) ? record.member_local_keys : [])
-      ].filter(Boolean);
-      for (const key of keys) {
-        if (!local.has(key)) local.set(key, new Set());
-        local.get(key).add(record.id);
+      ]) add(internal, key, record.id);
+      for (const alias of Array.isArray(record.aliases) ? record.aliases : []) {
+        add(aliases, alias, record.id);
       }
     }
-    indexes[category] = { local };
+    indexes[category] = { canonical, internal, aliases };
   }
 
   function resolve(category, target, path, { required = true } = {}) {
     if (typeof target !== 'string' || target.trim() === '') return null;
     const index = indexes[category];
-    const matches = index?.local.get(target) || new Set();
+    const matches = index?.canonical.get(target)
+      || index?.internal.get(target)
+      || index?.aliases.get(target)
+      || new Set();
     if (matches.size === 1) return [...matches][0];
     const issue = {
       code: matches.size === 0 ? 'REFERENCE_UNRESOLVED' : 'REFERENCE_AMBIGUOUS',
