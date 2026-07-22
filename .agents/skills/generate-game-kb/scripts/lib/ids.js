@@ -8,7 +8,7 @@ const PREFIX = Object.freeze({
   items: 'item',
   skills: 'skill',
   techniques: 'tech',
-  factions: 'faction',
+  factions: 'faction'
 });
 const HEX_LETTERS = 'abcdefghijklmnop';
 
@@ -46,100 +46,108 @@ function makeBaseId(category, canonicalName) {
   return `${prefix}_${nameSlug(canonicalName)}`;
 }
 
-function normalizedSourceRefs(record) {
-  return (Array.isArray(record?.source_refs) ? record.source_refs : [])
-    .map(ref => ({ chapter: ref?.chapter, text: String(ref?.text ?? '').normalize('NFKC').trim() }))
-    .sort((left, right) => (Number(left.chapter) - Number(right.chapter)) || left.text.localeCompare(right.text));
+function canonicalName(record) {
+  return String(record?.name ?? '').normalize('NFKC').trim();
 }
 
-function identityAnchor(category, record) {
-  const refs = normalizedSourceRefs(record);
-  const identity = {
-    controller_key: record?.local_key ?? record?.registry_key ?? null,
-    evidence: refs
-  };
-  return alphabeticDigest(`${category}\0${JSON.stringify(identity)}`, 16);
+function rejectModelAuthoredIdentity(record, category) {
+  if (record?.id === undefined && record?.disambiguator === undefined) return;
+  throw idError('ID_DISAMBIGUATOR_FORBIDDEN', 'Entity input cannot author a final ID or disambiguator', {
+    category,
+    name: canonicalName(record)
+  });
 }
 
-function priorIndexes(priorRecords) {
-  const byAnchor = new Map();
-  const byRegistry = new Map();
-  for (const record of Array.isArray(priorRecords) ? priorRecords : []) {
-    if (typeof record?.identity_anchor === 'string') byAnchor.set(record.identity_anchor, record);
-    if (typeof record?.registry_key === 'string' && typeof record?.identity_anchor !== 'string') {
-      byRegistry.set(record.registry_key, record);
+function priorByName(category, priorEntries) {
+  const result = new Map();
+  for (const entry of Array.isArray(priorEntries) ? priorEntries : []) {
+    const name = String(entry?.canonical_name ?? '').normalize('NFKC').trim();
+    const issuedId = entry?.issued_id || entry?.id;
+    if (!name || typeof issuedId !== 'string' || !issuedId.startsWith(`${PREFIX[category]}_`)) {
+      throw idError('ID_PLAN_INVALID', 'Prior ID plan contains an invalid entry', {
+        category,
+        canonical_name: name,
+        issued_id: issuedId
+      });
     }
+    if (result.has(name)) {
+      throw idError('ID_PLAN_INVALID', 'Prior ID plan repeats a canonical name', {
+        category,
+        canonical_name: name
+      });
+    }
+    result.set(name, { ...entry, issued_id: issuedId });
   }
-  return { byAnchor, byRegistry };
+  return result;
 }
 
-function validatePriorRecord(record, category) {
-  if (!record) return;
-  if (typeof record.id !== 'string' || !record.id.startsWith(`${PREFIX[category]}_`)) {
-    throw idError('ID_PLAN_INVALID', 'Prior ID plan contains an invalid issued ID', { category, id: record.id });
-  }
-  if (record.disambiguator !== null && record.disambiguator !== undefined
-    && !/^[a-p]{8}$/.test(record.disambiguator)) {
-    throw idError('ID_PLAN_INVALID', 'Prior ID plan contains an invalid disambiguator', {
-      category, disambiguator: record.disambiguator
-    });
-  }
-}
-
-function assignCategoryIds(category, records, priorPlan = {}) {
-  const entries = (Array.isArray(records) ? records : []).map(record => ({
-    record,
-    canonicalName: String(record?.name ?? '').trim(),
-    baseId: makeBaseId(category, record?.name)
-  }));
+function assignCategoryIds(category, records, priorEntries = []) {
+  const entries = (Array.isArray(records) ? records : []).map(record => {
+    rejectModelAuthoredIdentity(record, category);
+    const name = canonicalName(record);
+    return { record, canonicalName: name, baseId: makeBaseId(category, name) };
+  });
 
   const namesSeen = new Set();
   for (const entry of entries) {
     if (namesSeen.has(entry.canonicalName)) {
       throw idError('IDENTITY_COLLISION_REVIEW_REQUIRED', `Duplicate same-name records in ${category}`, {
-        category, name: entry.canonicalName
+        category,
+        name: entry.canonicalName
       });
     }
     namesSeen.add(entry.canonicalName);
   }
 
+  const prior = priorByName(category, priorEntries);
   const byBase = new Map();
   for (const entry of entries) {
-    if (!byBase.has(entry.baseId)) byBase.set(entry.baseId, []);
-    byBase.get(entry.baseId).push(entry);
+    const list = byBase.get(entry.baseId) || [];
+    list.push(entry);
+    byBase.set(entry.baseId, list);
   }
 
   const assigned = [];
   const plan = [];
-  for (const [baseId, collisions] of byBase) {
+  const issued = new Set();
+  for (const [baseId, group] of [...byBase.entries()].sort(([left], [right]) => left.localeCompare(right))) {
+    const collisions = [...group].sort((left, right) => left.canonicalName.localeCompare(right.canonicalName, 'zh-CN'));
     for (const entry of collisions) {
-      const priorEntry = priorPlan[entry.canonicalName];
-      let id;
-      let suffix = null;
-
-      if (priorEntry?.id) {
-        id = priorEntry.id;
-        suffix = priorEntry.suffix || null;
-      } else if (collisions.length > 1) {
-        suffix = alphabeticDigest(`${category}\0${entry.canonicalName}`, 8);
-        id = `${baseId}_${suffix}`;
-      } else {
-        id = baseId;
+      const priorEntry = prior.get(entry.canonicalName);
+      const collision = collisions.length > 1;
+      const suffixInput = `${category}\0${entry.canonicalName}`;
+      const generatedId = collision
+        ? `${baseId}_${alphabeticDigest(suffixInput, 8)}`
+        : baseId;
+      const id = priorEntry?.issued_id || generatedId;
+      if (issued.has(id)) {
+        throw idError('ID_PLAN_COLLISION', 'Stable ID plan issued a duplicate ID', {
+          category,
+          issued_id: id
+        });
       }
+      issued.add(id);
 
-      assigned.push({ ...entry.record, id });
+      const keptUnhashedPrior = collision && priorEntry?.issued_id === baseId;
+      assigned.push({ ...entry.record, name: entry.canonicalName, id });
       plan.push({
         category,
         canonical_name: entry.canonicalName,
         base_id: baseId,
-        collision: collisions.length > 1,
-        suffix_input: suffix ? `${category}\0${entry.canonicalName}` : null,
-        suffix,
+        collision_reason: collision
+          ? (keptUnhashedPrior ? 'pinyin_base_collision_prior_id_preserved' : 'pinyin_base_collision')
+          : null,
+        suffix_input: collision && !keptUnhashedPrior
+          ? (priorEntry?.suffix_input || suffixInput)
+          : null,
         issued_id: id
       });
     }
   }
-  return { records: assigned.sort((a, b) => a.id.localeCompare(b.id)), plan };
+
+  assigned.sort((left, right) => left.id.localeCompare(right.id));
+  plan.sort((left, right) => left.issued_id.localeCompare(right.issued_id));
+  return { records: assigned, plan };
 }
 
 function assignStableIds(recordsByCategory, priorPlan = {}) {
@@ -147,12 +155,7 @@ function assignStableIds(recordsByCategory, priorPlan = {}) {
   const idPlan = {};
   for (const category of Object.keys(recordsByCategory || {}).sort()) {
     if (!PREFIX[category]) continue;
-    const categoryPlan = priorPlan?.[category] || {};
-    const planByName = {};
-    for (const entry of Array.isArray(categoryPlan) ? categoryPlan : []) {
-      if (entry.canonical_name) planByName[entry.canonical_name] = entry;
-    }
-    const result = assignCategoryIds(category, recordsByCategory[category], planByName);
+    const result = assignCategoryIds(category, recordsByCategory[category], priorPlan?.[category]);
     assigned[category] = result.records;
     idPlan[category] = result.plan;
   }

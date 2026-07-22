@@ -286,7 +286,8 @@ function assembleGroup(category, members, fieldDecisions) {
   const name = canonicalName(members);
   const merged = {
     name,
-    aliases: mergeArrays(members, 'aliases')
+    aliases: mergeArrays(members, 'aliases'),
+    member_local_keys: uniqueInOrder(members.map(member => member.entity?.local_key).filter(Boolean))
   };
 
   const description = resolveDescription(members);

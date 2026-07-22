@@ -6,7 +6,6 @@ const yaml = require('js-yaml');
 
 const {
   ENTITY_CATEGORIES,
-  normalizeName,
   validateMergedBook
 } = require('./book-contract');
 const { atomicWriteJson } = require('./io');
@@ -23,35 +22,31 @@ function uniqueInOrder(values) {
   return [...new Set(values.filter(Boolean))];
 }
 
-function copySourceRefs(record) {
-  return (Array.isArray(record?.source_refs) ? record.source_refs : []).map(ref => ({ ...ref }));
-}
-
-function makeResolver(idPlan, issues, warnings) {
+function makeResolver(recordsByCategory, issues) {
   const indexes = {};
   for (const category of ENTITY_CATEGORIES) {
     const local = new Map();
-    const names = new Map();
-    for (const record of idPlan[category] || []) {
-      if (record.local_key) local.set(record.local_key, record.id);
-      if (record.registry_key) local.set(record.registry_key, record.id);
-      for (const name of [record.canonical_name, ...(Array.isArray(record.aliases) ? record.aliases : [])]) {
-        const normalized = normalizeName(name);
-        if (!normalized) continue;
-        if (!names.has(normalized)) names.set(normalized, new Set());
-        names.get(normalized).add(record.id);
+    for (const record of recordsByCategory[category] || []) {
+      const keys = [
+        record.local_key,
+        record.registry_key,
+        ...(Array.isArray(record.member_local_keys) ? record.member_local_keys : [])
+      ].filter(Boolean);
+      for (const key of keys) {
+        if (!local.has(key)) local.set(key, new Set());
+        local.get(key).add(record.id);
       }
     }
-    indexes[category] = { local, names };
+    indexes[category] = { local };
   }
 
   function resolve(category, target, path, { required = true } = {}) {
     if (typeof target !== 'string' || target.trim() === '') return null;
     const index = indexes[category];
-    const direct = index?.local.get(target);
-    if (direct) return direct;
+    const matches = index?.local.get(target) || new Set();
+    if (matches.size === 1) return [...matches][0];
     const issue = {
-      code: 'REFERENCE_UNRESOLVED',
+      code: matches.size === 0 ? 'REFERENCE_UNRESOLVED' : 'REFERENCE_AMBIGUOUS',
       path,
       target
     };
@@ -64,55 +59,13 @@ function makeResolver(idPlan, issues, warnings) {
       .map((target, index) => resolve(category, target, `${path}[${index}]`, options)));
   }
 
-  function resolveAny(categories, target, path, { required = true } = {}) {
-    if (typeof target !== 'string' || target.trim() === '') return null;
-    const matches = new Set();
-    for (const category of categories) {
-      const index = indexes[category];
-      const direct = index?.local.get(target);
-      if (direct) matches.add(direct);
-      for (const id of index?.names.get(normalizeName(target)) || []) matches.add(id);
-    }
-    if (matches.size === 1) return [...matches][0];
-    const issue = {
-      code: matches.size === 0 ? 'REFERENCE_UNRESOLVED' : 'REFERENCE_AMBIGUOUS',
-      path,
-      target
-    };
-    issues.push(issue);
-    return null;
-  }
-
-  return { resolve, resolveAny, resolveMany };
+  return { resolve, resolveMany };
 }
 
-function projectRelationships(record, index, resolver) {
-  const raw = Array.isArray(record.relationships) ? record.relationships : record.relationship_names || [];
-  return raw.map((relationship, relationshipIndex) => {
-    const targetName = typeof relationship === 'string'
-      ? relationship
-      : relationship?.target_name ?? relationship?.target ?? relationship?.name;
-    return {
-      target: resolver.resolve(
-        'characters', targetName, `characters[${index}].relationships[${relationshipIndex}].target`,
-        { required: false }
-      ),
-      type: typeof relationship === 'object' ? String(relationship.type || '关联') : '关联',
-      dynamic: typeof relationship === 'object' ? String(relationship.dynamic || '') : ''
-    };
-  }).filter(relationship => relationship.target)
-    .sort((left, right) => `${left.target}\0${left.type}`.localeCompare(`${right.target}\0${right.type}`));
-}
-
-function isGenericSpeakerReference(target) {
-  return typeof target === 'string'
-    && /(?:家丁|将军|教众|弟子|门人|帮众|官兵|侍卫|随从|士兵|众人|群雄|掌门人?|汉子|苗女|喽啰|仆役)$/u.test(target.trim());
-}
-
-function resolveReferences(recordsByCategory, idPlan) {
+function resolveReferences(recordsByCategory) {
   const issues = [];
   const warnings = [];
-  const resolver = makeResolver(idPlan, issues, warnings);
+  const resolver = makeResolver(recordsByCategory, issues);
   const data = emptyData();
 
   data['characters.yaml'] = (recordsByCategory.characters || []).map((record, index) => {
@@ -136,11 +89,11 @@ function resolveReferences(recordsByCategory, idPlan) {
     };
   }).sort((left, right) => left.id.localeCompare(right.id));
 
-  data['items.yaml'] = (recordsByCategory.items || []).map((record, index) => ({
+  data['items.yaml'] = (recordsByCategory.items || []).map(record => ({
     id: record.id,
     name: record.name,
     aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
-    type: record.type ?? null,
+    types: Array.isArray(record.types) ? [...record.types] : [],
     description: record.description ?? null
   })).sort((left, right) => left.id.localeCompare(right.id));
 
@@ -163,11 +116,11 @@ function resolveReferences(recordsByCategory, idPlan) {
     };
   }).sort((left, right) => left.id.localeCompare(right.id));
 
-  data['factions.yaml'] = (recordsByCategory.factions || []).map((record, index) => ({
+  data['factions.yaml'] = (recordsByCategory.factions || []).map(record => ({
     id: record.id,
     name: record.name,
     aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
-    type: record.type ?? null,
+    types: Array.isArray(record.types) ? [...record.types] : [],
     description: record.description ?? null
   })).sort((left, right) => left.id.localeCompare(right.id));
 
@@ -184,25 +137,16 @@ function resolveReferences(recordsByCategory, idPlan) {
   return { data, issues: deduplicatedIssues, warnings: deduplicatedWarnings };
 }
 
-function buildFinalData(book, manifest, priorRegistry = {}) {
+function buildFinalData(book, manifest, priorPlan = {}) {
   const contractIssues = validateMergedBook(book, manifest);
   if (contractIssues.length > 0) return { data: emptyData(), issues: contractIssues, warnings: [], id_plan: {} };
   const source = Object.fromEntries(ENTITY_CATEGORIES.map(category => [category, book[category] || []]));
-  const idPlan = assignStableIds(source, priorRegistry);
-  const projected = resolveReferences({ ...idPlan, chapter_summaries: book.chapter_summaries }, idPlan);
-  const serializablePlan = Object.fromEntries(ENTITY_CATEGORIES.map(category => [
-    category,
-    (idPlan[category] || []).map(record => ({
-      id: record.id,
-      registry_key: record.registry_key,
-      local_key: record.local_key,
-      identity_anchor: record.identity_anchor,
-      disambiguator: record.disambiguator,
-      canonical_name: record.name,
-      aliases: Array.isArray(record.aliases) ? [...record.aliases] : []
-    }))
-  ]));
-  return { ...projected, id_plan: serializablePlan };
+  const assigned = assignStableIds(source, priorPlan);
+  const projected = resolveReferences({
+    ...assigned.recordsByCategory,
+    chapter_summaries: book.chapter_summaries
+  });
+  return { ...projected, id_plan: assigned.idPlan };
 }
 
 function validateWrittenData(dataRoot) {

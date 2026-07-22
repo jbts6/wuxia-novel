@@ -9,6 +9,7 @@ const { readJson } = require('./io');
 const { stableHash } = require('./io');
 const { assembleDeterministicBook } = require('./book-assembly');
 const { assignStableIds } = require('./ids');
+const { resolveReferences } = require('./finalize');
 const { buildReviewReport, hashReport } = require('./review-report');
 const { hashFinalData } = require('./final-data-hash');
 
@@ -55,25 +56,29 @@ function assembleRun({ paths }) {
     factions: book.factions
   }, priorPlan);
 
+  const projection = resolveReferences({
+    ...recordsByCategory,
+    chapter_summaries: book.chapter_summaries
+  });
+  if (projection.issues.length > 0) {
+    throw new GameKbError('FINAL_REFERENCE_INVALID', 'Final references could not be resolved', {
+      issues: projection.issues
+    });
+  }
+  const finalData = projection.data;
+
   fs.mkdirSync(paths.finalData, { recursive: true });
-  writeFinalYaml(paths.finalData, 'characters', recordsByCategory.characters || []);
-  writeFinalYaml(paths.finalData, 'skills', recordsByCategory.skills || []);
-  writeFinalYaml(paths.finalData, 'items', recordsByCategory.items || []);
-  writeFinalYaml(paths.finalData, 'factions', recordsByCategory.factions || []);
-  writeFinalYaml(paths.finalData, 'chapter_summaries', book.chapter_summaries);
+  writeFinalYaml(paths.finalData, 'characters', finalData['characters.yaml']);
+  writeFinalYaml(paths.finalData, 'skills', finalData['skills.yaml']);
+  writeFinalYaml(paths.finalData, 'items', finalData['items.yaml']);
+  writeFinalYaml(paths.finalData, 'factions', finalData['factions.yaml']);
+  writeFinalYaml(paths.finalData, 'chapter_summaries', finalData['chapter_summaries.yaml']);
 
   fs.mkdirSync(path.dirname(paths.finalIdPlan), { recursive: true });
   fs.writeFileSync(paths.finalIdPlan, `${JSON.stringify(idPlan, null, 2)}\n`, 'utf8');
 
   const sourceHash = manifest.source_hash || '';
-  const finalDataForHash = {
-    'characters.yaml': recordsByCategory.characters || [],
-    'skills.yaml': recordsByCategory.skills || [],
-    'items.yaml': recordsByCategory.items || [],
-    'factions.yaml': recordsByCategory.factions || [],
-    'chapter_summaries.yaml': book.chapter_summaries
-  };
-  const finalDataHash = hashFinalData(finalDataForHash);
+  const finalDataHash = hashFinalData(finalData);
   const reviewReport = buildReviewReport({ sourceHash, finalDataHash, warnings: review_warnings });
   const reviewReportHash = hashReport(reviewReport);
 
@@ -90,11 +95,11 @@ function assembleRun({ paths }) {
     deterministic_audit,
     chapter_count: chapters.length,
     entity_counts: {
-      characters: (recordsByCategory.characters || []).length,
-      skills: (recordsByCategory.skills || []).length,
-      items: (recordsByCategory.items || []).length,
-      factions: (recordsByCategory.factions || []).length,
-      chapter_summaries: book.chapter_summaries.length
+      characters: finalData['characters.yaml'].length,
+      skills: finalData['skills.yaml'].length,
+      items: finalData['items.yaml'].length,
+      factions: finalData['factions.yaml'].length,
+      chapter_summaries: finalData['chapter_summaries.yaml'].length
     }
   };
   fs.writeFileSync(paths.assemblyReport, `${JSON.stringify(assemblyReport, null, 2)}\n`, 'utf8');

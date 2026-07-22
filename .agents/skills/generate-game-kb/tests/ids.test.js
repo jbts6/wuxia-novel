@@ -3,7 +3,7 @@
 const { describe, it } = require('node:test');
 const assert = require('node:assert/strict');
 
-const { assignStableIds, makeBaseId, nameSlug, alphabeticDigest } = require('../scripts/lib/ids');
+const { assignStableIds, nameSlug } = require('../scripts/lib/ids');
 
 function refs(chapter) {
   return [{ chapter, text: `第${chapter}章证据。` }];
@@ -25,10 +25,7 @@ describe('assignStableIds', () => {
   it('uses canonical-name suffixes for different names with the same base', () => {
     const first = assignStableIds({ characters: collisionNames() }, {});
     const second = assignStableIds({ characters: [...collisionNames()].reverse() }, {});
-    assert.deepEqual(
-      first.recordsByCategory.characters.map(r => r.id).sort(),
-      second.recordsByCategory.characters.map(r => r.id).sort()
-    );
+    assert.deepEqual(first, second);
     assert.ok(first.recordsByCategory.characters.every(entry => /^char_[a-z_]+_[a-p]{8}$/.test(entry.id)));
   });
 
@@ -50,10 +47,20 @@ describe('assignStableIds', () => {
     );
   });
 
+  it('preserves an issued unhashed ID when a new colliding name appears', () => {
+    const first = assignStableIds({ characters: [collisionNames()[0]] }, {});
+    const originalId = first.recordsByCategory.characters[0].id;
+    const second = assignStableIds({ characters: collisionNames() }, first.idPlan);
+    const byName = Object.fromEntries(second.recordsByCategory.characters.map(record => [record.name, record.id]));
+
+    assert.equal(byName['白石'], originalId);
+    assert.match(byName['白诗'], /^char_bai_shi_[a-p]{8}$/);
+  });
+
   it('throws on duplicate same-name records', () => {
     assert.throws(
       () => assignStableIds({ characters: [{ name: '甲', source_refs: refs(1) }, { name: '甲', source_refs: refs(2) }] }, {}),
-      /Duplicate same-name records/
+      error => error.code === 'IDENTITY_COLLISION_REVIEW_REQUIRED'
     );
   });
 
@@ -61,9 +68,22 @@ describe('assignStableIds', () => {
     const result = assignStableIds({ characters: collisionNames() }, {});
     const plan = result.idPlan.characters;
     assert.equal(plan.length, 2);
-    assert.ok(plan.every(p => p.collision === true));
-    assert.ok(plan.every(p => p.suffix !== null));
+    assert.ok(plan.every(p => p.collision_reason === 'pinyin_base_collision'));
     assert.ok(plan.every(p => p.suffix_input.includes('characters\0')));
+    assert.deepEqual(Object.keys(plan[0]).sort(), [
+      'base_id', 'canonical_name', 'category', 'collision_reason', 'issued_id', 'suffix_input'
+    ]);
+    assert.equal(JSON.stringify(plan).includes('source_refs'), false);
+    assert.equal(JSON.stringify(plan).includes('candidate_key'), false);
+  });
+
+  it('rejects model-authored IDs and disambiguators', () => {
+    for (const field of ['id', 'disambiguator']) {
+      assert.throws(
+        () => assignStableIds({ characters: [{ name: '甲', [field]: 'forged' }] }, {}),
+        error => error.code === 'ID_DISAMBIGUATOR_FORBIDDEN'
+      );
+    }
   });
 
   it('handles multiple categories independently', () => {
