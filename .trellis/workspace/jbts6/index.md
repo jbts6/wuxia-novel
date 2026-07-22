@@ -8,7 +8,7 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 27
+- **Total Sessions**: 28
 - **Last Active**: 2026-07-22
 <!-- @@@/auto:current-status -->
 
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~1422 | Active |
+| `journal-1.md` | ~1459 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 28 | 2026-07-22 | Complete game KB relation recovery | `be064edc`, `93e5a101`, `4ed71202`, `3fc5c529`, `7c3288e0` | `codex/game-kb-relation-repair` |
 | 27 | 2026-07-22 | 完成 v7 Worker 自包含合同 | `c62908cb`, `3e642bf6` | `main` |
 | 26 | 2026-07-21 | 简化 generate-game-kb 工作流 | `a080a7be`, `41e27271`, `1aa073e5` | `main` |
 | 25 | 2026-07-20 | Recover Lite worker guard and routing | `880260c4`, `85754b91`, `93ad659c`, `97c1e6c6`, `7f9aa010` | `feature/recover-lite-worker-guard` |

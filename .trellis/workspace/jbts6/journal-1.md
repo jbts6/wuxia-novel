@@ -1420,3 +1420,40 @@ Recovered remediated worker guards, hardened Claude workflow handoff, restored c
 ### Next Steps
 
 - None - task complete
+
+
+## Session 28: Complete game KB relation recovery
+
+**Date**: 2026-07-22
+**Task**: Complete game KB relation recovery
+**Branch**: `codex/game-kb-relation-repair`
+
+### Summary
+
+补齐正式名称与唯一别名关系解析、章节关系闭包、章节级恢复报告和派生 recovery run；将 Worker 引文行号改为 Controller 确定性派生，并完成全量质量门禁。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `be064edc` | (see git log) |
+| `93e5a101` | (see git log) |
+| `4ed71202` | (see git log) |
+| `3fc5c529` | (see git log) |
+| `7c3288e0` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
