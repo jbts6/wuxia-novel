@@ -187,112 +187,81 @@ node scripts/pipeline.js build-publish <novel-dir> --draft <publish-draft>
 ### 1. 范围 / 触发条件
 
 - 触发：用 `.agents/skills/generate-game-kb` 快速生成面向游戏设计的武侠知识库。
-- 这是一个独立的 profile。上文审计级的 `.agents/skills/generate-kb` 状态机与独立的 G1-G5 门禁保持不变。
-- 快速 profile 证明的是"以章节为扎根的已接受证据"与"确定性的候选闭环"。它不声称达到审计级的召回完整性或 G1-G5 完成度。
+- 这是一个独立 profile；上文审计级 `.agents/skills/generate-kb` 的六阶段状态机与 G1-G5 门禁保持不变。
+- 当前可写合同是 `semantic_contract_version: 7` 与 `semantic_profile: chapter-direct-v1`。旧运行不迁移、不重写，只能只读检查或显式归档。
 
 ### 2. 命令签名
 
 ```text
-node .agents/skills/generate-game-kb/scripts/flow.js prepare <novel-dir> --run <run-id> --json
-node .agents/skills/generate-game-kb/scripts/flow.js extract-plan <novel-dir> --run <run-id> --json
-node .agents/skills/generate-game-kb/scripts/flow.js submit <novel-dir> --run <run-id> --unit chapter:NNN --attempt <n> --json < envelope.json
-node .agents/skills/generate-game-kb/scripts/flow.js plan-domains <novel-dir> --run <run-id>
-node .agents/skills/generate-game-kb/scripts/flow.js assemble <novel-dir> --run <run-id>
-node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir> --run <run-id> --json
-node .agents/skills/generate-game-kb/scripts/flow.js install <novel-dir> --run <run-id> --json
-node .agents/skills/generate-game-kb/scripts/flow.js verify <novel-dir> --installed --json
-node .agents/skills/generate-game-kb/scripts/flow.js archive-run <novel-dir> --run <run-id>
-node .agents/skills/generate-game-kb/scripts/flow.js run <novel-dir> --run <run-id>   # 编排整条流水线，端到端
+node .agents/skills/generate-game-kb/scripts/flow.js run <novel-dir> [--run <run-id>] --json
+node .agents/skills/generate-game-kb/scripts/flow.js status <novel-dir> [--run <run-id>] --json
+node .agents/skills/generate-game-kb/scripts/flow.js retry-unit <novel-dir> --run <run-id> --unit chapter:NNN --confirm --json
+node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-dir> --run <run-id> --json
 ```
 
-正常阶段顺序是 `prepare -> extract-plan -> submit*（章节） -> plan-domains（可选，--deep） -> assemble -> verify -> install -> verify --installed -> archive-run`。`run` 命令自动编排这一切；主模型负责路由与串行接受，用户只需提供小说目录和一个可选的 `--deep` 标志。
+正常成功路径只反复调用 `run`：它先接收已出现的章节输出，再返回当前允许分派的工作；全部章节接受后，控制器内部完成组装、验证、安装、已安装验证与归档。`status` 始终只读，不能创建目录或刷新元数据。
 
 ### 3. 契约
 
-- 当前可写合同为 `semantic_contract_version: 6` 与 `semantic_profile: domain-distill-v1`。版本 5 及更早的运行仅为观察性证据，并以 `LEGACY_SEMANTIC_CONTRACT` 使每个写入路径失败；不允许原地升级。遗留书目只能通过全新的、基于源的重新抽取进入当前契约，绝不导入旧产物。
-- Worker 只返回恰好一个 JSON 信封，绝不序列化或写入任何产物。控制器拥有的暂存草稿、已接受证据和最终消费者数据使用规范的 YAML；控制器状态、worker 输入、清单、回执、报告和提交信封使用 JSON。
-- 每个运行位于 `<novel-dir>/.game-kb-work/runs/<run-id>/` 之下。只有控制器可以把一个已验证信封序列化到当前 `<unit>_attempt_<attempt+1>.yaml`、更新 attempt，或创建已接受证据；已接受字节是不可变的，并绑定在 `artifact-manifest.json` 中。`accept --draft` 仅为兼容用途，不是正常的 Worker 路径。
-- `extract-plan` 为每个章节暴露一个独立的 `chapter:NNN` 单元。不存在分组身份；每个 Worker 恰好读取一个源章节（一个绝对只读的 `source_file`）并恰好返回一个信封。控制器序列化并接受 YAML；Worker 永远看不到任何可写路径。`古龙/剑神一笑` 是真实语料固件：20 章、20 个平铺的单章单元。
-- 并发是一个简单的五路滚动池。Worker 返回 null 或传输失败的结果会被跳过，且不消耗一次 attempt；下一个排队的章节立即开始。一次明确的平台 429 会把池降到 3 并保持到运行结束；重复的 429 不会中止运行，仍保持 3。
-- `submit` 从 stdin 读取 Worker 信封，校验 unit/attempt/input-hash 身份，并在一个事务内写入规范的 YAML 草稿与已接受证据。跳过校验的直接库调用必须以零进度、零暂存、零已接受产物变更而失败。因为 `ch_split` 是确定性的、且 Worker 永不写入产物，所以不需要独立的前置阶段；上述 `submit` 内的检查就是唯一的输入校验。
-- 章节单元直接读取一整个完整的源章节，产出角色、带嵌套技法的技能、物品、势力，以及一份章节摘要。角色的 `identities/factions/skills` 与技能的 `aliases/types/factions` 都是数组。角色绝不携带 `items`；技能绝不携带 users/holders；物品绝不携带 owners/holders；势力绝不携带 members。技法始终嵌套在技能之下，且需要一个显式具名的源招式。
-- 实体高召回是强制要求，不是可选优化。章节单元必须逐章穷尽扫描整段原文：凡是原文中有明确可定位命名、且能绑定 `source_refs` 的具名实体——包括具名角色（含一次性出场、别名、化名、化身）、具名武功及其显名招式、具名物品、具名势力——都应作为候选抽出，不得因"看起来不重要"或"与主线无关"而丢弃。抽取阶段只负责穷尽候选并保留证据；重要性排序是 `rank` 的职责，合并与去重是 `--deep` 领域阶段的职责，章节阶段不得主动合并或去重。禁止让模型凭记忆或印象而非逐窗口扫描来产出实体，也禁止把同章多次出现的实体只保留其一而丢失其余。完整性以"每个章节窗口都被覆盖、每个保留实体都有据可依的证据"判定，不以实体总数阈值判定；但多章小说的低召回门禁见下方校验矩阵。
-- `plan-domains` 确定性地构建候选登记表与恰好四个领域工作单元。四个领域相互独立，可并发处理。规范顺序 `distill:factions`、`distill:characters`、`distill:skills`、`distill:items` 仅用于展示与报告。
-- 单一技能不得绕过候选规划。在所有章节都被接受之后、且当前尚不存在候选登记表/领域计划之前，`plan-domains`（仅在 `--deep` 下调用）创建或验证不可变的登记表与计划。默认模式下，零个全书领域单元、也没有 `domain_jobs`；`--deep` 保留全部四个必需的领域单元。
-- 每个领域 Worker 恰好处理一个 `distill:*` 单元，读取控制器生成的只读 `worker-input.json`，不接收任何可写路径，并只返回一个 JSON 信封。控制器在规范的 YAML 序列化、暂存、接受和 attempt 记账之前，校验章节与领域信封。
-- 角色与技能工作项绑定全部控制器下发的全书 `source_files` 以及一份 rank 契约。Rank 是一个完整时间线上的稳定判断，而不是单章最强刻画：后续的直面胜、负、克制、逆转会覆盖早期的赞誉；仅凭传闻与地位无法支撑高 rank。证据不足的记录保持 `rank: null` 而不进入 manual review。
-- 完全一致的显示名与完全一致的拼音 slug 绝不授权自动语义合并。全书领域决策决定 keep/merge，而控制器拥有的身份锚点和持久化的字母摘要后缀用于消除冲突的 ID。重命名、别名、输入顺序和不相关的增项都不得改变既有实体的 ID。
-- 角色与技能输入暴露确定性的、仅含势力的 `allowed_faction_refs` 集合，且该集合参与 input hash。非空的 `patch.faction` 必须属于该集合；未知引用或来自其他类别的可见既有引用，在写入已接受证据之前被拒。
-- 角色与技能的势力引用保持晚绑定，直到 `assemble`——它在四个领域决策全部存在之后解析别名与合并。
-- 每个领域条目恰好收到一个 keep、同类 merge、带有限原因的 reject，或 pending 决策。pending、缺失、重复、跨类、循环、过期或 unresolved 的决策会阻塞组装。
-- `assemble` 消费所有已接受章节、恰好四个已接受领域决策，以及候选登记表。它一次性解析决策与引用、一次性分配稳定 ID，然后原子地投影出恰好五个顶层数组 YAML 文件：`characters.yaml`、`skills.yaml`、`items.yaml`、`factions.yaml`、`chapter_summaries.yaml`。
-- 最终字段仅来自 `semantic-contract.js`。技法仍嵌套在 `skills[].techniques[]` 之下；最终消费者记录省略 `source_refs`。
-- 已接受的 YAML 是不可变证据。工作区验证重新验证该证据，并通过 `assembly-report.json` 绑定它——其中的已接受哈希、决策哈希、候选闭环、计数与最终数据哈希必须与当前字节一致。
-- `verifyDataRoot` 校验任意五文件数据集的文件名与字段精确性、YAML 数组、ID、枚举、摘要覆盖、嵌套技法名、稳定哈希，以及引用闭环。
-- 工作区 `verify` 额外证明章节/领域证据、已接受不可变性、普通物品排除、候选闭环、报告新鲜度，以及零未决 manual review。它仅在通过后写入 `verification-report.json`。
-- 常规验证没有补充阶段、采样门禁，或二级游戏素材投影。但它包含一个书级低召回门禁：对于章节数 ≥5 的小说，若四份终态文件去重后的实体总数 ≤9，验证报告标记 `recall: fail` 并阻断安装与归档，要求对该小说重新抽取，而不是发布残缺知识库；短篇（<5 章）豁免此门禁。
-- 安装采用兄弟暂存与目录交换（带回滚）。安装回执 schema 2 绑定语义版本、源哈希、验证报告哈希、最终数据哈希、章节列表、精确的五文件集合，以及 `data_file_hashes`：全部五个已安装 YAML 文件的"文件名到原始 SHA-256"精确映射。Schema-1 回执 fail-closed，且必须由安装重新生成，而不是通过兼容回退读取。
-- 已安装验证只读已安装数据、安装回执和已安装验证报告。它绝不回退到工作区产物。
-- Worker 池起始为 5，在明确遇到 429 时降到 3；池永不中止运行。
-- 每个 AI 单元周期有恰好一次初始验证提交，以及至多一次自动重试。失败的第二次提交、重复输出，或重复的验证错误会进入 `manual_review`。只有用户确认的 `retry --confirm` 才能开始一个新的有界周期。
-- `status --json` 恰好返回一个 `next_action`；AI 阶段也返回规范排序的 `next_units`，其中 manual review 优先于可执行动作。
-- 恢复与归档通过规范的只读五文件验证器检查当前工作区 `final/data`。被改动、缺失、多余、畸形、schema 无效、引用无效、摘要不完整或哈希不匹配的工作区 YAML 会使当前组装边界失效；状态路由到 `assemble` 而不写入。
-- 归档前，`archive-run` 要求工作区验证报告 `passed: true` 且当前 `source_hash` 与 `final_data_hash` 匹配。`verification_report_hash` / `archive_receipt_hash` / `id_plan_hash` / `manifest_hash` 的漂移是警告，不是阻塞；只有 `source_hash` 与 `final_data_hash` 封锁完成。
-- 代表性的编排证据使用真实的 `buildRunMetrics` 实现，覆盖 21 个章节单元加 4 个领域单元。每个原始单元至多两次提交，总时长至多 `2,700,000ms`（45 分钟），且 prepare/章节/领域/组装/验证/安装/归档的时长均为正。该时序证据不替代真实的源/证据/验证/安装/归档集成路径。
+- 每个运行位于 `<novel-dir>/.game-kb-work/runs/<run-id>/`。公开结果固定包含 `semantic_contract_version`、`run_id`、`status`、`jobs`、`active_units`、`progress` 与 `manual_review`。
+- 章节采用固定五章窗口，持久化不变量是 `active_units.length <= 5`。首个窗口没有全部 accepted 之前不补位；重复 `run` 返回 `waiting` 与 `jobs: []`。窗口全部 accepted 后，下一次 `run` 才签发后续窗口。
+- 每个 job 恰好包含 `unit`、`cycle`、`attempt`、`producer`、`input_file`、`output_file` 与 `input_hash`。Worker 读取控制器生成的不可变 JSON input，并直接把单章 YAML 写到该 job 唯一的 `output_file`。
+- Worker YAML 顶层恰好是 `characters`、`skills`、`items`、`factions` 与 `chapter_summary`。Worker 不复制章节身份、哈希、attempt、最终 ID 或控制器路径；这些字段只由控制器在接收时注入。
+- Controller 在每次 `run` 开始时扫描当前 staging 输出，执行 path confinement、YAML 解析、精确字段、闭合枚举、源证据与章节身份校验。成功后写入规范 accepted YAML、登记 artifact ledger，并移走原始稿；accepted 字节和哈希在后续阶段不可变。
+- 类型只允许受控 taxonomy 或类别内显式 alias。alias key 仅做 NFKC、小写化并移除空白、下划线和连字符；未知值以 `TYPE_VALUE_UNKNOWN` 拒绝，不做编辑距离、子串或跨类别猜测。`poison` 的明确合同是 `毒功`。
+- 每个章节直接覆盖角色、带嵌套技法的技能、物品、势力与章节摘要。模型必须逐章扫描，保留具名实体及精确 `source_refs`，不能因频率或主线重要性主动漏掉候选，也不能写最终 ID。
+- 每个 cycle 从 attempt 1 开始且最多两次。仅 allowlist 中的 YAML 语法类错误可生成一次 `main-agent-repair` attempt 2；机械修复者不能读取章节原文或改变语义。schema、taxonomy、证据或语义错误由章节 Worker 重做 attempt 2。第二次失败、重复错误或重复输出进入 `manual_review`；只有带 `--confirm` 的 `retry-unit` 才开启新 cycle。
+- 书级归并只在同类别、精确规范名称相同的候选之间进行；近似名、子串、拼音相同或语义相似都不授权自动合并。身份信号冲突进入人工复核，不能静默选边。
+- 泛称过滤使用保守确定性规则；被过滤项不阻断发布，但必须以 `GENERIC_CANDIDATE_FILTERED` warning 记录类别、名称、章节、源证据、原因与 resolution。
+- 稳定 ID 由控制器一次性规划。一个拼音 base 只对应一个规范中文名时不附加 hash；不同中文名发生 base 碰撞时使用基于规范名称的稳定摘要后缀，输入顺序和无关增项不得改变既有 ID。
+- 确定性组装输出恰好五个顶层数组 YAML：`characters.yaml`、`skills.yaml`、`items.yaml`、`factions.yaml`、`chapter_summaries.yaml`。`final_data_hash` 必须由与五文件验证器相同的 `hashFinalData` 计算。
+- `assembly-report.json` 记录字段决策、归并、过滤、稳定 ID 与 deterministic audit；`reports/game-kb-review.json` 只记录非阻塞 warning，并按 code/category 汇总。两者都绑定当前 `source_hash` 与 `final_data_hash`。
+- `manual_review.json` 始终写入；读取旧 lite 产物时，缺失文件表示没有待处理项，缺少旧 assembly 字段会跳过对应 stale check，不得把不存在的 candidate registry 当作失败。
+- 工作区验证检查五文件精确 shape、YAML 数组、ID、枚举、摘要覆盖、嵌套技法、引用闭环、accepted 不可变性、报告新鲜度与零未决人工复核。章节数不少于 5 且四类实体去重总数不超过 9 时以 `LOW_RECALL` 阻断安装。
+- 安装使用兄弟暂存和目录交换，失败时恢复旧数据。安装回执绑定语义版本、源哈希、验证报告哈希、最终数据哈希、章节列表、精确五文件集合及每个文件的原始 SHA-256；已安装验证不回退到工作运行。
+- 正常运行不得在仓库根目录或 `.kb-scratch` 创建章节碎片、临时清洗/转交脚本、原始传输文件或修复日志；失败稿与 revision 只能留在 run 私有目录。
 
 ### 4. 校验与错误矩阵
 
-- 多个活跃运行 -> `RUN_AMBIGUOUS`；绝不隐式选择或归档某一个。
-- 写入路径上缺失或不同的语义版本 -> `LEGACY_SEMANTIC_CONTRACT`；保留全部证据。
-- 畸形的 Worker 信封、错误的 schema 版本，或错配的 unit/attempt/input 哈希 -> `SUBMISSION_ENVELOPE_INVALID`、`SUBMISSION_SCHEMA_VERSION_MISMATCH` 或 `SUBMISSION_IDENTITY_MISMATCH`；不写入暂存、已接受证据或进度状态。这些只是 `submit` 内的普通输入检查，不是独立的前置阶段。
-- 未知的 `patch.faction` -> `DOMAIN_REFERENCE_UNKNOWN`；既有的但非势力、或其他未授权的引用 -> `DOMAIN_REFERENCE_UNAUTHORIZED`。两者都阻塞已接受证据的创建。
-- 已接受哈希不匹配 -> `ACCEPTED_ARTIFACT_MUTATED`；组装、验证与安装停止。
-- 领域覆盖不完整，或 pending/循环/无效决策（在 `--deep` 下）-> 组装失败；保留先前的最终目录。
-- 缺失章节摘要、无效源证据、普通物品 keep、未命名技法、未决引用、过期的组装回执，或未决的 manual review -> 工作区验证失败。
-- 对于章节数 ≥5 的小说，四份终态文件去重后的实体总数 ≤9 -> `LOW_RECALL`；工作区验证失败，阻断安装与归档，要求重新抽取该小说；短篇（<5 章）豁免。
-- 缺失、多余、畸形或 schema 无效的终态 YAML -> 五文件验证失败。
-- 缺失或过期的验证报告/安装回执、缺失/畸形的 `data_file_hashes` 映射、任意已安装文件原始哈希不匹配（含仅字节级的 YAML 漂移），或章节列表不匹配 -> 已安装验证失败，且无工作区回退。
-- `id_plan_hash` / `verification_report_hash` / `manifest_hash` / `archive_receipt_hash` 的漂移是警告，不是阻塞失败；只有 `source_hash` 与 `final_data_hash` 封锁完成。
-- 安装移动之前或之后的任意失败都会恢复先前已安装的目录。
+- 多个活跃运行且未显式选择 -> `RUN_AMBIGUOUS`；不能隐式选择或归档。
+- 对旧运行执行 `run` 或 `retry-unit` -> `LEGACY_SEMANTIC_CONTRACT`，且运行树保持字节不变。
+- staging 路径越界、job 身份不匹配、Worker 写入禁止字段或整章证据无效 -> 整章拒绝；不产生 accepted 产物，不增加 accepted 进度。
+- taxonomy 未知值 -> `TYPE_VALUE_UNKNOWN`；只能显式补 alias 表，不能猜测归类。
+- attempt 1 失败 -> 依据错误类别创建唯一 attempt 2；attempt 2 再失败 -> `manual_review`，窗口不继续推进。
+- accepted 文件或 artifact ledger 哈希漂移 -> `ACCEPTED_ARTIFACT_MUTATED`；组装、验证与安装停止。
+- 精确同名候选身份冲突 -> `IDENTITY_COLLISION_REVIEW_REQUIRED`；不得自动合并。
+- 缺失章节摘要、普通物品误收、未命名技法、未决引用、无效审查报告或未决人工复核 -> 工作区验证失败。
+- 章节数不少于 5 且四类实体去重总数不超过 9 -> `LOW_RECALL`；阻断安装与归档，短篇豁免。
+- 五文件缺失、多余、畸形、schema 无效，或 `source_hash` / `final_data_hash` 过期 -> 验证失败。
+- 安装移动前后的任意失败 -> 恢复旧 `data/` 与 review report；不能留下半安装状态。
 
 ### 5. 好/基准/坏 示例
 
-- 好：主模型恢复所选可写运行，为每个章节分派至多五个 sub-agent（每章一个信封），让控制器序列化并接受 YAML，然后（在 `--deep` 下）在组装、验证、安装、已安装验证和归档之前，为每个领域单元分派一个只读 `worker-input.json`。
-- 好：用不变的已接受证据重跑 `assemble` 会产生字节一致的文件和相同的 `final_data_hash`。
-- 好：角色/技能工作只在 `allowed_faction_refs` 中暴露势力引用；归档绑定通过的 workspace 验证报告哈希。
-- 基准：一个基于源的具名技法没有源中声明的父技能；保持 null 关系。每个非空关系都必须可解析。
-- 基准：当源中不含有效实体时，类别数组可以为空；完整性由已接受章节证据与已闭环决策证明，而不是靠计数。
-- 坏：让 AI 分配最终 ID、改动已接受 YAML、接受 pending 决策，或在验证期间修补语义数据。
-- 坏：自动合并完全一致的显示名或完全一致的拼音 slug、把伪装标签当作角色身份的证据，或把单章最强主张当作最终 rank。
-- 坏：恢复被移除的类别、多发出一个消费者文件、在没有当前回执的情况下安装，或通过读取工作运行来验证已安装数据。
-- 好（高召回）：逐章穷尽扫描原文，具名角色（含一次性出场与别名/化名/化身）、具名武功与其显名招式、具名物品、具名势力全部作为候选抽出并各自绑定 `source_refs`；多章小说最终实体数为数十量级而非个位数。
-- 坏（低召回）：让模型基于印象而非逐窗口扫描产出实体、把"看起来不重要"的具名角色/招式/物品丢弃、或在章节阶段就主动合并而丢失同章多个实体，导致中篇小说最终仅个位数实体。
+- 好：第一次 `run` 为六章语料只返回 1–5；没有输出时重复调用返回 `waiting`；五个输出全部接受后才返回第 6 章，最终安装五个 YAML 与当前 review report。
+- 好：Worker 只写 job 的 `output_file`；Controller 注入身份、登记 accepted artifact、确定性归并、规划 ID 并验证安装。
+- 基准：一个有据可依的具名技法没有可证明的父技能关系；保持 null 关系，而不是编造引用。
+- 基准：泛称被过滤并出现在 warning report；书仍可发布，Dashboard 可按需解释该 warning。
+- 坏：窗口内刚完成一个章节就补发第 6 章、让 Worker 写最终 ID、按相似度合并实体、验证时手工修补 accepted YAML，或在仓库根目录生成辅助脚本。
 
 ### 6. 必须的测试
 
-- 技能契约：断言 `run` 编排、YAML/JSON 边界、正常阶段顺序、`--deep` 下可选四个领域单元、恰好五个终态文件，以及没有已删除的旧投影。
-- 章节规划：断言 `extract-plan` 为每个章节返回一个平铺 `chapter:NNN` 单元（无分组身份）、五路并发、null 结果跳过且不消耗 attempt、以及明确 429 时池降到 3。
-- 提交校验：断言 `submit` 只做命令内的输入校验（信封形状、schema 版本、unit/attempt/input-hash 身份），没有独立的前置阶段；且畸形/身份错误的信封会以 `SUBMISSION_ENVELOPE_INVALID`/`SUBMISSION_IDENTITY_MISMATCH` 抛出，而不写入暂存或已接受证据。
-- 章节/领域契约：断言源证据、具名技法规则、普通物品原因、精确决策覆盖、合法合并、哈希化的仅含势力的 `allowed_faction_refs`、在接收前拒绝未知/未授权势力引用，以及禁止的私有/最终 ID。
-- V6 语义契约：断言章节/领域/终态 schema 中的数组字段、统一的 `description`、禁止的 holder/member/user/item 链接、在全书决策前保持分离的精确同名候选、持久的 ID 消除歧义后缀，以及全书证据不足时 `rank: null`。
-- 真实语料：通过生产的 `prepare`/`extract-plan` 读取 `古龙/剑神一笑/剑神一笑.txt`，断言 20 章、20 个平铺单章单元（无分组形态）、中文绝对路径保留、Worker 看不到可写路径、五文件组装、工作区验证、安装、已安装验证和归档。
-- 确定性组装：断言 pending/缺失/循环决策失败（在 `--deep` 下）、引用一次性闭环、章节摘要投影为 `{ chapter, title, summary }`、原子回滚有效、且重复组装字节稳定。
-- 工作区验证：断言精确字段/文件、YAML 解析、ID/枚举、摘要覆盖、嵌套技法、引用闭环、已接受不可变性、候选闭环、证据、普通物品排除，以及新鲜报告哈希。
-- 安装：断言只暂存五个文件、先前的整个数据目录被归档、回执通过 `data_file_hashes` 绑定每个当前 YAML 文件的精确原始 SHA-256、缺失/错误映射与仅字节漂移使已安装验证失败、移动前/后失败回滚、重装幂等，且已安装验证无工作区回退。
-- 集成：把章节（以及 `--deep` 下的四个领域单元）跑过 `prepare -> extract-plan -> submit* -> assemble -> verify -> install -> verify --installed -> archive-run`；断言归档回执与恰好五个已安装 YAML 文件。
-- 哈希门禁：断言完成只需 `source_hash` 与 `final_data_hash`；`id_plan_hash` / `verification_report_hash` / `manifest_hash` / `archive_receipt_hash` 的漂移是警告，不是阻塞失败。
-- 低召回门禁：断言章节数 ≥5 的小说若最终四文件去重实体总数 ≤9，必须以 `LOW_RECALL` 使工作区验证失败并阻断归档；重新抽取且实体数达标后才通过；短篇（<5 章）豁免此门禁。
-- 高召回抽取：断言 `extract-plan` 后每个章节单元都被要求穷尽扫描、具名实体（含一次性出场、别名/化名、显名招式、具名物品/势力）作为候选抽出并各自绑定 `source_refs`，且抽取阶段不主动合并/去重。
+- 公共命令：只暴露 `run`、`status`、`retry-unit`、`archive-abandoned`；旧运行写入 fail-closed，显式废弃归档保持原字节。
+- 固定窗口：25 章首次只返回 1–5；重复调用和仅完成 1–4 个输出时都不得暴露第 6 章；第五个完成后才返回下一窗口。
+- 直写接收：Worker 直接写 `output_file`；覆盖路径约束、attempt 身份、机械修复 allowlist、语义重试、第二次失败人工复核与 accepted artifact ledger。
+- 类型合同：覆盖机械 key 归一化、显式 alias、未知值拒绝和 `poison -> 毒功`。
+- 确定性组装：覆盖精确名称归并、身份冲突人工复核、泛称 warning、稳定 ID 碰撞、字段决策 audit，以及重复组装字节稳定。
+- 验证与安装：覆盖五文件精确 shape、`hashFinalData` 一致性、低召回、报告新鲜度、原子回滚、安装回执与已安装只读验证。
+- 端到端：六章跨过首个窗口并完成安装；断言恰好五个 YAML、`reports/game-kb-review.json`、无 `.kb-scratch`、无根目录章节碎片或运输辅助脚本。
 
 ### 7. 错 vs 对
 
 #### 错
 
-把已经删除的多阶段闸门、分组代理或提交日志机制改名保留，在每次提交时扫描整个仓库，或在安装回执里只列出五个文件名而不绑定每个已安装文件的原始字节。
+把固定窗口实现成滚动补位，把输出路径或最终身份交给 Worker，或另建清洗/转交阶段来掩盖无效章节。
 
 #### 对
 
-把章节展开为每章一个信封的单元（无分组身份），并发分派至多五个 sub-agent，让 `submit` 只做命令内输入校验（无独立前置阶段，因为 `ch_split` 是确定性的且 Worker 永不写入），让控制器验证并序列化每个 YAML 产物，跑真实的 verify/install/installed-verify/archive 路径，在归档前要求通过的验证报告哈希，并把全部五个已安装 YAML 的字节哈希绑定到 `data_file_hashes`。
+只反复调用 `run`，严格等待整个五章窗口 accepted；Worker 直写唯一 staging 文件，Controller 原子接收、登记不可变 accepted artifact、确定性组装五文件，并在安装前通过完整验证与 review report 新鲜度门禁。
 
 ---
 
@@ -300,30 +269,31 @@ node .agents/skills/generate-game-kb/scripts/flow.js run <novel-dir> --run <run-
 
 ### 1. 范围 / 触发条件
 
-- 触发：某本小说已经装好了一个遗留的 JSON 或旧版本 YAML 知识库。
-- 原地迁移与审计子系统、遗留暂存均已移除。遗留 JSON 知识库不被原地升级。
+- 触发：小说已安装遗留 JSON / YAML 知识库，或仍保留旧语义运行。
+- 遗留已安装数据可由 Dashboard 只读消费；旧运行不在原地迁移、续跑或修补。
 
 ### 2. 受支持路径
 
-- 要把一本遗留书目带入当前契约，重新运行完整的快速 profile：`prepare -> extract-plan -> submit* -> assemble -> verify -> install`。快速 profile 是基于源的，所以重新抽取才是受支持路径，且不依赖遗留证据。
-- 在全新运行之前，`prepare` 会归档任何既有的活跃 `data/`，使先前的产物保存在 `_archive/` 之下，永不被静默覆盖。
+- 旧运行的 `status` 只读，`archive-abandoned` 仅在用户明确选择后原样归档；其他写入命令在修改前 fail-closed。
+- 要进入当前写入合同，必须从原始小说创建全新运行并重新抽取。成功安装以原子目录交换保留此前数据，不导入旧运行中间产物。
 
 ### 3. 校验与错误矩阵
 
-- 不经重新抽取就试图把遗留 JSON 跑过当前控制器的写入路径，必须以 `LEGACY_SEMANTIC_CONTRACT` 失败；全部遗留证据被保留。
-- 对已有遗留数据的书目启动全新运行时，必须在写入新产物之前归档旧的 `data/`。
+- 旧运行写入 -> `LEGACY_SEMANTIC_CONTRACT`；全部证据保持不变。
+- 未显式确认的人工重试或废弃归档 -> 拒绝，不改变运行状态。
+- 新运行安装失败 -> 恢复此前已安装目录和报告。
 
 ### 4. 必须的测试
 
-- 断言遗留 JSON 写入路径以 `LEGACY_SEMANTIC_CONTRACT` fail-closed 并保留遗留树。
-- 断言 `prepare` 在新运行开始前归档既有的活跃 `data/`。
+- 断言旧状态查询不写文件，旧运行写入 fail-closed，显式废弃归档保留原树。
+- 断言全新运行不读取旧中间产物，安装前后失败都能恢复旧数据。
 
 ### 5. 错 vs 对
 
 #### 错
 
-保留一个从遗留 JSON 重新派生实体的旧迁移命令，或用新运行静默覆盖活跃的遗留 `data/`。
+把旧运行升级到当前 schema、从旧终态反推 accepted 章节，或静默覆盖已安装数据。
 
 #### 对
 
-把遗留写入路径 fail-closed、保留遗留树、并要求一次全新的基于源的重新抽取；在新运行写入之前归档旧的 `data/`。
+保留旧证据并只读展示；需要新合同能力时从原始小说重新抽取，通过当前验证后原子安装。
