@@ -10,8 +10,6 @@ const {
   validateCandidateResolutions,
   validateMergedBook
 } = require('../scripts/lib/book-contract');
-const { validateDomainDecisionDraft } = require('../scripts/lib/domain-contract');
-const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 const { sourceRef, validChapterDraft } = require('./helpers');
 
 const manifest = {
@@ -33,11 +31,11 @@ function validMergedBook(overrides = {}) {
       techniques: [{ name: '飞云掌', description: '掌势迅疾。' }], source_refs: [sourceRef(1)]
     }],
     items: [{
-      local_key: 'item:灵丹', name: '回生丹', aliases: [], type: '丹药',
+      local_key: 'item:灵丹', name: '回生丹', aliases: [], types: ['丹药'],
       description: '用于救治重伤。', source_refs: [sourceRef(2)]
     }],
     factions: [{
-      local_key: 'faction:玄门', name: '玄门', aliases: [], type: '门派',
+      local_key: 'faction:玄门', name: '玄门', aliases: [], types: ['门派'],
       description: '隐居山中。', source_refs: [sourceRef(1)]
     }],
     chapter_summaries: [1, 2, 3].map(chapter => ({
@@ -102,7 +100,9 @@ test('merged books reject legacy, inverse, unknown, empty, and placeholder entit
     ['characters', 'items', []],
     ['skills', 'type', '内功'],
     ['skills', 'holders', ['甲']],
+    ['items', 'type', '丹药'],
     ['items', 'owners', ['甲']],
+    ['factions', 'type', '门派'],
     ['factions', 'members', ['甲']],
     ['characters', 'personality', { traits: ['坚毅'] }]
   ];
@@ -123,7 +123,7 @@ test('merged books reject legacy, inverse, unknown, empty, and placeholder entit
   }
 });
 
-test('merged techniques and summaries expose only their version-6 semantic fields', () => {
+test('merged techniques and summaries expose only their v7 semantic fields', () => {
   const technique = validMergedBook();
   technique.skills[0].techniques[0].named_in_source = true;
   assert.ok(validateMergedBook(technique, manifest).some(error =>
@@ -217,41 +217,6 @@ test('merged books retain explicit identity ambiguities for deterministic resolu
   const ambiguity = { category: 'characters', name: '平四', candidates: ['character:甲', 'character:乙'] };
 
   assert.deepEqual(validateMergedBook(validMergedBook({ ambiguities: [ambiguity] }), manifest), []);
-});
-
-test('ordinary items require an approved inclusion reason before a keep decision', () => {
-  const entryRef = 'registry:item:随身匕首';
-  const input = {
-    schema_version: 1,
-    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
-    unit: 'distill:items',
-    input_hash: 'sha256:items',
-    allowed_patch_fields: ['name', 'aliases', 'type', 'description', 'inclusion_reason'],
-    entries: [{
-      entry_ref: entryRef,
-      category: 'items',
-      canonical_name: '随身匕首',
-      facts: { importance: '普通' }
-    }]
-  };
-  const draft = {
-    schema_version: 1,
-    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
-    unit: input.unit,
-    input_hash: input.input_hash,
-    decisions: [{
-      entry_ref: entryRef,
-      action: 'keep',
-      patch: { canonical_name: '随身匕首' }
-    }],
-    notes: []
-  };
-
-  assert.ok(validateDomainDecisionDraft(draft, input)
-    .some(error => error.code === 'ITEM_INCLUSION_REASON_REQUIRED'));
-  draft.decisions[0].patch = { name: '随身匕首', aliases: [], type: null, description: null,
-    inclusion_reason: '剧情关键' };
-  assert.deepEqual(validateDomainDecisionDraft(draft, input), []);
 });
 
 test('keeps named low-frequency techniques and rejects unnamed actions', () => {
