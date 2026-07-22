@@ -29,6 +29,20 @@ function makeNovelDirectory(files) {
   return novel;
 }
 
+function makeTemporaryNovel(chapterCount, options = {}) {
+  const name = options.name || `端到端测试书${chapterCount}章`;
+  const source = Array.from({ length: chapterCount }, (_, index) => {
+    const chapter = index + 1;
+    return [
+      `第${chapter}章 试炼${chapter}`,
+      `侠客${chapter}修习玄门心法${chapter}并使出飞云掌${chapter}。`,
+      `侠客${chapter}服下回生丹${chapter}。`,
+      `玄门${chapter}隐居山中。`
+    ].join('\n');
+  }).join('\n');
+  return makeNovel(name, `${source}\n`);
+}
+
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
@@ -155,6 +169,45 @@ function v7WorkerDraft(overrides = {}) {
   };
 }
 
+function writeWorkerOutput(job) {
+  const input = readJson(job.input_file);
+  const chapter = input.chapter;
+  const firstEvidence = `侠客${chapter}修习玄门心法${chapter}并使出飞云掌${chapter}。`;
+  const itemEvidence = `侠客${chapter}服下回生丹${chapter}。`;
+  const factionEvidence = `玄门${chapter}隐居山中。`;
+  const draft = v7WorkerDraft({
+    characters: [{
+      name: `侠客${chapter}`, level: '核心', rank: '初窥门径',
+      aliases: [], identities: [], description: null, factions: [], skills: [],
+      source_refs: [{ text: firstEvidence, line_start: 2, line_end: 2 }]
+    }],
+    skills: [{
+      name: `玄门心法${chapter}`, rank: '初窥门径',
+      aliases: [], types: ['内功'], factions: [], description: null,
+      techniques: [{ name: `飞云掌${chapter}`, description: null }],
+      source_refs: [{ text: firstEvidence, line_start: 2, line_end: 2 }]
+    }],
+    items: [{
+      name: `回生丹${chapter}`, aliases: [], types: ['丹药'], description: null,
+      source_refs: [{ text: itemEvidence, line_start: 3, line_end: 3 }]
+    }],
+    factions: [{
+      name: `玄门${chapter}`, aliases: [], types: ['门派'], description: null,
+      source_refs: [{ text: factionEvidence, line_start: 4, line_end: 4 }]
+    }],
+    chapter_summary: {
+      summary: `第${chapter}章摘要。`,
+      source_refs: [{ text: firstEvidence, line_start: 2, line_end: 2 }]
+    }
+  });
+  fs.writeFileSync(job.output_file, yaml.dump(draft, { lineWidth: -1, noRefs: true }), 'utf8');
+  return job.output_file;
+}
+
+function writeAllWorkerOutputs(jobs) {
+  return jobs.map(writeWorkerOutput);
+}
+
 function expectedChapter(overrides = {}) {
   return {
     number: 1,
@@ -169,6 +222,7 @@ module.exports = {
   expectedChapter,
   makeNovel,
   makeNovelDirectory,
+  makeTemporaryNovel,
   parseJsonLine,
   readJson,
   replaceAcceptedArtifact,
@@ -176,5 +230,7 @@ module.exports = {
   sourceRef,
   v7WorkerDraft,
   validChapterDraft,
-  validMergedBook
+  validMergedBook,
+  writeAllWorkerOutputs,
+  writeWorkerOutput
 };

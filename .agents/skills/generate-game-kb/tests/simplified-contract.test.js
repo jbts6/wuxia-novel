@@ -11,18 +11,25 @@ const { makeNovel, readJson, runFlow } = require('./helpers');
 
 const SKILL_ROOT = path.resolve(__dirname, '..');
 
-function readProductionText() {
+function productionFiles() {
   const files = [];
   function visit(directory) {
     for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
       if (entry.name === 'tests') continue;
       const target = path.join(directory, entry.name);
       if (entry.isDirectory()) visit(target);
-      else if (entry.name.endsWith('.js') || entry.name.endsWith('.md')) files.push(target);
+      else files.push(target);
     }
   }
   visit(SKILL_ROOT);
-  return files.sort().map(file => fs.readFileSync(file, 'utf8')).join('\n');
+  return files.sort();
+}
+
+function readProductionText() {
+  return productionFiles()
+    .filter(file => file.endsWith('.js') || file.endsWith('.md'))
+    .map(file => fs.readFileSync(file, 'utf8'))
+    .join('\n');
 }
 
 test('new runs persist only the v7 direct chapter semantic contract', () => {
@@ -56,4 +63,14 @@ test('runtime has no legacy transport or domain contract', () => {
   ]) {
     assert.equal(production.includes(forbidden), false, forbidden);
   }
+});
+
+test('runtime has no transport helper or chapter fragment scripts', () => {
+  const scriptsRoot = `${path.join(SKILL_ROOT, 'scripts')}${path.sep}`;
+  const forbidden = productionFiles()
+    .filter(file => file.startsWith(scriptsRoot))
+    .map(file => path.relative(scriptsRoot, file))
+    .filter(file => /envelope|clean|submit|chapter[-_]?fragment/i.test(file));
+
+  assert.deepEqual(forbidden, []);
 });
