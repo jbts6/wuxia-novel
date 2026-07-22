@@ -8,8 +8,8 @@
 
 <!-- @@@auto:current-status -->
 - **Active File**: `journal-1.md`
-- **Total Sessions**: 26
-- **Last Active**: 2026-07-21
+- **Total Sessions**: 27
+- **Last Active**: 2026-07-22
 <!-- @@@/auto:current-status -->
 
 ---
@@ -19,7 +19,7 @@
 <!-- @@@auto:active-documents -->
 | File | Lines | Status |
 |------|-------|--------|
-| `journal-1.md` | ~1388 | Active |
+| `journal-1.md` | ~1422 | Active |
 <!-- @@@/auto:active-documents -->
 
 ---
@@ -29,6 +29,7 @@
 <!-- @@@auto:session-history -->
 | # | Date | Title | Commits | Branch |
 |---|------|-------|---------|--------|
+| 27 | 2026-07-22 | 完成 v7 Worker 自包含合同 | `c62908cb`, `3e642bf6` | `main` |
 | 26 | 2026-07-21 | 简化 generate-game-kb 工作流 | `a080a7be`, `41e27271`, `1aa073e5` | `main` |
 | 25 | 2026-07-20 | Recover Lite worker guard and routing | `880260c4`, `85754b91`, `93ad659c`, `97c1e6c6`, `7f9aa010` | `feature/recover-lite-worker-guard` |
 | 24 | 2026-07-20 | Clarify game-KB worker parallelism | `6386ebea`, `aedde50c`, `9346e1e0`, `25669235`, `e9af3e07`, `8c767ff3`, `8c8075e3`, `03da478a` | `feature/clarify-kb-worker-parallelism` |

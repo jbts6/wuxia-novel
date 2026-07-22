@@ -1386,3 +1386,37 @@ Recovered remediated worker guards, hardened Claude workflow handoff, restored c
 ### Next Steps
 
 - None - task complete
+
+
+## Session 27: 完成 v7 Worker 自包含合同
+
+**Date**: 2026-07-22
+**Task**: 完成 v7 Worker 自包含合同
+**Branch**: `main`
+
+### Summary
+
+为 chapter-worker 与 main-agent-repair 输入内嵌完整 v7 Worker 合同，修复拒绝稿路径并记录可执行约束；188 项测试通过。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `c62908cb` | (see git log) |
+| `3e642bf6` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
