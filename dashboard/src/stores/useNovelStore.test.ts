@@ -7,7 +7,7 @@ function data(characterId = 'char_jia'): NovelData {
     characters: [{ id: characterId, name: characterId === 'char_jia' ? '甲' : '乙', aliases: [], identities: [], level: null, rank: null, description: null, factions: ['faction_a'], skills: ['skill_a'] }],
     skills: [{ id: 'skill_a', name: '甲功', aliases: [], types: [], factions: ['faction_a'], rank: null, description: null, techniques: [] }],
     items: [],
-    factions: [{ id: 'faction_a', name: '甲派', aliases: [], type: null, description: null }],
+    factions: [{ id: 'faction_a', name: '甲派', aliases: [], types: [], description: null }],
     chapter_summaries: [],
   };
 }

@@ -107,8 +107,8 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       'item',
       entity,
       entity.description ?? '',
-      entity.type ? displayTaxonomyValue(entity.type) : '',
-      [entity.aliases, entity.type],
+      entity.types[0] ? displayTaxonomyValue(entity.types[0]) : '',
+      [entity.aliases, entity.types, entity.types.map((value) => displayTaxonomyValue(value))],
     ),
   );
   const factions = data.factions.map((entity) =>
@@ -117,8 +117,13 @@ export function buildGlobalLibraryRecords(book: LibraryBookStatus, data: NovelDa
       'faction',
       entity,
       entity.description ?? '',
-      entity.type ? displayTaxonomyValue(entity.type) : '',
-      [entity.aliases, entity.type, resolveIds(maps.factionMembers.get(entity.id), maps.characterMap)],
+      entity.types[0] ? displayTaxonomyValue(entity.types[0]) : '',
+      [
+        entity.aliases,
+        entity.types,
+        entity.types.map((value) => displayTaxonomyValue(value)),
+        resolveIds(maps.factionMembers.get(entity.id), maps.characterMap),
+      ],
     ),
   );
   return [...characters, ...skills, ...items, ...factions];

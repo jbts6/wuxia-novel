@@ -115,8 +115,8 @@ beforeEach(() => {
       description: '胡家世传刀法。',
       techniques: [],
     }],
-    items: [{ id: 'item_1', name: '冷月宝刀', aliases: [], type: '神兵', description: null }],
-    factions: [{ id: 'faction_1', name: '天山派', aliases: [], type: '门派', description: null }],
+    items: [{ id: 'item_1', name: '冷月宝刀', aliases: [], types: ['神兵'], description: null }],
+    factions: [{ id: 'faction_1', name: '天山派', aliases: [], types: ['门派'], description: null }],
     chapter_summaries: [],
   });
   setExtras({ status: 'available', data: { schema_version: 1, entries } });

@@ -73,9 +73,9 @@ export default function BookOverview() {
                 >
                   <div>
                     <span className="font-medium">{faction.name}</span>
-                    <span className="ml-2 text-sm text-muted-foreground">
-                      {displayTaxonomyValue(faction.type)}
-                    </span>
+                    {faction.types.length > 0 && <span className="ml-2 text-sm text-muted-foreground">
+                      {faction.types.map((value) => displayTaxonomyValue(value)).join('、')}
+                    </span>}
                   </div>
                 </div>
               ))}

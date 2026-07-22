@@ -19,7 +19,7 @@ function validRawData() {
   };
 }
 
-describe('normalizeNovelData strict semantic contract v6', () => {
+describe('normalizeNovelData semantic read contract', () => {
   it('accepts the exact v6 shapes and preserves nullable values and technique objects', () => {
     const data = normalizeNovelData(validRawData());
     expect(data.characters[0]).toEqual(validRawData().characters[0]);
@@ -28,12 +28,42 @@ describe('normalizeNovelData strict semantic contract v6', () => {
     expect(data.chapter_summaries[0]).toEqual({ chapter: 1, title: '第一章', summary: '甲登场。' });
   });
 
+  it('normalizes legacy type and v7 types to one read model', () => {
+    const legacyRaw = validRawData() as unknown as Record<string, Array<Record<string, unknown>>>;
+    delete legacyRaw.skills[0].types;
+    legacyRaw.skills[0].type = '内功';
+    const legacy = normalizeNovelData(legacyRaw);
+
+    const v7Raw = validRawData() as unknown as Record<string, Array<Record<string, unknown>>>;
+    delete v7Raw.items[0].type;
+    v7Raw.items[0].types = ['丹药', '暗器'];
+    delete v7Raw.factions[0].type;
+    v7Raw.factions[0].types = ['门派', '商会'];
+    const v7 = normalizeNovelData(v7Raw);
+
+    expect(legacy.skills[0].types).toEqual(['内功']);
+    expect(legacy.items[0].types).toEqual(['丹药']);
+    expect(legacy.factions[0].types).toEqual(['门派']);
+    expect(v7.items[0].types).toEqual(['丹药', '暗器']);
+    expect(v7.factions[0].types).toEqual(['门派', '商会']);
+  });
+
+  it.each([
+    ['skills', '内功'],
+    ['items', '丹药'],
+    ['factions', '门派'],
+  ])('rejects type and types together for %s', (category, type) => {
+    const raw = validRawData() as unknown as Record<string, Array<Record<string, unknown>>>;
+    raw[category][0].type = type;
+    raw[category][0].types = [type];
+    expect(() => normalizeNovelData(raw)).toThrowError(/LEGACY_TYPE_AND_TYPES_CONFLICT/);
+  });
+
   it.each([
     ['character biography', 'characters', 'biography', '旧简介'],
     ['character identity', 'characters', 'identity', '侠客'],
     ['character faction', 'characters', 'faction', 'faction_qing_cheng'],
     ['character items', 'characters', 'items', ['item_dan']],
-    ['skill type', 'skills', 'type', '内功'],
     ['skill faction', 'skills', 'faction', 'faction_qing_cheng'],
     ['skill holders', 'skills', 'holders', ['char_jia']],
     ['item owner', 'items', 'owner', 'char_jia'],

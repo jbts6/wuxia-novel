@@ -72,8 +72,8 @@ function createData(seed: string): NovelData {
       description: '凌厉剑招',
       techniques: [],
     }],
-    items: [{ id: `${seed}-item`, name: `${seed}宝剑`, aliases: [], type: '兵器', description: '随身佩剑' }],
-    factions: [{ id: `${seed}-faction`, name: `${seed}门`, aliases: [], type: '门派', description: '江湖势力' }],
+    items: [{ id: `${seed}-item`, name: `${seed}宝剑`, aliases: [], types: ['兵器'], description: '随身佩剑' }],
+    factions: [{ id: `${seed}-faction`, name: `${seed}门`, aliases: [], types: ['门派'], description: '江湖势力' }],
     chapter_summaries: [],
   };
 }
@@ -106,6 +106,29 @@ describe('global library index', () => {
       sort: 'relevance',
     });
     expect(relationshipMatches.map((record) => record.name)).toEqual(['青锋人物']);
+  });
+
+  it('indexes every item and faction type for global search', () => {
+    const data = createData('青锋');
+    data.items[0].types = ['兵器', '暗器'];
+    data.factions[0].types = ['门派', '商会'];
+
+    const records = buildGlobalLibraryRecords(
+      createBook('测试书'),
+      data,
+    );
+    const filters = {
+      author: 'all' as const,
+      bookPath: 'all' as const,
+      kind: 'all' as const,
+      facet: 'all' as const,
+      sort: 'relevance' as const,
+    };
+
+    expect(filterGlobalLibraryRecords(records, { ...filters, keyword: '暗器' }).map((record) => record.kind))
+      .toEqual(['item']);
+    expect(filterGlobalLibraryRecords(records, { ...filters, keyword: '商会' }).map((record) => record.kind))
+      .toEqual(['faction']);
   });
 
   it('loads books with bounded concurrency and isolates one book failure', async () => {

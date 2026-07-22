@@ -44,8 +44,8 @@ beforeEach(() => {
     }],
     items: [],
     factions: [
-      { id: 'faction_1', name: '胡家', aliases: [], type: '世家', description: '辽东武林世家。' },
-      { id: 'faction_2', name: '雪山派', aliases: [], type: '门派', description: '雪山门派。' },
+      { id: 'faction_1', name: '胡家', aliases: [], types: ['世家'], description: '辽东武林世家。' },
+      { id: 'faction_2', name: '雪山派', aliases: [], types: ['门派'], description: '雪山门派。' },
     ],
     chapter_summaries: [],
   });

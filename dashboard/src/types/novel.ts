@@ -104,7 +104,7 @@ export interface Item {
   id: string;
   name: string;
   aliases: string[];
-  type: string | null;
+  types: string[];
   description: string | null;
 }
 
@@ -112,7 +112,7 @@ export interface Faction {
   id: string;
   name: string;
   aliases: string[];
-  type: string | null;
+  types: string[];
   description: string | null;
 }
 

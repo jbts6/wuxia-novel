@@ -84,8 +84,8 @@ beforeEach(() => {
       description: '武功简介',
       techniques: [],
     }],
-    items: [{ id: 'item-1', name: '物品一', aliases: [], type: '兵器', description: '物品简介' }],
-    factions: [{ id: 'faction-1', name: '势力一', aliases: [], type: '门派', description: '势力简介' }],
+    items: [{ id: 'item-1', name: '物品一', aliases: [], types: ['兵器', '暗器'], description: '物品简介' }],
+    factions: [{ id: 'faction-1', name: '势力一', aliases: [], types: ['门派', '商会'], description: '势力简介' }],
     locations: [{ id: 'location-1', name: '旧地点', description: '不应显示' }],
     dialogues: [{ id: 'dialogue-1', speaker: 'char-1', chapter: 1, text: '旧对话' }],
     chapterSummaries: [{ chapter: 1, title: '第一章', summary: '章节摘要' }],
@@ -103,6 +103,7 @@ describe('书籍概览实体摘要', () => {
     expect(screen.getByText('物品')).toBeInTheDocument();
     expect(screen.getByText('势力')).toBeInTheDocument();
     expect(screen.getByText('章节')).toBeInTheDocument();
+    expect(screen.getByText('门派、商会')).toBeInTheDocument();
     expect(screen.queryByText('地点')).not.toBeInTheDocument();
     expect(screen.queryByText('对话')).not.toBeInTheDocument();
     expect(screen.queryByText('游戏素材')).not.toBeInTheDocument();

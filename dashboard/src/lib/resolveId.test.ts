@@ -7,8 +7,8 @@ const data = {
     { id: 'char_yi', name: '乙', aliases: [], identities: [], level: null, rank: null, description: null, factions: ['faction_a'], skills: ['skill_a'] },
   ],
   skills: [{ id: 'skill_a', name: '甲功', aliases: [], types: [], factions: ['faction_a'], rank: null, description: null, techniques: [] }],
-  items: [{ id: 'item_a', name: '甲物', aliases: [], type: null, description: null }],
-  factions: [{ id: 'faction_a', name: '甲派', aliases: [], type: null, description: null }],
+  items: [{ id: 'item_a', name: '甲物', aliases: [], types: [], description: null }],
+  factions: [{ id: 'faction_a', name: '甲派', aliases: [], types: [], description: null }],
 };
 
 describe('v6 entity maps', () => {

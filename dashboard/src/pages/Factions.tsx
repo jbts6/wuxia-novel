@@ -14,7 +14,7 @@ export default function Factions() {
   const [search, setSearch] = useState('');
   useEntityDetailParam('faction', factions);
   const filtered = useMemo(() => factions.filter((entry) => {
-    const searchable = [entry.name, ...entry.aliases, entry.description ?? ''].join('\n');
+    const searchable = [entry.name, ...entry.aliases, ...entry.types, entry.description ?? ''].join('\n');
     return !search || searchable.includes(search);
   }), [factions, search]);
   const selected = useMemo(() => detailPanel.type === 'faction'
@@ -30,7 +30,7 @@ export default function Factions() {
       <thead><tr className="border-b bg-muted/50"><th className="p-3 text-left font-medium">名称</th><th className="p-3 text-left font-medium">别名</th><th className="p-3 text-left font-medium">类型</th><th className="p-3 text-left font-medium">简介</th></tr></thead>
       <tbody>{filtered.map((entry) => <tr key={entry.id} className="cursor-pointer border-b transition-colors hover:bg-muted/50" onClick={() => showDetail('faction', entry.id)}>
         <td className="p-3 font-medium">{entry.name}</td><td className="p-3 text-sm text-muted-foreground">{entry.aliases.join('、')}</td>
-        <td className="p-3">{entry.type && <Badge variant="outline">{displayTaxonomyValue(entry.type)}</Badge>}</td>
+        <td className="p-3"><div className="flex flex-wrap gap-1">{entry.types.map((value) => <Badge key={value} variant="outline">{displayTaxonomyValue(value)}</Badge>)}</div></td>
         <td className="max-w-xs truncate p-3 text-sm text-muted-foreground">{entry.description ?? ''}</td>
       </tr>)}</tbody>
     </table></div>
@@ -38,7 +38,7 @@ export default function Factions() {
       <SheetContent className="w-[400px] overflow-y-auto p-6 sm:w-[540px]">{selected && <>
         <SheetHeader className="px-0"><SheetTitle className="font-serif text-xl">{selected.name}</SheetTitle></SheetHeader>
         <div className="mt-6 space-y-4">
-          {selected.type && <div className="text-sm">类型：{displayTaxonomyValue(selected.type)}</div>}
+          {selected.types.length > 0 && <div className="text-sm">类型：{selected.types.map((value) => displayTaxonomyValue(value)).join('、')}</div>}
           {selected.aliases.length > 0 && <div className="flex flex-wrap gap-1">{selected.aliases.map((value) => <Badge key={value} variant="secondary">{value}</Badge>)}</div>}
           {selected.description && <><Separator /><div><h4 className="mb-2 font-medium">简介</h4><p className="whitespace-pre-wrap text-sm text-muted-foreground">{selected.description}</p></div></>}
           {selectedMembers.length > 0 && <><Separator /><div><h4 className="mb-2 font-medium">人物</h4><div className="flex flex-wrap gap-1">{selectedMembers.map((value) => <Badge key={value} variant="outline">{value}</Badge>)}</div></div></>}

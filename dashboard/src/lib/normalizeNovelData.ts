@@ -13,9 +13,9 @@ import type {
 
 const TOP_LEVEL_FIELDS = ['characters', 'skills', 'items', 'factions', 'chapter_summaries'] as const;
 const CHARACTER_FIELDS = ['id', 'name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills'] as const;
-const SKILL_FIELDS = ['id', 'name', 'aliases', 'types', 'factions', 'rank', 'description', 'techniques'] as const;
-const ITEM_FIELDS = ['id', 'name', 'aliases', 'type', 'description'] as const;
-const FACTION_FIELDS = ['id', 'name', 'aliases', 'type', 'description'] as const;
+const SKILL_FIELDS = ['id', 'name', 'aliases', 'factions', 'rank', 'description', 'techniques'] as const;
+const ITEM_FIELDS = ['id', 'name', 'aliases', 'description'] as const;
+const FACTION_FIELDS = ['id', 'name', 'aliases', 'description'] as const;
 const TECHNIQUE_FIELDS = ['name', 'description'] as const;
 const SUMMARY_FIELDS = ['chapter', 'title', 'summary'] as const;
 
@@ -113,6 +113,16 @@ function exactFields(record: Record<string, unknown>, fields: readonly string[],
   }
 }
 
+function exactFieldsWithTypes(record: Record<string, unknown>, fields: readonly string[], path: string): void {
+  const allowed = new Set([...fields, 'type', 'types']);
+  for (const field of Object.keys(record)) {
+    if (!allowed.has(field)) throw new DataContractError('FIELD_FORBIDDEN', `${path}.${field}`);
+  }
+  for (const field of fields) {
+    if (!Object.hasOwn(record, field)) throw new DataContractError('FIELD_REQUIRED', `${path}.${field}`);
+  }
+}
+
 function arrayAt(value: unknown, path: string): unknown[] {
   if (!Array.isArray(value)) throw new DataContractError('ARRAY_REQUIRED', path);
   return value;
@@ -135,6 +145,15 @@ function stringArrayAt(value: unknown, path: string): string[] {
   const result = arrayAt(value, path).map((entry, index) => stringAt(entry, `${path}[${index}]`));
   if (new Set(result).size !== result.length) throw new DataContractError('ARRAY_DUPLICATE', path);
   return result;
+}
+
+function normalizedTypes(record: Record<string, unknown>, path: string): string[] {
+  const hasType = Object.hasOwn(record, 'type');
+  const hasTypes = Object.hasOwn(record, 'types');
+  if (hasType && hasTypes) throw new DataContractError('LEGACY_TYPE_AND_TYPES_CONFLICT', path);
+  if (hasTypes) return stringArrayAt(record.types, `${path}.types`);
+  if (!hasType || record.type === null) return [];
+  return [stringAt(record.type, `${path}.type`)];
 }
 
 function nullableEnumAt<T extends string>(value: unknown, allowed: Set<T>, path: string): T | null {
@@ -176,7 +195,7 @@ function normalizeTechnique(value: unknown, path: string): SkillTechnique {
 function normalizeSkill(value: unknown, index: number): Skill {
   const path = `$.skills[${index}]`;
   const record = recordAt(value, path);
-  exactFields(record, SKILL_FIELDS, path);
+  exactFieldsWithTypes(record, SKILL_FIELDS, path);
   const name = stringAt(record.name, `${path}.name`);
   const aliases = stringArrayAt(record.aliases, `${path}.aliases`);
   if (aliases.includes(name)) throw new DataContractError('ALIAS_EQUALS_NAME', `${path}.aliases`);
@@ -189,7 +208,7 @@ function normalizeSkill(value: unknown, index: number): Skill {
     id: stringAt(record.id, `${path}.id`),
     name,
     aliases,
-    types: stringArrayAt(record.types, `${path}.types`),
+    types: normalizedTypes(record, path),
     factions: stringArrayAt(record.factions, `${path}.factions`),
     rank: nullableEnumAt(record.rank, POWER_RANKS, `${path}.rank`),
     description: nullableStringAt(record.description, `${path}.description`),
@@ -200,7 +219,7 @@ function normalizeSkill(value: unknown, index: number): Skill {
 function normalizeItem(value: unknown, index: number): Item {
   const path = `$.items[${index}]`;
   const record = recordAt(value, path);
-  exactFields(record, ITEM_FIELDS, path);
+  exactFieldsWithTypes(record, ITEM_FIELDS, path);
   const name = stringAt(record.name, `${path}.name`);
   const aliases = stringArrayAt(record.aliases, `${path}.aliases`);
   if (aliases.includes(name)) throw new DataContractError('ALIAS_EQUALS_NAME', `${path}.aliases`);
@@ -208,7 +227,7 @@ function normalizeItem(value: unknown, index: number): Item {
     id: stringAt(record.id, `${path}.id`),
     name,
     aliases,
-    type: nullableStringAt(record.type, `${path}.type`),
+    types: normalizedTypes(record, path),
     description: nullableStringAt(record.description, `${path}.description`),
   };
 }
@@ -216,7 +235,7 @@ function normalizeItem(value: unknown, index: number): Item {
 function normalizeFaction(value: unknown, index: number): Faction {
   const path = `$.factions[${index}]`;
   const record = recordAt(value, path);
-  exactFields(record, FACTION_FIELDS, path);
+  exactFieldsWithTypes(record, FACTION_FIELDS, path);
   const name = stringAt(record.name, `${path}.name`);
   const aliases = stringArrayAt(record.aliases, `${path}.aliases`);
   if (aliases.includes(name)) throw new DataContractError('ALIAS_EQUALS_NAME', `${path}.aliases`);
@@ -224,7 +243,7 @@ function normalizeFaction(value: unknown, index: number): Faction {
     id: stringAt(record.id, `${path}.id`),
     name,
     aliases,
-    type: nullableStringAt(record.type, `${path}.type`),
+    types: normalizedTypes(record, path),
     description: nullableStringAt(record.description, `${path}.description`),
   };
 }

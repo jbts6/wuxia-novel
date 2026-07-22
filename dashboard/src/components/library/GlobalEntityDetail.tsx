@@ -36,9 +36,13 @@ function detailRows(record: AnyLibraryRecord): Array<{ label: string; value: str
         { label: '境界', value: record.entity.rank ? displayTaxonomyValue(record.entity.rank) : '' },
       ].filter((row) => row.value);
     case 'item':
-      return record.entity.type ? [{ label: '类型', value: displayTaxonomyValue(record.entity.type) }] : [];
+      return record.entity.types.length > 0
+        ? [{ label: '类型', value: record.entity.types.map((value) => displayTaxonomyValue(value)).join('、') }]
+        : [];
     case 'faction':
-      return record.entity.type ? [{ label: '类型', value: displayTaxonomyValue(record.entity.type) }] : [];
+      return record.entity.types.length > 0
+        ? [{ label: '类型', value: record.entity.types.map((value) => displayTaxonomyValue(value)).join('、') }]
+        : [];
   }
 }
 

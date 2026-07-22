@@ -205,11 +205,37 @@ describe('global library browser', () => {
         techniques: [],
       }],
       items: [],
-      factions: [{ id: 'faction_dali', name: '大理段氏', aliases: [], type: '世家', description: '大理皇族。' }],
+      factions: [{ id: 'faction_dali', name: '大理段氏', aliases: [], types: ['世家'], description: '大理皇族。' }],
       chapter_summaries: [],
     };
 
     expect(() => buildGlobalLibraryRecords(book, relationData)).toThrow(UnresolvedEntityError);
+  });
+
+  it('shows every entity type in the global detail sheet', async () => {
+    const multiTypeData: NovelData = {
+      characters: [],
+      skills: [],
+      items: [{
+        id: 'item_kong_que_ling',
+        name: '孔雀翎',
+        aliases: [],
+        types: ['兵器', '暗器'],
+        description: '名震天下的暗器。',
+      }],
+      factions: [],
+      chapter_summaries: [],
+    };
+    useLibraryStore.setState({
+      bookCache: { [book.path]: multiTypeData },
+      globalRecords: buildGlobalLibraryRecords(book, multiTypeData),
+    });
+    renderPage('/browse?q=%E5%AD%94%E9%9B%80%E7%BF%8E');
+
+    fireEvent.click(screen.getByRole('row', { name: '查看物品“孔雀翎”详情' }));
+
+    const dialog = await screen.findByRole('dialog');
+    expect(within(dialog).getByText('兵器、暗器')).toBeInTheDocument();
   });
 
   it('labels valid v6 index-only entities without inventing metadata', async () => {
@@ -220,7 +246,7 @@ describe('global library browser', () => {
         id: 'auto_item_生死符',
         name: '生死符',
         aliases: [],
-        type: null,
+        types: [],
         description: null,
       }],
       factions: [],

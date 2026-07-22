@@ -25,14 +25,21 @@ beforeEach(() => {
     skills: [],
     items: [],
     factions: [
-      { id: 'faction_1', name: '胡家', aliases: ['辽东胡家'], type: '世家', description: '辽东武林世家。' },
-      { id: 'faction_2', name: '无名门派', aliases: [], type: null, description: null },
+      { id: 'faction_1', name: '胡家', aliases: ['辽东胡家'], types: ['世家', '门派'], description: '辽东武林世家。' },
+      { id: 'faction_2', name: '无名门派', aliases: [], types: [], description: null },
     ],
     chapter_summaries: [],
   });
 });
 
-describe('势力录 V6 视图', () => {
+describe('势力录视图', () => {
+  it('显示势力的全部类型', () => {
+    renderFactions();
+
+    expect(screen.getByText('世家')).toBeInTheDocument();
+    expect(screen.getByText('门派')).toBeInTheDocument();
+  });
+
   it('成员只由人物势力引用反向推导', async () => {
     renderFactions('/factions?detail=faction_1');
     await waitFor(() => expect(screen.getByRole('dialog')).toBeInTheDocument());
