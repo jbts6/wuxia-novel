@@ -119,6 +119,8 @@ describe('chapter-receiver', () => {
     assert.equal(retry.job.producer, 'main-agent-repair');
     const input = JSON.parse(fs.readFileSync(retry.job.input_file, 'utf8'));
     assert.equal(Object.hasOwn(input, 'chapter_text'), false);
+    assert.equal(input.rejected_draft, draftPath(issued.paths));
+    assert.equal(fs.existsSync(input.rejected_draft), true);
     assert.deepEqual(input.allowed_repair_codes, ['YAML_CODE_FENCE']);
   });
 

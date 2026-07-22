@@ -18,6 +18,36 @@
 - `description` 为 `string | null`；人物与武功 `rank` 为
   `string | null`。
 
+## Job input 内嵌 `worker_contract`
+
+每个 `chapter-worker` 和 `main-agent-repair` 的只读 JSON input 都必须携带
+`worker_contract`。它是跨宿主运行时合同的唯一来源，不依赖
+`.claude/agents/`、本文件或隐式 Skill 上下文。合同版本当前为 `1`，每个 input
+获得独立对象，至少包含：
+
+- `output`：单文档 YAML、禁止 Markdown 围栏、精确五个顶层字段，以及下文完整
+  YAML skeleton；
+- `required_fields/optional_fields/nullable_fields`：四类实体、skill technique、
+  章节摘要和 `source_ref` 的递归字段规则；
+- `forbidden_fields`：Controller 身份字段、正式 ID、`local_key`、
+  `candidate_key` 和 legacy `type`；
+- `grounding`：`chapter_text.includes(entity.name)`、
+  `chapter_text.includes(technique.name)`、
+  `chapter_text.includes(source_ref.text)`；名称或引用不逐字存在时不得提取或引用，
+  不得把描述性短语概括成正式实体名，也不得改写引号、标点或措辞；
+- 实体和 technique 名还必须被自身至少一条 `source_refs[].text` 逐字覆盖；
+- `summary`：强制 `chapter_summary.summary.trim() !== ""` 且至少一条引用；
+- `taxonomy`：`skills/items/factions[].types` 使用 input 的闭合 `taxonomies`，
+  未知值不得猜测；
+- `reference_closure`：`characters[].skills/factions` 和 `skills[].factions` 必须
+  精确解析到本次输出对应类别的候选名；无法解析时补提取有据候选或省略关系；
+- `preflight`：写后重读 YAML，递归检查每个实体、technique、章节摘要和全部
+  `source_refs`，并执行当前 producer 的专属规则。
+
+`main-agent-repair` 获得同一输出结构合同，但不会获得
+`chapter_text/source_file/source_hash/taxonomies`。它只能修复
+`allowed_repair_codes` 中的机械问题，不得新增、删除或改写语义内容。
+
 ## Worker YAML
 
 顶层恰好包含五个字段。以下是完整示例：

@@ -19,6 +19,10 @@ const {
 } = require('../scripts/lib/chapter-work');
 const { stableHash } = require('../scripts/lib/io');
 const { chapterAttemptPaths, pathsFor } = require('../scripts/lib/paths');
+const {
+  WORKER_CONTRACT_VERSION,
+  createWorkerContract
+} = require('../scripts/lib/chapter-worker-contract');
 
 function manifestWithChapters(count, root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-source-'))) {
   fs.mkdirSync(root, { recursive: true });
@@ -43,6 +47,89 @@ function temporaryRunPaths() {
   const paths = pathsFor(novel, 'run-test');
   fs.mkdirSync(paths.run, { recursive: true });
   return paths;
+}
+
+function assertSelfContainedWorkerContract(contract, producer) {
+  assert.equal(contract.version, 1);
+  assert.equal(contract.output.format, 'yaml-single-document');
+  assert.equal(contract.output.markdown_fences, false);
+  assert.deepEqual(contract.output.top_level_fields, [
+    'characters', 'skills', 'items', 'factions', 'chapter_summary'
+  ]);
+  for (const field of contract.output.top_level_fields) {
+    assert.match(contract.output.yaml_skeleton, new RegExp(`^${field}:`, 'm'));
+  }
+
+  assert.deepEqual(contract.required_fields.characters, [
+    'name', 'aliases', 'identities', 'level', 'rank', 'description',
+    'factions', 'skills', 'source_refs'
+  ]);
+  assert.deepEqual(contract.required_fields.skills, [
+    'name', 'aliases', 'types', 'factions', 'rank', 'description',
+    'techniques', 'source_refs'
+  ]);
+  assert.deepEqual(contract.required_fields.skill_technique, ['name', 'description']);
+  assert.deepEqual(contract.required_fields.items, [
+    'name', 'aliases', 'types', 'description', 'source_refs'
+  ]);
+  assert.deepEqual(contract.required_fields.factions, [
+    'name', 'aliases', 'types', 'description', 'source_refs'
+  ]);
+  assert.deepEqual(contract.required_fields.chapter_summary, ['summary', 'source_refs']);
+  assert.deepEqual(contract.required_fields.source_ref, ['text']);
+  assert.deepEqual(contract.optional_fields.source_ref, ['line_start', 'line_end']);
+
+  for (const field of [
+    'schema_version', 'chapter', 'title', 'source_hash', 'unit', 'cycle',
+    'attempt', 'input_hash', 'output_file'
+  ]) assert.ok(contract.forbidden_fields.top_level.includes(field), field);
+  for (const field of ['id', 'local_key', 'candidate_key', 'type']) {
+    assert.ok(contract.forbidden_fields.entity.includes(field), field);
+  }
+
+  assert.equal(contract.grounding.entity_name_check, 'chapter_text.includes(entity.name)');
+  assert.equal(contract.grounding.technique_name_check, 'chapter_text.includes(technique.name)');
+  assert.equal(contract.grounding.source_ref_text_check, 'chapter_text.includes(source_ref.text)');
+  assert.equal(
+    contract.grounding.entity_name_evidence_check,
+    'entity.source_refs.some(source_ref => source_ref.text.includes(entity.name))'
+  );
+  assert.equal(
+    contract.grounding.technique_name_evidence_check,
+    'entity.source_refs.some(source_ref => source_ref.text.includes(technique.name))'
+  );
+  assert.equal(contract.grounding.name_miss_action, 'omit_candidate');
+  assert.equal(contract.grounding.quote_miss_action, 'omit_source_ref');
+  assert.equal(contract.grounding.allow_description_as_formal_name, false);
+  assert.equal(contract.grounding.allow_quote_rewrite, false);
+  assert.equal(contract.summary.non_empty_check, 'chapter_summary.summary.trim() !== ""');
+
+  assert.equal(contract.taxonomy.mode, 'closed');
+  assert.deepEqual(contract.taxonomy.fields, {
+    'skills[].types': 'taxonomies.skills',
+    'items[].types': 'taxonomies.items',
+    'factions[].types': 'taxonomies.factions'
+  });
+  assert.equal(contract.taxonomy.unknown_value_action, 'do_not_guess');
+  assert.deepEqual(contract.reference_closure.fields, {
+    'characters[].skills': 'skills[].name',
+    'characters[].factions': 'factions[].name',
+    'skills[].factions': 'factions[].name'
+  });
+  assert.equal(contract.reference_closure.match, 'exact_name');
+  assert.equal(contract.reference_closure.unresolved_action, 'omit_relation_or_extract_grounded_candidate');
+
+  for (const target of [
+    'characters[]', 'skills[]', 'skills[].techniques[]', 'items[]',
+    'factions[]', 'chapter_summary', '**.source_refs[]'
+  ]) assert.ok(contract.preflight.recursive_targets.includes(target), target);
+  for (const check of [
+    'reread_output_yaml', 'single_document', 'exact_top_level_fields',
+    'required_fields_recursive', 'forbidden_fields_recursive',
+    'source_refs_recursive', 'non_empty_summary'
+  ]) assert.ok(contract.preflight.common.includes(check), check);
+  assert.ok(Array.isArray(contract.preflight.producers[producer]));
+  assert.ok(contract.preflight.producers[producer].length > 0);
 }
 
 describe('chapter-progress', () => {
@@ -105,6 +192,16 @@ describe('chapter-work', () => {
     manifest = manifestWithChapters(25);
   });
 
+  it('creates an isolated worker contract object for every job input', () => {
+    const first = createWorkerContract();
+    const second = createWorkerContract();
+    assert.equal(WORKER_CONTRACT_VERSION, 1);
+    assert.notStrictEqual(first, second);
+    assert.notStrictEqual(first.preflight, second.preflight);
+    first.preflight.common.push('mutated');
+    assert.equal(second.preflight.common.includes('mutated'), false);
+  });
+
   it('does not refill a partially completed five-unit window', () => {
     const first = issueNextWindow({ paths, manifest, progress: createProgress(manifest) });
     assert.equal(first.jobs.length, 5);
@@ -147,6 +244,16 @@ describe('chapter-work', () => {
     const input = JSON.parse(fs.readFileSync(job.input_file, 'utf8'));
     assert.equal(input.chapter_text.includes('甲在此章现身'), true);
     assert.equal(input.output_file, job.output_file);
+    assertSelfContainedWorkerContract(input.worker_contract, 'chapter-worker');
+    assert.ok(input.worker_contract.preflight.producers['chapter-worker'].includes(
+      'exact_names_and_quotes_in_chapter_text'
+    ));
+    assert.ok(input.worker_contract.preflight.producers['chapter-worker'].includes(
+      'each_name_covered_by_own_source_refs'
+    ));
+    assert.ok(input.worker_contract.preflight.producers['chapter-worker'].includes(
+      'all_relationship_names_resolve'
+    ));
     assert.equal(job.input_hash, stableHash(input));
     assert.deepEqual(activeJobMetadata(paths, issued.progress)[0], { ...job, status: 'active' });
   });
@@ -195,6 +302,12 @@ describe('chapter-work', () => {
     }
     assert.equal(input.producer, 'main-agent-repair');
     assert.equal(input.output_file, retry.job.output_file);
+    assertSelfContainedWorkerContract(input.worker_contract, 'main-agent-repair');
+    assert.deepEqual(input.worker_contract.preflight.producers['main-agent-repair'], [
+      'only_allowed_repair_codes',
+      'preserve_all_semantic_content',
+      'do_not_add_delete_or_rewrite_meaning'
+    ]);
   });
 
   it('enters manual review after attempt two is rejected', () => {

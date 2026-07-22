@@ -47,11 +47,21 @@ test('new runs persist only the v7 direct chapter semantic contract', () => {
 test('worker instructions require direct single-file YAML transport', () => {
   const prompt = fs.readFileSync(path.join(SKILL_ROOT, 'prompts', 'extract-chapters.md'), 'utf8');
   const agent = fs.readFileSync(path.join(SKILL_ROOT, '..', '..', '..', '.claude', 'agents', 'game-kb-chapter-worker.md'), 'utf8');
-  const combined = `${prompt}\n${agent}`;
+  const examples = fs.readFileSync(path.join(SKILL_ROOT, 'examples.md'), 'utf8');
+  const schema = fs.readFileSync(path.join(SKILL_ROOT, 'schemas.md'), 'utf8');
+  const skill = fs.readFileSync(path.join(SKILL_ROOT, 'SKILL.md'), 'utf8');
+  const combined = `${prompt}\n${agent}\n${examples}\n${schema}\n${skill}`;
 
   for (const required of [
-    'input_file', 'output_file', 'chapter-worker', 'main-agent-repair', 'YAML'
+    'input_file', 'output_file', 'chapter-worker', 'main-agent-repair', 'YAML',
+    'worker_contract', 'chapter_text.includes', 'summary.trim()', 'source_refs'
   ]) assert.match(combined, new RegExp(required));
+  for (const dispatchSurface of [prompt, agent, examples]) {
+    assert.match(dispatchSurface, /worker_contract/);
+  }
+  assert.match(combined, /递归|recursive/i);
+  assert.match(combined, /不依赖|must not depend/i);
+  assert.doesNotMatch(combined, /按其中引用的 v7 合同|follow the referenced v7 extraction contract/i);
   assert.doesNotMatch(combined, /JSON envelope|submitWorkerEnvelope|extract-plan|\bsubmit\b/i);
 });
 

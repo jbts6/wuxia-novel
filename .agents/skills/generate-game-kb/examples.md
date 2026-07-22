@@ -36,9 +36,13 @@ node .agents/skills/generate-game-kb/scripts/flow.js run "C:\git\wuxia-novel\古
 为每个返回的 job 派发一个 Worker。Worker 的任务说明只需要：
 
 ```text
-读取 <input_file>，按其中引用的 v7 合同处理单章，
-把一个纯 YAML 文档写到 <output_file>；不要写其他路径。
+只读取 <input_file>，严格服从其中内嵌的 worker_contract，
+把一个纯 YAML 文档写到 input 声明的 output_file；
+写完执行 worker_contract 的递归 preflight，不要读取合同外文件或写其他路径。
 ```
+
+该派发说明不依赖 `.claude/agents/`、`schemas.md` 或隐式 Skill 上下文；
+`input_file` 本身就是跨宿主的完整执行合同。
 
 Worker 完成后再次执行同一条 `run` 命令。Controller 会自动接收已有输出：
 

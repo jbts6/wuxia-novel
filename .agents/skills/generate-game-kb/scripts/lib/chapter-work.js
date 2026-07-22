@@ -12,6 +12,7 @@ const {
   transitionProgress
 } = require('./chapter-progress');
 const { TYPE_TAXONOMIES } = require('./type-taxonomy');
+const { createWorkerContract } = require('./chapter-worker-contract');
 
 function unitName(number) {
   return `chapter:${String(number).padStart(3, '0')}`;
@@ -34,7 +35,7 @@ function revisionPaths(paths, unit, cycle, attempt) {
   const dir = path.join(paths.revisions, safe, `cycle_${String(cycle).padStart(2, '0')}`);
   const base = `attempt_${String(attempt).padStart(2, '0')}`;
   return {
-    draft: path.join(dir, `${base}.yaml`),
+    draft: path.join(paths.drafts, safe, `cycle_${String(cycle).padStart(2, '0')}`, `${base}.yaml`),
     errors: path.join(dir, `${base}.errors.json`)
   };
 }
@@ -53,6 +54,7 @@ function chapterWorkerInput({ chapter, job, previousErrors = [] }) {
     chapter_text: fs.readFileSync(chapter.file, 'utf8'),
     output_file: job.output_file,
     taxonomies: TYPE_TAXONOMIES,
+    worker_contract: createWorkerContract(),
     ...(previousErrors.length > 0 ? { previous_errors: structuredClone(previousErrors) } : {})
   };
 }
@@ -71,7 +73,8 @@ function repairInput({ paths, state, job }) {
     rejected_draft: rejected.draft,
     error_report: rejected.errors,
     allowed_repair_codes: [...new Set(allowedRepairCodes)],
-    output_file: job.output_file
+    output_file: job.output_file,
+    worker_contract: createWorkerContract()
   };
 }
 

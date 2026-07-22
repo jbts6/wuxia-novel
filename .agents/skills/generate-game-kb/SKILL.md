@@ -81,10 +81,17 @@ job 的 `input_file`、`output_file`、`producer`、`cycle` 和 `attempt`，
 ## Worker 调度
 
 - `producer: chapter-worker`：派发章节 Worker。它只读取 job 的
-  `input_file`，完整扫描其中的 `chapter_text`，并只写
-  `output_file`。
+  `input_file`，严格服从其中内嵌的 `worker_contract`，完整扫描其中的
+  `chapter_text`，并只写 `output_file`。
 - `producer: main-agent-repair`：由主代理执行机械修复。它只读取拒绝稿、
-  错误报告和 `allowed_repair_codes`，不读取小说原文，不改变语义。
+  错误报告、`allowed_repair_codes` 和同版本 `worker_contract`，不读取小说
+  原文，不新增、删除或改写语义内容。
+
+派发提示必须只要求读取 `input_file`，不能要求 Worker 自行寻找
+`.claude/agents/`、`schemas.md` 或其他隐式 Skill 上下文。写完后必须按
+`worker_contract.preflight` 递归检查实体、technique、摘要及所有
+`source_refs`，确认每个名称被自身证据覆盖、所有关系名称能解析到对应候选，再
+报告完成。
 
 Worker 输出是单个纯 YAML 文档，顶层恰好为：
 
@@ -107,9 +114,10 @@ chapter_summary:
 写入 accepted YAML。Worker 不调用 Controller 命令，也不写
 `output_file` 之外的路径。
 
-完整字段与示例见 [schemas.md](schemas.md)，可执行示例见
-[examples.md](examples.md)，Worker 提示合同见
-[prompts/extract-chapters.md](prompts/extract-chapters.md)。
+运行时完整字段骨架、必填/禁止规则、逐字证据检查与 taxonomy 规则都直接嵌在
+每个 job 的 `worker_contract` 中。维护者文档见 [schemas.md](schemas.md)，
+可执行示例见 [examples.md](examples.md)，Worker 提示合同见
+[prompts/extract-chapters.md](prompts/extract-chapters.md)；这些文档不是运行时依赖。
 
 ## 两次 attempt 与人工确认
 

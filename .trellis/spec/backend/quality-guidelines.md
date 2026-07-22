@@ -206,11 +206,28 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 - 每个运行位于 `<novel-dir>/.game-kb-work/runs/<run-id>/`。公开结果固定包含 `semantic_contract_version`、`run_id`、`status`、`jobs`、`active_units`、`progress` 与 `manual_review`。
 - 章节采用固定五章窗口，持久化不变量是 `active_units.length <= 5`。首个窗口没有全部 accepted 之前不补位；重复 `run` 返回 `waiting` 与 `jobs: []`。窗口全部 accepted 后，下一次 `run` 才签发后续窗口。
 - 每个 job 恰好包含 `unit`、`cycle`、`attempt`、`producer`、`input_file`、`output_file` 与 `input_hash`。Worker 读取控制器生成的不可变 JSON input，并直接把单章 YAML 写到该 job 唯一的 `output_file`。
+- 每个不可变 JSON input 都携带由 `createWorkerContract()` 新建的
+  `worker_contract`（当前 `version: 1`）。它内嵌完整五字段 YAML skeleton、
+  required/optional/nullable/forbidden 字段、逐字证据、闭合 taxonomy、关系闭环与
+  producer-specific recursive preflight；跨宿主派发只依赖该 input，不依赖
+  `.claude/agents/`、`schemas.md` 或隐式 Skill 上下文。
 - Worker YAML 顶层恰好是 `characters`、`skills`、`items`、`factions` 与 `chapter_summary`。Worker 不复制章节身份、哈希、attempt、最终 ID 或控制器路径；这些字段只由控制器在接收时注入。
 - Controller 在每次 `run` 开始时扫描当前 staging 输出，执行 path confinement、YAML 解析、精确字段、闭合枚举、源证据与章节身份校验。成功后写入规范 accepted YAML、登记 artifact ledger，并移走原始稿；accepted 字节和哈希在后续阶段不可变。
 - 类型只允许受控 taxonomy 或类别内显式 alias。alias key 仅做 NFKC、小写化并移除空白、下划线和连字符；未知值以 `TYPE_VALUE_UNKNOWN` 拒绝，不做编辑距离、子串或跨类别猜测。`poison` 的明确合同是 `毒功`。
 - 每个章节直接覆盖角色、带嵌套技法的技能、物品、势力与章节摘要。模型必须逐章扫描，保留具名实体及精确 `source_refs`，不能因频率或主线重要性主动漏掉候选，也不能写最终 ID。
+- Worker 写前必须执行 `chapter_text.includes(name/ref.text)`；实体或 technique
+  名还必须被自身至少一条引用逐字覆盖，摘要必须满足
+  `chapter_summary.summary.trim() !== ""`。描述性短语不得概括为正式名称，
+  引号、标点和原文措辞不得改写。
+- `characters[].skills/factions` 与 `skills[].factions` 的每个关系名称必须精确
+  解析到本次输出对应类别的候选名；否则补提取有据候选或省略关系，不能留下会在
+  终态触发 `FINAL_REFERENCE_INVALID` 的悬空引用。
 - 每个 cycle 从 attempt 1 开始且最多两次。仅 allowlist 中的 YAML 语法类错误可生成一次 `main-agent-repair` attempt 2；机械修复者不能读取章节原文或改变语义。schema、taxonomy、证据或语义错误由章节 Worker 重做 attempt 2。第二次失败、重复错误或重复输出进入 `manual_review`；只有带 `--confirm` 的 `retry-unit` 才开启新 cycle。
+- 拒绝稿唯一保存在
+  `drafts/<unit>/cycle_<NN>/attempt_<NN>.yaml`；`revisions/` 只保存
+  `attempt_<NN>.errors.json`。`main-agent-repair.rejected_draft` 必须指向前者并在
+  签发测试中证明文件存在；repair input 携带同版本输出合同，但不得携带
+  `chapter_text/source_file/source_hash/taxonomies`，也不得新增、删除或改写语义。
 - 书级归并只在同类别、精确规范名称相同的候选之间进行；近似名、子串、拼音相同或语义相似都不授权自动合并。身份信号冲突进入人工复核，不能静默选边。
 - 泛称过滤使用保守确定性规则；被过滤项不阻断发布，但必须以 `GENERIC_CANDIDATE_FILTERED` warning 记录类别、名称、章节、源证据、原因与 resolution。
 - 稳定 ID 由控制器一次性规划。一个拼音 base 只对应一个规范中文名时不附加 hash；不同中文名发生 base 碰撞时使用基于规范名称的稳定摘要后缀，输入顺序和无关增项不得改变既有 ID。
@@ -228,6 +245,9 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 - staging 路径越界、job 身份不匹配、Worker 写入禁止字段或整章证据无效 -> 整章拒绝；不产生 accepted 产物，不增加 accepted 进度。
 - taxonomy 未知值 -> `TYPE_VALUE_UNKNOWN`；只能显式补 alias 表，不能猜测归类。
 - attempt 1 失败 -> 依据错误类别创建唯一 attempt 2；attempt 2 再失败 -> `manual_review`，窗口不继续推进。
+- repair input 指向 `revisions/*.yaml` 或文件不存在 -> `The rejected draft file is missing`；这是 Controller 路径所有权错误，必须让 input 指向 `drafts/*.yaml`，不得复制原文或放宽 repair 隔离来掩盖。
+- 实体名没有被自身引用覆盖 -> `SOURCE_NAME_NOT_FOUND`；引用不是原文逐字子串 -> `SOURCE_QUOTE_NOT_FOUND`；空摘要 -> `SUMMARY_TEXT_REQUIRED`。
+- 关系名称在书级候选中无法精确解析 -> `FINAL_REFERENCE_INVALID`；不得静默删除 accepted 关系或按相似度猜测目标。
 - accepted 文件或 artifact ledger 哈希漂移 -> `ACCEPTED_ARTIFACT_MUTATED`；组装、验证与安装停止。
 - 精确同名候选身份冲突 -> `IDENTITY_COLLISION_REVIEW_REQUIRED`；不得自动合并。
 - 缺失章节摘要、普通物品误收、未命名技法、未决引用、无效审查报告或未决人工复核 -> 工作区验证失败。
@@ -239,6 +259,8 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 
 - 好：第一次 `run` 为六章语料只返回 1–5；没有输出时重复调用返回 `waiting`；五个输出全部接受后才返回第 6 章，最终安装五个 YAML 与当前 review report。
 - 好：Worker 只写 job 的 `output_file`；Controller 注入身份、登记 accepted artifact、确定性归并、规划 ID 并验证安装。
+- 好：Qoder、Claude Code 或其他宿主只读 job input 即可得到同一完整
+  `worker_contract`，递归验证嵌套字段、逐字证据和关系闭环后再写输出。
 - 基准：一个有据可依的具名技法没有可证明的父技能关系；保持 null 关系，而不是编造引用。
 - 基准：泛称被过滤并出现在 warning report；书仍可发布，Dashboard 可按需解释该 warning。
 - 坏：窗口内刚完成一个章节就补发第 6 章、让 Worker 写最终 ID、按相似度合并实体、验证时手工修补 accepted YAML，或在仓库根目录生成辅助脚本。
@@ -248,6 +270,11 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 - 公共命令：只暴露 `run`、`status`、`retry-unit`、`archive-abandoned`；旧运行写入 fail-closed，显式废弃归档保持原字节。
 - 固定窗口：25 章首次只返回 1–5；重复调用和仅完成 1–4 个输出时都不得暴露第 6 章；第五个完成后才返回下一窗口。
 - 直写接收：Worker 直接写 `output_file`；覆盖路径约束、attempt 身份、机械修复 allowlist、语义重试、第二次失败人工复核与 accepted artifact ledger。
+- Job input：两种 producer 都携带独立 `worker_contract` 对象；断言完整 skeleton、
+  必填/禁止字段、`includes` 检查、非空摘要、递归 `source_refs`、闭合 taxonomy、
+  自身证据覆盖、关系闭环和 producer-specific preflight；repair 继续隔离章节源字段。
+- Repair 路径：断言 `rejected_draft === drafts/.../attempt_<NN>.yaml` 且文件存在，
+  error report 仍位于 `revisions/`。
 - 类型合同：覆盖机械 key 归一化、显式 alias、未知值拒绝和 `poison -> 毒功`。
 - 确定性组装：覆盖精确名称归并、身份冲突人工复核、泛称 warning、稳定 ID 碰撞、字段决策 audit，以及重复组装字节稳定。
 - 验证与安装：覆盖五文件精确 shape、`hashFinalData` 一致性、低召回、报告新鲜度、原子回滚、安装回执与已安装只读验证。
@@ -257,11 +284,16 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 
 #### 错
 
-把固定窗口实现成滚动补位，把输出路径或最终身份交给 Worker，或另建清洗/转交阶段来掩盖无效章节。
+把固定窗口实现成滚动补位，把输出路径或最终身份交给 Worker；只在外部文档写
+schema 却不给 job input；让 repair 去 `revisions/` 找拒绝 YAML；或另建清洗/转交
+阶段来掩盖无效章节。
 
 #### 对
 
-只反复调用 `run`，严格等待整个五章窗口 accepted；Worker 直写唯一 staging 文件，Controller 原子接收、登记不可变 accepted artifact、确定性组装五文件，并在安装前通过完整验证与 review report 新鲜度门禁。
+只反复调用 `run`，严格等待整个五章窗口 accepted；每个 job input 内嵌完整
+`worker_contract`，Worker 递归 preflight 后直写唯一 staging 文件；Controller
+从 `drafts/` 签发机械 repair、原子接收并登记不可变 accepted artifact、确定性
+组装五文件，并在安装前通过引用闭环、完整验证与 review report 新鲜度门禁。
 
 ---
 
