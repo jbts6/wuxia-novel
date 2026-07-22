@@ -37,14 +37,18 @@ function makeResolver(recordsByCategory, issues) {
     });
   }
 
-  function resolve(category, target, path, { required = true } = {}) {
+  function resolve(category, target, path, options = {}) {
     if (typeof target !== 'string' || target.trim() === '') return null;
     const result = resolveReference(indexes[category], target);
     if (result.status === 'resolved') return result.value;
     const issue = {
       code: result.status === 'unresolved' ? 'REFERENCE_UNRESOLVED' : 'REFERENCE_AMBIGUOUS',
       path,
-      target
+      target,
+      owner_category: options.ownerCategory,
+      owner_name: options.ownerName,
+      relation_field: options.relationField,
+      target_category: category
     };
     issues.push(issue);
     return null;
@@ -67,10 +71,14 @@ function resolveReferences(recordsByCategory) {
   data['characters.yaml'] = (recordsByCategory.characters || []).map((record, index) => {
     const aliases = Array.isArray(record.aliases) ? [...record.aliases] : [];
     const skills = resolver.resolveMany(
-      'skills', record.skills, `characters[${index}].skills`, { required: false }
+      'skills', record.skills, `characters[${index}].skills`, {
+        ownerCategory: 'characters', ownerName: record.name, relationField: 'skills'
+      }
     );
     const factions = resolver.resolveMany(
-      'factions', record.factions, `characters[${index}].factions`, { required: false }
+      'factions', record.factions, `characters[${index}].factions`, {
+        ownerCategory: 'characters', ownerName: record.name, relationField: 'factions'
+      }
     );
     return {
       id: record.id,
@@ -95,7 +103,9 @@ function resolveReferences(recordsByCategory) {
 
   data['skills.yaml'] = (recordsByCategory.skills || []).map((record, index) => {
     const factions = resolver.resolveMany(
-      'factions', record.factions, `skills[${index}].factions`, { required: false }
+      'factions', record.factions, `skills[${index}].factions`, {
+        ownerCategory: 'skills', ownerName: record.name, relationField: 'factions'
+      }
     );
     return {
       id: record.id,

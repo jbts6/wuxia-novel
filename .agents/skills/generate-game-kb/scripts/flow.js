@@ -97,7 +97,15 @@ function v7RunPipeline(novelDir, requestedRun) {
   saveChapterProgress(paths, next.progress);
 
   if (next.status === 'ready-to-assemble') {
-    assembleRun({ paths });
+    const assembly = assembleRun({ paths });
+    if (assembly.status === 'manual_review') {
+      return publicRunResult(run, {
+        status: 'manual_review',
+        progress: next.progress,
+        jobs: [],
+        manual_review: assembly.manual_review
+      });
+    }
     const { verifyFinal } = require('./lib/verify');
     const workspace = verifyFinal(paths);
     if (!workspace.passed) {
@@ -129,9 +137,13 @@ function v7Status(novelDir, requestedRun) {
     });
   }
   const progress = readJson(paths.progress);
-  const manualReview = Object.entries(progress.units)
+  const chapterReview = Object.entries(progress.units)
     .filter(([, state]) => state.status === 'rejected' && state.attempt >= 2)
     .map(([unit]) => unit);
+  const relationshipReview = fs.existsSync(paths.referenceRecovery)
+    ? readJson(paths.referenceRecovery).recovery_units || []
+    : [];
+  const manualReview = [...new Set([...chapterReview, ...relationshipReview])].sort();
   const jobs = manualReview.length === 0 ? activeJobMetadata(paths, progress) : [];
   return publicRunResult(run, {
     status: manualReview.length > 0 ? 'manual_review' : (jobs.length > 0 ? 'jobs' : 'waiting'),

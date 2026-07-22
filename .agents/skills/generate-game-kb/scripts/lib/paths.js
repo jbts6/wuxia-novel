@@ -46,6 +46,7 @@ function pathsFor(novelDir, runId, options = {}) {
     migrationReceipt: path.join(run, 'reports', 'migration-receipt.json'),
     chapterImportReceipt: path.join(run, 'reports', 'chapter-import-receipt.json'),
     runMetrics: path.join(run, 'reports', 'run-metrics.json'),
+    referenceRecovery: path.join(run, 'reports', 'reference-recovery.json'),
     finalRoot: path.join(run, 'final'),
     finalIdPlan: path.join(run, 'final', 'id_plan.json'),
     finalData: path.join(run, 'final', 'data'),
