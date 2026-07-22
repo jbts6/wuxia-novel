@@ -25,9 +25,30 @@ describe('normalizeTypeArray', () => {
       ['TYPE_VALUE_UNKNOWN']
     );
     assert.deepEqual(
-      normalizeTypeArray('items', ['poison'], '$.items[0].types').errors.map(issue => issue.code),
+      normalizeTypeArray('items', ['random_xyz'], '$.items[0].types').errors.map(issue => issue.code),
       ['TYPE_VALUE_UNKNOWN']
     );
+  });
+
+  it('normalizes keys mechanically (case / underscore / hyphen / whitespace)', () => {
+    const cases = [
+      ['skills', 'Internal_Skill', '内功'],
+      ['skills', 'sword-skill', '剑法'],
+      ['skills', '  poison  ', '毒功'],
+      ['items', 'WEAPON', '武器'],
+      ['factions', 'Merchant Guild', '商会']
+    ];
+    for (const [category, input, expected] of cases) {
+      const result = normalizeTypeArray(category, [input], `$.${category}[0].types`);
+      assert.deepEqual(result.errors, [], `${input} should not error`);
+      assert.deepEqual(result.values, [expected], `${input} -> ${expected}`);
+    }
+  });
+
+  it('normalizes common Chinese synonym variants', () => {
+    assert.deepEqual(normalizeTypeArray('skills', ['剑术'], '$.skills[0].types').values, ['剑法']);
+    assert.deepEqual(normalizeTypeArray('items', ['兵器'], '$.items[0].types').values, ['武器']);
+    assert.deepEqual(normalizeTypeArray('factions', ['宗派'], '$.factions[0].types').values, ['门派']);
   });
 
   it('preserves first-seen order and deduplicates after normalization', () => {
