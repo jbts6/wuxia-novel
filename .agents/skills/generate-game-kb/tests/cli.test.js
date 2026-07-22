@@ -20,7 +20,10 @@ function chapterNovel(count) {
 }
 
 test('public command surface is exactly v7', () => {
-  assert.deepEqual(publicCommands(), ['archive-abandoned', 'retry-unit', 'run', 'status']);
+  assert.deepEqual(
+    publicCommands(),
+    ['archive-abandoned', 'recover-relations', 'retry-unit', 'run', 'status']
+  );
   const novel = chapterNovel(1);
   for (const removed of [
     'prepare', 'extract-plan', 'submit', 'plan-domains', 'accept', 'assemble',

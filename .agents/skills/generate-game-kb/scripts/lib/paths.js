@@ -33,6 +33,8 @@ function pathsFor(novelDir, runId, options = {}) {
     artifactManifest: path.join(run, 'artifact-manifest.json'),
     progress: path.join(run, 'progress.json'),
     manualReview: path.join(run, 'manual_review.json'),
+    recoveryReceipt: path.join(run, 'recovery-receipt.json'),
+    recoveryInputs: path.join(run, 'recovery-inputs'),
     tasks: path.join(run, 'tasks'),
     revisions: path.join(run, 'revisions'),
     sourceOriginal: path.join(run, 'source', 'original.txt'),

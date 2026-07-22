@@ -76,3 +76,36 @@ test('user retry opens a new cycle without removing the fixed window', () => {
   assert.equal(retried.job.attempt, 1);
   assert.equal(retried.job.producer, 'chapter-worker');
 });
+
+test('recovery progress windows only the selected sparse chapters', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-recovery-progress-'));
+  const novel = path.join(root, 'novel');
+  const paths = pathsFor(novel, 'run-recovery-progress');
+  fs.mkdirSync(paths.run, { recursive: true });
+  const manifest = { chapters: [] };
+  for (let number = 1; number <= 12; number += 1) {
+    const file = path.join(root, `chapter-${number}.txt`);
+    fs.writeFileSync(file, `第${number}章\n侠客${number}现身。\n`, 'utf8');
+    manifest.chapters.push({
+      number, title: `第${number}章`, file, input_hash: `sha256:chapter-${number}`
+    });
+  }
+  const progress = createProgress(manifest);
+  progress.recovery_units = [
+    'chapter:002', 'chapter:004', 'chapter:006',
+    'chapter:008', 'chapter:010', 'chapter:012'
+  ];
+  const recoverySet = new Set(progress.recovery_units);
+  for (const [unit, state] of Object.entries(progress.units)) {
+    if (recoverySet.has(unit)) continue;
+    Object.assign(state, {
+      status: 'accepted', cycle: 1, attempt: 1, producer: 'carry-forward',
+      input_hash: 'sha256:carry', output_hash: `sha256:${unit}`
+    });
+  }
+
+  const issued = issueNextWindow({ paths, manifest, progress });
+  assert.deepEqual(issued.jobs.map(job => job.unit), progress.recovery_units.slice(0, 5));
+  assert.equal(issued.progress.units['chapter:012'].status, 'pending');
+  assert.equal(issued.progress.units['chapter:011'].status, 'accepted');
+});

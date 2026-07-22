@@ -178,6 +178,26 @@ function v7RetryUnit(novelDir, requestedRun, args) {
   return { semantic_contract_version: 7, run_id: run.run_id, status: 'retried', unit, job: result.job };
 }
 
+function v7RecoverRelations(novelDir, requestedRun, args) {
+  if (!requestedRun) {
+    throw new GameKbError('RUN_REQUIRED', 'recover-relations requires --run <parent-run>');
+  }
+  if (!args.includes('--confirm')) {
+    throw new GameKbError('CONFIRM_REQUIRED', 'recover-relations requires --confirm');
+  }
+  const { createRelationRecoveryRun } = require('./lib/relation-recovery-run');
+  const recovered = createRelationRecoveryRun(novelDir, requestedRun);
+  return {
+    ...publicRunResult(recovered.child, {
+      status: recovered.jobs.length > 0 ? 'dispatched' : 'waiting',
+      progress: recovered.progress,
+      jobs: recovered.jobs,
+      manual_review: []
+    }),
+    parent_run: recovered.parentRun.run_id
+  };
+}
+
 function main(argv = process.argv.slice(2)) {
   const json = argv.includes('--json');
   const args = argv.filter(value => value !== '--json');
@@ -202,6 +222,11 @@ function main(argv = process.argv.slice(2)) {
       emit(v7RetryUnit(novelDir, requestedRun, args));
       return;
     }
+    if (command === 'recover-relations') {
+      if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'recover-relations requires <novel>');
+      emit(v7RecoverRelations(novelDir, requestedRun, args));
+      return;
+    }
     if (command === 'archive-abandoned') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-abandoned requires <novel>');
       const runId = requestedRun || resolveRunReadOnly(novelDir).run_id;
@@ -216,4 +241,7 @@ function main(argv = process.argv.slice(2)) {
 
 if (require.main === module) main();
 
-module.exports = { main, publicCommands: () => ['archive-abandoned', 'retry-unit', 'run', 'status'] };
+module.exports = {
+  main,
+  publicCommands: () => ['archive-abandoned', 'recover-relations', 'retry-unit', 'run', 'status']
+};
