@@ -9,6 +9,7 @@ const { chapterAttemptPaths } = require('./paths');
 const { transitionProgress } = require('./chapter-progress');
 const { validateWorkerChapterDraft, normalizeAcceptedChapterDraft } = require('./chapter-contract');
 const { sha256 } = require('./source');
+const { ensureAcceptedArtifact } = require('./candidate-ledger');
 
 const MECHANICAL_ERROR_CODES = new Set([
   'YAML_CODE_FENCE', 'YAML_INDENTATION', 'YAML_QUOTE', 'YAML_EMPTY_COLLECTION'
@@ -129,6 +130,10 @@ function receiveAvailableChapterOutputs({ paths, manifest, progress }) {
     }
 
     writeAcceptedChapter(paths, unit, accepted);
+    const acceptedFile = path.join(paths.chapters, `${unit.replaceAll(':', '_')}.yaml`);
+    const acceptedRaw = fs.readFileSync(acceptedFile, 'utf8');
+    const acceptedHash = `sha256:${sha256(acceptedRaw)}`;
+    ensureAcceptedArtifact(paths, acceptedFile, acceptedHash, accepted);
     moveRawToDrafts(paths, unit, state, raw);
     fs.unlinkSync(jobPaths.output);
     current = transitionProgress(current, {

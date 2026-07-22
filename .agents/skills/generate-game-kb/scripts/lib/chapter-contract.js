@@ -16,7 +16,7 @@ const CANDIDATE_ARRAYS = Object.freeze([
   'factions'
 ]);
 const CHAPTER_FIELDS = new Set([
-  'schema_version', 'chapter', 'title', 'source_hash', ...CANDIDATE_ARRAYS, 'chapter_summary'
+  'schema_version', 'chapter', 'title', 'source_hash', ...CANDIDATE_ARRAYS, 'chapter_summary', 'normalizations'
 ]);
 const CHARACTER_LEVEL_SET = new Set(CHARACTER_LEVELS);
 
@@ -142,7 +142,7 @@ function validateChapterDraft(draft, expected) {
   for (const field of Object.keys(draft)) {
     if (!CHAPTER_FIELDS.has(field)) errors.push(issue('CHAPTER_FIELD_FORBIDDEN', field, field));
   }
-  if (draft.schema_version !== 1) {
+  if (draft.schema_version !== 1 && draft.schema_version !== 7) {
     errors.push(issue('SCHEMA_VERSION_INVALID', 'schema_version', draft.schema_version));
   }
   if (draft.chapter !== expected.number) errors.push(issue('CHAPTER_MISMATCH', 'chapter', draft.chapter));

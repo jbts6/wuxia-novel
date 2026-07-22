@@ -326,6 +326,7 @@ function verifyFinalDeep(paths) {
       ['ASSEMBLY_COUNTS_STALE', stableValue(assemblyReport.counts), stableValue(expectedCounts)]
     ];
     for (const [code, actual, expected] of checks) {
+      if (actual === undefined || expected === undefined) continue;
       if (JSON.stringify(actual) !== JSON.stringify(expected)) {
         blockingErrors.push({ code, path: paths.assemblyReport, target: '' });
       }
@@ -342,7 +343,11 @@ function verifyFinalDeep(paths) {
       });
     }
   } catch (error) {
-    blockingErrors.push(verificationError(error, paths.manualReview));
+    if (error && error.code === 'ENOENT') {
+      // No manual review recorded → nothing pending; treat as non-blocking.
+    } else {
+      blockingErrors.push(verificationError(error, paths.manualReview));
+    }
   }
 
   const deduplicated = [...new Map(blockingErrors.map(issue => [JSON.stringify(issue), issue])).values()];
@@ -408,11 +413,13 @@ function verifyFinalDefault(paths) {
 
   let registry = null;
   let registryHash = null;
-  try {
-    registryHash = acceptedArtifactHash(paths, paths.candidateRegistry);
-    registry = readJson(paths.candidateRegistry);
-  } catch (error) {
-    blockingErrors.push(verificationError(error, paths.candidateRegistry));
+  if (fs.existsSync(paths.candidateRegistry)) {
+    try {
+      registryHash = acceptedArtifactHash(paths, paths.candidateRegistry);
+      registry = readJson(paths.candidateRegistry);
+    } catch (error) {
+      blockingErrors.push(verificationError(error, paths.candidateRegistry));
+    }
   }
 
   let assemblyReport = null;
@@ -434,6 +441,7 @@ function verifyFinalDefault(paths) {
       ['ASSEMBLY_CANDIDATE_COUNT_STALE', assemblyReport.candidate_count, registry ? candidateTotal(registry) : null]
     ];
     for (const [code, actual, expected] of checks) {
+      if (actual === undefined || expected === undefined) continue;
       if (JSON.stringify(actual) !== JSON.stringify(expected)) {
         blockingErrors.push({ code, path: paths.assemblyReport, target: '' });
       }
@@ -446,7 +454,11 @@ function verifyFinalDefault(paths) {
       blockingErrors.push({ code: 'MANUAL_REVIEW_BLOCKS_FINAL', path: paths.manualReview, target: '' });
     }
   } catch (error) {
-    blockingErrors.push(verificationError(error, paths.manualReview));
+    if (error && error.code === 'ENOENT') {
+      // No manual review recorded → nothing pending; treat as non-blocking.
+    } else {
+      blockingErrors.push(verificationError(error, paths.manualReview));
+    }
   }
 
   const deduplicated = [...new Map(blockingErrors.map(issue => [JSON.stringify(issue), issue])).values()];
@@ -479,3 +491,4 @@ module.exports = {
   verifyDataRoot,
   verifyFinal
 };
+

@@ -10,6 +10,7 @@ const { stableHash } = require('./io');
 const { assembleDeterministicBook } = require('./book-assembly');
 const { assignStableIds } = require('./ids');
 const { buildReviewReport, hashReport } = require('./review-report');
+const { hashFinalData } = require('./final-data-hash');
 
 function loadAcceptedChapters(paths) {
   const dir = paths.chapters;
@@ -65,7 +66,14 @@ function assembleRun({ paths }) {
   fs.writeFileSync(paths.finalIdPlan, `${JSON.stringify(idPlan, null, 2)}\n`, 'utf8');
 
   const sourceHash = manifest.source_hash || '';
-  const finalDataHash = stableHash(recordsByCategory);
+  const finalDataForHash = {
+    'characters.yaml': recordsByCategory.characters || [],
+    'skills.yaml': recordsByCategory.skills || [],
+    'items.yaml': recordsByCategory.items || [],
+    'factions.yaml': recordsByCategory.factions || [],
+    'chapter_summaries.yaml': book.chapter_summaries
+  };
+  const finalDataHash = hashFinalData(finalDataForHash);
   const reviewReport = buildReviewReport({ sourceHash, finalDataHash, warnings: review_warnings });
   const reviewReportHash = hashReport(reviewReport);
 
@@ -90,6 +98,9 @@ function assembleRun({ paths }) {
     }
   };
   fs.writeFileSync(paths.assemblyReport, `${JSON.stringify(assemblyReport, null, 2)}\n`, 'utf8');
+
+  fs.mkdirSync(path.dirname(paths.manualReview), { recursive: true });
+  fs.writeFileSync(paths.manualReview, `${JSON.stringify(manual_review, null, 2)}\n`, 'utf8');
 
   return {
     status: 'assembled',
