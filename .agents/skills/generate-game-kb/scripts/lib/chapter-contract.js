@@ -7,6 +7,7 @@ const {
   validateEntitySemantics
 } = require('./semantic-contract');
 const { validateGroundedRecord } = require('./grounding');
+const { createReferenceIndex, resolveReference } = require('./reference-resolution');
 const { normalizeTypeArray } = require('./type-taxonomy');
 
 const CANDIDATE_ARRAYS = Object.freeze([
@@ -250,6 +251,33 @@ function validateWorkerSourceRefs(record, label, errors, expected) {
   });
 }
 
+function validateWorkerReferenceClosure(draft, errors) {
+  const indexes = {
+    skills: createReferenceIndex(draft.skills),
+    factions: createReferenceIndex(draft.factions)
+  };
+  const fields = [
+    ['characters', 'skills', 'skills'],
+    ['characters', 'factions', 'factions'],
+    ['skills', 'factions', 'factions']
+  ];
+
+  for (const [ownerCategory, field, targetCategory] of fields) {
+    draft[ownerCategory].forEach((record, recordIndex) => {
+      if (!Array.isArray(record?.[field])) return;
+      record[field].forEach((target, targetIndex) => {
+        const result = resolveReference(indexes[targetCategory], target);
+        if (result.status === 'resolved') return;
+        errors.push(issue(
+          result.status === 'unresolved' ? 'REFERENCE_UNRESOLVED' : 'REFERENCE_AMBIGUOUS',
+          `${ownerCategory}[${recordIndex}].${field}[${targetIndex}]`,
+          target
+        ));
+      });
+    });
+  }
+}
+
 function validateWorkerChapterDraft(draft, expected) {
   const errors = [];
   if (!draft || typeof draft !== 'object' || Array.isArray(draft)) {
@@ -293,6 +321,7 @@ function validateWorkerChapterDraft(draft, expected) {
       validateWorkerSourceRefs(record, label, errors, expected);
     });
   }
+  validateWorkerReferenceClosure(draft, errors);
 
   if (!draft.chapter_summary || typeof draft.chapter_summary !== 'object' || Array.isArray(draft.chapter_summary)) {
     errors.push(issue('SUMMARY_REQUIRED', 'chapter_summary'));

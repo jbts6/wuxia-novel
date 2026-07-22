@@ -1,6 +1,6 @@
 'use strict';
 
-const WORKER_CONTRACT_VERSION = 1;
+const WORKER_CONTRACT_VERSION = 2;
 
 const YAML_SKELETON = `characters:
   - name: "<chapter_text 中逐字出现的人物名>"
@@ -143,7 +143,9 @@ function createWorkerContract() {
         'characters[].factions': 'factions[].name',
         'skills[].factions': 'factions[].name'
       },
-      match: 'exact_name',
+      match_priority: ['exact_name', 'unique_alias'],
+      canonical_name_precedence: true,
+      ambiguous_action: 'reject_relation',
       unresolved_action: 'omit_relation_or_extract_grounded_candidate'
     },
     preflight: {

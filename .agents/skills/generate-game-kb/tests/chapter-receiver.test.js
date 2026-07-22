@@ -124,10 +124,11 @@ describe('chapter-receiver', () => {
     assert.deepEqual(input.allowed_repair_codes, ['YAML_CODE_FENCE']);
   });
 
-  it('schema and unknown-type failures require a chapter worker', () => {
+  it('schema, taxonomy, and relationship failures require a chapter worker', () => {
     for (const mutate of [
       draft => { draft.items[0].type = '武器'; },
-      draft => { draft.skills[0].types = ['magic']; }
+      draft => { draft.skills[0].types = ['magic']; },
+      draft => { draft.characters[0].skills = ['无名心法']; }
     ]) {
       const issued = prepareIssuedChapter();
       const bad = v7WorkerDraft();

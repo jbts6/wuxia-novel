@@ -22,7 +22,7 @@
 
 每个 `chapter-worker` 和 `main-agent-repair` 的只读 JSON input 都必须携带
 `worker_contract`。它是跨宿主运行时合同的唯一来源，不依赖
-`.claude/agents/`、本文件或隐式 Skill 上下文。合同版本当前为 `1`，每个 input
+`.claude/agents/`、本文件或隐式 Skill 上下文。合同版本当前为 `2`，每个 input
 获得独立对象，至少包含：
 
 - `output`：单文档 YAML、禁止 Markdown 围栏、精确五个顶层字段，以及下文完整
@@ -40,7 +40,9 @@
 - `taxonomy`：`skills/items/factions[].types` 使用 input 的闭合 `taxonomies`，
   未知值不得猜测；
 - `reference_closure`：`characters[].skills/factions` 和 `skills[].factions` 必须
-  精确解析到本次输出对应类别的候选名；无法解析时补提取有据候选或省略关系；
+  解析到本次输出对应类别的候选；正式名称优先，其次仅允许唯一别名，缺失或多义
+  目标由 Controller 返回 `REFERENCE_UNRESOLVED` / `REFERENCE_AMBIGUOUS`。Worker
+  应补提取有据候选或省略关系；
 - `preflight`：写后重读 YAML，递归检查每个实体、technique、章节摘要和全部
   `source_refs`，并执行当前 producer 的专属规则。
 

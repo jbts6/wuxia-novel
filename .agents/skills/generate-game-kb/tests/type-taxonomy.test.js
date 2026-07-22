@@ -130,6 +130,56 @@ describe('validateWorkerChapterDraft', () => {
     const errors = validateWorkerChapterDraft(draft, expectedChapter());
     assert.ok(errors.some(issue => issue.code === 'TYPE_VALUE_UNKNOWN'));
   });
+
+  it('accepts relationship names resolved by canonical name or a unique alias', () => {
+    const draft = v7WorkerDraft();
+    draft.characters[0].skills = ['玄门内功'];
+    draft.characters[0].factions = ['玄门别称'];
+    draft.skills[0].factions = ['玄门'];
+    draft.factions[0].aliases = ['玄门别称'];
+
+    assert.deepEqual(validateWorkerChapterDraft(draft, expectedChapter()), []);
+  });
+
+  it('prefers a canonical relationship name over the same text used as an alias', () => {
+    const draft = v7WorkerDraft();
+    draft.characters[0].factions = ['玄门'];
+    draft.factions.push({
+      name: '玄门别院', aliases: ['玄门'], types: ['门派'], description: null,
+      source_refs: [{ text: '玄门别院闭门谢客。', line_start: 4, line_end: 4 }]
+    });
+
+    assert.deepEqual(validateWorkerChapterDraft(draft, expectedChapter()), []);
+  });
+
+  it('rejects unresolved and ambiguous relationship names with exact paths', () => {
+    const unresolved = v7WorkerDraft();
+    unresolved.characters[0].skills = ['无名心法'];
+    unresolved.characters[0].factions = ['无名门派'];
+    unresolved.skills[0].factions = ['另一门派'];
+    assert.deepEqual(
+      validateWorkerChapterDraft(unresolved, expectedChapter())
+        .filter(issue => issue.code.startsWith('REFERENCE_')),
+      [
+        { code: 'REFERENCE_UNRESOLVED', path: 'characters[0].skills[0]', target: '无名心法' },
+        { code: 'REFERENCE_UNRESOLVED', path: 'characters[0].factions[0]', target: '无名门派' },
+        { code: 'REFERENCE_UNRESOLVED', path: 'skills[0].factions[0]', target: '另一门派' }
+      ]
+    );
+
+    const ambiguous = v7WorkerDraft();
+    ambiguous.characters[0].skills = ['共同别名'];
+    ambiguous.skills[0].aliases = ['共同别名'];
+    ambiguous.skills.push({
+      name: '另一内功', aliases: ['共同别名'], types: ['内功'], factions: [],
+      rank: null, description: null, techniques: [],
+      source_refs: [{ text: '另一内功另有传承。', line_start: 4, line_end: 4 }]
+    });
+    assert.ok(validateWorkerChapterDraft(ambiguous, expectedChapter()).some(issue =>
+      issue.code === 'REFERENCE_AMBIGUOUS'
+      && issue.path === 'characters[0].skills[0]'
+      && issue.target === '共同别名'));
+  });
 });
 
 describe('normalizeAcceptedChapterDraft', () => {
