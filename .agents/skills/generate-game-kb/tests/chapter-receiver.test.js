@@ -11,6 +11,7 @@ const { createProgress } = require('../scripts/lib/chapter-progress');
 const { issueNextWindow, issueRetryJob, advanceChapterWork } = require('../scripts/lib/chapter-work');
 const { receiveAvailableChapterOutputs } = require('../scripts/lib/chapter-receiver');
 const { initializeArtifactManifest, readArtifactManifest } = require('../scripts/lib/candidate-ledger');
+const { stableHash } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
 const { v7WorkerDraft } = require('./helpers');
 
@@ -53,6 +54,13 @@ function writeYaml(file, value) {
   fs.writeFileSync(file, yaml.dump(value, { noRefs: true, lineWidth: -1 }), 'utf8');
 }
 
+function replaceWorkerContractVersion(issued, version) {
+  const input = JSON.parse(fs.readFileSync(issued.job.input_file, 'utf8'));
+  input.worker_contract.version = version;
+  fs.writeFileSync(issued.job.input_file, `${JSON.stringify(input, null, 2)}\n`, 'utf8');
+  issued.progress.units[issued.job.unit].input_hash = stableHash(input);
+}
+
 function draftPath(paths, attempt = 1) {
   return path.join(
     paths.drafts,
@@ -72,6 +80,28 @@ function errorPath(paths, attempt = 1) {
 }
 
 describe('chapter-receiver', () => {
+  it('rejects a stale worker contract before reading staging YAML', () => {
+    const issued = prepareIssuedChapter();
+    writeYaml(issued.job.output_file, v7WorkerDraft());
+    replaceWorkerContractVersion(issued, 1);
+
+    assert.throws(
+      () => receiveAvailableChapterOutputs(issued),
+      error => {
+        assert.equal(error.code, 'WORKER_CONTRACT_STALE_RESTART_REQUIRED');
+        assert.deepEqual(error.details, {
+          run_id: 'run-recv',
+          unit: 'chapter:001',
+          actual_version: 1,
+          expected_version: 3
+        });
+        return true;
+      }
+    );
+    assert.equal(fs.existsSync(issued.job.output_file), true);
+    assert.equal(fs.existsSync(draftPath(issued.paths)), false);
+  });
+
   it('accepts an expected staging YAML without submit', () => {
     const issued = prepareIssuedChapter();
     writeYaml(issued.job.output_file, v7WorkerDraft());

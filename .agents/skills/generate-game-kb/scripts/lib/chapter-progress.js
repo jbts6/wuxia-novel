@@ -3,6 +3,7 @@
 const fs = require('node:fs');
 
 const { GameKbError } = require('./errors');
+const { assertCurrentWorkerContract } = require('./chapter-worker-contract');
 const { stableHash } = require('./io');
 const { chapterAttemptPaths } = require('./paths');
 
@@ -101,6 +102,10 @@ function assertJobMetadata(unitNameValue, state, manifest, paths) {
       input_file: state.input_file
     });
   }
+  assertCurrentWorkerContract(input.worker_contract, {
+    run_id: paths.runId,
+    unit: unitNameValue
+  });
   if (state.producer === 'chapter-worker') {
     const chapter = manifest.chapters.find(entry => unitName(entry.number) === unitNameValue);
     if (!chapter || input.source_hash !== chapter.input_hash) {

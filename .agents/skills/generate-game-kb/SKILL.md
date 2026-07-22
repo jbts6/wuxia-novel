@@ -97,7 +97,8 @@ job 的 `input_file`、`output_file`、`producer`、`cycle` 和 `attempt`，
 `.claude/agents/`、`schemas.md` 或其他隐式 Skill 上下文。写完后必须按
 `worker_contract.preflight` 递归检查实体、technique、摘要及所有
 `source_refs`，确认每个名称被自身证据覆盖、所有关系名称能解析到对应候选，再
-报告完成。
+报告完成。Worker 不执行 Shell、Node、Python 或 BAT 命令，也不创建辅助脚本、
+中间文本或校验日志。
 
 Worker 输出是单个纯 YAML 文档，顶层恰好为：
 

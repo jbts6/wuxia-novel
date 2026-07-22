@@ -8,6 +8,7 @@
 ## 通用边界
 
 - 不返回 envelope，不调用 controller、CLI、接收或提交命令。
+- 不执行 Shell、Node、Python 或 BAT 命令，不创建辅助脚本或校验日志。
 - 不创建、修改、移动或删除 `output_file` 之外的任何文件。
 - 不改写 `unit/cycle/attempt/producer/input_hash/input_file/output_file` 等 controller 身份字段。
 - YAML 顶层恰好为 `characters/skills/items/factions/chapter_summary`；四个实体数组即使为空也必须存在。

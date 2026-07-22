@@ -126,6 +126,7 @@ function v7RunPipeline(novelDir, requestedRun) {
 
 function v7Status(novelDir, requestedRun) {
   const { activeJobMetadata } = require('./lib/chapter-work');
+  const { assertProgressInvariant } = require('./lib/chapter-progress');
   const run = resolveRunReadOnly(novelDir, requestedRun);
   const paths = pathsFor(novelDir, run.run_id);
   if (run.semantic_contract_version !== 7 || !fs.existsSync(paths.progress)) {
@@ -136,7 +137,9 @@ function v7Status(novelDir, requestedRun) {
       manual_review: null
     });
   }
+  const manifest = readJson(paths.manifest);
   const progress = readJson(paths.progress);
+  assertProgressInvariant(progress, manifest, paths);
   const chapterReview = Object.entries(progress.units)
     .filter(([, state]) => state.status === 'rejected' && state.attempt >= 2)
     .map(([unit]) => unit);

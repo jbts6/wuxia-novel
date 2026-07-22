@@ -38,6 +38,7 @@ node .agents/skills/generate-game-kb/scripts/flow.js run "C:\git\wuxia-novel\古
 ```text
 只读取 <input_file>，严格服从其中内嵌的 worker_contract，
 把一个纯 YAML 文档写到 input 声明的 output_file；
+不得执行 Shell、Node、Python 或 BAT 命令，也不得创建辅助文件；
 写完执行 worker_contract 的递归 preflight，不要读取合同外文件或写其他路径。
 ```
 

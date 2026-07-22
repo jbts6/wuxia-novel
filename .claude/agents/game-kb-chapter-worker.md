@@ -16,6 +16,7 @@ Do not return an envelope, call controller or CLI commands, edit controller
 identity fields, or write anywhere except `output_file`. Use only the supplied
 chapter text and preserve exact chapter-local evidence. Apply every
 `chapter_text.includes(...)` and non-empty summary rule from the contract.
+Do not execute Shell, Node, Python, or BAT commands or create helper files.
 After writing, read the YAML back and run the complete recursive
 `worker_contract.preflight`, including nested techniques and every
 `source_refs` entry. Confirm each name is covered by its own evidence and every

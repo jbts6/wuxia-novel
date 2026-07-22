@@ -56,8 +56,10 @@ test('worker instructions require direct single-file YAML transport', () => {
     'input_file', 'output_file', 'chapter-worker', 'main-agent-repair', 'YAML',
     'worker_contract', 'chapter_text.includes', 'summary.trim()', 'source_refs'
   ]) assert.match(combined, new RegExp(required));
-  for (const dispatchSurface of [prompt, agent, examples]) {
+  for (const dispatchSurface of [prompt, agent, examples, skill]) {
     assert.match(dispatchSurface, /worker_contract/);
+    assert.match(dispatchSurface, /Shell.*Node.*Python.*BAT/is);
+    assert.match(dispatchSurface, /output_file/);
   }
   assert.match(combined, /递归|recursive/i);
   assert.match(combined, /不依赖|must not depend/i);

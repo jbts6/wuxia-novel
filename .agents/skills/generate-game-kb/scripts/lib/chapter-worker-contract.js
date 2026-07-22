@@ -1,5 +1,7 @@
 'use strict';
 
+const { GameKbError } = require('./errors');
+
 const WORKER_CONTRACT_VERSION = 3;
 
 const YAML_SKELETON = `characters:
@@ -175,4 +177,26 @@ function createWorkerContract() {
   };
 }
 
-module.exports = { WORKER_CONTRACT_VERSION, createWorkerContract };
+/** Reject persisted job inputs that predate the current Worker contract. */
+function assertCurrentWorkerContract(contract, context) {
+  const actualVersion = contract?.version ?? null;
+  if (actualVersion !== WORKER_CONTRACT_VERSION) {
+    throw new GameKbError(
+      'WORKER_CONTRACT_STALE_RESTART_REQUIRED',
+      'Worker contract is stale; create a new run instead of resuming this job',
+      {
+        run_id: context.run_id,
+        unit: context.unit,
+        actual_version: actualVersion,
+        expected_version: WORKER_CONTRACT_VERSION
+      }
+    );
+  }
+  return true;
+}
+
+module.exports = {
+  WORKER_CONTRACT_VERSION,
+  assertCurrentWorkerContract,
+  createWorkerContract
+};
