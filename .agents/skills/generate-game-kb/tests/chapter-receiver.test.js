@@ -93,6 +93,44 @@ describe('chapter-receiver', () => {
     assert.equal(JSON.parse(fs.readFileSync(issued.paths.progress, 'utf8')).units['chapter:001'].status, 'accepted');
   });
 
+  it('accepts exact quotes with wrong worker line spans and derives accepted spans', () => {
+    const issued = prepareIssuedChapter();
+    const draft = v7WorkerDraft();
+    for (const category of ['characters', 'skills', 'items', 'factions']) {
+      for (const record of draft[category]) {
+        for (const ref of record.source_refs) {
+          ref.line_start = 1;
+          ref.line_end = 1;
+        }
+      }
+    }
+    for (const ref of draft.chapter_summary.source_refs) {
+      ref.line_start = 1;
+      ref.line_end = 1;
+    }
+    writeYaml(issued.job.output_file, draft);
+
+    const result = receiveAvailableChapterOutputs(issued);
+
+    assert.equal(result.received[0].status, 'accepted');
+    const accepted = yaml.load(fs.readFileSync(
+      path.join(issued.paths.chapters, 'chapter_001.yaml'),
+      'utf8'
+    ));
+    assert.deepEqual(accepted.items[0].source_refs[0], {
+      chapter: 1,
+      text: '甲服下回生丹。',
+      line_start: 2,
+      line_end: 2
+    });
+    assert.deepEqual(accepted.factions[0].source_refs[0], {
+      chapter: 1,
+      text: '玄门隐居山中。',
+      line_start: 3,
+      line_end: 3
+    });
+  });
+
   it('skips units without output files without consuming an attempt', () => {
     const issued = prepareIssuedChapter();
     const result = receiveAvailableChapterOutputs(issued);
@@ -124,10 +162,11 @@ describe('chapter-receiver', () => {
     assert.deepEqual(input.allowed_repair_codes, ['YAML_CODE_FENCE']);
   });
 
-  it('schema and unknown-type failures require a chapter worker', () => {
+  it('schema, taxonomy, and relationship failures require a chapter worker', () => {
     for (const mutate of [
       draft => { draft.items[0].type = '武器'; },
-      draft => { draft.skills[0].types = ['magic']; }
+      draft => { draft.skills[0].types = ['magic']; },
+      draft => { draft.characters[0].skills = ['无名心法']; }
     ]) {
       const issued = prepareIssuedChapter();
       const bad = v7WorkerDraft();

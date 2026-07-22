@@ -1,6 +1,6 @@
 'use strict';
 
-const WORKER_CONTRACT_VERSION = 1;
+const WORKER_CONTRACT_VERSION = 3;
 
 const YAML_SKELETON = `characters:
   - name: "<chapter_text 中逐字出现的人物名>"
@@ -13,8 +13,6 @@ const YAML_SKELETON = `characters:
     skills: []
     source_refs:
       - text: "<chapter_text 中逐字出现的原文>"
-        line_start: 1
-        line_end: 1
 
 skills:
   - name: "<chapter_text 中逐字出现的武功名>"
@@ -28,8 +26,6 @@ skills:
         description: null
     source_refs:
       - text: "<chapter_text 中逐字出现的原文>"
-        line_start: 1
-        line_end: 1
 
 items:
   - name: "<chapter_text 中逐字出现的物品名>"
@@ -38,8 +34,6 @@ items:
     description: null
     source_refs:
       - text: "<chapter_text 中逐字出现的原文>"
-        line_start: 1
-        line_end: 1
 
 factions:
   - name: "<chapter_text 中逐字出现的势力名>"
@@ -48,15 +42,11 @@ factions:
     description: null
     source_refs:
       - text: "<chapter_text 中逐字出现的原文>"
-        line_start: 1
-        line_end: 1
 
 chapter_summary:
   summary: "<非空章节摘要>"
   source_refs:
     - text: "<chapter_text 中逐字出现的原文>"
-      line_start: 1
-      line_end: 1
 `;
 
 function createWorkerContract() {
@@ -86,7 +76,10 @@ function createWorkerContract() {
       source_ref: ['text']
     },
     optional_fields: {
-      source_ref: ['line_start', 'line_end']
+      source_ref: []
+    },
+    derived_fields: {
+      source_ref: ['chapter', 'line_start', 'line_end']
     },
     nullable_fields: {
       characters: ['level', 'rank', 'description'],
@@ -113,6 +106,7 @@ function createWorkerContract() {
       entity_name_check: 'chapter_text.includes(entity.name)',
       technique_name_check: 'chapter_text.includes(technique.name)',
       source_ref_text_check: 'chapter_text.includes(source_ref.text)',
+      source_ref_line_range_action: 'omit; controller derives from chapter_text',
       entity_name_evidence_check:
         'entity.source_refs.some(source_ref => source_ref.text.includes(entity.name))',
       technique_name_evidence_check:
@@ -143,7 +137,9 @@ function createWorkerContract() {
         'characters[].factions': 'factions[].name',
         'skills[].factions': 'factions[].name'
       },
-      match: 'exact_name',
+      match_priority: ['exact_name', 'unique_alias'],
+      canonical_name_precedence: true,
+      ambiguous_action: 'reject_relation',
       unresolved_action: 'omit_relation_or_extract_grounded_candidate'
     },
     preflight: {
@@ -163,6 +159,7 @@ function createWorkerContract() {
       producers: {
         'chapter-worker': [
           'exact_names_and_quotes_in_chapter_text',
+          'omit_source_ref_line_start_and_line_end',
           'each_name_covered_by_own_source_refs',
           'closed_taxonomies_only',
           'all_relationship_names_resolve',

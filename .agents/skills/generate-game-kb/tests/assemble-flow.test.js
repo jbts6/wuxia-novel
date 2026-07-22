@@ -10,7 +10,9 @@ const yaml = require('js-yaml');
 const { assembleRun } = require('../scripts/lib/assemble');
 const { stableHash } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
+const { hashReferenceRecoveryReport } = require('../scripts/lib/reference-recovery');
 const { hashReport, validateReviewReport } = require('../scripts/lib/review-report');
+const { parseJsonLine, runFlow } = require('./helpers');
 
 function sourceRef(text) {
   return { chapter: 1, text };
@@ -20,9 +22,24 @@ function fixture() {
   const novel = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-assembly-reports-'));
   const paths = pathsFor(novel, 'run-report');
   fs.mkdirSync(paths.chapters, { recursive: true });
+  fs.writeFileSync(paths.runJson, `${JSON.stringify({
+    run_id: 'run-report', semantic_contract_version: 7,
+    semantic_profile: 'chapter-direct-v1', status: 'active'
+  }, null, 2)}\n`, 'utf8');
   fs.writeFileSync(paths.manifest, `${JSON.stringify({
     source_hash: 'sha256:source',
     chapters: [{ number: 1, title: '第一章', input_hash: 'sha256:chapter-1' }]
+  }, null, 2)}\n`, 'utf8');
+  fs.writeFileSync(paths.artifactManifest, `${JSON.stringify({
+    schema_version: 1,
+    entries: [{ relative_path: 'accepted/chapters/chapter_001.yaml', content_hash: 'sha256:accepted' }]
+  }, null, 2)}\n`, 'utf8');
+  fs.writeFileSync(paths.progress, `${JSON.stringify({
+    schema_version: 1,
+    semantic_contract_version: 7,
+    manifest_hash: 'sha256:manifest',
+    active_units: [],
+    units: { 'chapter:001': { status: 'accepted', attempt: 1 } }
   }, null, 2)}\n`, 'utf8');
   const chapter = {
     schema_version: 7,
@@ -81,4 +98,45 @@ test('one deterministic assembly binds full audit and warning-only review report
     ]
   );
   assert.ok(assembly.deterministic_audit.field_decisions.every(row => row.source_refs.length > 0));
+});
+
+test('unresolved final relationships persist a chapter-scoped recovery report', () => {
+  const paths = fixture();
+  const chapterFile = path.join(paths.chapters, 'chapter_001.yaml');
+  const chapter = yaml.load(fs.readFileSync(chapterFile, 'utf8'));
+  chapter.characters[1].skills = ['失传剑法'];
+  fs.writeFileSync(chapterFile, yaml.dump(chapter, { noRefs: true, lineWidth: -1 }), 'utf8');
+
+  const result = assembleRun({ paths });
+  const report = JSON.parse(fs.readFileSync(paths.referenceRecovery, 'utf8'));
+  const { report_hash: reportHash, ...unsigned } = report;
+
+  assert.equal(result.status, 'manual_review');
+  assert.deepEqual(result.manual_review, ['chapter:001']);
+  assert.equal(report.parent_run, 'run-report');
+  assert.equal(report.source_hash, 'sha256:source');
+  assert.equal(report.artifact_manifest_hash, stableHash(JSON.parse(
+    fs.readFileSync(paths.artifactManifest, 'utf8')
+  )));
+  assert.equal(reportHash, hashReferenceRecoveryReport(unsigned));
+  assert.deepEqual(report.recovery_units, ['chapter:001']);
+  assert.deepEqual(report.relationships, [{
+    code: 'REFERENCE_UNRESOLVED',
+    owner_category: 'characters',
+    owner_name: '甲',
+    relation_field: 'skills',
+    relation_path: 'characters[0].skills[0]',
+    target_category: 'skills',
+    target_name: '失传剑法',
+    member_refs: ['ch001:character:甲'],
+    source_chapters: [1],
+    source_refs: [sourceRef('甲行走江湖。')]
+  }]);
+  assert.equal(fs.existsSync(paths.finalData), false);
+
+  const statusResult = runFlow(['status', paths.novel, '--run', 'run-report', '--json']);
+  assert.equal(statusResult.status, 0, statusResult.stderr);
+  const status = parseJsonLine(statusResult.stdout);
+  assert.equal(status.status, 'manual_review');
+  assert.deepEqual(status.manual_review, ['chapter:001']);
 });

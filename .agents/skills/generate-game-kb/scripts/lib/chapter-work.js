@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { GameKbError } = require('./errors');
-const { stableHash, writeImmutableJson } = require('./io');
+const { readJson, stableHash, writeImmutableJson } = require('./io');
 const { chapterAttemptPaths } = require('./paths');
 const {
   MAX_ACTIVE_UNITS,
@@ -40,7 +40,7 @@ function revisionPaths(paths, unit, cycle, attempt) {
   };
 }
 
-function chapterWorkerInput({ chapter, job, previousErrors = [] }) {
+function chapterWorkerInput({ chapter, job, previousErrors = [], recoveryContext = null }) {
   return {
     semantic_contract_version: 7,
     producer: 'chapter-worker',
@@ -55,7 +55,22 @@ function chapterWorkerInput({ chapter, job, previousErrors = [] }) {
     output_file: job.output_file,
     taxonomies: TYPE_TAXONOMIES,
     worker_contract: createWorkerContract(),
+    ...(recoveryContext ? { recovery_context: recoveryContext } : {}),
     ...(previousErrors.length > 0 ? { previous_errors: structuredClone(previousErrors) } : {})
+  };
+}
+
+function recoveryContextFor(paths, unit) {
+  if (!fs.existsSync(paths.recoveryReceipt)) return null;
+  const receipt = readJson(paths.recoveryReceipt);
+  const unitContext = receipt.unit_context?.[unit];
+  if (!unitContext) return null;
+  return {
+    parent_run: receipt.parent_run,
+    report_hash: receipt.report_hash,
+    parent_accepted_draft: unitContext.parent_accepted_draft,
+    parent_accepted_hash: unitContext.parent_accepted_hash,
+    relationship_errors: structuredClone(unitContext.relationship_errors || [])
   };
 }
 
@@ -120,6 +135,7 @@ function jobFromState({ paths, manifest, progress, unit }) {
     : chapterWorkerInput({
       chapter: chapterForUnit(manifest, unit),
       job,
+      recoveryContext: recoveryContextFor(paths, unit),
       previousErrors: state.errors
     });
   job.input_hash = stableHash(input);

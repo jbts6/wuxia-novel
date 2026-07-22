@@ -5,11 +5,11 @@ const path = require('node:path');
 const yaml = require('js-yaml');
 
 const { GameKbError } = require('./errors');
-const { readJson } = require('./io');
-const { stableHash } = require('./io');
+const { atomicWriteJson, readJson, stableHash } = require('./io');
 const { assembleDeterministicBook } = require('./book-assembly');
 const { assignStableIds } = require('./ids');
 const { resolveReferences } = require('./finalize');
+const { buildReferenceRecoveryReport } = require('./reference-recovery');
 const { buildReviewReport, hashReport } = require('./review-report');
 const { hashFinalData } = require('./final-data-hash');
 
@@ -29,6 +29,65 @@ function writeFinalYaml(dir, name, records) {
   return file;
 }
 
+function writeReferenceRecovery(paths, manifest, chapterCount, issues, relationProvenance) {
+  const report = buildReferenceRecoveryReport({
+    parentRun: paths.runId,
+    sourceHash: manifest.source_hash || '',
+    artifactManifestHash: stableHash(readJson(paths.artifactManifest)),
+    issues,
+    relationProvenance
+  });
+  fs.mkdirSync(paths.reports, { recursive: true });
+  atomicWriteJson(paths.referenceRecovery, report);
+  atomicWriteJson(paths.manualReview, report.recovery_units);
+  return {
+    status: 'manual_review',
+    chapter_count: chapterCount,
+    manual_review: report.recovery_units,
+    reference_recovery_report: paths.referenceRecovery
+  };
+}
+
+function publishFinalAssembly(input) {
+  const { paths, manifest, chapters, finalData, idPlan, deterministicAudit, reviewWarnings } = input;
+  for (const [name, filename] of [
+    ['characters', 'characters.yaml'],
+    ['skills', 'skills.yaml'],
+    ['items', 'items.yaml'],
+    ['factions', 'factions.yaml'],
+    ['chapter_summaries', 'chapter_summaries.yaml']
+  ]) writeFinalYaml(paths.finalData, name, finalData[filename]);
+  atomicWriteJson(paths.finalIdPlan, idPlan);
+
+  const sourceHash = manifest.source_hash || '';
+  const finalDataHash = hashFinalData(finalData);
+  const reviewReport = buildReviewReport({ sourceHash, finalDataHash, warnings: reviewWarnings });
+  const assemblyReport = {
+    schema_version: 7,
+    source_hash: sourceHash,
+    final_data_hash: finalDataHash,
+    deterministic_audit_hash: stableHash(deterministicAudit),
+    review_report_hash: hashReport(reviewReport),
+    deterministic_audit: deterministicAudit,
+    chapter_count: chapters.length,
+    entity_counts: Object.fromEntries([
+      ['characters', 'characters.yaml'], ['skills', 'skills.yaml'], ['items', 'items.yaml'],
+      ['factions', 'factions.yaml'], ['chapter_summaries', 'chapter_summaries.yaml']
+    ].map(([category, filename]) => [category, finalData[filename].length]))
+  };
+  atomicWriteJson(paths.reviewReport, reviewReport);
+  atomicWriteJson(paths.assemblyReport, assemblyReport);
+  atomicWriteJson(paths.manualReview, []);
+  return {
+    status: 'assembled',
+    chapter_count: chapters.length,
+    entity_counts: assemblyReport.entity_counts,
+    review_warnings: reviewWarnings.length,
+    assembly_report: paths.assemblyReport,
+    review_report: paths.reviewReport
+  };
+}
+
 function assembleRun({ paths }) {
   const manifest = readJson(paths.manifest);
   const chapters = loadAcceptedChapters(paths);
@@ -39,7 +98,7 @@ function assembleRun({ paths }) {
     });
   }
 
-  const { book, deterministic_audit, review_warnings, manual_review } =
+  const { book, deterministic_audit, relation_provenance, review_warnings, manual_review } =
     assembleDeterministicBook({ manifest, chapters });
 
   if (manual_review.length > 0) {
@@ -61,60 +120,20 @@ function assembleRun({ paths }) {
     chapter_summaries: book.chapter_summaries
   });
   if (projection.issues.length > 0) {
-    throw new GameKbError('FINAL_REFERENCE_INVALID', 'Final references could not be resolved', {
-      issues: projection.issues
-    });
+    return writeReferenceRecovery(
+      paths, manifest, chapters.length, projection.issues, relation_provenance
+    );
   }
-  const finalData = projection.data;
-
-  fs.mkdirSync(paths.finalData, { recursive: true });
-  writeFinalYaml(paths.finalData, 'characters', finalData['characters.yaml']);
-  writeFinalYaml(paths.finalData, 'skills', finalData['skills.yaml']);
-  writeFinalYaml(paths.finalData, 'items', finalData['items.yaml']);
-  writeFinalYaml(paths.finalData, 'factions', finalData['factions.yaml']);
-  writeFinalYaml(paths.finalData, 'chapter_summaries', finalData['chapter_summaries.yaml']);
-
-  fs.mkdirSync(path.dirname(paths.finalIdPlan), { recursive: true });
-  fs.writeFileSync(paths.finalIdPlan, `${JSON.stringify(idPlan, null, 2)}\n`, 'utf8');
-
-  const sourceHash = manifest.source_hash || '';
-  const finalDataHash = hashFinalData(finalData);
-  const reviewReport = buildReviewReport({ sourceHash, finalDataHash, warnings: review_warnings });
-  const reviewReportHash = hashReport(reviewReport);
-
-  fs.mkdirSync(paths.finalReports, { recursive: true });
-  fs.writeFileSync(paths.reviewReport, `${JSON.stringify(reviewReport, null, 2)}\n`, 'utf8');
-
-  const deterministicAuditHash = stableHash(deterministic_audit);
-  const assemblyReport = {
-    schema_version: 7,
-    source_hash: sourceHash,
-    final_data_hash: finalDataHash,
-    deterministic_audit_hash: deterministicAuditHash,
-    review_report_hash: reviewReportHash,
-    deterministic_audit,
-    chapter_count: chapters.length,
-    entity_counts: {
-      characters: finalData['characters.yaml'].length,
-      skills: finalData['skills.yaml'].length,
-      items: finalData['items.yaml'].length,
-      factions: finalData['factions.yaml'].length,
-      chapter_summaries: finalData['chapter_summaries.yaml'].length
-    }
-  };
-  fs.writeFileSync(paths.assemblyReport, `${JSON.stringify(assemblyReport, null, 2)}\n`, 'utf8');
-
-  fs.mkdirSync(path.dirname(paths.manualReview), { recursive: true });
-  fs.writeFileSync(paths.manualReview, `${JSON.stringify(manual_review, null, 2)}\n`, 'utf8');
-
-  return {
-    status: 'assembled',
-    chapter_count: chapters.length,
-    entity_counts: assemblyReport.entity_counts,
-    review_warnings: review_warnings.length,
-    assembly_report: paths.assemblyReport,
-    review_report: paths.reviewReport
-  };
+  return publishFinalAssembly({
+    paths,
+    manifest,
+    chapters,
+    finalData: projection.data,
+    idPlan,
+    deterministicAudit: deterministic_audit,
+    reviewWarnings: review_warnings,
+    manualReview: manual_review
+  });
 }
 
 module.exports = { assembleRun };

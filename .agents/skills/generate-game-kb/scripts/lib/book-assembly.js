@@ -1,6 +1,15 @@
 'use strict';
 
 const { normalizeName } = require('./book-contract');
+const {
+  compareText,
+  memberRef,
+  mergeRelations,
+  orderedMembers,
+  sortedSourceRefs,
+  stableMarker,
+  uniqueInOrder
+} = require('./book-assembly-evidence');
 const { POWER_RANKS, CHARACTER_LEVELS } = require('./semantic-contract');
 
 const GENERIC_CHARACTERS = new Set(['表哥', '管家婆', '店小二']);
@@ -8,69 +17,6 @@ const GENERIC_FACTIONS = new Set(['武林', '江湖']);
 
 const LEVEL_PRIORITY = Object.freeze(Object.fromEntries(CHARACTER_LEVELS.map((level, i) => [level, i])));
 const RANK_INDEX = Object.freeze(Object.fromEntries(POWER_RANKS.map((rank, i) => [rank, i])));
-
-function compareText(left, right) {
-  return String(left).localeCompare(String(right), 'zh-CN');
-}
-
-function stableValue(value) {
-  if (Array.isArray(value)) return value.map(stableValue);
-  if (!value || typeof value !== 'object') return value;
-  return Object.fromEntries(Object.keys(value).sort(compareText).map(key => [key, stableValue(value[key])]));
-}
-
-function stableMarker(value) {
-  return JSON.stringify(stableValue(value));
-}
-
-function uniqueInOrder(values) {
-  const seen = new Set();
-  const result = [];
-  for (const value of values) {
-    const marker = stableMarker(value);
-    if (seen.has(marker)) continue;
-    seen.add(marker);
-    result.push(structuredClone(value));
-  }
-  return result;
-}
-
-function compareSourceRefs(left, right) {
-  return (Number(left?.chapter) - Number(right?.chapter))
-    || ((Number.isInteger(left?.line_start) ? left.line_start : Number.MAX_SAFE_INTEGER)
-      - (Number.isInteger(right?.line_start) ? right.line_start : Number.MAX_SAFE_INTEGER))
-    || ((Number.isInteger(left?.line_end) ? left.line_end : Number.MAX_SAFE_INTEGER)
-      - (Number.isInteger(right?.line_end) ? right.line_end : Number.MAX_SAFE_INTEGER))
-    || compareText(left?.text, right?.text)
-    || compareText(stableMarker(left), stableMarker(right));
-}
-
-function sortedSourceRefs(refs) {
-  return uniqueInOrder(refs || []).sort(compareSourceRefs);
-}
-
-function memberRef(category, chapter, entity, index) {
-  const local = entity?.candidate_key || entity?.registry_key || entity?.local_key || `${category}:${index}`;
-  return `ch${String(chapter).padStart(3, '0')}:${local}`;
-}
-
-function orderedMembers(category, chapters) {
-  const members = [];
-  for (const chapter of chapters) {
-    const entities = Array.isArray(chapter?.[category]) ? chapter[category] : [];
-    entities.forEach((entity, index) => {
-      members.push({
-        category,
-        chapter: Number(chapter.chapter),
-        entity,
-        index,
-        member_ref: memberRef(category, chapter.chapter, entity, index),
-        source_refs: sortedSourceRefs(entity?.source_refs || [])
-      });
-    });
-  }
-  return members;
-}
 
 function isGeneric(category, normalizedName) {
   if (category === 'characters') return GENERIC_CHARACTERS.has(normalizedName);
@@ -302,7 +248,7 @@ function chapterTypeNormalizations(chapter) {
   });
 }
 
-function assembleGroup(category, members, fieldDecisions) {
+function assembleGroup(category, members, fieldDecisions, relationProvenance) {
   const name = canonicalName(members);
   const merged = {
     name,
@@ -314,8 +260,12 @@ function assembleGroup(category, members, fieldDecisions) {
 
   if (category === 'characters') {
     merged.identities = mergeArrays(members, 'identities');
-    merged.factions = mergeArrays(members, 'factions');
-    merged.skills = mergeArrays(members, 'skills');
+    merged.factions = mergeRelations(
+      members, category, name, 'factions', 'factions', relationProvenance
+    );
+    merged.skills = mergeRelations(
+      members, category, name, 'skills', 'skills', relationProvenance
+    );
     const rank = resolveRank(members);
     const level = resolveLevel(members);
     merged.level = level.value;
@@ -328,7 +278,9 @@ function assembleGroup(category, members, fieldDecisions) {
     const rank = resolveRank(members);
     const types = resolveTypes(members);
     merged.types = types.value;
-    merged.factions = mergeArrays(members, 'factions');
+    merged.factions = mergeRelations(
+      members, category, name, 'factions', 'factions', relationProvenance
+    );
     merged.rank = rank.value;
     merged.description = description.value;
     merged.techniques = resolveTechniques(members);
@@ -347,6 +299,33 @@ function assembleGroup(category, members, fieldDecisions) {
   return merged;
 }
 
+function assembleCategory(category, orderedChapters, state) {
+  const groups = new Map();
+  for (const member of orderedMembers(category, orderedChapters)) {
+    const normalizedName = normalizeName(member.entity?.name);
+    if (!normalizedName) continue;
+    const group = groups.get(normalizedName) || [];
+    group.push(member);
+    groups.set(normalizedName, group);
+  }
+
+  for (const [normalizedName, members] of groups) {
+    const name = canonicalName(members);
+    if (isGeneric(category, normalizedName)) {
+      state.reviewWarnings.push(genericWarning(category, name, members));
+      continue;
+    }
+    const collisionChapters = identityCollisionChapters(members);
+    if (collisionChapters.length > 0) {
+      state.manualReview.push(collisionReview(category, name, members, collisionChapters));
+      continue;
+    }
+    state.book[category].push(assembleGroup(
+      category, members, state.fieldDecisions, state.relationProvenance
+    ));
+  }
+}
+
 function assembleDeterministicBook({ manifest, chapters }) {
   void manifest;
   const categories = ['characters', 'skills', 'items', 'factions'];
@@ -359,6 +338,7 @@ function assembleDeterministicBook({ manifest, chapters }) {
   const reviewWarnings = [];
   const manualReview = [];
   const typeNormalizations = [];
+  const relationProvenance = [];
 
   for (const chapter of orderedChapters) {
     typeNormalizations.push(...chapterTypeNormalizations(chapter));
@@ -370,36 +350,13 @@ function assembleDeterministicBook({ manifest, chapters }) {
     });
   }
 
-  for (const category of categories) {
-    const groups = new Map();
-    for (const member of orderedMembers(category, orderedChapters)) {
-      const normalizedName = normalizeName(member.entity?.name);
-      if (!normalizedName) continue;
-      const group = groups.get(normalizedName) || [];
-      group.push(member);
-      groups.set(normalizedName, group);
-    }
-
-    for (const [normalizedName, members] of groups) {
-      const name = canonicalName(members);
-      if (isGeneric(category, normalizedName)) {
-        reviewWarnings.push(genericWarning(category, name, members));
-        continue;
-      }
-
-      const collisionChapters = identityCollisionChapters(members);
-      if (collisionChapters.length > 0) {
-        manualReview.push(collisionReview(category, name, members, collisionChapters));
-        continue;
-      }
-
-      book[category].push(assembleGroup(category, members, fieldDecisions));
-    }
-  }
+  const state = { book, fieldDecisions, relationProvenance, reviewWarnings, manualReview };
+  for (const category of categories) assembleCategory(category, orderedChapters, state);
 
   return {
     book,
     deterministic_audit: { field_decisions: fieldDecisions, type_normalizations: typeNormalizations },
+    relation_provenance: relationProvenance,
     review_warnings: reviewWarnings,
     manual_review: manualReview
   };

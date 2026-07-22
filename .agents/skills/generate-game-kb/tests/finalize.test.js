@@ -86,20 +86,60 @@ test('final reference projection preserves first-confirmed order while deduplica
   ]);
 });
 
-test('non-empty unresolved or display-name links are omitted with blocking issues', () => {
+test('non-empty unresolved links are omitted with blocking issues', () => {
   const missing = validV7MergedBook();
   missing.characters[0].skills = ['registry:skills:missing'];
   const missingResult = buildFinalData(missing, manifest);
   assert.deepEqual(missingResult.data[FINAL_FILES.characters][0].skills, []);
   assert.ok(missingResult.issues.some(issue =>
     issue.code === 'REFERENCE_UNRESOLVED' && issue.target === 'registry:skills:missing'));
+});
 
-  const displayName = validV7MergedBook();
-  displayName.characters[0].factions = ['玄门'];
-  const displayNameResult = buildFinalData(displayName, manifest);
-  assert.deepEqual(displayNameResult.data[FINAL_FILES.characters][0].factions, []);
-  assert.ok(displayNameResult.issues.some(issue =>
-    issue.code === 'REFERENCE_UNRESOLVED' && issue.target === '玄门'));
+test('final references resolve canonical names before colliding aliases', () => {
+  const book = validV7MergedBook();
+  book.factions.push({
+    registry_key: 'registry:factions:0002',
+    local_key: 'faction:xuan-men-bie-yuan',
+    name: '玄门别院',
+    aliases: ['玄门'],
+    types: ['门派'],
+    description: null,
+    source_refs: [sourceRef(2, '玄门别院')]
+  });
+  book.characters[0].skills = ['玄门内功'];
+  book.characters[0].factions = ['玄门'];
+
+  const result = buildFinalData(book, manifest);
+
+  assert.deepEqual(result.issues, []);
+  assert.deepEqual(result.data[FINAL_FILES.characters][0].skills, ['skill_xuan_men_nei_gong']);
+  assert.deepEqual(result.data[FINAL_FILES.characters][0].factions, ['faction_xuan_men']);
+});
+
+test('final references resolve a unique alias but reject an ambiguous alias', () => {
+  const unique = validV7MergedBook();
+  unique.factions[0].aliases = ['玄门道统'];
+  unique.characters[0].factions = ['玄门道统'];
+  const uniqueResult = buildFinalData(unique, manifest);
+  assert.deepEqual(uniqueResult.issues, []);
+  assert.deepEqual(uniqueResult.data[FINAL_FILES.characters][0].factions, ['faction_xuan_men']);
+
+  const ambiguous = validV7MergedBook();
+  ambiguous.factions[0].aliases = ['共同别名'];
+  ambiguous.factions.push({
+    registry_key: 'registry:factions:0002',
+    local_key: 'faction:other',
+    name: '别院',
+    aliases: ['共同别名'],
+    types: ['门派'],
+    description: null,
+    source_refs: [sourceRef(2, '别院')]
+  });
+  ambiguous.characters[0].factions = ['共同别名'];
+  const ambiguousResult = buildFinalData(ambiguous, manifest);
+  assert.deepEqual(ambiguousResult.data[FINAL_FILES.characters][0].factions, []);
+  assert.ok(ambiguousResult.issues.some(issue =>
+    issue.code === 'REFERENCE_AMBIGUOUS' && issue.target === '共同别名'));
 });
 
 test('build emits exactly five byte-stable arrays with exact v7 fields', () => {

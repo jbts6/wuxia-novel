@@ -81,6 +81,44 @@ test('rejects a source quote that exists only outside the declared line span', (
   assert.deepEqual(result.errors.map(error => error.code), ['SOURCE_QUOTE_NOT_FOUND']);
 });
 
+test('derive mode ignores a worker line span and locates the quote from chapter text', () => {
+  const result = validateGroundedRecord(record({
+    source_refs: [{ chapter: 3, text: '甲拔剑。', line_start: 2, line_end: 2 }]
+  }), {
+    chapterNumber: 3,
+    chapterText: '第三章\n乙旁观。\n甲拔剑。',
+    label: 'characters[0]',
+    lineRangeMode: 'derive'
+  });
+
+  assert.deepEqual(result.errors, []);
+  assert.deepEqual(result.normalizedRefs, [{
+    chapter: 3,
+    text: '甲拔剑。',
+    line_start: 3,
+    line_end: 3
+  }]);
+});
+
+test('derive mode maps normalized multiline evidence back to source lines', () => {
+  const result = validateGroundedRecord(record({
+    source_refs: [{ chapter: 3, text: 'A甲 拔剑。' }]
+  }), {
+    chapterNumber: 3,
+    chapterText: '第三章\r\nＡ甲\r\n　拔剑。',
+    label: 'characters[0]',
+    lineRangeMode: 'derive'
+  });
+
+  assert.deepEqual(result.errors, []);
+  assert.deepEqual(result.normalizedRefs[0], {
+    chapter: 3,
+    text: 'A甲 拔剑。',
+    line_start: 2,
+    line_end: 3
+  });
+});
+
 test('candidate name must occur in located evidence', () => {
   const result = validate(record({ name: '乙' }));
 

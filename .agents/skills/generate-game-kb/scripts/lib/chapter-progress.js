@@ -9,7 +9,7 @@ const { chapterAttemptPaths } = require('./paths');
 const MAX_ACTIVE_UNITS = 5;
 const MAX_ATTEMPTS_PER_CYCLE = 2;
 const UNIT_STATUSES = new Set(['pending', 'active', 'rejected', 'accepted']);
-const PRODUCERS = new Set(['chapter-worker', 'main-agent-repair']);
+const PRODUCERS = new Set(['chapter-worker', 'main-agent-repair', 'carry-forward']);
 
 function unitName(number) {
   return `chapter:${String(number).padStart(3, '0')}`;
@@ -59,9 +59,17 @@ function createProgress(manifest) {
 
 function assertJobMetadata(unitNameValue, state, manifest, paths) {
   if (!PRODUCERS.has(state.producer)
-    || typeof state.input_hash !== 'string' || !state.input_hash.startsWith('sha256:')
-    || typeof state.input_file !== 'string' || typeof state.output_file !== 'string') {
+    || typeof state.input_hash !== 'string' || !state.input_hash.startsWith('sha256:')) {
     invariant('Active unit metadata is incomplete', { unit: unitNameValue, state });
+  }
+  if (state.producer === 'carry-forward') {
+    if (state.input_file !== null || state.output_file !== null) {
+      invariant('Carry-forward unit must not retain job paths', { unit: unitNameValue, state });
+    }
+    return;
+  }
+  if (typeof state.input_file !== 'string' || typeof state.output_file !== 'string') {
+    invariant('Active unit job paths are incomplete', { unit: unitNameValue, state });
   }
   if (!paths) return;
 
@@ -105,8 +113,22 @@ function assertJobMetadata(unitNameValue, state, manifest, paths) {
   }
 }
 
-function assertProgressInvariant(progress, manifest, paths) {
-  const orderedUnits = manifestUnits(manifest);
+function executionUnits(progress, orderedUnits) {
+  if (progress.recovery_units === undefined) return orderedUnits;
+  if (!Array.isArray(progress.recovery_units) || progress.recovery_units.length === 0
+    || new Set(progress.recovery_units).size !== progress.recovery_units.length) {
+    invariant('Recovery units are invalid', { recovery_units: progress.recovery_units });
+  }
+  const selected = new Set(progress.recovery_units);
+  const orderedRecovery = orderedUnits.filter(unit => selected.has(unit));
+  if (orderedRecovery.length !== selected.size
+    || JSON.stringify(orderedRecovery) !== JSON.stringify(progress.recovery_units)) {
+    invariant('Recovery units do not match manifest order', { recovery_units: progress.recovery_units });
+  }
+  return orderedRecovery;
+}
+
+function assertProgressShape(progress, orderedUnits) {
   if (!progress || typeof progress !== 'object' || Array.isArray(progress)
     || progress.schema_version !== 7 || progress.semantic_contract_version !== 7
     || !progress.units || typeof progress.units !== 'object' || Array.isArray(progress.units)
@@ -118,18 +140,20 @@ function assertProgressInvariant(progress, manifest, paths) {
       actual: Object.keys(progress.units), expected: orderedUnits
     });
   }
+}
 
+function assertActiveWindow(progress, orderedExecutionUnits) {
   const active = progress.active_units;
   if (active.length > MAX_ACTIVE_UNITS || new Set(active).size !== active.length) {
     invariant('active_units exceeds the fixed window or contains duplicates', { active_units: active });
   }
-  const activeIndexes = active.map(unit => orderedUnits.indexOf(unit));
+  const activeIndexes = active.map(unit => orderedExecutionUnits.indexOf(unit));
   if (activeIndexes.some(index => index < 0)) {
     invariant('active_units contains an unknown chapter', { active_units: active });
   }
   if (active.length > 0) {
     const start = activeIndexes[0];
-    const expectedWindow = orderedUnits.slice(start, start + MAX_ACTIVE_UNITS);
+    const expectedWindow = orderedExecutionUnits.slice(start, start + MAX_ACTIVE_UNITS);
     if (start % MAX_ACTIVE_UNITS !== 0
       || JSON.stringify(active) !== JSON.stringify(expectedWindow)) {
       invariant('active_units is not the earliest complete fixed window', {
@@ -137,10 +161,13 @@ function assertProgressInvariant(progress, manifest, paths) {
       });
     }
   }
+  return activeIndexes;
+}
 
+function assertUnitStates(progress, manifest, paths, orderedUnits) {
+  const active = progress.active_units;
   const activeSet = new Set(active);
-  for (let index = 0; index < orderedUnits.length; index += 1) {
-    const unit = orderedUnits[index];
+  for (const unit of orderedUnits) {
     const state = progress.units[unit];
     if (!state || !UNIT_STATUSES.has(state.status) || !Array.isArray(state.errors)) {
       invariant('Unit state is invalid', { unit, state });
@@ -176,24 +203,29 @@ function assertProgressInvariant(progress, manifest, paths) {
       invariant('Accepted unit is missing output_hash', { unit });
     }
   }
+}
 
+function assertExecutionOrder(progress, orderedExecutionUnits, activeIndexes) {
+  const active = progress.active_units;
   if (active.length > 0) {
     const start = activeIndexes[0];
     for (let index = 0; index < start; index += 1) {
-      if (progress.units[orderedUnits[index]].status !== 'accepted') {
+      if (progress.units[orderedExecutionUnits[index]].status !== 'accepted') {
         invariant('A later window is active before earlier chapters are accepted', {
-          unit: orderedUnits[index]
+          unit: orderedExecutionUnits[index]
         });
       }
     }
-    for (let index = start + active.length; index < orderedUnits.length; index += 1) {
-      if (progress.units[orderedUnits[index]].status !== 'pending') {
-        invariant('A chapter after the active window was issued early', { unit: orderedUnits[index] });
+    for (let index = start + active.length; index < orderedExecutionUnits.length; index += 1) {
+      if (progress.units[orderedExecutionUnits[index]].status !== 'pending') {
+        invariant('A chapter after the active window was issued early', {
+          unit: orderedExecutionUnits[index]
+        });
       }
     }
   } else {
     let pendingSeen = false;
-    for (const unit of orderedUnits) {
+    for (const unit of orderedExecutionUnits) {
       const status = progress.units[unit].status;
       if (status === 'pending') pendingSeen = true;
       else if (status === 'accepted' && pendingSeen) {
@@ -201,6 +233,15 @@ function assertProgressInvariant(progress, manifest, paths) {
       }
     }
   }
+}
+
+function assertProgressInvariant(progress, manifest, paths) {
+  const orderedUnits = manifestUnits(manifest);
+  assertProgressShape(progress, orderedUnits);
+  const orderedExecutionUnits = executionUnits(progress, orderedUnits);
+  const activeIndexes = assertActiveWindow(progress, orderedExecutionUnits);
+  assertUnitStates(progress, manifest, paths, orderedUnits);
+  assertExecutionOrder(progress, orderedExecutionUnits, activeIndexes);
   return true;
 }
 

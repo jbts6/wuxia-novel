@@ -10,6 +10,7 @@ const {
 } = require('./book-contract');
 const { atomicWriteJson } = require('./io');
 const { assignStableIds } = require('./ids');
+const { createReferenceIndex, resolveReference } = require('./reference-resolution');
 const { FINAL_FILES } = require('./semantic-contract');
 
 const CATEGORY_FILES = FINAL_FILES;
@@ -24,31 +25,30 @@ function uniqueInOrder(values) {
 
 function makeResolver(recordsByCategory, issues) {
   const indexes = {};
+
   for (const category of ENTITY_CATEGORIES) {
-    const local = new Map();
-    for (const record of recordsByCategory[category] || []) {
-      const keys = [
+    indexes[category] = createReferenceIndex(recordsByCategory[category], {
+      getValue: record => record.id,
+      getInternalKeys: record => [
         record.local_key,
         record.registry_key,
         ...(Array.isArray(record.member_local_keys) ? record.member_local_keys : [])
-      ].filter(Boolean);
-      for (const key of keys) {
-        if (!local.has(key)) local.set(key, new Set());
-        local.get(key).add(record.id);
-      }
-    }
-    indexes[category] = { local };
+      ]
+    });
   }
 
-  function resolve(category, target, path, { required = true } = {}) {
+  function resolve(category, target, path, options = {}) {
     if (typeof target !== 'string' || target.trim() === '') return null;
-    const index = indexes[category];
-    const matches = index?.local.get(target) || new Set();
-    if (matches.size === 1) return [...matches][0];
+    const result = resolveReference(indexes[category], target);
+    if (result.status === 'resolved') return result.value;
     const issue = {
-      code: matches.size === 0 ? 'REFERENCE_UNRESOLVED' : 'REFERENCE_AMBIGUOUS',
+      code: result.status === 'unresolved' ? 'REFERENCE_UNRESOLVED' : 'REFERENCE_AMBIGUOUS',
       path,
-      target
+      target,
+      owner_category: options.ownerCategory,
+      owner_name: options.ownerName,
+      relation_field: options.relationField,
+      target_category: category
     };
     issues.push(issue);
     return null;
@@ -62,67 +62,78 @@ function makeResolver(recordsByCategory, issues) {
   return { resolve, resolveMany };
 }
 
+function byId(left, right) {
+  return left.id.localeCompare(right.id);
+}
+
+function projectCharacter(record, index, resolver) {
+  const owner = { ownerCategory: 'characters', ownerName: record.name };
+  return {
+    id: record.id,
+    name: record.name,
+    aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
+    identities: Array.isArray(record.identities) ? [...record.identities] : [],
+    level: record.level ?? null,
+    rank: record.rank ?? null,
+    description: record.description ?? null,
+    factions: resolver.resolveMany(
+      'factions', record.factions, `characters[${index}].factions`,
+      { ...owner, relationField: 'factions' }
+    ),
+    skills: resolver.resolveMany(
+      'skills', record.skills, `characters[${index}].skills`,
+      { ...owner, relationField: 'skills' }
+    )
+  };
+}
+
+function projectSkill(record, index, resolver) {
+  return {
+    id: record.id,
+    name: record.name,
+    aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
+    types: Array.isArray(record.types) ? [...record.types] : [],
+    factions: resolver.resolveMany(
+      'factions', record.factions, `skills[${index}].factions`, {
+        ownerCategory: 'skills', ownerName: record.name, relationField: 'factions'
+      }
+    ),
+    rank: record.rank ?? null,
+    description: record.description ?? null,
+    techniques: Array.isArray(record.techniques) ? record.techniques.map(technique => ({
+      name: technique.name,
+      description: technique.description ?? null
+    })) : []
+  };
+}
+
+function projectTypedEntity(record) {
+  return {
+    id: record.id,
+    name: record.name,
+    aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
+    types: Array.isArray(record.types) ? [...record.types] : [],
+    description: record.description ?? null
+  };
+}
+
+function uniqueSortedIssues(values) {
+  return [...new Map(values.map(value => [JSON.stringify(value), value])).values()]
+    .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)));
+}
+
 function resolveReferences(recordsByCategory) {
   const issues = [];
   const warnings = [];
   const resolver = makeResolver(recordsByCategory, issues);
   const data = emptyData();
 
-  data['characters.yaml'] = (recordsByCategory.characters || []).map((record, index) => {
-    const aliases = Array.isArray(record.aliases) ? [...record.aliases] : [];
-    const skills = resolver.resolveMany(
-      'skills', record.skills, `characters[${index}].skills`, { required: false }
-    );
-    const factions = resolver.resolveMany(
-      'factions', record.factions, `characters[${index}].factions`, { required: false }
-    );
-    return {
-      id: record.id,
-      name: record.name,
-      aliases,
-      identities: Array.isArray(record.identities) ? [...record.identities] : [],
-      level: record.level ?? null,
-      rank: record.rank ?? null,
-      description: record.description ?? null,
-      factions,
-      skills
-    };
-  }).sort((left, right) => left.id.localeCompare(right.id));
-
-  data['items.yaml'] = (recordsByCategory.items || []).map(record => ({
-    id: record.id,
-    name: record.name,
-    aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
-    types: Array.isArray(record.types) ? [...record.types] : [],
-    description: record.description ?? null
-  })).sort((left, right) => left.id.localeCompare(right.id));
-
-  data['skills.yaml'] = (recordsByCategory.skills || []).map((record, index) => {
-    const factions = resolver.resolveMany(
-      'factions', record.factions, `skills[${index}].factions`, { required: false }
-    );
-    return {
-      id: record.id,
-      name: record.name,
-      aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
-      types: Array.isArray(record.types) ? [...record.types] : [],
-      factions,
-      rank: record.rank ?? null,
-      description: record.description ?? null,
-      techniques: Array.isArray(record.techniques) ? record.techniques.map(tech => ({
-        name: tech.name,
-        description: tech.description ?? null
-      })) : []
-    };
-  }).sort((left, right) => left.id.localeCompare(right.id));
-
-  data['factions.yaml'] = (recordsByCategory.factions || []).map(record => ({
-    id: record.id,
-    name: record.name,
-    aliases: Array.isArray(record.aliases) ? [...record.aliases] : [],
-    types: Array.isArray(record.types) ? [...record.types] : [],
-    description: record.description ?? null
-  })).sort((left, right) => left.id.localeCompare(right.id));
+  data['characters.yaml'] = (recordsByCategory.characters || [])
+    .map((record, index) => projectCharacter(record, index, resolver)).sort(byId);
+  data['items.yaml'] = (recordsByCategory.items || []).map(projectTypedEntity).sort(byId);
+  data['skills.yaml'] = (recordsByCategory.skills || [])
+    .map((record, index) => projectSkill(record, index, resolver)).sort(byId);
+  data['factions.yaml'] = (recordsByCategory.factions || []).map(projectTypedEntity).sort(byId);
 
   data['chapter_summaries.yaml'] = (recordsByCategory.chapter_summaries || []).map((record, index) => ({
     chapter: record.chapter,
@@ -130,11 +141,7 @@ function resolveReferences(recordsByCategory) {
     summary: record.summary
   })).sort((left, right) => left.chapter - right.chapter);
 
-  const deduplicatedIssues = [...new Map(issues.map(issue => [JSON.stringify(issue), issue])).values()]
-    .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)));
-  const deduplicatedWarnings = [...new Map(warnings.map(warning => [JSON.stringify(warning), warning])).values()]
-    .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)));
-  return { data, issues: deduplicatedIssues, warnings: deduplicatedWarnings };
+  return { data, issues: uniqueSortedIssues(issues), warnings: uniqueSortedIssues(warnings) };
 }
 
 function buildFinalData(book, manifest, priorPlan = {}) {

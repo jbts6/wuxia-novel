@@ -13,6 +13,8 @@
 - YAML 顶层恰好为 `characters/skills/items/factions/chapter_summary`；四个实体数组即使为空也必须存在。
 - 不输出 `schema_version/chapter/title/source_hash/normalizations`；这些字段和章节局部 `local_key` 由 controller 写入 accepted YAML。不得生成正式 ID 或 controller candidate key。
 - 所有实体和章节摘要必须保留当前章节的精确 `source_refs`；不得使用记忆或其他章节证据。
+- `source_refs[]` 只写逐字 `text`，不写 `chapter/line_start/line_end`；这些定位字段
+  由 controller 根据章节原文确定性生成。
 - `skills/items/factions` 使用闭合的 `types` 数组，不使用 legacy `type`。
 - `worker_contract.output.yaml_skeleton` 是完整字段骨架；不得只依据顶层键猜测嵌套结构。
 - 写完后重新读取 `output_file`，执行 `worker_contract.preflight.common` 以及当前

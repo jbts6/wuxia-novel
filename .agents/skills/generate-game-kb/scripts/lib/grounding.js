@@ -32,6 +32,56 @@ function sourceLines(text) {
     .split('\n');
 }
 
+function normalizedChapterIndex(text) {
+  const lines = sourceLines(text);
+  let normalized = '';
+  const lineByOffset = [];
+  let pendingWhitespaceLine = null;
+
+  function append(value, lineNumber) {
+    normalized += value;
+    for (let index = 0; index < value.length; index += 1) lineByOffset.push(lineNumber);
+  }
+
+  lines.forEach((line, lineIndex) => {
+    if (lineIndex > 0 && pendingWhitespaceLine === null) {
+      pendingWhitespaceLine = lineIndex + 1;
+    }
+    for (const character of line) {
+      if (/\s/u.test(character)) {
+        if (pendingWhitespaceLine === null) pendingWhitespaceLine = lineIndex + 1;
+        continue;
+      }
+      if (pendingWhitespaceLine !== null && normalized !== '') append(' ', pendingWhitespaceLine);
+      pendingWhitespaceLine = null;
+      append(character, lineIndex + 1);
+    }
+  });
+  return { lines, normalized, lineByOffset };
+}
+
+function locateSourceRange(index, normalizedText) {
+  const startOffset = index.normalized.indexOf(normalizedText);
+  if (startOffset < 0) return null;
+  const endOffset = startOffset + normalizedText.length - 1;
+  return {
+    line_start: index.lineByOffset[startOffset],
+    line_end: index.lineByOffset[endOffset]
+  };
+}
+
+function deriveSourceRefs(refs, { chapterNumber, chapterText }) {
+  const index = normalizedChapterIndex(chapterText);
+  return (Array.isArray(refs) ? refs : []).map(ref => {
+    const text = normalizeEvidenceText(ref?.text);
+    return {
+      chapter: chapterNumber,
+      text,
+      ...locateSourceRange(index, text)
+    };
+  });
+}
+
 function normalizedNames(record, label) {
   const names = [];
   if (typeof record?.name === 'string' && record.name.trim() !== '') {
@@ -74,7 +124,49 @@ function validateLineRange(ref, refPath, lines, errors) {
   return normalizeEvidenceText(lines.slice(ref.line_start - 1, ref.line_end).join('\n'));
 }
 
-function validateGroundedRecord(record, { chapterNumber, chapterText, label }) {
+function validateGroundedSourceRef(ref, {
+  chapterNumber, chapterIndex, refPath, lineRangeMode
+}) {
+  const errors = [];
+  if (!ref || typeof ref !== 'object' || Array.isArray(ref)) {
+    return { errors: [issue('SOURCE_REF_INVALID', refPath)], normalizedRef: null, evidence: null };
+  }
+  if (ref.chapter !== chapterNumber) {
+    return {
+      errors: [issue('SOURCE_CHAPTER_MISMATCH', `${refPath}.chapter`, ref.chapter)],
+      normalizedRef: null,
+      evidence: null
+    };
+  }
+  if (typeof ref.text !== 'string' || ref.text.trim() === '') {
+    return {
+      errors: [issue('SOURCE_TEXT_REQUIRED', `${refPath}.text`)],
+      normalizedRef: null,
+      evidence: null
+    };
+  }
+
+  const normalizedText = normalizeEvidenceText(ref.text);
+  const normalizedRef = { chapter: ref.chapter, text: normalizedText };
+  let span = null;
+  if (lineRangeMode === 'derive') {
+    Object.assign(normalizedRef, locateSourceRange(chapterIndex, normalizedText));
+  } else {
+    for (const field of ['line_start', 'line_end']) {
+      if (ref[field] !== undefined) normalizedRef[field] = ref[field];
+    }
+    span = validateLineRange(ref, refPath, chapterIndex.lines, errors);
+    if (errors.length > 0) return { errors, normalizedRef, evidence: null };
+  }
+  if (!(span ?? chapterIndex.normalized).includes(normalizedText)) {
+    errors.push(issue('SOURCE_QUOTE_NOT_FOUND', `${refPath}.text`, normalizedText));
+  }
+  return { errors, normalizedRef, evidence: errors.length === 0 ? normalizedText : null };
+}
+
+function validateGroundedRecord(record, {
+  chapterNumber, chapterText, label, lineRangeMode = 'validate'
+}) {
   const errors = [];
   const normalizedRefs = [];
   const evidence = [];
@@ -84,39 +176,15 @@ function validateGroundedRecord(record, { chapterNumber, chapterText, label }) {
     return { errors, normalizedRefs };
   }
 
-  const normalizedChapter = normalizeEvidenceText(chapterText);
-  const lines = sourceLines(chapterText);
+  const chapterIndex = normalizedChapterIndex(chapterText);
   refs.forEach((ref, index) => {
     const refPath = `${label}.source_refs[${index}]`;
-    if (!ref || typeof ref !== 'object' || Array.isArray(ref)) {
-      errors.push(issue('SOURCE_REF_INVALID', refPath));
-      return;
-    }
-    if (ref.chapter !== chapterNumber) {
-      errors.push(issue('SOURCE_CHAPTER_MISMATCH', `${refPath}.chapter`, ref.chapter));
-      return;
-    }
-    if (typeof ref.text !== 'string' || ref.text.trim() === '') {
-      errors.push(issue('SOURCE_TEXT_REQUIRED', `${refPath}.text`));
-      return;
-    }
-
-    const normalizedText = normalizeEvidenceText(ref.text);
-    const normalizedRef = { chapter: ref.chapter, text: normalizedText };
-    for (const field of ['line_start', 'line_end']) {
-      if (ref[field] !== undefined) normalizedRef[field] = ref[field];
-    }
-    normalizedRefs.push(normalizedRef);
-
-    const errorsBeforeRange = errors.length;
-    const span = validateLineRange(ref, refPath, lines, errors);
-    if (errors.length > errorsBeforeRange) return;
-    const searchable = span ?? normalizedChapter;
-    if (!searchable.includes(normalizedText)) {
-      errors.push(issue('SOURCE_QUOTE_NOT_FOUND', `${refPath}.text`, normalizedText));
-      return;
-    }
-    evidence.push(normalizedText);
+    const result = validateGroundedSourceRef(ref, {
+      chapterNumber, chapterIndex, refPath, lineRangeMode
+    });
+    errors.push(...result.errors);
+    if (result.normalizedRef) normalizedRefs.push(result.normalizedRef);
+    if (result.evidence) evidence.push(result.evidence);
   });
 
   if (evidence.length === 0) return { errors, normalizedRefs };
@@ -135,6 +203,7 @@ function isGroundingError(error) {
 
 module.exports = {
   GROUNDING_ERROR_CODES,
+  deriveSourceRefs,
   isGroundingError,
   normalizeEvidenceText,
   validateGroundedRecord
