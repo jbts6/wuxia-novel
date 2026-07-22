@@ -212,7 +212,25 @@ const V7_ENTITY_FORBIDDEN = new Set([
 ]);
 const V7_TYPES_CATEGORIES = new Set(['skills', 'items', 'factions']);
 
-function validateWorkerSourceRefs(record, label, errors) {
+function validateWorkerSourceRefs(record, label, errors, expected) {
+  if (typeof expected?.chapterText === 'string') {
+    const grounded = validateGroundedRecord({
+      ...record,
+      ...(Array.isArray(record?.source_refs) ? {
+        source_refs: record.source_refs.map(ref => (
+          ref && typeof ref === 'object' && !Array.isArray(ref)
+            ? { ...ref, chapter: expected.number }
+            : ref
+        ))
+      } : {})
+    }, {
+      chapterNumber: expected.number,
+      chapterText: expected.chapterText,
+      label
+    });
+    errors.push(...grounded.errors);
+    return;
+  }
   if (!Array.isArray(record?.source_refs) || record.source_refs.length === 0) {
     errors.push(issue('SOURCE_REFS_REQUIRED', `${label}.source_refs`));
     return;
@@ -272,7 +290,7 @@ function validateWorkerChapterDraft(draft, expected) {
         const typeResult = normalizeTypeArray(category, record.types, `$.${label}.types`);
         errors.push(...typeResult.errors);
       }
-      validateWorkerSourceRefs(record, label, errors);
+      validateWorkerSourceRefs(record, label, errors, expected);
     });
   }
 
@@ -282,7 +300,7 @@ function validateWorkerChapterDraft(draft, expected) {
     if (typeof draft.chapter_summary.summary !== 'string' || draft.chapter_summary.summary.trim() === '') {
       errors.push(issue('SUMMARY_TEXT_REQUIRED', 'chapter_summary.summary'));
     }
-    validateWorkerSourceRefs(draft.chapter_summary, 'chapter_summary', errors);
+    validateWorkerSourceRefs(draft.chapter_summary, 'chapter_summary', errors, expected);
   }
   return errors;
 }

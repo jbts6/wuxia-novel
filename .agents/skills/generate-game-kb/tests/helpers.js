@@ -290,13 +290,13 @@ function v7WorkerDraft(overrides = {}) {
     characters: [{
       name: '甲', level: '核心', rank: '初窥门径',
       aliases: [], identities: [], description: null, factions: [], skills: [],
-      source_refs: [{ text: '甲修习玄门内功。', line_start: 1, line_end: 1 }]
+      source_refs: [{ text: '甲修习玄门内功并使出飞云掌。', line_start: 1, line_end: 1 }]
     }],
     skills: [{
       name: '玄门内功', rank: '初窥门径',
       aliases: [], types: ['内功'], factions: [], description: null,
       techniques: [{ name: '飞云掌', description: null }],
-      source_refs: [{ text: '甲修习玄门内功。', line_start: 1, line_end: 1 }]
+      source_refs: [{ text: '甲修习玄门内功并使出飞云掌。', line_start: 1, line_end: 1 }]
     }],
     items: [{
       name: '回生丹', aliases: [], types: ['丹药'], description: null,
@@ -308,7 +308,7 @@ function v7WorkerDraft(overrides = {}) {
     }],
     chapter_summary: {
       summary: '第一章摘要。',
-      source_refs: [{ text: '甲修习玄门内功。', line_start: 1, line_end: 1 }]
+      source_refs: [{ text: '甲修习玄门内功并使出飞云掌。', line_start: 1, line_end: 1 }]
     },
     ...overrides
   };

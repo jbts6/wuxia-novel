@@ -152,7 +152,12 @@ function ensureAcceptedArtifact(paths, file, inputHash, value, options = {}) {
       accepted_at: options.acceptedAt || new Date().toISOString(),
       ...(yamlArtifact ? { serialization: ACCEPTED_SERIALIZATION } : {})
     };
-    atomicWriteJson(paths.artifactManifest, { ...manifest, entries: [...manifest.entries, entry] });
+    try {
+      atomicWriteJson(paths.artifactManifest, { ...manifest, entries: [...manifest.entries, entry] });
+    } catch (error) {
+      fs.rmSync(file, { force: true });
+      throw error;
+    }
     return entry;
   }
 
