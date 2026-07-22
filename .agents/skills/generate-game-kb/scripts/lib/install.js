@@ -9,13 +9,16 @@ const { GameKbError } = require('./errors');
 const { assertAcceptedArtifacts } = require('./candidate-ledger');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { deferredPathsFor, pathsFor } = require('./paths');
+const { hashReport, validateReviewReport } = require('./review-report');
 const { SEMANTIC_CONTRACT_VERSION, resolveWritableRun } = require('./run');
 const { FINAL_FILES } = require('./semantic-contract');
 const { verifyDataRoot, verifyFinal } = require('./verify');
 
 const DATA_FILES = Object.freeze(Object.values(FINAL_FILES).sort());
+const REVIEW_REPORT = 'game-kb-review.json';
 const REPORT_FILES = Object.freeze([
-  'verification-report.json'
+  'verification-report.json',
+  REVIEW_REPORT
 ]);
 const INSTALL_RECEIPT = 'generate_game_kb_install.json';
 const INSTALL_RECEIPT_SCHEMA_VERSION = 2;
@@ -36,8 +39,12 @@ function installPaths(novelDir) {
   };
 }
 
+function contentHash(content) {
+  return `sha256:${crypto.createHash('sha256').update(content).digest('hex')}`;
+}
+
 function fileHash(file) {
-  return `sha256:${crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}`;
+  return contentHash(fs.readFileSync(file));
 }
 
 function dataFileHashes(dataRoot) {
@@ -271,6 +278,42 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
     chapters: Array.isArray(receipt.chapters) ? receipt.chapters : [],
     expectedHash: receipt.final_data_hash
   });
+  const reviewFile = path.join(paths.reports, REVIEW_REPORT);
+  if (!/^sha256:[a-f0-9]{64}$/.test(receipt.review_report_hash || '')) {
+    receiptErrors.push({
+      code: 'INSTALL_REVIEW_REPORT_HASH_MISSING',
+      path: 'receipt.review_report_hash',
+      target: receipt.review_report_hash ?? ''
+    });
+  } else if (!fs.existsSync(reviewFile)) {
+    receiptErrors.push({ code: 'INSTALL_REVIEW_REPORT_MISSING', path: reviewFile, target: '' });
+  } else if (fileHash(reviewFile) !== receipt.review_report_hash) {
+    receiptErrors.push({
+      code: 'INSTALL_REVIEW_REPORT_HASH_MISMATCH',
+      path: reviewFile,
+      target: receipt.review_report_hash,
+      actual_hash: fileHash(reviewFile)
+    });
+  } else {
+    try {
+      const review = readJson(reviewFile);
+      const reviewIssues = validateReviewReport(review);
+      if (reviewIssues.length > 0) {
+        receiptErrors.push({
+          code: 'INSTALL_REVIEW_REPORT_INVALID',
+          path: reviewFile,
+          target: '',
+          issues: reviewIssues
+        });
+      }
+      if (review.source_hash !== receipt.source_hash
+        || review.final_data_hash !== receipt.final_data_hash) {
+        receiptErrors.push({ code: 'INSTALL_REVIEW_REPORT_STALE', path: reviewFile, target: '' });
+      }
+    } catch (error) {
+      receiptErrors.push({ code: 'INSTALL_REVIEW_REPORT_INVALID', path: reviewFile, target: error.message });
+    }
+  }
   const verificationFile = path.join(paths.reports, 'verification-report.json');
   if (typeof receipt.verification_report_hash !== 'string') {
     receiptWarnings.push({
@@ -289,8 +332,17 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
   } else {
     try {
       const verification = readJson(verificationFile);
-      if (verification.passed !== true || verification.final_data_hash !== receipt.final_data_hash) {
+      if (verification.passed !== true
+        || verification.source_hash !== receipt.source_hash
+        || verification.final_data_hash !== receipt.final_data_hash) {
         receiptWarnings.push({ code: 'INSTALL_VERIFICATION_REPORT_STALE', path: verificationFile, target: '' });
+      }
+      if (verification.review_report_hash !== receipt.review_report_hash) {
+        receiptErrors.push({
+          code: 'INSTALL_VERIFICATION_REVIEW_HASH_MISMATCH',
+          path: verificationFile,
+          target: receipt.review_report_hash ?? ''
+        });
       }
     } catch (error) {
       receiptWarnings.push({ code: 'INSTALL_VERIFICATION_REPORT_INVALID', path: verificationFile, target: error.message });
@@ -299,6 +351,12 @@ function verifyInstalledWithReceiptV4(novelDir, receipt) {
   result.semantic_contract_version = receipt.semantic_contract_version ?? null;
   result.run_id = typeof receipt.run_id === 'string' ? receipt.run_id : null;
   result.source_hash = typeof receipt.source_hash === 'string' ? receipt.source_hash : null;
+  result.review_report_hash = typeof receipt.review_report_hash === 'string'
+    ? receipt.review_report_hash
+    : null;
+  result.verification_report_hash = typeof receipt.verification_report_hash === 'string'
+    ? receipt.verification_report_hash
+    : null;
   result.id_plan_hash = typeof receipt.id_plan_hash === 'string' ? receipt.id_plan_hash : null;
   result.migration_receipt_hash = typeof receipt.migration_receipt_hash === 'string'
     ? receipt.migration_receipt_hash
@@ -385,6 +443,45 @@ function promoteVerifiedData(novelDir, options) {
   const previousReceipt = readReceipt(installed.receipt);
   const sourceData = path.resolve(options.sourceData);
   const chapters = options.chapters;
+  let reviewReport;
+  let verificationReport;
+  try {
+    reviewReport = JSON.parse(options.reviewReportContent);
+  } catch (error) {
+    throw new GameKbError('REVIEW_REPORT_INVALID', 'Review report content is not valid JSON', {
+      cause: error.message
+    });
+  }
+  const reviewIssues = validateReviewReport(reviewReport);
+  if (reviewIssues.length > 0 || hashReport(reviewReport) !== contentHash(options.reviewReportContent)) {
+    throw new GameKbError('REVIEW_REPORT_INVALID', 'Review report content is not canonical or valid', {
+      issues: reviewIssues
+    });
+  }
+  if (reviewReport.source_hash !== options.sourceHash
+    || reviewReport.final_data_hash !== options.finalDataHash) {
+    throw new GameKbError('REVIEW_REPORT_STALE', 'Review report does not match the promoted data', {
+      source_hash: reviewReport.source_hash,
+      final_data_hash: reviewReport.final_data_hash
+    });
+  }
+  try {
+    verificationReport = JSON.parse(options.verificationReportContent);
+  } catch (error) {
+    throw new GameKbError('INSTALL_VERIFICATION_REPORT_INVALID', 'Verification report content is not valid JSON', {
+      cause: error.message
+    });
+  }
+  const reviewReportHash = hashReport(reviewReport);
+  if (verificationReport.passed !== true
+    || verificationReport.source_hash !== options.sourceHash
+    || verificationReport.final_data_hash !== options.finalDataHash
+    || verificationReport.review_report_hash !== reviewReportHash) {
+    throw new GameKbError(
+      'INSTALL_VERIFICATION_REPORT_STALE',
+      'Verification report does not bind the promoted data and review report'
+    );
+  }
   const previousInstalled = options.expectedPreviousHash ? verifyInstalled(novelDir) : null;
   if (options.expectedPreviousHash
     && (!previousInstalled.passed || previousInstalled.final_data_hash !== options.expectedPreviousHash)) {
@@ -484,6 +581,12 @@ function promoteVerifiedData(novelDir, options) {
     fs.mkdirSync(installed.reports, { recursive: true });
     reportsWritten = true;
     atomicWriteFile(
+      path.join(installed.reports, REVIEW_REPORT),
+      options.reviewReportContent
+    );
+    const installedReviewReportHash = fileHash(path.join(installed.reports, REVIEW_REPORT));
+    maybeFault(options, 'after-review-write');
+    atomicWriteFile(
       path.join(installed.reports, 'verification-report.json'),
       options.verificationReportContent
     );
@@ -504,6 +607,7 @@ function promoteVerifiedData(novelDir, options) {
       data_files: [...DATA_FILES],
       data_file_hashes: dataFileHashes(installed.data),
       verification_report_hash: verificationReportHash,
+      review_report_hash: installedReviewReportHash,
       chapters,
       archive_root: archiveRoot,
       archive_data: state === 'nonempty' ? archiveData : null,
@@ -627,6 +731,7 @@ function installVerifiedData(novelDir, options = {}) {
       path.join(workPaths.finalReports, 'verification-report.json'),
       'utf8'
     ),
+    reviewReportContent: fs.readFileSync(workPaths.reviewReport, 'utf8'),
     commit(receipt) {
       const runMetadata = readJson(workPaths.runJson);
       atomicWriteJson(workPaths.runJson, {
@@ -636,7 +741,8 @@ function installVerifiedData(novelDir, options = {}) {
         final_data_hash: workspace.final_data_hash,
         id_plan_hash: receipt.id_plan_hash,
         migration_receipt_hash: receipt.migration_receipt_hash,
-        verification_report_hash: receipt.verification_report_hash
+        verification_report_hash: receipt.verification_report_hash,
+        review_report_hash: receipt.review_report_hash
       });
     },
     rollbackCommit() {

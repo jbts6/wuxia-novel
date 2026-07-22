@@ -5,16 +5,19 @@ const path = require('node:path');
 const yaml = require('js-yaml');
 
 const { stableHash } = require('./io');
+const { assembleDeterministicBook } = require('./book-assembly');
 const { acceptedArtifactHash, assertAcceptedArtifacts } = require('./candidate-ledger');
 const { CANDIDATE_ARRAYS, validateChapterDraft } = require('./chapter-contract');
 const { hashFinalData, stableValue } = require('./final-data-hash');
-const { CATEGORY_FILES } = require('./finalize');
+const { CATEGORY_FILES, resolveReferences } = require('./finalize');
+const { assignStableIds } = require('./ids');
 const { atomicWriteJson, readJson, readYaml } = require('./io');
+const { buildReviewReport, hashReport, validateReviewReport } = require('./review-report');
+const { normalizeTypeArray } = require('./type-taxonomy');
 const {
   CHARACTER_LEVELS,
   FINAL_FIELDS,
   FINAL_FILES,
-  ITEM_TYPES,
   SEMANTIC_CONTRACT_VERSION,
   isPowerRank,
   validateEntitySemantics
@@ -133,8 +136,12 @@ function verifyDataRoot(dataRoot, { chapters = [], expectedHash } = {}) {
           });
         }
       }
-      if (category === 'items' && record?.type !== null && !ITEM_TYPES.includes(record?.type)) {
-        blockingErrors.push({ code: 'ITEM_TYPE_INVALID', path: `${label}.type`, target: record?.type ?? '' });
+      if (['skills', 'items', 'factions'].includes(category)) {
+        const typeResult = normalizeTypeArray(category, record?.types, `${label}.types`);
+        blockingErrors.push(...typeResult.errors);
+        if (typeResult.normalizations.length > 0) {
+          blockingErrors.push({ code: 'FINAL_TYPE_NOT_NORMALIZED', path: `${label}.types`, target: '' });
+        }
       }
     });
   }
@@ -393,13 +400,12 @@ function verifyFinalDefault(paths) {
     blockingErrors.push(verificationError(error, paths.artifactManifest));
   }
 
-  const acceptedHashes = {};
   const chapters = [];
   for (const chapter of manifest.chapters || []) {
     const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
-    const file = path.join(paths.chapters, `ch_${String(chapter.number).padStart(3, '0')}.yaml`);
+    const file = path.join(paths.chapters, `chapter_${String(chapter.number).padStart(3, '0')}.yaml`);
     try {
-      acceptedHashes[unit] = acceptedArtifactHash(paths, file);
+      acceptedArtifactHash(paths, file);
       const accepted = readYaml(file);
       chapters.push(accepted);
       blockingErrors.push(...validateChapterDraft(acceptedChapterDraft(accepted), {
@@ -411,40 +417,89 @@ function verifyFinalDefault(paths) {
     }
   }
 
-  let registry = null;
-  let registryHash = null;
-  if (fs.existsSync(paths.candidateRegistry)) {
-    try {
-      registryHash = acceptedArtifactHash(paths, paths.candidateRegistry);
-      registry = readJson(paths.candidateRegistry);
-    } catch (error) {
-      blockingErrors.push(verificationError(error, paths.candidateRegistry));
-    }
-  }
-
   let assemblyReport = null;
   try {
     assemblyReport = readJson(paths.assemblyReport);
   } catch (error) {
     blockingErrors.push(verificationError(error, paths.assemblyReport));
   }
+
+  let recomputedAudit = null;
+  let recomputedAuditHash = null;
+  let recomputedReview = null;
+  let recomputedReviewHash = null;
+  if (chapters.length === (manifest.chapters || []).length) {
+    try {
+      const recomputed = assembleDeterministicBook({ manifest, chapters });
+      if (recomputed.manual_review.length > 0) {
+        blockingErrors.push({ code: 'MANUAL_REVIEW_BLOCKS_FINAL', path: paths.manualReview, target: '' });
+      }
+      recomputedAudit = recomputed.deterministic_audit;
+      recomputedAuditHash = stableHash(recomputedAudit);
+      const priorPlan = readJson(paths.finalIdPlan);
+      const assigned = assignStableIds({
+        characters: recomputed.book.characters,
+        skills: recomputed.book.skills,
+        items: recomputed.book.items,
+        factions: recomputed.book.factions
+      }, priorPlan);
+      const projection = resolveReferences({
+        ...assigned.recordsByCategory,
+        chapter_summaries: recomputed.book.chapter_summaries
+      });
+      blockingErrors.push(...projection.issues.map(issue => ({ ...issue, code: `RECOMPUTED_${issue.code}` })));
+      const recomputedFinalHash = hashFinalData(projection.data);
+      if (recomputedFinalHash !== portable.final_data_hash) {
+        blockingErrors.push({ code: 'ASSEMBLY_FINAL_HASH_STALE', path: paths.finalData, target: '' });
+      }
+      recomputedReview = buildReviewReport({
+        sourceHash: manifest.source_hash,
+        finalDataHash: portable.final_data_hash,
+        warnings: recomputed.review_warnings
+      });
+      recomputedReviewHash = hashReport(recomputedReview);
+    } catch (error) {
+      blockingErrors.push(verificationError(error, paths.assemblyReport));
+    }
+  }
+
+  let reviewReport = null;
+  try {
+    reviewReport = readJson(paths.reviewReport);
+    blockingErrors.push(...validateReviewReport(reviewReport));
+  } catch (error) {
+    blockingErrors.push(verificationError(error, paths.reviewReport));
+  }
+
+  if (reviewReport) {
+    if (reviewReport.source_hash !== manifest.source_hash) {
+      blockingErrors.push({ code: 'REVIEW_REPORT_SOURCE_STALE', path: paths.reviewReport, target: '' });
+    }
+    if (reviewReport.final_data_hash !== portable.final_data_hash) {
+      blockingErrors.push({ code: 'REVIEW_REPORT_FINAL_STALE', path: paths.reviewReport, target: '' });
+    }
+    if (recomputedReview && JSON.stringify(reviewReport) !== JSON.stringify(recomputedReview)) {
+      blockingErrors.push({ code: 'REVIEW_REPORT_CONTENT_STALE', path: paths.reviewReport, target: '' });
+    }
+  }
+
   if (assemblyReport) {
-    const expectedCounts = Object.fromEntries(Object.entries(FINAL_FILES)
-      .map(([category, filename]) => [filename, portable.counts[category]]));
     const checks = [
-      ['ASSEMBLY_CONTRACT_STALE', assemblyReport.semantic_contract_version, SEMANTIC_CONTRACT_VERSION],
+      ['ASSEMBLY_CONTRACT_STALE', assemblyReport.schema_version, 7],
       ['ASSEMBLY_SOURCE_STALE', assemblyReport.source_hash, manifest.source_hash],
-      ['ASSEMBLY_ACCEPTED_HASH_STALE', stableValue(assemblyReport.accepted_hashes), stableValue(acceptedHashes)],
-      ['ASSEMBLY_REGISTRY_HASH_STALE', assemblyReport.registry_hash, registryHash],
       ['ASSEMBLY_FINAL_HASH_STALE', assemblyReport.final_data_hash, portable.final_data_hash],
-      ['ASSEMBLY_COUNTS_STALE', stableValue(assemblyReport.counts), stableValue(expectedCounts)],
-      ['ASSEMBLY_CANDIDATE_COUNT_STALE', assemblyReport.candidate_count, registry ? candidateTotal(registry) : null]
+      ['ASSEMBLY_AUDIT_HASH_STALE', assemblyReport.deterministic_audit_hash, recomputedAuditHash],
+      ['ASSEMBLY_REVIEW_HASH_STALE', assemblyReport.review_report_hash, recomputedReviewHash],
+      ['ASSEMBLY_COUNTS_STALE', stableValue(assemblyReport.entity_counts), stableValue(portable.counts)],
+      ['ASSEMBLY_CHAPTER_COUNT_STALE', assemblyReport.chapter_count, (manifest.chapters || []).length]
     ];
     for (const [code, actual, expected] of checks) {
-      if (actual === undefined || expected === undefined) continue;
       if (JSON.stringify(actual) !== JSON.stringify(expected)) {
         blockingErrors.push({ code, path: paths.assemblyReport, target: '' });
       }
+    }
+    if (recomputedAudit && JSON.stringify(assemblyReport.deterministic_audit) !== JSON.stringify(recomputedAudit)) {
+      blockingErrors.push({ code: 'ASSEMBLY_AUDIT_CONTENT_STALE', path: paths.assemblyReport, target: '' });
     }
   }
 
@@ -467,6 +522,8 @@ function verifyFinalDefault(paths) {
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     source_hash: manifest.source_hash,
     final_data_hash: portable.final_data_hash,
+    deterministic_audit_hash: recomputedAuditHash,
+    review_report_hash: recomputedReviewHash,
     counts: portable.counts,
     blocking_errors: deduplicated,
     warnings
@@ -491,4 +548,3 @@ module.exports = {
   verifyDataRoot,
   verifyFinal
 };
-

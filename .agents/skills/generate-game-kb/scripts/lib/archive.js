@@ -257,7 +257,7 @@ function archiveRun(novelDir, runId, options = {}) {
   if (fs.existsSync(archiveDir)) {
     throw new GameKbError('ARCHIVE_PATH_COLLISION', 'Run archive destination already exists', { archive_dir: archiveDir });
   }
-  const { verifyInstalled } = require('./install');
+  const { INSTALL_RECEIPT, verifyInstalled } = require('./install');
   const installed = verifyInstalled(novel);
   if (!installed.passed) {
     throw new GameKbError('INSTALLED_VERIFICATION_REQUIRED', 'verify --installed must pass before archive-run', installed);
@@ -266,7 +266,12 @@ function archiveRun(novelDir, runId, options = {}) {
   const manifest = readJson(paths.manifest);
   const assembly = readJson(paths.assemblyReport);
   const verification = readJson(paths.verificationReport);
+  const installedReceiptFile = path.join(novel, 'reports', INSTALL_RECEIPT);
+  const installedReceipt = readJson(installedReceiptFile);
+  const assemblyReportHash = sha256File(paths.assemblyReport);
   const verificationReportHash = sha256File(paths.verificationReport);
+  const installReceiptHash = sha256File(installedReceiptFile);
+  const reviewReportHash = sha256File(paths.reviewReport);
   const idPlanHash = stableHash(readJson(paths.finalIdPlan));
   const migrationReceiptHash = fs.existsSync(paths.chapterImportReceipt)
     ? sha256File(paths.chapterImportReceipt)
@@ -297,6 +302,18 @@ function archiveRun(novelDir, runId, options = {}) {
       path: paths.verificationReport,
       target: verification?.final_data_hash ?? ''
     });
+  }
+  const reportBindings = [
+    ['ASSEMBLY_SOURCE_HASH_STALE', assembly?.source_hash, manifest.source_hash, paths.assemblyReport],
+    ['ASSEMBLY_REVIEW_HASH_STALE', assembly?.review_report_hash, reviewReportHash, paths.assemblyReport],
+    ['VERIFICATION_REVIEW_HASH_STALE', verification?.review_report_hash, reviewReportHash, paths.verificationReport],
+    ['INSTALL_SOURCE_HASH_STALE', installedReceipt?.source_hash, manifest.source_hash, installedReceiptFile],
+    ['INSTALL_FINAL_HASH_STALE', installedReceipt?.final_data_hash, expectedHash, installedReceiptFile],
+    ['INSTALL_VERIFICATION_HASH_STALE', installedReceipt?.verification_report_hash, verificationReportHash, installedReceiptFile],
+    ['INSTALL_REVIEW_HASH_STALE', installedReceipt?.review_report_hash, reviewReportHash, installedReceiptFile]
+  ];
+  for (const [code, actual, expected, reportPath] of reportBindings) {
+    if (actual !== expected) blockingErrors.push({ code, path: reportPath, target: actual ?? '' });
   }
   if (metadata.verification_report_hash !== verificationReportHash) {
     warnings.push({
@@ -363,7 +380,11 @@ function archiveRun(novelDir, runId, options = {}) {
       archive_dir: archiveDir,
       archived_at: archivedAt,
       artifact_manifest_hash: sha256File(archivedManifest),
+      assembly_report_hash: assemblyReportHash,
       verification_report_hash: verificationReportHash,
+      install_receipt_hash: installReceiptHash,
+      review_report_hash: reviewReportHash,
+      source_hash: manifest.source_hash,
       final_data_hash: expectedHash,
       id_plan_hash: idPlanHash,
       migration_receipt_hash: migrationReceiptHash,

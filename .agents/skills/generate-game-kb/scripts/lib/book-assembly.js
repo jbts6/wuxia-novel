@@ -282,6 +282,26 @@ function collisionReview(category, name, members, chapterNumbers) {
   };
 }
 
+function chapterTypeNormalizations(chapter) {
+  return (chapter.normalizations || []).map(normalization => {
+    const match = /^\$\.(skills|items|factions)\[(\d+)\]\.types\[\d+\]$/u.exec(normalization.field_path);
+    const category = match?.[1];
+    const index = Number(match?.[2]);
+    const entity = category && Number.isInteger(index) ? chapter?.[category]?.[index] : null;
+    const refs = sortedSourceRefs(entity?.source_refs || []);
+    return {
+      category: category || null,
+      canonical_name: entity ? String(entity.name).normalize('NFKC').trim() : null,
+      member_ref: entity ? memberRef(category, chapter.chapter, entity, index) : null,
+      source_ref: refs[0] || null,
+      field_path: normalization.field_path,
+      original_value: normalization.original_value,
+      normalized_value: normalization.normalized_value,
+      normalization_rule: normalization.normalization_rule
+    };
+  });
+}
+
 function assembleGroup(category, members, fieldDecisions) {
   const name = canonicalName(members);
   const merged = {
@@ -341,7 +361,7 @@ function assembleDeterministicBook({ manifest, chapters }) {
   const typeNormalizations = [];
 
   for (const chapter of orderedChapters) {
-    typeNormalizations.push(...structuredClone(chapter.normalizations || []));
+    typeNormalizations.push(...chapterTypeNormalizations(chapter));
     book.chapter_summaries.push({
       chapter: chapter.chapter,
       title: chapter.title,

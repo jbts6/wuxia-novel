@@ -2,179 +2,83 @@
 
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
 const test = require('node:test');
 const yaml = require('js-yaml');
 
-const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
-const { prepareAssembledRun, runFlow, sourceRef } = require('./helpers');
+const { assembleRun } = require('../scripts/lib/assemble');
+const { stableHash } = require('../scripts/lib/io');
+const { pathsFor } = require('../scripts/lib/paths');
+const { hashReport, validateReviewReport } = require('../scripts/lib/review-report');
 
-function pass(result, label) {
-  assert.equal(result.status, 0, `${label}: ${result.stderr}`);
-  return result.stdout.trim() ? JSON.parse(result.stdout) : {};
+function sourceRef(text) {
+  return { chapter: 1, text };
 }
 
-function mergedDomainDraft(input) {
-  const retained = input.entries.filter(entry => entry.canonical_name !== '茶杯');
-  const target = retained[0];
-  return {
-    schema_version: 1,
-    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
-    unit: input.unit,
-    input_hash: input.input_hash,
-    decisions: input.entries.map(entry => {
-      if (entry.canonical_name === '茶杯') {
-        return {
-          entry_ref: entry.entry_ref,
-          action: 'reject',
-          reason: 'ordinary_item',
-          detail: '普通生活器具，不进入游戏知识库。'
-        };
+function fixture() {
+  const novel = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-assembly-reports-'));
+  const paths = pathsFor(novel, 'run-report');
+  fs.mkdirSync(paths.chapters, { recursive: true });
+  fs.writeFileSync(paths.manifest, `${JSON.stringify({
+    source_hash: 'sha256:source',
+    chapters: [{ number: 1, title: '第一章', input_hash: 'sha256:chapter-1' }]
+  }, null, 2)}\n`, 'utf8');
+  const chapter = {
+    schema_version: 7,
+    chapter: 1,
+    title: '第一章',
+    source_hash: 'sha256:chapter-1',
+    characters: [
+      {
+        local_key: 'character:店小二', name: '店小二', aliases: [], identities: [], level: '龙套',
+        rank: null, description: '店小二端来酒菜。', factions: [], skills: [],
+        source_refs: [sourceRef('店小二端来酒菜。')]
+      },
+      {
+        local_key: 'character:甲', name: '甲', aliases: [], identities: ['侠客'], level: '核心',
+        rank: '初窥门径', description: '甲行走江湖。', factions: [], skills: [],
+        source_refs: [sourceRef('甲行走江湖。')]
       }
-      if (entry.entry_ref !== target.entry_ref) {
-        return { entry_ref: entry.entry_ref, action: 'merge', target_ref: target.entry_ref, patch: {} };
-      }
-      return {
-        entry_ref: entry.entry_ref,
-        action: 'keep',
-        patch: {
-          name: entry.canonical_name,
-          aliases: [],
-          ...(entry.category === 'characters' ? {
-            identities: ['胡家后人'], level: '核心', rank: '登堂入室', description: '胡家传人。',
-            factions: [], skills: []
-          } : {}),
-          ...(entry.category === 'skills' ? {
-            types: ['刀法'], factions: [], rank: '登堂入室', description: '胡家家传刀法。',
-            techniques: [{ name: '八方藏刀式', description: '刀势回护。' }]
-          } : {}),
-          ...(entry.category === 'items' ? {
-            type: '武器', description: '胡家宝刀。', inclusion_reason: '神兵利器'
-          } : {}),
-          ...(entry.category === 'factions' ? { type: '家族', description: '胡家传承。' } : {})
-        }
-      };
-    }),
-    notes: []
-  };
-}
-
-function chapterCandidates(chapter) {
-  if (chapter.number === 1) {
-    return {
-      characters: [{
-        local_key: 'character:hu-fei', name: '胡斐', identities: ['胡家后人'], level: '核心', rank: '登堂入室',
-        factions: ['faction:fei-hu'], skills: ['skill:hu-dao'],
-        source_refs: [sourceRef(1, '胡斐')]
-      }],
-      skills: [{
-        local_key: 'skill:hu-dao', name: '胡家刀法', types: ['刀法'], factions: ['faction:fei-hu'], rank: '登堂入室',
-        description: '胡家家传刀法。', techniques: [{ name: '八方藏刀式', description: '刀势回护。' }],
-        source_refs: [sourceRef(1, '胡斐使出八方藏刀式，胡家刀法与冷月宝刀传自飞狐一脉。')]
-      }],
-      items: [{
-        local_key: 'item:leng-yue', name: '冷月宝刀', type: '武器',
-        description: '胡家宝刀。', source_refs: [sourceRef(1, '冷月宝刀')]
-      }],
-      factions: [{
-        local_key: 'faction:fei-hu', name: '飞狐一脉', type: '家族', description: '胡家传承。',
-        source_refs: [sourceRef(1, '飞狐一脉')]
-      }]
-    };
-  }
-  if (chapter.number === 2) {
-    return {
-      characters: [{
-        local_key: 'character:xue-shan', name: '雪山飞狐', identities: ['胡斐'], level: '核心', rank: '登堂入室',
-        factions: ['faction:hu-jia'], skills: ['skill:hu-shi'],
-        source_refs: [sourceRef(2, '雪山飞狐')]
-      }],
-      skills: [{
-        local_key: 'skill:hu-shi', name: '胡氏刀法', types: ['刀法'], factions: ['faction:hu-jia'], rank: '登堂入室',
-        description: '胡氏刀法别称。', techniques: [], source_refs: [sourceRef(2, '胡氏刀法')]
-      }],
-      items: [{
-        local_key: 'item:bao-dao', name: '宝刀', type: '武器',
-        description: '冷月宝刀别称。', source_refs: [sourceRef(2, '宝刀')]
-      }],
-      factions: [{
-        local_key: 'faction:hu-jia', name: '胡家一脉', type: '家族', description: '飞狐一脉别称。',
-        source_refs: [sourceRef(2, '胡家一脉')]
-      }]
-    };
-  }
-  return {
-    characters: [],
+    ],
     skills: [],
-    factions: [],
     items: [{
-      local_key: 'item:tea-cup', name: '茶杯', type: '其他', description: '普通茶杯。',
-      source_refs: [sourceRef(3, '茶杯')]
+      local_key: 'item:飞刀', name: '飞刀', aliases: [], types: ['武器'], description: '一柄飞刀。',
+      source_refs: [sourceRef('甲取出一柄飞刀。')]
+    }],
+    factions: [],
+    chapter_summary: { summary: '甲在客栈现身。', source_refs: [sourceRef('甲行走江湖。')] },
+    normalizations: [{
+      field_path: '$.items[0].types[0]', original_value: 'weapon',
+      normalized_value: '武器', normalization_rule: 'items.weapon'
     }]
   };
+  fs.writeFileSync(
+    path.join(paths.chapters, 'chapter_001.yaml'),
+    yaml.dump(chapter, { noRefs: true, lineWidth: -1 }),
+    'utf8'
+  );
+  return paths;
 }
 
-test('three-chapter normal path assembles verifies installs and verifies only five YAML files', () => {
-  const fixture = prepareAssembledRun({
-    name: '三章正常路径试书',
-    runId: 'run-three-chapter-flow',
-    source: '第一章 雪山相逢\n胡斐使出八方藏刀式，胡家刀法与冷月宝刀传自飞狐一脉。\n第二章 宝刀重现\n雪山飞狐施展胡氏刀法，携胡家一脉的宝刀而来。\n第三章 客栈收束\n桌上只有一只茶杯。\n',
-    chapterOverrides: chapterCandidates,
-    domainDraftForInput: mergedDomainDraft
-  });
-  const commands = [...fixture.commands];
+test('one deterministic assembly binds full audit and warning-only review report', () => {
+  const paths = fixture();
+  assembleRun({ paths });
+  const assembly = JSON.parse(fs.readFileSync(paths.assemblyReport, 'utf8'));
+  const review = JSON.parse(fs.readFileSync(paths.reviewReport, 'utf8'));
 
-  commands.push('verify');
-  const workspace = pass(runFlow(['verify', fixture.novel, '--run', fixture.prepared.run_id, '--json']), 'verify');
-  commands.push('install');
-  pass(runFlow(['install', fixture.novel, '--run', fixture.prepared.run_id, '--json']), 'install');
-  commands.push('verify --installed');
-  const installed = pass(runFlow(['verify', fixture.novel, '--installed', '--json']), 'verify installed');
-  commands.push('archive-run');
-  const archived = pass(runFlow([
-    'archive-run', fixture.novel, '--run', fixture.prepared.run_id, '--json'
-  ]), 'archive run');
-  const archivedMetrics = JSON.parse(fs.readFileSync(
-    path.join(archived.archive_dir, 'reports', 'run-metrics.json'),
-    'utf8'
-  ));
-
-  assert.equal(workspace.passed, true);
-  assert.equal(installed.passed, true);
-  assert.match(archived.metrics_hash, /^sha256:[0-9a-f]{64}$/);
-  assert.equal(fs.existsSync(fixture.paths.run), false);
-  assert.equal(fs.existsSync(archived.archive_dir), true);
-  assert.equal(archivedMetrics.run_id, fixture.prepared.run_id);
-  assert.deepEqual(commands, [
-    'prepare',
-    'accept',
-    'accept',
-    'accept',
-    'plan-domains',
-    'accept',
-    'accept',
-    'accept',
-    'accept',
-    'assemble',
-    'verify',
-    'install',
-    'verify --installed',
-    'archive-run'
-  ]);
-  assert.deepEqual(fs.readdirSync(path.join(fixture.novel, 'data')).sort(), [
-    'characters.yaml',
-    'skills.yaml',
-    'items.yaml',
-    'factions.yaml',
-    'chapter_summaries.yaml'
-  ].sort());
-  assert.deepEqual(workspace.counts, {
-    characters: 1,
-    skills: 1,
-    items: 1,
-    factions: 1,
-    chapter_summaries: 3
-  });
-  const skills = yaml.load(fs.readFileSync(path.join(fixture.novel, 'data', 'skills.yaml'), 'utf8'));
-  assert.equal(skills[0].techniques.some(technique => technique.name === '八方藏刀式'), true);
+  assert.deepEqual(validateReviewReport(review), []);
+  assert.equal(review.entries.length, 1);
+  assert.equal(review.entries[0].code, 'GENERIC_CANDIDATE_FILTERED');
+  assert.equal(Object.hasOwn(review.summary, 'info_count'), false);
+  assert.equal(assembly.review_report_hash, hashReport(review));
+  assert.equal(assembly.deterministic_audit_hash, stableHash(assembly.deterministic_audit));
+  assert.deepEqual(
+    Object.keys(assembly.deterministic_audit.type_normalizations[0]),
+    [
+      'category', 'canonical_name', 'member_ref', 'source_ref', 'field_path',
+      'original_value', 'normalized_value', 'normalization_rule'
+    ]
+  );
+  assert.ok(assembly.deterministic_audit.field_decisions.every(row => row.source_refs.length > 0));
 });
