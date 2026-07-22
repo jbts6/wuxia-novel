@@ -6,26 +6,39 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 
-const { createProgress, transitionProgress, assertProgressInvariant, MAX_ACTIVE_UNITS } = require('../scripts/lib/chapter-progress');
-const { issueNextWindow, issueRetryJob, advanceChapterWork, activeJobMetadata } = require('../scripts/lib/chapter-work');
+const {
+  createProgress,
+  transitionProgress,
+  assertProgressInvariant
+} = require('../scripts/lib/chapter-progress');
+const {
+  issueNextWindow,
+  issueRetryJob,
+  advanceChapterWork,
+  activeJobMetadata
+} = require('../scripts/lib/chapter-work');
+const { stableHash } = require('../scripts/lib/io');
 const { chapterAttemptPaths, pathsFor } = require('../scripts/lib/paths');
 
-function manifestWithChapters(count) {
+function manifestWithChapters(count, root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-source-'))) {
+  fs.mkdirSync(root, { recursive: true });
   const chapters = [];
-  for (let i = 1; i <= count; i++) {
+  for (let number = 1; number <= count; number += 1) {
+    const file = path.join(root, `chapter_${String(number).padStart(3, '0')}.txt`);
+    fs.writeFileSync(file, `第${number}章\n甲在此章现身。\n`, 'utf8');
     chapters.push({
-      number: i,
-      title: `第${i}章`,
-      file: `/tmp/novel/ch${String(i).padStart(3, '0')}.txt`,
-      input_hash: `sha256:ch${i}`
+      number,
+      title: `第${number}章`,
+      file,
+      input_hash: `sha256:chapter-${number}`
     });
   }
   return { chapters };
 }
 
 function temporaryRunPaths() {
-  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-work-'));
-  const novel = path.join(tmp, 'novel');
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-work-'));
+  const novel = path.join(root, 'novel');
   fs.mkdirSync(novel, { recursive: true });
   const paths = pathsFor(novel, 'run-test');
   fs.mkdirSync(paths.run, { recursive: true });
@@ -33,67 +46,56 @@ function temporaryRunPaths() {
 }
 
 describe('chapter-progress', () => {
-  it('createProgress initializes all units as pending', () => {
-    const manifest = manifestWithChapters(3);
-    const progress = createProgress(manifest);
+  it('initializes the complete v7 unit state', () => {
+    const progress = createProgress(manifestWithChapters(3));
     assert.equal(progress.schema_version, 7);
+    assert.equal(progress.semantic_contract_version, 7);
     assert.deepEqual(progress.active_units, []);
-    assert.equal(Object.keys(progress.units).length, 3);
-    assert.equal(progress.units['chapter:001'].status, 'pending');
+    assert.deepEqual(progress.units['chapter:001'], {
+      status: 'pending',
+      cycle: 0,
+      attempt: 0,
+      producer: null,
+      input_hash: null,
+      input_file: null,
+      output_file: null,
+      output_hash: null,
+      reject_reason: null,
+      repair_allowed: false,
+      errors: []
+    });
   });
 
-  it('transitionProgress accepted clears window only when all units done', () => {
-    const manifest = manifestWithChapters(5);
-    let progress = createProgress(manifest);
-    const jobs = [
-      { unit: 'chapter:001', cycle: 1, attempt: 1 },
-      { unit: 'chapter:002', cycle: 1, attempt: 1 }
-    ];
-    progress = transitionProgress(progress, { type: 'issue-window', jobs, manifest });
+  it('keeps the whole fixed window until every unit is accepted', () => {
+    const paths = temporaryRunPaths();
+    const manifest = manifestWithChapters(2);
+    const issued = issueNextWindow({ paths, manifest, progress: createProgress(manifest) });
+    let progress = transitionProgress(issued.progress, {
+      type: 'accepted', unit: 'chapter:001', output_hash: 'sha256:one', manifest, paths
+    });
     assert.deepEqual(progress.active_units, ['chapter:001', 'chapter:002']);
-    progress = transitionProgress(progress, { type: 'accepted', unit: 'chapter:001', output_hash: 'sha256:one', manifest });
-    assert.deepEqual(progress.active_units, ['chapter:001', 'chapter:002']);
-    assert.equal(progress.units['chapter:001'].status, 'accepted');
-    progress = transitionProgress(progress, { type: 'accepted', unit: 'chapter:002', output_hash: 'sha256:two', manifest });
+    progress = transitionProgress(progress, {
+      type: 'accepted', unit: 'chapter:002', output_hash: 'sha256:two', manifest, paths
+    });
     assert.deepEqual(progress.active_units, []);
   });
 
-  it('transitionProgress rejected keeps unit in active_units', () => {
-    const manifest = manifestWithChapters(5);
-    let progress = createProgress(manifest);
-    progress = transitionProgress(progress, { type: 'issue-window', jobs: [{ unit: 'chapter:001', cycle: 1, attempt: 1 }], manifest });
-    progress = transitionProgress(progress, { type: 'rejected', unit: 'chapter:001', reason: 'bad yaml', manifest });
-    assert.deepEqual(progress.active_units, ['chapter:001']);
-    assert.equal(progress.units['chapter:001'].status, 'rejected');
-  });
-
-  it('assertProgressInvariant rejects more than 5 active units', () => {
-    const manifest = manifestWithChapters(6);
+  it('rejects a later window while an earlier chapter is pending', () => {
+    const manifest = manifestWithChapters(10);
     const progress = createProgress(manifest);
-    progress.active_units = ['chapter:001', 'chapter:002', 'chapter:003', 'chapter:004', 'chapter:005', 'chapter:006'];
-    for (const u of progress.active_units) {
-      progress.units[u] = { status: 'active', cycle: 1, attempt: 1, output_hash: null };
-    }
-    assert.throws(() => assertProgressInvariant(progress, manifest), /active_units exceeds/);
-  });
-
-  it('assertProgressInvariant rejects duplicate active units', () => {
-    const manifest = manifestWithChapters(3);
-    const progress = createProgress(manifest);
-    progress.active_units = ['chapter:001', 'chapter:001'];
-    progress.units['chapter:001'] = { status: 'active', cycle: 1, attempt: 1, output_hash: null };
-    assert.throws(() => assertProgressInvariant(progress, manifest), /duplicate/);
-  });
-
-  it('assertProgressInvariant rejects attempt out of range', () => {
-    const manifest = manifestWithChapters(1);
-    const progress = createProgress(manifest);
-    progress.active_units = ['chapter:001'];
-    progress.units['chapter:001'] = { status: 'active', cycle: 1, attempt: 3, output_hash: null };
-    assert.throws(() => assertProgressInvariant(progress, manifest), /attempt out of range/);
+    progress.active_units = ['chapter:006'];
+    progress.units['chapter:006'] = {
+      status: 'active', cycle: 1, attempt: 1, producer: 'chapter-worker',
+      input_hash: 'sha256:x', input_file: 'C:/outside/input.json',
+      output_file: 'C:/outside/output.yaml', output_hash: null,
+      reject_reason: null, repair_allowed: false, errors: []
+    };
+    assert.throws(
+      () => assertProgressInvariant(progress, manifest),
+      error => error.code === 'ACTIVE_WINDOW_INVALID'
+    );
   });
 });
-
 describe('chapter-work', () => {
   let paths;
   let manifest;
@@ -104,92 +106,157 @@ describe('chapter-work', () => {
   });
 
   it('does not refill a partially completed five-unit window', () => {
-    const progress = createProgress(manifest);
-    const first = issueNextWindow({ paths, manifest, progress });
+    const first = issueNextWindow({ paths, manifest, progress: createProgress(manifest) });
     assert.equal(first.jobs.length, 5);
-    const acceptedOne = transitionProgress(first.progress, { type: 'accepted', unit: 'chapter:001', output_hash: 'sha256:one', manifest });
+    const acceptedOne = transitionProgress(first.progress, {
+      type: 'accepted', unit: 'chapter:001', output_hash: 'sha256:one', manifest, paths
+    });
     const second = issueNextWindow({ paths, manifest, progress: acceptedOne });
     assert.deepEqual(second.jobs, []);
-    assert.deepEqual(second.progress.active_units, ['chapter:001', 'chapter:002', 'chapter:003', 'chapter:004', 'chapter:005']);
+    assert.deepEqual(second.progress.active_units, [
+      'chapter:001', 'chapter:002', 'chapter:003', 'chapter:004', 'chapter:005'
+    ]);
   });
 
-  it('issues next window only when active_units is empty', () => {
-    let progress = createProgress(manifest);
-    const first = issueNextWindow({ paths, manifest, progress });
-    assert.equal(first.jobs.length, 5);
-    progress = first.progress;
-    for (let i = 1; i <= 5; i++) {
-      const unit = `chapter:${String(i).padStart(3, '0')}`;
-      progress = transitionProgress(progress, { type: 'accepted', unit, output_hash: `sha256:ch${i}`, manifest });
+  it('issues chapter six only after the first fixed window is accepted', () => {
+    let progress = issueNextWindow({
+      paths, manifest, progress: createProgress(manifest)
+    }).progress;
+    for (let number = 1; number <= 5; number += 1) {
+      const unit = `chapter:${String(number).padStart(3, '0')}`;
+      progress = transitionProgress(progress, {
+        type: 'accepted', unit, output_hash: `sha256:${unit}`, manifest, paths
+      });
     }
     const second = issueNextWindow({ paths, manifest, progress });
     assert.equal(second.jobs.length, 5);
     assert.equal(second.jobs[0].unit, 'chapter:006');
   });
 
-  it('retry-unit creates a new cycle without overwriting prior files', () => {
+  it('returns stable public job metadata and writes immutable chapter input', () => {
+    const issued = issueNextWindow({
+      paths, manifest, progress: createProgress(manifest)
+    });
+    const job = issued.jobs[0];
+    assert.deepEqual(Object.keys(job).sort(), [
+      'attempt', 'cycle', 'input_file', 'input_hash', 'output_file', 'producer', 'unit'
+    ]);
+    assert.equal(job.producer, 'chapter-worker');
+    assert.equal(path.relative(paths.tasks, job.input_file).startsWith('..'), false);
+    assert.equal(path.relative(paths.staging, job.output_file).startsWith('..'), false);
+    const input = JSON.parse(fs.readFileSync(job.input_file, 'utf8'));
+    assert.equal(input.chapter_text.includes('甲在此章现身'), true);
+    assert.equal(input.output_file, job.output_file);
+    assert.equal(job.input_hash, stableHash(input));
+    assert.deepEqual(activeJobMetadata(paths, issued.progress)[0], { ...job, status: 'active' });
+  });
+
+  it('uses cycle and attempt in distinct task and staging paths', () => {
     const first = chapterAttemptPaths(paths, 'chapter:001', 1, 1);
-    const retried = chapterAttemptPaths(paths, 'chapter:001', 2, 1);
-    assert.notEqual(first.input, retried.input);
-    assert.notEqual(first.output, retried.output);
+    const secondAttempt = chapterAttemptPaths(paths, 'chapter:001', 1, 2);
+    const secondCycle = chapterAttemptPaths(paths, 'chapter:001', 2, 1);
+    assert.notEqual(first.input, secondAttempt.input);
+    assert.notEqual(first.output, secondAttempt.output);
+    assert.notEqual(first.input, secondCycle.input);
+    assert.notEqual(first.output, secondCycle.output);
+    assert.equal(path.relative(paths.tasks, first.input).startsWith('..'), false);
+    assert.equal(path.relative(paths.staging, first.output).startsWith('..'), false);
   });
 
-  it('issueRetryJob increments attempt within same cycle', () => {
-    let progress = createProgress(manifest);
-    const issued = issueNextWindow({ paths, manifest, progress });
-    progress = issued.progress;
-    progress = transitionProgress(progress, { type: 'rejected', unit: 'chapter:001', reason: 'bad', manifest });
+  it('keeps semantic retry on chapter-worker with the chapter source', () => {
+    let progress = issueNextWindow({
+      paths, manifest, progress: createProgress(manifest)
+    }).progress;
+    progress = transitionProgress(progress, {
+      type: 'rejected', unit: 'chapter:001', reason: 'evidence', repair_allowed: false,
+      errors: [{ code: 'SOURCE_REFS_REQUIRED' }], manifest, paths
+    });
     const retry = issueRetryJob({ paths, manifest, progress, unit: 'chapter:001' });
-    assert.equal(retry.job.attempt, 2);
-    assert.equal(retry.job.cycle, 1);
-    assert.equal(retry.progress.units['chapter:001'].status, 'active');
+    assert.equal(retry.job.producer, 'chapter-worker');
+    const input = JSON.parse(fs.readFileSync(retry.job.input_file, 'utf8'));
+    assert.equal(typeof input.chapter_text, 'string');
+    assert.deepEqual(input.previous_errors, [{ code: 'SOURCE_REFS_REQUIRED' }]);
   });
 
-  it('advanceChapterWork returns manual_review when attempt 2 rejected', () => {
-    let progress = createProgress(manifestWithChapters(2));
-    const smallPaths = temporaryRunPaths();
+  it('isolates mechanical repair input from the novel source', () => {
+    let progress = issueNextWindow({
+      paths, manifest, progress: createProgress(manifest)
+    }).progress;
+    progress = transitionProgress(progress, {
+      type: 'rejected', unit: 'chapter:001', reason: 'yaml_mechanical', repair_allowed: true,
+      errors: [{ code: 'YAML_CODE_FENCE' }], manifest, paths
+    });
+    const retry = issueRetryJob({ paths, manifest, progress, unit: 'chapter:001' });
+    assert.equal(retry.job.producer, 'main-agent-repair');
+    const input = JSON.parse(fs.readFileSync(retry.job.input_file, 'utf8'));
+    assert.deepEqual(input.allowed_repair_codes, ['YAML_CODE_FENCE']);
+    for (const forbidden of ['chapter_text', 'source_file', 'source_hash', 'taxonomies']) {
+      assert.equal(Object.hasOwn(input, forbidden), false, forbidden);
+    }
+    assert.equal(input.producer, 'main-agent-repair');
+    assert.equal(input.output_file, retry.job.output_file);
+  });
+
+  it('enters manual review after attempt two is rejected', () => {
     const smallManifest = manifestWithChapters(2);
-    const issued = issueNextWindow({ paths: smallPaths, manifest: smallManifest, progress });
-    progress = issued.progress;
-    progress = transitionProgress(progress, { type: 'rejected', unit: 'chapter:001', reason: 'bad', manifest: smallManifest });
-    const retry = issueRetryJob({ paths: smallPaths, manifest: smallManifest, progress, unit: 'chapter:001' });
-    progress = retry.progress;
-    progress = transitionProgress(progress, { type: 'rejected', unit: 'chapter:001', reason: 'still bad', manifest: smallManifest });
+    const smallPaths = temporaryRunPaths();
+    let progress = issueNextWindow({
+      paths: smallPaths, manifest: smallManifest, progress: createProgress(smallManifest)
+    }).progress;
+    progress = transitionProgress(progress, {
+      type: 'rejected', unit: 'chapter:001', reason: 'bad', errors: [],
+      repair_allowed: false, manifest: smallManifest, paths: smallPaths
+    });
+    progress = issueRetryJob({
+      paths: smallPaths, manifest: smallManifest, progress, unit: 'chapter:001'
+    }).progress;
+    progress = transitionProgress(progress, {
+      type: 'rejected', unit: 'chapter:001', reason: 'still bad', errors: [],
+      repair_allowed: false, manifest: smallManifest, paths: smallPaths
+    });
     const result = advanceChapterWork({ paths: smallPaths, manifest: smallManifest, progress });
     assert.equal(result.status, 'manual_review');
     assert.deepEqual(result.manual_review, ['chapter:001']);
   });
 
-  it('advanceChapterWork returns ready-to-assemble when all accepted', () => {
+  it('returns ready-to-assemble only when all chapters are accepted', () => {
     const smallManifest = manifestWithChapters(2);
     const smallPaths = temporaryRunPaths();
-    let progress = createProgress(smallManifest);
-    const issued = issueNextWindow({ paths: smallPaths, manifest: smallManifest, progress });
-    progress = issued.progress;
+    const issued = issueNextWindow({
+      paths: smallPaths, manifest: smallManifest, progress: createProgress(smallManifest)
+    });
+    let progress = issued.progress;
     for (const job of issued.jobs) {
-      progress = transitionProgress(progress, { type: 'accepted', unit: job.unit, output_hash: `sha256:${job.unit}`, manifest: smallManifest });
+      progress = transitionProgress(progress, {
+        type: 'accepted', unit: job.unit, output_hash: `sha256:${job.unit}`,
+        manifest: smallManifest, paths: smallPaths
+      });
     }
-    const result = advanceChapterWork({ paths: smallPaths, manifest: smallManifest, progress });
-    assert.equal(result.status, 'ready-to-assemble');
+    assert.equal(
+      advanceChapterWork({ paths: smallPaths, manifest: smallManifest, progress }).status,
+      'ready-to-assemble'
+    );
   });
 
-  it('activeJobMetadata returns current window state', () => {
-    const progress = createProgress(manifest);
-    const issued = issueNextWindow({ paths, manifest, progress });
-    const meta = activeJobMetadata(paths, issued.progress);
-    assert.equal(meta.length, 5);
-    assert.equal(meta[0].unit, 'chapter:001');
-    assert.equal(meta[0].attempt, 1);
-    assert.equal(meta[0].status, 'active');
+  it('rejects tampered persisted job paths', () => {
+    const issued = issueNextWindow({
+      paths, manifest, progress: createProgress(manifest)
+    });
+    const tampered = structuredClone(issued.progress);
+    tampered.units['chapter:001'].output_file = path.join(paths.run, '..', 'escape.yaml');
+    assert.throws(
+      () => assertProgressInvariant(tampered, manifest, paths),
+      error => error.code === 'ACTIVE_WINDOW_INVALID'
+    );
   });
 
-  it('writes immutable input files with exclusive creation', () => {
-    const progress = createProgress(manifest);
-    const issued = issueNextWindow({ paths, manifest, progress });
-    assert.ok(fs.existsSync(issued.jobs[0].input));
-    const content = JSON.parse(fs.readFileSync(issued.jobs[0].input, 'utf8'));
-    assert.equal(content.semantic_contract_version, 7);
-    assert.equal(content.unit, 'chapter:001');
-    assert.equal(content.chapter, 1);
+  it('rejects a non-identical replay of an immutable job input', () => {
+    issueNextWindow({ paths, manifest, progress: createProgress(manifest) });
+    const changedManifest = structuredClone(manifest);
+    changedManifest.chapters[0].title = '被篡改的章标题';
+    assert.throws(
+      () => issueNextWindow({ paths, manifest: changedManifest, progress: createProgress(changedManifest) }),
+      error => error.code === 'UNIT_ALREADY_ACTIVE'
+    );
   });
 });

@@ -1,92 +1,294 @@
 'use strict';
 
+const fs = require('node:fs');
+
 const { GameKbError } = require('./errors');
+const { stableHash } = require('./io');
+const { chapterAttemptPaths } = require('./paths');
 
 const MAX_ACTIVE_UNITS = 5;
 const MAX_ATTEMPTS_PER_CYCLE = 2;
+const UNIT_STATUSES = new Set(['pending', 'active', 'rejected', 'accepted']);
+const PRODUCERS = new Set(['chapter-worker', 'main-agent-repair']);
+
+function unitName(number) {
+  return `chapter:${String(number).padStart(3, '0')}`;
+}
+
+function invariant(message, details = {}) {
+  throw new GameKbError('ACTIVE_WINDOW_INVALID', message, details);
+}
+
+function manifestUnits(manifest) {
+  if (!manifest || !Array.isArray(manifest.chapters)) {
+    invariant('Manifest chapters are required');
+  }
+  const units = manifest.chapters.map(chapter => unitName(chapter.number));
+  if (units.some(unit => !/^chapter:\d{3,}$/.test(unit)) || new Set(units).size !== units.length) {
+    invariant('Manifest chapter units are invalid or duplicated', { units });
+  }
+  return units;
+}
+
+function emptyUnitState() {
+  return {
+    status: 'pending',
+    cycle: 0,
+    attempt: 0,
+    producer: null,
+    input_hash: null,
+    input_file: null,
+    output_file: null,
+    output_hash: null,
+    reject_reason: null,
+    repair_allowed: false,
+    errors: []
+  };
+}
 
 function createProgress(manifest) {
   const units = {};
-  for (const chapter of manifest.chapters) {
-    const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
-    units[unit] = { status: 'pending', cycle: 0, attempt: 0, output_hash: null };
-  }
-  return { schema_version: 7, active_units: [], units };
+  for (const unit of manifestUnits(manifest)) units[unit] = emptyUnitState();
+  return {
+    schema_version: 7,
+    semantic_contract_version: 7,
+    active_units: [],
+    units
+  };
 }
 
-function assertProgressInvariant(progress, manifest) {
-  const active = progress.active_units;
-  if (active.length > MAX_ACTIVE_UNITS) {
-    throw new GameKbError('PROGRESS_INVARIANT_VIOLATION', `active_units exceeds ${MAX_ACTIVE_UNITS}`, {
-      active_units: active
+function assertJobMetadata(unitNameValue, state, manifest, paths) {
+  if (!PRODUCERS.has(state.producer)
+    || typeof state.input_hash !== 'string' || !state.input_hash.startsWith('sha256:')
+    || typeof state.input_file !== 'string' || typeof state.output_file !== 'string') {
+    invariant('Active unit metadata is incomplete', { unit: unitNameValue, state });
+  }
+  if (!paths) return;
+
+  const expected = chapterAttemptPaths(paths, unitNameValue, state.cycle, state.attempt);
+  if (state.input_file !== expected.input || state.output_file !== expected.output) {
+    invariant('Persisted job paths do not match the selected run', {
+      unit: unitNameValue,
+      input_file: state.input_file,
+      output_file: state.output_file,
+      expected_input_file: expected.input,
+      expected_output_file: expected.output
     });
   }
-  if (new Set(active).size !== active.length) {
-    throw new GameKbError('PROGRESS_INVARIANT_VIOLATION', 'duplicate active_units', { active_units: active });
+  if (!fs.existsSync(state.input_file)) return;
+  let input;
+  try {
+    input = JSON.parse(fs.readFileSync(state.input_file, 'utf8'));
+  } catch (error) {
+    invariant('Persisted job input is not valid JSON', { unit: unitNameValue, error: error.message });
   }
-  for (const unit of active) {
-    const state = progress.units[unit];
-    if (!state) {
-      throw new GameKbError('PROGRESS_INVARIANT_VIOLATION', `active unit not in units map: ${unit}`, { unit });
-    }
-    if (state.attempt < 1 || state.attempt > MAX_ATTEMPTS_PER_CYCLE) {
-      throw new GameKbError('PROGRESS_INVARIANT_VIOLATION', `attempt out of range for ${unit}`, {
-        unit, attempt: state.attempt
-      });
-    }
-    if (state.cycle < 1) {
-      throw new GameKbError('PROGRESS_INVARIANT_VIOLATION', `cycle below 1 for ${unit}`, {
-        unit, cycle: state.cycle
+  if (stableHash(input) !== state.input_hash
+    || input.unit !== unitNameValue
+    || input.cycle !== state.cycle
+    || input.attempt !== state.attempt
+    || input.producer !== state.producer
+    || input.output_file !== state.output_file) {
+    invariant('Persisted job input does not match progress metadata', {
+      unit: unitNameValue,
+      input_file: state.input_file
+    });
+  }
+  if (state.producer === 'chapter-worker') {
+    const chapter = manifest.chapters.find(entry => unitName(entry.number) === unitNameValue);
+    if (!chapter || input.source_hash !== chapter.input_hash) {
+      invariant('Persisted chapter input hash does not match the manifest', {
+        unit: unitNameValue,
+        source_hash: input.source_hash,
+        expected_source_hash: chapter?.input_hash
       });
     }
   }
 }
 
-function applyIssuedWindow(progress, jobs) {
-  for (const job of jobs) {
+function assertProgressInvariant(progress, manifest, paths) {
+  const orderedUnits = manifestUnits(manifest);
+  if (!progress || typeof progress !== 'object' || Array.isArray(progress)
+    || progress.schema_version !== 7 || progress.semantic_contract_version !== 7
+    || !progress.units || typeof progress.units !== 'object' || Array.isArray(progress.units)
+    || !Array.isArray(progress.active_units)) {
+    invariant('Progress shape or semantic contract is invalid');
+  }
+  if (JSON.stringify(Object.keys(progress.units)) !== JSON.stringify(orderedUnits)) {
+    invariant('Progress units do not match the manifest', {
+      actual: Object.keys(progress.units), expected: orderedUnits
+    });
+  }
+
+  const active = progress.active_units;
+  if (active.length > MAX_ACTIVE_UNITS || new Set(active).size !== active.length) {
+    invariant('active_units exceeds the fixed window or contains duplicates', { active_units: active });
+  }
+  const activeIndexes = active.map(unit => orderedUnits.indexOf(unit));
+  if (activeIndexes.some(index => index < 0)) {
+    invariant('active_units contains an unknown chapter', { active_units: active });
+  }
+  if (active.length > 0) {
+    const start = activeIndexes[0];
+    const expectedWindow = orderedUnits.slice(start, start + MAX_ACTIVE_UNITS);
+    if (start % MAX_ACTIVE_UNITS !== 0
+      || JSON.stringify(active) !== JSON.stringify(expectedWindow)) {
+      invariant('active_units is not the earliest complete fixed window', {
+        active_units: active, expected_window: expectedWindow
+      });
+    }
+  }
+
+  const activeSet = new Set(active);
+  for (let index = 0; index < orderedUnits.length; index += 1) {
+    const unit = orderedUnits[index];
+    const state = progress.units[unit];
+    if (!state || !UNIT_STATUSES.has(state.status) || !Array.isArray(state.errors)) {
+      invariant('Unit state is invalid', { unit, state });
+    }
+    const inActiveWindow = activeSet.has(unit);
+    if (inActiveWindow) {
+      if (!['pending', 'active', 'rejected', 'accepted'].includes(state.status)) {
+        invariant('Active window contains an invalid state', { unit, status: state.status });
+      }
+    } else if (state.status === 'active' || state.status === 'rejected') {
+      invariant('An unfinished unit exists outside active_units', { unit, status: state.status });
+    }
+
+    if (state.status === 'pending') {
+      const retryPending = inActiveWindow && state.cycle >= 2 && state.attempt === 0;
+      const untouched = !inActiveWindow && state.cycle === 0 && state.attempt === 0;
+      if (!retryPending && !untouched) invariant('Pending unit counters are invalid', { unit, state });
+      if (state.producer !== null || state.input_hash !== null || state.input_file !== null
+        || state.output_file !== null || state.output_hash !== null) {
+        invariant('Pending unit retains issued job metadata', { unit, state });
+      }
+      continue;
+    }
+
+    if (!Number.isInteger(state.cycle) || state.cycle < 1
+      || !Number.isInteger(state.attempt) || state.attempt < 1
+      || state.attempt > MAX_ATTEMPTS_PER_CYCLE) {
+      invariant('Unit cycle or attempt is out of range', { unit, state });
+    }
+    assertJobMetadata(unit, state, manifest, paths);
+    if (state.status === 'accepted'
+      && (typeof state.output_hash !== 'string' || state.output_hash === '')) {
+      invariant('Accepted unit is missing output_hash', { unit });
+    }
+  }
+
+  if (active.length > 0) {
+    const start = activeIndexes[0];
+    for (let index = 0; index < start; index += 1) {
+      if (progress.units[orderedUnits[index]].status !== 'accepted') {
+        invariant('A later window is active before earlier chapters are accepted', {
+          unit: orderedUnits[index]
+        });
+      }
+    }
+    for (let index = start + active.length; index < orderedUnits.length; index += 1) {
+      if (progress.units[orderedUnits[index]].status !== 'pending') {
+        invariant('A chapter after the active window was issued early', { unit: orderedUnits[index] });
+      }
+    }
+  } else {
+    let pendingSeen = false;
+    for (const unit of orderedUnits) {
+      const status = progress.units[unit].status;
+      if (status === 'pending') pendingSeen = true;
+      else if (status === 'accepted' && pendingSeen) {
+        invariant('Accepted chapters are not a contiguous prefix', { unit });
+      }
+    }
+  }
+  return true;
+}
+
+function requireActiveUnit(progress, event) {
+  const unit = progress.units[event.unit];
+  if (!unit || !progress.active_units.includes(event.unit)) {
+    invariant('Progress event targets a unit outside active_units', { unit: event.unit, type: event.type });
+  }
+  return unit;
+}
+
+function applyIssuedWindow(progress, event) {
+  if (!Array.isArray(event.jobs) || event.jobs.length === 0 || event.jobs.length > MAX_ACTIVE_UNITS) {
+    invariant('Issued jobs are empty or exceed the fixed window', { jobs: event.jobs });
+  }
+  for (const job of event.jobs) {
     const state = progress.units[job.unit];
+    if (!state) invariant('Issued job has an unknown unit', { unit: job.unit });
+    const initial = state.status === 'pending' && state.cycle === 0 && state.attempt === 0;
+    const newCycle = state.status === 'pending' && state.cycle >= 2 && state.attempt === 0
+      && progress.active_units.includes(job.unit);
+    const retry = state.status === 'rejected' && state.attempt === 1
+      && progress.active_units.includes(job.unit);
+    if (!initial && !newCycle && !retry) {
+      invariant('Unit cannot be issued from its current state', { unit: job.unit, state });
+    }
     state.status = 'active';
     state.cycle = job.cycle;
     state.attempt = job.attempt;
-    if (!progress.active_units.includes(job.unit)) {
-      progress.active_units.push(job.unit);
-    }
+    state.producer = job.producer;
+    state.input_hash = job.input_hash;
+    state.input_file = job.input_file;
+    state.output_file = job.output_file;
+    state.output_hash = null;
+    state.reject_reason = null;
+    state.repair_allowed = false;
+    state.errors = [];
+    if (!progress.active_units.includes(job.unit)) progress.active_units.push(job.unit);
   }
 }
 
-function applyAccepted(progress, unit, event) {
+function applyAccepted(progress, event) {
+  const unit = requireActiveUnit(progress, event);
+  if (unit.status !== 'active' || typeof event.output_hash !== 'string' || event.output_hash === '') {
+    invariant('Only an active unit with output_hash can be accepted', { unit: event.unit });
+  }
   unit.status = 'accepted';
   unit.output_hash = event.output_hash;
-  const allDone = progress.active_units.every(u => progress.units[u].status === 'accepted');
-  if (allDone) progress.active_units = [];
+  if (progress.active_units.every(name => progress.units[name].status === 'accepted')) {
+    progress.active_units = [];
+  }
 }
 
-function applyRejected(progress, unit, event) {
+function applyRejected(progress, event) {
+  const unit = requireActiveUnit(progress, event);
+  if (unit.status !== 'active') invariant('Only an active unit can be rejected', { unit: event.unit });
   unit.status = 'rejected';
   unit.reject_reason = event.reason || null;
-  unit.repair_allowed = event.repair_allowed || false;
+  unit.repair_allowed = event.repair_allowed === true;
+  unit.errors = Array.isArray(event.errors) ? structuredClone(event.errors) : [];
 }
 
-function applyNewCycle(progress, unit, event) {
-  unit.status = 'pending';
-  unit.cycle += 1;
-  unit.attempt = 0;
-  unit.output_hash = null;
-  unit.reject_reason = null;
-  unit.repair_allowed = false;
-  progress.active_units = progress.active_units.filter(u => u !== event.unit);
+function applyNewCycle(progress, event) {
+  const unit = requireActiveUnit(progress, event);
+  if (unit.status !== 'rejected' || unit.attempt !== MAX_ATTEMPTS_PER_CYCLE) {
+    invariant('retry-unit requires a unit stopped after attempt two', { unit: event.unit, state: unit });
+  }
+  const nextCycle = unit.cycle + 1;
+  Object.assign(unit, emptyUnitState(), { cycle: nextCycle });
 }
 
 function transitionProgress(current, event) {
+  if (!event?.manifest) invariant('Progress transition requires the current manifest');
+  assertProgressInvariant(current, event.manifest, event.paths);
   const next = structuredClone(current);
-  const unit = event.unit ? next.units[event.unit] : null;
-  if (event.type === 'issue-window') applyIssuedWindow(next, event.jobs);
-  else if (event.type === 'accepted') applyAccepted(next, unit, event);
-  else if (event.type === 'rejected') applyRejected(next, unit, event);
-  else if (event.type === 'retry-unit') applyNewCycle(next, unit, event);
+  if (event.type === 'issue-window') applyIssuedWindow(next, event);
+  else if (event.type === 'accepted') applyAccepted(next, event);
+  else if (event.type === 'rejected') applyRejected(next, event);
+  else if (event.type === 'retry-unit') applyNewCycle(next, event);
   else throw new GameKbError('PROGRESS_EVENT_INVALID', 'Unknown progress transition', { type: event.type });
-  if (event.manifest) assertProgressInvariant(next, event.manifest);
+  assertProgressInvariant(next, event.manifest, event.paths);
   return next;
 }
 
-module.exports = { MAX_ACTIVE_UNITS, MAX_ATTEMPTS_PER_CYCLE, assertProgressInvariant, createProgress, transitionProgress };
+module.exports = {
+  MAX_ACTIVE_UNITS,
+  MAX_ATTEMPTS_PER_CYCLE,
+  assertProgressInvariant,
+  createProgress,
+  transitionProgress
+};

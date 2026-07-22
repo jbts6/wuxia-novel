@@ -1,322 +1,78 @@
 'use strict';
 
+const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
+const os = require('node:os');
 const path = require('node:path');
-const test = require('node:test');
 
-const { makeNovel, readJson, runFlow } = require('./helpers');
+const { createProgress, transitionProgress } = require('../scripts/lib/chapter-progress');
+const { issueNextWindow, issueRetryJob } = require('../scripts/lib/chapter-work');
 const { pathsFor } = require('../scripts/lib/paths');
-const progressApi = require('../scripts/lib/progress');
-const {
-  freshProgress,
-  freshUnit,
-  loadProgress,
-  manualIssues,
-  normalizeErrorFingerprint,
-  recordSubmission,
-  resetUnit,
-  saveProgress,
-  statusReport,
-  syncPlannedUnits
-} = progressApi;
-const { DOMAIN_UNITS } = require('../scripts/lib/semantic-contract');
-const { prepareNovel } = require('../scripts/lib/source');
 
-function submit(progress, output, errors) {
-  return recordSubmission(progress, 'chapter:001', 'sha256:input', output, errors);
+function fixture() {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-progress-'));
+  const novel = path.join(root, 'novel');
+  const source = path.join(root, 'chapter.txt');
+  fs.mkdirSync(novel, { recursive: true });
+  fs.writeFileSync(source, '第一章\n甲现身。\n', 'utf8');
+  return {
+    paths: pathsFor(novel, 'run-progress'),
+    manifest: {
+      chapters: [{
+        number: 1,
+        title: '第一章',
+        file: source,
+        input_hash: 'sha256:chapter-1'
+      }]
+    }
+  };
 }
 
-test('legacy pre-charge APIs are absent and submissions cannot be double-charged', () => {
-  assert.equal(Object.hasOwn(progressApi, 'assertRecallAttempt'), false);
-  assert.equal(Object.hasOwn(progressApi, 'recordTargetedSubmission'), false);
-  assert.equal(Object.hasOwn(progressApi, 'semanticContentHash'), false);
-
-  let progress = freshProgress();
-  progress.units['chapter:001'] = freshUnit('sha256:input');
-  progress = submit(progress, 'sha256:a', [{ code: 'E1', path: 'x' }]);
-  assert.equal(progress.units['chapter:001'].attempts, 1);
-  progress = submit(progress, 'sha256:b', []);
-  assert.equal(progress.units['chapter:001'].status, 'done');
-  assert.equal(progress.units['chapter:001'].attempts, 2);
-});
-
-test('one validator-guided correction completes within the two-submission budget', () => {
-  let progress = freshProgress();
-  progress.units['chapter:001'] = freshUnit('sha256:input');
-  progress = submit(progress, 'sha256:a', [{ code: 'E1', path: 'x' }]);
-  progress = submit(progress, 'sha256:b', []);
-
-  assert.equal(progress.units['chapter:001'].status, 'done');
-  assert.equal(progress.units['chapter:001'].attempts, 2);
-});
-
-test('a second validation failure requires manual review', () => {
-  let progress = freshProgress();
-  progress.units['chapter:001'] = freshUnit('sha256:input');
-  progress = submit(progress, 'sha256:a', [{ code: 'E1', path: 'x' }]);
-  progress = submit(progress, 'sha256:b', [{ code: 'E2', path: 'y' }]);
-
-  assert.equal(progress.units['chapter:001'].status, 'manual_review');
-  assert.equal(progress.units['chapter:001'].attempts, 2);
-  assert.match(progress.units['chapter:001'].stop_reason, /ATTEMPTS_EXHAUSTED/);
+test('rejects unknown progress events without mutating current state', () => {
+  const { manifest } = fixture();
+  const current = createProgress(manifest);
   assert.throws(
-    () => submit(progress, 'sha256:c', []),
-    { code: 'UNIT_MANUAL_REVIEW' }
+    () => transitionProgress(current, { type: 'unknown', manifest }),
+    error => error.code === 'PROGRESS_EVENT_INVALID'
   );
-  assert.equal(progress.units['chapter:001'].attempts, 2);
+  assert.equal(current.units['chapter:001'].status, 'pending');
 });
 
-test('identical output stops on the second invalid submission', () => {
-  let progress = freshProgress();
-  progress.units['chapter:001'] = freshUnit('sha256:input');
-  progress = submit(progress, 'sha256:a', [{ code: 'E1', path: 'x' }]);
-  progress = submit(progress, 'sha256:a', [{ code: 'E2', path: 'y' }]);
-
-  assert.equal(progress.units['chapter:001'].status, 'manual_review');
-  assert.equal(progress.units['chapter:001'].attempts, 2);
-  assert.match(progress.units['chapter:001'].stop_reason, /REPEATED_OUTPUT/);
-});
-
-test('identical normalized error stops on the second submission', () => {
-  const first = [{ code: 'E1', path: 'b', target: '乙', message: 'first' }, { code: 'E2', path: 'a' }];
-  const second = [{ code: 'E2', path: 'a', message: 'changed' }, { code: 'E1', path: 'b', target: '乙' }];
-  let progress = freshProgress();
-  progress.units['chapter:001'] = freshUnit('sha256:input');
-  progress = submit(progress, 'sha256:a', first);
-  progress = submit(progress, 'sha256:b', second);
-
-  assert.equal(normalizeErrorFingerprint(first), normalizeErrorFingerprint(second));
-  assert.equal(progress.units['chapter:001'].status, 'manual_review');
-  assert.equal(progress.units['chapter:001'].attempts, 2);
-  assert.match(progress.units['chapter:001'].stop_reason, /REPEATED_ERROR/);
-});
-
-test('reload keeps attempts when input hash is unchanged', () => {
-  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
-  const manifest = prepareNovel(novel);
-  const paths = pathsFor(novel, manifest.run_id);
-  let progress = loadProgress(paths, manifest);
-  const inputHash = manifest.chapters[0].input_hash;
-  progress = recordSubmission(progress, 'chapter:001', inputHash, 'sha256:a', [{ code: 'E1', path: 'x' }]);
-  saveProgress(paths, progress);
-
-  const reloaded = loadProgress(paths, manifest);
-  assert.equal(reloaded.units['chapter:001'].attempts, 1);
-  progress = recordSubmission(reloaded, 'chapter:001', inputHash, 'sha256:b', []);
-  assert.equal(progress.units['chapter:001'].status, 'done');
-  assert.equal(progress.units['chapter:001'].attempts, 2);
-});
-
-test('wrong staging paths are rejected before a submission consumes an attempt', () => {
-  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
-  const prepared = runFlow(['prepare', novel, '--json']);
-  assert.equal(prepared.status, 0, prepared.stderr);
-  const runId = JSON.parse(prepared.stdout).run_id;
-  const paths = pathsFor(novel, runId);
-  const outside = path.join(novel, 'outside.yaml');
-  fs.writeFileSync(outside, 'schema_version: 1\n', 'utf8');
-  const before = fs.readFileSync(paths.progress);
-
-  const rejected = runFlow([
-    'accept', novel, '--run', runId, '--unit', 'chapter:001', '--draft', outside, '--json'
-  ]);
-
-  assert.notEqual(rejected.status, 0);
-  assert.equal(JSON.parse(rejected.stderr).code, 'DRAFT_STAGING_MISMATCH');
-  assert.deepEqual(fs.readFileSync(paths.progress), before);
-  assert.equal(readJson(paths.progress).units['chapter:001'].attempts, 0);
-});
-
-test('changed source requires the old run to be archived before a fresh budget', () => {
-  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
-  const firstManifest = prepareNovel(novel);
-  const paths = pathsFor(novel, firstManifest.run_id);
-  let progress = loadProgress(paths, firstManifest);
-  progress = recordSubmission(progress, 'chapter:001', firstManifest.chapters[0].input_hash, 'sha256:a', [{ code: 'E1', path: 'x' }]);
-  saveProgress(paths, progress);
-  fs.writeFileSync(path.join(novel, '试书.txt'), '第一章 起始\n乙。\n', 'utf8');
-
-  assert.throws(() => prepareNovel(novel), { code: 'RUN_SOURCE_CHANGED' });
-  const reloaded = loadProgress(paths, firstManifest);
-  assert.equal(reloaded.units['chapter:001'].status, 'pending');
-  assert.equal(reloaded.units['chapter:001'].attempts, 1);
-  assert.equal(reloaded.history.length, 0);
-});
-
-test('reset requires confirmation and affects only one unit', () => {
-  let progress = freshProgress();
-  progress.units['chapter:001'] = { ...freshUnit('sha256:a'), status: 'manual_review', attempts: 2 };
-  progress.units['chapter:002'] = { ...freshUnit('sha256:b'), status: 'done', attempts: 1 };
-
-  assert.throws(() => resetUnit(progress, 'chapter:001', false), { code: 'RESET_CONFIRM_REQUIRED' });
-  const reset = resetUnit(progress, 'chapter:001', true);
-  assert.equal(reset.units['chapter:001'].status, 'pending');
-  assert.equal(reset.units['chapter:001'].attempts, 0);
-  assert.equal(reset.units['chapter:002'].status, 'done');
-  const resubmitted = recordSubmission(reset, 'chapter:001', 'sha256:a', 'sha256:replacement', []);
-  assert.equal(resubmitted.units['chapter:001'].status, 'done');
-  assert.equal(resubmitted.units['chapter:001'].attempts, 1);
-});
-
-test('manual issues advertise the explicit retry command', () => {
-  let progress = freshProgress();
-  progress.units['chapter:001'] = {
-    ...freshUnit('sha256:a'),
-    status: 'manual_review',
-    attempts: 2
-  };
-
-  assert.deepEqual(manualIssues(progress), [{
-    unit: 'chapter:001',
-    input_hash: 'sha256:a',
-    attempts: 2,
-    stop_reason: null,
-    errors: [],
-    suggested_action: 'Inspect chapter:001; retry with retry-unit --unit chapter:001 --confirm'
-  }]);
-});
-
-test('syncing dynamic category units preserves unchanged done siblings and rotates only stale inputs', () => {
-  const progress = freshProgress();
-  progress.units['distill:characters'] = {
-    ...freshUnit('sha256:characters'),
-    status: 'done',
-    attempts: 1
-  };
-  progress.units['distill:items'] = {
-    ...freshUnit('sha256:items-old'),
-    status: 'pending',
-    attempts: 1
-  };
-
-  const updated = syncPlannedUnits(progress, [
-    { unit: 'distill:characters', input_hash: 'sha256:characters' },
-    { unit: 'distill:items', input_hash: 'sha256:items-new' },
-    { unit: 'distill:factions', input_hash: 'sha256:factions' }
-  ]);
-
-  assert.equal(updated.units['distill:characters'].status, 'done');
-  assert.equal(updated.units['distill:characters'].attempts, 1);
-  assert.equal(updated.units['distill:items'].status, 'stale');
-  assert.equal(updated.units['distill:items'].attempts, 0);
-  assert.equal(updated.units['distill:factions'].status, 'pending');
-  assert.equal(updated.history.length, 1);
-  assert.equal(updated.history[0].unit, 'distill:items');
-});
-
-test('status reports domain units in the shared canonical order', () => {
-  const progress = freshProgress();
-  for (const unit of [...DOMAIN_UNITS].reverse()) {
-    progress.units[unit] = freshUnit(`sha256:${unit}`);
-  }
-
-  const report = statusReport(
-    { manifest: 'manifest.json', progress: 'progress.json', manualReview: 'manual-review.json' },
-    { chapters: [] },
-    progress
-  );
-
-  assert.deepEqual(report.units.map(unit => unit.unit), DOMAIN_UNITS);
-});
-
-test('done unchanged unit rejects resubmission without consuming attempts', () => {
-  let progress = freshProgress();
-  progress.units['chapter:001'] = { ...freshUnit('sha256:input'), status: 'done', attempts: 1 };
-
+test('rejects acceptance for a unit outside the active window', () => {
+  const { manifest } = fixture();
+  const current = createProgress(manifest);
   assert.throws(
-    () => submit(progress, 'sha256:b', []),
-    { code: 'UNIT_ALREADY_DONE' }
+    () => transitionProgress(current, {
+      type: 'accepted', unit: 'chapter:001', output_hash: 'sha256:x', manifest
+    }),
+    error => error.code === 'ACTIVE_WINDOW_INVALID'
   );
-  assert.equal(progress.units['chapter:001'].attempts, 1);
 });
 
-test('corrupt progress fails closed', () => {
-  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
-  const manifest = prepareNovel(novel);
-  const paths = pathsFor(novel, manifest.run_id);
-  fs.writeFileSync(paths.progress, '{broken', 'utf8');
-
-  assert.throws(() => loadProgress(paths, manifest), { code: 'PROGRESS_CORRUPT' });
-  assert.equal(readJson(paths.manualReview).length, 0);
-});
-
-test('writeImmutableFile accepts identical replay and rejects different bytes', () => {
-  const os = require('node:os');
-  const { writeImmutableFile } = require('../scripts/lib/io');
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-write-once-'));
-  const file = path.join(root, 'receipt.json');
-  try {
-    writeImmutableFile(file, 'same\n', 'SUBMISSION_REPLAY_CONFLICT');
-    assert.doesNotThrow(() => writeImmutableFile(file, 'same\n', 'SUBMISSION_REPLAY_CONFLICT'));
-    assert.throws(
-      () => writeImmutableFile(file, 'different\n', 'SUBMISSION_REPLAY_CONFLICT'),
-      error => error.code === 'SUBMISSION_REPLAY_CONFLICT'
-    );
-    assert.equal(fs.readFileSync(file, 'utf8'), 'same\n');
-  } finally {
-    fs.rmSync(root, { recursive: true, force: true });
-  }
-});
-
-test('writeImmutableJson accepts identical replay and rejects different values', () => {
-  const os = require('node:os');
-  const { writeImmutableJson } = require('../scripts/lib/io');
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-write-once-json-'));
-  const file = path.join(root, 'data.json');
-  try {
-    writeImmutableJson(file, { a: 1 }, 'SUBMISSION_REPLAY_CONFLICT');
-    assert.doesNotThrow(() => writeImmutableJson(file, { a: 1 }, 'SUBMISSION_REPLAY_CONFLICT'));
-    assert.throws(
-      () => writeImmutableJson(file, { a: 2 }, 'SUBMISSION_REPLAY_CONFLICT'),
-      error => error.code === 'SUBMISSION_REPLAY_CONFLICT'
-    );
-    assert.deepEqual(readJson(file), { a: 1 });
-  } finally {
-    fs.rmSync(root, { recursive: true, force: true });
-  }
-});
-
-test('recordSubmission is idempotent for one explicit submission id', () => {
-  const unit = 'chapter:001';
-  const inputHash = `sha256:${'1'.repeat(64)}`;
-  const outputHash = `sha256:${'2'.repeat(64)}`;
-  const errors = [{ code: 'SUBMISSION_ENVELOPE_INVALID', path: '$', target: 'invalid JSON' }];
-  const progress = freshProgress();
-  progress.units[unit] = freshUnit(inputHash);
-  const once = recordSubmission(progress, unit, inputHash, outputHash, errors, {
-    attempt: 1,
-    submissionId: 'submission:chapter:001:attempt:1:sha256:fixture',
-    recordedAt: '2026-07-19T00:00:00.000Z'
+test('user retry opens a new cycle without removing the fixed window', () => {
+  const { paths, manifest } = fixture();
+  fs.mkdirSync(paths.run, { recursive: true });
+  let progress = issueNextWindow({ paths, manifest, progress: createProgress(manifest) }).progress;
+  progress = transitionProgress(progress, {
+    type: 'rejected', unit: 'chapter:001', reason: 'bad', repair_allowed: false,
+    errors: [{ code: 'SOURCE_REFS_REQUIRED' }], manifest, paths
   });
-  const replay = recordSubmission(once, unit, inputHash, outputHash, errors, {
-    attempt: 1,
-    submissionId: 'submission:chapter:001:attempt:1:sha256:fixture',
-    recordedAt: '2026-07-19T00:00:00.000Z'
+  progress = issueRetryJob({ paths, manifest, progress, unit: 'chapter:001' }).progress;
+  progress = transitionProgress(progress, {
+    type: 'rejected', unit: 'chapter:001', reason: 'still bad', repair_allowed: false,
+    errors: [{ code: 'SOURCE_REFS_REQUIRED' }], manifest, paths
   });
-  assert.deepEqual(replay, once);
-  assert.equal(replay.units[unit].attempts, 1);
-});
+  progress = transitionProgress(progress, {
+    type: 'retry-unit', unit: 'chapter:001', manifest, paths
+  });
+  assert.deepEqual(progress.active_units, ['chapter:001']);
+  assert.equal(progress.units['chapter:001'].status, 'pending');
+  assert.equal(progress.units['chapter:001'].cycle, 2);
+  assert.equal(progress.units['chapter:001'].attempt, 0);
 
-test('recordSubmission allows different submissionId for next attempt', () => {
-  const unit = 'chapter:001';
-  const inputHash = `sha256:${'1'.repeat(64)}`;
-  const outputHash = `sha256:${'2'.repeat(64)}`;
-  const errors = [{ code: 'TEST_ERROR', path: '$', target: 'test' }];
-  const progress = freshProgress();
-  progress.units[unit] = freshUnit(inputHash);
-  const once = recordSubmission(progress, unit, inputHash, outputHash, errors, {
-    attempt: 1,
-    submissionId: 'submission:chapter:001:attempt:1:sha256:first',
-    recordedAt: '2026-07-19T00:00:00.000Z'
-  });
-  assert.equal(once.units[unit].attempts, 1);
-  assert.equal(once.units[unit].status, 'pending');
-  // Different submissionId for the next attempt should succeed
-  const twice = recordSubmission(once, unit, inputHash, 'sha256:3'.padEnd(67, '0'), errors, {
-    attempt: 2,
-    submissionId: 'submission:chapter:001:attempt:2:sha256:second',
-    recordedAt: '2026-07-19T00:00:01.000Z'
-  });
-  assert.equal(twice.units[unit].attempts, 2);
+  const retried = issueRetryJob({ paths, manifest, progress, unit: 'chapter:001' });
+  assert.equal(retried.job.cycle, 2);
+  assert.equal(retried.job.attempt, 1);
+  assert.equal(retried.job.producer, 'chapter-worker');
 });

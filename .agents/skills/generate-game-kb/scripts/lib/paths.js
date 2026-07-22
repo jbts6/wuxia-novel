@@ -74,22 +74,32 @@ function isWithin(parent, candidate) {
 }
 
 function assertStagingIdentity(paths, candidate) {
+  return assertManagedPath(paths, paths.staging, candidate, 'STAGING_PATH_ESCAPE', 'staging');
+}
+
+function assertManagedPath(paths, root, candidate, code, label) {
+  const resolvedRoot = path.resolve(root);
   const resolved = path.resolve(candidate);
-  if (!isWithin(paths.staging, resolved)) {
-    throw new GameKbError('STAGING_PATH_ESCAPE', 'Controller staging identity escaped the selected run', {
+  if (!isWithin(resolvedRoot, resolved) || !isWithin(paths.run, resolvedRoot)) {
+    throw new GameKbError(code, `Controller ${label} identity escaped the selected run`, {
       run: path.resolve(paths.run),
-      staging: path.resolve(paths.staging),
+      root: resolvedRoot,
       candidate: resolved
     });
   }
-  if (fs.existsSync(paths.run) && fs.existsSync(paths.staging)) {
+
+  if (fs.existsSync(paths.run)) {
     const realRun = fs.realpathSync(paths.run);
-    const realStaging = fs.realpathSync(paths.staging);
-    if (!isWithin(realRun, realStaging)) {
-      throw new GameKbError('STAGING_PATH_ESCAPE', 'Controller staging directory escaped through a junction', {
+    let existing = fs.existsSync(resolved) ? resolved : path.dirname(resolved);
+    while (!fs.existsSync(existing) && path.dirname(existing) !== existing) {
+      existing = path.dirname(existing);
+    }
+    if (fs.existsSync(existing) && !isWithin(realRun, fs.realpathSync(existing))) {
+      throw new GameKbError(code, `Controller ${label} path escaped through a junction`, {
         run: realRun,
-        staging: realStaging,
-        candidate: resolved
+        root: resolvedRoot,
+        candidate: resolved,
+        existing: fs.realpathSync(existing)
       });
     }
   }
@@ -148,12 +158,32 @@ function repositoryRootFor(novelDir) {
 }
 
 function chapterAttemptPaths(paths, unit, cycle, attempt) {
+  if (typeof unit !== 'string' || !/^chapter:\d{3,}$/.test(unit)) {
+    throw new GameKbError('ACTIVE_WINDOW_INVALID', 'Chapter unit is invalid', { unit });
+  }
+  if (!Number.isInteger(cycle) || cycle < 1 || !Number.isInteger(attempt) || attempt < 1 || attempt > 2) {
+    throw new GameKbError('ACTIVE_WINDOW_INVALID', 'Chapter cycle or attempt is invalid', {
+      unit, cycle, attempt
+    });
+  }
   const safe = unit.replaceAll(':', '_');
-  const dir = path.join(paths.run, 'chapter-jobs', `cycle_${String(cycle).padStart(2, '0')}`);
+  const cycleDir = `cycle_${String(cycle).padStart(2, '0')}`;
+  const inputDir = path.join(paths.tasks, safe, cycleDir);
+  const outputDir = path.join(paths.staging, safe, cycleDir);
   return {
-    dir,
-    input: path.join(dir, `${safe}_attempt_${String(attempt).padStart(2, '0')}_input.json`),
-    output: path.join(dir, `${safe}_attempt_${String(attempt).padStart(2, '0')}_output.yaml`)
+    inputDir,
+    outputDir,
+    input: assertManagedPath(
+      paths,
+      paths.tasks,
+      path.join(inputDir, `attempt_${String(attempt).padStart(2, '0')}.json`),
+      'ACTIVE_WINDOW_INVALID',
+      'task'
+    ),
+    output: assertStagingIdentity(
+      paths,
+      path.join(outputDir, `attempt_${String(attempt).padStart(2, '0')}.yaml`)
+    )
   };
 }
 

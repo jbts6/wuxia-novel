@@ -59,7 +59,7 @@ test('fast-path metadata and artifact paths are scoped below the explicit run id
   const metadata = readJson(path.join(first.run_dir, 'run.json'));
   assert.equal(metadata.run_id, 'run-a');
   assert.equal(metadata.semantic_contract_version, SEMANTIC_CONTRACT_VERSION);
-  assert.equal(metadata.semantic_profile, 'domain-distill-v1');
+  assert.equal(metadata.semantic_profile, 'chapter-direct-v1');
   assert.match(metadata.source_hash, /^sha256:[a-f0-9]{64}$/);
 
   const firstPaths = pathsFor(novel, 'run-a');
