@@ -32,6 +32,14 @@
 - 验证：相关测试、全量 `generate-game-kb` 测试、所有修改脚本 `node --check`、`git diff --check`。
 - 提交：`feat(game-kb): recover final relation failures selectively`。
 
+## 5. Controller 派生证据行号
+
+- 将 Worker 合同升级到 version 3，从 YAML skeleton 和可选字段中移除 `line_start/line_end`，声明 `chapter/line_start/line_end` 为 Controller 派生字段。
+- grounding 增加规范化文本到原始行号的确定性映射；Worker 接收使用 derive 模式，accepted 投影覆盖旧 job 自报行号，普通终态校验继续使用严格模式。
+- 覆盖错误行号、无行号、跨行、CRLF、NFKC、端到端接收和旧 job 兼容测试；同步 Skill、schemas 与派发提示。
+- 验证：全量 `generate-game-kb` 测试、全部生产脚本 `node --check`、尺寸阈值和 `git diff --check`。
+- 提交：`fix(game-kb): derive source line ranges in controller`。
+
 ## 风险与检查点
 
 - 不得为通过终态验证自动删除缺失关系；所有语义修复必须回到 `chapter-worker` 读取原文。

@@ -23,6 +23,7 @@
 - 定向返工采用派生恢复 run：新 run 复制未受影响章节的可验证 artifact，只为错误来源章节创建 pending 单元；原 run、其 accepted 文件和 artifact manifest 均不改写。
 - 不得通过静默删除关系、自动新增无证据实体、相似度猜测或跨实体模糊合并来通过终态验证。
 - 运行时 Worker 合同、维护者 schema 文档和 Controller 校验必须表达同一套关系闭包规则，且跨 Claude Code、Qoder、Codex 等宿主自包含。
+- Worker 的 `source_refs` 只负责逐字引用文本；`chapter/line_start/line_end` 由 Controller 从章节原文确定性派生。旧 job 中错误的 Worker 行号不得否定全文可命中的有效引用。
 - 自动化测试必须使用仓库内稳定的合成 fixture；当前《萧十一郎》run 只作为只读问题证据，不作为会被并行数据修复改变的测试输入。
 
 ## Out of Scope
@@ -42,4 +43,5 @@
 - [ ] 旧 accepted 版本、错误报告、新 recovery run 输入输出和状态迁移均可审计，恢复后可继续正常 assembly、verify、install 和 archive。
 - [ ] 合成回归 fixture 复现“已有目标被误报”和“真实缺失目标”两类问题：前者可确定解析，后者被映射到来源章节，而不是要求全量重跑。
 - [ ] 自动化测试覆盖正式名称优先、唯一别名、多义别名、缺失目标、来源章节映射、确认门禁、派生 recovery run 和中断恢复。
+- [ ] 自动化测试证明错误 Worker 行号被忽略并在 accepted 产物中校正，跨行、CRLF、NFKC 与空白规范化后的引用仍能映射回真实行区间。
 - [ ] 全量 `generate-game-kb` 测试、语法检查和工作区差异检查通过。

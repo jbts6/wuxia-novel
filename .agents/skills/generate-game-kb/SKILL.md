@@ -110,11 +110,11 @@ chapter_summary:
   summary: "本章发生的关键事件。"
   source_refs:
     - text: "当前章节中逐字存在的原文"
-      line_start: 1
-      line_end: 1
 ```
 
-四个实体数组必须存在，即使为空。Worker 不写
+四个实体数组必须存在，即使为空。Worker 的 `source_refs` 只写逐字 `text`，不写
+`chapter/line_start/line_end`；Controller 根据 `chapter_text` 中最早的精确命中
+确定性补齐章节与行区间。为兼容已签发 job，旧输出中的行号会被忽略并覆盖。Worker 不写
 `schema_version/chapter/title/source_hash/unit/cycle/attempt/input_hash`，不写
 正式 `id`、`local_key` 或 `candidate_key`。这些身份字段由 Controller
 写入 accepted YAML。Worker 不调用 Controller 命令，也不写

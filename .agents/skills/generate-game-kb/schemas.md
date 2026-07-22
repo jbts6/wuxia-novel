@@ -66,8 +66,6 @@ characters:
     skills: ["灵犀一指"]
     source_refs:
       - text: "陆小凤忽然伸出两根手指，夹住了剑锋。"
-        line_start: 18
-        line_end: 18
 
 skills:
   - name: "灵犀一指"
@@ -81,8 +79,6 @@ skills:
         description: "双指迎住来剑。"
     source_refs:
       - text: "灵犀一指，天下无双。"
-        line_start: 20
-        line_end: 20
 
 items:
   - name: "孔雀翎"
@@ -91,8 +87,6 @@ items:
     description: "孔雀山庄的著名暗器。"
     source_refs:
       - text: "这就是孔雀翎。"
-        line_start: 31
-        line_end: 31
 
 factions:
   - name: "青衣楼"
@@ -101,21 +95,18 @@ factions:
     description: "江湖中的秘密组织。"
     source_refs:
       - text: "青衣楼的令牌就在桌上。"
-        line_start: 42
-        line_end: 42
 
 chapter_summary:
   summary: "陆小凤以灵犀一指接下袭击，并发现青衣楼令牌。"
   source_refs:
     - text: "陆小凤忽然伸出两根手指，夹住了剑锋。"
-      line_start: 18
-      line_end: 18
 ```
 
 四个实体数组即使为空也必须存在。每条记录必须有非空 `name` 和至少一条
 `source_refs`；章节摘要必须有非空 `summary` 和至少一条
 `source_refs`。引用中的 `text` 必须在当前 `chapter_text` 逐字存在。
-`line_start/line_end` 可选，存在时必须为整数。
+Worker 不写 `chapter/line_start/line_end`。Controller 忽略旧 Worker 输出中的行号，
+按规范化后最早的逐字命中确定性补齐这些字段，避免模型计算的错误坐标否定有效引文。
 
 Worker 顶层禁止：
 `schema_version/chapter/title/source_hash/unit/cycle/attempt/input_hash/output_file`。
@@ -143,6 +134,8 @@ characters:
     source_refs:
       - chapter: 1
         text: "陆小凤忽然伸出两根手指，夹住了剑锋。"
+        line_start: 18
+        line_end: 18
     local_key: "character:陆小凤"
 skills:
   - name: "无名毒术"
@@ -155,6 +148,8 @@ skills:
     source_refs:
       - chapter: 1
         text: "无名毒术已练了三年。"
+        line_start: 24
+        line_end: 24
     local_key: "skill:无名毒术"
 items: []
 factions: []
@@ -163,6 +158,8 @@ chapter_summary:
   source_refs:
     - chapter: 1
       text: "陆小凤忽然伸出两根手指，夹住了剑锋。"
+      line_start: 18
+      line_end: 18
 normalizations:
   - field_path: "$.skills[0].types[0]"
     original_value: "poison"
@@ -170,7 +167,8 @@ normalizations:
     normalization_rule: "skills.poison"
 ```
 
-`chapter/title/source_hash/local_key/source_refs[].chapter` 全由 Controller
+`chapter/title/source_hash/local_key` 及 `source_refs[]` 的
+`chapter/line_start/line_end` 全由 Controller
 注入。accepted 文件按 `unit + output_hash` 登记到 artifact ledger；同一目标
 只允许内容一致的幂等重放。
 

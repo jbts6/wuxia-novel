@@ -50,7 +50,7 @@ function temporaryRunPaths() {
 }
 
 function assertSelfContainedWorkerContract(contract, producer) {
-  assert.equal(contract.version, 2);
+  assert.equal(contract.version, 3);
   assert.equal(contract.output.format, 'yaml-single-document');
   assert.equal(contract.output.markdown_fences, false);
   assert.deepEqual(contract.output.top_level_fields, [
@@ -77,7 +77,9 @@ function assertSelfContainedWorkerContract(contract, producer) {
   ]);
   assert.deepEqual(contract.required_fields.chapter_summary, ['summary', 'source_refs']);
   assert.deepEqual(contract.required_fields.source_ref, ['text']);
-  assert.deepEqual(contract.optional_fields.source_ref, ['line_start', 'line_end']);
+  assert.deepEqual(contract.optional_fields.source_ref, []);
+  assert.deepEqual(contract.derived_fields.source_ref, ['chapter', 'line_start', 'line_end']);
+  assert.doesNotMatch(contract.output.yaml_skeleton, /line_start|line_end/);
 
   for (const field of [
     'schema_version', 'chapter', 'title', 'source_hash', 'unit', 'cycle',
@@ -197,7 +199,7 @@ describe('chapter-work', () => {
   it('creates an isolated worker contract object for every job input', () => {
     const first = createWorkerContract();
     const second = createWorkerContract();
-    assert.equal(WORKER_CONTRACT_VERSION, 2);
+    assert.equal(WORKER_CONTRACT_VERSION, 3);
     assert.notStrictEqual(first, second);
     assert.notStrictEqual(first.preflight, second.preflight);
     first.preflight.common.push('mutated');

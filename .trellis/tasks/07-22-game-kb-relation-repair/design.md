@@ -58,6 +58,12 @@ recover-relations <novel> --run <parent-run> --confirm
 
 恢复 run 不复用父 run 的 final ID plan 或 final data。所有章节输出重新由恢复 run 的确定性归并和 ID 分配生成，避免把父 run 的失败投影带入新终态。
 
+## Controller 派生证据行号
+
+Worker 合同中的 `source_refs` 只包含逐字 `text`，不要求模型计算行坐标。章节接收时，grounding 先按既有 NFKC、换行和空白规范化规则验证全文命中，再以最早命中位置映射回原章节的 `line_start/line_end`，连同 `chapter` 一起写入 accepted YAML。
+
+为兼容已经签发的 v7 job，Worker 输出中已有的行号不作为证据边界，接收时会被忽略并覆盖。accepted 与终态数据仍按严格行区间验证，因此信任边界只从模型移动到 Controller，没有放松发布门禁。
+
 ## 失败与回滚
 
 - `recover-relations` 在 `--confirm` 缺失、父 run 报告过期、父 artifact 变更、源文本哈希变化或章节集合不一致时 fail closed。

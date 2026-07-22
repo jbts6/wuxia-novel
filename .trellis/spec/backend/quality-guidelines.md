@@ -196,6 +196,7 @@ node scripts/pipeline.js build-publish <novel-dir> --draft <publish-draft>
 node .agents/skills/generate-game-kb/scripts/flow.js run <novel-dir> [--run <run-id>] --json
 node .agents/skills/generate-game-kb/scripts/flow.js status <novel-dir> [--run <run-id>] --json
 node .agents/skills/generate-game-kb/scripts/flow.js retry-unit <novel-dir> --run <run-id> --unit chapter:NNN --confirm --json
+node .agents/skills/generate-game-kb/scripts/flow.js recover-relations <novel-dir> --run <parent-run-id> --confirm --json
 node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-dir> --run <run-id> --json
 ```
 
@@ -207,7 +208,7 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 - 章节采用固定五章窗口，持久化不变量是 `active_units.length <= 5`。首个窗口没有全部 accepted 之前不补位；重复 `run` 返回 `waiting` 与 `jobs: []`。窗口全部 accepted 后，下一次 `run` 才签发后续窗口。
 - 每个 job 恰好包含 `unit`、`cycle`、`attempt`、`producer`、`input_file`、`output_file` 与 `input_hash`。Worker 读取控制器生成的不可变 JSON input，并直接把单章 YAML 写到该 job 唯一的 `output_file`。
 - 每个不可变 JSON input 都携带由 `createWorkerContract()` 新建的
-  `worker_contract`（当前 `version: 1`）。它内嵌完整五字段 YAML skeleton、
+  `worker_contract`（当前 `version: 3`）。它内嵌完整五字段 YAML skeleton、
   required/optional/nullable/forbidden 字段、逐字证据、闭合 taxonomy、关系闭环与
   producer-specific recursive preflight；跨宿主派发只依赖该 input，不依赖
   `.claude/agents/`、`schemas.md` 或隐式 Skill 上下文。
@@ -219,9 +220,31 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
   名还必须被自身至少一条引用逐字覆盖，摘要必须满足
   `chapter_summary.summary.trim() !== ""`。描述性短语不得概括为正式名称，
   引号、标点和原文措辞不得改写。
+- Worker 的 `source_refs[]` 只写逐字 `text`，不得计算
+  `chapter/line_start/line_end`。Controller 以 NFKC、换行和空白规范化后的全文命中
+  为准，将最早命中位置映射回原始行区间并写入 accepted YAML；已签发旧 job
+  自报的行号会被忽略和覆盖，不能把有效引用误判为 `SOURCE_QUOTE_NOT_FOUND`。
+
+```yaml
+# Worker output
+source_refs:
+  - text: "甲拔剑。"
+# accepted projection
+source_refs:
+  - chapter: 3
+    text: "甲拔剑。"
+    line_start: 18
+    line_end: 18
+```
 - `characters[].skills/factions` 与 `skills[].factions` 的每个关系名称必须精确
   解析到本次输出对应类别的候选名；否则补提取有据候选或省略关系，不能留下会在
   终态触发 `FINAL_REFERENCE_INVALID` 的悬空引用。
+- 终态关系解析按正式名称、内部键、唯一别名的确定性优先级执行。未解析或多义关系
+  生成绑定 source hash、artifact manifest hash 和来源章节的
+  `reports/reference-recovery.json`，`run/status` 返回对应 `manual_review`。
+- `recover-relations` 只接受带 `--confirm` 的有效 v7 父 run。它创建稳定命名的派生
+  run，以子 run 自己的 immutable artifacts carry-forward 无关章节，只把报告映射的
+  章节置为 pending；收据绑定父 run、报告、源、artifact manifest 和逐章恢复上下文。
 - 每个 cycle 从 attempt 1 开始且最多两次。仅 allowlist 中的 YAML 语法类错误可生成一次 `main-agent-repair` attempt 2；机械修复者不能读取章节原文或改变语义。schema、taxonomy、证据或语义错误由章节 Worker 重做 attempt 2。第二次失败、重复错误或重复输出进入 `manual_review`；只有带 `--confirm` 的 `retry-unit` 才开启新 cycle。
 - 拒绝稿唯一保存在
   `drafts/<unit>/cycle_<NN>/attempt_<NN>.yaml`；`revisions/` 只保存
@@ -247,7 +270,11 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 - attempt 1 失败 -> 依据错误类别创建唯一 attempt 2；attempt 2 再失败 -> `manual_review`，窗口不继续推进。
 - repair input 指向 `revisions/*.yaml` 或文件不存在 -> `The rejected draft file is missing`；这是 Controller 路径所有权错误，必须让 input 指向 `drafts/*.yaml`，不得复制原文或放宽 repair 隔离来掩盖。
 - 实体名没有被自身引用覆盖 -> `SOURCE_NAME_NOT_FOUND`；引用不是原文逐字子串 -> `SOURCE_QUOTE_NOT_FOUND`；空摘要 -> `SUMMARY_TEXT_REQUIRED`。
+- Worker 行号缺失、错误或类型无效 -> 忽略模型坐标并从全文命中派生；逐字 `text`
+  不存在仍以 `SOURCE_QUOTE_NOT_FOUND` 拒绝。accepted/终态中的行区间继续严格校验。
 - 关系名称在书级候选中无法精确解析 -> `FINAL_REFERENCE_INVALID`；不得静默删除 accepted 关系或按相似度猜测目标。
+- `recover-relations` 缺少确认、报告/收据哈希过期、父 artifact 变化、源变化或章节集合
+  不一致 -> fail closed；新建子 run 初始化失败时删除该半成品子 run，不触及父 run。
 - accepted 文件或 artifact ledger 哈希漂移 -> `ACCEPTED_ARTIFACT_MUTATED`；组装、验证与安装停止。
 - 精确同名候选身份冲突 -> `IDENTITY_COLLISION_REVIEW_REQUIRED`；不得自动合并。
 - 缺失章节摘要、普通物品误收、未命名技法、未决引用、无效审查报告或未决人工复核 -> 工作区验证失败。
@@ -261,22 +288,30 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 - 好：Worker 只写 job 的 `output_file`；Controller 注入身份、登记 accepted artifact、确定性归并、规划 ID 并验证安装。
 - 好：Qoder、Claude Code 或其他宿主只读 job input 即可得到同一完整
   `worker_contract`，递归验证嵌套字段、逐字证据和关系闭环后再写输出。
+- 好：Worker 只提交逐字引用，Controller 生成 accepted 行号；终态关系失败可在用户
+  确认后派生仅重开来源章节的 recovery run，父 run 全目录字节保持不变。
 - 基准：一个有据可依的具名技法没有可证明的父技能关系；保持 null 关系，而不是编造引用。
 - 基准：泛称被过滤并出现在 warning report；书仍可发布，Dashboard 可按需解释该 warning。
-- 坏：窗口内刚完成一个章节就补发第 6 章、让 Worker 写最终 ID、按相似度合并实体、验证时手工修补 accepted YAML，或在仓库根目录生成辅助脚本。
+- 坏：窗口内刚完成一个章节就补发第 6 章、让 Worker 写最终 ID/证据行号、按相似度
+  合并实体、验证时手工修补 accepted YAML，或在仓库根目录生成辅助脚本。
 
 ### 6. 必须的测试
 
-- 公共命令：只暴露 `run`、`status`、`retry-unit`、`archive-abandoned`；旧运行写入 fail-closed，显式废弃归档保持原字节。
+- 公共命令：只暴露 `run`、`status`、`retry-unit`、`recover-relations`、
+  `archive-abandoned`；旧运行写入 fail-closed，显式废弃归档保持原字节。
 - 固定窗口：25 章首次只返回 1–5；重复调用和仅完成 1–4 个输出时都不得暴露第 6 章；第五个完成后才返回下一窗口。
 - 直写接收：Worker 直接写 `output_file`；覆盖路径约束、attempt 身份、机械修复 allowlist、语义重试、第二次失败人工复核与 accepted artifact ledger。
 - Job input：两种 producer 都携带独立 `worker_contract` 对象；断言完整 skeleton、
   必填/禁止字段、`includes` 检查、非空摘要、递归 `source_refs`、闭合 taxonomy、
-  自身证据覆盖、关系闭环和 producer-specific preflight；repair 继续隔离章节源字段。
+  自身证据覆盖、关系闭包、Controller 派生行号和 producer-specific preflight；repair
+  继续隔离章节源字段。覆盖错误旧行号、无行号、跨行、CRLF、NFKC 与空白规范化。
 - Repair 路径：断言 `rejected_draft === drafts/.../attempt_<NN>.yaml` 且文件存在，
   error report 仍位于 `revisions/`。
 - 类型合同：覆盖机械 key 归一化、显式 alias、未知值拒绝和 `poison -> 毒功`。
 - 确定性组装：覆盖精确名称归并、身份冲突人工复核、泛称 warning、稳定 ID 碰撞、字段决策 audit，以及重复组装字节稳定。
+- 关系恢复：覆盖正式名称优先、唯一/多义别名、来源章节报告、确认门禁、稀疏五章
+  窗口、carry-forward artifact、父 run 不变、报告/父 artifact 篡改、中断恢复、
+  初始化清理，以及恢复 run 完成 assembly/install/archive。
 - 验证与安装：覆盖五文件精确 shape、`hashFinalData` 一致性、低召回、报告新鲜度、原子回滚、安装回执与已安装只读验证。
 - 端到端：六章跨过首个窗口并完成安装；断言恰好五个 YAML、`reports/game-kb-review.json`、无 `.kb-scratch`、无根目录章节碎片或运输辅助脚本。
 
@@ -284,16 +319,18 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 
 #### 错
 
-把固定窗口实现成滚动补位，把输出路径或最终身份交给 Worker；只在外部文档写
-schema 却不给 job input；让 repair 去 `revisions/` 找拒绝 YAML；或另建清洗/转交
-阶段来掩盖无效章节。
+把固定窗口实现成滚动补位，把输出路径、最终身份或证据行号交给 Worker；只在外部
+文档写 schema 却不给 job input；让 repair 去 `revisions/` 找拒绝 YAML；静默删除
+悬空关系；或另建清洗/转交阶段来掩盖无效章节。
 
 #### 对
 
 只反复调用 `run`，严格等待整个五章窗口 accepted；每个 job input 内嵌完整
 `worker_contract`，Worker 递归 preflight 后直写唯一 staging 文件；Controller
-从 `drafts/` 签发机械 repair、原子接收并登记不可变 accepted artifact、确定性
-组装五文件，并在安装前通过引用闭环、完整验证与 review report 新鲜度门禁。
+从全文验证逐字引用并派生 accepted 行号，从 `drafts/` 签发机械 repair、原子接收并
+登记不可变 accepted artifact、确定性组装五文件；终态关系失败生成来源章节报告，
+用户确认后创建不改父 run 的派生 recovery run，并在安装前通过引用闭环、完整验证
+与 review report 新鲜度门禁。
 
 ---
 

@@ -145,25 +145,25 @@ function v7WorkerDraft(overrides = {}) {
     characters: [{
       name: '甲', level: '核心', rank: '初窥门径',
       aliases: [], identities: [], description: null, factions: [], skills: [],
-      source_refs: [{ text: '甲修习玄门内功并使出飞云掌。', line_start: 1, line_end: 1 }]
+      source_refs: [{ text: '甲修习玄门内功并使出飞云掌。' }]
     }],
     skills: [{
       name: '玄门内功', rank: '初窥门径',
       aliases: [], types: ['内功'], factions: [], description: null,
       techniques: [{ name: '飞云掌', description: null }],
-      source_refs: [{ text: '甲修习玄门内功并使出飞云掌。', line_start: 1, line_end: 1 }]
+      source_refs: [{ text: '甲修习玄门内功并使出飞云掌。' }]
     }],
     items: [{
       name: '回生丹', aliases: [], types: ['丹药'], description: null,
-      source_refs: [{ text: '甲服下回生丹。', line_start: 2, line_end: 2 }]
+      source_refs: [{ text: '甲服下回生丹。' }]
     }],
     factions: [{
       name: '玄门', aliases: [], types: ['门派'], description: null,
-      source_refs: [{ text: '玄门隐居山中。', line_start: 3, line_end: 3 }]
+      source_refs: [{ text: '玄门隐居山中。' }]
     }],
     chapter_summary: {
       summary: '第一章摘要。',
-      source_refs: [{ text: '甲修习玄门内功并使出飞云掌。', line_start: 1, line_end: 1 }]
+      source_refs: [{ text: '甲修习玄门内功并使出飞云掌。' }]
     },
     ...overrides
   };
@@ -179,25 +179,25 @@ function writeWorkerOutput(job) {
     characters: [{
       name: `侠客${chapter}`, level: '核心', rank: '初窥门径',
       aliases: [], identities: [], description: null, factions: [], skills: [],
-      source_refs: [{ text: firstEvidence, line_start: 2, line_end: 2 }]
+      source_refs: [{ text: firstEvidence }]
     }],
     skills: [{
       name: `玄门心法${chapter}`, rank: '初窥门径',
       aliases: [], types: ['内功'], factions: [], description: null,
       techniques: [{ name: `飞云掌${chapter}`, description: null }],
-      source_refs: [{ text: firstEvidence, line_start: 2, line_end: 2 }]
+      source_refs: [{ text: firstEvidence }]
     }],
     items: [{
       name: `回生丹${chapter}`, aliases: [], types: ['丹药'], description: null,
-      source_refs: [{ text: itemEvidence, line_start: 3, line_end: 3 }]
+      source_refs: [{ text: itemEvidence }]
     }],
     factions: [{
       name: `玄门${chapter}`, aliases: [], types: ['门派'], description: null,
-      source_refs: [{ text: factionEvidence, line_start: 4, line_end: 4 }]
+      source_refs: [{ text: factionEvidence }]
     }],
     chapter_summary: {
       summary: `第${chapter}章摘要。`,
-      source_refs: [{ text: firstEvidence, line_start: 2, line_end: 2 }]
+      source_refs: [{ text: firstEvidence }]
     }
   });
   fs.writeFileSync(job.output_file, yaml.dump(draft, { lineWidth: -1, noRefs: true }), 'utf8');

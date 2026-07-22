@@ -6,6 +6,7 @@ const {
   normalizeEntitySemantics,
   validateEntitySemantics
 } = require('./semantic-contract');
+const { buildAcceptedChapter } = require('./accepted-chapter');
 const { validateGroundedRecord } = require('./grounding');
 const { createReferenceIndex, resolveReference } = require('./reference-resolution');
 const { normalizeTypeArray } = require('./type-taxonomy');
@@ -227,7 +228,8 @@ function validateWorkerSourceRefs(record, label, errors, expected) {
     }, {
       chapterNumber: expected.number,
       chapterText: expected.chapterText,
-      label
+      label,
+      lineRangeMode: 'derive'
     });
     errors.push(...grounded.errors);
     return;
@@ -243,11 +245,6 @@ function validateWorkerSourceRefs(record, label, errors, expected) {
       return;
     }
     if (typeof ref.text !== 'string' || ref.text.trim() === '') errors.push(issue('SOURCE_TEXT_REQUIRED', `${refPath}.text`));
-    for (const field of ['line_start', 'line_end']) {
-      if (ref[field] !== undefined && !Number.isInteger(ref[field])) {
-        errors.push(issue('SOURCE_LINE_INVALID', `${refPath}.${field}`, ref[field]));
-      }
-    }
   });
 }
 
@@ -355,38 +352,13 @@ function normalizeAcceptedChapterDraft(draft, expected) {
     return { chapter: null, normalizations: [], errors };
   }
 
-  const allNormalizations = [];
-  const chapter = {
-    schema_version: 7,
-    chapter: expected.number,
-    title: expected.title,
-    source_hash: expected.inputHash
+  return {
+    ...buildAcceptedChapter(draft, expected, {
+      candidateArrays: CANDIDATE_ARRAYS,
+      typeCategories: V7_TYPES_CATEGORIES
+    }),
+    errors: []
   };
-
-  for (const category of CANDIDATE_ARRAYS) {
-    chapter[category] = (Array.isArray(draft[category]) ? draft[category] : []).map((record, index) => {
-      const entity = { ...record };
-      entity.local_key = `${category.slice(0, -1)}:${record.name}`;
-      if (Array.isArray(entity.source_refs)) {
-        entity.source_refs = entity.source_refs.map(ref => ({ ...ref, chapter: expected.number }));
-      }
-      if (V7_TYPES_CATEGORIES.has(category) && Array.isArray(entity.types)) {
-        const typeResult = normalizeTypeArray(category, entity.types, `$.${category}[${index}].types`);
-        entity.types = typeResult.values;
-        allNormalizations.push(...typeResult.normalizations);
-      }
-      return entity;
-    });
-  }
-
-  chapter.chapter_summary = {
-    ...draft.chapter_summary,
-    ...(Array.isArray(draft.chapter_summary?.source_refs)
-      ? { source_refs: draft.chapter_summary.source_refs.map(ref => ({ ...ref, chapter: expected.number })) }
-      : {})
-  };
-  chapter.normalizations = allNormalizations;
-  return { chapter, normalizations: allNormalizations, errors: [] };
 }
 
 module.exports = {
