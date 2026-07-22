@@ -1,0 +1,670 @@
+- id: skill_an_qi
+  name: 暗器
+  aliases: []
+  types:
+    - 暗器
+  factions: []
+  rank: null
+  description: 小公子凌空翻身时发出的三道寒光暗器，用于攻击萧十一郎怀中的沈璧君，作为脱身之计。
+  techniques:
+    - name: 凌空三打
+      description: 凌空翻身之际同时发出三件暗器，攻其必救，趁对方闪避时远遁。
+- id: skill_ba_shi_yi_lu_wu_ji_jian
+  name: 八十一路无极剑
+  aliases: []
+  types:
+    - 剑法
+  factions:
+    - faction_xian_tian_wu_ji_men
+  rank: null
+  description: 赵无极所使剑法，共八十一路，与先天无极真气齐名，名震天下。
+  techniques: []
+- id: skill_da_hong_quan
+  name: 大洪拳
+  aliases: []
+  types:
+    - 拳法
+  factions: []
+  rank: 登堂入室
+  description: 彭鹏飞所使拳法，已练至八九成火候，拳风虎虎、声势惊人。属刚猛路数，被芙蓉掌所克制。
+  techniques: []
+- id: skill_da_kai_bei_shou
+  name: 大开碑手
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: 炉火纯青
+  description: 厉刚所使掌法，火候老到，威力刚猛，但因使用者为人方正，掌法不免呆板缺少变化。
+  techniques: []
+- id: skill_da_mo_yi_jin_jing
+  name: 达摩易筋经
+  aliases: []
+  types:
+    - 内功
+    - 心法
+  factions: []
+  rank: 登峰造极
+  description: 武林至高内功典籍，庄主提及即使如此高深的武功也有破绽，据说三丰真人曾找出两三处破绽，以此比喻天公子的魔法也有破绽可寻。
+  techniques: []
+- id: skill_da_shuai_bei_shou
+  name: 大摔碑手
+  aliases: []
+  types:
+    - 掌法
+    - 内功
+  factions: []
+  rank: 炉火纯青
+  description: 厉刚所修的内家掌法，共三十六路，练至九成火候可击石如粉。配合内家"小天星"掌力使用，掌心外吐发力，威力极大。二十年来死在此掌下的人不计其数。
+  techniques:
+    - name: 小天星掌力
+      description: 内家掌力，肩不动腰不拧，脚踏前一步，掌尖前探触及对手胸膛后掌心突然向外吐出。
+- id: skill_da_xue_shu
+  name: 打穴术
+  aliases: []
+  types:
+    - 点穴
+  factions: []
+  rank: null
+  description: 屠啸天以旱烟袋为武器，专打人身三十六大穴、七十二小穴，号称天下第一打穴名家。
+  techniques: []
+- id: skill_du_bi_ying_wang_qin_na_shu
+  name: 独臂鹰王擒拿术
+  aliases: []
+  types:
+    - 擒拿
+  factions: []
+  rank: 登堂入室
+  description: 独臂鹰王虽伤重垂危,但最后一击仍快如闪电、锐不可当,五指如钩急擒对手手腕。
+  techniques:
+    - name: 鹰爪擒腕
+      description: 独臂闪电般飞出,五指如钩擒拿对手手腕,百足之虫死而不僵。
+- id: skill_du_zhen
+  name: 毒针
+  aliases: []
+  types:
+    - 暗器
+    - 毒功
+  factions: []
+  rank: null
+  description: 小公子以毒针刺中风四娘之手，令其麻木不灵、无法交手。
+  techniques: []
+- id: skill_duo_ming_jin_zhen
+  name: 夺命金针
+  aliases:
+    - 沈家金针
+    - 金针
+  types:
+    - 暗器
+  factions:
+    - faction_shen_jia
+  rank: 出神入化
+  description: 沈家祖传暗器，名震天下。金丝暴射而出，带有剧毒，中者如千百只蜜蜂同时钉入，毒性发作极快，可令人迅速倒下毙命。需把握对手身法变化已穷、旧力已竭新力未生的瞬间出手，方能避无可避。
+  techniques:
+    - name: 金丝暴射
+      description: 将金针如暴雨般激射而出，覆盖面广，令对手难以闪避
+    - name: 毒针入体
+      description: 金针带剧毒，刺入人体后毒性迅速发作，如千百只蜜蜂同时钉入
+- id: skill_er_zhi_jia_dao
+  name: 二指夹刀
+  aliases: []
+  types:
+    - 指法
+  factions: []
+  rank: 出神入化
+  description: 阔少爷以两根手指夹住鬼头刀锋,纹丝不动,如同砍入石头,展现惊人的指力和内力。
+  techniques:
+    - name: 双指夹刃
+      description: 不动身形,仅以两指夹住劈来的刀锋,令对手无法寸进。
+- id: skill_feng_si_niang_dian_xue_shu
+  name: 风四娘点穴术
+  aliases: []
+  types:
+    - 点穴
+  factions: []
+  rank: 略有小成
+  description: 风四娘以掌击为掩护，五根手指突然接连弹出，闪电般点中对手四处大穴，令其全身麻木无法动弹。需趁对手放松警惕时施展。
+  techniques:
+    - name: 掌中藏指
+      description: 以掌击为伪装，出手看似很轻很慢，但快到对方面前时五根手指突然接连弹出，闪电般点中四处大穴。
+- id: skill_feng_si_niang_jian_fa
+  name: 风四娘剑法
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: 登堂入室
+  description: 风四娘使用短剑的剑法，速度极快，一霎眼间可刺出七八剑，亦能精准削断瓷杯。所用剑型为公孙大娘一脉的短剑。
+  techniques:
+    - name: 快剑连刺
+      description: 一霎眼间向对手刺出七八剑，速度极快
+    - name: 削物
+      description: 反手一剑将绿瓷杯削成两半，精准无比
+- id: skill_feng_si_niang_qing_gong
+  name: 风四娘轻功
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: 略有小成
+  description: 风四娘轻功不俗，能手一按便箭一般窜出窗外，向远方飞掠。
+  techniques:
+    - name: 飞掠
+      description: 手一按，人已箭一般窜出窗外飞掠
+- id: skill_fu_rong_jian_fa
+  name: 芙蓉剑法
+  aliases:
+    - 芙蓉剑
+  types:
+    - 剑法
+  factions: []
+  rank: 炉火纯青
+  description: 芙蓉剑法为女子所创,剑法轻灵有余、刚劲不足,失之柔弱。攻势只占三成,守势却有七成,剑法缜密,素称"滴水不漏"。攻敌之前总要先将自己保护好。当代名家为柳三爷与柳永南父子。
+  techniques:
+    - name: 芙蓉三折
+      description: 芙蓉剑法中的精妙招式,剑光凌空三曲,可将对手兵刃斩断。普天之下除柳三爷和柳永南外无人能使出。柳永南以此招斩断萧十一郎手中树枝。
+- id: skill_fu_rong_zhang
+  name: 芙蓉掌
+  aliases: []
+  types:
+    - 掌法
+  factions:
+    - faction_liu_jia
+  rank: 登堂入室
+  description: 柳家掌法，以轻灵流动见长，柔能克刚，是大洪拳的克星。与柳家剑法一脉相承。
+  techniques: []
+- id: skill_ge_lu_dao_dao_fa
+  name: 割鹿刀刀法
+  aliases: []
+  types:
+    - 刀法
+  factions: []
+  rank: 出神入化
+  description: 小公子使用割鹿刀的刀法,出刀极快,刀光淡青色不耀眼,一刀即可斩首。刀如青虹,不见血迹。
+  techniques:
+    - name: 一刀斩首
+      description: 刀光一闪即斩落对手头颅,快至极点,刀上不沾血迹。
+- id: skill_gong_sun_da_niang_jian_fa
+  name: 公孙大娘剑法
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: 出神入化
+  description: 唐代公孙大娘所创剑法，以短剑施展，轻捷高妙。杜甫诗赞：耀如羿射九日落，矫如群帝骖龙翔，来如雷霆收震怒，罢如江海凝清光。
+  techniques:
+    - name: 剑器舞
+      description: 一舞剑器动四方，观者如山色沮丧，天地为之久低昂
+- id: skill_hai_ling_zi_zhang_fa
+  name: 海灵子掌法
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: 海灵子掌法。与屠啸天联手时自言「一剑两掌」可取人命，出手狠辣。
+  techniques: []
+- id: skill_hai_nan_jian_fa
+  name: 海南剑法
+  aliases: []
+  types:
+    - 剑法
+  factions:
+    - faction_hai_nan_jian_pai
+  rank: 炉火纯青
+  description: 海南剑派的剑法，以轻捷狠辣见长，不出手则已，一出手必定是取人性命的杀手。
+  techniques: []
+- id: skill_jin_gang_zhang
+  name: 金刚掌
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: 一种刚猛掌力，与摔碑手同类，能造成严重内伤。萧十一郎所受四处内伤即为此类功夫所致。
+  techniques: []
+- id: skill_jin_zhen
+  name: 金针
+  aliases: []
+  types:
+    - 暗器
+  factions:
+    - faction_jin_zhen_shen_jia
+  rank: null
+  description: 济南金针沈家祖传绝技，沈太君、沈璧君皆擅此术，以金针为暗器或医术之用。
+  techniques: []
+- id: skill_jin_zhen_an_qi
+  name: 金针暗器
+  aliases:
+    - 金针
+  types:
+    - 暗器
+  factions:
+    - faction_shen_jia
+  rank: 登峰造极
+  description: 沈家祖传暗器，号称天下第一暗器。沈璧君出手够快够准，但心肠柔弱不够狠辣。
+  techniques:
+    - name: 金针发射
+      description: 沈家祖传的发暗器手法，快而准。
+- id: skill_lei_gong_zao
+  name: 雷公凿
+  aliases:
+    - 精钢雷公凿
+  types:
+    - 外功
+  factions:
+    - faction_lei_dian_shuang_shen
+  rank: 炉火纯青
+  description: 雷满堂的成名绝技，一双精钢雷公凿，可击打人身穴道，招式精奇，无论水里陆上都可运转如意，有雷霆之势。
+  techniques:
+    - name: 雷公凿击穴
+      description: 以精钢雷公凿击打敌人穴道，威力惊人，有雷霆之势
+- id: skill_lian_cheng_bi_jian_fa
+  name: 连城璧剑法
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 连城璧所用剑法，深藏不露。屠啸天言及「连城璧的武功剑法」不可轻视。
+  techniques: []
+- id: skill_man_tian_hua_yu
+  name: 满天花雨
+  aliases: []
+  types:
+    - 暗器
+  factions: []
+  rank: 炉火纯青
+  description: 暗器中最厉害的手法，名字虽普通但威力极大。沈璧君以此手法霎眼间发出七把金针，令海灵子无法闪避。
+  techniques:
+    - name: 七针齐发
+      description: 霎眼间同时发出七把金针，如暴雨般射向敌人，令其无处闪避。
+- id: skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian
+  name: 七七四十九手回风舞柳剑
+  aliases:
+    - 回风舞柳剑
+  types:
+    - 剑法
+  factions: []
+  rank: 炉火纯青
+  description: 巴山顾道人所传剑法，高远清灵，柳色青已尽得其神髓且有过之而无不及，江湖间少有人能及。
+  techniques: []
+- id: skill_qi_qiao_hua_gu_san
+  name: 七巧化骨散
+  aliases: []
+  types:
+    - 毒功
+  factions: []
+  rank: null
+  description: 小公子藏在指甲中的剧毒毒药，通过划破对手皮肤渗入，不到半个时辰便令人全身溃烂。
+  techniques:
+    - name: 指甲划肤
+      description: 以藏有七巧化骨散的指甲划破对手皮肤，使毒药渗入体内。
+- id: skill_qiang_zhong_jia_jian
+  name: 枪中夹剑
+  aliases: []
+  types:
+    - 枪法
+    - 剑法
+  factions:
+    - faction_lei_dian_shuang_shen
+  rank: 登堂入室
+  description: 龙一闪独门传授的成名绝技，左手长枪一丈四尺主攻，右手软剑护身主守，一长一短、一刚一柔，一攻一守先立于不败之地。
+  techniques:
+    - name: 长枪远攻
+      description: 左手一丈四尺长枪刺出，人远在一丈开外即可攻击敌人
+    - name: 软剑护身
+      description: 右手软剑直舞，将自己胸腹防护得风雨不透
+- id: skill_qing_gong
+  name: 轻功
+  aliases: []
+  types:
+    - 轻功
+  factions:
+    - faction_lei_dian_shuang_shen
+  rank: 登堂入室
+  description: 龙一闪的轻功高绝，不愧"一闪"之名，身形一闪人已到船舱外。但在萧十一郎面前仍不值一提，萧十一郎能如影子般紧跟其后而令其毫无察觉。
+  techniques: []
+- id: skill_san_tan_yin_yue
+  name: 三潭印月
+  aliases: []
+  types:
+    - 点穴
+  factions: []
+  rank: 出神入化
+  description: 屠啸天的绝技，以旱烟管一招同时打向对手三处大穴（玄机、乳根、将台），烟斗似一化三，放眼天下很少有人能比得上。
+  techniques:
+    - name: 一招三穴
+      description: 手腕震动间烟斗似一化三，同时攻击前胸玄机、乳根、将台三处大穴。
+- id: skill_shao_lin_shen_quan
+  name: 少林神拳
+  aliases: []
+  types:
+    - 拳法
+  factions:
+    - faction_shao_lin
+  rank: 炉火纯青
+  description: 少林派拳法，杨开泰修习二十一年已有九成火候，掌力之强、内劲之长少有人及，但因其性格保守，掌法过于求稳，缺少凌厉攻势。
+  techniques: []
+- id: skill_shen_jia_wu_di_jin_zhen
+  name: 沈家无敌金针
+  aliases:
+    - 无敌金针
+  types:
+    - 医术
+    - 暗器
+  factions:
+    - faction_shen_jia
+  rank: null
+  description: 沈家祖传绝学，由沈璧君的祖母传授秘诀。具体功法本章未详述，仅在沈璧君回忆童年时提及。
+  techniques: []
+- id: skill_shuai_bei_shou
+  name: 摔碑手
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: 一种刚猛掌力，素素提及萧十一郎所受内伤仿佛是被摔碑手、金刚掌一类的功夫击伤，普通人只要挨上一掌就活不成。
+  techniques: []
+- id: skill_suo_ren_wan_ou_shu
+  name: 缩人玩偶术
+  aliases:
+    - 魔法（将人缩小为玩偶）
+    - 玩偶术
+  types:
+    - 奇门
+  factions: []
+  rank: 出神入化
+  description: 天公子不可思议之术，可将活人缩小并囚禁于玩偶世界中，亦能操控玩偶生死。
+  techniques:
+    - name: 缩人入偶
+      description: 使人形体缩小，置入玩偶屋宇之中。
+- id: skill_tai_hang_shuang_dao_dao_fa
+  name: 太行双刀刀法
+  aliases:
+    - 太行双刀
+  types:
+    - 刀法
+  factions: []
+  rank: null
+  description: 丁家兄弟成名刀法。其人号称「太行双刀」，为武林一等一高手，后败于花平刀下。
+  techniques: []
+- id: skill_tai_yuan_yi_jian_jian_fa
+  name: 太原一剑剑法
+  aliases:
+    - 太原一剑
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 高飞成名剑法。其人号称「太原一剑」，为武林一等一高手，后败亡于花平刀下。
+  techniques: []
+- id: skill_tian_shan_qi_jian
+  name: 天山七剑
+  aliases: []
+  types:
+    - 剑法
+    - 合击
+  factions:
+    - faction_tian_shan
+  rank: 炉火纯青
+  description: 天山派的七人剑阵或七位剑客，十三年前被雷雨、龙飞骥兄弟以铁掌连战而未能伤对方分毫。
+  techniques: []
+- id: skill_tie_sha_zhang
+  name: 铁砂掌
+  aliases: []
+  types:
+    - 掌法
+    - 外功
+  factions: []
+  rank: 略有小成
+  description: 解老二所练的外功掌法,一掌可将成块木头拍得粉碎。
+  techniques:
+    - name: 碎木掌
+      description: 反手一掌拍碎成块木头,显示掌力刚猛。
+- id: skill_wai_jia_zhang_li
+  name: 外家掌力
+  aliases: []
+  types:
+    - 掌法
+    - 外功
+  factions: []
+  rank: 炉火纯青
+  description: 龙飞骥所练外家功夫，已至十成火候，手指又粗又短，中指几似与小指同样长，捧茶碗时手稳如磐石。
+  techniques: []
+- id: skill_wan_sheng_jin_dao_dao_fa
+  name: 万胜金刀刀法
+  aliases:
+    - 万胜金刀
+  types:
+    - 刀法
+  factions: []
+  rank: 登堂入室
+  description: 彭鹏飞成名刀法。其人号称「万胜金刀」，佩金背砍山刀，刀法刚劲；亦精大洪拳。
+  techniques: []
+- id: skill_wu_shuang_tie_zhang
+  name: 无双铁掌
+  aliases: []
+  types:
+    - 掌法
+    - 外功
+  factions: []
+  rank: 炉火纯青
+  description: 雷雨与龙飞骥兄弟的成名绝技，十三年前以铁掌连战天山七剑毫发未伤，震惊古今。
+  techniques: []
+- id: skill_xian_tian_wu_ji_men_wu_gong
+  name: 先天无极门武功
+  aliases: []
+  types:
+    - 内功
+    - 剑法
+  factions:
+    - faction_xian_tian_wu_ji_men
+  rank: 登堂入室
+  description: 先天无极门的武功心法，讲究以静制动、以逸待劳、以守为攻、以快打慢。赵无极使用精钢软剑施展，身法边式，气度从容潇洒。
+  techniques: []
+- id: skill_xian_tian_wu_ji_zhen_qi
+  name: 先天无极真气
+  aliases: []
+  types:
+    - 内功
+  factions:
+    - faction_xian_tian_wu_ji_men
+  rank: null
+  description: 赵无极所修内功，先天无极门镇派绝学。
+  techniques: []
+- id: skill_xiao_gong_zi_an_qi_shu
+  name: 小公子暗器术
+  aliases: []
+  types:
+    - 暗器
+  factions: []
+  rank: 登堂入室
+  description: 小公子全身上下藏满各种暗器，能同时从双手、靴子、袖子、玉带等处射出多种不同暗器，令人防不胜防。暗器种类包括强劲如矢的、盘旋飞舞的、银芒暴雨般的等多种形态。
+  techniques:
+    - name: 双手齐发
+      description: 左右双手同时射出七八件不同暗器，有的强劲如矢，有的盘旋飞舞。
+    - name: 玉带银芒
+      description: 弯腰时玉带上射出一蓬银芒，暴雨般击向对方面部，中者奇痒钻心。
+    - name: 靴中尖刀
+      description: 靴子里弹出两柄尖刀，配合腿法使用。
+    - name: 袖中轻烟
+      description: 袖子里射出两股轻烟，带有桃花香气，闻之即昏迷。
+    - name: 钢指甲
+      description: 五指指甲上套着薄薄钢套，可飞射击向对手穴道。
+    - name: 裤管火焰
+      description: 裤管中喷出淡青色火焰，沾物即燃。
+- id: skill_xiao_gong_zi_dao_fa
+  name: 小公子刀法
+  aliases: []
+  types:
+    - 刀法
+  factions: []
+  rank: 出神入化
+  description: 小公子刀法极快，刀光淡青。曾于林中一刀取独臂鹰王首级，心狠手辣。
+  techniques:
+    - name: 淡青刀光
+      description: 刀光淡青不耀眼，刀光一闪取人首级。
+- id: skill_xiao_gong_zi_jian_fa
+  name: 小公子剑法
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: 略有小成
+  description: 小公子从玉带中抽出软剑施展的剑法，快而辛辣，诡秘怪异，有些像海南剑派的家数但又完全不同。
+  techniques:
+    - name: 软剑快刺
+      description: 以薄而细的软剑迎风抖直，毒蛇般快速刺出七八剑。
+- id: skill_xiao_gong_zi_quan_fa
+  name: 小公子拳法
+  aliases: []
+  types:
+    - 拳法
+  factions: []
+  rank: 出神入化
+  description: 小公子拳劲凌厉，曾一拳震碎柳永南内脏，并以拳脚配合暗器脱身。
+  techniques:
+    - name: 破体一拳
+      description: 近身一拳击出，重创对手内脏。
+- id: skill_xiao_gong_zi_zhang_fa
+  name: 小公子掌法
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: 登堂入室
+  description: 小公子的掌法灵变、迅速、毒辣，虚虚实实变化莫测，令人难以分辨虚实。七招连攻，配合钢指甲暗器使用。
+  techniques:
+    - name: 虚实七招
+      description: 连续攻出七招，虚虚实实变化莫测，配合指甲钢套飞射穴道。
+- id: skill_xiao_shi_yi_lang_dao_fa
+  name: 萧十一郎刀法
+  aliases: []
+  types:
+    - 刀法
+  factions: []
+  rank: 登峰造极
+  description: 萧十一郎的刀法快得不可思议，连纵横武林数十年的独臂鹰王都未见过如此快的刀，甚至看不清刀是如何出手的。人与刀似化而为一，刀光如匹练般划出。
+  techniques:
+    - name: 人刀合一
+      description: 人与刀突似化而为一，刀光一闪即穿窗而出，速度极快令对手无法看清出刀轨迹。
+- id: skill_xiao_shi_yi_lang_qing_gong
+  name: 萧十一郎轻功
+  aliases: []
+  types:
+    - 轻功
+    - 身法
+  factions: []
+  rank: 炉火纯青
+  description: 萧十一郎的轻功身法极为高明，能如壁虎般整个人贴在墙上不掉下来，也能一溜上了屋顶贴在屋顶上，行动如纸人般轻巧。
+  techniques:
+    - name: 壁虎游墙
+      description: 整个人贴到墙上如纸人般不会掉下来，也能一溜上屋顶贴在顶上
+    - name: 鬼魅身法
+      description: 身形快如鬼魅，能在暗器弩箭发出前瞬间转移位置，令对手完全无法捕捉。
+- id: skill_xiu_zhong_jian
+  name: 袖中剑
+  aliases: []
+  types:
+    - 剑法
+    - 暗器
+  factions: []
+  rank: null
+  description: 连家传下的救命杀手，藏于袖中，出剑极快，连城璧用以刺死小公子。
+  techniques: []
+- id: skill_yan_zi_san_chao_shui
+  name: 燕子三抄水
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: 炉火纯青
+  description: 飞大夫的绝顶轻功，施展开来可以手擒飞鸟，速度极快。
+  techniques:
+    - name: 手擒飞鸟
+      description: 以轻功极速飞行，可在空中擒住飞鸟。
+- id: skill_yin_dao_fei_zhi
+  name: 银刀飞掷
+  aliases: []
+  types:
+    - 暗器
+  factions: []
+  rank: 出神入化
+  description: 阔少爷将小银刀脱手飞出化为银光,瞬间插入对手咽喉,速度极快,令人防不胜防。
+  techniques:
+    - name: 银光穿喉
+      description: 以指力将银刀飞出,化做银光直取咽喉,一句话未说完即已命中。
+- id: skill_yin_zhen
+  name: 银针
+  aliases: []
+  types:
+    - 暗器
+  factions: []
+  rank: null
+  description: 风四娘所擅暗器功夫，以银针为武器，与沈家金针齐名。
+  techniques: []
+- id: skill_yin_zhen_an_qi
+  name: 银针暗器
+  aliases:
+    - 暗青子
+  types:
+    - 暗器
+  factions: []
+  rank: 出神入化
+  description: 风四娘的独门暗器功夫,以银针为武器,从指缝间飞出,速度极快,令人无法闪避。可在沐浴时随身携带,瞬间发出十余道银光刺中多人眼睛。
+  techniques:
+    - name: 指缝飞针
+      description: 双手轻轻一拂,指缝间飞出十余道银光,银针精准刺中目标眼睛,令人无法躲避。
+- id: skill_ying_wang_chang_bi_gong
+  name: 鹰王长臂功
+  aliases: []
+  types:
+    - 外功
+    - 擒拿
+  factions: []
+  rank: 出神入化
+  description: 独臂鹰王纵横武林的绝技，猿猴般的长臂可突然暴长半尺，使原本抓不到的地方也能抓到，出手之快令人毫无闪避余地。
+  techniques:
+    - name: 长臂暴伸
+      description: 手臂突然暴长半尺，明明抓不到的地方现在也可抓到，令对手无法预判攻击范围。
+- id: skill_ying_zhao_li
+  name: 鹰爪力
+  aliases: []
+  types:
+    - 外功
+    - 爪法
+  factions: []
+  rank: null
+  description: 独臂鹰王司空曙的绝技，力能穿牛腹、巧取牛心，狠、准、快兼备，令人提不起对抗勇气。
+  techniques:
+    - name: 手穿牛腹
+      description: 独臂插入活牛肚中取出牛心，展现鹰爪力之狠准快。
+- id: skill_yun_juan_liu_xing
+  name: 云卷流星
+  aliases: []
+  types:
+    - 暗器
+    - 其他
+  factions:
+    - faction_shen_jia
+  rank: 炉火纯青
+  description: 沈璧君收暗器的独门手法，以长袖卷出，将飞来的暗器尽数收去，使出来不带一点烟火气，是武林中一等一的功夫。配合灵动的步法使用，极有效且优美。
+  techniques:
+    - name: 袖卷暗器
+      description: 以长袖流云般卷出，借袖风将各种暗器尽数收去，使其无影无踪。
+- id: skill_zuo_shou_shen_dao
+  name: 左手神刀
+  aliases:
+    - 快刀
+  types:
+    - 刀法
+  factions: []
+  rank: 炉火纯青
+  description: 花平的成名刀法,号称中原第一快刀。左右开弓、出手双飞,左手比右手快一倍。出鞘入鞘之间即可将木板凳劈成两半,可在一瞬间杀死七人。
+  techniques:
+    - name: 左右开弓
+      description: 刀法左右开弓,出手双飞,但左手比右手快一倍。
+    - name: 瞬杀
+      description: 一瞬间杀死七人,刀光一闪间劈开木板凳。
