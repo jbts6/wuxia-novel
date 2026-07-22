@@ -66,6 +66,45 @@ function writeYaml(target: string, value: unknown): void {
   fs.writeFileSync(target, yaml.dump(value, { lineWidth: -1, noRefs: true }));
 }
 
+function writePassingQualityReport(directory: string): void {
+  writeJson(path.join(directory, 'reports', 'quality_report.json'), {
+    completion_gate_passed: true,
+    gates: Object.fromEntries(['G1', 'G2', 'G3', 'G4', 'G5'].map((gate) => [gate, { passed: true, reasons: [] }])),
+  });
+}
+
+function writeV7InstallReceipt(directory: string): void {
+  writeJson(path.join(directory, 'reports', 'generate_game_kb_install.json'), {
+    semantic_contract_version: 7,
+    source_hash: 'sha256:source',
+    final_data_hash: 'sha256:data',
+  });
+}
+
+function reviewReport(finalDataHash = 'sha256:data') {
+  return {
+    report_version: 1,
+    source_hash: 'sha256:source',
+    final_data_hash: finalDataHash,
+    summary: {
+      warning_count: 1,
+      by_code: { GENERIC_CANDIDATE_FILTERED: 1 },
+      by_category: { characters: 1 },
+    },
+    entries: [{
+      code: 'GENERIC_CANDIDATE_FILTERED',
+      severity: 'warning',
+      category: 'characters',
+      name: '店小二',
+      chapter_numbers: [1],
+      source_refs: [{ chapter: 1, text: '店小二端来一壶酒。' }],
+      member_refs: ['ch001:character:店小二'],
+      reason: 'confirmed_generic_name',
+      resolution: 'filtered',
+    }],
+  };
+}
+
 function createBook(root: string, relativePath = '金庸/测试书'): string {
   const directory = path.join(root, relativePath);
   fs.mkdirSync(directory, { recursive: true });
@@ -258,14 +297,80 @@ describe('scanLibrary', () => {
     const root = createRoot();
     const directory = createBook(root);
     writeCompleteData(directory);
-    writeJson(path.join(directory, 'reports', 'quality_report.json'), {
-      completion_gate_passed: true,
-      gates: Object.fromEntries(['G1', 'G2', 'G3', 'G4', 'G5'].map((gate) => [gate, { passed: true, reasons: [] }])),
-    });
+    writePassingQualityReport(directory);
 
     const [book] = scanLibrary(root).books;
 
-    expect(book).toMatchObject({ validationStatus: 'passed', browseable: true, completed: true });
+    expect(book).toMatchObject({
+      validationStatus: 'passed',
+      browseable: true,
+      completed: true,
+      review: { status: 'missing', warningCount: 0, reportPath: null },
+    });
+  });
+
+  it('reports current v7 review warnings without blocking completion', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory);
+    writePassingQualityReport(directory);
+    writeV7InstallReceipt(directory);
+    writeJson(path.join(directory, 'reports', 'game-kb-review.json'), reviewReport());
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({
+      browseable: true,
+      completed: true,
+      review: { status: 'current', warningCount: 1, reportPath: 'reports/game-kb-review.json' },
+    });
+  });
+
+  it('marks a stale v7 review report without blocking browseability', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeCompleteData(directory);
+    writePassingQualityReport(directory);
+    writeV7InstallReceipt(directory);
+    writeJson(path.join(directory, 'reports', 'game-kb-review.json'), reviewReport('sha256:stale'));
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({
+      browseable: true,
+      completed: false,
+      review: { status: 'stale', warningCount: 1, reportPath: 'reports/game-kb-review.json' },
+    });
+    expect(book?.errors.join(' ')).toContain('REVIEW_REPORT_STALE');
+  });
+
+  it('keeps invalid or missing v7 review reports browseable but incomplete', () => {
+    const root = createRoot();
+    const invalidDirectory = createBook(root, '古龙/损坏报告');
+    const missingDirectory = createBook(root, '金庸/缺失报告');
+    for (const directory of [invalidDirectory, missingDirectory]) {
+      writeCompleteData(directory);
+      writePassingQualityReport(directory);
+      writeV7InstallReceipt(directory);
+    }
+    fs.writeFileSync(path.join(invalidDirectory, 'reports', 'game-kb-review.json'), '{invalid');
+
+    const result = scanLibrary(root);
+    const invalid = result.books.find((book) => book.path === '古龙/损坏报告');
+    const missing = result.books.find((book) => book.path === '金庸/缺失报告');
+
+    expect(invalid).toMatchObject({
+      browseable: true,
+      completed: false,
+      review: { status: 'invalid', warningCount: 0, reportPath: 'reports/game-kb-review.json' },
+    });
+    expect(invalid?.errors.join(' ')).toContain('REVIEW_REPORT_INVALID');
+    expect(missing).toMatchObject({
+      browseable: true,
+      completed: false,
+      review: { status: 'missing', warningCount: 0, reportPath: null },
+    });
+    expect(missing?.errors.join(' ')).toContain('REVIEW_REPORT_MISSING');
   });
 
   it('keeps index-only entity files browseable but excludes them from completed books', () => {

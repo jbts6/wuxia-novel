@@ -1,4 +1,9 @@
-import type { LibraryStatusResponse, RawBookExtrasResponse, RawNovelData } from '../types/library';
+import type {
+  LibraryStatusResponse,
+  RawBookExtrasResponse,
+  RawNovelData,
+  ReviewReport,
+} from '../types/library';
 
 async function readJsonResponse(response: Response): Promise<unknown> {
   const value = (await response.json()) as unknown;
@@ -37,4 +42,19 @@ export async function fetchRawBookExtras(bookPath: string): Promise<RawBookExtra
   const value = await readJsonResponse(response);
   if (typeof value !== 'object' || value === null) throw new Error('单书扩展接口返回了无效数据');
   return value as RawBookExtrasResponse;
+}
+
+export async function fetchReviewReport(bookPath: string): Promise<ReviewReport> {
+  const response = await fetch(`/api/library/review-report?path=${encodeURIComponent(bookPath)}`, { cache: 'no-store' });
+  const value = await readJsonResponse(response);
+  if (typeof value !== 'object' || value === null) throw new Error('审查报告接口返回了无效数据');
+  const report = value as Partial<ReviewReport>;
+  if (report.report_version !== 1
+    || !Array.isArray(report.entries)
+    || typeof report.summary !== 'object'
+    || report.summary === null
+    || !Number.isInteger(report.summary.warning_count)) {
+    throw new Error('审查报告接口返回了无效数据');
+  }
+  return value as ReviewReport;
 }

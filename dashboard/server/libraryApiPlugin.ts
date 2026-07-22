@@ -2,7 +2,7 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import { execFile } from 'node:child_process';
 import type { Connect, Plugin } from 'vite';
 import { ACTION_CONFIGS } from './actionConfig';
-import { readBookData, readBookExtras, scanLibrary } from './libraryScanner';
+import { readBookData, readBookExtras, readReviewReport, scanLibrary } from './libraryScanner';
 
 // 允许执行的 action types 白名单（只包含有脚本的 action）
 const ALLOWED_ACTION_TYPES = ACTION_CONFIGS
@@ -63,6 +63,9 @@ export async function handleLibraryApiRequest(
 ): Promise<ApiResult | null> {
   const url = new URL(requestUrl ?? '/', 'http://localhost');
   if (!url.pathname.startsWith('/api/library/')) return null;
+  if (url.pathname === '/api/library/review-report' && method !== 'GET') {
+    return { status: 405, body: { error: '不支持的请求方法' } };
+  }
 
   // GET 请求处理
   if (method === 'GET') {
@@ -81,6 +84,12 @@ export async function handleLibraryApiRequest(
         const bookPath = url.searchParams.get('path');
         if (!bookPath) return { status: 400, body: { error: '缺少书籍 path 参数' } };
         return { status: 200, body: readBookExtras(rootDirectory, bookPath) };
+      }
+
+      if (url.pathname === '/api/library/review-report') {
+        const bookPath = url.searchParams.get('path');
+        if (!bookPath) return { status: 400, body: { error: '缺少书籍 path 参数' } };
+        return { status: 200, body: readReviewReport(rootDirectory, bookPath) };
       }
 
       return { status: 404, body: { error: '接口不存在' } };

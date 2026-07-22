@@ -42,6 +42,7 @@ function createBook(name: string, author = '金庸'): LibraryBookStatus {
       },
     },
     entityCounts: { characters: 1, factions: 1, skills: 1, items: 1 },
+    review: { status: 'missing', warningCount: 0, reportPath: null },
     missingArtifacts: [],
     errors: [],
     gateFailures: [],

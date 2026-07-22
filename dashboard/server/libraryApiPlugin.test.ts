@@ -45,6 +45,19 @@ const BROWSEABLE_DATA: Record<YamlDataKey, unknown[]> = {
   chapter_summaries: [{ chapter: 1, title: '第一章', summary: '摘要' }],
 };
 
+const REVIEW_REPORT = {
+  report_version: 1,
+  source_hash: 'sha256:source',
+  final_data_hash: 'sha256:data',
+  summary: { warning_count: 0, by_code: {}, by_category: {} },
+  entries: [],
+};
+
+function writeJson(target: string, value: unknown): void {
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, JSON.stringify(value));
+}
+
 function createRoot(): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'wuxia-api-'));
   temporaryDirectories.push(root);
@@ -117,6 +130,52 @@ describe('handleLibraryApiRequest', () => {
     expect(await handleLibraryApiRequest(root, 'GET', '/api/library/book-extras')).toEqual({
       status: 400,
       body: { error: '缺少书籍 path 参数' },
+    });
+  });
+
+  it('serves only the fixed review report path and synthesizes a missing report', async () => {
+    const root = createRoot();
+    const bookDirectory = path.join(root, '古龙', '测试书');
+    writeJson(path.join(bookDirectory, 'reports', 'game-kb-review.json'), REVIEW_REPORT);
+
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/review-report?path=古龙%2F测试书')).toEqual({
+      status: 200,
+      body: REVIEW_REPORT,
+    });
+
+    fs.rmSync(path.join(bookDirectory, 'reports', 'game-kb-review.json'));
+    writeJson(path.join(bookDirectory, 'reports', 'game-kb-review.backup.json'), REVIEW_REPORT);
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/review-report?path=古龙%2F测试书')).toMatchObject({
+      status: 200,
+      body: { report_version: 1, summary: { warning_count: 0 }, entries: [] },
+    });
+  });
+
+  it('rejects malformed review reports, invalid paths, and non-GET access', async () => {
+    const root = createRoot();
+    const reportPath = path.join(root, '古龙', '测试书', 'reports', 'game-kb-review.json');
+    fs.mkdirSync(path.dirname(reportPath), { recursive: true });
+    fs.writeFileSync(reportPath, '{invalid');
+
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/review-report?path=古龙%2F测试书'))
+      .toMatchObject({ status: 422, body: { error: expect.stringContaining('game-kb-review.json') } });
+    writeJson(reportPath, {
+      ...REVIEW_REPORT,
+      summary: { ...REVIEW_REPORT.summary, info_count: 0 },
+    });
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/review-report?path=古龙%2F测试书'))
+      .toMatchObject({ status: 422, body: { error: expect.stringContaining('summary') } });
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/review-report')).toEqual({
+      status: 400,
+      body: { error: '缺少书籍 path 参数' },
+    });
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/review-report?path=..%2Fdashboard'))
+      .toMatchObject({ status: 422 });
+    expect(await handleLibraryApiRequest(root, 'GET', '/api/library/review-report?path=古龙%2F不存在'))
+      .toMatchObject({ status: 422 });
+    expect(await handleLibraryApiRequest(root, 'POST', '/api/library/review-report?path=古龙%2F测试书')).toEqual({
+      status: 405,
+      body: { error: '不支持的请求方法' },
     });
   });
 

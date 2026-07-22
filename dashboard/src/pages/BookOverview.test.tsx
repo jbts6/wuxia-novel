@@ -46,6 +46,7 @@ const book: LibraryBookStatus = {
     },
   },
   entityCounts: { characters: 0, factions: 0, skills: 0, items: 0 },
+  review: { status: 'missing', warningCount: 0, reportPath: null },
   missingArtifacts: [],
   errors: [],
   gateFailures: [],

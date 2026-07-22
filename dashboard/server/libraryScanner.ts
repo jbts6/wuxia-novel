@@ -15,6 +15,8 @@ import {
   type OptionalResourceResult,
   type RawBookExtrasResponse,
   type RawNovelData,
+  type ReviewReport,
+  type ReviewSummary,
   type ScanPassName,
   type ScanPassProgress,
   type ValidationStatus,
@@ -43,6 +45,14 @@ const EXCLUDED_ROOT_DIRECTORIES = new Set([
 ]);
 
 const REQUIRED_DATA_ENTRIES = Object.entries(DATA_FILE_NAMES) as [DataFileKey, string][];
+const REVIEW_REPORT_RELATIVE_PATH = 'reports/game-kb-review.json';
+const INSTALL_RECEIPT_RELATIVE_PATH = 'reports/generate_game_kb_install.json';
+const REVIEW_REPORT_FIELDS = ['report_version', 'source_hash', 'final_data_hash', 'summary', 'entries'] as const;
+const REVIEW_SUMMARY_FIELDS = ['warning_count', 'by_code', 'by_category'] as const;
+const REVIEW_ENTRY_FIELDS = [
+  'code', 'severity', 'category', 'name', 'chapter_numbers',
+  'source_refs', 'member_refs', 'reason', 'resolution',
+] as const;
 
 interface DiscoveredBook {
   author: string;
@@ -166,6 +176,157 @@ function validateGameMaterials(value: unknown): value is Record<string, unknown>
         isNonEmptyString(entry.reason),
     )
   );
+}
+
+function hasExactFields(value: unknown, fields: readonly string[]): value is Record<string, unknown> {
+  if (!isRecord(value)) return false;
+  const keys = Object.keys(value);
+  return keys.length === fields.length && keys.every((key) => fields.includes(key));
+}
+
+function reviewCounts(entries: ReviewReport['entries'], field: 'code' | 'category'): Record<string, number> {
+  const result = Object.create(null) as Record<string, number>;
+  for (const entry of entries) result[entry[field]] = (result[entry[field]] ?? 0) + 1;
+  return result;
+}
+
+function matchesReviewCounts(value: unknown, expected: Record<string, number>): boolean {
+  if (!isRecord(value)) return false;
+  const entries = Object.entries(value);
+  return entries.length === Object.keys(expected).length
+    && entries.every(([key, count]) => Number.isInteger(count) && count === expected[key] && count > 0);
+}
+
+function parseReviewReport(value: unknown): ReviewReport {
+  if (!hasExactFields(value, REVIEW_REPORT_FIELDS)) throw new Error('根节点字段无效');
+  if (value.report_version !== 1) throw new Error('report_version 必须为 1');
+  if (!isNonEmptyString(value.source_hash) || !isNonEmptyString(value.final_data_hash)) {
+    throw new Error('source_hash/final_data_hash 无效');
+  }
+  if (!hasExactFields(value.summary, REVIEW_SUMMARY_FIELDS)) throw new Error('summary 字段无效');
+  if (!Array.isArray(value.entries)) throw new Error('entries 必须为数组');
+
+  const entries = value.entries.map((entry, index) => {
+    if (!hasExactFields(entry, REVIEW_ENTRY_FIELDS)) throw new Error(`entries[${index}] 字段无效`);
+    for (const field of ['code', 'category', 'name', 'reason', 'resolution'] as const) {
+      if (!isNonEmptyString(entry[field])) throw new Error(`entries[${index}].${field} 无效`);
+    }
+    if (entry.severity !== 'warning') throw new Error(`entries[${index}].severity 无效`);
+    if (!Array.isArray(entry.chapter_numbers)
+      || entry.chapter_numbers.length === 0
+      || entry.chapter_numbers.some((chapter) => !Number.isInteger(chapter))) {
+      throw new Error(`entries[${index}].chapter_numbers 无效`);
+    }
+    if (!Array.isArray(entry.source_refs)
+      || entry.source_refs.length === 0
+      || entry.source_refs.some((sourceRef) => !isRecord(sourceRef))) {
+      throw new Error(`entries[${index}].source_refs 无效`);
+    }
+    if (!Array.isArray(entry.member_refs)
+      || entry.member_refs.length === 0
+      || entry.member_refs.some((memberRef) => !isNonEmptyString(memberRef))) {
+      throw new Error(`entries[${index}].member_refs 无效`);
+    }
+    return entry as unknown as ReviewReport['entries'][number];
+  });
+
+  const summary = value.summary;
+  if (!Number.isInteger(summary.warning_count) || summary.warning_count !== entries.length) {
+    throw new Error('summary.warning_count 无效');
+  }
+  if (!matchesReviewCounts(summary.by_code, reviewCounts(entries, 'code'))
+    || !matchesReviewCounts(summary.by_category, reviewCounts(entries, 'category'))) {
+    throw new Error('summary 分类计数无效');
+  }
+
+  return {
+    report_version: 1,
+    source_hash: value.source_hash,
+    final_data_hash: value.final_data_hash,
+    summary: {
+      warning_count: summary.warning_count,
+      by_code: summary.by_code as Record<string, number>,
+      by_category: summary.by_category as Record<string, number>,
+    },
+    entries,
+  };
+}
+
+function emptyReviewReport(): ReviewReport {
+  return {
+    report_version: 1,
+    source_hash: null,
+    final_data_hash: null,
+    summary: { warning_count: 0, by_code: {}, by_category: {} },
+    entries: [],
+  };
+}
+
+function readInstallReceipt(bookDirectory: string): Record<string, unknown> | null {
+  const target = path.join(bookDirectory, INSTALL_RECEIPT_RELATIVE_PATH);
+  if (!pathExists(target)) return null;
+  try {
+    const value = readJson(target);
+    return isRecord(value) ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+function inspectReviewReport(bookDirectory: string): {
+  summary: ReviewSummary;
+  completionReady: boolean;
+  warning: string | null;
+} {
+  const receipt = readInstallReceipt(bookDirectory);
+  const semanticV7 = receipt?.semantic_contract_version === 7;
+  const target = path.join(bookDirectory, REVIEW_REPORT_RELATIVE_PATH);
+  if (!pathExists(target)) {
+    return {
+      summary: { status: 'missing', warningCount: 0, reportPath: null },
+      completionReady: !semanticV7,
+      warning: semanticV7
+        ? `REVIEW_REPORT_MISSING：语义合同 v7 缺少 ${REVIEW_REPORT_RELATIVE_PATH}`
+        : null,
+    };
+  }
+
+  let report: ReviewReport;
+  try {
+    report = parseReviewReport(readJson(target));
+  } catch (error) {
+    return {
+      summary: { status: 'invalid', warningCount: 0, reportPath: REVIEW_REPORT_RELATIVE_PATH },
+      completionReady: !semanticV7,
+      warning: `REVIEW_REPORT_INVALID：${REVIEW_REPORT_RELATIVE_PATH} ${error instanceof Error ? error.message : String(error)}`,
+    };
+  }
+
+  const sourceHash = typeof receipt?.source_hash === 'string' ? receipt.source_hash : null;
+  const finalDataHash = typeof receipt?.final_data_hash === 'string' ? receipt.final_data_hash : null;
+  const stale = (sourceHash !== null && report.source_hash !== sourceHash)
+    || (finalDataHash !== null && report.final_data_hash !== finalDataHash);
+  if (stale) {
+    return {
+      summary: {
+        status: 'stale',
+        warningCount: report.summary.warning_count,
+        reportPath: REVIEW_REPORT_RELATIVE_PATH,
+      },
+      completionReady: !semanticV7,
+      warning: `REVIEW_REPORT_STALE：${REVIEW_REPORT_RELATIVE_PATH} 与安装回执哈希不一致`,
+    };
+  }
+
+  return {
+    summary: {
+      status: 'current',
+      warningCount: report.summary.warning_count,
+      reportPath: REVIEW_REPORT_RELATIVE_PATH,
+    },
+    completionReady: true,
+    warning: null,
+  };
 }
 
 function readOptionalResource<T>(
@@ -372,6 +533,8 @@ function maxObservedMtime(bookDirectory: string): string | null {
     path.join(bookDirectory, 'build', 'candidates.jsonl'),
     path.join(bookDirectory, 'build', 'decisions.jsonl'),
     path.join(bookDirectory, 'reports', 'quality_report.json'),
+    path.join(bookDirectory, REVIEW_REPORT_RELATIVE_PATH),
+    path.join(bookDirectory, INSTALL_RECEIPT_RELATIVE_PATH),
     ...REQUIRED_DATA_ENTRIES.map(([, filename]) => path.join(bookDirectory, 'data', filename)),
   ];
 
@@ -441,10 +604,13 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
 
   const manifest = parseManifest(path.join(buildDirectory, 'scan-manifest.json'), errors);
   const quality = parseQualityReport(reportPath, errors);
+  const review = inspectReviewReport(book.directory);
+  if (review.warning) errors.push(review.warning);
   const generationStage = deriveGenerationStage(artifacts, dataInspection, manifest.progress);
   const completed = dataInspection.browseable
     && dataInspection.contentCoverage.state === 'complete'
-    && quality.status === 'passed';
+    && quality.status === 'passed'
+    && review.completionReady;
 
   const missingArtifacts = [...dataInspection.missing];
   if (!artifacts.chapterSplit) missingArtifacts.push('ch_split/');
@@ -471,6 +637,7 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
     },
     contentCoverage: dataInspection.contentCoverage,
     entityCounts: dataInspection.entityCounts,
+    review: review.summary,
     missingArtifacts,
     errors,
     gateFailures: quality.gateFailures,
@@ -515,6 +682,22 @@ export function readBookData(rootDirectory: string, bookPath: string): RawNovelD
     result[key] = readYaml(path.join(book.directory, 'data', filename)) as unknown[];
   }
   return result;
+}
+
+export function readReviewReport(rootDirectory: string, bookPath: string): ReviewReport {
+  const book = discoverBooks(rootDirectory).find((entry) => entry.path === bookPath);
+  if (!book) throw new Error('书籍不存在或路径不合法');
+
+  const target = path.join(book.directory, REVIEW_REPORT_RELATIVE_PATH);
+  if (!pathExists(target)) return emptyReviewReport();
+  try {
+    return parseReviewReport(readJson(target));
+  } catch (error) {
+    throw new Error(
+      `${REVIEW_REPORT_RELATIVE_PATH} 无法解析：${error instanceof Error ? error.message : String(error)}`,
+      { cause: error },
+    );
+  }
 }
 
 export function readBookExtras(rootDirectory: string, bookPath: string): RawBookExtrasResponse {

@@ -52,6 +52,38 @@ export type GenerationStage =
 
 export type ValidationStatus = 'not-validated' | 'legacy-unproven' | 'failed' | 'passed';
 
+export type ReviewStatus = 'missing' | 'current' | 'stale' | 'invalid';
+
+export interface ReviewSummary {
+  status: ReviewStatus;
+  warningCount: number;
+  reportPath: string | null;
+}
+
+export interface ReviewReportEntry {
+  code: string;
+  severity: 'warning';
+  category: string;
+  name: string;
+  chapter_numbers: number[];
+  source_refs: Record<string, unknown>[];
+  member_refs: string[];
+  reason: string;
+  resolution: string;
+}
+
+export interface ReviewReport {
+  report_version: 1;
+  source_hash: string | null;
+  final_data_hash: string | null;
+  summary: {
+    warning_count: number;
+    by_code: Record<string, number>;
+    by_category: Record<string, number>;
+  };
+  entries: ReviewReportEntry[];
+}
+
 export interface ScanPassProgress {
   completed: number;
   total: number;
@@ -95,6 +127,7 @@ export interface LibraryBookStatus {
   dataCompleteness: DataCompleteness;
   contentCoverage: ContentCoverage;
   entityCounts: KnowledgeEntityCounts;
+  review: ReviewSummary;
   missingArtifacts: string[];
   errors: string[];
   gateFailures: string[];

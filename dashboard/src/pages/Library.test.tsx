@@ -54,6 +54,7 @@ function createBook(overrides: Partial<LibraryBookStatus>): LibraryBookStatus {
       skills: null,
       items: null,
     },
+    review: { status: 'missing', warningCount: 0, reportPath: null },
     missingArtifacts: ['data/characters.json'],
     errors: [],
     gateFailures: [],

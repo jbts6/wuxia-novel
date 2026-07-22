@@ -31,6 +31,7 @@ function makeStatus(overrides: Partial<LibraryBookStatus> = {}): LibraryBookStat
     dataCompleteness: { present: 0, valid: 0, required: 4 },
     contentCoverage: { state: 'empty', total: 0, detailed: 0, indexOnly: 0, byEntity: { characters: { total: 0, detailed: 0, indexOnly: 0 }, factions: { total: 0, detailed: 0, indexOnly: 0 }, skills: { total: 0, detailed: 0, indexOnly: 0 }, items: { total: 0, detailed: 0, indexOnly: 0 } } },
     entityCounts: { characters: null, factions: null, skills: null, items: null },
+    review: { status: 'missing', warningCount: 0, reportPath: null },
     missingArtifacts: [],
     errors: [],
     gateFailures: [],
