@@ -75,18 +75,18 @@ const ENTITY_FIELD_CONTRACTS = Object.freeze({
     forbidden: ['type', 'faction', 'holders', 'users', 'holder_names', 'user_names']
   }),
   items: entityFieldContract({
-    fields: ['id', 'name', 'aliases', 'type', 'description'],
-    arrays: ['aliases'],
-    nullable: ['type', 'description'],
+    fields: ['id', 'name', 'aliases', 'types', 'description'],
+    arrays: ['aliases', 'types'],
+    nullable: ['description'],
     requiredStrings: ['id', 'name'],
-    forbidden: ['holder', 'holders', 'owner', 'owners', 'holder_names', 'owner_name']
+    forbidden: ['type', 'holder', 'holders', 'owner', 'owners', 'holder_names', 'owner_name']
   }),
   factions: entityFieldContract({
-    fields: ['id', 'name', 'aliases', 'type', 'description'],
-    arrays: ['aliases'],
-    nullable: ['type', 'description'],
+    fields: ['id', 'name', 'aliases', 'types', 'description'],
+    arrays: ['aliases', 'types'],
+    nullable: ['description'],
     requiredStrings: ['id', 'name'],
-    forbidden: ['member', 'members', 'member_names']
+    forbidden: ['type', 'member', 'members', 'member_names']
   })
 });
 const FINAL_FIELDS = Object.freeze({
@@ -104,7 +104,7 @@ function entityIssue(code, path, target = '') {
 }
 
 function isPlaceholderValue(value, field) {
-  if (field === 'type') return false;
+  if (field === 'type' || field === 'types') return false;
   return typeof value === 'string' && PLACEHOLDER_VALUES.has(value.trim().toLowerCase());
 }
 

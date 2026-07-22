@@ -42,7 +42,7 @@ function validChapterDraft(overrides = {}) {
       local_key: 'faction:玄门',
       name: '玄门',
       aliases: [],
-      type: '门派',
+      types: ['门派'],
       description: '隐居山中。',
       source_refs: [sourceRef()]
     }],
@@ -96,10 +96,10 @@ test('accepts null or omitted uncertain enrichment without inventing normalized 
   assert.equal(normalized.skills[0].rank, null);
   assert.equal(normalized.skills[0].description, null);
   assert.deepEqual(normalized.items[0].aliases, []);
-  assert.equal(normalized.items[0].type, null);
+  assert.deepEqual(normalized.items[0].types, []);
   assert.equal(normalized.items[0].description, null);
   assert.deepEqual(normalized.factions[0].aliases, []);
-  assert.equal(normalized.factions[0].type, null);
+  assert.deepEqual(normalized.factions[0].types, []);
   assert.equal(normalized.factions[0].description, null);
   assert.equal(Object.hasOwn(normalized.items[0], 'inclusion_reason'), false);
 });
@@ -112,7 +112,9 @@ test('rejects legacy, inverse, unknown, empty, and placeholder entity fields', (
     ['characters', 'items', []],
     ['skills', 'type', '内功'],
     ['skills', 'holders', ['甲']],
+    ['items', 'type', '武器'],
     ['items', 'owners', ['甲']],
+    ['factions', 'type', '门派'],
     ['factions', 'members', ['甲']],
     ['characters', 'personality', { traits: ['坚毅'] }]
   ];

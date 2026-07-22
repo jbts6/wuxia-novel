@@ -17,12 +17,13 @@ const {
   SEMANTIC_CONTRACT_VERSION,
   SEMANTIC_PROFILE,
   requiredDomainUnitsForContract,
-  requiredDomainUnitsForMode
+  requiredDomainUnitsForMode,
+  validateEntitySemantics
 } = semanticContract;
 
-test('declares the version-6 fast-path YAML contract and retains domain unit names', () => {
-  assert.equal(SEMANTIC_CONTRACT_VERSION, 6);
-  assert.equal(SEMANTIC_PROFILE, 'domain-distill-v1');
+test('declares the version-7 direct-chapter YAML contract and retains domain unit names', () => {
+  assert.equal(SEMANTIC_CONTRACT_VERSION, 7);
+  assert.equal(SEMANTIC_PROFILE, 'chapter-direct-v1');
   assert.deepEqual(DOMAIN_UNITS, [
     'distill:factions',
     'distill:characters',
@@ -47,14 +48,14 @@ test('declares the version-6 fast-path YAML contract and retains domain unit nam
 });
 
 test('required domain units reject unsupported or mistyped semantic versions', () => {
-  for (const version of ['6', 3, 4, 5, 7, null, undefined]) {
+  for (const version of ['7', 3, 4, 5, 6, null, undefined]) {
     assert.throws(
       () => requiredDomainUnitsForContract(version),
       error => error.code === 'SEMANTIC_CONTRACT_VERSION_UNSUPPORTED'
       && error.version === version
     );
   }
-  assert.deepEqual(requiredDomainUnitsForContract(6), DOMAIN_UNITS);
+  assert.deepEqual(requiredDomainUnitsForContract(7), DOMAIN_UNITS);
 });
 
 test('the single active semantic contract selects domain units only by --deep mode', () => {
@@ -102,7 +103,7 @@ test('centralizes the whole-book rank scale and evidence priority', () => {
   assert.match(POWER_RANK_CONTRACT.skill_rule, /可靠.*使用者|后文.*推翻/);
 });
 
-test('defines one frozen version-6 entity field contract for all stages', () => {
+test('defines one frozen version-7 entity field contract for all stages', () => {
   assert.deepEqual(ENTITY_FIELD_CONTRACTS, {
     characters: {
       fields: ['id', 'name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills'],
@@ -122,18 +123,18 @@ test('defines one frozen version-6 entity field contract for all stages', () => 
       forbidden: ['type', 'faction', 'holders', 'users', 'holder_names', 'user_names']
     },
     items: {
-      fields: ['id', 'name', 'aliases', 'type', 'description'],
-      arrays: ['aliases'],
-      nullable: ['type', 'description'],
+      fields: ['id', 'name', 'aliases', 'types', 'description'],
+      arrays: ['aliases', 'types'],
+      nullable: ['description'],
       requiredStrings: ['id', 'name'],
-      forbidden: ['holder', 'holders', 'owner', 'owners', 'holder_names', 'owner_name']
+      forbidden: ['type', 'holder', 'holders', 'owner', 'owners', 'holder_names', 'owner_name']
     },
     factions: {
-      fields: ['id', 'name', 'aliases', 'type', 'description'],
-      arrays: ['aliases'],
-      nullable: ['type', 'description'],
+      fields: ['id', 'name', 'aliases', 'types', 'description'],
+      arrays: ['aliases', 'types'],
+      nullable: ['description'],
       requiredStrings: ['id', 'name'],
-      forbidden: ['member', 'members', 'member_names']
+      forbidden: ['type', 'member', 'members', 'member_names']
     }
   });
   assert.equal(Object.isFrozen(ENTITY_FIELD_CONTRACTS), true);
@@ -143,12 +144,33 @@ test('defines one frozen version-6 entity field contract for all stages', () => 
   }
 });
 
+test('accepts v7 type arrays and rejects legacy single type fields', () => {
+  assert.deepEqual(validateEntitySemantics('items', {
+    name: '小李飞刀',
+    aliases: [],
+    types: ['武器', '暗器'],
+    description: null
+  }, { requireStrings: true }), []);
+  assert.deepEqual(validateEntitySemantics('items', {
+    name: '未分类信物',
+    aliases: [],
+    types: ['其他'],
+    description: null
+  }, { requireStrings: true }), []);
+  assert.ok(validateEntitySemantics('factions', {
+    name: '青衣楼',
+    aliases: [],
+    type: '组织',
+    description: null
+  }, { requireStrings: true }).some(issue => issue.code === 'ENTITY_FIELD_FORBIDDEN'));
+});
+
 test('derives the exact final fields from the shared entity contract', () => {
   assert.deepEqual(FINAL_FIELDS, {
     characters: ['id', 'name', 'aliases', 'identities', 'level', 'rank', 'description', 'factions', 'skills'],
     skills: ['id', 'name', 'aliases', 'types', 'factions', 'rank', 'description', 'techniques'],
-    items: ['id', 'name', 'aliases', 'type', 'description'],
-    factions: ['id', 'name', 'aliases', 'type', 'description'],
+    items: ['id', 'name', 'aliases', 'types', 'description'],
+    factions: ['id', 'name', 'aliases', 'types', 'description'],
     chapter_summaries: ['chapter', 'title', 'summary']
   });
   assert.equal(FINAL_FIELDS.items.includes('tags'), false);
