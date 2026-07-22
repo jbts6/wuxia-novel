@@ -2,6 +2,7 @@ import { Badge } from '../ui/badge';
 import { GENERATION_STAGE_LABELS } from '../../lib/libraryStatusPresentation';
 import type { LibraryBookStatus } from '../../types/library';
 import { cn } from '../../lib/utils';
+import { AlertTriangle } from 'lucide-react';
 
 interface LibraryCardProps {
   book: LibraryBookStatus;
@@ -50,6 +51,9 @@ export function LibraryCard({ book, onClick }: LibraryCardProps) {
       </div>
       <div className="flex items-center gap-2">
         {contentCoverageBadge(book)}
+        {book.review.warningCount > 0 && <Badge className="gap-1 bg-amber-100 text-amber-900">
+          <AlertTriangle className="h-3 w-3" />{book.review.warningCount} 条审查警告
+        </Badge>}
       </div>
     </div>
   );

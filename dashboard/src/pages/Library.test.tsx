@@ -1,6 +1,6 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { TooltipProvider } from '../components/ui/tooltip';
 import { useLibraryStore } from '../stores/useLibraryStore';
 import type { LibraryBookStatus, LibraryStatusResponse } from '../types/library';
@@ -123,6 +123,10 @@ function renderLibrary() {
   );
 }
 
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
 describe('Library workbench', () => {
   beforeEach(() => {
     copyCommand.mockClear();
@@ -217,6 +221,55 @@ describe('Library workbench', () => {
     expect(dialog).not.toHaveTextContent('招式');
     expect(dialog).not.toHaveTextContent('对话');
     expect(dialog).not.toHaveTextContent('事件');
+  });
+
+  it('loads review warning details only after opening the selected book sheet', async () => {
+    const warningBook: LibraryBookStatus = {
+      ...completedBook,
+      name: '有警告书',
+      path: '古龙/有警告书',
+      review: { status: 'current', warningCount: 1, reportPath: 'reports/game-kb-review.json' },
+    };
+    const warningStatus: LibraryStatusResponse = {
+      ...status,
+      summary: { ...status.summary, total: 1, browseable: 1, completed: 1 },
+      books: [warningBook],
+    };
+    useLibraryStore.setState({ status: warningStatus, books: warningStatus.books });
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify({
+      report_version: 1,
+      source_hash: 'sha256:source',
+      final_data_hash: 'sha256:data',
+      summary: {
+        warning_count: 1,
+        by_code: { GENERIC_CANDIDATE_FILTERED: 1 },
+        by_category: { characters: 1 },
+      },
+      entries: [{
+        code: 'GENERIC_CANDIDATE_FILTERED',
+        severity: 'warning',
+        category: 'characters',
+        name: '店小二',
+        chapter_numbers: [1],
+        source_refs: [],
+        member_refs: [],
+        reason: '泛称',
+        resolution: 'filtered',
+      }],
+    }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    renderLibrary();
+    expect(fetchMock).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('row', { name: '查看《有警告书》状态详情' }));
+
+    const dialog = await screen.findByRole('dialog');
+    expect(within(dialog).getByText('1 条审查警告')).toBeInTheDocument();
+    expect(fetchMock).not.toHaveBeenCalled();
+    fireEvent.click(within(dialog).getByRole('button', { name: '查看审查警告' }));
+
+    expect(await within(dialog).findByText('GENERIC_CANDIDATE_FILTERED')).toBeInTheDocument();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
   it('copies the suggested command without executing it', async () => {

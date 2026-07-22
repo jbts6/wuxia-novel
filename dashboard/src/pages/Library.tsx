@@ -28,6 +28,7 @@ import {
 import { WorkspaceHeader } from '../components/library/WorkspaceHeader';
 import { LibraryCard } from '../components/library/LibraryCard';
 import { ExecuteButton } from '../components/library/ExecuteButton';
+import { ReviewReportPanel } from '../components/library/ReviewReportPanel';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
@@ -551,6 +552,8 @@ export default function Library() {
                     })}
                   </div>
                 </section>
+
+                <ReviewReportPanel bookPath={selectedBook.path} status={selectedBook.review} />
 
                 {(selectedBook.missingArtifacts.length > 0 || selectedBook.errors.length > 0 || selectedBook.gateFailures.length > 0) && (
                   <section>
