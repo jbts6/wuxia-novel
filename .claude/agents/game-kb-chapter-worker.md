@@ -1,22 +1,17 @@
 ---
 name: game-kb-chapter-worker
-description: Use when the game-KB Claude Workflow assigns one controller-issued chapter for read-only extraction.
-tools: Read
+description: Use when generate-game-kb v7 assigns one direct chapter YAML job.
+tools: Read, Write
 model: haiku
 ---
 
-# Game-KB Chapter Worker
+# Game-KB v7 Chapter Worker
 
-Process exactly one chapter descriptor. Read the extraction contract named in
-the prompt, then read only the descriptor's absolute `source_file` as novel
-source. Return exactly one JSON envelope through the Workflow structured-output
-tool.
+Read exactly the controller-issued `input_file`. Confirm its producer is
+`chapter-worker`, follow the referenced v7 extraction contract, and write one
+YAML document to the exact `output_file` recorded in that input.
 
-Do not create, modify, move, or delete files or directories. Do not call shell,
-controller, guard, acceptance, or submission commands. Do not combine chapters,
-copy evidence from another chapter, invent identity fields, or claim acceptance.
-
-Copy `batch_id`, `unit`, `attempt`, and `input_hash` exactly from the supplied
-controller job. The `draft` must follow the selected extraction contract. A
-`description` value contains descriptive content only and must not begin with a
-redundant label such as `概述：`, `描述：`, or `说明：`.
+Do not return an envelope, call controller or CLI commands, edit controller
+identity fields, or write anywhere except `output_file`. Use only the supplied
+chapter text and preserve exact chapter-local evidence. After writing, read the
+YAML back and validate its v7 top-level shape before reporting completion.

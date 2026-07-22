@@ -1,103 +1,29 @@
-# 章节提取子代理合同
+# v7 章节直写合同
 
-你是由主模型调度的隔离章节子代理。每个子代理只接收一个章节单元（`chapter:NNN`），只处理一章，只返回一个 JSON envelope。不存在 batch 身份，也没有 `batch_id`。
+每个 job 只处理一个 `chapter:NNN`。执行者只读取 controller 签发的绝对路径 `input_file`，并且只把一份 YAML 写到其中声明的绝对路径 `output_file`。
 
-## Worker 边界
+## 通用边界
 
-- `source_file` 是绝对只读路径。完整读取且只读取该章节原文。
-- `WORKER_WRITE_PATHS = []`。子代理不得创建、修改、移动或删除任何文件或目录。
-- 不得调用 controller、脚本或提交命令，不得推导输出路径，不得声称章节已经 accepted。
-- 单元只提供 controller 签发的 `unit`、`attempt`、`input_hash`、章节号、标题和 `source_file`，不含任何写入位置。
-- 最终消息必须且只能包含一个 JSON envelope，不要使用 Markdown 代码围栏或附加说明。
-- 主代理把 envelope 原样经标准输入交给 `submit`；controller 负责验证、序列化并写入 YAML、accepted 写入和 attempt 状态。
+- 不返回 envelope，不调用 controller、CLI、接收或提交命令。
+- 不创建、修改、移动或删除 `output_file` 之外的任何文件。
+- 不改写 `unit/cycle/attempt/producer/input_hash/input_file/output_file` 等 controller 身份字段。
+- YAML 顶层固定为 `schema_version/chapter/title/source_hash/characters/items/skills/factions/chapter_summary/normalizations`。
+- `schema_version` 固定为 7；实体使用章节局部 `local_key`，不得生成正式 ID 或 controller candidate key。
+- 所有实体和章节摘要必须保留当前章节的精确 `source_refs`；不得使用记忆或其他章节证据。
+- `skills/items/factions` 使用闭合的 `types` 数组，不使用 legacy `type`。
+- 写完后重新读取 `output_file`，确认它是单个可解析 YAML 文档且没有额外顶层字段。
 
-## JSON envelope
+## `chapter-worker` 输入
 
-`unit`、`attempt` 和 `input_hash` 必须逐字复制 `extract-plan` 返回的对应单元。`draft.source_hash` 必须等于同一个 `input_hash`。
+`input_file` 是只读 JSON，`producer` 为 `chapter-worker`，包含本章 `chapter_text`、章节号、标题、source hash、完整 taxonomy 和唯一 `output_file`。逐章穷尽扫描 `chapter_text`，提取所有有明确名称且有证据的角色、武功、物品、势力与章节摘要，然后直接写入 `output_file`。
 
-```json
-{
-  "schema_version": 1,
-  "unit": "chapter:001",
-  "attempt": 1,
-  "input_hash": "sha256:controller-input-hash",
-  "draft": {
-    "schema_version": 1,
-    "chapter": 1,
-    "title": "第一章 xxx",
-    "source_hash": "sha256:controller-input-hash",
-    "factions": [
-      {
-        "local_key": "faction:青城派",
-        "name": "青城派",
-        "aliases": [],
-        "type": "门派",
-        "description": null,
-        "source_refs": [{ "chapter": 1, "text": "原文锚点" }]
-      }
-    ],
-    "characters": [
-      {
-        "local_key": "character:甲",
-        "name": "甲",
-        "aliases": [],
-        "identities": [],
-        "level": null,
-        "rank": null,
-        "description": null,
-        "factions": [],
-        "skills": [],
-        "source_refs": [{ "chapter": 1, "text": "原文锚点" }]
-      }
-    ],
-    "skills": [
-      {
-        "local_key": "skill:内功",
-        "name": "玄门内功",
-        "aliases": [],
-        "types": ["内功"],
-        "factions": [],
-        "rank": null,
-        "description": null,
-        "techniques": [{ "name": "飞云掌", "description": null }],
-        "source_refs": [{ "chapter": 1, "text": "原文锚点" }]
-      }
-    ],
-    "items": [
-      {
-        "local_key": "item:回生丹",
-        "name": "回生丹",
-        "aliases": [],
-        "type": "丹药",
-        "description": null,
-        "source_refs": [{ "chapter": 1, "text": "原文锚点" }]
-      }
-    ],
-    "chapter_summary": {
-      "title": "第一章 xxx",
-      "summary": "本章摘要",
-      "source_refs": [{ "chapter": 1, "text": "原文锚点" }]
-    }
-  }
-}
-```
+## `main-agent-repair` 输入
 
-## 字段规则
-
-- `draft` 顶层只能包含 `schema_version/chapter/title/source_hash/factions/characters/skills/items/chapter_summary`；四个候选数组必须存在，即使为空。
-- `chapter` 必须等于单元章节号；所有 `source_refs[].chapter` 也必须等于该章节号。
-- 引用文本必须是当前 `source_file` 的精确原文片段；不得复制其他章节的名称、证据或摘要。
-- `local_key` 使用 `category:名称`，不要写正式 `id`、`candidate_key` 或其他 controller 字段。
-- `rank` 只能使用合同中的八级固定值；证据不足时为 null。
-- 人物 `level` 只能使用 `核心/重要/次要/龙套/背景`；证据不足时为 null。
-- `description` 值只包含描述正文，不得添加"概述：""描述：""说明："等重复字段标签；内容只能复述本章原文直接支持的信息，不确定时为 null。
-- `aliases`、`identities`、`types`、`factions` 和 `skills` 按原文首次确认顺序去重。
-- `techniques` 只保留原文明确定名的招式；说明不确定时为 null。
-- 物品类型使用完整枚举 `武器/防具/秘籍/丹药/暗器/坐骑/异兽/饰品/其他`；只提取原文明确命名、稀有或剧情关键且有证据的物品，普通器具、景物和无名背景物件不要保留。
+`input_file` 是只读 JSON，`producer` 为 `main-agent-repair`，只包含 `rejected_draft`、`error_report`、`allowed_repair_codes` 和唯一 `output_file`，不包含小说原文。只做白名单允许的机械修复；任何需要重新理解语义或补充证据的错误都不得猜测修复。
 
 ## 返回前检查
 
-1. 最终消息只有一个可解析 JSON 对象，没有代码围栏、路径或说明文字。
-2. 身份字段与 `extract-plan` 返回的单元完全一致，`draft.source_hash` 等于 `input_hash`。
-3. 没有空名称、空摘要、空证据文本、正式 ID 或其他章节证据。
-4. 没有执行任何文件写入或 controller 命令。
+1. 只写了 controller 指定的 `output_file`。
+2. 输出是 schema v7 YAML，不是 envelope，也没有 Markdown 围栏。
+3. `chapter/source_hash/source_refs` 与输入一致。
+4. 没有正式 ID、旧 `type`、controller 状态或其他章节内容。

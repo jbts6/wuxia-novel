@@ -48,6 +48,15 @@ function runDirectories(novelDir) {
     .filter(directory => fs.existsSync(path.join(directory, 'run.json')));
 }
 
+function archivedRunDirectories(novelDir) {
+  const root = path.join(path.resolve(novelDir), '_archive', 'generate-game-kb');
+  if (!fs.existsSync(root)) return [];
+  return fs.readdirSync(root, { withFileTypes: true })
+    .filter(entry => entry.isDirectory() && entry.name !== 'abandoned')
+    .map(entry => path.join(root, entry.name))
+    .filter(directory => fs.existsSync(path.join(directory, 'run.json')));
+}
+
 function sourceState(novelDir) {
   const sourceFile = discoverSource(novelDir);
   const sourceHash = sha256(normalizeSource(fs.readFileSync(sourceFile, 'utf8')));
@@ -72,10 +81,9 @@ function normalizeDeep(deep) {
   return deep;
 }
 
-function assertSemanticContract(metadata, action = 'continue', expectedDeep) {
+function assertSemanticContract(metadata, action = 'continue') {
   if (metadata?.semantic_contract_version !== SEMANTIC_CONTRACT_VERSION
-    || metadata?.semantic_profile !== SEMANTIC_PROFILE
-    || typeof metadata?.deep !== 'boolean') {
+    || metadata?.semantic_profile !== SEMANTIC_PROFILE) {
     throw new GameKbError(
       'LEGACY_SEMANTIC_CONTRACT',
       'This run is read-only under the current semantic contract',
@@ -85,19 +93,6 @@ function assertSemanticContract(metadata, action = 'continue', expectedDeep) {
         required_version: SEMANTIC_CONTRACT_VERSION,
         semantic_profile: metadata?.semantic_profile ?? null,
         required_profile: SEMANTIC_PROFILE,
-        deep: metadata?.deep ?? null,
-        action
-      }
-    );
-  }
-  if (expectedDeep !== undefined && metadata.deep !== expectedDeep) {
-    throw new GameKbError(
-      'DEEP_MODE_MISMATCH',
-      `Run deep mode ${metadata.deep} cannot be written with --deep=${expectedDeep}`,
-      {
-        run_id: metadata?.run_id ?? null,
-        deep: metadata.deep,
-        required_deep: expectedDeep,
         action
       }
     );
@@ -125,11 +120,7 @@ function assertArchiveExistingAllowed(novelDir) {
 }
 
 function ensureRunDirectories(paths) {
-  for (const directory of [
-    paths.staging,
-    paths.domainWork,
-    paths.domainDecisions
-  ]) {
+  for (const directory of [paths.staging]) {
     fs.mkdirSync(directory, { recursive: true });
   }
 }
@@ -137,7 +128,6 @@ function ensureRunDirectories(paths) {
 function createOrResumeRun(novelDir, options = {}) {
   const novel = path.resolve(novelDir);
   const { sourceFile, sourceHash } = sourceState(novel);
-  const deep = normalizeDeep(options.deep);
   const runs = runDirectories(novel);
   let runId = options.runId;
   if (!runId) {
@@ -147,8 +137,8 @@ function createOrResumeRun(novelDir, options = {}) {
   const paths = pathsFor(novel, runId);
   if (fs.existsSync(paths.runJson)) {
     let metadata = readRunMetadata(paths.run);
-    assertSemanticContract(metadata, 'prepare');
-    assertAcceptedSerialization(metadata, 'prepare');
+    assertSemanticContract(metadata, 'run');
+    assertAcceptedSerialization(metadata, 'run');
     if (metadata.source_hash !== sourceHash) {
       throw new GameKbError('RUN_SOURCE_CHANGED', 'Source changed; archive the old run before resuming it', {
         run_id: runId,
@@ -156,7 +146,6 @@ function createOrResumeRun(novelDir, options = {}) {
         source_hash: sourceHash
       });
     }
-    assertSemanticContract(metadata, 'prepare', deep);
     ensureRunDirectories(paths);
     return {
       run_id: runId,
@@ -165,7 +154,6 @@ function createOrResumeRun(novelDir, options = {}) {
       source_hash: sourceHash,
       semantic_contract_version: metadata.semantic_contract_version,
       semantic_profile: metadata.semantic_profile,
-      deep: metadata.deep,
       resumed: true
     };
   }
@@ -176,7 +164,6 @@ function createOrResumeRun(novelDir, options = {}) {
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     semantic_profile: SEMANTIC_PROFILE,
     accepted_serialization: ACCEPTED_SERIALIZATION,
-    deep,
     run_id: runId,
     source_file: sourceFile,
     source_hash: sourceHash,
@@ -193,22 +180,34 @@ function createOrResumeRun(novelDir, options = {}) {
     source_hash: sourceHash,
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
     semantic_profile: SEMANTIC_PROFILE,
-    deep,
     resumed: false
   };
 }
 
-function resolveRun(novelDir, runId, expectedDeep) {
+function resolveRunReadOnly(novelDir, runId) {
   const runs = runDirectories(novelDir);
   if (runId) {
-    const paths = pathsFor(novelDir, runId);
-    if (!fs.existsSync(paths.runJson)) throw new GameKbError('RUN_MISSING', 'Requested run does not exist', { run_id: runId });
-    return assertSemanticContract({ ...readRunMetadata(paths.run), run_dir: paths.run }, 'resolve', expectedDeep);
+    const active = pathsFor(novelDir, runId).run;
+    const archived = path.join(path.resolve(novelDir), '_archive', 'generate-game-kb', runId);
+    const candidates = [active, archived]
+      .filter(directory => fs.existsSync(path.join(directory, 'run.json')));
+    if (candidates.length === 0) {
+      throw new GameKbError('RUN_MISSING', 'Requested run does not exist', { run_id: runId });
+    }
+    if (candidates.length > 1) {
+      throw new GameKbError('RUN_AMBIGUOUS', 'Run exists in both active and archived storage', { run_id: runId });
+    }
+    return { ...readRunMetadata(candidates[0]), run_dir: candidates[0] };
   }
-  if (runs.length === 0) throw new GameKbError('RUN_REQUIRED', 'No eligible run exists; run prepare first');
-  if (runs.length > 1) throw new GameKbError('RUN_AMBIGUOUS', 'Multiple eligible runs require --run <run-id>');
-  const runDir = runs[0];
-  return assertSemanticContract({ ...readRunMetadata(runDir), run_dir: runDir }, 'resolve', expectedDeep);
+  const candidates = [...runs, ...archivedRunDirectories(novelDir)];
+  if (candidates.length === 0) throw new GameKbError('RUN_REQUIRED', 'No run exists; run the pipeline first');
+  if (candidates.length > 1) throw new GameKbError('RUN_AMBIGUOUS', 'Multiple runs require --run <run-id>');
+  const runDir = candidates[0];
+  return { ...readRunMetadata(runDir), run_dir: runDir };
+}
+
+function resolveRun(novelDir, runId) {
+  return assertSemanticContract(resolveRunReadOnly(novelDir, runId), 'resolve');
 }
 
 function resolveWritableRun(novelDir, runId, action = 'continue', expectedDeep) {
@@ -227,6 +226,7 @@ module.exports = {
   createOrResumeRun,
   normalizeDeep,
   resolveRun,
+  resolveRunReadOnly,
   resolveWritableRun,
   sourceState
 };

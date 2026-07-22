@@ -12,7 +12,8 @@ const { readJson } = require('./lib/io');
 const { pathsFor } = require('./lib/paths');
 const {
   createOrResumeRun,
-  resolveRun
+  resolveRun,
+  resolveRunReadOnly
 } = require('./lib/run');
 
 function flagValue(args, flag) {
@@ -239,14 +240,31 @@ function saveChapterProgress(paths, progress) {
 }
 
 function publicRunResult(run, next) {
+  const progress = next.progress || null;
+  const units = progress?.units && typeof progress.units === 'object'
+    ? Object.values(progress.units)
+    : [];
   return {
-    semantic_contract_version: 7,
+    semantic_contract_version: run.semantic_contract_version ?? 7,
     run_id: run.run_id,
-    novel_dir: run.novel_dir || run.novelDir,
-    status: next.status,
-    jobs: (next.jobs || []).map(job => ({ unit: job.unit, cycle: job.cycle, attempt: job.attempt, input: job.input, output: job.output })),
-    active_units: next.progress?.active_units || [],
-    manual_review: next.manual_review || []
+    status: next.status === 'dispatched' ? 'jobs' : next.status,
+    jobs: (next.jobs || []).map(job => ({
+      unit: job.unit,
+      cycle: job.cycle,
+      attempt: job.attempt,
+      producer: job.producer,
+      input_file: job.input_file,
+      output_file: job.output_file,
+      input_hash: job.input_hash
+    })),
+    active_units: progress?.active_units || [],
+    progress: progress ? {
+      accepted: units.filter(state => state.status === 'accepted').length,
+      total: units.length
+    } : null,
+    manual_review: Array.isArray(next.manual_review) && next.manual_review.length > 0
+      ? next.manual_review
+      : null
   };
 }
 
@@ -277,10 +295,18 @@ function v7RunPipeline(novelDir, requestedRun) {
   if (next.status === 'ready-to-assemble') {
     assembleRun({ paths });
     const { verifyFinal } = require('./lib/verify');
-    verifyFinal(novelDir, run.run_id);
+    const workspace = verifyFinal(paths);
+    if (!workspace.passed) {
+      throw new GameKbError('WORKSPACE_VERIFICATION_FAILED', 'Workspace verification failed', workspace);
+    }
     installVerifiedData(novelDir, { runId: run.run_id });
+    const { verifyInstalled } = require('./lib/install');
+    const installed = verifyInstalled(novelDir);
+    if (!installed.passed) {
+      throw new GameKbError('INSTALLED_VERIFICATION_FAILED', 'Installed verification failed', installed);
+    }
     archiveRun(novelDir, run.run_id);
-    return publicRunResult(run, { status: 'complete', progress: next.progress, jobs: [], manual_review: [] });
+    return publicRunResult(run, { status: 'complete', progress: next.progress, jobs: [], manual_review: null });
   }
 
   return publicRunResult(run, next);
@@ -288,23 +314,27 @@ function v7RunPipeline(novelDir, requestedRun) {
 
 function v7Status(novelDir, requestedRun) {
   const { activeJobMetadata } = require('./lib/chapter-work');
-  const run = resolveRun(novelDir, requestedRun);
+  const run = resolveRunReadOnly(novelDir, requestedRun);
   const paths = pathsFor(novelDir, run.run_id);
-  const result = {
-    semantic_contract_version: run.semantic_contract_version || 7,
-    run_id: run.run_id,
-    status: 'ok'
-  };
-  if (fs.existsSync(paths.progress)) {
-    const progress = readJson(paths.progress);
-    result.active_units = progress.active_units;
-    result.jobs = activeJobMetadata(paths, progress);
-    const manualReview = Object.entries(progress.units)
-      .filter(([, state]) => state.status === 'rejected' && state.attempt >= 2)
-      .map(([unit]) => unit);
-    result.manual_review = manualReview;
+  if (run.semantic_contract_version !== 7 || !fs.existsSync(paths.progress)) {
+    return publicRunResult(run, {
+      status: run.status === 'archived' ? 'complete' : 'waiting',
+      progress: null,
+      jobs: [],
+      manual_review: null
+    });
   }
-  return result;
+  const progress = readJson(paths.progress);
+  const manualReview = Object.entries(progress.units)
+    .filter(([, state]) => state.status === 'rejected' && state.attempt >= 2)
+    .map(([unit]) => unit);
+  const jobs = manualReview.length === 0 ? activeJobMetadata(paths, progress) : [];
+  return publicRunResult(run, {
+    status: manualReview.length > 0 ? 'manual_review' : (jobs.length > 0 ? 'jobs' : 'waiting'),
+    progress,
+    jobs,
+    manual_review: manualReview
+  });
 }
 
 function v7RetryUnit(novelDir, requestedRun, args) {
@@ -358,11 +388,8 @@ function main(argv = process.argv.slice(2)) {
     }
     if (command === 'archive-abandoned') {
       if (!novelDir) throw new GameKbError('NOVEL_DIR_REQUIRED', 'archive-abandoned requires <novel>');
-      const run = resolveRun(novelDir, requestedRun);
-      emit(archiveAbandoned(novelDir, run.run_id, {
-        confirm: args.includes('--confirm'),
-        reason: flagValue(args, '--reason')
-      }));
+      const runId = requestedRun || resolveRunReadOnly(novelDir).run_id;
+      emit(archiveAbandoned(novelDir, runId));
       return;
     }
     throw new GameKbError('COMMAND_UNKNOWN', `Unknown command: ${command || '<missing>'}`);
