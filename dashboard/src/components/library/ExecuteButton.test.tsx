@@ -55,6 +55,30 @@ describe('ExecuteButton', () => {
     });
   });
 
+  it('sends the installed validation run id with the action request', async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({ success: true, output: 'done' }),
+    });
+
+    render(
+      <ExecuteButton
+        bookPath="古龙/测试书"
+        actionType="game-kb-status"
+        validationRunId="run-v7-test"
+      />,
+    );
+    screen.getByRole('button', { name: /执行/ }).click();
+
+    await waitFor(() => expect(mockFetch).toHaveBeenCalledTimes(1));
+    const request = mockFetch.mock.calls[0]?.[1] as RequestInit;
+    expect(JSON.parse(String(request.body))).toEqual({
+      bookPath: '古龙/测试书',
+      actionType: 'game-kb-status',
+      validationRunId: 'run-v7-test',
+    });
+  });
+
   it('shows error message on failed execution', async () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,

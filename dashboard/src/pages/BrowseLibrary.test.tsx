@@ -15,6 +15,10 @@ const book: LibraryBookStatus = {
   name: '测试书',
   generationStage: 'data-produced',
   validationStatus: 'passed',
+
+    validationContract: 'none',
+    validationWarnings: [],
+    validationRunId: null,
   browseable: true,
   completed: true,
   schemaVersion: '2.0',
@@ -32,6 +36,10 @@ const book: LibraryBookStatus = {
     candidates: true,
     decisions: true,
     qualityReport: true,
+
+    v7InstallReceipt: false,
+    v7VerificationReport: false,
+    v7ReviewReport: false,
   },
   dataCompleteness: { present: 8, valid: 8, required: 8 },
   contentCoverage: {

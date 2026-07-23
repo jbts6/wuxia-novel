@@ -11,6 +11,7 @@ import {
 } from '../src/types/library';
 import { readBookData, readBookExtras, scanLibrary } from './libraryScanner';
 import { clearCache } from './scanCache';
+import { writeInstalledV7Fixture } from './testSupport/gameKbV7Fixture';
 
 const temporaryDirectories: string[] = [];
 const YAML_DATA_FILE_NAMES = {
@@ -312,17 +313,91 @@ describe('scanLibrary', () => {
   it('reports current v7 review warnings without blocking completion', () => {
     const root = createRoot();
     const directory = createBook(root);
-    writeCompleteData(directory);
-    writePassingQualityReport(directory);
-    writeV7InstallReceipt(directory);
-    writeJson(path.join(directory, 'reports', 'game-kb-review.json'), reviewReport());
+    writeInstalledV7Fixture(directory);
 
     const [book] = scanLibrary(root).books;
 
     expect(book).toMatchObject({
       browseable: true,
       completed: true,
-      review: { status: 'current', warningCount: 1, reportPath: 'reports/game-kb-review.json' },
+      validationContract: 'generate-game-kb-v7',
+      validationStatus: 'passed',
+      validationRunId: 'test_run_001',
+      review: { status: 'current', reportPath: 'reports/game-kb-review.json' },
+    });
+  });
+
+  it('does not label a non-v7 generate-game-kb receipt as v7', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeInstalledV7Fixture(directory, { semanticContractVersion: 6 });
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({
+      validationContract: 'generate-game-kb-legacy',
+      validationStatus: 'legacy-unproven',
+      validationRunId: 'test_run_001',
+      schemaVersion: '6',
+      completed: false,
+    });
+    expect(book?.suggestedAction).toBeNull();
+  });
+
+  it('completes v7 books regardless of contentCoverage state when adapter passes', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeInstalledV7Fixture(directory);
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({
+      browseable: true,
+      completed: true,
+      validationContract: 'generate-game-kb-v7',
+      validationStatus: 'passed',
+      schemaVersion: '7',
+    });
+  });
+
+  it('v7 missingArtifacts does not include ch_split, old build, or quality_report', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeInstalledV7Fixture(directory);
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book?.missingArtifacts).not.toContain('ch_split/');
+    expect(book?.missingArtifacts).not.toContain('build/source-index.json');
+    expect(book?.missingArtifacts).not.toContain('reports/quality_report.json');
+  });
+
+  it('v7 hash corruption sets validationStatus failed and completed false', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeInstalledV7Fixture(directory, { corruptDataFile: 'characters.yaml' });
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({
+      validationContract: 'generate-game-kb-v7',
+      validationStatus: 'failed',
+      completed: false,
+    });
+  });
+
+  it('v7 directory with passing quality_report still fails when v7 hash is corrupted', () => {
+    const root = createRoot();
+    const directory = createBook(root);
+    writeInstalledV7Fixture(directory, { corruptDataFile: 'characters.yaml' });
+    writePassingQualityReport(directory);
+
+    const [book] = scanLibrary(root).books;
+
+    expect(book).toMatchObject({
+      validationContract: 'generate-game-kb-v7',
+      validationStatus: 'failed',
+      completed: false,
     });
   });
 

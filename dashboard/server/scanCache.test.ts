@@ -10,6 +10,10 @@ function makeStatus(overrides: Partial<LibraryBookStatus> = {}): LibraryBookStat
     name: 'book',
     generationStage: 'not-started',
     validationStatus: 'not-validated',
+
+    validationContract: 'none',
+    validationWarnings: [],
+    validationRunId: null,
     browseable: false,
     completed: false,
     schemaVersion: null,
@@ -27,6 +31,10 @@ function makeStatus(overrides: Partial<LibraryBookStatus> = {}): LibraryBookStat
       candidates: false,
       decisions: false,
       qualityReport: false,
+
+    v7InstallReceipt: false,
+    v7VerificationReport: false,
+    v7ReviewReport: false,
     },
     dataCompleteness: { present: 0, valid: 0, required: 4 },
     contentCoverage: { state: 'empty', total: 0, detailed: 0, indexOnly: 0, byEntity: { characters: { total: 0, detailed: 0, indexOnly: 0 }, factions: { total: 0, detailed: 0, indexOnly: 0 }, skills: { total: 0, detailed: 0, indexOnly: 0 }, items: { total: 0, detailed: 0, indexOnly: 0 } } },

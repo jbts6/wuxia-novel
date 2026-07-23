@@ -28,6 +28,10 @@ function createBook(overrides: Partial<LibraryBookStatus>): LibraryBookStatus {
     name: '测试书',
     generationStage: 'not-started',
     validationStatus: 'not-validated',
+
+    validationContract: 'none',
+    validationWarnings: [],
+    validationRunId: null,
     browseable: false,
     completed: false,
     schemaVersion: null,
@@ -45,6 +49,10 @@ function createBook(overrides: Partial<LibraryBookStatus>): LibraryBookStatus {
       candidates: false,
       decisions: false,
       qualityReport: false,
+
+    v7InstallReceipt: false,
+    v7VerificationReport: false,
+    v7ReviewReport: false,
     },
     dataCompleteness: { present: 0, valid: 0, required: 8 },
     contentCoverage: emptyContentCoverage,
@@ -74,6 +82,9 @@ const completedBook = createBook({
   author: '古龙',
   generationStage: 'data-produced',
   validationStatus: 'passed',
+
+    validationContract: 'none',
+    validationWarnings: [],
   browseable: true,
   completed: true,
   schemaVersion: '2.0',
@@ -152,7 +163,7 @@ describe('Library workbench', () => {
     expect(screen.getByRole('columnheader', { name: '知识条目' })).toBeInTheDocument();
     expect(screen.getByRole('columnheader', { name: '内容' })).toBeInTheDocument();
     expect(screen.getByText('角色 12 · 武功 5 · 物品 6')).toBeInTheDocument();
-    expect(screen.getByText('内容完整')).toBeInTheDocument();
+    expect(screen.getByText('详情覆盖 26/26')).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: /未生成/ }));
 
@@ -188,11 +199,11 @@ describe('Library workbench', () => {
     useLibraryStore.setState({ status: indexStatus, books: indexStatus.books });
 
     renderLibrary();
-    fireEvent.click(screen.getByRole('button', { name: /内容待补全/ }));
+    fireEvent.click(screen.getByRole('button', { name: /详情未覆盖/ }));
 
     expect(screen.getByText('仅索引书')).toBeInTheDocument();
     expect(screen.queryByText('已完成书')).not.toBeInTheDocument();
-    expect(screen.getByText('仅有索引')).toBeInTheDocument();
+    expect(screen.getByText('详情覆盖 0/4')).toBeInTheDocument();
   });
 
   it('opens the selected book status in the detail sheet', async () => {
@@ -270,6 +281,39 @@ describe('Library workbench', () => {
 
     expect(await within(dialog).findByText('GENERIC_CANDIDATE_FILTERED')).toBeInTheDocument();
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it('shows installation validation warnings separately from review warnings', async () => {
+    const warningBook = createBook({
+      name: '安装提示书',
+      path: '古龙/安装提示书',
+      generationStage: 'data-produced',
+      validationContract: 'generate-game-kb-v7',
+      validationStatus: 'passed',
+      validationWarnings: [
+        'INSTALL_MIGRATION_RECEIPT_MISSING | receipt.migration_receipt_hash | run-v7-test',
+      ],
+      validationRunId: 'run-v7-test',
+      schemaVersion: '7',
+      browseable: true,
+      completed: true,
+      missingArtifacts: [],
+      suggestedAction: null,
+    });
+    const warningStatus: LibraryStatusResponse = {
+      ...status,
+      summary: { ...status.summary, total: 1, browseable: 1, completed: 1 },
+      books: [warningBook],
+    };
+    useLibraryStore.setState({ status: warningStatus, books: warningStatus.books });
+
+    renderLibrary();
+    fireEvent.click(screen.getByRole('row', { name: '查看《安装提示书》状态详情' }));
+
+    const dialog = await screen.findByRole('dialog');
+    expect(within(dialog).getByText('v7 安装验证通过')).toBeInTheDocument();
+    expect(within(dialog).getByRole('heading', { name: '安装验证提示' })).toBeInTheDocument();
+    expect(within(dialog).getByText(/INSTALL_MIGRATION_RECEIPT_MISSING/)).toBeInTheDocument();
   });
 
   it('copies the suggested command without executing it', async () => {

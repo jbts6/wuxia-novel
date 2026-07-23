@@ -1,22 +1,29 @@
 import type { GenerationStage, LibraryBookStatus, SuggestedAction } from '../src/types/library';
 
 const PIPELINE_SCRIPT_ROOT = '.agents/skills/generate-kb/scripts';
+const V7_SCRIPT_ROOT = '.agents/skills/generate-game-kb/scripts';
 
 export interface ActionConfig {
-  /** 动作类型标识符 */
   type: string;
-  /** 显示标签 */
   label: string;
-  /** 描述信息 */
   description: string;
-  /** 脚本文件名（相对于 PIPELINE_SCRIPT_ROOT），null 表示无脚本 */
   script: string | null;
-  /** 额外的命令行参数（可选） */
+  scriptRoot?: string;
+  prefixArgs?: string[];
   extraArgs?: string[];
-  /** 触发条件：generationStage 的值 */
+  includeValidationRunId?: boolean;
   triggerStage: GenerationStage | GenerationStage[];
-  /** 额外的触发条件 */
   triggerCondition?: (status: LibraryBookStatus) => boolean;
+}
+
+export interface ActionInvocation {
+  script: string;
+  args: string[];
+}
+
+function usesGenerateKbContract(status: LibraryBookStatus): boolean {
+  return status.validationContract === 'none'
+    || status.validationContract === 'generate-kb-gates';
 }
 
 export const ACTION_CONFIGS: ActionConfig[] = [
@@ -56,7 +63,9 @@ export const ACTION_CONFIGS: ActionConfig[] = [
     script: 'audit-recall.js',
     extraArgs: ['--legacy'],
     triggerStage: 'data-produced',
-    triggerCondition: (status) => status.validationStatus === 'legacy-unproven',
+    triggerCondition: (status) =>
+      usesGenerateKbContract(status)
+      && status.validationStatus === 'legacy-unproven',
   },
   {
     type: 'assess-quality',
@@ -65,7 +74,9 @@ export const ACTION_CONFIGS: ActionConfig[] = [
     script: 'assess-quality.js',
     extraArgs: ['--report-only', '--dry-run'],
     triggerStage: 'data-produced',
-    triggerCondition: (status) => status.validationStatus !== 'passed',
+    triggerCondition: (status) =>
+      usesGenerateKbContract(status)
+      && status.validationStatus !== 'passed',
   },
   {
     type: 'fill-content',
@@ -74,8 +85,23 @@ export const ACTION_CONFIGS: ActionConfig[] = [
     script: null,
     triggerStage: 'data-produced',
     triggerCondition: (status) =>
-      status.contentCoverage.state === 'index-only' ||
-      status.contentCoverage.state === 'partial',
+      usesGenerateKbContract(status)
+      && (status.contentCoverage.state === 'index-only'
+        || status.contentCoverage.state === 'partial'),
+  },
+  {
+    type: 'game-kb-status',
+    label: '诊断 v7 安装状态',
+    description: 'v7 安装验证未通过，需要检查安装状态。',
+    script: 'flow.js',
+    scriptRoot: V7_SCRIPT_ROOT,
+    prefixArgs: ['status'],
+    includeValidationRunId: true,
+    triggerStage: 'data-produced',
+    triggerCondition: (status) =>
+      status.validationContract === 'generate-game-kb-v7'
+      && status.validationStatus !== 'passed'
+      && status.validationRunId !== null,
   },
 ];
 
@@ -95,21 +121,38 @@ function shellQuote(value: string): string {
   return `'${value.replaceAll("'", `'\\''`)}'`;
 }
 
+export function buildActionInvocation(
+  actionType: string,
+  bookPath: string,
+  validationRunId: string | null = null,
+): ActionInvocation | null {
+  const config = ACTION_CONFIGS.find((candidate) => candidate.type === actionType);
+  if (!config?.script) return null;
+  if (config.includeValidationRunId && !validationRunId) return null;
+
+  const args = [...(config.prefixArgs ?? []), bookPath, ...(config.extraArgs ?? [])];
+  if (config.includeValidationRunId && validationRunId) {
+    args.push('--run', validationRunId);
+  }
+  return {
+    script: `${config.scriptRoot ?? PIPELINE_SCRIPT_ROOT}/${config.script}`,
+    args,
+  };
+}
+
 export function buildSuggestedAction(
   bookPath: string,
   status: LibraryBookStatus,
 ): SuggestedAction | null {
   const config = findAction(status);
   if (!config || !config.script) return null;
-
-  const novel = shellQuote(bookPath);
-  const script = shellQuote(`${PIPELINE_SCRIPT_ROOT}/${config.script}`);
-  const args = config.extraArgs?.length ? ` ${config.extraArgs.join(' ')}` : '';
+  const invocation = buildActionInvocation(config.type, bookPath, status.validationRunId);
+  if (!invocation) return null;
 
   return {
     label: config.label,
     reason: config.description,
-    command: `node ${script} ${novel}${args}`,
+    command: `node ${shellQuote(invocation.script)} ${invocation.args.map(shellQuote).join(' ')}`,
     type: config.type,
   };
 }

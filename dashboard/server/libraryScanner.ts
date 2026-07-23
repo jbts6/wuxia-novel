@@ -19,10 +19,12 @@ import {
   type ReviewSummary,
   type ScanPassName,
   type ScanPassProgress,
+  type ValidationContract,
   type ValidationStatus,
 } from '../src/types/library';
 import { buildSuggestedAction } from './actionConfig';
 import { getCachedStatus, setCachedStatus } from './scanCache';
+import { inspectInstalledGameKb } from './gameKbValidation';
 import {
   createEmptyContentCoverage,
   hasEntityContent,
@@ -47,6 +49,7 @@ const EXCLUDED_ROOT_DIRECTORIES = new Set([
 const REQUIRED_DATA_ENTRIES = Object.entries(DATA_FILE_NAMES) as [DataFileKey, string][];
 const REVIEW_REPORT_RELATIVE_PATH = 'reports/game-kb-review.json';
 const INSTALL_RECEIPT_RELATIVE_PATH = 'reports/generate_game_kb_install.json';
+const VERIFICATION_REPORT_RELATIVE_PATH = 'reports/verification-report.json';
 const REVIEW_REPORT_FIELDS = ['report_version', 'source_hash', 'final_data_hash', 'summary', 'entries'] as const;
 const REVIEW_SUMMARY_FIELDS = ['warning_count', 'by_code', 'by_category'] as const;
 const REVIEW_ENTRY_FIELDS = [
@@ -534,6 +537,7 @@ function maxObservedMtime(bookDirectory: string): string | null {
     path.join(bookDirectory, 'build', 'decisions.jsonl'),
     path.join(bookDirectory, 'reports', 'quality_report.json'),
     path.join(bookDirectory, REVIEW_REPORT_RELATIVE_PATH),
+    path.join(bookDirectory, VERIFICATION_REPORT_RELATIVE_PATH),
     path.join(bookDirectory, INSTALL_RECEIPT_RELATIVE_PATH),
     ...REQUIRED_DATA_ENTRIES.map(([, filename]) => path.join(bookDirectory, 'data', filename)),
   ];
@@ -583,13 +587,14 @@ export function discoverBooks(rootDirectory: string): DiscoveredBook[] {
 }
 
 function scanBook(book: DiscoveredBook): LibraryBookStatus {
-  // Check cache first
   const cached = getCachedStatus(book.directory);
   if (cached) return cached;
 
   const errors: string[] = [];
   const buildDirectory = path.join(book.directory, 'build');
   const reportPath = path.join(book.directory, 'reports', 'quality_report.json');
+  const v7Result = inspectInstalledGameKb(book.directory);
+
   const artifacts: ArtifactState = {
     sourceText: true,
     chapterSplit: directoryHasTextFiles(path.join(book.directory, 'ch_split')),
@@ -598,35 +603,76 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
     candidates: pathExists(path.join(buildDirectory, 'candidates.jsonl')),
     decisions: pathExists(path.join(buildDirectory, 'decisions.jsonl')),
     qualityReport: pathExists(reportPath),
+    v7InstallReceipt: pathExists(path.join(book.directory, INSTALL_RECEIPT_RELATIVE_PATH)),
+    v7VerificationReport: pathExists(path.join(book.directory, VERIFICATION_REPORT_RELATIVE_PATH)),
+    v7ReviewReport: pathExists(path.join(book.directory, REVIEW_REPORT_RELATIVE_PATH)),
   };
+
   const dataInspection = inspectDataDirectory(book.directory);
   errors.push(...dataInspection.errors);
 
   const manifest = parseManifest(path.join(buildDirectory, 'scan-manifest.json'), errors);
-  const quality = parseQualityReport(reportPath, errors);
   const review = inspectReviewReport(book.directory);
   if (review.warning) errors.push(review.warning);
-  const generationStage = deriveGenerationStage(artifacts, dataInspection, manifest.progress);
-  const completed = dataInspection.browseable
-    && dataInspection.contentCoverage.state === 'complete'
-    && quality.status === 'passed'
-    && review.completionReady;
 
+  let validationStatus: ValidationStatus;
+  let validationContract: ValidationContract;
+  let validationWarnings: string[];
+  let validationRunId: string | null;
+  let gateFailures: string[];
+  let schemaVersion: string | null;
+  let completed: boolean;
   const missingArtifacts = [...dataInspection.missing];
-  if (!artifacts.chapterSplit) missingArtifacts.push('ch_split/');
-  if (!artifacts.sourceIndex) missingArtifacts.push('build/source-index.json');
-  if (!artifacts.scanManifest) missingArtifacts.push('build/scan-manifest.json');
-  if (!artifacts.qualityReport) missingArtifacts.push('reports/quality_report.json');
+
+  if (v7Result) {
+    const isV7 = v7Result.semanticContractVersion === 7;
+    validationContract = isV7 ? 'generate-game-kb-v7' : 'generate-game-kb-legacy';
+    validationStatus = v7Result.status === 'unsupported'
+      ? 'legacy-unproven'
+      : v7Result.status === 'passed' ? 'passed' : 'failed';
+    validationWarnings = v7Result.warnings;
+    validationRunId = v7Result.runId;
+    gateFailures = v7Result.blockingErrors;
+    schemaVersion = String(v7Result.semanticContractVersion);
+    completed = isV7
+      && dataInspection.browseable
+      && validationStatus === 'passed'
+      && review.completionReady;
+    if (!artifacts.v7InstallReceipt) missingArtifacts.push(INSTALL_RECEIPT_RELATIVE_PATH);
+    if (!artifacts.v7VerificationReport) missingArtifacts.push(VERIFICATION_REPORT_RELATIVE_PATH);
+    if (!artifacts.v7ReviewReport) missingArtifacts.push(REVIEW_REPORT_RELATIVE_PATH);
+  } else {
+    const quality = parseQualityReport(reportPath, errors);
+    validationContract = artifacts.qualityReport ? 'generate-kb-gates' : 'none';
+    validationStatus = quality.status;
+    validationWarnings = [];
+    validationRunId = null;
+    gateFailures = quality.gateFailures;
+    schemaVersion = manifest.schemaVersion;
+    completed = dataInspection.browseable
+      && dataInspection.contentCoverage.state === 'complete'
+      && quality.status === 'passed'
+      && review.completionReady;
+    if (!artifacts.chapterSplit) missingArtifacts.push('ch_split/');
+    if (!artifacts.sourceIndex) missingArtifacts.push('build/source-index.json');
+    if (!artifacts.scanManifest) missingArtifacts.push('build/scan-manifest.json');
+    if (!artifacts.qualityReport) missingArtifacts.push('reports/quality_report.json');
+  }
+
+  const generationStage = deriveGenerationStage(artifacts, dataInspection, manifest.progress);
 
   const status: LibraryBookStatus = {
     path: book.path,
     author: book.author,
     name: book.name,
     generationStage,
-    validationStatus: quality.status,
+    validationStatus,
+    validationContract,
+    validationWarnings,
+    validationRunId,
     browseable: dataInspection.browseable,
     completed,
-    schemaVersion: manifest.schemaVersion,
+    schemaVersion,
     lastUpdatedAt: maxObservedMtime(book.directory),
     scanProgress: manifest.progress,
     artifacts,
@@ -640,7 +686,7 @@ function scanBook(book: DiscoveredBook): LibraryBookStatus {
     review: review.summary,
     missingArtifacts,
     errors,
-    gateFailures: quality.gateFailures,
+    gateFailures,
     suggestedAction: null,
   };
 

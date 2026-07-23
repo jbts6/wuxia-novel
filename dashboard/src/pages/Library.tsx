@@ -45,8 +45,10 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '.
 import { Tooltip, TooltipContent, TooltipTrigger } from '../components/ui/tooltip';
 import {
   GENERATION_STAGE_LABELS,
+  contentCoverageText,
   formatDateTime,
   isGenerationInProgress,
+  validationStatusText,
 } from '../lib/libraryStatusPresentation';
 import { cn } from '../lib/utils';
 import { useLibraryStore } from '../stores/useLibraryStore';
@@ -59,7 +61,7 @@ const statusOptions = [
   { value: 'not-started', label: '未生成' },
   { value: 'in-progress', label: '生成中' },
   { value: 'browseable', label: '可浏览' },
-  { value: 'content-incomplete', label: '内容待补全' },
+  { value: 'content-incomplete', label: '详情未覆盖' },
   { value: 'completed', label: '已完成' },
 ];
 
@@ -70,17 +72,17 @@ function generationBadge(book: LibraryBookStatus) {
 }
 
 function validationBadge(book: LibraryBookStatus) {
-  if (book.validationStatus === 'passed') return <Badge className="bg-emerald-600 text-white">G1-G5 通过</Badge>;
+  if (book.validationStatus === 'passed') return <Badge className="bg-emerald-600 text-white">{validationStatusText(book)}</Badge>;
   if (book.validationStatus === 'failed') return <Badge variant="destructive">校验失败</Badge>;
-  if (book.validationStatus === 'legacy-unproven') return <Badge className="bg-amber-100 text-amber-900">待新版验证</Badge>;
+  if (book.validationStatus === 'legacy-unproven') return <Badge className="bg-amber-100 text-amber-900">{validationStatusText(book)}</Badge>;
   return <Badge variant="outline">未校验</Badge>;
 }
 
 function contentCoverageBadge(book: LibraryBookStatus) {
   const coverage = book.contentCoverage;
-  if (coverage.state === 'complete') return <Badge className="bg-emerald-600 text-white">内容完整</Badge>;
-  if (coverage.state === 'index-only') return <Badge className="bg-amber-100 text-amber-900">仅有索引</Badge>;
-  if (coverage.state === 'partial') return <Badge variant="secondary">{coverage.detailed}/{coverage.total}</Badge>;
+  if (coverage.state === 'complete') return <Badge className="bg-emerald-600 text-white">{contentCoverageText(coverage)}</Badge>;
+  if (coverage.state === 'index-only') return <Badge className="bg-amber-100 text-amber-900">{contentCoverageText(coverage)}</Badge>;
+  if (coverage.state === 'partial') return <Badge variant="secondary">{contentCoverageText(coverage)}</Badge>;
   return <Badge variant="outline">无实体</Badge>;
 }
 
@@ -280,7 +282,7 @@ export default function Library() {
     { key: 'not-started' as const, label: '未生成', value: status?.summary.notStarted ?? 0, icon: FileQuestion },
     { key: 'in-progress' as const, label: '生成中', value: status?.summary.inProgress ?? 0, icon: Clock3 },
     { key: 'browseable' as const, label: '可浏览', value: status?.summary.browseable ?? 0, icon: CheckCircle2 },
-    { key: 'content-incomplete' as const, label: '内容待补全', value: status?.summary.contentIncomplete ?? 0, icon: FileWarning },
+    { key: 'content-incomplete' as const, label: '详情未覆盖', value: status?.summary.contentIncomplete ?? 0, icon: FileWarning },
     { key: 'completed' as const, label: '已完成', value: status?.summary.completed ?? 0, icon: Check },
   ];
 
@@ -555,6 +557,19 @@ export default function Library() {
 
                 <ReviewReportPanel bookPath={selectedBook.path} status={selectedBook.review} />
 
+                {selectedBook.validationWarnings.length > 0 && (
+                  <section>
+                    <h3 className="text-sm font-semibold">安装验证提示</h3>
+                    <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                      {selectedBook.validationWarnings.map((warning, index) => (
+                        <li key={`${warning}-${index}`} className="break-words border-l-2 border-amber-500 pl-3">
+                          {warning}
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+
                 {(selectedBook.missingArtifacts.length > 0 || selectedBook.errors.length > 0 || selectedBook.gateFailures.length > 0) && (
                   <section>
                     <h3 className="text-sm font-semibold">待处理项</h3>
@@ -591,6 +606,7 @@ export default function Library() {
                         <ExecuteButton
                           bookPath={selectedBook.path}
                           actionType={selectedBook.suggestedAction.type}
+                          validationRunId={selectedBook.validationRunId}
                           onSuccess={() => void refreshStatus()}
                         />
                       </div>

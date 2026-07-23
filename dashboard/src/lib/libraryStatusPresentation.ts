@@ -1,4 +1,4 @@
-import type { GenerationStage, LibraryBookStatus, ValidationStatus } from '../types/library';
+import type { ContentCoverage, GenerationStage, LibraryBookStatus, ValidationStatus } from '../types/library';
 
 export const GENERATION_STAGE_LABELS: Record<GenerationStage, string> = {
   'not-started': '未生成',
@@ -15,6 +15,20 @@ export const VALIDATION_STATUS_LABELS: Record<ValidationStatus, string> = {
   failed: '校验失败',
   passed: 'G1-G5 通过',
 };
+
+export function validationStatusText(book: LibraryBookStatus): string {
+  if (book.validationContract === 'generate-game-kb-legacy') {
+    return `v${book.schemaVersion ?? '?'} 安装合同待迁移`;
+  }
+  if (book.validationStatus === 'passed' && book.validationContract === 'generate-game-kb-v7') {
+    return 'v7 安装验证通过';
+  }
+  return VALIDATION_STATUS_LABELS[book.validationStatus];
+}
+
+export function contentCoverageText(coverage: ContentCoverage): string {
+  return `详情覆盖 ${coverage.detailed}/${coverage.total}`;
+}
 
 export function formatDateTime(value: string | null): string {
   if (!value) return '-';

@@ -1,7 +1,7 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { execFile } from 'node:child_process';
 import type { Connect, Plugin } from 'vite';
-import { ACTION_CONFIGS } from './actionConfig';
+import { ACTION_CONFIGS, buildActionInvocation } from './actionConfig';
 import { readBookData, readBookExtras, readReviewReport, scanLibrary } from './libraryScanner';
 
 // 允许执行的 action types 白名单（只包含有脚本的 action）
@@ -35,17 +35,17 @@ function executeAction(
   rootDirectory: string,
   bookPath: string,
   actionType: string,
+  validationRunId: string | null,
 ): Promise<{ success: boolean; output: string; error?: string }> {
-  const actionConfig = ACTION_CONFIGS.find((c) => c.type === actionType);
-  if (!actionConfig || !actionConfig.script) {
+  const invocation = buildActionInvocation(actionType, bookPath, validationRunId);
+  if (!invocation) {
     return Promise.resolve({ success: false, output: '', error: `未知的 action type: ${actionType}` });
   }
 
-  const scriptPath = `${rootDirectory}/.agents/skills/generate-kb/scripts/${actionConfig.script}`;
-  const args = [bookPath, ...(actionConfig.extraArgs ?? [])];
+  const scriptPath = `${rootDirectory}/${invocation.script}`;
 
   return new Promise((resolve) => {
-    execFile('node', [scriptPath, ...args], { cwd: rootDirectory, timeout: 60_000 }, (error, stdout, stderr) => {
+    execFile('node', [scriptPath, ...invocation.args], { cwd: rootDirectory, timeout: 60_000 }, (error, stdout, stderr) => {
       if (error) {
         resolve({ success: false, output: stderr || stdout, error: errorMessage(error) });
       } else {
@@ -111,7 +111,7 @@ export async function handleLibraryApiRequest(
         if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
           return { status: 400, body: { error: '请求体必须是 JSON 对象' } };
         }
-        const { bookPath, actionType } = parsed as Record<string, unknown>;
+        const { bookPath, actionType, validationRunId } = parsed as Record<string, unknown>;
         if (typeof bookPath !== 'string' || typeof actionType !== 'string') {
           return { status: 400, body: { error: '缺少 bookPath 或 actionType 参数' } };
         }
@@ -120,11 +120,22 @@ export async function handleLibraryApiRequest(
           return { status: 400, body: { error: '缺少 bookPath 或 actionType 参数' } };
         }
 
+        if (validationRunId !== undefined
+          && validationRunId !== null
+          && typeof validationRunId !== 'string') {
+          return { status: 400, body: { error: 'validationRunId 必须是字符串或 null' } };
+        }
+
         if (!ALLOWED_ACTION_TYPES.includes(actionType)) {
           return { status: 400, body: { error: `不允许的 action type: ${actionType}` } };
         }
 
-        const result = await executeAction(rootDirectory, bookPath, actionType);
+        const result = await executeAction(
+          rootDirectory,
+          bookPath,
+          actionType,
+          typeof validationRunId === 'string' ? validationRunId : null,
+        );
         return { status: 200, body: result };
       } catch (error) {
         return { status: 422, body: { error: errorMessage(error) } };

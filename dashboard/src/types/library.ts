@@ -104,6 +104,9 @@ export interface ArtifactState {
   candidates: boolean;
   decisions: boolean;
   qualityReport: boolean;
+  v7InstallReceipt: boolean;
+  v7VerificationReport: boolean;
+  v7ReviewReport: boolean;
 }
 
 export interface DataCompleteness {
@@ -112,12 +115,21 @@ export interface DataCompleteness {
   required: number;
 }
 
+export type ValidationContract =
+  | 'none'
+  | 'generate-kb-gates'
+  | 'generate-game-kb-legacy'
+  | 'generate-game-kb-v7';
+
 export interface LibraryBookStatus {
   path: string;
   author: string;
   name: string;
   generationStage: GenerationStage;
   validationStatus: ValidationStatus;
+  validationContract: ValidationContract;
+  validationWarnings: string[];
+  validationRunId: string | null;
   browseable: boolean;
   completed: boolean;
   schemaVersion: string | null;

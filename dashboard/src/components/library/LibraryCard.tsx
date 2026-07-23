@@ -1,5 +1,5 @@
 import { Badge } from '../ui/badge';
-import { GENERATION_STAGE_LABELS } from '../../lib/libraryStatusPresentation';
+import { GENERATION_STAGE_LABELS, contentCoverageText } from '../../lib/libraryStatusPresentation';
 import type { LibraryBookStatus } from '../../types/library';
 import { cn } from '../../lib/utils';
 import { AlertTriangle } from 'lucide-react';
@@ -17,9 +17,9 @@ function generationBadge(book: LibraryBookStatus) {
 
 function contentCoverageBadge(book: LibraryBookStatus) {
   const coverage = book.contentCoverage;
-  if (coverage.state === 'complete') return <Badge className="bg-emerald-600 text-white">内容完整</Badge>;
-  if (coverage.state === 'index-only') return <Badge className="bg-amber-100 text-amber-900">仅有索引</Badge>;
-  if (coverage.state === 'partial') return <Badge variant="secondary">{coverage.detailed}/{coverage.total}</Badge>;
+  if (coverage.state === 'complete') return <Badge className="bg-emerald-600 text-white">{contentCoverageText(coverage)}</Badge>;
+  if (coverage.state === 'index-only') return <Badge className="bg-amber-100 text-amber-900">{contentCoverageText(coverage)}</Badge>;
+  if (coverage.state === 'partial') return <Badge variant="secondary">{contentCoverageText(coverage)}</Badge>;
   return <Badge variant="outline">无实体</Badge>;
 }
 

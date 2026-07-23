@@ -217,6 +217,30 @@ describe('handleLibraryApiRequest', () => {
       expect(result?.body).toMatchObject({ success: false });
     });
 
+    it('executes v7 status with the shared script root and installed run id', async () => {
+      const root = createRoot();
+      const scriptPath = path.join(root, '.agents', 'skills', 'generate-game-kb', 'scripts', 'flow.js');
+      fs.mkdirSync(path.dirname(scriptPath), { recursive: true });
+      fs.writeFileSync(scriptPath, 'process.stdout.write(JSON.stringify(process.argv.slice(2)))');
+      const request = createMockRequest({
+        bookPath: '古龙/测试书',
+        actionType: 'game-kb-status',
+        validationRunId: 'run-v7-test',
+      });
+
+      const result = await handleLibraryApiRequest(root, 'POST', '/api/library/execute-action', request);
+
+      expect(result?.status).toBe(200);
+      expect(result?.body).toMatchObject({ success: true });
+      const output = (result?.body as { output: string }).output;
+      expect(JSON.parse(output)).toEqual([
+        'status',
+        '古龙/测试书',
+        '--run',
+        'run-v7-test',
+      ]);
+    });
+
     it('returns 404 for unknown POST routes', async () => {
       const root = createRoot();
       const request = createMockRequest({});

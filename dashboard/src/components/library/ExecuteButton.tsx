@@ -6,11 +6,18 @@ import { cn } from '../../lib/utils';
 interface ExecuteButtonProps {
   bookPath: string;
   actionType: string;
+  validationRunId?: string | null;
   onSuccess?: () => void;
   className?: string;
 }
 
-export function ExecuteButton({ bookPath, actionType, onSuccess, className }: ExecuteButtonProps) {
+export function ExecuteButton({
+  bookPath,
+  actionType,
+  validationRunId = null,
+  onSuccess,
+  className,
+}: ExecuteButtonProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -22,7 +29,7 @@ export function ExecuteButton({ bookPath, actionType, onSuccess, className }: Ex
       const response = await fetch('/api/library/execute-action', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ bookPath, actionType }),
+        body: JSON.stringify({ bookPath, actionType, validationRunId }),
       });
 
       const result = await response.json();

@@ -9,6 +9,10 @@ function makeStatus(overrides: Partial<LibraryBookStatus> = {}): LibraryBookStat
     name: 'book',
     generationStage: 'not-started',
     validationStatus: 'not-validated',
+
+    validationContract: 'none',
+    validationWarnings: [],
+    validationRunId: null,
     browseable: false,
     completed: false,
     schemaVersion: null,
@@ -26,6 +30,10 @@ function makeStatus(overrides: Partial<LibraryBookStatus> = {}): LibraryBookStat
       candidates: false,
       decisions: false,
       qualityReport: false,
+
+    v7InstallReceipt: false,
+    v7VerificationReport: false,
+    v7ReviewReport: false,
     },
     dataCompleteness: { present: 0, valid: 0, required: 4 },
     contentCoverage: { state: 'empty', total: 0, detailed: 0, indexOnly: 0, byEntity: { characters: { total: 0, detailed: 0, indexOnly: 0 }, factions: { total: 0, detailed: 0, indexOnly: 0 }, skills: { total: 0, detailed: 0, indexOnly: 0 }, items: { total: 0, detailed: 0, indexOnly: 0 } } },
@@ -49,7 +57,7 @@ describe('findAction', () => {
   it('returns prepare-source for prepared without scanManifest', () => {
     const status = makeStatus({
       generationStage: 'prepared',
-      artifacts: { sourceText: true, chapterSplit: true, sourceIndex: false, scanManifest: false, candidates: false, decisions: false, qualityReport: false },
+      artifacts: { sourceText: true, chapterSplit: true, sourceIndex: false, scanManifest: false, candidates: false, decisions: false, qualityReport: false, v7InstallReceipt: false, v7VerificationReport: false, v7ReviewReport: false },
     });
     const action = findAction(status);
     expect(action?.type).toBe('prepare-source');
@@ -71,6 +79,9 @@ describe('findAction', () => {
     const status = makeStatus({
       generationStage: 'data-produced',
       validationStatus: 'legacy-unproven',
+
+    validationContract: 'none',
+    validationWarnings: [],
       browseable: true,
       contentCoverage: { state: 'complete', total: 10, detailed: 10, indexOnly: 0, byEntity: { characters: { total: 5, detailed: 5, indexOnly: 0 }, factions: { total: 2, detailed: 2, indexOnly: 0 }, skills: { total: 2, detailed: 2, indexOnly: 0 }, items: { total: 1, detailed: 1, indexOnly: 0 } } },
     });
@@ -82,6 +93,9 @@ describe('findAction', () => {
     const status = makeStatus({
       generationStage: 'data-produced',
       validationStatus: 'failed',
+
+    validationContract: 'none',
+    validationWarnings: [],
       browseable: true,
       contentCoverage: { state: 'complete', total: 10, detailed: 10, indexOnly: 0, byEntity: { characters: { total: 5, detailed: 5, indexOnly: 0 }, factions: { total: 2, detailed: 2, indexOnly: 0 }, skills: { total: 2, detailed: 2, indexOnly: 0 }, items: { total: 1, detailed: 1, indexOnly: 0 } } },
     });
@@ -93,6 +107,9 @@ describe('findAction', () => {
     const status = makeStatus({
       generationStage: 'data-produced',
       validationStatus: 'passed',
+
+    validationContract: 'none',
+    validationWarnings: [],
       browseable: true,
       contentCoverage: { state: 'index-only', total: 10, detailed: 0, indexOnly: 10, byEntity: { characters: { total: 5, detailed: 0, indexOnly: 5 }, factions: { total: 2, detailed: 0, indexOnly: 2 }, skills: { total: 2, detailed: 0, indexOnly: 2 }, items: { total: 1, detailed: 0, indexOnly: 1 } } },
     });
@@ -104,12 +121,52 @@ describe('findAction', () => {
     const status = makeStatus({
       generationStage: 'data-produced',
       validationStatus: 'passed',
+
+    validationContract: 'none',
+    validationWarnings: [],
       browseable: true,
       completed: true,
       contentCoverage: { state: 'complete', total: 10, detailed: 10, indexOnly: 0, byEntity: { characters: { total: 5, detailed: 5, indexOnly: 0 }, factions: { total: 2, detailed: 2, indexOnly: 0 }, skills: { total: 2, detailed: 2, indexOnly: 0 }, items: { total: 1, detailed: 1, indexOnly: 0 } } },
     });
     const action = findAction(status);
     expect(action).toBeNull();
+  });
+
+  it('returns game-kb-status for v7 failed', () => {
+    const status = makeStatus({
+      generationStage: 'data-produced',
+      validationContract: 'generate-game-kb-v7',
+      validationStatus: 'failed',
+      validationRunId: 'run-v7-test',
+      browseable: true,
+      contentCoverage: { state: 'partial', total: 10, detailed: 3, indexOnly: 0, byEntity: { characters: { total: 5, detailed: 2, indexOnly: 0 }, factions: { total: 2, detailed: 0, indexOnly: 0 }, skills: { total: 2, detailed: 1, indexOnly: 0 }, items: { total: 1, detailed: 0, indexOnly: 0 } } },
+    });
+    const action = findAction(status);
+    expect(action?.type).toBe('game-kb-status');
+  });
+
+  it('returns null for v7 passed with partial coverage (no fill-content)', () => {
+    const status = makeStatus({
+      generationStage: 'data-produced',
+      validationContract: 'generate-game-kb-v7',
+      validationStatus: 'passed',
+      browseable: true,
+      contentCoverage: { state: 'partial', total: 10, detailed: 3, indexOnly: 0, byEntity: { characters: { total: 5, detailed: 2, indexOnly: 0 }, factions: { total: 2, detailed: 0, indexOnly: 0 }, skills: { total: 2, detailed: 1, indexOnly: 0 }, items: { total: 1, detailed: 0, indexOnly: 0 } } },
+    });
+    const action = findAction(status);
+    expect(action).toBeNull();
+  });
+
+  it('legacy failed still returns assess-quality', () => {
+    const status = makeStatus({
+      generationStage: 'data-produced',
+      validationContract: 'generate-kb-gates',
+      validationStatus: 'failed',
+      browseable: true,
+      contentCoverage: { state: 'complete', total: 10, detailed: 10, indexOnly: 0, byEntity: { characters: { total: 5, detailed: 5, indexOnly: 0 }, factions: { total: 2, detailed: 2, indexOnly: 0 }, skills: { total: 2, detailed: 2, indexOnly: 0 }, items: { total: 1, detailed: 1, indexOnly: 0 } } },
+    });
+    const action = findAction(status);
+    expect(action?.type).toBe('assess-quality');
   });
 });
 
@@ -130,6 +187,9 @@ describe('buildSuggestedAction', () => {
     const status = makeStatus({
       generationStage: 'data-produced',
       validationStatus: 'passed',
+
+    validationContract: 'none',
+    validationWarnings: [],
       browseable: true,
       contentCoverage: { state: 'index-only', total: 10, detailed: 0, indexOnly: 10, byEntity: { characters: { total: 5, detailed: 0, indexOnly: 5 }, factions: { total: 2, detailed: 0, indexOnly: 2 }, skills: { total: 2, detailed: 0, indexOnly: 2 }, items: { total: 1, detailed: 0, indexOnly: 1 } } },
     });
@@ -141,10 +201,55 @@ describe('buildSuggestedAction', () => {
     const status = makeStatus({
       generationStage: 'data-produced',
       validationStatus: 'legacy-unproven',
+
+    validationContract: 'none',
+    validationWarnings: [],
       browseable: true,
       contentCoverage: { state: 'complete', total: 10, detailed: 10, indexOnly: 0, byEntity: { characters: { total: 5, detailed: 5, indexOnly: 0 }, factions: { total: 2, detailed: 2, indexOnly: 0 }, skills: { total: 2, detailed: 2, indexOnly: 0 }, items: { total: 1, detailed: 1, indexOnly: 0 } } },
     });
     const action = buildSuggestedAction('金庸/射雕英雄传', status);
     expect(action?.command).toContain('--legacy');
+  });
+
+  it('builds v7 game-kb-status command with flow.js status prefix', () => {
+    const status = makeStatus({
+      generationStage: 'data-produced',
+      validationContract: 'generate-game-kb-v7',
+      validationStatus: 'failed',
+      validationRunId: 'run-v7-test',
+      browseable: true,
+      contentCoverage: { state: 'partial', total: 10, detailed: 3, indexOnly: 0, byEntity: { characters: { total: 5, detailed: 2, indexOnly: 0 }, factions: { total: 2, detailed: 0, indexOnly: 0 }, skills: { total: 2, detailed: 1, indexOnly: 0 }, items: { total: 1, detailed: 0, indexOnly: 0 } } },
+    });
+    const action = buildSuggestedAction('金庸/射雕英雄传', status);
+    expect(action?.type).toBe('game-kb-status');
+    expect(action?.command).toContain('flow.js');
+    expect(action?.command).toContain('status');
+    expect(action?.command).toContain('generate-game-kb/scripts');
+    expect(action?.command).toContain("'--run' 'run-v7-test'");
+  });
+
+  it('does not route a non-v7 generate-game-kb install through legacy G1-G5 actions', () => {
+    const status = makeStatus({
+      generationStage: 'data-produced',
+      validationContract: 'generate-game-kb-legacy',
+      validationStatus: 'legacy-unproven',
+      schemaVersion: '6',
+      browseable: true,
+    });
+
+    expect(findAction(status)).toBeNull();
+  });
+
+  it('does not suggest an ambiguous v7 status command without an installed run id', () => {
+    const status = makeStatus({
+      generationStage: 'data-produced',
+      validationContract: 'generate-game-kb-v7',
+      validationStatus: 'failed',
+      validationRunId: null,
+      browseable: true,
+    });
+
+    expect(findAction(status)).toBeNull();
+    expect(buildSuggestedAction('古龙/测试书', status)).toBeNull();
   });
 });
