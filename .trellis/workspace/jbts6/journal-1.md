@@ -1527,3 +1527,45 @@ Recovered remediated worker guards, hardened Claude workflow handoff, restored c
 ### Next Steps
 
 - None - task complete
+
+
+## Session 31: 完成 generate-game-kb v7 时间统计合同
+
+**Date**: 2026-07-23
+**Task**: 完成 generate-game-kb v7 时间统计合同
+**Branch**: `main`
+
+### Summary
+
+为新 v7 run 增加 Controller 时间事件、schema 2 metrics、人工等待与跨 cycle attempt 统计、归档重投影验真和旧 run 只读兼容；251 项测试及性能门禁通过。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `fbe1327f` | (see git log) |
+| `a4ba01f6` | (see git log) |
+| `e2487ca0` | (see git log) |
+| `8fd14a38` | (see git log) |
+| `230dff58` | (see git log) |
+| `17a327de` | (see git log) |
+| `3d7f68bc` | (see git log) |
+| `87f8c5ed` | (see git log) |
+| `99b4d6cf` | (see git log) |
+| `3675587b` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
