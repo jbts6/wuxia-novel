@@ -1457,3 +1457,36 @@ Recovered remediated worker guards, hardened Claude workflow handoff, restored c
 ### Next Steps
 
 - None - task complete
+
+
+## Session 29: 防止 game-kb Worker 根目录临时文件
+
+**Date**: 2026-07-23
+**Task**: 防止 game-kb Worker 根目录临时文件
+**Branch**: `main`
+
+### Summary
+
+完成 v3 Worker 合同门禁、轻量项目级 PreToolUse 根目录临时写入守卫、run 级基线与自动隔离；补充失败收据和边界回归测试。217/217 测试通过，任务已归档。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `95c25975` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
