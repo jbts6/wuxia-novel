@@ -11,7 +11,7 @@ const { atomicWriteJson } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
 const { sourceState } = require('../scripts/lib/run');
 const { readTimingEvents } = require('../scripts/lib/timing-events');
-const { makeNovel, runFlow } = require('./helpers');
+const { makeNovel, makeTemporaryNovel, runFlow, writeWorkerOutput } = require('./helpers');
 
 function snapshotTree(root) {
   const result = {};
@@ -118,7 +118,7 @@ test('retry-unit requires confirmation and manual review', () => {
 });
 
 test('confirmed manual review records resume before issuing the new cycle', () => {
-  const novelDir = makeNovel('复核运行', '第一章 起始\n复核运行证据。\n');
+  const novelDir = makeTemporaryNovel(1, { name: '复核运行' });
   const runId = 'run-manual-timing';
   const first = runFlow(['run', novelDir, '--run', runId, '--json']);
   assert.equal(first.status, 0, first.stderr);
@@ -168,6 +168,21 @@ test('confirmed manual review records resume before issuing the new cycle', () =
   ]);
   assert.equal(jsonResult(duplicate).code, 'RETRY_UNIT_NOT_REVIEWABLE');
   assert.equal(fs.readFileSync(paths.events, 'utf8'), eventBytes);
+
+  writeWorkerOutput(output.job);
+  const completed = runFlow(['run', novelDir, '--run', runId, '--json']);
+  assert.equal(completed.status, 0, completed.stderr);
+  assert.equal(jsonResult(completed).status, 'complete');
+  const archiveDir = path.join(novelDir, '_archive', 'generate-game-kb', runId);
+  const metrics = JSON.parse(fs.readFileSync(
+    path.join(archiveDir, 'reports', 'run-metrics.json'),
+    'utf8'
+  ));
+  assert.deepEqual(metrics.ai_units.chapter, {
+    planned: 1, done: 1, attempts: 3, corrections: 2
+  });
+  assert.equal(metrics.active_ms, metrics.total_ms - metrics.human_wait_ms);
+  assert.equal(metrics.candidate_counts.chapter_candidates, 4);
 });
 
 test('archive-abandoned preserves legacy bytes without conversion', () => {

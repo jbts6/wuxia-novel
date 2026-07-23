@@ -122,3 +122,29 @@ test('twenty-five chapters open the next window only after all five outputs are 
   assert.deepEqual(result.progress, { accepted: 5, total: 25 });
   assertCleanWorkspace(novel, rootSnapshot);
 });
+
+test('automatic attempt two completes with one correction and no human wait', () => {
+  const novel = makeTemporaryNovel(1, { name: '自动重试测试书' });
+  let result = runJson(novel, 'run-auto-retry');
+  fs.writeFileSync(result.jobs[0].output_file, 'characters: []\n', 'utf8');
+
+  result = runJson(novel, result.run_id);
+  assert.equal(result.jobs[0].cycle, 1);
+  assert.equal(result.jobs[0].attempt, 2);
+  writeWorkerOutput(result.jobs[0]);
+  result = runJson(novel, result.run_id);
+  assert.equal(result.status, 'complete');
+
+  const metrics = JSON.parse(fs.readFileSync(path.join(
+    novel,
+    '_archive',
+    'generate-game-kb',
+    result.run_id,
+    'reports',
+    'run-metrics.json'
+  ), 'utf8'));
+  assert.deepEqual(metrics.ai_units.chapter, {
+    planned: 1, done: 1, attempts: 2, corrections: 1
+  });
+  assert.equal(metrics.human_wait_ms, 0);
+});
