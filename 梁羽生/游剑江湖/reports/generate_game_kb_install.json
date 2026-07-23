@@ -1,0 +1,384 @@
+{
+  "schema_version": 2,
+  "semantic_contract_version": 7,
+  "deep": false,
+  "installer": "generate-game-kb",
+  "run_id": "run-2026-07-23T16-29-49-166Z-10124-6bd9ff43",
+  "source_hash": "sha256:a81452077222b3cd5826e2fa305a8b87fc1f2fc04f38361ce13734366d7eca45",
+  "final_data_hash": "sha256:b6216f855f072cb4c4687574948273e220f6d29d01b8580791bdce28f76c23d9",
+  "id_plan_hash": "sha256:b63f63ed0dbe3a423c87c52607749eaa202c310d02b3524116a29949f966579d",
+  "migration_receipt_hash": null,
+  "data_files": [
+    "chapter_summaries.yaml",
+    "characters.yaml",
+    "factions.yaml",
+    "items.yaml",
+    "skills.yaml"
+  ],
+  "data_file_hashes": {
+    "chapter_summaries.yaml": "sha256:f82f85a5fc550e368920261eb8c09b692667245b2ddd232c0e0bc3e2b393e5f0",
+    "characters.yaml": "sha256:e038b20c501e63c17081a17f2debc2b1b9aeefae9e310465507f8c2f146c3c6a",
+    "factions.yaml": "sha256:2439b7b7d9ebba361bc64b1ca74c6274b161f839bc1fccbb25156f107f5372d8",
+    "items.yaml": "sha256:c8ff34d524d46cb30abc6f9e125a1848bd3bdfa374b982099c607e408095b887",
+    "skills.yaml": "sha256:fbcbdcdb63b6085cf3c1d1f98d8fb246b8224bd482001bdaaaf365250167238a"
+  },
+  "verification_report_hash": "sha256:aa0c65fbc1d26913d18184f3efef302a9b78fcaba79e0f492e73e2f46f69ce2f",
+  "review_report_hash": "sha256:34baedaccef79aabba3a1158c78c2fd55e026db2f711cf1df905984dfae0aff6",
+  "chapters": [
+    {
+      "number": 1,
+      "title": "第一回 名武师之死",
+      "input_hash": "sha256:6c0811d23a02818e8b8c8a86188540e1b9442376d86ebda80957934e80eb2357"
+    },
+    {
+      "number": 2,
+      "title": "第二回 空棺疑案",
+      "input_hash": "sha256:af6c6b00fe70f58af210468f497fb57b13aed952d2ee4dc400252be68cfa43d5"
+    },
+    {
+      "number": 3,
+      "title": "第三回 蒙面怪客",
+      "input_hash": "sha256:6b47650ac1daf784dc26b5120810310ff55bdd8b810ca3857874e7d8d87551d5"
+    },
+    {
+      "number": 4,
+      "title": "第四回 人面桃花",
+      "input_hash": "sha256:929b6259cd9feb2f4f1938d2264007c4fef3d51e1cc92fd21c226965b4be0829"
+    },
+    {
+      "number": 5,
+      "title": "第五回 白衣少女",
+      "input_hash": "sha256:007437fb46607726dceab253a84cfb3b604d425459fcdc8345b854cb2862e17d"
+    },
+    {
+      "number": 6,
+      "title": "第六回 废园蝶血",
+      "input_hash": "sha256:6d6685643573597d09a9f4839018b9f4eb5f23610ec6e90b2d52ee8f9561bc22"
+    },
+    {
+      "number": 7,
+      "title": "第七回 情海波澜",
+      "input_hash": "sha256:8df882eb8028eb26f79568de748b28e850e3beeb59be9de1ed7efd9e988043c9"
+    },
+    {
+      "number": 8,
+      "title": "第八回 一念之差",
+      "input_hash": "sha256:7f7b5d096629d03909b705eb8d11fb8bc8bc5a0cc26160ff19a626e14c2d622f"
+    },
+    {
+      "number": 9,
+      "title": "第九回 天若有情",
+      "input_hash": "sha256:65f4b4001718ff01f67044658a5f51cb4cf5fdcc861ea5277efb2fd6e45ed76c"
+    },
+    {
+      "number": 10,
+      "title": "第十回 侠骨柔肠",
+      "input_hash": "sha256:e2c87c58df55dd679b0712905635810268e8675a2277b779398a75bef28b22cc"
+    },
+    {
+      "number": 11,
+      "title": "第十一回 风尘结客",
+      "input_hash": "sha256:14bc36de8d9a54d1813278e980da8b4937eeb976476b499d6a4de5e7e4271082"
+    },
+    {
+      "number": 12,
+      "title": "第十二回 惺惺相惜",
+      "input_hash": "sha256:dee54cd0c7386a00ceaa573ee36a912fc61fa34a228385aca070e44b56d7a30f"
+    },
+    {
+      "number": 13,
+      "title": "第十三回 难言之隐",
+      "input_hash": "sha256:d405b64b59facef2b9fbfc75957353d9fd03d4c143145ad3a5756fafbb0d8af7"
+    },
+    {
+      "number": 14,
+      "title": "第十四回 太湖烟水",
+      "input_hash": "sha256:4e8c4c1f6376d4bd2319af23429f3c982ff818b7b42a204c4a22812bf0f4ef2f"
+    },
+    {
+      "number": 15,
+      "title": "第十五回 虔凉身世",
+      "input_hash": "sha256:a9aa8402ee4d8ab8b32fbd3967a856a69aff6f17ba651167a34fb01c87d2a6d5"
+    },
+    {
+      "number": 16,
+      "title": "第十六回 心事迷茫",
+      "input_hash": "sha256:077507e2b7afc71c131a3417e50d84f37c7fc28f7ea33fdc70c7135a1524c5d9"
+    },
+    {
+      "number": 17,
+      "title": "第十七回 道上相逢",
+      "input_hash": "sha256:4faa43e6d4900a7e375a959d7470eff585a0316c309e434e802e3c4993cf8322"
+    },
+    {
+      "number": 18,
+      "title": "第十八回 泰山之会",
+      "input_hash": "sha256:5c0f7c7b2309a8ee633e633b111bb974135157b20db70be4c694de8f290b6eb4"
+    },
+    {
+      "number": 19,
+      "title": "第十九回 石窟寄遇",
+      "input_hash": "sha256:a6d51113823e993511a45616454a20e2f98b0d3ba328e9fbc8b27366594f0ff9"
+    },
+    {
+      "number": 20,
+      "title": "第二十回 干崖秋色",
+      "input_hash": "sha256:f817e1f7af84cf0184245477828a273c3341fb464cdaf326ca667688d7b80b20"
+    },
+    {
+      "number": 21,
+      "title": "第二十一回 争夺掌门",
+      "input_hash": "sha256:7852a00637dbcf5975a7a32e2ae610a522001b30f7055321f8ed864cb2865e06"
+    },
+    {
+      "number": 22,
+      "title": "第二十二回 \"家丑\"外扬",
+      "input_hash": "sha256:73c6e92c2c991354dd05b173aea44b9b62045c74a9a55a56e945ab52b6327d9b"
+    },
+    {
+      "number": 23,
+      "title": "第二十三回 落拓江湖",
+      "input_hash": "sha256:1ae8fbad91342d8a499d606b8cd3f82044b9a1532fe79fb39c140ecfa8a21325"
+    },
+    {
+      "number": 24,
+      "title": "第二十四回 陌路相逢",
+      "input_hash": "sha256:33175aa9534220caa6aa095a847efb2af2ebb44221d61614b47620867b066fa3"
+    },
+    {
+      "number": 25,
+      "title": "第二十五回 破镜难圆",
+      "input_hash": "sha256:80a7150f801e8b315b014e23356fcfdcc4d11fb1289d294927d99e8a62a7cacb"
+    },
+    {
+      "number": 26,
+      "title": "第二十六回 一纸休书",
+      "input_hash": "sha256:1a044edac8fd186861cd0575df3f75cd72ccd8eb9a7a8626696e6e43473c85b9"
+    },
+    {
+      "number": 27,
+      "title": "第二十七回 旧友重逢",
+      "input_hash": "sha256:994c533933bc8d543959203e9d3904bd088eee3628bb8bb8dea6aceb53fb4aac"
+    },
+    {
+      "number": 28,
+      "title": "第二十八回 神偷窥秘",
+      "input_hash": "sha256:ea04c86e348e7e6cb7a568987e92d57928a6760f4f990a702ccd2f93f51e6974"
+    },
+    {
+      "number": 29,
+      "title": "第二十九回 诡谋毒计",
+      "input_hash": "sha256:dde00702ea2a6dedcaa804156364f840c67f851c98f30f8fa70e5554e942ec30"
+    },
+    {
+      "number": 30,
+      "title": "第三十回 云自遇敌",
+      "input_hash": "sha256:3b2d02de9d0889be4dc98074ee1f4322e43a4b908c0eb18f4113d4dedcb0200c"
+    },
+    {
+      "number": 31,
+      "title": "第三十一回 旧游人杳",
+      "input_hash": "sha256:dd29d6e492c6db8af4422928b772c0701d30be47e3dde1c506737431524f12df"
+    },
+    {
+      "number": 32,
+      "title": "第三十二回 蝶血京华",
+      "input_hash": "sha256:70fe8e8aeb5659da1978f4a1b621d933901f67306859b4df079325ba5a5be19b"
+    },
+    {
+      "number": 33,
+      "title": "第三十三回 假冒同行",
+      "input_hash": "sha256:3539a5505cadb3a0ee8dfc493ba4982845ffc23be3c73d6286e19747f6dd518b"
+    },
+    {
+      "number": 34,
+      "title": "第三十四回 妙计突围",
+      "input_hash": "sha256:0d163dfe8d9900f597980200e8e41cc59ad0e73eae4e5ad752cae63d5d4e0a42"
+    },
+    {
+      "number": 35,
+      "title": "第三十五回 西山恶斗",
+      "input_hash": "sha256:019b02905af9bbd8567b82c7d0f0e91210dbf1baaf70fa818370d7d125bcf1a2"
+    },
+    {
+      "number": 36,
+      "title": "第三十六回 调兵遣将",
+      "input_hash": "sha256:cb6b87ed04222ca9dc1ec41f7533b640ebabe0cade31d52fb9be82947ae17e7d"
+    },
+    {
+      "number": 37,
+      "title": "第三十七回 忆敌为友",
+      "input_hash": "sha256:cd6077748eb7fdf08b2abfa7e844b7ce5dd01be6ba514d81ab70a2099d4ead51"
+    },
+    {
+      "number": 38,
+      "title": "第三十八回 重寻故剑",
+      "input_hash": "sha256:4e021783e28391938c0ad5a759c4baeeea6fe50a78c67fefd909c48926233cde"
+    },
+    {
+      "number": 39,
+      "title": "第三十九回 匆匆来去",
+      "input_hash": "sha256:d7864f8a99971f280439ae3938cda4c17191a845812d535148da5c2e23682d7b"
+    },
+    {
+      "number": 40,
+      "title": "第四十回 几番离合",
+      "input_hash": "sha256:c58a8aeb608a4e407667699f3d45bd1a76443ef3d1f33a92b4cf77c7ba761de7"
+    },
+    {
+      "number": 41,
+      "title": "第四十一回 赌酒显能",
+      "input_hash": "sha256:a412caa66aa8395dabc246f069b55146bcbf9efc6cc2b64757fcfc8420c53223"
+    },
+    {
+      "number": 42,
+      "title": "第四十二回 扬州祝寿",
+      "input_hash": "sha256:b10fc6c2de6c3d54c4c473bb0b51c7dd9e3029ea06ddea002c97baadd29339ec"
+    },
+    {
+      "number": 43,
+      "title": "第四十三回 揭破阴谋",
+      "input_hash": "sha256:b599926e2458c0ca4681f28dc010f4dc7bdd033377c56a98dfcfd5ec430df1fe"
+    },
+    {
+      "number": 44,
+      "title": "第四十四回 英雄肝胆",
+      "input_hash": "sha256:1cec3330d1a359d6e4ce9f94d9fdbb6e917b3caef2ee3270498b72d52b44b0c3"
+    },
+    {
+      "number": 45,
+      "title": "第四十五回 大闹寿堂",
+      "input_hash": "sha256:71d1d7f6236307a66a26a9d7efd0aa8468f4498f76397586e52b3a213b21540a"
+    },
+    {
+      "number": 46,
+      "title": "第四十六回 分道杨镳",
+      "input_hash": "sha256:e4259aa6bbdb32a294dc71ca6e81d8a8229ecceb71e56cd6b3676f8ac29d1380"
+    },
+    {
+      "number": 47,
+      "title": "第四十七回 红颜知己",
+      "input_hash": "sha256:a45db86a72df88d7bb3c9a8bcb327a701e1a1760f1368cfdf1f36977b5d7fda8"
+    },
+    {
+      "number": 48,
+      "title": "第四十八回 路遇同门",
+      "input_hash": "sha256:391bed6526816cd3c221c66ef632b0402d94b63ab749e802d98e67c6ef2aae56"
+    },
+    {
+      "number": 49,
+      "title": "第四十九回 黑衣老者",
+      "input_hash": "sha256:79fd246236464764a984b4cfff5b8ef00aa85fe29fff7ba6effa0ec0b5e149b4"
+    },
+    {
+      "number": 50,
+      "title": "第五十回 仪醪楼上",
+      "input_hash": "sha256:77ab7c6bbd88a32d94524ddab695b4e80b7a2ac4afb301a7c3aa0d252fd2004c"
+    },
+    {
+      "number": 51,
+      "title": "第五十一回 扫荡妖邪",
+      "input_hash": "sha256:ddef343ff5b423d9c0d5523e61ed41ea4059d35d7ba930aa3e9e6a0b92a2e510"
+    },
+    {
+      "number": 52,
+      "title": "第五十二回 儿女情怀",
+      "input_hash": "sha256:fae3e55abf8c62e39ad666e8da58b48c59f21d067550bdde94c8bcc8a9712929"
+    },
+    {
+      "number": 53,
+      "title": "第五十三回 敌人偷袭",
+      "input_hash": "sha256:634593ed18f4831952cab3dc0bfa29c3a74a06f3278964d2d5ca2908a3c328d6"
+    },
+    {
+      "number": 54,
+      "title": "第五十四回 宝刀未老",
+      "input_hash": "sha256:49ff109c97e0fac86d73be74883ecb8947de33e53effd5c7fa88e096f3b9e528"
+    },
+    {
+      "number": 55,
+      "title": "第五十五回 倾吐衷曲",
+      "input_hash": "sha256:f957733bb963af4568643170d971ec010a7c92d9cfba521961f63161fc2d0cc1"
+    },
+    {
+      "number": 56,
+      "title": "第五十六回 糊涂受骗",
+      "input_hash": "sha256:68ab2e8a9257f0a37ebcd7f63d95ba53292124ca35baa01a48641679f4c38f61"
+    },
+    {
+      "number": 57,
+      "title": "第五十七回 清理门户",
+      "input_hash": "sha256:5f1b745a7656cfb34e5ac0f4c9f72dad808ccb8dded4563be95e244f0fd2712d"
+    },
+    {
+      "number": 58,
+      "title": "第五十八回 白衣老者",
+      "input_hash": "sha256:b3ac2a66c2728d5e1286339575ad4e70b54e36fd270e3716fb51bb785a36683f"
+    },
+    {
+      "number": 59,
+      "title": "第五十九回 滇池风浪",
+      "input_hash": "sha256:6681421675a027d0ea4e024d8aee8846e08f15755fe7bd7ca21c7f7990984067"
+    },
+    {
+      "number": 60,
+      "title": "第六十回 有情相会",
+      "input_hash": "sha256:4e960e0a55b820e60eea85f5452d5951092d8e0022ab9a4d58cf89be1dd3b54c"
+    },
+    {
+      "number": 61,
+      "title": "第六十一回 大理王府",
+      "input_hash": "sha256:68aa5ffad0ed13d64d3f510470b336c35990416c947a4e51bc07fc7df3a2af24"
+    },
+    {
+      "number": 62,
+      "title": "第六十二回 苍山血战",
+      "input_hash": "sha256:0e9016daf6ef4ab538cca03ed9de9f7da978ec7be0f016aa1579fd15a818c83a"
+    },
+    {
+      "number": 63,
+      "title": "第六十三回 大闹将军府",
+      "input_hash": "sha256:3751db8ec65d4a574dff99cb2d09b28e254e455b9e94789820423540899b19a3"
+    },
+    {
+      "number": 64,
+      "title": "第六十四回 归家歼仇",
+      "input_hash": "sha256:305f015b355eaaaa8d040e0a55b10c6fb7d9f5e53ab468c07ba8ab19f7f9d40a"
+    },
+    {
+      "number": 65,
+      "title": "第六十五回 心事迷茫",
+      "input_hash": "sha256:ccac731831a25e78257f39738c990ec753e7f1636d5fc45f5d0f21f6ef35e974"
+    },
+    {
+      "number": 66,
+      "title": "第六十六回 咫尺天涯",
+      "input_hash": "sha256:949c093cbbace72499099511a1a85ac03fb7184ecc510688ad2d664c026c158b"
+    },
+    {
+      "number": 67,
+      "title": "第六十七回 疑幻疑冥",
+      "input_hash": "sha256:9c97f73ce806705dd145a682d1b013b101d8c616223a2db9ab8ca331ba6bbae4"
+    },
+    {
+      "number": 68,
+      "title": "第六十八回 死别生离",
+      "input_hash": "sha256:f97f4045b59a018706b6027ea18c43f73c43bf6418688dca2fe249f0fd89ac5a"
+    },
+    {
+      "number": 69,
+      "title": "第六十九回 弹铗狂歌",
+      "input_hash": "sha256:6c6f371b2dddd3418acc23caea3b5cfcf1ee1273a5e75fb7458cc30c238d8899"
+    }
+  ],
+  "archive_root": "C:\\git\\wuxia-novel\\梁羽生\\游剑江湖\\_archive\\2026-07-23T20-13-49-869Z-pre-generate-game-kb",
+  "archive_data": null,
+  "backup_path": null,
+  "previous_final_data_hash": null,
+  "backup_final_data_hash": null,
+  "original_data_state": "missing",
+  "preserved_entries": [],
+  "removed_stale_markers": [],
+  "started_at": "2026-07-23T20:13:49.869Z",
+  "installed_at": "2026-07-23T20:13:49.931Z"
+}

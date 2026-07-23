@@ -1,0 +1,72 @@
+{
+  "report_version": 1,
+  "source_hash": "sha256:a81452077222b3cd5826e2fa305a8b87fc1f2fc04f38361ce13734366d7eca45",
+  "final_data_hash": "sha256:b6216f855f072cb4c4687574948273e220f6d29d01b8580791bdce28f76c23d9",
+  "summary": {
+    "warning_count": 1,
+    "by_code": {
+      "GENERIC_CANDIDATE_FILTERED": 1
+    },
+    "by_category": {
+      "characters": 1
+    }
+  },
+  "entries": [
+    {
+      "code": "GENERIC_CANDIDATE_FILTERED",
+      "severity": "warning",
+      "category": "characters",
+      "name": "店小二",
+      "chapter_numbers": [
+        23,
+        24,
+        50
+      ],
+      "source_refs": [
+        {
+          "chapter": 23,
+          "text": "这是我家主人自酿的美酒,许多外来的客人都称赞的。\"店小二微笑说道。",
+          "line_start": 18,
+          "line_end": 18
+        },
+        {
+          "chapter": 23,
+          "text": "那个店小二本来是瑟瑟缩缩的躲在一角的,忽然跑了出来,抱着齐建业叫道",
+          "line_start": 102,
+          "line_end": 102
+        },
+        {
+          "chapter": 24,
+          "text": "那店小二跳了起来欢呼道:\"这可好了,我的东家来了!\"",
+          "line_start": 46,
+          "line_end": 46
+        },
+        {
+          "chapter": 50,
+          "text": "\"缪大爷,什么风把你吹到这里来了?\"酒保一见他来,立即上前招呼。",
+          "line_start": 8,
+          "line_end": 8
+        },
+        {
+          "chapter": 50,
+          "text": "店小二道:\"我们全家人都在惦着你呢,昨晚我还和老伴儿念叨,说是不知什么时候才能盼得你缪大爷再来喝酒,想不到就给我盼着了",
+          "line_start": 10,
+          "line_end": 10
+        },
+        {
+          "chapter": 50,
+          "text": "酒保说道:\"是五龙帮的张副帮主。\"",
+          "line_start": 38,
+          "line_end": 38
+        }
+      ],
+      "member_refs": [
+        "ch023:character:店小二",
+        "ch024:character:店小二",
+        "ch050:character:店小二"
+      ],
+      "reason": "confirmed_generic_name",
+      "resolution": "filtered"
+    }
+  ]
+}
