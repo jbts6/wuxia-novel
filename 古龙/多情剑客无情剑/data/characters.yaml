@@ -1,394 +1,2431 @@
 - id: char_a_fei
   name: 阿飞
-  aliases: []
+  aliases:
+    - 飞少爷
+    - 小飞
+    - 飞剑客
   identities:
-    - 快剑少年
+    - 武林后起一代高手
+    - 梅花盗
   level: 核心
-  rank: null
-  description: |-
-    生平：少年时孤傲冷僻,因缘结识李寻欢。剑心在爱恨与对决中磨砺,牵涉孙小红、林仙儿与金钱帮诸役,最终在胜败之际完成剑道与人性的蜕变。
-    性格：少言冷淡;锋利孤绝;孤僻;骄傲;重诺;剑痴;冷外热内;倔强
-    快剑少年,从孤僻剑痴成长为一代剑客
+  rank: 登峰造极
+  description: 与林仙儿居于梅林木屋两年；神情由昔日孤傲慑人变为平和呆板，衣着整洁、梳头光亮、仔细抹桌；与李寻欢重逢哽咽执手，自承离不开林仙儿，临走时已将劫财归还；与林仙儿分房而睡，天黑即眠。
   factions: []
-  skills: []
-- id: char_bai_xiao_sheng
-  name: 百晓生
+  skills:
+    - skill_jian_fa
+    - skill_bu_fa
+    - skill_bu_dong
+- id: char_ba_ying
+  name: 巴英
   aliases: []
-  identities:
-    - 百晓生
+  identities: []
   level: 次要
   rank: null
-  description: |-
-    生平：百晓生在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的百晓生
+  description: 随秦孝仪求医的短小精悍汉子，称秦孝仪为老爷子，知李寻欢身份后跪求留情。
   factions: []
+  skills: []
+- id: char_bai_she
+  name: 白蛇
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 碧血双蛇之一，脸色苍白，使白虹般软剑；以一剑削烛为七截并穿于剑上炫耀剑速，被少年一剑穿喉而死。
+  factions:
+    - faction_bi_xue_shuang_she
+  skills:
+    - skill_jian_fa
+    - skill_qing_gong
+- id: char_bai_xiao_sheng
+  name: 百晓生
+  aliases:
+    - 平江百晓生
+    - 平湖
+  identities:
+    - 世上第一位智者
+    - 平湖
+    - 兵器谱作者
+  level: 重要
+  rank: null
+  description: 与心湖对弈的老人，十年前见过李寻欢；断言心眉必为小李探花所伤，并质疑其护送回山别有用心。
+  factions: []
+  skills:
+    - skill_dian_xue
+- id: char_bian_hao
+  name: 边浩
+  aliases:
+    - 宝马神枪
+  identities:
+    - 宝马神枪
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_zhong_yuan_ba_yi
   skills: []
 - id: char_bian_zi_gu_niang
   name: 辫子姑娘
+  aliases:
+    - 孙小红
+  identities:
+    - 说书老人的孙女儿
+  level: 重要
+  rank: null
+  description: 孙老先生的孙女，关心李寻欢冤屈，临走暗示阿飞不可空坐；被评为轻功不在林仙儿之下。
+  factions: []
+  skills:
+    - skill_qing_gong
+- id: char_bu_ba
+  name: 卜霸
   aliases: []
   identities:
-    - 辫子姑娘
+    - 大凶
+  level: 背景
+  rank: null
+  description: 关外三凶之一，曾以喂毒跨虎篮围攻李寻欢，被龙啸云银枪挑杀。
+  factions:
+    - faction_guan_wai_san_xiong
+  skills: []
+- id: char_cang_long_lao_ren
+  name: 藏龙老人
+  aliases:
+    - 老龙
+  identities: []
+  level: 背景
+  rank: null
+  description: 藏剑山庄一派，已死；与少林、武当、昆仑三大派掌门人曾为生死之交，其山庄以鱼肠剑而名。
+  factions:
+    - faction_cang_jian_shan_zhuang
+  skills: []
+- id: char_cha_meng
+  name: 查猛
+  aliases:
+    - 金狮
+  identities:
+    - 查总镖头
+    - 金狮
+  level: 重要
+  rank: null
+  description: 金狮镖局人物，成名二十多年，本回已被一剑洞穿咽喉，尸体仍倚柱而立。
+  factions:
+    - faction_jin_shi_biao_ju
+  skills: []
+- id: char_chu_liu_xiang
+  name: 楚留香
+  aliases: []
+  identities:
+    - 侠盗
+  level: 背景
+  rank: null
+  description: 辫子姑娘口述中直闯神水宫并独斗阴姬的侠盗。
+  factions: []
+  skills: []
+- id: char_chu_xiang_yu
+  name: 楚相羽
+  aliases:
+    - 活霸王
+  identities:
+    - 总镖头
+  level: null
+  rank: null
+  description: 京城洪运镖局总镖头，外号活霸王；掌中九环刀，使九九八十一手万胜连环刀；路上吊上蓝蝎子，反被其一招杀死。
+  factions:
+    - faction_hong_yun_biao_ju
+  skills:
+    - skill_jiu_jiu_ba_shi_yi_shou_wan_sheng_lian_huan_dao
+- id: char_da_hu_zi
+  name: 大胡子
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 小蔷薇原夫，发觉奸情后追踪甚急。
+  factions: []
+  skills: []
+- id: char_da_huan_xi_nu_pu_sa
+  name: 大欢喜女菩萨
+  aliases:
+    - 女菩萨
+  identities:
+    - 苗疆高手
+    - 五毒童子的干娘
+  level: 重要
+  rank: null
+  description: 体肥三四百斤的女巨人，能以颈上肥肉夹住夺情剑，布下肉阵围困对手；轻功惊人，可撞破屋顶飞出，被飞刀射瞎右眼仍能嚼碎钢刀；终被游龙生自后背刺穿前心而死。
+  factions: []
+  skills:
+    - skill_rou_zhen
+    - skill_qing_gong
+- id: char_da_li_gong_zi
+  name: 大李公子
+  aliases:
+    - 大李探花
+  identities:
+    - 探花
+  level: 背景
+  rank: null
+  description: 李探花一族中的大公子，一考亦中探花，后得不治之症。
+  factions: []
+  skills: []
+- id: char_dai_wu
+  name: 戴五
+  aliases:
+    - 神偷
+  identities:
+    - 神偷
+  level: null
+  rank: null
+  description: 神偷，轻功与手上功夫不弱，金丝甲原是他偷来后酒醉被夺。
+  factions: []
+  skills:
+    - skill_qing_gong
+- id: char_deng_lie
+  name: 邓烈
+  aliases: []
+  identities:
+    - 金刚手
+  level: 背景
+  rank: null
+  description: 李寻欢友人，曾醉后硬逼对掌被拒。
+  factions: []
+  skills: []
+- id: char_di_wu_zi
+  name: 狄武子
+  aliases: []
+  identities:
+    - 一代剑豪
+  level: null
+  rank: null
+  description: 三百年前一代剑豪，因未婚妻与好友神刀彭琼暗中约会而以夺情剑杀彭琼，从此以剑为伴。
+  factions: []
+  skills: []
+- id: char_dian_huo
+  name: 店伙
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 饺子店伙计，向阿飞问下酒菜。
+  factions: []
+  skills: []
+- id: char_dian_huo_ji
+  name: 店伙计
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 客店伙计，敲水壶招徕客人去听孙老先生开讲江湖轰动消息。
+  factions: []
+  skills: []
+- id: char_du_tui_ren
+  name: 独腿人
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 左腿齐根断去、拄铁拐的杏黄金边衫人，相貌凶恶而语气温和，兵器谱铁拐排名第八。
+  factions: []
+  skills: []
+- id: char_du_yan_fu_ren
+  name: 独眼妇人
+  aliases: []
+  identities:
+    - 大嫂
   level: 次要
   rank: null
-  description: |-
-    生平：辫子姑娘在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的辫子姑娘
+  description: 持剁骨刀在菜场以梅二先生为人质，逼虬髯大汉跟她走，寻仇十七年八个月。
+  factions: []
+  skills: []
+- id: char_duan_kai_shan
+  name: 段开山
+  aliases:
+    - 大力神
+  identities:
+    - 大力神
+  level: 龙套
+  rank: null
+  description: 站起如半截铁塔；骂青面汉子时被连掴十七八耳光无法招架；后被制钱压头入圆圈。
+  factions: []
+  skills: []
+- id: char_fan_lin_quan
+  name: 樊林泉
+  aliases:
+    - 樊林公
+    - 樊老先生
+  identities:
+    - 左都御史
+    - 当今清流之首
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_fan_tian_hu
+  name: 翻天虎
+  aliases: []
+  identities:
+    - 大盗
+  level: 背景
+  rank: null
+  description: 传闻申老三被逐出家门的五年曾随其做不花钱买卖。
+  factions: []
+  skills: []
+- id: char_gao_ming_tang
+  name: 高明堂
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 铁传甲临终对话中应答让其说话的人物。
+  factions: []
+  skills: []
+- id: char_gao_xing_kong
+  name: 高行空
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 五名访客之一，提议由龙小云带领参观庭园
+  factions:
+    - faction_jin_qian_bang
+  skills:
+    - skill_dian_xue
+- id: char_gong_sun_mo_yun
+  name: 公孙摩云
+  aliases:
+    - 摩云手
+    - 公孙大侠
+    - 摩云兄
+  identities:
+    - 摩云手
+  level: null
+  rank: null
+  description: 以摩云十四式名震天下，点李寻欢大穴，后被阿飞击退。
+  factions: []
+  skills:
+    - skill_mo_yun_shi_si_shi
+- id: char_gong_sun_yu
+  name: 公孙雨
+  aliases:
+    - 麻子
+  identities:
+    - 北派阴阳刀的惟一传人
+  level: 次要
+  rank: null
+  description: 满脸麻子，使一长一短两把刀，属中原八义一方；短刀刺入铁传甲胸膛后被花枪从背脊刺倒。
+  factions:
+    - faction_zhong_yuan_ba_yi
+  skills:
+    - skill_yin_yang_dao
+- id: char_gu_da_shi
+  name: 古大师
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_gui_tou_dao
+  name: 鬼头刀
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
   factions: []
   skills: []
 - id: char_guo_song_yang
   name: 郭嵩阳
-  aliases: []
+  aliases:
+    - 黑衣人
+    - 嵩阳铁剑
+    - 郭先生
+    - 郭兄
   identities:
-    - 名门剑客
+    - 嵩阳铁剑
   level: 重要
   rank: null
-  description: |-
-    生平：以剑道与名节立足武林,与主线人物有对决或交锋。
-    性格：正声;端严;刚正;骄傲;侠义;重名;刻板
-    正派名门剑客,重名重义的对手型人物
+  description: 已死剑客，尸身留二十六处轻剑伤；以故意露破绽的方式，将荆无命出手部位留给李寻欢。
+  factions: []
+  skills:
+    - skill_song_yang_tie_jian
+    - skill_feng_juan_liu_yun
+    - skill_liu_xing_zhui_yue
+- id: char_han_ban
+  name: 韩斑
+  aliases:
+    - 大虎
+  identities:
+    - 大虎
+    - 南山双虎
+  level: 龙套
+  rank: null
+  description: 南山双虎之一大虎，满面虬髯身高体壮，与韩明装束刀佩一模一样；被制钱压头。
   factions: []
   skills: []
-- id: char_huan_xi_nu_pu_sa
-  name: 欢喜女菩萨
-  aliases: []
+- id: char_han_ming
+  name: 韩明
+  aliases:
+    - 二虎
   identities:
-    - 欢喜女菩萨
+    - 二虎
+    - 南山双虎
+  level: 龙套
+  rank: null
+  description: 南山双虎之二虎，与韩斑孪生般装束；称赞胡氏兄妹暗器轻功；被制钱压头。
+  factions: []
+  skills: []
+- id: char_hei_she
+  name: 黑蛇
+  aliases: []
+  identities: []
   level: 次要
   rank: null
-  description: |-
-    生平：欢喜女菩萨在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的欢喜女菩萨
+  description: 碧血双蛇之一，脸色黑如锅底，使漆黑细长软剑；一剑穿起满地虾球，斩杀赵老二后见白蛇惨死，弃剑狂奔并掷银子给少年。
+  factions:
+    - faction_bi_xue_shuang_she
+  skills:
+    - skill_jian_fa
+    - skill_qing_gong
+- id: char_hei_yi_ren
+  name: 黑衣人
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 短小精悍满身黑衣，轻功高手；代林仙儿收齐宝庆一带账目银票，却未追上孙老头祖孙，后被荆无命所杀。
+  factions: []
+  skills:
+    - skill_qing_gong
+- id: char_hei_yi_tong
+  name: 黑衣童
+  aliases: []
+  identities:
+    - 护法童子
+  level: null
+  rank: null
+  description: 极乐峒童子之一，咽喉被一剑刺穿。
+  factions:
+    - faction_ji_le_dong
+  skills: []
+- id: char_hei_yi_tong_zi
+  name: 黑衣童子
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 极乐峒五毒童子门下，着黑衣。
+  factions:
+    - faction_ji_le_dong
+  skills:
+    - skill_wai_men_gong_fu
+- id: char_hong_er
+  name: 红儿
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 孙老先生身旁梳两条大辫子的年轻姑娘，眼波流转，配合说书搭腔、吊听众胃口。
+  factions: []
+  skills: []
+- id: char_hong_hai_er
+  name: 红孩儿
+  aliases:
+    - 小云
+    - 云儿
+  identities: []
+  level: 次要
+  rank: null
+  description: 林诗音之子，送酒质问李寻欢与母亲关系，泼酒拔刀威胁，见娘又装回孩子气笑容。
+  factions:
+    - faction_long_jia
+    - faction_xing_yun_zhuang
+  skills: []
+- id: char_hong_han_min
+  name: 洪汉民
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 被阿飞反绑留下，身穿金丝甲，擅亮银链子枪，供出甲之来历后被孙逵一拳打死。
+  factions: []
+  skills: []
+- id: char_hong_tian_lei
+  name: 轰天雷
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 据称死于梅花盗之手，尸有梅花标志，致命伤在玄机穴。
+  factions: []
+  skills: []
+- id: char_hong_yi_tong
+  name: 红衣童
+  aliases: []
+  identities:
+    - 护法童子
+  level: null
+  rank: null
+  description: 极乐峒童子之一，咽喉被一剑刺穿。
+  factions:
+    - faction_ji_le_dong
+  skills: []
+- id: char_hong_yi_tong_zi
+  name: 红衣童子
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 极乐峒五毒童子门下，着红衣，口出戏言调侃李寻欢。
+  factions:
+    - faction_ji_le_dong
+  skills:
+    - skill_wai_men_gong_fu
+- id: char_hu_bu_gui
+  name: 胡不归
+  aliases:
+    - 胡疯子
+    - 胡大侠
+  identities:
+    - 用竹剑
+    - 乞丐
+  level: 重要
+  rank: null
+  description: 假扮痴傻乞丐，以沾衣十八跌、七十二路擒拿手、分筋错骨手及塞外摔跌手法暗算李寻欢；自称欠龙啸云人情。
+  factions: []
+  skills:
+    - skill_zhan_yi_shi_ba_die
+    - skill_qi_shi_er_lu_qin_na_shou
+    - skill_fen_jin_cuo_gu_shou
+- id: char_hu_fa_da_shi
+  name: 护法大师
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 少林已故高僧,钟声哀悼其圆寂。
+  factions:
+    - faction_shao_lin_si
+  skills: []
+- id: char_hu_fei
+  name: 胡非
+  aliases:
+    - 白毛猴
+  identities:
+    - 白毛猴
+  level: 龙套
+  rank: null
+  description: 瘦小枯干、脸上长白毛；与胡媚兄妹暗器轻功双绝；被黄衫少年以制钱压头，随众人出店入圈。
+  factions: []
+  skills: []
+- id: char_hu_feng_zi
+  name: 胡疯子
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 箕踞屋檐啃鸡腿，点守门人睡穴暗助李寻欢；警告龙啸云勿与上官金虹结拜后翻身离去。
+  factions: []
+  skills: []
+- id: char_hu_mei
+  name: 胡媚
+  aliases:
+    - 水蛇
+  identities:
+    - 水蛇
+  level: 龙套
+  rank: null
+  description: 绿衣戴金首饰女子，与胡非兄妹；扶住跌落的杨承祖；被制钱压头出店入圈。
+  factions: []
+  skills:
+    - skill_an_qi
+    - skill_qing_gong
+- id: char_hua_feng
+  name: 花蜂
+  aliases:
+    - 妙郎君花蜂
+    - 黑心妙郎君
+    - 妙郎君
+  identities: []
+  level: 重要
+  rank: null
+  description: 七妙人中以卑鄙下毒著称，双腿被斩断如肉球，自承酒中下毒；携金丝甲离去后被十三种暗器钉死。
+  factions:
+    - faction_qi_miao_ren
+  skills: []
+- id: char_hua_lao_liu
+  name: 花老六
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 被梅二先生点名，指其配不出寒鸡散。
+  factions: []
+  skills: []
+- id: char_huang_shan_da_han
+  name: 黄衫大汉
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 听命于上官金虹，抄起西门玉查验其肚中是否藏物，回报肚子是空的。
+  factions: []
+  skills: []
+- id: char_huang_shan_lao_ren
+  name: 黄衫老人
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 黄衫人中的老者，向众人宣示规矩，收胡媚暗器并击伤胡媚。
+  factions: []
+  skills: []
+- id: char_huang_shang
+  name: 皇上
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_huang_yi_da_han
+  name: 黄衣大汉
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_huang_yi_ren
+  name: 黄衣人
+  aliases: []
+  identities:
+    - 金钱帮部属
+  level: 龙套
+  rank: null
+  description: 金钱帮得力部属，围攻地室；一人用虎头钩自刺咽喉，余者悄然溜走。
+  factions:
+    - faction_jin_qian_bang
+  skills: []
+- id: char_huang_yi_tong_zi
+  name: 黄衣童子
+  aliases: []
+  identities:
+    - 护法童子
+  level: 次要
+  rank: null
+  description: 极乐峒五毒童子门下，着黄衣，出手扑向李寻欢。
+  factions:
+    - faction_ji_le_dong
+  skills:
+    - skill_wai_men_gong_fu
+- id: char_hui_yi_ren
+  name: 灰衣人
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 模样平凡、轻功更高；向林仙儿回报龙啸云回兴云庄及驼子等情报，猜驼子或为孙老二，入林后被荆无命眉心刺死。
+  factions: []
+  skills:
+    - skill_qing_gong
+- id: char_ji_le_dong_zhu_jebiflpc
+  name: 极乐峒主
+  aliases:
+    - 极乐童子
+    - 五毒童子
+  identities: []
+  level: null
+  rank: null
+  description: 身形矮小如幼童的使毒者，以毒饽饽与极乐虫害人；被小李飞刀刺喉后反遭自养毒虫噬尽，化为枯骨。
+  factions:
+    - faction_ji_le_dong
+  skills: []
+- id: char_ji_le_dong_zhu_lejeojjl
+  name: 极乐洞主
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 被指为害死心眉大师兄的凶手,李寻欢称其已死于自己出手一刀。
+  factions: []
+  skills: []
+- id: char_ji_le_tong_zi
+  name: 极乐童子
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 李寻欢检验心眉尸色时提起的用毒者，问心树是否见过被其毒死之人。
   factions: []
   skills: []
 - id: char_jin_feng_bai
   name: 金风白
   aliases: []
-  identities:
-    - 金风白
-  level: 次要
+  identities: []
+  level: 重要
   rank: null
-  description: |-
-    生平：金风白在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的金风白
-  factions: []
+  description: 道出翁老大暗中劫富补空与铁传甲知情不说的真相后，以杀铁传甲之刀自刎还债。
+  factions:
+    - faction_zhong_yuan_ba_yi
+    - faction_yi_tie_tang
   skills: []
 - id: char_jing_wu_ming
   name: 荆无命
-  aliases: []
+  aliases:
+    - 荆先生
   identities:
-    - 冷血杀手剑客
-  level: 重要
+    - 上官金虹属下第一号的打手
+    - 武林后起一代高手
+    - 凶手
+  level: 核心
+  rank: 出神入化
+  description: 死灰色眼睛、黄衫短袖、剑插腰带右边；击落暗器后停手不杀阿飞，因同病相怜；令解李寻欢穴道并欲亲手杀之，言能杀阿飞却留其命。
+  factions:
+    - faction_jin_qian_bang
+  skills:
+    - skill_jian_fa
+    - skill_you_shou_jian_fa
+- id: char_jiu_gui
+  name: 酒鬼
+  aliases: []
+  identities: []
+  level: 次要
   rank: null
-  description: |-
-    生平：以杀伐果断闻名,在多线对决中考验主角剑心与飞刀。
-    性格：冷短;刀锋;冷酷;寡言;致命;守信;孤绝
-    冷酷杀手,与李寻欢阿飞多次生死周旋
+  description: 一年多前入住小店的憔悴怪客，日饮十四壶酒、常咳嗽，拒说姓名来历，自称酒鬼，嗜好雕刻却从不完成雕像。
   factions: []
   skills: []
+- id: char_lan_da_xian_sheng
+  name: 蓝大先生
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 辫子姑娘口述中持百斤大铁锥与萧王孙恶战一昼夜者。
+  factions: []
+  skills: []
+- id: char_lan_shan_shao_nian
+  name: 蓝衫少年
+  aliases:
+    - 蓝衣少年
+  identities:
+    - 点苍门下
+  level: 次要
+  rank: null
+  description: 宝蓝色长袍、绿鲨鱼皮鞘黄金吞口长剑；不屑与其余人为伍，一剑斩杀中年人，自承谢天灵为师，欲与荆无命拼命。
+  factions:
+    - faction_dian_cang_men
+  skills:
+    - skill_jian_fa
 - id: char_lan_xie_zi
   name: 蓝蝎子
   aliases: []
   identities:
-    - 毒蝎相关人物
-  level: 次要
+    - 关外高手
+    - 青魔手的情人
+  level: 重要
   rank: null
-  description: |-
-    性格：阴;毒;狠毒;阴;诡秘;残忍;冷静
-    毒蝎意象相关对手
+  description: 媚力诱人的女子，专吃男人的毒蝎子；一招杀楚相羽，声称武功可比伊哭青魔手更毒更快；兵刃似放大蝎子毒尾，满布倒刺；被李寻欢折断手腕。
+  factions: []
+  skills:
+    - skill_xie_wei_zhi_du
+- id: char_lan_yi_shao_nian
+  name: 蓝衣少年
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 与荆无命对峙，先被剑抵咽喉，后挥剑时被荆无命一剑刺入口中杀死。
+  factions: []
+  skills: []
+- id: char_lao_li_tan_hua
+  name: 老李探花
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_li_jia
+  skills: []
+- id: char_lao_ren
+  name: 老人
+  aliases:
+    - 爷爷
+  identities: []
+  level: 重要
+  rank: null
+  description: 长亭中吸旱烟的蓝袍老者，以点烟指微与吐烟折变惊退上官金虹，并点破李寻欢对林诗音的保护之误。
+  factions: []
+  skills: []
+- id: char_lao_tan_hua
+  name: 老探花
+  aliases: []
+  identities:
+    - 探花
+  level: 背景
+  rank: null
+  description: 李寻欢父祖一辈中的老探花，望子孙中状元弥补己憾，失望后去世。
+  factions: []
+  skills: []
+- id: char_lao_tou_zi
+  name: 老头子
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_lao_wu
+  name: 老五
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
   factions: []
   skills: []
 - id: char_li_xun_huan
   name: 李寻欢
   aliases:
-    - 小李探花
     - 李探花
+    - 李大侠
+    - 寻欢
+    - 李大叔
+    - 小李探花
+    - 李某
+    - 李檀越
+    - 李檀樾
+    - 探花爷
+    - 探花郎
+    - 小李公子
+    - 李大哥
+    - 小李飞刀
   identities:
-    - 小李飞刀传人、浪子
+    - 探花郎
+    - 小李探花
+    - 少爷
+    - 李探花
+    - 浪子
+    - 酒鬼
+    - 天下第一刀
+    - 杀手无情的李探花
+    - 探花爷
+    - 风流探花
+    - 探花
+    - 梅花盗
+    - 小李飞刀
+    - 三代探花
+    - 风流翰林
   level: 核心
-  rank: null
-  description: |-
-    生平：出身李家,以飞刀闻名江湖,却因情伤与旧怨漂泊。与阿飞结为知己,牵涉林诗音、龙啸云的十八年恩怨,并与金钱帮上官金虹等势力周旋,最终走向巅峰对决与命运收束。
-    性格：淡而自嘲;玩世深情;多情;重义;孤傲;病弱;聪明;自嘲
-    小李飞刀传人,情义与十八年旧怨的中心浪子
-  factions: []
+  rank: 登峰造极
+  description: 放过为伊哭复仇的蓝蝎子，认为有泪可流的人就不该死；对孙小红装醉，以小李飞刀钉门楣放人；因保护他人不愿离开，谈及阿飞与林仙儿时沉默，夜赴城外长亭见孙小红爷爷，途中发现金钱帮灯笼与使左手剑的强手。
+  factions:
+    - faction_li_yuan
+    - faction_xing_yun_zhuang
+    - faction_li_jia
   skills:
+    - skill_xiao_li_shen_dao
     - skill_xiao_li_fei_dao
+    - skill_fei_dao_duo_ming
+    - skill_tan_hua_fei_dao
+    - skill_yan_zi_san_chao_shui
+    - skill_fei_dao
+    - skill_qing_ting_san_chao_shui
+    - skill_ping_sha_luo_yan
+    - skill_qing_gong
+- id: char_lin_ling_ling
+  name: 林铃铃
+  aliases:
+    - 铃铃
+  identities: []
+  level: 次要
+  rank: null
+  description: 红衣小姑娘，被小姐买下后姓林、名铃铃，受命陪李寻欢喝酒并看着他，后将点穴后的李寻欢藏入衣橱。
+  factions: []
+  skills: []
+- id: char_lin_ma_zi
+  name: 林麻子
+  aliases:
+    - 林大总管
+    - 林总管
+  identities:
+    - 林大总管
+  level: 龙套
+  rank: null
+  description: 林仙儿之父、兴云庄总管，酒后被阿飞剑指咽喉逼问并带路柴房，后被点晕。
+  factions:
+    - faction_xing_yun_zhuang
+  skills: []
 - id: char_lin_shi_yin
   name: 林诗音
-  aliases: []
+  aliases:
+    - 诗音
+    - 龙夫人
+    - 林姑娘
   identities:
-    - 林家女子、龙啸云之妻
+    - 夫人
+    - 龙夫人
+    - 母亲
+    - 妻子
   level: 核心
   rank: null
-  description: |-
-    生平：与李寻欢情深,后嫁龙啸云,十八年心结与愧疚贯穿主线。在旧怨揭开与命运纠葛中承受情义两难。
-    性格：柔声含悲;温润压抑;温婉;坚忍;深情;愧疚;柔中有刚
-    李寻欢挚爱,牵动十八年旧怨的情感核心
-  factions: []
+  description: 王怜花将怜花宝典交予她；李寻欢推断她或已将书传给儿子龙小云，且从未向他提起；少年时与李寻欢在梅下雪中相识。
+  factions:
+    - faction_xing_yun_zhuang
+    - faction_long_jia
+    - faction_li_jia
   skills: []
 - id: char_lin_xian_er
   name: 林仙儿
-  aliases: []
+  aliases:
+    - 林姑娘
+    - 梅花盗
+    - 仙儿
   identities:
-    - 绝色阴谋女子
-  level: 重要
+    - 天下第一美人
+    - 武林第一美人
+    - 武林中的第一美人
+    - 江湖中的第一美人
+  level: 核心
   rank: null
-  description: |-
-    生平：以魅惑与算计布局,牵动阿飞、龙啸云与金钱帮周边,制造温柔陷阱与毒妇心机线。
-    性格：柔媚藏刀;冶艳;美艳;心机;善变;狠毒;魅惑
-    以美色与心机搅动江湖的魔女式人物
-  factions: []
-  skills: []
+  description: 仍与阿飞同住梅林木屋，容貌未改、更显成熟妩媚；劝阿飞请李寻欢入坐并下厨接风；矢口否认昨夜外出，阿飞称其每晚早睡未出；与阿飞分房，居较大有梳妆台之屋。
+  factions:
+    - faction_xing_yun_zhuang
+    - faction_leng_xiang_xiao_zhu
+  skills:
+    - skill_qing_mo_shou
+    - skill_yu_cang_jian
+    - skill_qing_gong
 - id: char_ling_ling
   name: 铃铃
   aliases: []
-  identities:
-    - 少女
-  level: 次要
-  rank: null
-  description: |-
-    性格：软;怯;单纯;柔弱;依赖;善良;胆怯
-    情感/场景线中的少女角色
-  factions: []
-  skills: []
-- id: char_long_xiao_yun_ijkdakbo
-  name: 龙啸云
-  aliases: []
-  identities:
-    - 龙氏传人
+  identities: []
   level: 重要
   rank: null
-  description: |-
-    生平：与李寻欢曾为挚友,因情与误会结怨。婚姻与权谋线交织林仙儿等人,最终走向因果清算。
-    性格：硬朗;外强内耗;刚愎;愧疚;重面子;矛盾;勇武
-    李寻欢故友,因林诗音与飞刀阴影纠葛十八年
+  description: 未上楼，弄松一根柱子使小楼倒塌救下李寻欢；事后得意自述，并抱怨无人可依，暗示愿随李寻欢走，且称可凭她找到小姐与阿飞。
   factions: []
   skills: []
-- id: char_long_xiao_yun_kobcemee
-  name: 龙小云
+- id: char_long_fu_ren
+  name: 龙夫人
   aliases: []
-  identities:
-    - 龙小云
+  identities: []
   level: 次要
   rank: null
-  description: |-
-    生平：龙小云在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的龙小云
+  description: 龙啸云之妻，与李寻欢为姑表之亲。
+  factions:
+    - faction_xing_yun_zhuang
+  skills: []
+- id: char_long_si_ye
+  name: 龙四爷
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
   factions: []
   skills: []
+- id: char_long_xiao_yun_fhjkmbip
+  name: 龙小云
+  aliases:
+    - 红孩儿
+    - 云小爷
+    - 云少爷
+    - 云儿
+    - 小云
+  identities:
+    - 龙啸云龙四爷的大公子
+    - 少庄主
+    - 儿子
+  level: 重要
+  rank: null
+  description: 林诗音与龙啸云之子，湿衣卧床装作睡着，曾尾随母亲并交出怜花宝典，痛陈对李寻欢的复杂恨意，终向已远去的父亲认子。
+  factions:
+    - faction_xing_yun_zhuang
+  skills: []
+- id: char_long_xiao_yun_kofhpnpk
+  name: 龙啸云
+  aliases:
+    - 龙四爷
+    - 龙四
+    - 四爷
+    - 龙大爷
+    - 四哥
+  identities:
+    - 庄主
+    - 后来的主人
+    - 父亲
+    - 丈夫
+  level: 核心
+  rank: null
+  description: 与李寻欢对饮深谈，吐露妻子仍爱着李寻欢的痛苦，认定兴云庄园中有藏宝并欲加以利用，声称绝不会杀李寻欢却也不能放他，最后要带他去见另一个人。
+  factions:
+    - faction_xing_yun_zhuang
+    - faction_long_jia
+    - faction_jin_qian_bang
+  skills:
+    - skill_dian_xue
 - id: char_lu_feng_xian
   name: 吕凤先
-  aliases: []
+  aliases:
+    - 温侯银戟
+    - 吕风先
   identities:
-    - 武林高手
+    - 兵器谱名列第五
+    - 温侯银戟
+    - 银戟温侯
+    - 吕大侠
   level: 重要
   rank: null
-  description: |-
-    生平：参与梅花盗相关波澜,与主角阵营多次交锋。
-    性格：阴冷;阴;阴鸷;机敏;狠厉;狡黠
-    与梅花盗及阴谋线交织的阴鸷高手
+  description: 沉得住气的强敌，武功达空灵之境；应李寻欢之请在决斗中故意让阿飞胜一招并肩头受伤后离去；后在客栈承认此为交易，并称可要李寻欢做任何事甚至去死。
   factions: []
+  skills: []
+- id: char_lu_yi_tong
+  name: 绿衣童
+  aliases: []
+  identities:
+    - 护法童子
+  level: null
+  rank: null
+  description: 极乐峒童子之一，咽喉被一剑刺穿。
+  factions:
+    - faction_ji_le_dong
+  skills: []
+- id: char_lu_yi_tong_zi
+  name: 绿衣童子
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 极乐峒五毒童子门下，着绿衣。
+  factions:
+    - faction_ji_le_dong
+  skills:
+    - skill_wai_men_gong_fu
+- id: char_lu_zong_guan
+  name: 吕总管
+  aliases: []
+  identities:
+    - 总管
+  level: 次要
+  rank: null
+  description: 上官金虹唤出的属下，胖而敏捷，奉命以酒与女人困住阿飞，并嘲讽劝饮。
+  factions:
+    - faction_jin_qian_bang
+  skills: []
+- id: char_ma_mian_da_han
+  name: 麻面大汉
+  aliases:
+    - 麻子
+  identities: []
+  level: 次要
+  rank: null
+  description: 黄河七蛟中人，掌击梅二先生，后又凭小刀认出李寻欢而劝赵老大退走。
+  factions:
+    - faction_huang_he_qi_jiao
+  skills: []
+- id: char_ma_zi
+  name: 麻子
+  aliases:
+    - 大麻子
+  identities:
+    - 管家
+    - 大管家
+  level: 次要
+  rank: null
+  description: 满面麻子、须发已白的门房，林仙儿生父，忠心留守败落的龙府
+  factions: []
+  skills: []
+- id: char_mai_bu_xia_zi
+  name: 卖卜瞎子
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 昔日被白衣人手指剪断银棍之人，本章仅作回溯提及。
+  factions: []
+  skills: []
+- id: char_mai_chou_dou_gan_de_xiao_fan
+  name: 卖臭豆干的小贩
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 从小门走出的同党之一，参与诱捕李寻欢的圈套。
+  factions: []
+  skills: []
+- id: char_mei_da_xian_sheng
+  name: 梅大先生
+  aliases:
+    - 梅先生
+  identities: []
+  level: 重要
+  rank: null
+  description: 梅二先生的大哥，藏有寒鸡散解药，爱书画好酒却又孤僻小气。
+  factions:
+    - faction_mei_jia
+    - faction_mei_hua_cao_tang
   skills: []
 - id: char_mei_er_xian_sheng
   name: 梅二先生
-  aliases: []
+  aliases:
+    - 妙郎中
+    - 妙大夫
   identities:
-    - 梅二先生
-  level: 次要
+    - 妙郎中
+    - 江湖郎中
+    - 妙大夫
+    - 天下救治外伤的第一把好手
+  level: 重要
   rank: null
-  description: |-
-    生平：梅二先生在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的梅二先生
-  factions: []
+  description: 梅花草堂二先生，以医治外伤与暗器伤闻名，被秦孝仪一行以王摩诘画为礼强请。
+  factions:
+    - faction_qi_miao_ren
+    - faction_mei_jia
+    - faction_mei_hua_cao_tang
   skills: []
 - id: char_mei_hua_dao
   name: 梅花盗
-  aliases: []
+  aliases:
+    - 林仙儿
   identities:
-    - 神秘大盗
+    - 梅花盗
   level: 重要
   rank: null
-  description: |-
-    生平：梅花盗之名屡现江湖,牵动宝物、杀人与身份之谜。
-    性格：不定;诡;神秘;狠辣;狡黠;冷酷
-    身份成谜的大盗,推动悬疑与武林震动
+  description: 江湖传言中无恶不作的大盗，数十年仅出现两次却案积如山；孙老先生称探花郎即梅花盗，亦有人指李寻欢为真身，真伪莫辨。
+  factions: []
+  skills:
+    - skill_fu_yu
+    - skill_qing_gong
+    - skill_shen_fa
+    - skill_dian_xue
+- id: char_miao_jiang_ji_le_dong_zhu
+  name: 苗疆极乐峒主
+  aliases:
+    - 五毒童子
+  identities: []
+  level: 次要
+  rank: null
+  description: 以毒手重创押送李寻欢一行的心眉大师、田七及少林弟子之人。
+  factions: []
+  skills: []
+- id: char_nong_mei_da_yan_de_huang_shan_ren
+  name: 浓眉大眼的黄衫人
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 穿杏黄色长衫、浓眉大眼的三十多岁男子，与同伴骑马窥探高墙内巨宅并向孙驼子买话打探。
+  factions: []
+  skills: []
+- id: char_pan_da_shao
+  name: 潘大少
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 仅以狐裘被铺在酒铺板凳上照顾李寻欢而提及。
+  factions: []
+  skills: []
+- id: char_pan_xiao_an
+  name: 潘小安
+  aliases:
+    - 花花大少
+    - 潘大少
+  identities:
+    - 败家子
+  level: 次要
+  rank: null
+  description: 金玉堂败家子，挥金如土，与施耀先同乘大车，在美人怀中被点死穴。
+  factions:
+    - faction_jin_yu_tang
+  skills: []
+- id: char_peng_qiong
+  name: 彭琼
+  aliases:
+    - 彭神刀
+    - 神刀
+  identities:
+    - 神刀
+  level: null
+  rank: null
+  description: 狄武子之好友，号神刀；与狄武子未婚妻暗中约会后被夺情剑所杀。
+  factions: []
+  skills: []
+- id: char_qi_he
+  name: 骑鹤
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 梅大先生身边的童子，受命取酒、藏酒。
+  factions: []
+  skills: []
+- id: char_qian_shou_luo_cha
+  name: 千手罗刹
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 以十三种暗器同时钉杀花蜂的残酷女子，衣着金丝缀珠玉。
+  factions: []
+  skills: []
+- id: char_qiang_wei_fu_ren
+  name: 蔷薇夫人
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 二十年前名满江湖的美人，与孙逵私奔隐居，本回下毒并欲以金簪刺李寻欢，被孙逵踢上屋顶。
+  factions: []
+  skills: []
+- id: char_qiao_fu
+  name: 樵夫
+  aliases: []
+  identities:
+    - 力劈华山
+  level: 次要
+  rank: null
+  description: 中原八义中人，向铁传甲叩头后自尽，死得更快更平静。
+  factions:
+    - faction_zhong_yuan_ba_yi
+  skills:
+    - skill_li_pi_hua_shan_ahglnocm
+- id: char_qin_da_shao_ye
+  name: 秦大少爷
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 本回仅被报信称似乎不对，秦老爷子请龙啸云前去看视。
+  factions: []
+  skills: []
+- id: char_qin_lao_ye_zi
+  name: 秦老爷子
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 请龙四爷去看秦大少爷之人，仅被报信提及。
+  factions: []
+  skills: []
+- id: char_qin_xiao_yi
+  name: 秦孝仪
+  aliases:
+    - 秦大侠
+    - 秦三哥
+    - 秦三爷
+  identities:
+    - 铁胆震八方
+  level: 次要
+  rank: null
+  description: 江湖侠名远播的秦老爷子，为救子秦重来请梅二先生，并道破龙小云身世。
+  factions: []
+  skills: []
+- id: char_qin_zhong
+  name: 秦重
+  aliases:
+    - 秦大少爷
+  identities:
+    - 玉面神拳
+    - 当今少林馆座惟一的俗家弟子
+    - 俗家弟子
+    - 心湖大师的爱徒
+  level: 次要
+  rank: null
+  description: 秦孝仪大少爷，少林馆座俗家弟子，捕梅花盗时重伤，需梅二先生救治。
+  factions:
+    - faction_shao_lin
+    - faction_shao_lin_pai
+  skills:
+    - skill_yu_mian_shen_quan
+- id: char_qing_mian_han_zi
+  name: 青面汉子
+  aliases:
+    - 青面瘦长汉子
+  identities: []
+  level: null
+  rank: null
+  description: 青面瘦长汉子，为信而来，兵器谱蛇鞭排名第七，与独腿人对峙不肯放手。
+  factions: []
+  skills: []
+- id: char_qing_mo_shou
+  name: 青魔手
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 蓝蝎子之情人。
+  factions: []
+  skills: []
+- id: char_qing_shan_lao_zhe
+  name: 青衫老者
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_qing_yi_da_han
+  name: 青衣大汉
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 昔日被白衣人以一小锭银子击断扁担之人，本章仅作回溯提及。
+  factions: []
+  skills: []
+- id: char_qing_yi_ren
+  name: 青衣人
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 初以青惨惨面容与青魔手现身，一掌重创孙逵；自称非伊哭之徒，以青魔手、鱼肠剑及美色连环诱换金丝甲，被李寻欢以小刀逼退后恶语逃去。
+  factions: []
+  skills: []
+- id: char_qiu_du
+  name: 丘独
+  aliases: []
+  identities:
+    - 伊哭的爱徒
+  level: 龙套
+  rank: null
+  description: 伊哭私生子,得青魔武功心法与青魔手,已死于李寻欢之手。
+  factions: []
+  skills: []
+- id: char_qiu_ran_da_han
+  name: 虬髯大汉
+  aliases:
+    - 铁甲金刚
+    - 铁传甲
+    - 铁某
+  identities:
+    - 奴仆
+    - 铁甲金刚
+  level: 重要
+  rank: null
+  description: 与秦孝仪恶斗并将其震倒，有横练功夫；因十八年前旧怨怕连累李寻欢而离去，于菜场被独眼妇人以梅二先生要挟带走。
+  factions: []
+  skills:
+    - skill_qing_gong
+    - skill_tie_bu_shan
+    - skill_heng_lian_gong_fu
+- id: char_ru_yi
+  name: 如意
+  aliases: []
+  identities:
+    - 铁笛先生的爱妾
+  level: 背景
+  rank: null
+  description: 铁笛先生之亡妻，铁笛先生以为李寻欢害死她而前来复仇。
+  factions: []
+  skills: []
+- id: char_sang_men_jian
+  name: 丧门剑
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_shang_guan_bang_zhu
+  name: 上官帮主
+  aliases: []
+  identities:
+    - 帮主
+  level: null
+  rank: null
+  description: null
   factions: []
   skills: []
 - id: char_shang_guan_fei
   name: 上官飞
-  aliases: []
-  identities:
-    - 上官飞
-  level: 次要
-  rank: null
-  description: |-
-    生平：上官飞在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的上官飞
-  factions: []
-  skills: []
-- id: char_shang_guan_jin_hong
-  name: 上官金虹
   aliases:
-    - 金钱帮总瓢把子
+    - 小飞
   identities:
-    - 金钱帮帮主
+    - 上官金虹的独生子
+    - 上官金虹的门下弟子
+    - 上官金虹之子
+    - 独生儿子
   level: 重要
   rank: null
-  description: |-
-    生平：执掌金钱帮,以财富与武力纵横武林,与李寻欢、阿飞构成巅峰级对决线。
-    性格：霸气果断;帝王气;霸气;自信;冷酷;城府;绝顶
-    金钱帮总瓢把子,武学与权势巅峰对手
+  description: 黄衫斗笠、苍白脸，走路姿态奇特，冷酷神情似荆无命兄弟，暗中追踪荆无命。
   factions:
     - faction_jin_qian_bang
+  skills:
+    - skill_long_feng_shuang_huan
+- id: char_shang_guan_jin_hong
+  name: 上官金虹
+  aliases: []
+  identities:
+    - 自命天下第一高手
+    - 枭雄
+    - 上官帮主
+    - 金钱帮帮主
+    - 上官老伯
+    - 帮主
+    - 上官老爷
+    - 一代枭雄
+  level: 核心
+  rank: 登峰造极
+  description: 武功深不可测，席间以桌上轻按令筷子急射制住西门玉；龙凤双环兵器谱排名第二，已至手中无环、心中有环的武学巅峰，与李寻欢无声对峙。
+  factions:
+    - faction_jin_qian_bang
+  skills:
+    - skill_long_feng_shuang_huan
+- id: char_shao_lin_xin_chong
+  name: 少林心宠
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 江湖一等高手，被老头子列为败于阿飞剑下者之一。
+  factions: []
+  skills: []
+- id: char_shen_da_xia
+  name: 沈大侠
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 王怜花远游在即，已在海口等候。
+  factions: []
+  skills: []
+- id: char_shen_lang
+  name: 沈浪
+  aliases:
+    - 沈大侠
+    - 沈浪大侠
+  identities:
+    - 昔年天下第一位名侠
+    - 李寻欢先父道义之交
+    - 沈大侠
+  level: 重要
+  rank: null
+  description: 传闻归隐前曾托李寻欢之父保管两本毕生武功心法；多年前已买棹东渡退隐海外仙山。
+  factions: []
+  skills: []
+- id: char_shen_lao_san
+  name: 申老三
+  aliases: []
+  identities:
+    - 生意人
+    - 浊世公子
+  level: 次要
+  rank: null
+  description: 堂兄弟十六人中唯一幸存者，吞并四十多家店铺；幼时被父逐出混迹五年，双手疑练铁沙掌；胸藏钢板诱阿飞入网，桌下有地道。
+  factions:
+    - faction_shen_jia
+  skills:
+    - skill_tie_sha_zhang
+- id: char_shi_yao_xian
+  name: 施耀先
+  aliases: []
+  identities:
+    - 一指追魂
+  level: 次要
+  rank: null
+  description: 贪财之人，与潘大少联手，后点死穴杀潘大少等人夺金丝甲，终被阿飞剑刺咽喉而死。
+  factions: []
+  skills:
+    - skill_yi_zhi_zhui_hun
+- id: char_shi_yin
+  name: 诗音
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 冷香小筑中面色苍白、深夜缝衣的妇人，龙小云之母，李寻欢心中呼唤之人
+  factions: []
+  skills: []
+- id: char_shuo_shu_lao_ren
+  name: 说书老人
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_shuo_shu_xian_sheng
+  name: 说书先生
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 身形佝偻、白发苍苍的老头子，手提旱烟、蓝布衫发白，与长辫大眼的孙女同行，姓孙；两年前阿飞曾见过一次。
+  factions: []
+  skills: []
+- id: char_sun_bai_fa
+  name: 孙白发
+  aliases:
+    - 孙老爷子
+    - 孙老先生
+  identities:
+    - 孙小红的爷爷
+    - 风尘异人
+    - 化名孙白发
+  level: 重要
+  rank: null
+  description: 孙小红之祖父，化名孙白发；出城实为送走上官金虹，并吩咐灌醉李寻欢带去城外避风头。
+  factions: []
+  skills: []
+- id: char_sun_er_xian_sheng
+  name: 孙二先生
+  aliases: []
+  identities:
+    - 先生
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_sun_kui
+  name: 孙逵
+  aliases:
+    - 紫面二郎
+  identities:
+    - 紫面二郎
+  level: 次要
+  rank: null
+  description: 为梅花盗之财色重赏欲杀李寻欢；酒中下毒败露后对青衣人连出三拳，反被青魔手一掌重创半边脸，终以练子枪头自尽。
+  factions: []
+  skills: []
+- id: char_sun_lao_er_echbnpcd
+  name: 孙老二
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 昔年有"背上一座山,山也压不倒"之称；灰衣人猜卖酒驼子或即此人，并与孙老头有关。
+  factions: []
+  skills: []
+- id: char_sun_lao_er_klkkmcoa
+  name: 孙老儿
+  aliases:
+    - 孙老头
+  identities: []
+  level: 次要
+  rank: null
+  description: 上官金虹推测李寻欢可能同行的人物。
+  factions: []
+  skills: []
+- id: char_sun_lao_tou
+  name: 孙老头
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 说书人，与孙女被黑衣人追踪至关中道后忽然失踪。
+  factions: []
   skills: []
 - id: char_sun_lao_xian_sheng
   name: 孙老先生
-  aliases: []
+  aliases:
+    - 孙先生
   identities:
-    - 孙老先生
-  level: 次要
-  rank: null
-  description: |-
-    生平：孙老先生在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的孙老先生
-  factions: []
-  skills: []
-- id: char_sun_tuo_zi
-  name: 孙驼子
-  aliases: []
-  identities:
-    - 孙驼子
-  level: 次要
-  rank: null
-  description: |-
-    生平：孙驼子在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的孙驼子
-  factions: []
-  skills: []
-- id: char_sun_xiao_hong
-  name: 孙小红
-  aliases: []
-  identities:
-    - 聪明少女
+    - 天机老人
   level: 重要
   rank: null
-  description: |-
-    生平：活泼机敏,牵动阿飞心性与情感,在阴谋与对决间穿插温情。
-    性格：俏皮;明媚;机灵;活泼;重情;胆大;俏皮
-    机灵重情的少女,阿飞情感线关键
+  description: 白发清癯老人，于屋角抽旱烟，以四盆火蒸阿飞醒酒并欲蒸出其勇气；与孙小红一搭一档论天下人、蒸笼与枷锁，或即天机老人。
   factions: []
+  skills:
+    - skill_nei_gong
+- id: char_sun_tuo_zi
+  name: 孙驼子
+  aliases:
+    - 二叔
+    - 孙二侠
+    - 孙鸵子
+  identities:
+    - 店主人
+    - 残废的侏儒
+    - 孙小红口中的二叔
+    - 天生神力
+    - 孙二侠
+  level: 重要
+  rank: null
+  description: 垂首望着地上奇异兵刃；自灌大醉，称不愿受人恩惠、宁可被砍一刀；质问李寻欢为何救他，言及曾被救过一次及守护十五年之事，语声渐低醉睡。
+  factions: []
+  skills:
+    - skill_da_ying_zhao_li
+- id: char_sun_xiao_hong
+  name: 孙小红
+  aliases:
+    - 辫子姑娘
+    - 孙姑娘
+  identities:
+    - 快二十
+    - 孙老爷子之孙女
+  level: 重要
+  rank: null
+  description: 见证李寻欢放过蓝蝎子，识破其装醉；追问其不愿离开与阿飞、林仙儿之事，并劝其找人代替；称爷爷在城外长亭等她，因上官金虹必经之路；夜与李寻欢同赴长亭，途中认出金钱帮。
+  factions: []
+  skills:
+    - skill_qing_gong
+    - skill_an_qi
+    - skill_shen_fa
+- id: char_tang_du
+  name: 唐独
+  aliases: []
+  identities:
+    - 毒螳螂
+  level: 次要
+  rank: null
+  description: 五名访客之一，与诸葛刚等人同在大厅
+  factions:
+    - faction_jin_qian_bang
   skills: []
 - id: char_tian_ji_lao_ren
   name: 天机老人
   aliases: []
-  identities:
-    - 武林前辈
-  level: 重要
+  identities: []
+  level: null
   rank: null
-  description: |-
-    生平：以天机与棒法立足,在关键节点与主角线交汇。
-    性格：缓而深;渊;深沉;睿智;强势;老辣
-    天机棒相关高人,武学与智计兼备
+  description: null
   factions: []
-  skills:
-    - skill_tian_ji_bang
+  skills: []
 - id: char_tian_qi
   name: 田七
+  aliases:
+    - 田七爷
+    - 田大爷
+  identities:
+    - 田七爷
+    - 七爷
+  level: 重要
+  rank: null
+  description: 将少林僧人带去见秦孝仪父子，囚李寻欢于柴房；后出现令林诗音恢复镇定，依心眉之议拟送李寻欢去少林。
+  factions:
+    - faction_luo_yang_fu
+  skills:
+    - skill_dian_xue
+    - skill_chi_gun_dian_xue
+- id: char_tian_qi_ye
+  name: 田七爷
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 与少林心眉大师并提，龙小云称其亦做不到将李寻欢带到帮主处。
+  factions: []
+  skills: []
+- id: char_tian_shan_xue_ying_zi
+  name: 天山雪鹰子
   aliases: []
   identities:
-    - 田七
-  level: 次要
+    - 当代第一剑客
+  level: 背景
   rank: null
-  description: |-
-    生平：田七在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的田七
+  description: 当代第一剑客，游龙生之师，仅在介绍中出现。
+  factions: []
+  skills: []
+- id: char_tian_xia_di_yi_mei_ren
+  name: 天下第一美人
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 传说中的女子，曾被形容为看来如仙子却专带男人下地狱；李寻欢恐阿飞再见她而沉沦，求吕凤先阻其相见。
   factions: []
   skills: []
 - id: char_tie_chuan_jia
   name: 铁传甲
-  aliases: []
+  aliases:
+    - 铁甲金刚
   identities:
-    - 金钱帮高手
+    - 铁甲金刚
   level: 重要
   rank: null
-  description: |-
-    生平：追随上官金虹,以武力贯彻金钱帮权势。
-    性格：粗硬;悍;强悍;忠帮;凶狠;果决
-    金钱帮心腹高手,执行帮主意志
-  factions: []
-  skills: []
+  description: 精赤上身、骨硬如铁的大汉，肉夹住鱼鳞刀并以铁掌击飞黄衣人；为让同伴脱身主动撞上公孙雨刀锋，仍劝众人快走。
+  factions:
+    - faction_zhong_yuan_ba_yi
+  skills:
+    - skill_tie_bu_shan
 - id: char_tie_di_xian_sheng
   name: 铁笛先生
   aliases: []
   identities:
-    - 铁笛先生
+    - 点穴名家
   level: 次要
   rank: null
-  description: |-
-    生平：铁笛先生在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的铁笛先生
+  description: 梅林中以内功传笑、吹笛现身的成名高手，扬言让阿飞三招，一招即被刺伤；暗器铁笛射出寒星钉中阿飞腿，反劝其快走。
   factions: []
+  skills:
+    - skill_dian_xue
+    - skill_tie_di_yin_ding
+- id: char_tuo_zi
+  name: 驼子
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 仍在当地卖酒、深藏不露；龙啸云数访无果，灰衣人疑其即孙老二。
+  factions: []
+  skills: []
+- id: char_wan_wu_shi
+  name: 万无失
+  aliases:
+    - 九鼻狮子狗
+  identities:
+    - 九城名捕
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_wang_lao_qian_bei
+  name: 王老前辈
+  aliases: []
+  identities:
+    - 老前辈
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_wang_lian_hua
+  name: 王怜花
+  aliases:
+    - 王老前辈
+  identities: []
+  level: 重要
+  rank: null
+  description: 著有怜花宝典，远赴海外前欲托李寻欢保存并觅衣钵传人，因未见着李寻欢而将书交予林姑娘；中年后医道更精。
+  factions: []
+  skills:
+    - skill_yi_rong_shu
+    - skill_yi_dao
+    - skill_xia_du_shu
+    - skill_miao_ren_fang_gu
+    - skill_bo_si_chuan_lai_de_she_xin_shu
+    - skill_wu_gong_xin_fa
+- id: char_weng_da_niang
+  name: 翁大娘
+  aliases:
+    - 独眼妇人
+    - 女屠户
+  identities:
+    - 女屠户
+  level: 次要
+  rank: null
+  description: 地下室中高大肥胖、右眼瞎戴黑眼罩的女人，仇恨铁传甲，挣扎爬起后再被砍倒身亡。
+  factions:
+    - faction_zhong_yuan_ba_yi
+  skills: []
+- id: char_weng_tian_beng
+  name: 翁天迸
+  aliases:
+    - 义薄云天
+  identities:
+    - 义薄云天
+  level: 背景
+  rank: null
+  description: 被指称遭虬髯大汉出卖，为众人十七年旧怨之核心。
+  factions:
+    - faction_zhong_yuan_ba_yi
+  skills: []
+- id: char_weng_tian_jie
+  name: 翁天杰
+  aliases:
+    - 翁老大
+    - 翁大哥
+  identities: []
+  level: 次要
+  rank: null
+  description: 中原八义相关人物，义气闻名，曾暗中做没本钱的买卖，已死。
+  factions:
+    - faction_zhong_yuan_ba_yi
+  skills: []
+- id: char_wu_du_ji_le_tong_zi
+  name: 五毒极乐童子
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 被花蜂自夸下毒时拿来比较的人物，称有时逊花蜂一筹。
+  factions: []
+  skills: []
+- id: char_wu_du_tong_zi
+  name: 五毒童子
+  aliases:
+    - 极乐童子
+    - 极乐峒主
+  identities: []
+  level: 次要
+  rank: null
+  description: 苗疆极乐峒毒手，以蛇虫之毒无形杀人，一路追杀李寻欢。
+  factions:
+    - faction_ji_le_dong
+  skills: []
+- id: char_wu_wen_tian
+  name: 吴问天
+  aliases: []
+  identities:
+    - 点苍的掌门
+    - 江湖第一剑客
+  level: null
+  rank: null
+  description: 点苍掌门，当时号称江湖第一剑客，死于梅花盗之手。
+  factions:
+    - faction_dian_cang
+  skills:
+    - skill_jian_fa
+- id: char_xi_men_lie
+  name: 西门烈
+  aliases:
+    - 赴汤踏火
+  identities:
+    - 赴汤踏火
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_zhong_yuan_ba_yi
+  skills: []
+- id: char_xi_men_rou
+  name: 西门柔
+  aliases: []
+  identities:
+    - 鞭神
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills:
+    - skill_bian_shen_she_bian
+- id: char_xi_men_yu
+  name: 西门玉
+  aliases: []
+  identities:
+    - 少主人
+  level: 次要
+  rank: null
+  description: 席间被上官金虹以筷子急射制倒，经黄衫大汉查验肚中空无一物后成为说谎者下场的例证。
+  factions:
+    - faction_bi_hua_xuan
+  skills: []
+- id: char_xia_zi
+  name: 瞎子
+  aliases:
+    - 卖卜的瞎子
+  identities:
+    - 卖卜
+  level: 次要
+  rank: null
+  description: 龙啸云所遣同党之一，点李寻欢双膝环跳穴，称定计另有主谋，任务为引铁传甲。
+  factions: []
+  skills: []
+- id: char_xiang_song
+  name: 向松
+  aliases:
+    - 风雨双流星
+  identities:
+    - 第八舵主
+    - 风雨流星
+    - 向舵主
+    - 风雨双流星
+    - 金钱帮第八分舵的舵主
+  level: 次要
+  rank: null
+  description: 金钱帮第八舵主，号称风雨流星，一双流星在兵器谱中排名十九，曾带人求见帮主。
+  factions:
+    - faction_jin_qian_bang
+  skills: []
+- id: char_xiao_cui
+  name: 小翠
+  aliases: []
+  identities:
+    - 京城的名妓
+  level: 龙套
+  rank: null
+  description: 李寻欢为逼林诗音离开而带回家中的京城名妓之一。
+  factions: []
+  skills: []
+- id: char_xiao_hong
+  name: 小红
+  aliases: []
+  identities:
+    - 京城的名妓
+  level: 龙套
+  rank: null
+  description: 李寻欢为逼林诗音离开而带回家中的京城名妓之一。
+  factions: []
+  skills: []
+- id: char_xiao_jing
+  name: 萧静
+  aliases:
+    - 南阳大侠
+  identities:
+    - 南阳大侠
+    - 少林门下的俗家弟子
+  level: 次要
+  rank: null
+  description: 少林俗家弟子，急行上山向方丈室禀报梅花盗再现与张胜奇被杀。
+  factions:
+    - faction_shao_lin_si
+  skills: []
+- id: char_xiao_li_tan_hua
+  name: 小李探花
+  aliases:
+    - 小李飞刀
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_xiao_qiang_wei
+  name: 小蔷薇
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 花蜂令其勾引紫面二郎；后对紫面二郎动了真情，与其联手斩断花蜂双腿。
+  factions: []
+  skills: []
+- id: char_xiao_wang_sun
+  name: 萧王孙
+  aliases: []
+  identities:
+    - 帝王谷主
+  level: 背景
+  rank: null
+  description: 辫子姑娘口述旧事中的帝王谷主，曾与蓝大先生战于泰山绝顶。
+  factions:
+    - faction_di_wang_gu
+  skills: []
+- id: char_xiao_yun
+  name: 啸云
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 李寻欢自认不怪之人，诗音所嫁对象。
+  factions: []
+  skills: []
+- id: char_xie_tian_ling
+  name: 谢天灵
+  aliases: []
+  identities:
+    - 点苍掌门
+    - 天南第一剑客
+  level: 次要
+  rank: null
+  description: 点苍掌门，号称天南第一剑客，曾在郭嵩阳手下败过三次。
+  factions:
+    - faction_dian_cang_men
+    - faction_dian_cang
+  skills: []
+- id: char_xin_chong
+  name: 心宠
+  aliases:
+    - 心宠大师
+    - 单鹗
+    - 七巧书生
+  identities:
+    - 心宠大师
+    - 七师弟
+  level: 重要
+  rank: null
+  description: 灰袍白袜瘦长僧人，面带病容而目光如火；与百晓生以白蜡竿点阿飞穴道，逼李寻欢两时辰内交出心树。
+  factions:
+    - faction_shao_lin_si
+    - faction_shao_lin
+  skills:
+    - skill_dian_xue
+    - skill_shao_lin_shen_quan
+- id: char_xin_chong_da_shi
+  name: 心宠大师
+  aliases: []
+  identities:
+    - 七巧书生
+  level: 次要
+  rank: null
+  description: 少林七弟子中排名最末，半路出家前人称七巧书生，擅使毒；诊出心眉中的是极乐峒主的五毒水晶，并断言二师兄永不会醒。
+  factions:
+    - faction_shao_lin_si
+  skills: []
+- id: char_xin_deng
+  name: 心灯
+  aliases:
+    - 心灯大师
+  identities:
+    - 六师弟
+  level: 次要
+  rank: null
+  description: 少林六师弟，曾与心烛喂心眉服药，后与心烛阻住心宠去路。
+  factions:
+    - faction_shao_lin
+  skills: []
+- id: char_xin_hu
+  name: 心湖
+  aliases:
+    - 心湖大师
+  identities:
+    - 掌门
+    - 心湖大师
+    - 掌门师兄
+    - 少林掌教
+    - 掌门人
+  level: 重要
+  rank: null
+  description: 少林掌门；嘱严守失经秘密；与心树知心眉藏经处；被李寻欢点名或为内贼嫌疑，心树承认纵是掌门亦难公开。
+  factions:
+    - faction_shao_lin_si
+    - faction_shao_lin
   skills: []
 - id: char_xin_hu_da_shi
   name: 心湖大师
-  aliases: []
+  aliases:
+    - 心湖和尚
+    - 心湖
   identities:
-    - 心湖大师
+    - 少林派的掌门大师
+    - 少林掌门
+    - 掌门人
+  level: 重要
+  rank: null
+  description: 少林掌门，闻梅花盗再现而疑冤枉李寻欢；为不令五师弟陪饿，准照李寻欢菜单备膳，称心中已有打算。
+  factions:
+    - faction_shao_lin_pai
+    - faction_shao_lin_si
+  skills: []
+- id: char_xin_mei
+  name: 心眉
+  aliases:
+    - 心眉大师
+  identities:
+    - 少林的护法大师
+    - 心眉大师
+    - 二师兄
   level: 次要
   rank: null
-  description: |-
-    生平：心湖大师在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的心湖大师
-  factions: []
-  skills: []
+  description: 少林二师兄，遗蜕覆白被单于禅床；离寺查梅花盗前藏三部要经并写读经鎏记疑凶名，回寺中毒本可救，疑遭内贼灭口。
+  factions:
+    - faction_shao_lin
+    - faction_shao_lin_si
+  skills:
+    - skill_shao_lin_tie_xiu
+    - skill_shao_lin_luo_han_zhen
 - id: char_xin_mei_da_shi
   name: 心眉大师
-  aliases: []
+  aliases:
+    - 白眉僧人
+    - 白马僧人
+    - 心眉
   identities:
-    - 心眉大师
+    - 少林护法大师
+    - 当今少林的第二把高手
+    - 和尚
+  level: 重要
+  rank: null
+  description: 少林僧人，途中误食毒饽饽中毒；临死前拍开李寻欢穴道放他逃生，反被李寻欢护送回少林；抵寺后终究未能醒来。
+  factions:
+    - faction_shao_lin
+    - faction_shao_lin_si
+  skills:
+    - skill_fo_jia_zhang_li
+    - skill_nei_gong
+- id: char_xin_mei_da_shi_xiong
+  name: 心眉大师兄
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 少林已故僧人,被指为极乐洞主所害。
+  factions:
+    - faction_shao_lin_si
+  skills: []
+- id: char_xin_shu
+  name: 心树
+  aliases:
+    - 心树大师
+    - 胡云冀
+    - 铁胆御史
+  identities:
+    - 五师叔
+    - 心树大师
+    - 铁胆御史
+    - 御史
+    - 五师兄
+  level: 重要
+  rank: null
+  description: 少林纤秀文弱僧人，昔为铁胆御史胡云冀；被李寻欢留作人质却暗有相助；吐露藏经七次被窃、心眉疑内贼并托李寻欢查凶，愿与凶手同归于尽。
+  factions:
+    - faction_shao_lin_si
+    - faction_shao_lin
+  skills: []
+- id: char_xin_zhu
+  name: 心烛
+  aliases:
+    - 心烛大师
+  identities:
+    - 四师兄
   level: 次要
   rank: null
-  description: |-
-    生平：心眉大师在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的心眉大师
+  description: 少林四师兄，曾与心灯喂心眉服药，后与心灯阻住心宠去路。
+  factions:
+    - faction_shao_lin
+  skills: []
+- id: char_xiong_mao_er
+  name: 熊猫儿
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 李寻欢讲述的传奇人物之一；阿飞听闻时神情奇特。
+  factions: []
+  skills: []
+- id: char_xue_ying_zi
+  name: 雪鹰子
+  aliases: []
+  identities:
+    - 当代第一剑客
+  level: null
+  rank: null
+  description: 昔年当代第一剑客，剑法轻捷飘忽，鹰愁涧一役后封剑归隐。
+  factions: []
+  skills:
+    - skill_jian_fa
+- id: char_yan_shuang_fei
+  name: 燕双飞
+  aliases: []
+  identities:
+    - 独眼龙
+  level: 次要
+  rank: null
+  description: 五名访客之一，以飞枪自居，欲与小李探花飞刀较量
+  factions:
+    - faction_jin_qian_bang
+  skills:
+    - skill_fei_qiang
+- id: char_yang_cheng_zu
+  name: 杨承祖
+  aliases:
+    - 铁枪小霸王
+  identities:
+    - 铁枪小霸王
+  level: 龙套
+  rank: null
+  description: 紫面膛少年，肩扛长枪，使正宗杨家枪法；枪尖被青面汉子折断，后被制钱压头。
+  factions: []
+  skills:
+    - skill_yang_jia_qiang_fa
+- id: char_yang_da_hu_zi
+  name: 杨大胡子
+  aliases: []
+  identities:
+    - 江南七十二道水陆码头总瓢把子
+  level: null
+  rank: null
+  description: 蔷薇夫人前夫，江南七十二道水陆码头总瓢把子。
+  factions: []
+  skills: []
+- id: char_yi_chen
+  name: 一尘
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 二师兄座下弟子，亲送食盘至菩提院门口，见李寻欢取盘后又将膳食抛出。
+  factions:
+    - faction_shao_lin_si
+    - faction_shao_lin
+  skills: []
+- id: char_yi_er_ge
+  name: 易二哥
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 旧怨一伙中测字卖卜的瞎子。
+  factions: []
+  skills: []
+- id: char_yi_ku
+  name: 伊哭
+  aliases:
+    - 青魔
+    - 青魔手
+  identities:
+    - 青魔
+    - 青魔手
+  level: 重要
+  rank: null
+  description: 持青魔手的强敌。本欲杀林仙儿，却与之苟合后被挑拨去寻阿飞；辱及林仙儿时逼问不休，终被阿飞以断剑剑尖刺穿咽喉而死。
+  factions: []
+  skills:
+    - skill_qing_mo_shou
+- id: char_yi_ming_hu
+  name: 易明湖
+  aliases:
+    - 瞎子
+    - 神目如电
+    - 有眼无珠
+  identities:
+    - 神目如电
+    - 有眼无珠
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_zhong_yuan_ba_yi
+  skills: []
+- id: char_yi_ming_tang
+  name: 易明堂
+  aliases:
+    - 瞎子
+    - 易二哥
+  identities:
+    - 瞎子
+    - 易二哥
+  level: 重要
+  rank: null
+  description: 中原八义中人，守候铁传甲归来，告知林诗音仍在兴云庄，并托李寻欢合葬诸兄弟。
+  factions:
+    - faction_zhong_yuan_ba_yi
+  skills: []
+- id: char_yi_yin
+  name: 一茵
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 二师兄座下弟子，与一尘在菩提院当值送膳，转述李寻欢抛回膳食并抛出菜单。
+  factions:
+    - faction_shao_lin_si
+    - faction_shao_lin
+  skills: []
+- id: char_yin_ji
+  name: 阴姬
+  aliases:
+    - 水母
+  identities:
+    - 水母
+    - 天下第一高手
+  level: 背景
+  rank: null
+  description: 辫子姑娘口述中号称天下第一高手的神水宫人物，曾被楚留香打败。
+  factions:
+    - faction_shen_shui_gong
+  skills: []
+- id: char_yin_wu_ji
+  name: 阴无极
+  aliases: []
+  identities:
+    - 血剑
+  level: 背景
+  rank: null
+  description: 有血剑之名的武林人物，被李寻欢与虬髯大汉拿来与狠毒童子对照。
+  factions: []
+  skills: []
+- id: char_ying_bi_ru_gou_de_huang_shan_ren
+  name: 鹰鼻如钩的黄衫人
+  aliases:
+    - 鹰鼻人
+  identities: []
+  level: null
+  rank: null
+  description: 穿杏黄色长衫、鹰鼻如钩的三十多岁男子，出价买孙驼子的话，详问李家巨宅与龙啸云下落。
   factions: []
   skills: []
 - id: char_you_long_sheng
   name: 游龙生
-  aliases: []
+  aliases:
+    - 游少庄主
+    - 游兄
   identities:
-    - 游龙生
+    - 游少庄主
+    - 藏剑山庄少庄主
+    - 藏龙老人的公子
+    - 天山雪鹰子的惟一传人
+    - 少庄主
+  level: 重要
+  rank: null
+  description: 持夺情剑、剑法极快；假死后潜伏，于危急时自背后以夺情剑刺穿大欢喜女菩萨，反被其倒下压断全身骨头；临终自称并非游龙生，游龙生早已死去，并恨未死在李寻欢手里。
+  factions:
+    - faction_cang_jian_shan_zhuang
+  skills:
+    - skill_jian_fa
+- id: char_yu_er_guai_zi
+  name: 虞二拐子
+  aliases:
+    - 虞二先生
+  identities:
+    - 神行无影
+  level: 重要
+  rank: null
+  description: 跛足老人，轻功极高，能踏雪无痕，与查猛一同拦阻李寻欢索要包袱。
+  factions: []
+  skills:
+    - skill_ta_xue_wu_hen
+    - skill_qing_gong
+    - skill_an_qi
+- id: char_yun_er
+  name: 云儿
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 龙啸云提及诗音知其可恶，仅一句带过。
+  factions: []
+  skills: []
+- id: char_zhang_cheng_ceng
+  name: 张承蹭
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_zhong_yuan_ba_yi
+    - faction_wan_sheng_yuan
+  skills: []
+- id: char_zhang_lao_wu
+  name: 张老五
+  aliases:
+    - 老五
+  identities:
+    - 安乐公子
   level: 次要
   rank: null
-  description: |-
-    生平：游龙生在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的游龙生
+  description: 旧怨一伙中卖酒者，原为安乐公子，现挑担卖酒。
   factions: []
+  skills: []
+- id: char_zhang_sheng_qi
+  name: 张胜奇
+  aliases:
+    - 张员外
+    - 张大善人
+  identities:
+    - 张员外
+    - 张大善人
+    - 绿林巨盗
+    - 独行盗
+  level: 次要
+  rank: null
+  description: 早年绿林巨盗，五十后洗手却暗中不清白；被黑衣人以五点血花击杀，珍宝洗劫，成假冒梅花盗第一案。
+  factions: []
+  skills: []
+- id: char_zhao_da_ye
+  name: 赵大爷
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 江湖中身份举足轻重之人，与田七爷认定李寻欢才是真梅花盗。
+  factions: []
+  skills: []
+- id: char_zhao_lao_da
+  name: 赵老大
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 黄河七蛟之一，持马鞭腰刀逼梅二先生治病，认出李寻欢后吓得求饶。
+  factions:
+    - faction_huang_he_qi_jiao
+  skills: []
+- id: char_zhao_lao_er
+  name: 赵老二
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 金狮镖局中人，随诸葛雷大吃大喝吹嘘；被黑蛇软剑缠颈，人头平空跳起而死。
+  factions:
+    - faction_jin_shi_biao_ju
   skills: []
 - id: char_zhao_zheng_yi
   name: 赵正义
-  aliases: []
+  aliases:
+    - 赵大爷
+    - 赵老大
+    - 铁面无私
   identities:
-    - 赵正义
+    - 铁面无私
+    - 赵大爷
   level: 次要
   rank: null
-  description: |-
-    生平：赵正义在书中多次出场,参与江湖纠葛与人物互动。
-    性格：口语;杂;鲜明;江湖气;有主见;冷静;务实
-    《多情剑客无情剑》中的赵正义
+  description: 人称铁面无私，龙啸云结拜大哥，三更未归，众人待其饮酒；欲护林仙儿并除梅花盗。
+  factions: []
+  skills:
+    - skill_li_pi_hua_shan_ahglnocm
+- id: char_zhi_zun_bao
+  name: 至尊宝
+  aliases: []
+  identities:
+    - 女色鬼
+  level: 次要
+  rank: null
+  description: 自称大欢喜女菩萨座下至尊宝的肥胖女子，欲占李寻欢，后中蓝蝎子蝎尾之毒倒下。
+  factions: []
+  skills: []
+- id: char_zhong_nian_ren
+  name: 中年人
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 脸圆圆、衣着华丽似发财生意人；代林仙儿经营却利润连年下滑，被暗示卸任后惊逃，遭蓝衫少年一剑斩杀。
+  factions: []
+  skills: []
+- id: char_zhou_gu_niang
+  name: 周姑娘
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_zhu_ge_gang
+  name: 诸葛刚
+  aliases: []
+  identities:
+    - 横扫千军
+  level: 次要
+  rank: null
+  description: 江湖枭雄之一，以拜寿为名造访龙府，对龙小云客套奉承
+  factions:
+    - faction_jin_qian_bang
+  skills:
+    - skill_heng_sao_qian_jun
+    - skill_jin_gang_tie_guai
+- id: char_zhu_ge_lei
+  name: 诸葛雷
+  aliases: []
+  identities:
+    - 急风剑
+  level: 次要
+  rank: null
+  description: 金狮镖局镖头，紫红脸胖子，自诩剑快，能一剑将十多个炸虾球斩为两半；后为保命在地上爬了一圈，又暗袭少年后心，被李寻欢小刀击毙。
+  factions:
+    - faction_jin_shi_biao_ju
+  skills:
+    - skill_jian_fa
+- id: char_zhu_qi_qi
+  name: 朱七七
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 李寻欢讲述的传奇人物之一；阿飞听闻时神情奇特。
+  factions: []
+  skills: []
+- id: char_zi_mian_er_lang
+  name: 紫面二郎
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 曾替花蜂背黑锅；后与小蔷薇联手击倒花蜂并斩其双腿。
   factions: []
   skills: []

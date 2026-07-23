@@ -1,63 +1,883 @@
-- id: item_diao_pi
-  name: 貂皮
+- id: item_bai_jin_da_tie_zhui
+  name: 百斤大铁锥
   aliases: []
-  type: 防具
-  description: |-
-    原文出现的「貂皮」,参与人物行程或冲突场景。
-    书中出现的貂皮
-    来历：江湖
-    效果：貂皮;特殊
+  types:
+    - 武器
+  description: 口述旧事中蓝大先生所持兵器。
+- id: item_bai_la_gan_zi
+  name: 白蜡竿子
+  aliases: []
+  types:
+    - 武器
+  description: 心宠与百晓生落网后各持的很长白蜡竿，用以急点阿飞穴道。
+- id: item_bao_fu
+  name: 包袱
+  aliases: []
+  types:
+    - 其他
+  description: 金狮镖局受托之物，黑蛇曾攫走，多人争夺，查猛向李寻欢索还。
+- id: item_bao_jian
+  name: 宝剑
+  aliases: []
+  types:
+    - 武器
+  description: 少年（游龙生）所持，曾自背后刺向李寻欢。
+- id: item_bi_shou
+  name: 匕首
+  aliases: []
+  types:
+    - 武器
+  description: 黑衣人藏于靴筒，面对荆无命时拔出却终被其剑所杀。
+- id: item_bian_dan
+  name: 扁担
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_biao_qiang
+  name: 标枪
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_bing_qi_pu
+  name: 兵器谱
+  aliases: []
+  types:
+    - 其他
+    - 秘籍
+  description: 百晓生所著兵器品评，本章提及青魔手排名第九、小李飞刀排名第三。
+- id: item_cang_jing
+  name: 藏经
+  aliases: []
+  types:
+    - 秘籍
+  description: null
+- id: item_chang_qiang
+  name: 长枪
+  aliases: []
+  types:
+    - 武器
+  description: 杨承祖放在手边的兵器，毒蛇般刺出后被青面汉子腰闪挟于肋下。
+- id: item_chi_gun
+  name: 翅棍
+  aliases:
+    - 翅棒
+  types:
+    - 武器
+  description: null
+- id: item_da_mo_yi_jin_jing
+  name: 达摩易筋经
+  aliases:
+    - 易筋经
+  types:
+    - 秘籍
+  description: 本藏于心眉房中的经书，失窃后被发现藏在心宠禅房木柜夹层中。
+- id: item_da_qian
+  name: 大钱
+  aliases: []
+  types:
+    - 其他
+  description: 五人拜寿所送八色礼物中用纯金打成的大钱，约四五斤重
+- id: item_da_zhu_li
+  name: 大竹笠
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_dao
+  name: 刀
+  aliases: []
+  types:
+    - 武器
+  description: 本属李寻欢，林诗音言红孩儿有此刀如护身符，红孩儿持之威胁李寻欢。
+- id: item_diao_qiu
+  name: 貂裘
+  aliases: []
+  types:
+    - 其他
+  description: 李寻欢所穿重裘，被锦衣少年一剑划破，李寻欢称其上有双眼睛。
+- id: item_dou_li
+  name: 斗笠
+  aliases: []
+  types:
+    - 其他
+  description: 上官金虹所戴，将面目藏于阴影中。
+- id: item_du_ji_li
+  name: 毒蒺藜
+  aliases: []
+  types:
+    - 暗器
+  description: 钉满花蜂尸身的暗器之一。
+- id: item_du_jing_liu_ji
+  name: 读经鎏记
+  aliases: []
+  types:
+    - 秘籍
+    - 其他
+  description: 心眉离寺前嘱若有不测则取看；末页本写所疑盗经者姓名，后被人撕去，同藏经亦变白纸；淡黄绢册现由心树持有。
+- id: item_duan_jian
+  name: 短剑
+  aliases: []
+  types:
+    - 武器
+  description: 龙小云手中精光四射的双短剑。
+- id: item_duan_mao
+  name: 短矛
+  aliases: []
+  types:
+    - 武器
+  description: 插入千手罗刹胸膛将其钉在树上的华贵兵刃，上镶翡翠，属潘小安之物。
+- id: item_duo_gu_dao
+  name: 剁骨刀
+  aliases: []
+  types:
+    - 武器
+  description: 独眼妇人手持、车轮般大小的剁骨刀，砍入肉案威胁梅二先生。
+- id: item_duo_ming_jin_qian
+  name: 夺命金钱
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_duo_qing_jian
+  name: 夺情剑
+  aliases: []
+  types:
+    - 武器
+  description: 游龙生所用三尺七寸利剑，吹毛断发；先刺中大欢喜女菩萨咽喉却被肥肉夹住，后由其自后背全力贯入刺穿前心。
+- id: item_fei_biao
+  name: 飞镖
+  aliases: []
+  types:
+    - 暗器
+  description: 钉满花蜂尸身的暗器之一。
+- id: item_fei_cui_ban_zhi
+  name: 翡翠扳指
+  aliases: []
+  types:
+    - 饰品
+  description: null
+- id: item_fei_cui_jie_zhi
+  name: 翡翠戒指
+  aliases: []
+  types:
+    - 饰品
+  description: 潘大少手上价值不菲的戒指。
 - id: item_fei_dao
   name: 飞刀
+  aliases:
+    - 小刀
+  types:
+    - 暗器
+  description: 李寻欢所用精钢飞刀，射中大欢喜女菩萨右眼后被其拔出放入口中生生嚼碎。
+- id: item_fei_qiang
+  name: 飞枪
   aliases: []
-  type: 暗器
-  description: |-
-    小李飞刀所用暗器,出手极快极准,是李寻欢身份与战力的核心象征。
-    李寻欢例不虚发的飞刀
-    来历：李寻欢随身暗器
-    效果：一击必杀;伤害
-- id: item_jin_qian
-  name: 金钱
+  types:
+    - 暗器
+  description: 燕双飞隐在长衫中的兵器
+- id: item_feng_chi_liu_jin_dang
+  name: 凤翅流金铛
+  aliases:
+    - 流金铛
+  types:
+    - 武器
+  description: null
+- id: item_fo_zhu
+  name: 佛珠
   aliases: []
-  type: 其他
-  description: |-
-    金钱既是财富也是帮中信物与威胁的符号,要人命的金钱一回点题。
-    金钱帮权力与杀机的象征
-    来历：金钱帮
-    效果：权势与威胁;特殊
-- id: item_jiu
-  name: 酒
+  types:
+    - 其他
+    - 饰品
+  description: 心湖大师捏在手中，闻梅花盗再现时似有颤抖。
+- id: item_gang_ban
+  name: 钢板
   aliases: []
-  type: 其他
-  description: |-
-    原文出现的「酒」,参与人物行程或冲突场景。
-    书中出现的酒
-    来历：江湖
-    效果：酒;特殊
+  types:
+    - 防具
+  description: 申老三藏于胸前，挡开阿飞刺向胸膛的一剑，火星四溅。
+- id: item_gang_dao
+  name: 钢刀
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_gang_guan
+  name: 钢管
+  aliases:
+    - 暗器钢筒
+  types:
+    - 暗器
+  description: 梅花盗咬在嘴里用以射出暗器的漆黑钢管。
+- id: item_gou
+  name: 钩
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_guan_cai
+  name: 棺材
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_gui_tou_dao
+  name: 鬼头刀
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_han_ji_san
+  name: 寒鸡散
+  aliases: []
+  types:
+    - 丹药
+  description: 梅家所配剧毒，李寻欢所中之毒，解药在梅大先生处。
+- id: item_han_xing
+  name: 寒星
+  aliases: []
+  types:
+    - 暗器
+  description: 铁笛先生射出的尖锐暗器，可钉入咽喉。
+- id: item_han_yan
+  name: 旱烟
+  aliases: []
+  types:
+    - 其他
+  description: 孙老先生在饭堂中抽吸。
+- id: item_han_yan_guan
+  name: 旱烟管
+  aliases: []
+  types:
+    - 其他
+  description: 老人所用烟具，长约两尺，点烟对峙中距离关键。
+- id: item_hu_qiu
+  name: 狐裘
+  aliases: []
+  types:
+    - 防具
+    - 其他
+  description: 潘大少的狐裘，被铺在酒铺板凳上供李寻欢安坐。
+- id: item_hu_tou_gou
+  name: 虎头钩
+  aliases: []
+  types:
+    - 武器
+  description: 在瞎子动嘴时划破其前胸并钩下血肉。
+- id: item_hua_qiang
+  name: 花枪
+  aliases: []
+  types:
+    - 武器
+  description: 地下室战局中刺中公孙雨背脊、并再向铁传甲刺下的兵器。
+- id: item_huang_bu_bao_fu
+  name: 黄布包袱
+  aliases: []
+  types:
+    - 其他
+  description: 诸葛雷自口外带回、被碧血双蛇强索的包袱，后被他抛在桌上。
+- id: item_huo_lian
+  name: 火镰
+  aliases: []
+  types:
+    - 其他
+  description: 老人与上官金虹点烟时所用的取火器具。
+- id: item_huo_shi
+  name: 火石
+  aliases: []
+  types:
+    - 其他
+  description: 与火镰配合敲火点燃纸棒。
+- id: item_ji_le_chong
+  name: 极乐虫
+  aliases: []
+  types:
+    - 异兽
+  description: 极乐峒主驱使的毒物，称由七种神物交配而成，非血肉不饱；嗅到血腥后反噬主人。
+- id: item_jian
+  name: 剑
+  aliases: []
+  types:
+    - 武器
+  description: 金钱帮行列中后一人腰带上所插出鞘之剑；插法剑在腰带右边、剑柄向左，李寻欢疑为左手使剑。
+- id: item_jin_bei_di_tou_hua_zhuang_nu
+  name: 紧背低头花装弩
+  aliases: []
+  types:
+    - 暗器
+  description: 龙小云背后巧手精制的暗器弩，佯拜时急射。
+- id: item_jin_gang_tie_guai
+  name: 金刚铁拐
+  aliases:
+    - 铁拐
+  types:
+    - 武器
+  description: null
+- id: item_jin_lian
+  name: 金链
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_jin_si_jia
+  name: 金丝甲
+  aliases: []
+  types:
+    - 防具
+  description: 传说刀枪不入、水火不伤，号称武林三宝之一；原为戴五所偷，后至洪汉民身上，江湖争之以御梅花盗。
+- id: item_jin_si_jia_chi_ruan_gun
+  name: 金丝夹翅软棍
+  aliases: []
+  types:
+    - 武器
+  description: 田七的四尺二寸长软棍，毒蛇般抽在李寻欢腿上。
+- id: item_jin_zan
+  name: 金簪
+  aliases: []
+  types:
+    - 武器
+  description: 蔷薇夫人头上所拔细尖金簪，欲刺李寻欢眼睛。
+- id: item_jin_zhuo
+  name: 金镯
+  aliases: []
+  types:
+    - 饰品
+  description: 极乐峒童子右腕所戴，褪下后落在手边。
+- id: item_jing_shu
+  name: 经书
+  aliases: []
+  types:
+    - 秘籍
+  description: null
+- id: item_jiu_hu
+  name: 酒壶
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_jiu_huan_dao
+  name: 九环刀
+  aliases: []
+  types:
+    - 武器
+  description: 楚相羽腰带所挂兵刃，横扫时刀风虎虎、刀环相击。
+- id: item_jiu_ping
+  name: 酒瓶
+  aliases: []
+  types:
+    - 其他
+  description: 李寻欢带来的半瓶酒所在之瓶。
+- id: item_ju_wang
+  name: 巨网
+  aliases: []
+  types:
+    - 其他
+  description: 屋顶撒下、与屋同大的桐油浸九股粗绳网，罩住阿飞使其无法脱逃。
+- id: item_kong_ming_deng
+  name: 孔明灯
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_lan_bu_pao
+  name: 蓝布袍
+  aliases: []
+  types:
+    - 其他
+  description: 老人所穿、已洗得发白的蓝布长袍。
+- id: item_li_fu
+  name: 利斧
+  aliases: []
+  types:
+    - 武器
+  description: 中原一方所用之斧，后樵夫扬起自尽。
+- id: item_li_hua_da_qiang
+  name: 梨花大枪
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_lian_hua_bao_dian
+  name: 怜花宝典
+  aliases: []
+  types:
+    - 秘籍
+  description: 王怜花一生心血所聚的秘笈，载有武功心法、下毒术、易容术、苗人放蛊与慑心术等，远游前托交李寻欢而实际交予林姑娘。
+- id: item_lian_zi_qiang
+  name: 链子枪
+  aliases:
+    - 亮银链子枪
+  types:
+    - 武器
+  description: 洪汉民所用兵器，软链可抖得笔直刺喉。
+- id: item_lian_zi_qiang_tou
+  name: 练子枪头
+  aliases: []
+  types:
+    - 武器
+  description: 半截练子枪头，李寻欢以脚尖拨至重伤的孙逵手边，孙逵用以插入咽喉自尽。
+- id: item_liu_xing
+  name: 流星
+  aliases: []
+  types:
+    - 武器
+    - 暗器
+  description: 向松所用兵器，一双流星在兵器谱中排名十九。
 - id: item_long_feng_huan
   name: 龙凤环
+  aliases:
+    - 子母龙凤环
+  types:
+    - 武器
+  description: 上官金虹所用兵刃，非剑。
+- id: item_long_feng_shuang_huan
+  name: 龙凤双环
   aliases: []
-  type: 其他
-  description: |-
-    书中出现的龙凤环,与高手对决或人物身份相关的重要器物。
-    关键奇门兵器/道具
-    来历：江湖重器
-    效果：奇门兵器的攻防意象;特殊
-- id: item_ma_che
-  name: 马车
+  types:
+    - 武器
+  description: 上官金虹成名兵器，二十年前已震慑天下，兵器谱排名第二。
+- id: item_ma_bian
+  name: 马鞭
   aliases: []
-  type: 其他
-  description: |-
-    原文出现的「马车」,参与人物行程或冲突场景。
-    书中出现的马车
-    来历：江湖
-    效果：马车;特殊
-- id: item_mei_hua
-  name: 梅花
+  types:
+    - 武器
+  description: 赵老大所持，曾将梅二先生面前酒壶卷飞。
+- id: item_mi_yao
+  name: 迷药
   aliases: []
-  type: 其他
-  description: |-
-    梅花意象与梅花盗身份悬疑相连,多次再现推动情节。
-    梅花盗留下的梅花印记
-    来历：梅花盗
-    效果：身份与恐吓的标记;特殊
+  types:
+    - 其他
+  description: 李寻欢怀疑林仙儿每晚掺入排骨汤中使阿飞沉睡之物。
+- id: item_nai_ping_xin_jing
+  name: 耐平心经
+  aliases: []
+  types:
+    - 秘籍
+  description: 少林两年七次失窃藏经中，唯一非久已绝传武林秘笈的一部。
+- id: item_nan_shou
+  name: 楠寿
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_pan_guan_bi
+  name: 判官笔
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_qing_gang_chang_jian
+  name: 青钢长剑
+  aliases: []
+  types:
+    - 武器
+  description: 蓝衫少年掌中之剑，剑尖滴血斩杀中年人。
+- id: item_qing_gang_jian
+  name: 青钢剑
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_qing_ming_shang_he_tu
+  name: 清明上河图
+  aliases: []
+  types:
+    - 其他
+  description: 李府曾藏真品名画，梅大先生欲借观，李寻欢称十年前已送人。
+- id: item_qing_mo_shou
+  name: 青魔手
+  aliases:
+    - 毒魔手
+  types:
+    - 武器
+  description: 伊哭以金铁之英淬百毒锻冶七年所成铁手套兵刃，兵器谱排名第九；青衣人一掌掴中孙逵，使其半边脸肿起求死。
+- id: item_ru_yi_bang
+  name: 如意棒
+  aliases:
+    - 天机棒
+  types:
+    - 武器
+  description: null
+- id: item_ruan_bian
+  name: 软鞭
+  aliases: []
+  types:
+    - 武器
+  description: 酒店中紫缎团花皮袄矮子腰上所缠兵器。
+- id: item_ruan_jian
+  name: 软剑
+  aliases: []
+  types:
+    - 武器
+  description: 碧血双蛇所用漆黑细长、可如腰带般软抖又笔直的软剑；白蛇之剑光如白虹。
+- id: item_sang_men_jian
+  name: 丧门剑
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_she_bian
+  name: 蛇鞭
+  aliases: []
+  types:
+    - 武器
+  description: 青面汉子兵器，兵器谱排名第七。
+- id: item_she_hun_ding
+  name: 摄魂钉
+  aliases: []
+  types:
+    - 暗器
+  description: 铁笛中暗藏一十三口，专打人身穴道。
+- id: item_shou_yi
+  name: 寿衣
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_shuang_bi
+  name: 双笔
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_shuang_bian
+  name: 双鞭
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_shuang_gou
+  name: 双钩
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_shuang_jian
+  name: 双剑
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_shui_yan_dai
+  name: 水烟袋
+  aliases: []
+  types:
+    - 其他
+  description: 小丫头捧给张胜奇吸食。
+- id: item_si_jin
+  name: 丝巾
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_song_wen_gu_jian
+  name: 松纹古剑
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_song_wen_jian
+  name: 松纹剑
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_song_yang_tie_jian
+  name: 嵩阳铁剑
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_tang_hu_lu
+  name: 糖葫芦
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_tang_lang_dao
+  name: 螳螂刀
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_tie_da_de_suan_pan
+  name: 铁打的算盘
+  aliases: []
+  types:
+    - 武器
+  description: 黄衣人一方所用、江湖中极少见的外门兵刃。
+- id: item_tie_di
+  name: 铁笛
+  aliases: []
+  types:
+    - 武器
+  description: 铁笛先生名震天下的兵器，内藏寒星暗器，可暴雨般射出。
+- id: item_tie_guai
+  name: 铁拐
+  aliases:
+    - 拐杖
+  types:
+    - 武器
+  description: 独腿人所持金铁所铸之拐，兵器谱排名第八，可插入地下。
+- id: item_tie_jian
+  name: 铁剑
+  aliases: []
+  types:
+    - 武器
+  description: 郭嵩阳所用铁剑，剑气森寒，曾折断李寻欢刀锋。
+- id: item_tie_qiang
+  name: 铁枪
+  aliases: []
+  types:
+    - 武器
+  description: 杨承祖之枪，铁尖被青面汉子折断后形同铁棍，枪尖被插在桌上。
+- id: item_tie_xia_zi
+  name: 铁匣子
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_tong_chui
+  name: 铜锤
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_tong_qian
+  name: 铜钱
+  aliases: []
+  types:
+    - 其他
+  description: 黄衫规矩下顶于头上，落地者非死不可。
+- id: item_wang_mo_jie_de_hua
+  name: 王摩诘的画
+  aliases: []
+  types:
+    - 其他
+  description: 巴英一行献与梅大先生以换见梅二先生的名画。
+- id: item_wei_du_kua_hu_lan
+  name: 喂毒跨虎篮
+  aliases: []
+  types:
+    - 武器
+  description: 大凶卜霸的喂毒兵器。
+- id: item_wu_du_shui_jing
+  name: 五毒水晶
+  aliases: []
+  types:
+    - 其他
+  description: 苗疆极乐峒主精炼的毒物，无色无味，透明如水晶；中毒者肌肤渐透明，无解药则毒发无救。
+- id: item_wu_mang_zhu
+  name: 五芒珠
+  aliases: []
+  types:
+    - 暗器
+  description: 本是方外人用的暗器，近年已流俗；见于花蜂尸身。
+- id: item_wu_qiao_chang_jian
+  name: 乌鞘长剑
+  aliases: []
+  types:
+    - 武器
+  description: 游龙生自后面捧出的长剑，随即用以展示剑法并串起炸鸡。
+- id: item_xi_jiu
+  name: 喜酒
+  aliases: []
+  types:
+    - 其他
+  description: 阿飞约定三年后回来要喝的酒，意指李寻欢与孙小红的婚宴之酒。
+- id: item_xian_cao
+  name: 仙草
+  aliases: []
+  types:
+    - 其他
+  description: 阿飞声称要去海上寻找的长生之物，实为托辞。
+- id: item_xiao_dao
+  name: 小刀
+  aliases: []
+  types:
+    - 暗器
+    - 武器
+    - 其他
+  description: 李寻欢随身短而锋利的小刀，本章于色诱中仍紧握手中，并以刀锋划过青衣人颈侧逼退对方。
+- id: item_xiao_hai_dan
+  name: 小还丹
+  aliases: []
+  types:
+    - 丹药
+  description: 少林佛门圣药，暂保秦重性命。
+- id: item_xiao_li_fei_dao
+  name: 小李飞刀
+  aliases: []
+  types:
+    - 暗器
+    - 武器
+  description: 轻、短、薄，宛如一片柳叶；龙啸云自怀中取出，荆无命轻抚刀锋后以暗器手法掷落李寻欢身侧石地，终归李寻欢手中。
+- id: item_xiao_mu_ping
+  name: 小木瓶
+  aliases: []
+  types:
+    - 其他
+  description: 林仙儿藏于简陋小木箱中，用以盛放珍珠粉。
+- id: item_xie_zi_wei_ba
+  name: 蝎子尾巴
+  aliases: []
+  types:
+    - 武器
+  description: 蓝蝎子接在断腕上的兵器，闪着青光，可螫人施毒，平时以宽大衣袖遮掩。
+- id: item_xin
+  name: 信
+  aliases: []
+  types:
+    - 其他
+  description: 密封书信，署名上官金虹，约李寻欢十月初一于山谷中飞泉之下相见。
+- id: item_xiu_jian
+  name: 袖箭
+  aliases: []
+  types:
+    - 暗器
+  description: 龙小云袖中所藏小箭，直取面目咽喉。
+- id: item_yan_dou
+  name: 烟斗
+  aliases: []
+  types:
+    - 其他
+  description: 老人装烟丝、点火后吸食的旱烟斗。
+- id: item_yao_dao
+  name: 腰刀
+  aliases: []
+  types:
+    - 武器
+  description: 赵老大所拔兵器，欲劈李寻欢时被虬髯膀子震飞。
+- id: item_yin_ji
+  name: 银戟
+  aliases: []
+  types:
+    - 武器
+  description: 吕凤先昔日兵器，百晓生兵器谱列第五；本章暗示其已毁戟另练手功。
+- id: item_yin_piao
+  name: 银票
+  aliases: []
+  types:
+    - 其他
+  description: 黑衣人交上宝庆一带账目共九千八百五十两，中年人交上去年纯利六千余两，皆为同福号银票。
+- id: item_yin_qiang
+  name: 银枪
+  aliases: []
+  types:
+    - 武器
+  description: 龙啸云用以挑杀卜霸、救下李寻欢的一柄银枪。
+- id: item_yin_zhen
+  name: 银针
+  aliases: []
+  types:
+    - 暗器
+  description: 钉满花蜂尸身的暗器之一。
+- id: item_yin_zhuo
+  name: 银镯
+  aliases: []
+  types:
+    - 饰品
+  description: 极乐峒四童子手腕脚踝所戴发亮银镯，走时叮当作响。
+- id: item_yin_zi
+  name: 银子
+  aliases: []
+  types:
+    - 其他
+  description: 李寻欢与郭嵩阳在已打烊酒店柜台上留下以取酒。
+- id: item_ying_xiong_tie
+  name: 英雄帖
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_yu_cang_jian
+  name: 鱼藏剑
+  aliases: []
+  types:
+    - 武器
+  description: 林仙儿所持之剑，李寻欢问她是否怕游龙生讨回。
+- id: item_yu_chang_jian
+  name: 鱼肠剑
+  aliases: []
+  types:
+    - 武器
+  description: 上古神兵、藏剑山庄传家重宝，置于黝黑铁匣中寒光照人；青衣人称由游龙生所赠，欲以之换金丝甲。
+- id: item_yu_lin_dao
+  name: 鱼鳞刀
+  aliases: []
+  types:
+    - 武器
+  description: 地下室黄衣人所用，曾砍入铁传甲左肩而被其肉夹住。
+- id: item_zhan_li
+  name: 毡笠
+  aliases: []
+  types:
+    - 其他
+  description: 林仙儿打听消息时戴的破旧毡笠，遮盖面目。
+- id: item_zhen_zhu_fen
+  name: 珍珠粉
+  aliases: []
+  types:
+    - 丹药
+  description: 珍珠磨成的银光粉末，林仙儿每日就茶吞服，据说可使青春永驻，所值不菲。
+- id: item_zhi_bang
+  name: 纸棒
+  aliases: []
+  types:
+    - 其他
+  description: 棉纸搓成、纹理匀细，上官金虹拈起以火星点燃后凑近烟斗。
+- id: item_zhi_juan
+  name: 纸卷
+  aliases: []
+  types:
+    - 其他
+  description: 孙小红自怀中取出，标示阿飞住处，可按图寻访。
+- id: item_zhi_qian
+  name: 制钱
+  aliases: []
+  types:
+    - 其他
+  description: 黄衫少年怀中取出的黄铜铸成铜钱，分置六人头上，六人顶钱出店入圈不敢妄动。
+- id: item_zhu_ge_nu
+  name: 诸葛弩
+  aliases: []
+  types:
+    - 暗器
+  description: 柴房中十余人近距离围射阿飞的强力弩器，弩箭如急雨，被夺情剑光幢震飞。
+- id: item_zhu_jian
+  name: 竹剑
+  aliases: []
+  types:
+    - 武器
+  description: 阿飞所持竹剑，刃上曾有干枯血迹，对荆无命出手时先抵其咽喉。
+- id: item_zhu_li
+  name: 竹笠
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_zhu_ye_qing
+  name: 竹叶青
+  aliases: []
+  types:
+    - 其他
+  description: 陈年竹叶青，李寻欢最喜之酒，红孩儿送来后又泼其脸。
+- id: item_zi_jin_dao
+  name: 紫金刀
+  aliases: []
+  types:
+    - 武器
+  description: 赵正义所持，于柴房门口力劈华山拦截阿飞。
+- id: item_zi_mu_gang_huan
+  name: 子母钢环
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_zuo_shou_jian
+  name: 左手剑
+  aliases: []
+  types:
+    - 武器
+  description: 荆无命所持之剑，文中称其为使左手剑的汉子。

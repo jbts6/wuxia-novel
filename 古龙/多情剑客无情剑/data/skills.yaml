@@ -1,14 +1,93 @@
-- id: skill_dao_fa
-  name: 刀法
+- id: skill_an_qi
+  name: 暗器
+  aliases: []
+  types:
+    - 暗器
+  factions: []
+  rank: null
+  description: 虞二拐子以暗器成名；梅花盗是否用极毒辣暗器尚无人知。
+  techniques: []
+- id: skill_bi_hu_you_qiang
+  name: 壁虎游墙
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: null
+  description: 攀墙轻功名；阿飞爬申家庄高墙时并未使用，亦未听过此功。
+  techniques: []
+- id: skill_bian_shen_she_bian
+  name: 鞭神蛇鞭
+  aliases: []
+  types:
+    - 鞭法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_bo_si_chuan_lai_de_she_xin_shu
+  name: 波斯传来的慑心术
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 王怜花所著怜花宝典记载、由波斯传来的慑心之术。
+  techniques: []
+- id: skill_bu_dong
+  name: 不动
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 阿飞在荒野炼成的忍耐之能，可连续数个时辰完全不动以省体力、避敌装死。
+  techniques: []
+- id: skill_bu_fa
+  name: 步法
+  aliases: []
+  types:
+    - 身法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_chi_gun_dian_xue
+  name: 翅棍点穴
+  aliases: []
+  types:
+    - 点穴
+    - 棍法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_da_xue_xin_fa
+  name: 打穴心法
+  aliases: []
+  types:
+    - 点穴
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_da_ying_zhao_li
+  name: 大鹰爪力
+  aliases: []
+  types:
+    - 爪法
+  factions: []
+  rank: null
+  description: 孙驼子驰名江湖的爪功；苦练四十年，出手一抓威不可当，曾欲一招夺下蓝蝎子兵刃。
+  techniques: []
+- id: skill_di_tang_dao
+  name: 地趟刀
   aliases: []
   types:
     - 刀法
   factions: []
   rank: null
-  description: |-
-    书中出现的刀法
-    效果：刀法;伤害
-    战斗风格：刀法
+  description: null
   techniques: []
 - id: skill_dian_xue
   name: 点穴
@@ -17,11 +96,7 @@
     - 点穴
   factions: []
   rank: null
-  description: |-
-    书中出现的点穴武学
-    修炼：因人而异
-    效果：点穴攻防;伤害
-    战斗风格：点穴
+  description: 心宠与百晓生以白蜡竿急点阿飞八九处穴道；百晓生以轰天雷致命伤在玄机穴推断梅花盗亦精此道，并以此考问阿飞。
   techniques: []
 - id: skill_fei_dao
   name: 飞刀
@@ -30,11 +105,89 @@
     - 暗器
   factions: []
   rank: null
-  description: |-
-    飞刀暗器之术
-    修炼：准与快
-    效果：飞刀伤人;伤害
-    战斗风格：暗器
+  description: 李寻欢手中利器，少林弟子所惧；飞刀再强亦难杀尽八百弟子。
+  techniques: []
+- id: skill_fei_dao_duo_ming
+  name: 飞刀夺命
+  aliases: []
+  types:
+    - 暗器
+  factions: []
+  rank: null
+  description: 李探花成名绝技，以飞刀取人例不虚发著称。
+  techniques: []
+- id: skill_fei_niao_tou_lin
+  name: 飞鸟投林
+  aliases: []
+  types:
+    - 身法
+  factions: []
+  rank: null
+  description: 黑衣人中刀后凌空转身逃向梅林时所使身法。
+  techniques: []
+- id: skill_fei_qiang
+  name: 飞枪
+  aliases: []
+  types:
+    - 枪法
+  factions: []
+  rank: null
+  description: 燕双飞所执所长，隐于长衫之中
+  techniques: []
+- id: skill_fen_jin_cuo_gu_shou
+  name: 分筋错骨手
+  aliases: []
+  types:
+    - 擒拿
+  factions: []
+  rank: 炉火纯青
+  description: 胡不归用以错开李寻欢筋骨的擒拿手法。
+  techniques: []
+- id: skill_feng_juan_liu_yun
+  name: 风卷流云
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 郭嵩阳第一剑所用招式。
+  techniques: []
+- id: skill_fo_jia_zhang_li
+  name: 佛家掌力
+  aliases: []
+  types:
+    - 掌法
+  factions:
+    - faction_shao_lin
+  rank: null
+  description: null
+  techniques: []
+- id: skill_fu_yu
+  name: 腹语
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 传自波斯天竺一带的神秘口技，梅花盗用以掩人耳目再射暗器。
+  techniques: []
+- id: skill_heng_lian_gong_fu
+  name: 横练功夫
+  aliases: []
+  types:
+    - 外功
+  factions: []
+  rank: null
+  description: 赵正义称虬髯大汉有江湖罕见的横练功夫。
+  techniques: []
+- id: skill_heng_sao_qian_jun
+  name: 横扫千军
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: null
   techniques: []
 - id: skill_jian_fa
   name: 剑法
@@ -43,49 +196,155 @@
     - 剑法
   factions: []
   rank: null
-  description: |-
-    书中出现的剑法武学
-    修炼：因人而异
-    效果：剑法攻防;伤害
-    战斗风格：剑法
-  techniques: []
-- id: skill_kuai_jian
-  name: 快剑
+  description: 本章多次展示比拼剑速与剑劲：诸葛雷斩虾球、黑蛇穿虾球、白蛇削烛穿烛、少年一剑穿喉，以及诸葛雷暗袭后心。
+  techniques:
+    - name: 刺
+      description: null
+- id: skill_jin_chan_tuo_qiao
+  name: 金蝉脱壳
   aliases: []
   types:
-    - 剑法
+    - 其他
   factions: []
   rank: null
-  description: |-
-    阿飞成名的极速剑道
-    修炼：由快入神,剑心通明
-    效果：剑快无形,先发制人;伤害
-    战斗风格：极速刺杀剑
+  description: 文中所称换衣脱身之计；李寻欢初信为铁传甲所为，后知整段乃诱捕假戏。
   techniques: []
-- id: skill_li_pi_hua_shan
-  name: 力劈华山
+- id: skill_jin_gang_tie_guai
+  name: 金刚铁拐
+  aliases: []
+  types:
+    - 棍法
+  factions: []
+  rank: null
+  description: null
+  techniques:
+    - name: 横扫千军
+      description: null
+- id: skill_jin_zhong_zhao
+  name: 金钟罩
+  aliases: []
+  types:
+    - 外功
+  factions: []
+  rank: null
+  description: 横练硬功，赵老大见虬髯膀子架刀后惊呼其身有此功。
+  techniques: []
+- id: skill_jiu_jiu_ba_shi_yi_shou_wan_sheng_lian_huan_dao
+  name: 九九八十一手万胜连环刀
   aliases: []
   types:
     - 刀法
   factions: []
   rank: null
-  description: |-
-    力劈华山招式/刀势
-    效果：力劈华山;伤害
-    战斗风格：刚猛
+  description: 楚相羽真传刀法，使出后七八十人休想近身；本章仅使出一刀便被蓝蝎子所杀。
+  techniques: []
+- id: skill_li_pi_hua_shan_ahglnocm
+  name: 力劈华山
+  aliases: []
+  types:
+    - 其他
+    - 刀法
+  factions: []
+  rank: null
+  description: 赵正义以紫金刀拦截阿飞时所使的刀招。
+  techniques:
+    - name: 力劈华山
+      description: null
+- id: skill_li_pi_hua_shan_fhjbeofm
+  name: 立劈华山
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 利斧砍下的一着。
+  techniques: []
+- id: skill_liang_yi_jian_fa
+  name: 两仪剑法
+  aliases: []
+  types:
+    - 剑法
+  factions:
+    - faction_wu_dang
+  rank: null
+  description: null
+  techniques: []
+- id: skill_liu_xing_zhui_yue
+  name: 流星追月
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 郭嵩阳第二招所用剑式。
+  techniques: []
+- id: skill_long_feng_shuang_huan
+  name: 龙凤双环
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: 登峰造极
+  description: 上官金虹兵器，兵器谱排名第二；近二十年来无人见其出手，已至手中无环、心中有环，无迹可寻、无坚不摧的武学巅峰。
+  techniques:
+    - name: 龙翔凤舞脱手双飞
+      description: null
+- id: skill_luo_han_zhen
+  name: 罗汉阵
+  aliases: []
+  types:
+    - 阵法
+  factions:
+    - faction_shao_lin_si
+  rank: null
+  description: 少林寺困敌阵法，被大欢喜女菩萨用来对照自家肉阵之难破。
+  techniques: []
+- id: skill_miao_ren_fang_gu
+  name: 苗人放蛊
+  aliases: []
+  types:
+    - 毒功
+  factions: []
+  rank: null
+  description: 王怜花所著怜花宝典记载的放蛊之术。
+  techniques: []
+- id: skill_mo_yun_shi_si_shi
+  name: 摩云十四式
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: 公孙摩云名震天下的掌法武学。
   techniques: []
 - id: skill_nei_gong
   name: 内功
   aliases: []
   types:
     - 内功
+  factions:
+    - faction_shao_lin
+  rank: 炉火纯青
+  description: 林仙儿观孙老先生目中神光充足，评其内功不弱。
+  techniques: []
+- id: skill_ping_sha_luo_yan
+  name: 平沙落雁
+  aliases: []
+  types:
+    - 轻功
   factions: []
   rank: null
-  description: |-
-    书中出现的内功武学
-    修炼：因人而异
-    效果：内功攻防;伤害
-    战斗风格：内功
+  description: 李寻欢自倒塌小楼掠至地面时所使的落式身法。
+  techniques: []
+- id: skill_qi_shi_er_lu_qin_na_shou
+  name: 七十二路擒拿手
+  aliases: []
+  types:
+    - 擒拿
+  factions:
+    - faction_wu_dang
+  rank: 炉火纯青
+  description: 传自武当的擒拿功夫，扣住脉门使真力使不出。
   techniques: []
 - id: skill_qing_gong
   name: 轻功
@@ -94,11 +353,29 @@
     - 轻功
   factions: []
   rank: null
-  description: |-
-    书中出现的轻功武学
-    修炼：因人而异
-    效果：轻功攻防;伤害
-    战斗风格：轻功
+  description: 大欢喜女菩萨轻功惊人，能在楼塌时撞破屋顶飞出；李寻欢亦凭身法自屋顶裂洞蹿出并掠地。
+  techniques:
+    - name: 平沙落雁
+      description: 李寻欢掠下地面时所用身法落式。
+- id: skill_qing_mo_shou
+  name: 青魔手
+  aliases: []
+  types:
+    - 掌法
+    - 爪法
+    - 毒功
+  factions: []
+  rank: null
+  description: 伊哭所用武功，在兵器谱中名列第九；蓝蝎子自诩出手更快更毒，若算上自己则伊哭至少退至第十。
+  techniques: []
+- id: skill_qing_ting_san_chao_shui
+  name: 蜻蜓三抄水
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: null
+  description: 李寻欢在积雪山道上施展的绝顶轻功，一掠三丈，连少林僧人亦为之动容。
   techniques: []
 - id: skill_quan_fa
   name: 拳法
@@ -107,81 +384,285 @@
     - 拳法
   factions: []
   rank: null
-  description: |-
-    书中相关的拳法
-    效果：拳法;伤害
-    战斗风格：拳法
+  description: null
   techniques: []
-- id: skill_tian_ji_bang
-  name: 天机棒
+- id: skill_rou_zhen
+  name: 肉阵
   aliases: []
   types:
-    - 棒法
+    - 阵法
   factions: []
   rank: null
-  description: |-
-    天机老人的棒法绝学
-    修炼：棒势含天机变化
-    效果：棒法变化莫测,可破敌势;控制
-    战斗风格：智计与力道合一
+  description: 大欢喜女菩萨命身旁胖女人自四面围拢，以肥厚身躯如肉墙挤压夹困对手的阵势。
   techniques: []
-- id: skill_wu_gong
-  name: 武功
+- id: skill_shao_lin_luo_han_zhen
+  name: 少林罗汉阵
   aliases: []
   types:
-    - 内功
+    - 阵法
+  factions:
+    - faction_shao_lin
+  rank: null
+  description: 五名少林僧配合围困对手，一人遇险可由阵中他人解救，滴水不漏。
+  techniques: []
+- id: skill_shao_lin_shen_quan
+  name: 少林神拳
+  aliases: []
+  types:
+    - 拳法
+  factions:
+    - faction_shao_lin
+  rank: null
+  description: 单鹗投入少林后所练拳法，曾欲一拳击杀阿飞。
+  techniques: []
+- id: skill_shao_lin_tie_xiu
+  name: 少林铁袖
+  aliases: []
+  types:
+    - 外功
+  factions:
+    - faction_shao_lin
+  rank: null
+  description: 心眉衣袖卷劲攻向阿飞必救之处，利于刀刃；后以此类掌力自背后击中阿飞。
+  techniques: []
+- id: skill_shen_fa
+  name: 身法
+  aliases: []
+  types:
+    - 身法
   factions: []
   rank: null
-  description: |-
-    武功总称
-    效果：武功;增益
-    战斗风格：综合
+  description: null
   techniques: []
-- id: skill_xiao_li_fei_dao
-  name: 小李飞刀
+- id: skill_shi_san_tai_bao_heng_lian
+  name: 十三太保横练
+  aliases: []
+  types:
+    - 外功
+  factions: []
+  rank: null
+  description: 梅二先生询问虬髯所练横练功夫时并列提及。
+  techniques: []
+- id: skill_song_yang_tie_jian
+  name: 嵩阳铁剑
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_ta_xue_wu_hen
+  name: 踏雪无痕
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: null
+  description: 虞二拐子所展示的轻功，雪地行走竟全无脚印。
+  techniques: []
+- id: skill_tan_hua_fei_dao
+  name: 探花飞刀
   aliases: []
   types:
     - 暗器
   factions: []
   rank: null
-  description: |-
-    例不虚发的李家标志暗器绝学
-    修炼：心性与命中合一,出手例不虚发
-    效果：飞刀出手极快极准,一击必杀;伤害
-    战斗风格：一击必杀暗器
+  description: 李寻欢的成名绝技，游龙生称其为名满天下的探花飞刀。
   techniques: []
-- id: skill_ying_gong
-  name: 硬功
+- id: skill_tie_bu_shan
+  name: 铁布衫
   aliases: []
   types:
-    - 内功
+    - 外功
   factions: []
   rank: null
-  description: |-
-    硬功
-    效果：硬功;增益
+  description: 虬髯大汉自承所练横练功夫，能以膀子硬接腰刀。
   techniques: []
-- id: skill_yong_du
-  name: 用毒
+- id: skill_tie_di_yin_ding
+  name: 铁笛银钉
   aliases: []
   types:
-    - 毒功
+    - 暗器
   factions: []
   rank: null
-  description: |-
-    以毒杀敌的手段
-    效果：毒性伤人;减益
-    战斗风格：毒
+  description: 铁笛先生所擅暗器手法，自称快如闪电，可后发先至。
   techniques: []
-- id: skill_zhang_fa
-  name: 掌法
+- id: skill_tie_sha_zhang
+  name: 铁沙掌
   aliases: []
   types:
     - 掌法
   factions: []
   rank: null
-  description: |-
-    书中出现的掌法
-    效果：掌法;伤害
-    战斗风格：掌法
+  description: 外门掌力；明眼人由申老三无甲粗短手指判断其曾练且有相当火候，传与堂房大哥呕血而死有关。
+  techniques: []
+- id: skill_ting_feng_bian_wei
+  name: 听风辨位
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 地下室中瞎子交手时所凭的听声定位之法。
+  techniques: []
+- id: skill_wai_men_gong_fu
+  name: 外门功夫
+  aliases: []
+  types:
+    - 外功
+  factions:
+    - faction_ji_le_dong
+  rank: null
+  description: 极乐峒门下邪气外门功夫，路数与中原不同。
+  techniques: []
+- id: skill_wu_gong_xin_fa
+  name: 武功心法
+  aliases: []
+  types:
+    - 心法
+  factions: []
+  rank: null
+  description: 王怜花怜花宝典中记载的武功心法。
+  techniques: []
+- id: skill_xia_du_shu
+  name: 下毒术
+  aliases: []
+  types:
+    - 毒功
+  factions: []
+  rank: null
+  description: 王怜花所著怜花宝典记载的毒功。
+  techniques: []
+- id: skill_xiao_li_fei_dao
+  name: 小李飞刀
+  aliases:
+    - 飞刀
+    - 小李神刀
+  types:
+    - 暗器
+    - 刀法
+  factions: []
+  rank: 登峰造极
+  description: 李寻欢成名暗器武功；本章言百晓生品评天下兵器时小李飞刀排名第三，并有出手一刀例不虚发之誉。
+  techniques: []
+- id: skill_xiao_li_shen_dao
+  name: 小李神刀
+  aliases: []
+  types:
+    - 刀法
+  factions: []
+  rank: null
+  description: 李寻欢的成名绝技，传闻例不虚发；少林弟子亦惮其出手。
+  techniques:
+    - name: 出手一刀,例不虚发
+      description: null
+- id: skill_xie_wei_zhi_du
+  name: 蝎尾之毒
+  aliases: []
+  types:
+    - 毒功
+  factions: []
+  rank: null
+  description: 蓝蝎子蝎尾兵器所附之毒，中者走不出七步必死，身躯大者发作较慢。
+  techniques: []
+- id: skill_yan_zi_san_chao_shui
+  name: 燕子三抄水
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: null
+  description: 李寻欢赶往恶斗现场时所施轻功，三个起落即至。
+  techniques: []
+- id: skill_yang_jia_qiang_fa
+  name: 杨家枪法
+  aliases: []
+  types:
+    - 枪法
+  factions: []
+  rank: null
+  description: 杨承祖所用正宗枪法，枪花朵朵刺出，却被青面汉子挟枪并折断枪尖。
+  techniques: []
+- id: skill_yi_dao
+  name: 医道
+  aliases: []
+  types:
+    - 医术
+  factions: []
+  rank: null
+  description: 王怜花中年后医道更精，有生死人、肉白骨之功。
+  techniques: []
+- id: skill_yi_rong_shu
+  name: 易容术
+  aliases: []
+  types:
+    - 易容
+  factions: []
+  rank: null
+  description: 王怜花所著怜花宝典记载的易容之术。
+  techniques: []
+- id: skill_yi_zhi_zhui_hun
+  name: 一指追魂
+  aliases: []
+  types:
+    - 指法
+  factions: []
+  rank: null
+  description: 施耀先指上功力的盛誉之名，与点死穴手法相应。
+  techniques: []
+- id: skill_yin_yang_dao
+  name: 阴阳刀
+  aliases: []
+  types:
+    - 刀法
+  factions: []
+  rank: null
+  description: 北派刀法，公孙雨为其惟一传人，使一长一短两把刀。
+  techniques: []
+- id: skill_you_shou_jian_fa
+  name: 右手剑法
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_yu_cang_jian
+  name: 鱼藏剑
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 林仙儿自承与游龙生相关的剑术。
+  techniques: []
+- id: skill_yu_mian_shen_quan
+  name: 玉面神拳
+  aliases: []
+  types:
+    - 拳法
+  factions:
+    - faction_shao_lin
+  rank: null
+  description: 秦重大少爷的成名拳号。
+  techniques: []
+- id: skill_zhan_yi_shi_ba_die
+  name: 沾衣十八跌
+  aliases: []
+  types:
+    - 内功
+  factions: []
+  rank: 炉火纯青
+  description: 内家正宗功夫，胡不归用以沾住对手使其无法甩开。
+  techniques: []
+- id: skill_zhi_jian_yin_gun
+  name: 指剪银棍
+  aliases: []
+  types:
+    - 指法
+  factions: []
+  rank: null
+  description: null
   techniques: []

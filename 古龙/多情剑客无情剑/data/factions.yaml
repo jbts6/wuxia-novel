@@ -1,50 +1,255 @@
+- id: faction_bi_hua_xuan
+  name: 碧华轩
+  aliases: []
+  types:
+    - 商会
+  description: null
+- id: faction_bi_xue_shuang_she
+  name: 碧血双蛇
+  aliases: []
+  types:
+    - 组织
+  description: 黄河一带黑道双煞，心黑手辣，红披风传说以鲜血染成；使软剑，以剑速扬名。
 - id: faction_cang_jian_shan_zhuang
   name: 藏剑山庄
   aliases: []
-  type: 武林门派
-  description: |-
-    以藏剑山庄为名的江湖势力/山庄。
-    藏剑山庄势力
-    驻地：loc_cang_jian_shan_zhuang
+  types:
+    - 山庄
+  description: 以剑而名的山庄，藏有上古神兵鱼肠剑；与少林、武当、昆仑掌门有生死交，为护剑多次浴血奋战。
+- id: faction_chan_zong
+  name: 禅宗
+  aliases: []
+  types:
+    - 教派
+  description: null
+- id: faction_di_wang_gu
+  name: 帝王谷
+  aliases: []
+  types:
+    - 其他
+  description: 萧王孙所主之地，见于辫子姑娘口述。
+- id: faction_dian_cang
+  name: 点苍
+  aliases: []
+  types:
+    - 门派
+  description: 有掌门吴问天，曾号称江湖第一剑客，后死于梅花盗。
+- id: faction_dian_cang_men
+  name: 点苍门
+  aliases: []
+  types:
+    - 门派
+  description: 荆无命据剑法识破蓝衫少年为其门下，并追问其师谢天灵。
+- id: faction_fa_tuo_si
+  name: 法陀寺
+  aliases: []
+  types:
+    - 寺院
+  description: null
 - id: faction_gai_bang
   name: 丐帮
   aliases: []
-  type: 帮派
-  description: |-
-    原文提及的丐帮,作为江湖背景势力出现。
-    丐帮势力
+  types:
+    - 帮会
+  description: null
+- id: faction_guan_wai_san_xiong
+  name: 关外三凶
+  aliases: []
+  types:
+    - 组织
+  description: 当年凶名最盛、在邯郸大道夹击李寻欢的凶徒团伙，卜霸为其一。
+- id: faction_hong_yun_biao_ju
+  name: 洪运镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 京城镖局，楚相羽任总镖头。
+- id: faction_hua_shan_pai
+  name: 华山派
+  aliases: []
+  types:
+    - 门派
+  description: 本章仅旁及：其掌门人之女据称遭梅花盗糟蹋。
+- id: faction_huang_he_qi_jiao
+  name: 黄河七蛟
+  aliases: []
+  types:
+    - 组织
+  description: 赵老大、麻面大汉所属团伙，逼梅二先生治老四之病。
+- id: faction_ji_le_dong
+  name: 极乐峒
+  aliases: []
+  types:
+    - 门派
+    - 其他
+    - 组织
+  description: 苗疆毒门，五毒童子/极乐峒主所属，以蛇虫之毒闻名。
 - id: faction_jin_qian_bang
   name: 金钱帮
   aliases: []
-  type: 帮派
-  description: |-
-    以金钱与武力并重纵横武林的帮派,总瓢把子上官金虹,爪牙如铁传甲等,是全书最大反派势力之一。
-    上官金虹执掌的超级权势帮派
+  types:
+    - 帮会
+  description: 崛起仅短短两年即威震天下；创立前已久经策划，并将江湖中小有名气之人来历调查清楚。
+- id: faction_jin_shi_biao_ju
+  name: 金狮镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 镖局势力，有人从口外押镖回住客栈；旗为酱色镶金边镖旗；旗下有急风剑诸葛雷等镖头。
+- id: faction_jin_yu_tang
+  name: 金玉堂
+  aliases: []
+  types:
+    - 家族
+  description: 潘大少所属门楣，其被称作金玉堂的败家子。
+- id: faction_kun_lun
+  name: 昆仑
+  aliases: []
+  types:
+    - 门派
+  description: 与少林、武当并称三大派；本章谓其掌门人曾与藏龙老人为生死之交。
+- id: faction_leng_xiang_xiao_zhu
+  name: 冷香小筑
+  aliases: []
+  types:
+    - 其他
+    - 山庄
+  description: 小桥尽头的三五精舍，昔日名侠美人居所，今已荒废
+- id: faction_li_jia
+  name: 李家
+  aliases: []
+  types:
+    - 家族
+  description: 李寻欢所属家族；林诗音幼时投靠李寻欢之父，孙驼子与李家素无来往。
+- id: faction_li_yuan
+  name: 李园
+  aliases: []
+  types:
+    - 其他
+  description: 李寻欢故家园宅，后送作林诗音嫁妆并改为兴云庄。
 - id: faction_long_jia
   name: 龙家
   aliases: []
-  type: 家族
-  description: |-
-    与林家婚姻、李寻欢旧怨紧密相关的家族势力,龙啸云为其代表人物。
-    龙啸云一脉家族
+  types:
+    - 家族
+  description: 红孩儿所称家族；红孩儿言李大叔对龙家恩重如山。
+- id: faction_long_shen_miao
+  name: 龙神庙
+  aliases: []
+  types:
+    - 寺院
+  description: null
+- id: faction_luo_yang_fu
+  name: 洛阳府
+  aliases: []
+  types:
+    - 官府
+  description: 田七爷所属或所自来之处。
+- id: faction_mei_hua_cao_tang
+  name: 梅花草堂
+  aliases: []
+  types:
+    - 其他
+  description: 梅大先生、梅二先生所居草堂。
+- id: faction_mei_jia
+  name: 梅家
+  aliases: []
+  types:
+    - 家族
+  description: 梅大、梅二所属之家，寒鸡散即梅家所配。
+- id: faction_qi_da_jian_liu
+  name: 七大剑流
+  aliases: []
+  types:
+    - 门派
+  description: 荆无命评价郭嵩阳剑法在其掌门之上。
+- id: faction_qi_miao_ren
+  name: 七妙人
+  aliases: []
+  types:
+    - 组织
+  description: 江湖中七个最卑鄙无耻之人，擅迷香下毒、偷鸡摸狗、诱奸拐骗。
 - id: faction_shao_lin
   name: 少林
+  aliases:
+    - 少林寺
+    - 少林派
+  types:
+    - 门派
+    - 寺院
+  description: 武林正宗门派，本回揭出内门逆徒单鹗盗经害人，掌教心湖亦受百晓生挟制。
+- id: faction_shao_lin_pai
+  name: 少林派
   aliases: []
-  type: 寺院
-  description: |-
-    原文提及的少林,作为江湖背景势力出现。
-    少林势力
+  types:
+    - 门派
+  description: 掌门为心湖和尚。
+- id: faction_shao_lin_si
+  name: 少林寺
+  aliases:
+    - 少林
+  types:
+    - 寺院
+    - 门派
+  description: 心宠、心树、心眉、心湖所属；藏经冠绝天下，两年七次被窃严守秘密；李寻欢困此挟心树，阿飞为救友而落网。
+- id: faction_shen_jia
+  name: 申家
+  aliases: []
+  types:
+    - 家族
+  description: 堂兄弟十六人曾合开四十多家店铺，十五人两三年内相继身亡，产业尽归申老三；有仆人被林仙儿买通绘庄院详图。
+- id: faction_shen_shui_gong
+  name: 神水宫
+  aliases: []
+  types:
+    - 门派
+  description: 阴姬所在之处，楚留香曾直闯独斗。
+- id: faction_tai_hang_si_hu
+  name: 太行四虎
+  aliases: []
+  types:
+    - 其他
+  description: 曾在太行山下拦镖的四人，被诸葛雷等人吹嘘为一剑穿喉所灭。
+- id: faction_tong_fu_hao
+  name: 同福号
+  aliases:
+    - 山西同福号
+  types:
+    - 商会
+  description: 黑衣人与中年人所交银票的出票号。
+- id: faction_wan_sheng_yuan
+  name: 万牲园
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: faction_weng_jia_zhuang
+  name: 翁家庄
+  aliases: []
+  types:
+    - 山庄
+  description: null
 - id: faction_wu_dang
   name: 武当
   aliases: []
-  type: 武林门派
-  description: |-
-    原文提及的武当,作为江湖背景势力出现。
-    武当势力
-- id: faction_wu_lin
-  name: 武林
+  types:
+    - 门派
+  description: 与少林、昆仑并称三大派；本章谓其掌门人曾与藏龙老人为生死之交。
+- id: faction_xing_yun_zhuang
+  name: 兴云庄
   aliases: []
-  type: 武林门派
-  description: |-
-    全书江湖人物活动的广义武林空间与势力背景。
-    江湖武林总称
+  types:
+    - 山庄
+  description: 龙啸云所居庄院，气象恢宏、庭园林木冠于两河，本为李寻欢所赠；前些时日李寻欢误伤龙小云、中伏被擒等事皆发生于此。
+- id: faction_yi_tie_tang
+  name: 一帖堂
+  aliases: []
+  types:
+    - 商会
+  description: null
+- id: faction_zhong_yuan_ba_yi
+  name: 中原八义
+  aliases: []
+  types:
+    - 组织
+  description: 地下室中与铁传甲为敌的一方，宣称非亲手取铁传甲之命则死不瞑目。
