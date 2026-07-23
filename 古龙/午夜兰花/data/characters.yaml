@@ -1,0 +1,948 @@
+- id: char_a_gan
+  name: 阿干
+  aliases: []
+  identities:
+    - 孤儿
+  level: 次要
+  rank: null
+  description: 十六七岁少年孤儿，外号阿干，凶厉冷静似狼，欲扑杀绿袍老者反被银刺穿喉而死，头颅被割头小鬼割走。
+  factions: []
+  skills: []
+- id: char_bai_pao_nu_ren
+  name: 白袍女人
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 午夜现身的雪白长袍高挑女人，以拥抱暗害王中平，身影如兰花般没入夜色并带出兰花香。
+  factions: []
+  skills: []
+- id: char_bo_si_da_jun
+  name: 波斯大君
+  aliases:
+    - 大君
+  identities:
+    - 波斯大君
+  level: 次要
+  rank: null
+  description: 当代波斯大君，发掘湮没的王室宝藏并制成地图，将图交给郎格丝作为后援。
+  factions:
+    - faction_bo_si_wang_shi
+  skills: []
+- id: char_cheng_dong
+  name: 程冻
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 四十七岁，三十年前即成名，脸上留有刀痕笑痕，用四尺二寸缅铁软刀；与郭温形影不离走进棺材店，误攻纸扎与直立棺材后双刀钉梁，被棺底黑衣人刺死。
+  factions: []
+  skills:
+    - skill_heng_sao_qian_jun
+- id: char_chu_liu_xiang
+  name: 楚留香
+  aliases:
+    - 楚香帅
+    - 香帅
+    - 楚大爷
+    - 老臭虫
+    - 蓝衫人
+  identities:
+    - 不败的楚留香
+    - 轻功天下第一
+    - 盗帅
+    - 香帅
+  level: 核心
+  rank: null
+  description: 被后世称为香帅的传奇人物；生也不败、死也不败；非常自爱且有洁僻，鼻子有毛病嗅不出自身气味，出现时总带着接近郁金香的香气，曾从遥远国度捎来郁金香香精。
+  factions: []
+  skills:
+    - skill_qing_gong
+- id: char_ding_zi_ling
+  name: 丁子灵
+  aliases:
+    - 丁先生
+  identities:
+    - 灵钉子
+  level: 背景
+  rank: null
+  description: 被少年举为例证的高手，认为其避开弓箭攻击绝非难事。
+  factions: []
+  skills: []
+- id: char_gao_shi_ye
+  name: 高师爷
+  aliases:
+    - 绿袍老者
+  identities:
+    - 高师爷
+  level: 重要
+  rank: null
+  description: 穿翠绿缎子绣白丝小兔长衫的小老头，双眼如刀，随铁大爷至死镇勘定二十七处丝士藏身点，并以轿中暗器瞬杀六名未拔刀者。
+  factions: []
+  skills: []
+- id: char_ge_tou_xiao_gui
+  name: 割头小鬼
+  aliases:
+    - 小鬼
+    - 割头的小鬼
+  identities:
+    - 割头小鬼
+  level: 次要
+  rank: null
+  description: 密约盟友中的侏儒式人物，曾爬到郎格丝身上；郎格丝本可绞杀却因奇异情欲刺激而下不了手。
+  factions: []
+  skills: []
+- id: char_guan_dong_nu
+  name: 关东怒
+  aliases: []
+  identities:
+    - 当代四公子
+    - 一方大豪
+    - 一代枭杰
+  level: 背景
+  rank: null
+  description: 当代四公子之一，以一怒尸横无数、再怒尸横四处著称。
+  factions: []
+  skills: []
+- id: char_guo_wen
+  name: 郭温
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 与程冻二十年来形影不离、从未失手的搭档，用练子扫刀，可作飞刀取人首级于百步外；在棺材店与程冻联手误判埋伏后同死。
+  factions: []
+  skills: []
+- id: char_hei_yi_ren
+  name: 黑衣人
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 以乌金丝自悬如傀儡、操控纸扎轿与火掌的黑衣武者；紧身衣与面具防火，轻功一流；被苦行僧雾火所困后晕眩，遭绿衣女子踹击，最终被红小鬼割头取走。
+  factions: []
+  skills: []
+- id: char_hong_xiao_gui
+  name: 红小鬼
+  aliases:
+    - 红色小鬼
+    - 割头小鬼
+    - 割头的小鬼
+  identities:
+    - 割头小鬼
+  level: null
+  rank: null
+  description: 着红衫红裤、梳大辫、拈梅花的诡异小孩；关节平时以铁板夹住故僵硬如僵尸，挣脱后轻巧诡变；专割名人之头收藏，已有一百三十三个檀香木匣；本回先抱咬绿衣女子，再割下黑衣人头。
+  factions: []
+  skills: []
+- id: char_hong_xiu
+  name: 红袖
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 楚留香身边女子，想象场景中被提及。
+  factions: []
+  skills: []
+- id: char_hu_qiu_wu_jie
+  name: 虎丘五杰
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 慕容门下第二组中战绩最辉煌的五人组合；因不识特制桑皮纸灯笼中可藏人，戒备松懈时被人破纸而出割下头颅。
+  factions:
+    - faction_mu_rong_men_xia
+  skills: []
+- id: char_hu_tie_hua
+  name: 胡铁花
+  aliases: []
+  identities: []
+  level: 核心
+  rank: null
+  description: 楚留香最好且最老的朋友，宴会中华贵沉静、脸上颧骨下如有两洞；为替传已死的楚留香报仇而发财，称楚留香为老臭虫。
+  factions: []
+  skills: []
+- id: char_hua_feng_lai
+  name: 花凤来
+  aliases:
+    - 花风来
+    - 白布腰带
+  identities:
+    - 江南名妓
+    - 白布腰带
+  level: null
+  rank: null
+  description: 苏州籍江南名妓，精于内功，有白布腰带之称；郎格丝、苏佩蓉、李蓝袖的共同生母。
+  factions: []
+  skills:
+    - skill_nei_gong
+- id: char_ji_bing_yan
+  name: 姬冰雁
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 楚留香的友人，当年已赚到第一个一百万两白银。
+  factions: []
+  skills: []
+- id: char_jiang_nan_mu_rong
+  name: 江南慕容
+  aliases:
+    - 慕容
+    - 慕容公子
+    - 侄少爷
+  identities:
+    - 当代四公子
+    - 江南第一名公子
+    - 江南慕容世家的传人
+    - 慕容世家当代
+  level: 核心
+  rank: null
+  description: 当代四公子之一，清秀年轻、眉浓眼大，斜倚软榻与柳明秋密谈铁大爷与弄玉班丝士；铁大爷决战对手。
+  factions:
+    - faction_jiang_nan_mu_rong_shi_jia
+    - faction_mu_rong_shi_jia
+  skills: []
+- id: char_jiang_xi_xiong
+  name: 江西熊
+  aliases: []
+  identities:
+    - 当代四公子
+  level: 背景
+  rank: null
+  description: 当代四公子之一，以口碑句“吃不穷，喝不穷”并称。
+  factions: []
+  skills: []
+- id: char_jin_lao_tai_tai
+  name: 金老太太
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 楚留香的朋友，自称会看格局而非迷信看相；详析兰花以感情为饵、以慕容与袖袖为杀手的计划，主张先顾苏苏等三人安全。
+  factions: []
+  skills: []
+- id: char_jin_ling_zhi
+  name: 金灵芝
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 老太太最小的孙女儿，楚留香与胡铁花的好朋友，后文提及已死。
+  factions:
+    - faction_jin_shi_jia_zu
+  skills: []
+- id: char_ku_xing_seng
+  name: 苦行僧
+  aliases: []
+  identities:
+    - 苦行僧
+  level: 重要
+  rank: null
+  description: 白石大屋中审阅飞蛾卷宗的灰袍/白棉布长袍人物，外表如异方苦行僧；行事极仔细严格，知晓黑衣人乌金丝来历，以纯钢唧筒喷雾点燃乌金丝；冷漠无感情。
+  factions:
+    - faction_fei_e_xing_dong
+  skills: []
+- id: char_kuai_huo_wang
+  name: 快活王
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 沈浪在楼兰古城中所遇之人，带来平生未有的危恶凶杀。
+  factions: []
+  skills: []
+- id: char_lan_hua
+  name: 兰花
+  aliases:
+    - 兰花先生
+  identities:
+    - 组织的首脑
+  level: null
+  rank: null
+  description: 谋刺楚留香组织的神秘首脑，档案代号兰花；与楚留香有不可解之仇，性别身份武功皆未知，以三人为饵欲证实并击杀楚留香。
+  factions: []
+  skills: []
+- id: char_lan_hua_xian_sheng
+  name: 兰花先生
+  aliases: []
+  identities:
+    - 高手
+    - 枭雄
+  level: 核心
+  rank: null
+  description: 飞蛾行动的策划者；处心积虑掩饰行踪，计划失败亦可全身而退；江湖传言只在月圆夜午夜出现，并带着兰花香气；平时斯文温柔，午夜则判若两人。
+  factions: []
+  skills: []
+- id: char_lang_bo
+  name: 郎波
+  aliases: []
+  identities:
+    - 波斯胡贾
+  level: null
+  rank: null
+  description: 郎格丝之父，来往丝路经商的波斯胡贾，入关后暴富，回国后献珍宝得大君喜。
+  factions: []
+  skills: []
+- id: char_lang_ge_si
+  name: 郎格丝
+  aliases:
+    - 狼来格格
+  identities:
+    - 狼来格格
+    - 公主
+    - 波斯混血
+    - 贵族高手
+  level: 重要
+  rank: null
+  description: 波斯方面的行动者，受大君托付宝藏分布图，被苦行僧利用其财富与身手参与计划；对割头小鬼有异常情欲反应，并在石屋中见午夜兰花异象。
+  factions:
+    - faction_kong_que_wang_chao
+    - faction_bo_si_wang_shi
+  skills:
+    - skill_hua_shan_jian_fa
+- id: char_lang_ge_si_gong_zhu
+  name: 郎格丝公主
+  aliases: []
+  identities:
+    - 公主
+  level: 次要
+  rank: null
+  description: 飞蛾行动相关人物，结局中被认为只能失望而返，打不过兰花先生。
+  factions: []
+  skills: []
+- id: char_lao_zhe
+  name: 老者
+  aliases:
+    - 老人
+  identities: []
+  level: 次要
+  rank: null
+  description: 清矍的有智慧也有经验的老者；与少年在古厝中喝茶论战，讲述飞战与兰花先生诸事。
+  factions: []
+  skills: []
+- id: char_li_hong_xiu
+  name: 李红袖
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 楚留香身边三女之一，博闻强记，熟知各门派高手事迹，要楚留香永不败；李蓝衫早夭的妹妹，与李蓝袖同具轻生重义特质。
+  factions: []
+  skills: []
+- id: char_li_lan_shan
+  name: 李蓝衫
+  aliases:
+    - 蓝衫才子
+    - 蓝衫剑客
+  identities:
+    - 武当后起俗家弟子
+    - 蓝衫才子
+    - 蓝衫剑客
+  level: null
+  rank: null
+  description: 李蓝袖之父，文武双全，武当后起俗家弟子中第一名剑，二十岁时死于中原一点红剑下。
+  factions:
+    - faction_wu_dang
+  skills: []
+- id: char_li_lan_xiu
+  name: 李蓝袖
+  aliases:
+    - 袖袖
+  identities: []
+  level: null
+  rank: null
+  description: 花凤来与李蓝衫之女，代号袖袖，有轻生不怕死的特质；与慕容同为置楚留香于死地的最后杀手棋。
+  factions: []
+  skills: []
+- id: char_lin_deng
+  name: 林登
+  aliases: []
+  identities:
+    - 少林南宗外家弟子
+    - 豪富
+  level: null
+  rank: null
+  description: 林还恩之父，福建蒲田人，少林南宗外家弟子，豪富，有茶山万顷，与波斯通商；曾赴扶桑七年，传闻得新阴真传；一年前殁，年四十九。
+  factions:
+    - faction_shao_lin_nan_zong
+  skills:
+    - skill_xin_yin
+- id: char_lin_hai_en
+  name: 林还恩
+  aliases: []
+  identities:
+    - 飞蛾
+    - 钓者的饵
+  level: null
+  rank: null
+  description: 男，二十一岁，飞蛾行动的目标（飞蛾/钓饵）；父林登、母慕容思柳、孪生姐林还玉；自幼被定作报慕容家恩的牺牲者；经脉血络混乱，受刺激或激烈行动则必死。
+  factions:
+    - faction_fei_e_xing_dong
+    - faction_mu_rong_jia
+  skills: []
+- id: char_lin_hai_yu
+  name: 林还玉
+  aliases: []
+  identities:
+    - 慕容青城的嫡亲表妹
+    - 慕容青城的表妹
+  level: 重要
+  rank: null
+  description: 林还恩孪生姐姐，有绝症，寄养江南慕容府；已殁。自述姐弟一生见面不多，且将永别。
+  factions:
+    - faction_mu_rong_shi_jia
+    - faction_lin_jia
+    - faction_mu_rong_jia
+  skills: []
+- id: char_lin_jia_xiong_di
+  name: 林家兄弟
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 丝士中亲密如兄弟手足、分不开的一对，可共挤一处藏身处。
+  factions:
+    - faction_si_shi
+  skills: []
+- id: char_liu_ming_qiu
+  name: 柳明秋
+  aliases:
+    - 柳先生
+    - 盲者
+    - 十叔
+    - 天下第一眼
+    - 明察秋毫
+    - 江东一柳
+  identities:
+    - 天下第一眼
+    - 当代四公子
+    - 江东一柳
+    - 盲而不盲
+    - 不瞎的瞎子
+    - 明察秋毫
+  level: 核心
+  rank: null
+  description: 被视为兰花计划最大阻力；金老太太称柳先生不死则慕容无死理，苏苏质疑众人为何任其死在自己手里，并怀疑其死亦为圈套。
+  factions: []
+  skills: []
+- id: char_liu_ru_shi
+  name: 柳如是
+  aliases: []
+  identities:
+    - 江南第一名妓
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_liu_shang_di
+  name: 柳上堤
+  aliases: []
+  identities:
+    - 江南风流第一
+    - 剑术第一
+    - 风姿第一
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_liu_xian_sheng
+  name: 柳先生
+  aliases:
+    - 柳明秋先生
+    - 盲者
+    - 不盲的盲者
+  identities:
+    - 盲者
+  level: 重要
+  rank: null
+  description: 慕容身边谋士，外称盲者实则不盲，分析铁骑与丝士局势，并告知楚留香已死于林还玉之手。
+  factions: []
+  skills: []
+- id: char_lu_mi
+  name: 吕密
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 吕慎之弟，与兄同为慕容第二组第一流好手，擅外门硬功；在盛记厨房掀锅揭笼扑空后，与兄同被灶中铁条刺死。
+  factions:
+    - faction_mu_rong_men_xia
+  skills:
+    - skill_bao_pi_tie_zhang
+    - skill_kai_shan_tie_fu
+- id: char_lu_pao_lao_zhe
+  name: 绿袍老者
+  aliases:
+    - 绿袍老人
+    - 丝路
+  identities: []
+  level: 重要
+  rank: null
+  description: 只穿绿丝袍的老者，统领丝士，以丝网与银刺杀阿干，后放走又暗中安排王中平之死。
+  factions:
+    - faction_si_shi
+  skills: []
+- id: char_lu_shen
+  name: 吕慎
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 吕密之兄，慕容一方第二组第一流好手，练豹劈铁掌、开山铁斧等外门硬功；与弟闪避箭雨后扑入盛记厨房，被灶中黑衣人以通红铁条刺腹而死。
+  factions:
+    - faction_mu_rong_men_xia
+  skills:
+    - skill_bao_pi_tie_zhang
+    - skill_kai_shan_tie_fu
+- id: char_lu_yi_nu_zi
+  name: 绿衣女子
+  aliases:
+    - 绿袍人
+    - 绿衣人
+    - 竹衫人
+  identities: []
+  level: null
+  rank: null
+  description: 极高极美的绿衣女子，先以碧绿竹衫与青竹竿示人，行动柔软如柳丝；以青竹竿碧火焚纸扎轿，脱袍后赤身与黑衣人搏斗，以绿袍阻火反卷；自称引纸扎店之人前来好让其死在此处。
+  factions: []
+  skills: []
+- id: char_ma_jia_jia
+  name: 马佳佳
+  aliases: []
+  identities:
+    - 朱儒之妻
+    - 江湖中有名的佳人
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_mu_rong
+  name: 慕容
+  aliases:
+    - 慕容公子
+  identities:
+    - 贵公子
+    - 公子
+    - 慕容公子
+    - 江南慕容门户继承人
+  level: 核心
+  rank: null
+  description: 率领第二组、第三组等人堂皇进入死镇赴约的一方主事者，椅轿行至盛记食粮与四海酒楼一带时遭铁大爷弓箭与埋伏突袭。
+  factions:
+    - faction_mu_rong_men_xia
+    - faction_jiang_nan_mu_rong
+    - faction_lin_jia
+  skills: []
+- id: char_mu_rong_qing_cheng
+  name: 慕容青城
+  aliases:
+    - 青城公子
+  identities:
+    - 天下第一名公子
+    - 慕容世家的家长
+  level: 次要
+  rank: null
+  description: 上一代慕容世家家长，江湖传言其利用表妹林还玉设计陷害楚留香。
+  factions:
+    - faction_mu_rong_shi_jia
+    - faction_jiang_nan_mu_rong
+    - faction_mu_rong_jia
+  skills: []
+- id: char_mu_rong_si_liu
+  name: 慕容思柳
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 林还恩之母，慕容一青之妹、慕容青城之姑；已殁。自述还恩自幼被定为报慕容家恩的牺牲者。
+  factions:
+    - faction_mu_rong_jia
+  skills: []
+- id: char_mu_rong_yi_qing
+  name: 慕容一青
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 慕容思柳之兄；卷宗旁注称慕容思柳为慕容一青妹。
+  factions:
+    - faction_mu_rong_jia
+  skills: []
+- id: char_nan_gong_ling
+  name: 南宫灵
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 与无花和尚并称深沉阴险、却未能杀死楚留香者。
+  factions: []
+  skills: []
+- id: char_qing_gu
+  name: 青姑
+  aliases: []
+  identities:
+    - 女官
+  level: null
+  rank: null
+  description: 华山剑派三大高手之一，因门户之争愤而叛门，携女徒赴波斯，入宫为女官并收郎格丝为徒。
+  factions:
+    - faction_hua_shan_jian_pai
+  skills:
+    - skill_hua_shan_jian_fa
+- id: char_qing_shan_xiong_di
+  name: 青山兄弟
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 丝士中与林家兄弟同为分不开的一对，可共占藏身处。
+  factions:
+    - faction_si_shi
+  skills: []
+- id: char_rong_rong
+  name: 蓉蓉
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 楚留香身边女子，想象场景中斜倚其肩。
+  factions: []
+  skills: []
+- id: char_san_shen
+  name: 三婶
+  aliases:
+    - 老太太
+    - 老妪
+  identities: []
+  level: 次要
+  rank: null
+  description: 头白如霜腰弯如弓的老太太，在荒废庭园屋檐下用通草结白色假菊花，为盲者开门后的宅中人。
+  factions: []
+  skills: []
+- id: char_shao_nian
+  name: 少年
+  aliases: []
+  identities:
+    - 孤儿
+  level: 次要
+  rank: null
+  description: 求知欲非常丰富、真漂亮真好看的少年；喝酒如喝茶，与老者论飞战，提出兰花先生弱点在午夜与兰花。
+  factions: []
+  skills: []
+- id: char_shen_lang
+  name: 沈浪
+  aliases: []
+  identities:
+    - 名侠
+  level: 重要
+  rank: null
+  description: 昔年名侠，缉凶捕盗、身经百战；遇朱七七、王怜花、快活王后成名，后连同情人兄弟朋友忽然失踪，成江湖疑案。
+  factions: []
+  skills: []
+- id: char_shi_guan_yin
+  name: 石观音
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 绝艳惊才却未能杀死楚留香的人物之一。
+  factions: []
+  skills: []
+- id: char_shui_mu
+  name: 水母
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 绝艳惊才却未能杀死楚留香的人物之一。
+  factions: []
+  skills: []
+- id: char_si_lu
+  name: 丝路
+  aliases:
+    - 丝路先生
+    - 丝先生
+  identities:
+    - 丝士之主
+  level: 重要
+  rank: null
+  description: 并非汉唐丝路，而是丝士心目中的一个人；没有他，丝士便无路可走，故被称为丝路。
+  factions: []
+  skills: []
+- id: char_si_lu_xian_sheng
+  name: 丝路先生
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 与铁大爷一同筹划飞蛾行动之人，认定燕冲霄为慕容一方第二组四位高手之一，并与铁大爷共备丝士奇兵。
+  factions: []
+  skills: []
+- id: char_song_tian_er
+  name: 宋甜儿
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 楚留香身边三女之一，五羊城人，知足常乐，擅长做菜，连楚留香都从未抱怨。
+  factions: []
+  skills: []
+- id: char_su_cheng
+  name: 苏诚
+  aliases:
+    - 苏成
+    - 永诚
+    - 永成
+    - 无欺
+    - 不变
+    - 一信
+    - 苏吃亏
+  identities:
+    - 吃亏就是占便宜
+  level: null
+  rank: null
+  description: 苏佩蓉之父，江湖人称吃亏就是占便宜、苏吃亏；表面诚实守信肯吃亏，实则走遍南北无人不被其占便宜。
+  factions: []
+  skills: []
+- id: char_su_pei_rong
+  name: 苏佩蓉
+  aliases:
+    - 苏苏
+  identities: []
+  level: null
+  rank: null
+  description: 花凤来与苏诚之女，代号苏苏，外表乖巧老实，实具骗人特质；受苦行僧派去照顾慕容并刺杀柳明秋。
+  factions: []
+  skills: []
+- id: char_su_rong_rong
+  name: 苏蓉蓉
+  aliases:
+    - 蓉蓉
+  identities: []
+  level: null
+  rank: null
+  description: 楚留香身边三女之一，负责策划、建造镜室、采购人皮面具与易容用品，并精修易容术；苏佩蓉的异母姐姐。
+  factions: []
+  skills:
+    - skill_yi_rong_shu
+- id: char_su_su
+  name: 苏苏
+  aliases:
+    - 小苏
+  identities:
+    - 杀手
+  level: 重要
+  rank: null
+  description: 坚强女子，绞杀柳明秋后因见意外之人晕厥；醒后见山崖宴会，能鉴定珠宝，认出楚留香与老太太，并向楚留香、胡铁花求证身份。
+  factions: []
+  skills: []
+- id: char_tian_er
+  name: 甜儿
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 楚留香身边女子，长者与少年想象其与香帅共游湖海时提及。
+  factions: []
+  skills: []
+- id: char_tie_da_lao_ban
+  name: 铁大老板
+  aliases:
+    - 铁大爷
+    - 大老板
+    - 老板
+    - 大爷
+  identities:
+    - 四海楼老板
+  level: null
+  rank: null
+  description: 郎格丝质问能否凭其取楚留香性命时提及的人物；苦行僧承认单凭其等不足以瞬间杀楚留香。
+  factions:
+    - faction_si_hai_lou
+  skills: []
+- id: char_tie_da_ye
+  name: 铁大爷
+  aliases:
+    - 大块头
+    - 铁老大
+    - 铁大老板
+    - 大老板
+    - 大爷
+  identities:
+    - 西南道上所有英豪侠客的支柱
+    - 坐镇在长安
+    - 一方霸主
+    - 大爷
+    - 老板
+    - 老大
+    - 江湖大豪
+    - 傀儡
+  level: 核心
+  rank: null
+  description: 身高七尺九寸半，体重一百三十九斤，外门硬功无敌，脾气暴躁性如烈火，坐镇长安，为西南道英豪支柱；本章率五十一骑与高师爷至死镇布置丝士伏杀。
+  factions:
+    - faction_wu_shi_tie_qi
+  skills:
+    - skill_jin_zhong_zhao
+    - skill_tie_bu_shan
+    - skill_shi_san_tai_bao_heng_lian
+- id: char_tie_wu_gui
+  name: 铁乌龟
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 拥有枯、老、大、女、少五大爱将，慕容判断其爱将此时最多只会出现两个。
+  factions: []
+  skills: []
+- id: char_wang_lian_hua
+  name: 王怜花
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 沈浪在白云山庄所遇之人，曾为仇敌后成朋友；其前罪亦被引为沈浪退隐的可能理由之一。
+  factions: []
+  skills: []
+- id: char_wang_zhong_ping
+  name: 王中平
+  aliases:
+    - 王老
+  identities: []
+  level: 次要
+  rank: null
+  description: 六十九岁老杀手，一生杀九十九人，自创一百刺，本应与阿干同死，后被白袍女人暗算而死。
+  factions: []
+  skills:
+    - skill_yi_bai_ci
+- id: char_wu_hua_he_shang
+  name: 无花和尚
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 已死之人，其亲手做的素菜被楚留香评为比不上宋甜儿的罗汉斋。
+  factions: []
+  skills: []
+- id: char_xi_men_chui_xue
+  name: 西门吹雪
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 慕容品鉴丝路之名时借其剑锋作比喻提及。
+  factions: []
+  skills: []
+- id: char_xiao_su
+  name: 小苏
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 姓苏，蒙蓝色面巾、穿直统统长袍的长腿细腰女子，被柳明秋点名同去突袭，自认身躯魅力为对付男人的武器。
+  factions: []
+  skills: []
+- id: char_xiu_xiu
+  name: 袖袖
+  aliases:
+    - 蓝袖
+  identities:
+    - 慕容身边女子
+  level: 次要
+  rank: null
+  description: 兰花所设三钓饵之一，与慕容同被指为最可能一击杀楚留香的人选，亦为楚留香坚持救援的对象。
+  factions: []
+  skills: []
+- id: char_yan_chong_xiao
+  name: 燕冲霄
+  aliases:
+    - 燕子相公
+  identities:
+    - 燕子相公
+  level: 次要
+  rank: null
+  description: 五十三岁，慕容一方第二组四位高手之一，擅飞云提纵术与燕子飞云三绝手；弓箭骤发后凌空闪避，落于窄巷马桶上，被藏身马桶者一刀刺中要害而死。
+  factions:
+    - faction_mu_rong_men_xia
+  skills:
+    - skill_fei_yun_ti_zong_shu
+    - skill_yan_zi_fei_yun_san_jue_shou
+- id: char_yang_yu
+  name: 羊玉
+  aliases: []
+  identities:
+    - 爱妾
+    - 爱宠
+  level: 次要
+  rank: null
+  description: 铁大爷最宠爱的女人，温柔如羊、润滑如玉；曾要求铁大爷脱光运力让她数身上凸起肌肉。
+  factions: []
+  skills: []
+- id: char_ye_liang_shi
+  name: 叶良士
+  aliases: []
+  identities:
+    - 江南名医
+  level: null
+  rank: null
+  description: 江南名医，与林氏家族关系密切；诊断林还恩全身血络经脉混乱，机能失控，激烈行动或受刺激则必死无救。
+  factions: []
+  skills: []
+- id: char_zhang_zhe
+  name: 长者
+  aliases:
+    - 老者
+  identities: []
+  level: 次要
+  rank: null
+  description: 向少年讲解兰花先生、飞蛾行动与心态问题的老者，指出明显线索可能是烟幕与陷阱。
+  factions: []
+  skills: []
+- id: char_zhi_zhu
+  name: 蜘蛛
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 苦行僧此次密约中的盟友之一，苦行僧欲借郎格丝之手除掉。
+  factions: []
+  skills: []
+- id: char_zhong_yuan_yi_dian_hong
+  name: 中原一点红
+  aliases:
+    - 一点红
+  identities:
+    - 中原第一快剑
+    - 杀手
+  level: null
+  rank: null
+  description: 十年前江湖现身的杀手，黑衣持剑戴惨白人皮面具，号称杀人不见血；挥剑以腕力突刺，凶猛毒辣，生存目的只为杀人；胡铁花为杀人将他寻回。
+  factions: []
+  skills:
+    - skill_sou_hun_jian_wu_ying
+- id: char_zhu_qi_qi
+  name: 朱七七
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 沈浪在正义庄所遇之人，情绪曾极不稳定的情人，后稳定并死心塌地跟随，亦随之失踪。
+  factions: []
+  skills: []
+- id: char_zhu_ru
+  name: 朱儒
+  aliases:
+    - 朱先生
+  identities:
+    - 侏儒
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills:
+    - skill_qing_gong

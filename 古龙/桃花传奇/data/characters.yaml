@@ -1,0 +1,546 @@
+- id: char_a_juan
+  name: 阿鹃
+  aliases:
+    - 鹃儿
+    - 卜阿鹃
+  identities: []
+  level: 次要
+  rank: null
+  description: 曾有过与艾青类似、欲使楚留香自投罗网的企图，被楚留香识破。
+  factions: []
+  skills: []
+- id: char_ai_hong
+  name: 艾虹
+  aliases:
+    - 小虹
+  identities:
+    - 司花女
+  level: 重要
+  rank: null
+  description: 自称艾青之妹、十六岁，夜入小酒铺以自身抵五百两；鞋底弹毒刃踢楚留香，被桌下胡铁花抓住后遁走；艾青后称并无妹妹。
+  factions: []
+  skills: []
+- id: char_ai_qing
+  name: 艾青
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 山泉边汲水的青衣少女，初装不认楚留香，后于暗室相救并坦言曾受命杀他，终因楚留香执意见圣女而点其软麻穴。
+  factions: []
+  skills: []
+- id: char_bian_fu_gong_zi
+  name: 蝙蝠公子
+  aliases: []
+  identities:
+    - 绝顶高手
+  level: 背景
+  rank: null
+  description: 楚留香会过的绝顶高手之一，暗器功夫登峰造极。
+  factions: []
+  skills:
+    - skill_an_qi
+- id: char_bian_fu_ren
+  name: 蝙蝠人
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 楚留香等人旧日遭遇中终生不见光明的存在。
+  factions: []
+  skills: []
+- id: char_bu_a_juan
+  name: 卜阿鹃
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 以梳头、妒夫木与情人油连环骗楚留香去山洞送死，轻功与出手皆不弱。
+  factions: []
+  skills:
+    - skill_qing_gong
+- id: char_bu_dan_fu
+  name: 卜担夫
+  aliases:
+    - 不空
+    - 七十一变
+  identities:
+    - 砍柴的樵夫
+    - 下五门的第一高手
+  level: 次要
+  rank: null
+  description: 装无头人并以蜡头引爆迷药伏击楚留香；真名不空，人称七十一变，练童子功，会腹话。
+  factions:
+    - faction_xia_wu_men
+  skills:
+    - skill_qing_gong
+    - skill_fu_hua
+    - skill_tong_zi_gong
+- id: char_cheng
+  name: 秤
+  aliases: []
+  identities:
+    - 岭南黑道中一等一的高手
+  level: 次要
+  rank: null
+  description: 老头子的诨名，与秤砣为夫妻，岭南黑道一等一高手。
+  factions: []
+  skills: []
+- id: char_cheng_tuo
+  name: 秤砣
+  aliases: []
+  identities:
+    - 岭南黑道中一等一的高手
+  level: 次要
+  rank: null
+  description: 老太婆的诨名，手里常提一杆秤，与秤为夫妻。
+  factions: []
+  skills: []
+- id: char_chu_liu_xiang
+  name: 楚留香
+  aliases:
+    - 楚香帅
+  identities:
+    - 盗贼中的大元帅
+    - 传奇人物
+    - 圣女的丈夫
+    - 圣女的父亲
+    - 圣父
+    - 丈夫
+  level: 核心
+  rank: 出神入化
+  description: 夜入万福万寿园水阁后悄然离开，在九曲桥上遭金四爷与弓刀家丁包围；被金四爷数次摔向桥柱，皆以绝顶轻功身法化解并落回对方面前，后对饮允诺忘记今夜，自高墙跃下却落入水盆。
+  factions:
+    - faction_sheng_jiao
+  skills:
+    - skill_qing_gong
+    - skill_qi_shu
+    - skill_shen_fa
+    - skill_nei_li
+    - skill_yi_rong_shu
+- id: char_dong_san_niang
+  name: 东三娘
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 楚留香旧识，在伸手不见五指处相识。
+  factions: []
+  skills: []
+- id: char_gong_nan_yan
+  name: 宫南燕
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 楚留香旧识，初见时正坐在他椅子上喝他的酒。
+  factions: []
+  skills: []
+- id: char_hei_yi_lao_yu
+  name: 黑衣老妪
+  aliases:
+    - 老太婆
+    - 老妖精
+    - 太婆
+    - 神秘老妪
+    - 魔妪
+  identities:
+    - 教中的护法
+    - 圣教的护法人
+    - 母亲
+  level: 重要
+  rank: null
+  description: 于雾水中现身的神秘苍老女子，禁楚留香回头，嘱其独赴姓麻之人山洞圣坛见生神以探张洁洁下落，并严禁令对方流血。
+  factions:
+    - faction_sheng_jiao
+  skills: []
+- id: char_hu_tie_hua
+  name: 胡铁花
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 楚留香的好友，在楚留香两日寻访后保持清醒劝阻其轻信黑衣老妪与独闯姓麻之人，最终仍目送楚留香踏入绝路。
+  factions: []
+  skills: []
+- id: char_hua_mei_niao
+  name: 画眉鸟
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_hua_zhen_zhen
+  name: 华真真
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 昔日与楚留香同闯蝙蝠岛之人；胡铁花指出若无她相助楚留香便难生还，并质疑此行是否还能找到同类同伴。
+  factions: []
+  skills: []
+- id: char_jin_gu_niang
+  name: 金姑娘
+  aliases: []
+  identities:
+    - 小姐
+    - 金四爷的独生女儿
+  level: null
+  rank: null
+  description: 美丽如天仙却活在地狱中的女孩子；本回楚留香见金家办丧，断定死者即是她，死是她的解脱。
+  factions:
+    - faction_jin_jia
+  skills: []
+- id: char_jin_lao_tai_tai
+  name: 金老太太
+  aliases:
+    - 金太夫人
+  identities:
+    - 福寿双全的象征
+  level: 次要
+  rank: null
+  description: 万福万寿园中象征性偶像，刚成福寿双全之象征，真正权威却在金四爷。
+  factions:
+    - faction_jin_jia
+    - faction_wan_fu_wan_shou_yuan
+  skills: []
+- id: char_jin_ling_zhi
+  name: 金灵芝
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 金太夫人最小孙女，与楚留香、胡铁花同生死共患难；寿宴上守信不泄楚留香身份，似有意嫁胡铁花。
+  factions:
+    - faction_jin_jia
+  skills: []
+- id: char_jin_si_ye
+  name: 金四爷
+  aliases: []
+  identities:
+    - 金灵芝的四叔
+    - 万福万寿园实际掌权者
+    - 垂死女儿的父亲
+    - 父亲
+    - 江南武林的领袖
+    - 不可一世的英雄
+  level: 重要
+  rank: 炉火纯青
+  description: 万福万寿园真正掌握权威之人，手握亿万财富与江南武林大半人命运；在九曲桥头以简练有效之招数次扣腕摔出楚留香，后收兵请酒，以女儿垂死之痛相劝并离去。
+  factions:
+    - faction_wan_fu_wan_shou_yuan
+    - faction_jin_jia
+  skills: []
+- id: char_jin_tai_fu_ren
+  name: 金太夫人
+  aliases:
+    - 金老夫人
+  identities: []
+  level: 次要
+  rank: null
+  description: 八旬寿星，子孙满堂且多江湖顶尖高手，在万福万寿园做寿；知楚留香身份，看他如未来孙女婿。
+  factions: []
+  skills: []
+- id: char_ku_en_da_shi
+  name: 苦恩大师
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 峨眉前辈，金太夫人一女削发为尼后承其衣钵。
+  factions:
+    - faction_e_mei
+  skills: []
+- id: char_ku_mei_da_shi
+  name: 枯梅大师
+  aliases: []
+  identities:
+    - 大师
+  level: 背景
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_lao_ban
+  name: 老板
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 酒摊上愁眉苦脸的老板，被老板娘称为借来用用的角色。
+  factions: []
+  skills: []
+- id: char_lao_ban_niang
+  name: 老板娘
+  aliases:
+    - 小老板娘
+  identities: []
+  level: 重要
+  rank: null
+  description: 三岔路口酒摊上的白胖老板娘，实为假扮，点穴擒楚留香，受女雇主之托要活捉他。
+  factions: []
+  skills:
+    - skill_dian_xue
+- id: char_lao_tai_po
+  name: 老太婆
+  aliases:
+    - 老太太
+  identities:
+    - 武林高手
+    - 点穴名家
+  level: 次要
+  rank: null
+  description: 又高又胖、手提秤杆的老妇，与老头子联手点穴擒住楚留香，认穴准快，点穴手法不在当世名家之下，后被楚留香以酒箭冲穴逃脱。
+  factions: []
+  skills:
+    - skill_dian_xue
+- id: char_lao_tai_tai
+  name: 老太太
+  aliases:
+    - 老太婆
+  identities: []
+  level: null
+  rank: null
+  description: 与麻冠老人同行的老妇，眼如冷夜坟间鬼火，内力交锋时取出银镍赔偿椅子与鱼翅。
+  factions: []
+  skills: []
+- id: char_lao_tou_zi
+  name: 老头子
+  aliases: []
+  identities:
+    - 赶车的老头子
+    - 武林高手
+  level: 次要
+  rank: null
+  description: 赶骡车卖菜的花白头发老者，与老太婆假扮市井夫妇，实则同为极负盛名的武林高手，以马鞭卷袭楚留香。
+  factions: []
+  skills: []
+- id: char_li_hong_xiu
+  name: 李红袖
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 胡铁花提醒楚留香勿忘的友人之一。
+  factions: []
+  skills: []
+- id: char_ma_guan_lao_ren
+  name: 麻冠老人
+  aliases:
+    - 老头子
+  identities: []
+  level: null
+  rank: null
+  description: 戴黄麻高冠的诡异老人，手上蓄满可将酒杯捏成粉末、压裂椅子的恐怖内力，警告楚留香不必再等张洁洁。
+  factions: []
+  skills:
+    - skill_nei_li
+- id: char_ma_yi_lao_ren
+  name: 麻衣老人
+  aliases:
+    - 麻冠老人
+  identities:
+    - 长者
+  level: 次要
+  rank: null
+  description: 楚留香推断麻衣老人夫妇为姓麻的一家人中的长者，并疑其逼走张洁洁。
+  factions:
+    - faction_xing_ma_de_yi_jia_ren
+  skills: []
+- id: char_ma_yi_ren
+  name: 麻衣人
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 两个麻衣高冠中年人，神情冷漠高傲，以自身旋转的诡异武功围击，将楚留香拍倒后抬入石室。
+  factions:
+    - faction_xing_ma_de_yi_jia_ren
+  skills: []
+- id: char_mei_ren_yu
+  name: 美人鱼
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 楚留香、胡铁花与金灵芝旧日遭遇中，用渔网从大海捞起的存在。
+  factions: []
+  skills: []
+- id: char_pi_pa_gong_zhu
+  name: 琵琶公主
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 楚留香旧识，初见时正在洗澡。
+  factions: []
+  skills: []
+- id: char_qiu_ling_su
+  name: 秋灵素
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 楚留香旧识，初见时正准备自杀。
+  factions: []
+  skills: []
+- id: char_shen_shan_gu
+  name: 沈珊姑
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 楚留香旧识，初见时刚从房上跳下持刀要杀他。
+  factions: []
+  skills: []
+- id: char_sheng_nu
+  name: 圣女
+  aliases: []
+  identities:
+    - 圣女
+  level: 次要
+  rank: null
+  description: 楚留香潜入山窟所要寻找的人；艾青称唯有快死的人才能见到圣女。
+  factions:
+    - faction_xing_ma_de_yi_jia_ren
+  skills: []
+- id: char_sheng_shen
+  name: 生神
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 圣坛中戴黄金面具、着七色长袍的"生神"，宣判艾虹血刑；面具被揭后显出热泪满盈的女子之面。
+  factions: []
+  skills: []
+- id: char_shi_guan_yin
+  name: 石观音
+  aliases: []
+  identities:
+    - 绝顶高手
+  level: 背景
+  rank: null
+  description: 已被楚留香所杀；黑衣老妪称其为吃人妖怪、专吃男人，因而视杀石观音为可报之恩。
+  factions: []
+  skills:
+    - skill_shen_fa
+- id: char_shi_san_lang
+  name: 十三郎
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 与艾虹同至千秋屋，被击倒后尚未醒转。
+  factions: []
+  skills: []
+- id: char_shi_xiu_yun
+  name: 石绣云
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 楚留香旧识，初见时正躺在别人的怀抱里。
+  factions: []
+  skills: []
+- id: char_shui_mu
+  name: 水母
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 与石观音、血衣人并列被胡铁花提及的厉害人物，用以反衬姓麻一家人的可怕。
+  factions: []
+  skills: []
+- id: char_song_tian_er
+  name: 宋甜儿
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 胡铁花提醒楚留香勿忘的友人之一。
+  factions: []
+  skills: []
+- id: char_su_rong_rong
+  name: 苏蓉蓉
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 胡铁花提醒楚留香勿忘的友人之一，与宋甜儿、李红袖同被提及日夜牵挂楚留香。
+  factions: []
+  skills: []
+- id: char_wu_hua
+  name: 无花
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_xiao_hu
+  name: 小胡
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_xue_bao_bao
+  name: 薛宝宝
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_xue_yi_ren_fdkagbib
+  name: 血衣人
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 与石观音、水母并列被胡铁花提及的厉害人物。
+  factions: []
+  skills: []
+- id: char_xue_yi_ren_iieoppob
+  name: 薛衣人
+  aliases: []
+  identities:
+    - 绝顶高手
+  level: 背景
+  rank: null
+  description: 楚留香会过的绝顶高手之一，剑上功夫登峰造极。
+  factions: []
+  skills: []
+- id: char_yin_ji
+  name: 阴姬
+  aliases:
+    - 水母
+  identities:
+    - 绝顶高手
+  level: 背景
+  rank: null
+  description: 又称水母，楚留香会过的绝顶高手之一，掌力登峰造极。
+  factions: []
+  skills:
+    - skill_zhang_li
+- id: char_zhang_jie_jie
+  name: 张洁洁
+  aliases:
+    - 小妖精
+  identities:
+    - 圣女
+    - 神
+  level: 核心
+  rank: null
+  description: 楚留香苦苦寻找的女子；黑衣老妪称唯有姓麻之人圣坛上的生神能告知其消息，胡铁花则指她令楚留香性情大变。
+  factions:
+    - faction_sheng_jiao
+  skills:
+    - skill_qing_gong
+    - skill_an_qi

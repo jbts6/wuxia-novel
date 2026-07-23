@@ -1,0 +1,38 @@
+{
+  "report_version": 1,
+  "source_hash": "sha256:5ffea364961f3988ad91170a8df271bc6c92353d9cc011697795b9c483ac4c8b",
+  "final_data_hash": "sha256:49b61f413d6de585e446be96d5454a70ef1145f7e2a18a8b8881086511a5820a",
+  "summary": {
+    "warning_count": 1,
+    "by_code": {
+      "GENERIC_CANDIDATE_FILTERED": 1
+    },
+    "by_category": {
+      "characters": 1
+    }
+  },
+  "entries": [
+    {
+      "code": "GENERIC_CANDIDATE_FILTERED",
+      "severity": "warning",
+      "category": "characters",
+      "name": "店小二",
+      "chapter_numbers": [
+        7
+      ],
+      "source_refs": [
+        {
+          "chapter": 7,
+          "text": "也许是店小二在通风报信",
+          "line_start": 281,
+          "line_end": 281
+        }
+      ],
+      "member_refs": [
+        "ch007:character:店小二"
+      ],
+      "reason": "confirmed_generic_name",
+      "resolution": "filtered"
+    }
+  ]
+}

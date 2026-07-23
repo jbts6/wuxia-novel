@@ -1,11 +1,38 @@
+- id: skill_an_qi
+  name: 暗器
+  aliases: []
+  types:
+    - 暗器
+  factions: []
+  rank: null
+  description: 鬼屋窗外射入青、紫、银及近乎透明等共二十四种暗器，专打赵瞎子灭口；院中木料后再有寒光暴射。
+  techniques: []
+- id: skill_dao_fa
+  name: 刀法
+  aliases: []
+  types:
+    - 刀法
+  factions: []
+  rank: null
+  description: 蒙面刺客刀法一流，屋顶刀光青虹掠刺；柳乘风心口刀伤为一窄刀迎面刺入。
+  techniques: []
 - id: skill_dong_yang_shen_feng_dao_fa
   name: 东洋神风刀法
   aliases: []
   types:
     - 刀法
   factions: []
+  rank: 登堂入室
+  description: 沙大户所使刀法，陆小凤据此判断其为江洋大盗。
+  techniques: []
+- id: skill_du_men_qing_gong
+  name: 独门轻功
+  aliases: []
+  types:
+    - 轻功
+  factions: []
   rank: null
-  description: 沙大户使用的东洋刀法；陆小凤在黄昏围攻中观察到这门刀法，并据此识破黄石镇众人隐藏的江洋大盗身份。
+  description: 大雪山银狐在群山积雪中施展，一泻千里、瞬息无踪。
   techniques: []
 - id: skill_gui_xi_gong
   name: 龟息功
@@ -13,48 +40,85 @@
   types:
     - 内功
   factions: []
-  rank: null
-  description: 以龟息进入假死状态的武功；老实和尚在围攻中运功倒地，成功骗过黄石镇众人。
+  rank: 炉火纯青
+  description: 老实和尚假死所运功法。
   techniques: []
+- id: skill_hua_zhuang_shu
+  name: 化妆术
+  aliases: []
+  types:
+    - 易容
+  factions: []
+  rank: 登峰造极
+  description: 司空摘星自称天下第一的易容化妆之术。
+  techniques: []
+- id: skill_jian_fa
+  name: 剑法
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 柳乘风以剑名世，号一剑乘风；紫衣老妪持其剑突袭，被评第一流剑客中的超级高手；西门吹雪被用作剑法高下之参照。
+  techniques: []
+- id: skill_jian_shu
+  name: 剑术
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 西门吹雪已练至无剑境界；宫萍连攻二十四招，无人看清其拔剑刺向，仅见剑光一闪宫萍即倒。
+  techniques:
+    - name: 无剑的境界
+      description: 西门吹雪剑术所达境界，拔剑刺人无人看清，仅见一闪。
 - id: skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian
   name: 七七四十九手回风舞柳剑
   aliases: []
   types:
     - 剑法
   factions:
-    - faction_ba_shan_men_xia
-  rank: null
-  description: 巴山一脉的剑法，施展时须有轻功配合；顾道人曾以此名动天下，柳乘风亦以此受到武林敬重。
+    - faction_ba_shan
+  rank: 炉火纯青
+  description: 巴山嫡传剑法，须以轻功配合；在江湖中地位不在五名之外。
   techniques: []
 - id: skill_qing_gong
   name: 轻功
-  aliases:
-    - 轻功提纵术
+  aliases: []
   types:
     - 轻功
   factions: []
-  rank: 登峰造极
-  description: 用于提纵飞掠的武功；陆小凤曾负人穿窗越院，宫萍亲身感到其轻功冠绝众人，大鼓穿重铁靴登上绝岭时脚步仍极轻。
+  rank: null
+  description: 本章多次写陆小凤身法速度近超体能极限、穿窗掠院拍挡暗器；柳乘风轻功与剑法并称；蒙面刺客轻功亦一流；紫衣老妪掠逃翻身极快。
+  techniques: []
+- id: skill_qing_gong_ti_zong_shu
+  name: 轻功提纵术
+  aliases:
+    - 轻功
+  types:
+    - 轻功
+  factions: []
+  rank: null
+  description: 金七两最喜欢并练得极好的武功，施展时落地无声、轻如飞絮。
   techniques: []
 - id: skill_tian_wai_fei_xian
   name: 天外飞仙
   aliases: []
   types:
-    - 剑招
-  factions: []
-  rank: 登峰造极
-  description: 叶孤城的剑招；紫禁之巅一战中几乎使西门吹雪败亡。
-  techniques:
-    - name: 天外飞仙
-      description: 叶孤城于紫禁之巅施展、几乎使西门吹雪败亡的一剑。
-- id: skill_wu_jian_de_jing_jie
-  name: 无剑的境界
+    - 剑法
+  factions:
+    - faction_bai_yun_cheng
+  rank: null
+  description: 白云城主叶孤城所用绝技，在紫禁之巅几乎取西门吹雪性命。
+  techniques: []
+- id: skill_wai_men_gong_fu
+  name: 外门功夫
   aliases: []
   types:
-    - 剑法
+    - 外功
   factions: []
-  rank: 返璞归真
-  description: 西门吹雪所臻的剑术境界；他避过宫萍连续二十四招后只现一闪剑光便使其倒下，旁人未能看见其拔剑出剑。
+  rank: null
+  description: 江湖中绝传已久的特殊外门功夫，必要时可将身子变得比几百斤大秤铊还重；绣花鞋以此为荣，且从无女人练成。
   techniques: []
 - id: skill_wu_ying_jiao
   name: 无影脚
@@ -63,18 +127,25 @@
     - 腿法
   factions: []
   rank: null
-  description: 出脚前肩不动、眼不瞬且毫无征兆的腿法；宫萍曾用来踢击陆小凤，但随即被他抓住脚。
+  description: 极难练成的腿法，出脚前毫无征兆，肩不动眼不瞬。
+  techniques: []
+- id: skill_yi_rong
+  name: 易容
+  aliases: []
+  types:
+    - 易容
+  factions: []
+  rank: null
+  description: 昨日几乎杀死陆小凤的女人脸经易容改扮，使人看不出本来面目。
   techniques: []
 - id: skill_yi_rong_shu
   name: 易容术
-  aliases:
-    - 化妆术
+  aliases: []
   types:
     - 易容
-    - 易容术
   factions: []
-  rank: 返璞归真
-  description: 改变容貌、声音与气势的技术；职业杀手普遍掌握，司空摘星则能扮成西门吹雪骗过一流杀手，并多次完成足以瞒过目标的身份替换。
+  rank: 登峰造极
+  description: 司空摘星之绝技，可改扮成不存在之人甚至瞒过陆小凤；最高深者亦难彻底瞒过最接近的亲友。
   techniques: []
 - id: skill_yu_lian_huan_shan_dian_ba_dao
   name: 玉连环闪电八刀
@@ -83,5 +154,5 @@
     - 刀法
   factions: []
   rank: null
-  description: 洪涛所使的刀法，江湖传述其刀刀致命、刀下少有活口。
+  description: 洪涛所使刀法，刀刀致命，刀下少有活口。
   techniques: []

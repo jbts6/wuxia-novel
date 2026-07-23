@@ -3,73 +3,104 @@
   aliases: []
   identities:
     - 中原镖局总镖头
+    - 总镖头
   level: 重要
-  rank: null
-  description: 中原镖局总镖头，亲自押运三千五百万两黄金到黄石镇；遭副总镖头金鹏背叛、擒问黄金下落，后由陆小凤等人救出并制住来袭的小叫化。
+  rank: 登堂入室
+  description: 南北一十三省号称第一的中原镖局总镖头，本回被擒后获救。
   factions:
     - faction_zhong_yuan_biao_ju
   skills: []
 - id: char_chu_liu_xiang
   name: 楚留香
-  aliases: []
+  aliases:
+    - 楚香帅
   identities: []
   level: 背景
   rank: null
-  description: 只在叙述中被用来与陆小凤比较性格和处事方式的江湖人物。
+  description: 被拿来与陆小凤比较的传奇人物，风流蕴藉，从不冤枉无辜。
   factions: []
   skills: []
+- id: char_ci_ke
+  name: 刺客
+  aliases:
+    - 快刀手
+  identities: []
+  level: 次要
+  rank: null
+  description: 穿黑色紧身夜行衣、黑巾蒙面的刀客，与紫衣老妪同来灭口赵瞎子；刀法轻功一流，被陆小凤双指捏刀震裂虎口、肋骨撞断两根后滚逃。
+  factions: []
+  skills:
+    - skill_dao_fa
+    - skill_qing_gong
 - id: char_da_gu
   name: 大鼓
-  aliases: []
+  aliases:
+    - 小瘦子
   identities:
     - 超级杀手
+    - 杀手
   level: 重要
   rank: null
-  description: 近年崛起的超级杀手，自幼穿铁鞋练成极轻脚步；受白衣少年雇用赴山巅，却被假扮西门吹雪的司空摘星骗过并知难而退。
+  description: 近两三年崛起的超级杀手，外形臃肿如鼓，穿极重铁靴却轻功惊人；近十九个月手下武林大豪多于西门吹雪剑下，却非今日赴约者。
   factions: []
   skills:
     - skill_qing_gong
     - skill_yi_rong_shu
-- id: char_da_xue_shan_yin_hu
-  name: 大雪山银狐
+- id: char_da_li_jiang_jun
+  name: 大李将军
   aliases: []
   identities: []
   level: 背景
   rank: null
-  description: 新近崛起江湖、以雪山独门轻功著称的人物，其一泻千里、瞬息无踪的本领仅见于传闻。
+  description: 中国古代第一位以剑术留名的人，姓李，剑术令当世叹为观止，也令后人对其剑法产生无穷幻想。
   factions: []
   skills: []
-- id: char_er_ba_dao
-  name: 二把刀
+- id: char_da_xue_shan_yin_hu
+  name: 大雪山银狐
   aliases: []
-  identities:
-    - 劫镖者
-  level: 龙套
+  identities: []
+  level: 次要
   rank: null
-  description: 金鹏劫镖团伙中的刀手，夜袭镖车时以刀锋割开一名守卫的咽喉。
+  description: 新近崛起江湖，独门轻功被传为一泻千里、瞬息无踪。
   factions: []
-  skills: []
+  skills:
+    - skill_du_men_qing_gong
 - id: char_gong_ping
   name: 宫萍
   aliases:
-    - 紫衣老妪
-  identities:
-    - 黄石镇合谋者
+    - 萍姑娘
+    - 宫姑娘
+  identities: []
   level: 重要
-  rank: 炉火纯青
-  description: 曾扮成紫衣老妪持柳如钢之剑袭击陆小凤，后以箭靴和老板娘夹攻陆小凤；又参与假死布局中的围攻，赴宴刺杀西门吹雪时连攻二十四招，最终死于过度自信。
+  rank: null
+  description: 二十九岁，穴道被陆小凤制住后被抱走；身藏柳乘风玉绊，称其为他人所赠；推断宫素素与凶案有关并指认玉绊经沙大户之手。
   factions: []
   skills:
     - skill_wu_ying_jiao
 - id: char_gong_su_su
   name: 宫素素
-  aliases: []
+  aliases:
+    - 宫主
+    - 素云宫主人
   identities:
-    - 被谪王妃
-    - 黄石镇劫镖团伙成员
+    - 亲贵王爷的爱妃
+    - 宫主
+    - 王妃
+    - 被谪的王妃
   level: 重要
-  rank: 登堂入室
-  description: 风度优雅、琴棋书画俱佳的被谪王妃，实为黄石镇劫镖合谋者；她参与围攻陆小凤、设毒宴擒住西门吹雪和牛肉汤，并在终局攻击司空摘星后败北。
+  rank: 略有小成
+  description: 金七两称其非本地人，风度学识谈吐俱佳、琴棋书画无一不精，酒量极大；本是当朝亲贵王爷爱妃，犯事坐罪被放逐至此，想走却走不了。
+  factions: []
+  skills: []
+- id: char_gong_sun_da_niang
+  name: 公孙大娘
+  aliases:
+    - 公孙氏
+  identities:
+    - 剑神
+  level: 背景
+  rank: null
+  description: 若剑器亦为剑之一种，则无疑是被人称作剑神的第一人。
   factions: []
   skills: []
 - id: char_gu_dao_ren
@@ -79,19 +110,37 @@
     - 巴山剑客
   level: 背景
   rank: null
-  description: 昔日凭七七四十九手回风舞柳剑名动天下的巴山剑客，飘然隐去后门下子弟四散。
+  description: null
   factions:
-    - faction_ba_shan_men_xia
+    - faction_ba_shan
   skills:
     - skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian
-- id: char_hong_tao
-  name: 洪涛
-  aliases:
-    - 闪电刀
+- id: char_gu_long
+  name: 古龙
+  aliases: []
   identities: []
   level: 背景
   rank: null
-  description: 绰号闪电刀，以玉连环闪电八刀凶名在外；西门吹雪曾为素不相识的赵刚远行将他杀死。
+  description: null
+  factions: []
+  skills: []
+- id: char_hai_zhu_lou_zhu
+  name: 还珠楼主
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_hong_tao
+  name: 洪涛
+  aliases: []
+  identities:
+    - 闪电刀
+  level: 背景
+  rank: null
+  description: 闪电刀，使玉连环闪电八刀，曾被西门吹雪所杀。
   factions: []
   skills:
     - skill_yu_lian_huan_shan_dian_ba_dao
@@ -101,132 +150,199 @@
   identities: []
   level: 背景
   rank: null
-  description: 眼盲而心不盲的江湖人物，仅在江湖人议论轻功名家时与木道人、老实和尚一同被提及。
+  description: 眼盲心却不盲，传说有足以称霸江湖的轻功绝技。
   factions: []
-  skills: []
+  skills:
+    - skill_qing_gong
 - id: char_huang_xiao_chong
   name: 黄小虫
   aliases:
     - 小叫化
+    - 小叫化子
   identities:
     - 丐帮第二十三代弟子
-    - 金鹏劫镖团伙成员
-  level: 重要
+  level: 次要
   rank: null
-  description: 黄石镇穷困的小叫化，自称丐帮第二十三代弟子并接近陆小凤；他曾假意与宫萍、老板娘追查柳如钢之死，实属金鹏团伙，终局袭击百里长青时被反制。
+  description: 自称丐帮第二十三代弟子，玄龟堂、王老爷子属下长江第二十七分舵，三年前派来本地；曾把陆小凤带到杂货店，半夜藏床底；否认自己是第一个发现柳大爷尸体者，称惨呼后见到先到的一男一女逃走。
   factions:
     - faction_gai_bang
+    - faction_xuan_gui_tang
+    - faction_chang_jiang_di_er_shi_qi_fen_duo
   skills: []
-- id: char_jin_man_tang
-  name: 金满堂
-  aliases:
-    - 金七两
-    - 金老七
-  identities:
-    - 江湖大盗
-  level: 重要
-  rank: null
-  description: 本名金满堂，因轻功落地无声、轻如七两棉花而号金七两；他带陆小凤寻找宫素素，并说明自己借小小田之死躲入沙大户亡命窝的经过。
-  factions: []
-  skills:
-    - skill_qing_gong
-- id: char_jin_peng
-  name: 金鹏
+- id: char_jian_xuan_dao_zi
+  name: 剑玄道子
   aliases: []
   identities:
-    - 中原镖局副总镖头
-    - 劫镖阴谋主使
-  level: 重要
+    - 青城剑玄道子
+  level: null
   rank: null
-  description: 百里长青倚重十七年的中原镖局副总镖头，暗中策划杀人顶替黄石镇居民并劫取巨额黄金；阴谋被陆小凤揭穿后败于终局交战。
+  description: null
+  factions: []
+  skills: []
+- id: char_jin_peng
+  name: 金鹏
+  aliases:
+    - 金老大
+  identities:
+    - 副总镖头
+  level: 重要
+  rank: 登堂入室
+  description: 中原镖局副总镖头，实为劫镖阴谋主谋之一。
   factions:
     - faction_zhong_yuan_biao_ju
+  skills: []
+- id: char_jin_qi_liang
+  name: 金七两
+  aliases:
+    - 金老七
+    - 金满堂
+  identities:
+    - 清客
+    - 秀才
+    - 亡命之徒
+  level: 重要
+  rank: null
+  description: 因大老板生气而从沙府溜出找陆小凤；自称盯蛇郎君七八个月，混入沙府亡命客中刺探，揭穿那些巨盗全是下三流小贼冒牌；并介绍宫素素。
+  factions: []
+  skills:
+    - skill_qing_gong_ti_zong_shu
+- id: char_jin_yong
+  name: 金庸
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 作者注中出现的朋友；对"冰比冰水冰"上联深思后评"此联不通"。
+  factions: []
   skills: []
 - id: char_kong_tai_shan
   name: 孔泰山
   aliases:
     - 稳如泰山
   identities:
-    - 南七北六十三省联营镖局总镖头
+    - 总镖头
   level: 背景
   rank: null
-  description: 二十五年前任南七北六十三省联营镖局总镖头，曾发武林帖追捕蛇郎君并下令格杀勿论。
+  description: 南七北六十三省联营镖局总镖头，绰号稳如泰山；二十五年前发武林帖追捕蛇郎君并格杀勿论。
   factions:
     - faction_nan_qi_bei_liu_shi_san_sheng_lian_ying_biao_ju
   skills: []
-- id: char_kuai_dao_shou
-  name: 快刀手
-  aliases: []
-  identities:
-    - 刺客
-  level: 龙套
-  rank: null
-  description: 紫衣老妪的持刀同伴，出刀极快，却被陆小凤以两指夹住刀锋并震伤。
-  factions: []
-  skills: []
 - id: char_lao_ban_niang
   name: 老板娘
-  aliases: []
+  aliases:
+    - 风骚老板娘
+    - 杂货店老板娘
   identities:
-    - 黄石镇杂货店老板娘
-    - 金鹏劫镖团伙成员
+    - 王大眼杂货店老板娘
+    - 杂货店老板娘
   level: 重要
-  rank: 炉火纯青
-  description: 黄石镇杂货店老板娘，以风情掩饰苦练的武功；她用锋利指套与宫萍夹攻陆小凤，参与劫镖合谋和秘密商议，终局攻击牛肉汤后败北。
+  rank: 略有小成
+  description: 王大眼之妻，风骚扭腰，带陆小凤看住宿价目并调侃双人房；夜半推门入陆小凤房，称可告知柳乘风死因，醉后道出黄石镇惟沙大户例外、藏污纳垢之线索。
+  factions: []
+  skills: []
+- id: char_lao_chuan_chang
+  name: 老船长
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 陆小凤在海上结识的朋友，持有同类波斯宫廷匕首，并向陆小凤讲述其价值与用途。
   factions: []
   skills: []
 - id: char_lao_shi_he_shang
   name: 老实和尚
-  aliases:
-    - 不老实和尚
-    - 司空摘星
-    - 西门吹雪
-  identities:
-    - 佛门第一游侠
-    - 陆小凤的假死替身
-  level: 核心
-  rank: null
-  description: 名满天下的佛门第一游侠，隐居巴山道观；他协助陆小凤布局，先由真司空摘星化妆成假西门吹雪，随后又改扮成表面上的司空摘星活动，后来易容成陆小凤并以龟息功完成假死，终局现身助战。
-  factions: []
-  skills:
-    - skill_gui_xi_gong
-- id: char_lao_yu
-  name: 老妪
   aliases: []
-  identities: []
-  level: 龙套
+  identities:
+    - 和尚
+    - 陆小凤的朋友
+    - 佛门中第一游侠
+  level: 重要
+  rank: 登堂入室
+  description: 陆小凤的好朋友，曾在陆小凤自承是骗吃骗喝专家时大笑称其说了老实话；文中亦言其涵养极好仍差点被陆小凤气死。
+  factions:
+    - faction_fo_men
+  skills:
+    - skill_qing_gong
+    - skill_gui_xi_gong
+- id: char_li_bai
+  name: 李白
+  aliases: []
+  identities:
+    - 诗仙
+    - 剑侠
+  level: 背景
   rank: null
-  description: 宫素素住所中步履矫健、双腿如少女的伪装老妪，趁两名女镖师中毒无力时以酒壶击倒其中一人；真实姓名未揭示。
+  description: 佩剑的诗仙与剑侠，剑不如诗，仅以诗传而不以剑名。
   factions: []
   skills: []
+- id: char_li_zhao
+  name: 李肇
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_liu_cheng_feng
+  name: 柳乘风
+  aliases:
+    - 柳如钢
+    - 柳大侠
+    - 柳大爷
+    - 一剑乘风
+    - 柳先生
+  identities:
+    - 剑侠
+    - 剑客
+    - 江湖名侠
+    - 柳大侠
+  level: 重要
+  rank: null
+  description: 陆小凤要找的财迷朋友，曾住王大眼杂货店后院木屋；灵牌写故友柳如钢，死于暗巷心口一刀，凶刀曾留尸上；轻功剑法号称差西门吹雪不远，尸体由赵瞎子抱回停灵。
+  factions: []
+  skills:
+    - skill_qing_gong
+    - skill_jian_fa
 - id: char_liu_ru_gang
   name: 柳如钢
   aliases:
-    - 一剑乘风
     - 柳乘风
+    - 柳先生
   identities:
-    - 巴山第一嫡传掌门弟子
-    - 京师先遣侠客
+    - 一剑乘风
+    - 第一嫡传掌门弟子
   level: 重要
-  rank: null
-  description: 号一剑乘风的巴山第一嫡传掌门弟子，受命提前沿押镖路线安排安全事宜；他在黄石镇遭迎面一刀杀害，其死成为陆小凤追查并揭开劫镖阴谋的起点。
+  rank: 炉火纯青
+  description: 巴山第一嫡传掌门弟子，人格为人所敬；七个月前与陆小凤饮酒后赴西北边陲小镇黄石，此后人影不见。
   factions:
-    - faction_ba_shan_men_xia
+    - faction_ba_shan
   skills:
     - skill_qi_qi_si_shi_jiu_shou_hui_feng_wu_liu_jian
 - id: char_lu_xiao_feng
   name: 陆小凤
   aliases:
+    - 陆小风
+    - 陆先生
+    - 陆大侠
+    - 陆兄
+    - 陆小鸟
+    - 陆少爷
+    - 陆公子
     - 陆小鸡
     - 陆三蛋
+    - 陆小狗
+    - 陆小虫
+    - 陆小鬼
     - 小老太婆
-    - 老婆
   identities:
-    - 侠客
-    - 黄石镇劫镖案调查者
+    - 骗吃骗喝的专家
+    - 名人
+    - 陆公子
+    - 陆大侠
   level: 核心
-  rank: 登峰造极
-  description: 以两根手指和机智闻名的侠客，为查柳如钢之死深入黄石镇；他识破镇民隐藏的武功，联络司空摘星与老实和尚布置假死，长期扮作小老太婆暗查，最终救出西门吹雪、揭穿金鹏并粉碎劫镖阴谋。
+  rank: 出神入化
+  description: 本回主角，入住王大眼杂货店后院小木屋，追查资助五百两银子后失踪的财迷朋友柳乘风；在棺材铺鬼屋查看柳乘风尸体与刀伤，救下赵瞎子并与蒙面刀客、紫衣老妪交手，以双指捏住刀锋与剑尖；后从小叫化与老板娘处印证案情，并得知沙大户线索。
   factions: []
   skills:
     - skill_qing_gong
@@ -234,49 +350,105 @@
   name: 木道人
   aliases: []
   identities:
-    - 武当名宿
+    - 武当的名宿
   level: 背景
   rank: null
-  description: 武当名宿，仅在江湖人议论轻功名家时与老实和尚、花满楼一同被提及。
+  description: 武当名宿，传说有足以称霸江湖的轻功绝技。
   factions:
     - faction_wu_dang
+  skills:
+    - skill_qing_gong
+- id: char_ni_kuang
+  name: 倪匡
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 作者注中出现的朋友；与作者深夜饮酒，未能对出"冰比冰水冰"下联。
+  factions: []
+  skills: []
+- id: char_niu_da_xiao_jie
+  name: 牛大小姐
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 与司空摘星同席；闻西门吹雪在黄石镇时与司空摘星对视怔住，后对陆小凤相关言论一度跳起又强自按捺。
+  factions: []
   skills: []
 - id: char_niu_rou_tang
   name: 牛肉汤
   aliases:
-    - 牛小姐
-    - 白衣少年
     - 牛大小姐
-  identities:
-    - 江湖女子
-  level: 核心
+    - 牛小姐
+  identities: []
+  level: 重要
   rank: null
-  description: 以调皮捣蛋闻名的牛小姐，因陆小凤失踪求助老实和尚；她女扮男装为白衣少年，雇大鼓和绣花鞋开路并借剑救人，随后识破假西门吹雪、赶赴黄石镇，与真西门吹雪追查陆小凤并参与终局破局。
+  description: 本回自报名牛肉汤；酒楼见司空摘星被吓走后独赴神秘老夫妻席，得知陆小凤死讯后痛哭；至黄石镇代西门吹雪传话、约镇民问话并以沙漏逼沙大户现身，于棺材铺见尸身先哭后笑再号哭。
+  factions: []
+  skills: []
+- id: char_niu_xiao_jie
+  name: 牛小姐
+  aliases:
+    - 牛肉汤
+    - 牛大小姐
+    - 牛皮糖
+  identities: []
+  level: 重要
+  rank: null
+  description: 陆小凤最近最喜欢的牛大小姐，约战西门吹雪，当面识破假扮者并与司空摘星对谈。
+  factions: []
+  skills: []
+- id: char_ping_jiang_bu_xiao_sheng
+  name: 平江不肖生
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
   factions: []
   skills: []
 - id: char_sha_da_hu
   name: 沙大户
   aliases:
     - 沙大老板
+    - 沙老板
+    - 老沙
   identities:
     - 黄石镇大户
-    - 流放贵族后裔
-    - 金鹏劫镖团伙成员
+    - 大户
+    - 大老板
+    - 有钱人
+    - 外地的流放贵族
   level: 重要
   rank: 登堂入室
-  description: 流放贵族后裔，因在黄石镇外挖到黄金而成为当地大户并收留亡命徒；他参与围攻陆小凤、毒宴与分散镖局人手，所使东洋神风刀法暴露了江洋大盗身份，终局败北。
+  description: 老板娘所称黄石镇上惟一例外之人，好田好地与甜水井多属其名下；本身本事有限，却以金银珠宝招聚强盗逃犯凶手等"苍蝇"；老板娘称镇上若有人能杀柳乘风则必是此人。
   factions:
     - faction_sha_jia
   skills:
     - skill_dong_yang_shen_feng_dao_fa
+- id: char_sha_da_lao_ban
+  name: 沙大老板
+  aliases:
+    - 沙大户
+  identities:
+    - 沙大老板
+  level: 重要
+  rank: null
+  description: 收容超级恶棍；承认玉绊是送给素云宫主人的节礼，又称玉绊原非己物；卧房中被陆小凤持玉绊质问。
+  factions: []
+  skills: []
 - id: char_sha_man_ge
   name: 沙曼阁
-  aliases: []
+  aliases:
+    - 观云
   identities:
-    - 流放贵族
+    - 沙家玄祖
+    - 词人
+    - 翰林
   level: 背景
   rank: null
-  description: 沙大户的玄祖，因风流获罪而被朝廷发配到黄石镇，后来成为当地最有权势的人。
+  description: 沙家玄祖，字观云，少年中举点翰林后因风流被朝廷发配边疆，到黄石镇后掘得黄金，奠定沙家暴富与权势。
   factions:
     - faction_sha_jia
   skills: []
@@ -284,143 +456,217 @@
   name: 蛇郎君
   aliases: []
   identities: []
-  level: 背景
+  level: 重要
   rank: null
-  description: 二十五年前遭孔泰山发武林帖追捕的亡命人物，仅在金七两讲述避仇来历时被提及。
+  description: 金七两以毒蛇喻之并追踪的目标；二十五年前已被孔泰山发武林帖格杀勿论，金七两近期听闻他曾在这条路上出现。
   factions: []
   skills: []
 - id: char_si_kong_zhai_xing
   name: 司空摘星
   aliases:
+    - 天下第一神偷
+    - 白衣少年
     - 偷王之王
     - 小老头
-    - 老头
   identities:
     - 天下第一神偷
-    - 易容高手
-  level: 重要
-  rank: null
-  description: 号偷王之王的天下第一神偷，易容术精妙绝伦；他替老实和尚完成西门吹雪、司空摘星与陆小凤等多重化妆，自己以小老头面目配合调查及营救，终局恢复本貌助战。
+    - 大偷
+    - 超级大偷
+    - 偷王之王
+    - 偷王
+  level: 核心
+  rank: 炉火纯青
+  description: 本回被小老太婆附耳数语后失色冒汗、念念有词；被牛大小姐讥为胆小鬼后瞬即消失，先前曾答应陪她去黄石镇却一走了之。
   factions: []
   skills:
+    - skill_qing_gong
     - skill_yi_rong_shu
+    - skill_hua_zhuang_shu
 - id: char_si_tu_feng
   name: 司徒凤
   aliases: []
   identities:
     - 峨眉女侠
-  level: 背景
+  level: null
   rank: null
-  description: 随中原镖局押运黄金进入黄石镇的四名峨眉女侠之一。
-  factions:
-    - faction_e_mei
+  description: null
+  factions: []
   skills: []
 - id: char_si_tu_huang
   name: 司徒凰
   aliases: []
   identities:
     - 峨眉女侠
-  level: 背景
+  level: null
   rank: null
-  description: 随中原镖局押运黄金进入黄石镇的四名峨眉女侠之一。
-  factions:
-    - faction_e_mei
+  description: null
+  factions: []
   skills: []
 - id: char_si_tu_yan
   name: 司徒燕
   aliases: []
   identities:
     - 峨眉女侠
-  level: 背景
+  level: null
   rank: null
-  description: 随中原镖局押运黄金进入黄石镇的四名峨眉女侠之一。
-  factions:
-    - faction_e_mei
+  description: null
+  factions: []
   skills: []
 - id: char_si_tu_ying
   name: 司徒莺
   aliases: []
   identities:
     - 峨眉女侠
-  level: 背景
+  level: null
   rank: null
-  description: 随中原镖局押运黄金进入黄石镇的四名峨眉女侠之一。
-  factions:
-    - faction_e_mei
+  description: null
+  factions: []
   skills: []
 - id: char_sun_xian_sheng
   name: 孙先生
   aliases: []
   identities:
-    - 沙大户清客
-    - 致仕知县
+    - 清客
+    - 知县致仕
   level: 龙套
   rank: null
-  description: 沙大户身边最亲近的清客，据说从知县任上致仕，外表文质彬彬、儒雅温和。
+  description: 沙大户身边最接近的清客，据说从知县任上致仕，文质彬彬儒雅温和，陪沙大户喝酒并询问来客身份。
   factions: []
   skills: []
 - id: char_tian_ba_tai_ye
   name: 田八太爷
   aliases: []
   identities: []
+  level: 龙套
+  rank: null
+  description: 金七两伪装背景中被认为要取其性命的人，用以取信沙府亡命客。
+  factions: []
+  skills: []
+- id: char_wan_fu_ren
+  name: 万夫人
+  aliases: []
+  identities: []
   level: 背景
   rank: null
-  description: 小小田的祖父；江湖人认定金七两杀死其孙后，他被认为必会向金七两索命。
+  description: 仅被提及为训练"职业美人"之人；上山提宫灯的宫装美女被推测或为宫娥，或经她训练。
   factions: []
   skills: []
 - id: char_wang_da_yan
   name: 王大眼
   aliases:
-    - 杂货店老板
-    - 杂货店的老板
+    - 王老板
+    - 老王
+    - 王大爷
   identities:
-    - 黄石镇杂货店老板
-    - 金鹏劫镖团伙成员
-  level: 重要
-  rank: 登堂入室
-  description: 又高又大、右眼凸出的黄石镇杂货店老板和老板娘之夫；他隐藏武功参与围攻陆小凤及劫镖合谋，并负责分散中原镖局人手。
+    - 店主
+    - 杂货店老板
+    - 杂货铺老板
+  level: 次要
+  rank: null
+  description: 小镇王大眼杂货店老板，又高又大又粗又肥且驼背，右眼突出如鸡蛋；对客殷勤和气，告知陆小凤柳大侠曾住其店且已死，指引棺材铺。
   factions: []
+  skills: []
+- id: char_wang_lao_ye_zi
+  name: 王老爷子
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 丐帮中管辖长江第二十七分舵的人物，黄小虫自称在其属下。
+  factions:
+    - faction_gai_bang
+    - faction_chang_jiang_di_er_shi_qi_fen_duo
   skills: []
 - id: char_xi_fang_yu_luo_cha
   name: 西方玉罗刹
   aliases: []
   identities:
-    - 西方魔教教主
-  level: 背景
+    - 教主
+  level: 次要
   rank: null
-  description: 西方魔教教主，被牛肉汤列为少数可能改扮成西门吹雪的人之一。
+  description: 西方魔教教主，牛小姐认为能改扮西门吹雪者之一；银钩赌坊后鲜少现身。
   factions:
     - faction_xi_fang_mo_jiao
   skills: []
 - id: char_xi_men_chui_xue
   name: 西门吹雪
-  aliases: []
+  aliases:
+    - 剑神
   identities:
     - 剑神
+    - 剑客
+    - 无情大剑客
+    - 剑神大爷
+    - 一代剑客
+    - 西门大侠
+    - 西门公子
   level: 核心
-  rank: 返璞归真
-  description: 剑法已臻人剑相融、无剑可用万物为剑之境的剑神；他为朋友陆小凤远赴黄石镇，识破众人合谋并故意中毒受擒以引出金鹏秘密，脱困后与陆小凤联手平定劫镖者，最终罕见地露出笑容。
+  rank: 出神入化
+  description: 入黄石镇冷峻如冰，买火折子与烟火后于街石静坐；黑衣人搭白帐篷送洗澡水换衣，入帐后令偷看者走开；次日于帐中饮酒，令镇民轮流受问，至棺材铺开棺视陆小凤尸身并应帖赴约。
   factions: []
   skills:
-    - skill_wu_jian_de_jing_jie
+    - skill_jian_fa
+    - skill_qing_gong
+    - skill_jian_shu
 - id: char_xiao_dou_zi
   name: 小豆子
-  aliases: []
+  aliases:
+    - 小豆
+  identities: []
+  level: 次要
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_xiao_jiao_hua
+  name: 小叫化
+  aliases:
+    - 小王八蛋
   identities:
-    - 乐户女子
+    - 小要饭的
+    - 丐帮嫡系弟子
+  level: 重要
+  rank: 略有小成
+  description: 卖玉绊给王大眼的可疑人物；曾到宫素素处救宫萍，发髻被快刀削落，后被宫素素与许老太押走。
+  factions:
+    - faction_gai_bang
+  skills: []
+- id: char_xiao_jiao_hua_huang_xiao_chong
+  name: 小叫化黄小虫
+  aliases:
+    - 小叫化
+    - 小叫化子
+  identities: []
+  level: 次要
+  rank: null
+  description: 随沙大户进门，插话问灭口之事，后拧拍中毒的牛肉汤面颊嘲弄，被西门吹雪指为凶手之一。
+  factions: []
+  skills: []
+- id: char_xiao_lao_tai_po
+  name: 小老太婆
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 坐在角落，外形如小老太婆，小老头称大约只有她能说明自己是谁；司空摘星感觉其亦为伪装之"星"。
+  factions: []
+  skills: []
+- id: char_xiao_lao_tou
+  name: 小老头
+  aliases: []
+  identities: []
   level: 重要
   rank: null
-  description: 在乐户长大、身世可怜且体弱多病的女子，与老实和尚有旧情，被牛肉汤带到巴山以劝动和尚相助。
+  description: 易容改扮的神秘人，能隔桌听低语、识破司空摘星假扮西门吹雪并点出其真名，自称不知自己是谁，指角落小老太婆可知其身份。
   factions: []
   skills: []
 - id: char_xiao_xiao_tian
   name: 小小田
   aliases: []
-  identities:
-    - 田八太爷之孙
-  level: 背景
+  identities: []
+  level: 龙套
   rank: null
-  description: 田八太爷的孙子；江湖人误认他被金七两刺死，这桩命案成为金七两躲入亡命窝的掩护。
+  description: 金七两混入亡命客的幌子之一；亡命客们都认为他真的杀了小小田。
   factions: []
   skills: []
 - id: char_xiu_hua_xie
@@ -428,62 +674,50 @@
   aliases: []
   identities:
     - 超级杀手
+    - 杀手
   level: 重要
   rank: null
-  description: 近年崛起的超级女杀手，兼营赌博、唱曲等多种生意；她受白衣少年雇用赴山巅，懂得职业杀手的易容术，却被司空摘星假扮的西门吹雪骗过后退去。
+  description: 高高瘦瘦、长脸挑眉的女杀手，短银狐披风配绣花鞋；练绝传外门功夫，能令身躯极重。以杀人、赌钱、唱曲、陪睡等多途生财，标价一万七千五百两，钱到命除从不失手。
   factions: []
   skills:
+    - skill_wai_men_gong_fu
     - skill_yi_rong_shu
 - id: char_xu_lao_da
   name: 许老大
   aliases: []
-  identities: []
+  identities:
+    - 杂货店的老板
   level: 次要
   rank: null
-  description: 第十章中被称作许老大并列为柳如钢案嫌疑人，在石室中成为小叫化的阶下囚；同段另列老板娘之夫王大眼，故按原文保留为独立人物。
-  factions: []
-  skills: []
-- id: char_xu_lao_tai
-  name: 许老太
-  aliases: []
-  identities: []
-  level: 背景
-  rank: null
-  description: 替陆小凤开过门的老婆婆，只在王大眼说明相关见闻时被确认姓名。
+  description: 杂货店老板，被视为可能杀害柳乘风的嫌犯之一，与众人同被拘。
   factions: []
   skills: []
 - id: char_xu_sha
   name: 许煞
   aliases:
+    - 许老太
     - 三手仙妪
+    - 许仙姑
     - 三手仙姑
   identities:
     - 神偷
-    - 暗器与易容高手
-  level: 次要
-  rank: 登堂入室
-  description: 昔年名动江湖的三手仙姑，精于暗器、易容且是神偷；她被小叫化制住后又显露隐藏武功，与沙大户等人合击陆小凤。
-  factions: []
-  skills: []
-- id: char_xuan_dao_zi
-  name: 玄道子
-  aliases: []
-  identities:
-    - 青城剑客
-  level: 背景
+    - 三手仙姑
+  level: 重要
   rank: null
-  description: 随中原镖局押运黄金进入黄石镇的青城剑客。
-  factions:
-    - faction_qing_cheng
-  skills: []
+  description: 应门白发老妪真面目；精暗器、擅易容的神偷三手仙妪，以银针制住宫萍，并与宫素素押走小叫化。
+  factions: []
+  skills:
+    - skill_an_qi
+    - skill_yi_rong
 - id: char_yang_wu
   name: 杨五
   aliases: []
   identities:
     - 护院
-  level: 龙套
+    - 门房当值
+  level: 次要
   rank: null
-  description: 沙大户宅中当值门房的护院，负责入内禀报客人来访。
+  description: 沙大户门房当值的护院，本想把来客扔出去却扔不动，承认来人是长了四条眉毛的陆小凤。
   factions: []
   skills: []
 - id: char_ye_gu_cheng
@@ -491,41 +725,83 @@
   aliases: []
   identities:
     - 白云城主
-  level: 背景
-  rank: 登峰造极
-  description: 白云城主，曾在紫禁之巅施展天外飞仙，几乎令因牵挂人世而分心的西门吹雪败亡。
-  factions: []
+  level: 次要
+  rank: null
+  description: 白云城主，曾在月圆之夜紫禁之巅一战中以天外飞仙几乎击败西门吹雪。
+  factions:
+    - faction_bai_yun_cheng
   skills:
     - skill_tian_wai_fei_xian
-- id: char_zhao_gang
-  name: 赵刚
+- id: char_za_huo_dian_lao_ban
+  name: 杂货店老板
   aliases:
-    - 一刀镇九州
+    - 老板
   identities: []
+  level: 次要
+  rank: null
+  description: 随沙大户进门，自称早已知道凶手是谁，却因怕早说活不到现在而缄口，被西门吹雪指为凶手之一。
+  factions: []
+  skills: []
+- id: char_zhang_xu
+  name: 张旭
+  aliases: []
+  identities:
+    - 草圣
   level: 背景
   rank: null
-  description: 绰号一刀镇九州；西门吹雪曾为这个素不相识的人昼夜奔驰三日夜，杀死闪电刀洪涛为其复仇。
+  description: 草圣，唐时人；真正第一个把剑与神连在一起说的人，因见公孙氏舞剑器而得其神。
+  factions: []
+  skills: []
+- id: char_zhao_gang
+  name: 赵刚
+  aliases: []
+  identities:
+    - 一刀镇九州
+  level: 背景
+  rank: null
+  description: 一刀镇九州；西门吹雪曾为其昼夜骑快马三日夜去杀洪涛，本人与西门吹雪素不相识。
   factions: []
   skills: []
 - id: char_zhao_xia_zi
   name: 赵瞎子
-  aliases:
-    - 棺材店老板
+  aliases: []
   identities:
-    - 黄石镇棺材铺老板
-    - 金鹏劫镖团伙成员
-  level: 次要
-  rank: 登堂入室
-  description: 名为赵瞎子却长有一双贼眼的棺材铺老板；他保存柳如钢尸体、隐藏武功参与围攻陆小凤，后来协助杀害镖师并在终局与沙大户攻击西门吹雪后败北。
+    - 棺材铺老板
+    - 棺材店的老板
+  level: 重要
+  rank: 略有小成
+  description: 杂货店对面棺材铺老板，貌如死人、白多黑少眼，亲手做棺并自称有力使大锯；抱回柳乘风尸体、拔出凶刀藏于灵台暗洞，刀失后遭暗器灭口，被陆小凤摔出屋顶后吓得不敢再言。
   factions: []
   skills: []
 - id: char_zhu_ting
   name: 朱停
   aliases:
     - 红阁
+  identities:
+    - 陆小凤的老朋友
+  level: 次要
+  rank: null
+  description: 别号红阁，以制作人皮面具闻名；金七两所戴面具被陆小凤判定并非真品红阁。
+  factions: []
+  skills: []
+- id: char_zhu_zhen_mu
+  name: 朱贞木
+  aliases: []
   identities: []
   level: 背景
   rank: null
-  description: 别号红阁，是个行事极绝的人，也是陆小凤的老朋友。
+  description: null
   factions: []
   skills: []
+- id: char_zi_yi_lao_yu
+  name: 紫衣老妪
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 满头白发苍苍、脸布皱纹却有雪白修长结实美腿的紫衣女子，疑易容；持柳乘风之剑突袭陆小凤，被双指捏剑后放剑掠逃；与快刀手同伴疑与柳乘风之死密切相关。
+  factions: []
+  skills:
+    - skill_jian_fa
+    - skill_yi_rong
+    - skill_qing_gong

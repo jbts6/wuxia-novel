@@ -1,0 +1,50 @@
+{
+  "report_version": 1,
+  "source_hash": "sha256:0412f8b639cf1d79ecaa4598dbce7712b749d7e2e0f6845f894fe324ffcc58ad",
+  "final_data_hash": "sha256:a8e6f0fb98461e0f1857aec126764c8751811c91c7d4b1736ce43cb28928c10c",
+  "summary": {
+    "warning_count": 1,
+    "by_code": {
+      "GENERIC_CANDIDATE_FILTERED": 1
+    },
+    "by_category": {
+      "characters": 1
+    }
+  },
+  "entries": [
+    {
+      "code": "GENERIC_CANDIDATE_FILTERED",
+      "severity": "warning",
+      "category": "characters",
+      "name": "店小二",
+      "chapter_numbers": [
+        8
+      ],
+      "source_refs": [
+        {
+          "chapter": 8,
+          "text": "她喃喃自语着,从怀里掏出个已变了色的绣花荷包,拿出了两个小银镍子,回头向店小二招了招手,道:\"这是赔你们椅子的钱,拿去。\"",
+          "line_start": 693,
+          "line_end": 693
+        },
+        {
+          "chapter": 8,
+          "text": "店小二早已看得脸色发青,眼睛发直,正不知道过去接下的好,还是不接的好。",
+          "line_start": 695,
+          "line_end": 695
+        },
+        {
+          "chapter": 8,
+          "text": "端着鱼翅的店小二,看到他们的这种样子,瞪大了眼睛,张大了嘴,连下巴都好像已快掉了下来。",
+          "line_start": 789,
+          "line_end": 789
+        }
+      ],
+      "member_refs": [
+        "ch008:character:店小二"
+      ],
+      "reason": "confirmed_generic_name",
+      "resolution": "filtered"
+    }
+  ]
+}
