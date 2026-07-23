@@ -143,6 +143,16 @@ function assertLifecyclePredecessor(events, event) {
       required_event_key: required
     });
   }
+  if (event.type === 'attempt_accepted' || event.type === 'attempt_rejected') {
+    const opposite = event.type === 'attempt_accepted' ? 'attempt-rejected' : 'attempt-accepted';
+    const suffix = `${event.unit}:${event.cycle}:${event.attempt}`;
+    if (events.some(previous => previous.event_key === `${opposite}:${suffix}`)) {
+      throw timingError('Observed attempt must have exactly one terminal decision', {
+        event_key: timingEventKey(event),
+        conflicting_event_key: `${opposite}:${suffix}`
+      });
+    }
+  }
 }
 
 function readTimingEvents(file) {

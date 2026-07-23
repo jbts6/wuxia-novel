@@ -6,6 +6,7 @@ const path = require('node:path');
 const test = require('node:test');
 
 const { archiveRun } = require('../scripts/lib/archive');
+const { sha256File } = require('../scripts/lib/archive-integrity');
 const { installVerifiedData } = require('../scripts/lib/install');
 const { verifyFinal } = require('../scripts/lib/verify');
 const { createV7Workspace } = require('./v7-fixture');
@@ -96,4 +97,24 @@ test('archive rollback restores timing evidence when failure follows timing comp
   assert.equal(fs.existsSync(path.join(
     fixture.novel, '_archive', 'generate-game-kb', fixture.runId
   )), false);
+});
+
+test('archived status recomputes metrics instead of trusting a coherently rehashed file', () => {
+  const fixture = createV7Workspace({ timing: true, runId: 'run-metrics-reprojection' });
+  completePreArchivePhases(fixture);
+  const receipt = archiveRun(fixture.novel, fixture.runId, {
+    now: () => '2026-07-22T00:00:13.000Z'
+  });
+  const metricsFile = path.join(receipt.archive_dir, 'reports', 'run-metrics.json');
+  const receiptFile = path.join(receipt.archive_dir, 'archive-receipt.json');
+  const metrics = JSON.parse(fs.readFileSync(metricsFile, 'utf8'));
+  metrics.active_ms += 1;
+  fs.writeFileSync(metricsFile, `${JSON.stringify(metrics, null, 2)}\n`, 'utf8');
+  const rehashedReceipt = JSON.parse(fs.readFileSync(receiptFile, 'utf8'));
+  rehashedReceipt.metrics_hash = sha256File(metricsFile);
+  fs.writeFileSync(receiptFile, `${JSON.stringify(rehashedReceipt, null, 2)}\n`, 'utf8');
+
+  const status = runFlow(['status', fixture.novel, '--run', fixture.runId, '--json']);
+  assert.notEqual(status.status, 0);
+  assert.equal(JSON.parse(status.stderr).code, 'TIMING_EVIDENCE_INVALID');
 });

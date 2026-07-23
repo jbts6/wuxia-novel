@@ -8,7 +8,7 @@ const { GameKbError } = require('./errors');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { pathsFor } = require('./paths');
 const { buildEventRunMetrics, buildRunMetrics, derivePhaseDurations } = require('./timing');
-const { assertSemanticContract } = require('./run');
+const { assertSemanticContract, assertTimingContract } = require('./run');
 const { recordRunTimingEvent } = require('./timing-events');
 const archiveIntegrity = require('./archive-integrity');
 
@@ -313,6 +313,7 @@ function archiveRun(novelDir, runId, options = {}) {
   }
   const metadata = readJson(paths.runJson);
   assertSemanticContract(metadata, 'archive-run');
+  assertTimingContract(metadata, 'archive-run');
   const archiveDir = path.join(novel, '_archive', 'generate-game-kb', runId);
   if (fs.existsSync(archiveDir)) {
     throw new GameKbError('ARCHIVE_PATH_COLLISION', 'Run archive destination already exists', {

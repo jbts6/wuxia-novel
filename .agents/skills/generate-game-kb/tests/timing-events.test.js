@@ -111,6 +111,25 @@ test('dependent lifecycle events require their persisted predecessor', () => {
   );
 });
 
+test('an observed attempt has exactly one terminal decision', () => {
+  const file = eventFile();
+  const at = milliseconds => ({
+    now: () => new Date(Date.parse('2026-07-23T07:00:00.000Z') + milliseconds)
+  });
+  const binding = {
+    unit: 'chapter:001', cycle: 1, attempt: 1, producer: 'chapter-worker'
+  };
+  appendTimingEvent(file, { type: 'run_started' }, at(0));
+  appendTimingEvent(file, { type: 'attempt_issued', ...binding }, at(1));
+  appendTimingEvent(file, { type: 'attempt_observed', ...binding }, at(2));
+  appendTimingEvent(file, { type: 'attempt_accepted', ...binding }, at(3));
+
+  assert.throws(
+    () => appendTimingEvent(file, { type: 'attempt_rejected', ...binding }, at(4)),
+    error => error.code === 'TIMING_EVENTS_INVALID'
+  );
+});
+
 test('reader rejects partial lines, broken sequence, invalid binding, and time reversal', async t => {
   const cases = {
     'partial line': '{"schema_version":1',

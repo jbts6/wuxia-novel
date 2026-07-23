@@ -111,7 +111,9 @@ fail closed。
 归档回执绑定 `events.jsonl`、`run-metrics.json`、`timing_events_hash` 和
 `metrics_hash`；归档后 `status` 会复验版本、事件、metrics 与回执的一致性，失败返回
 `TIMING_EVIDENCE_INVALID`。没有 `timing_contract_version` 的既有 v7/遗留 run 不迁移、
-不补写时间文件，继续只读兼容。Worker job/output 和公开 `run` / `status` 返回结构不变。
+不补写时间文件，继续只读兼容；任何继续、重试、关系恢复或正常归档写路径返回
+`TIMING_CONTRACT_UNSUPPORTED`，显式 `archive-abandoned --confirm` 仍按原字节归档。
+Worker job/output 和公开 `run` / `status` 返回结构不变。
 
 ## Worker 调度
 

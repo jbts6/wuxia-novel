@@ -15,7 +15,12 @@ const { GameKbError } = require('./errors');
 const { atomicWriteJson, readJson, stableHash, writeImmutableFile } = require('./io');
 const { pathsFor } = require('./paths');
 const { hashReferenceRecoveryReport } = require('./reference-recovery');
-const { createOrResumeRun, resolveRunReadOnly, sourceState } = require('./run');
+const {
+  assertTimingContract,
+  createOrResumeRun,
+  resolveRunReadOnly,
+  sourceState
+} = require('./run');
 const { prepareNovel } = require('./source');
 const { captureWorkerRootBaseline } = require('./worker-side-effects');
 
@@ -242,6 +247,7 @@ function createRelationRecoveryRun(novelDir, parentRunId) {
   if (parentRun.semantic_contract_version !== 7) {
     recoveryError('LEGACY_SEMANTIC_CONTRACT', 'Relationship recovery requires a v7 parent run');
   }
+  assertTimingContract(parentRun, 'recover-relations');
   const parentPaths = pathsFor(novelDir, parentRun.run_id);
   if (path.resolve(parentRun.run_dir).toLowerCase() !== path.resolve(parentPaths.run).toLowerCase()) {
     recoveryError('REFERENCE_RECOVERY_PARENT_ARCHIVED', 'Archived parent runs cannot open active recovery work');

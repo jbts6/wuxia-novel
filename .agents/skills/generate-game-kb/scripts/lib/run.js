@@ -21,13 +21,26 @@ const { TIMING_CONTRACT_VERSION, appendTimingEvent } = require('./timing-events'
 const ACCEPTED_SERIALIZATION_READ_COMMANDS = new Set(['status', 'verify', 'archive-run']);
 
 function ensureRunStartedEvent(paths, metadata) {
-  if (metadata.timing_contract_version !== TIMING_CONTRACT_VERSION) return;
   if (!fs.existsSync(paths.events) && fs.existsSync(paths.manifest)) {
     throw new GameKbError('TIMING_EVENTS_INVALID', 'Timing event file is missing after source prepare', {
       run_id: metadata.run_id
     });
   }
   appendTimingEvent(paths.events, { type: 'run_started' }, { occurredAt: metadata.started_at });
+}
+
+function assertTimingContract(metadata, action = 'continue') {
+  if (metadata?.timing_contract_version === TIMING_CONTRACT_VERSION) return metadata;
+  throw new GameKbError(
+    'TIMING_CONTRACT_UNSUPPORTED',
+    'This run is read-only under the current timing contract',
+    {
+      run_id: metadata?.run_id ?? null,
+      timing_contract_version: metadata?.timing_contract_version ?? null,
+      required_version: TIMING_CONTRACT_VERSION,
+      action
+    }
+  );
 }
 
 function assertAcceptedSerialization(metadata, command = 'continue') {
@@ -166,6 +179,7 @@ function createOrResumeRun(novelDir, options = {}) {
     let metadata = readRunMetadata(paths.run);
     assertSemanticContract(metadata, 'run');
     assertAcceptedSerialization(metadata, 'run');
+    assertTimingContract(metadata, 'run');
     if (metadata.source_hash !== sourceHash) {
       throw new GameKbError('RUN_SOURCE_CHANGED', 'Source changed; archive the old run before resuming it', {
         run_id: runId,
@@ -225,7 +239,8 @@ function resolveRunReadOnly(novelDir, runId) {
 }
 
 function resolveRun(novelDir, runId) {
-  return assertSemanticContract(resolveRunReadOnly(novelDir, runId), 'resolve');
+  const metadata = assertSemanticContract(resolveRunReadOnly(novelDir, runId), 'resolve');
+  return assertTimingContract(metadata, 'resolve');
 }
 
 function resolveWritableRun(novelDir, runId, action = 'continue', expectedDeep) {
@@ -241,6 +256,7 @@ module.exports = {
   assertAcceptedSerialization,
   assertArchiveExistingAllowed,
   assertSemanticContract,
+  assertTimingContract,
   createOrResumeRun,
   normalizeDeep,
   resolveRun,

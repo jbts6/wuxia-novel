@@ -51,6 +51,7 @@ function createV7Workspace(options = {}) {
   const paths = pathsFor(novel, runId);
   const chapterCount = options.chapterCount || 1;
   const sourceHash = `sha256:${'a'.repeat(64)}`;
+  const timing = options.timing !== false;
   fs.mkdirSync(paths.run, { recursive: true });
   fs.writeFileSync(path.join(novel, '试书.txt'), '第一章\n第1章证据。\n', 'utf8');
 
@@ -73,7 +74,7 @@ function createV7Workspace(options = {}) {
     status: 'active',
     source_hash: sourceHash,
     created_at: timingStartedAt,
-    ...(options.timing ? {
+    ...(timing ? {
       timing_contract_version: TIMING_CONTRACT_VERSION,
       started_at: timingStartedAt
     } : {})
@@ -99,7 +100,7 @@ function createV7Workspace(options = {}) {
       { status: 'accepted', attempt: 1, cycle: 1 }
     ]))
   });
-  if (options.timing) {
+  if (timing) {
     appendTimingEvent(paths.events, { type: 'run_started' }, { occurredAt: timingStartedAt });
     appendTimingEvent(paths.events, { type: 'source_prepare_started' }, {
       occurredAt: '2026-07-22T00:00:01.000Z'
@@ -135,7 +136,7 @@ function createV7Workspace(options = {}) {
     });
   }
   assembleRun({ paths });
-  if (options.timing) {
+  if (timing) {
     appendTimingEvent(paths.events, { type: 'phase_completed', phase: 'assemble' }, {
       occurredAt: '2026-07-22T00:00:08.000Z'
     });

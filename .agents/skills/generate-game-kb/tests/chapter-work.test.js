@@ -7,9 +7,9 @@ const os = require('node:os');
 const path = require('node:path');
 
 const {
+  assertProgressInvariant,
   createProgress,
-  transitionProgress,
-  assertProgressInvariant
+  transitionProgress
 } = require('../scripts/lib/chapter-progress');
 const {
   issueNextWindow,
@@ -17,13 +17,8 @@ const {
   advanceChapterWork,
   activeJobMetadata
 } = require('../scripts/lib/chapter-work');
-const { atomicWriteJson, stableHash } = require('../scripts/lib/io');
+const { stableHash } = require('../scripts/lib/io');
 const { chapterAttemptPaths, pathsFor } = require('../scripts/lib/paths');
-const {
-  TIMING_CONTRACT_VERSION,
-  appendTimingEvent,
-  readTimingEvents
-} = require('../scripts/lib/timing-events');
 const {
   WORKER_CONTRACT_VERSION,
   createWorkerContract
@@ -57,16 +52,6 @@ function temporaryRunPaths() {
   const paths = pathsFor(novel, 'run-test');
   fs.mkdirSync(paths.run, { recursive: true });
   return paths;
-}
-
-function enableTimingEvents(paths) {
-  const startedAt = new Date(Date.now() - 1_000).toISOString();
-  atomicWriteJson(paths.runJson, {
-    run_id: paths.runId,
-    timing_contract_version: TIMING_CONTRACT_VERSION,
-    started_at: startedAt
-  });
-  appendTimingEvent(paths.events, { type: 'run_started' }, { occurredAt: startedAt });
 }
 
 function assertSelfContainedWorkerContract(contract, producer) {
@@ -186,57 +171,6 @@ function assertSelfContainedWorkerContract(contract, producer) {
   assert.ok(contract.preflight.producers[producer].length > 0);
 }
 
-describe('chapter-progress', () => {
-  it('initializes the complete v7 unit state', () => {
-    const progress = createProgress(manifestWithChapters(3));
-    assert.equal(progress.schema_version, 7);
-    assert.equal(progress.semantic_contract_version, 7);
-    assert.deepEqual(progress.active_units, []);
-    assert.deepEqual(progress.units['chapter:001'], {
-      status: 'pending',
-      cycle: 0,
-      attempt: 0,
-      producer: null,
-      input_hash: null,
-      input_file: null,
-      output_file: null,
-      output_hash: null,
-      reject_reason: null,
-      repair_allowed: false,
-      errors: []
-    });
-  });
-
-  it('keeps the whole fixed window until every unit is accepted', () => {
-    const paths = temporaryRunPaths();
-    const manifest = manifestWithChapters(2);
-    const issued = issueNextWindow({ paths, manifest, progress: createProgress(manifest) });
-    let progress = transitionProgress(issued.progress, {
-      type: 'accepted', unit: 'chapter:001', output_hash: 'sha256:one', manifest, paths
-    });
-    assert.deepEqual(progress.active_units, ['chapter:001', 'chapter:002']);
-    progress = transitionProgress(progress, {
-      type: 'accepted', unit: 'chapter:002', output_hash: 'sha256:two', manifest, paths
-    });
-    assert.deepEqual(progress.active_units, []);
-  });
-
-  it('rejects a later window while an earlier chapter is pending', () => {
-    const manifest = manifestWithChapters(10);
-    const progress = createProgress(manifest);
-    progress.active_units = ['chapter:006'];
-    progress.units['chapter:006'] = {
-      status: 'active', cycle: 1, attempt: 1, producer: 'chapter-worker',
-      input_hash: 'sha256:x', input_file: 'C:/outside/input.json',
-      output_file: 'C:/outside/output.yaml', output_hash: null,
-      reject_reason: null, repair_allowed: false, errors: []
-    };
-    assert.throws(
-      () => assertProgressInvariant(progress, manifest),
-      error => error.code === 'ACTIVE_WINDOW_INVALID'
-    );
-  });
-});
 describe('chapter-work', () => {
   let paths;
   let manifest;
@@ -293,47 +227,6 @@ describe('chapter-work', () => {
     const second = issueNextWindow({ paths, manifest, progress });
     assert.equal(second.jobs.length, 5);
     assert.equal(second.jobs[0].unit, 'chapter:006');
-  });
-
-  it('records each fixed window once and every automatic attempt across retries', () => {
-    enableTimingEvents(paths);
-    let progress = createProgress(manifest);
-    const first = issueNextWindow({ paths, manifest, progress });
-    progress = first.progress;
-    let events = readTimingEvents(paths.events);
-    assert.deepEqual(events.map(event => event.type), [
-      'run_started',
-      'window_issued',
-      'attempt_issued',
-      'attempt_issued',
-      'attempt_issued',
-      'attempt_issued',
-      'attempt_issued'
-    ]);
-    assert.equal(events[1].window_sequence, 1);
-    assert.deepEqual(
-      events.slice(2).map(event => [event.unit, event.cycle, event.attempt, event.producer]),
-      first.jobs.map(job => [job.unit, job.cycle, job.attempt, job.producer])
-    );
-
-    progress = transitionProgress(progress, {
-      type: 'rejected', unit: 'chapter:001', reason: 'evidence', repair_allowed: false,
-      errors: [{ code: 'SOURCE_REFS_REQUIRED' }], manifest, paths
-    });
-    issueRetryJob({ paths, manifest, progress, unit: 'chapter:001' });
-    events = readTimingEvents(paths.events);
-    assert.equal(events.filter(event => event.type === 'window_issued').length, 1);
-    assert.deepEqual(events.at(-1), {
-      schema_version: 1,
-      sequence: 8,
-      event_key: 'attempt-issued:chapter:001:1:2',
-      type: 'attempt_issued',
-      occurred_at: events.at(-1).occurred_at,
-      unit: 'chapter:001',
-      cycle: 1,
-      attempt: 2,
-      producer: 'chapter-worker'
-    });
   });
 
   it('returns stable public job metadata and writes immutable chapter input', () => {

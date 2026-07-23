@@ -8,6 +8,7 @@ const { assertAcceptedArtifacts, readArtifactManifest } = require('./candidate-l
 const { GameKbError } = require('./errors');
 const { readJson, stableHash } = require('./io');
 const { TIMING_CONTRACT_VERSION, readTimingEvents, timingEventsHash } = require('./timing-events');
+const { buildEventRunMetrics } = require('./timing');
 const { inspectWorkspaceFinal } = require('./verify');
 
 function sha256File(file) {
@@ -195,13 +196,27 @@ function verifyArchivedTimingEvidence(runDir) {
     const metricsFile = path.join(runDir, 'reports', 'run-metrics.json');
     const receipt = readJson(path.join(runDir, 'archive-receipt.json'));
     const metrics = readJson(metricsFile);
-    readTimingEvents(events);
+    const eventLog = readTimingEvents(events);
     const eventHash = timingEventsHash(events);
+    const archiveCompleted = eventLog.find(event => event.event_key === 'phase-completed:archive');
+    const archivedAt = archiveCompleted?.occurred_at;
+    const projected = buildEventRunMetrics({
+      run: runDir,
+      runId: metadata.run_id,
+      events,
+      tasks: path.join(runDir, 'tasks'),
+      sourceChapters: path.join(runDir, 'source', 'chapters'),
+      chapters: path.join(runDir, 'accepted', 'chapters'),
+      finalData: path.join(runDir, 'final', 'data')
+    }, metadata, archivedAt);
     const valid = receipt.timing_contract_version === TIMING_CONTRACT_VERSION
       && receipt.timing_events_hash === eventHash
       && metrics.timing_events_hash === eventHash
       && receipt.metrics_hash === sha256File(metricsFile)
-      && metrics.schema_version === 2;
+      && metrics.schema_version === 2
+      && metadata.archived_at === archivedAt
+      && receipt.archived_at === archivedAt
+      && stableHash(metrics) === stableHash(projected);
     if (!valid) throw new Error('timing hashes or versions do not match');
   } catch (error) {
     if (error.code === 'TIMING_EVIDENCE_INVALID') throw error;

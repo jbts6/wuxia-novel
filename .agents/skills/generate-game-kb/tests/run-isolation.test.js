@@ -6,7 +6,9 @@ const path = require('node:path');
 const test = require('node:test');
 
 const { makeNovel, readJson } = require('./helpers');
+const { archiveRun } = require('../scripts/lib/archive');
 const { pathsFor } = require('../scripts/lib/paths');
+const { createRelationRecoveryRun } = require('../scripts/lib/relation-recovery-run');
 const { createOrResumeRun, resolveRun } = require('../scripts/lib/run');
 const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 const { prepareNovel } = require('../scripts/lib/source');
@@ -136,6 +138,36 @@ test('a new timing-contract run fails closed when its event file is lost after p
     error => error.code === 'TIMING_EVENTS_INVALID'
   );
   assert.equal(fs.existsSync(events), false);
+});
+
+test('an existing v7 run without a timing contract stays read-only', () => {
+  const novel = makeNovel('试书', '第一章 起始\n正文。\n');
+  const created = createOrResumeRun(novel, { runId: 'run-a' });
+  const paths = pathsFor(novel, created.run_id);
+  const metadata = readJson(paths.runJson);
+  delete metadata.timing_contract_version;
+  fs.writeFileSync(paths.runJson, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8');
+  fs.rmSync(paths.events);
+  const before = fs.readFileSync(paths.runJson);
+
+  assert.throws(
+    () => createOrResumeRun(novel, { runId: created.run_id }),
+    error => error.code === 'TIMING_CONTRACT_UNSUPPORTED'
+  );
+  assert.throws(
+    () => resolveRun(novel, created.run_id),
+    error => error.code === 'TIMING_CONTRACT_UNSUPPORTED'
+  );
+  assert.throws(
+    () => createRelationRecoveryRun(novel, created.run_id),
+    error => error.code === 'TIMING_CONTRACT_UNSUPPORTED'
+  );
+  assert.throws(
+    () => archiveRun(novel, created.run_id),
+    error => error.code === 'TIMING_CONTRACT_UNSUPPORTED'
+  );
+  assert.deepEqual(fs.readFileSync(paths.runJson), before);
+  assert.equal(fs.existsSync(paths.events), false);
 });
 
 test('changed source cannot resume an existing current run', () => {

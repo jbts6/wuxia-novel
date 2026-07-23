@@ -10,7 +10,11 @@ const { createProgress } = require('../scripts/lib/chapter-progress');
 const { atomicWriteJson } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
 const { sourceState } = require('../scripts/lib/run');
-const { readTimingEvents } = require('../scripts/lib/timing-events');
+const {
+  TIMING_CONTRACT_VERSION,
+  appendTimingEvent,
+  readTimingEvents
+} = require('../scripts/lib/timing-events');
 const { makeNovel, makeTemporaryNovel, runFlow, writeWorkerOutput } = require('./helpers');
 
 function snapshotTree(root) {
@@ -48,7 +52,7 @@ function makeLegacyRunFixture() {
   return { novelDir, runDir: paths.run, runId };
 }
 
-function makeV7RunFixture({ unitStatus = 'active' } = {}) {
+function makeV7RunFixture({ unitStatus = 'active', timing = true } = {}) {
   const novelDir = makeNovel('新运行', '第一章 起始\n新运行证据。\n');
   const runId = 'run-v7';
   const paths = pathsFor(novelDir, runId);
@@ -65,9 +69,31 @@ function makeV7RunFixture({ unitStatus = 'active' } = {}) {
     semantic_contract_version: 7,
     semantic_profile: 'chapter-direct-v1',
     accepted_serialization: 'yaml-v1',
+    ...(timing ? {
+      timing_contract_version: TIMING_CONTRACT_VERSION,
+      started_at: '2026-07-23T00:00:00.000Z'
+    } : {}),
     source_hash: manifest.source_hash,
     status: 'active'
   });
+  if (timing) {
+    appendTimingEvent(paths.events, { type: 'run_started' }, {
+      occurredAt: '2026-07-23T00:00:00.000Z'
+    });
+    appendTimingEvent(paths.events, { type: 'source_prepare_started' }, {
+      occurredAt: '2026-07-23T00:00:01.000Z'
+    });
+    appendTimingEvent(paths.events, { type: 'source_prepared' }, {
+      occurredAt: '2026-07-23T00:00:02.000Z'
+    });
+    appendTimingEvent(paths.events, { type: 'window_issued', window_sequence: 1 }, {
+      occurredAt: '2026-07-23T00:00:03.000Z'
+    });
+    appendTimingEvent(paths.events, {
+      type: 'attempt_issued', unit: 'chapter:001', cycle: 1, attempt: 1,
+      producer: 'chapter-worker'
+    }, { occurredAt: '2026-07-23T00:00:03.000Z' });
+  }
   atomicWriteJson(paths.manifest, manifest);
   const progress = createProgress(manifest);
   progress.active_units = ['chapter:001'];
@@ -197,15 +223,15 @@ test('archive-abandoned preserves legacy bytes without conversion', () => {
 });
 
 test('archive-abandoned also preserves v7 bytes', () => {
-  const fixture = makeV7RunFixture();
+  const fixture = makeV7RunFixture({ timing: false });
   const before = snapshotTree(fixture.paths.run);
   const result = runFlow(['archive-abandoned', fixture.novelDir, '--run', fixture.runId, '--json']);
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(snapshotTree(jsonResult(result).archiveDir), before);
 });
 
-test('status returns a read-only terminal summary for a normally archived run', () => {
-  const fixture = makeV7RunFixture();
+test('status keeps an existing archived v7 run without timing evidence read-only', () => {
+  const fixture = makeV7RunFixture({ timing: false });
   const metadata = JSON.parse(fs.readFileSync(fixture.paths.runJson, 'utf8'));
   atomicWriteJson(fixture.paths.runJson, { ...metadata, status: 'archived' });
   const archiveDir = path.join(fixture.novelDir, '_archive', 'generate-game-kb', fixture.runId);

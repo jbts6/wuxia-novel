@@ -346,7 +346,7 @@ source_refs:
 - 五文件缺失、多余、畸形、schema 无效，或 `source_hash` / `final_data_hash` 过期 -> 验证失败。
 - 安装移动前后的任意失败 -> 恢复旧 `data/` 与 review report；不能留下半安装状态。
 - 新 run 的事件缺失、半行、时间倒退、重复 key 或生命周期不闭合 ->
-  `TIMING_EVENTS_INVALID`；未知 timing version -> `TIMING_CONTRACT_UNSUPPORTED`；同 key
+  `TIMING_EVENTS_INVALID`；缺少或未知 timing version 的写入 -> `TIMING_CONTRACT_UNSUPPORTED`；同 key
   不同载荷 -> `TIMING_EVENT_CONFLICT`；归档事件、metrics 与回执哈希不一致 ->
   `TIMING_EVIDENCE_INVALID`。任何错误都不得从旧 progress 时间戳猜测或补造事件。
 
@@ -358,10 +358,15 @@ source_refs:
   `worker_contract`，递归验证嵌套字段、逐字证据和关系闭环后再写输出。
 - 好：Worker 只提交逐字引用，Controller 生成 accepted 行号；终态关系失败可在用户
   确认后派生仅重开来源章节的 recovery run，父 run 全目录字节保持不变。
+- 好：新 run 由 Controller 追加完整时间事件，归档 `status` 从事件和 accepted/final
+  YAML 重投影 schema 2 metrics，并与 metrics 文件及回执哈希同时一致。
 - 基准：一个有据可依的具名技法没有可证明的父技能关系；保持 null 关系，而不是编造引用。
 - 基准：泛称被过滤并出现在 warning report；书仍可发布，Dashboard 可按需解释该 warning。
+- 基准：缺少 timing version 的既有 v7 归档仍只读返回 `complete` 且目录字节不变；
+  继续运行则 fail closed，只允许显式废弃归档。
 - 坏：窗口内刚完成一个章节就补发第 6 章、让 Worker 写最终 ID/证据行号、按相似度
-  合并实体、验证时手工修补 accepted YAML，或在仓库根目录生成辅助脚本。
+  合并实体、验证时手工修补 accepted YAML、只重算 metrics 文件哈希而不重投影内容，
+  或在仓库根目录生成辅助脚本。
 
 ### 6. 必须的测试
 
@@ -392,7 +397,8 @@ source_refs:
 
 把固定窗口实现成滚动补位，把输出路径、最终身份或证据行号交给 Worker；只在外部
 文档写 schema 却不给 job input；让 repair 去 `revisions/` 找拒绝 YAML；静默删除
-悬空关系；或另建清洗/转交阶段来掩盖无效章节。
+悬空关系；从旧 progress 时间戳猜测新 metrics，或只信任可被一起改写的 metrics/回执哈希；
+另建清洗/转交阶段来掩盖无效章节。
 
 #### 对
 
@@ -401,7 +407,8 @@ source_refs:
 从全文验证逐字引用并派生 accepted 行号，从 `drafts/` 签发机械 repair、原子接收并
 登记不可变 accepted artifact、确定性组装五文件；终态关系失败生成来源章节报告，
 用户确认后创建不改父 run 的派生 recovery run，并在安装前通过引用闭环、完整验证
-与 review report 新鲜度门禁。
+与 review report 新鲜度门禁。时间统计只从 Controller 事件和受管 YAML 重投影；归档读取
+同时校验事件、metrics 内容、文件哈希与回执，旧 run 保持只读且不补写。
 
 ---
 
