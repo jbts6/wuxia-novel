@@ -84,6 +84,35 @@ job 的 `input_file`、`output_file`、`producer`、`cycle` 和 `attempt`，
 创建新的派生 run，carry-forward 无关章节，只向报告中的章节签发普通
 `chapter-worker` job；不得改写父 run 的 accepted artifact 或 final 数据。
 
+## 时间统计与归档证据
+
+新建 run 在 `run.json` 固定写入 `timing_contract_version: 1`。只有 Controller
+可以追加 `<run>/events.jsonl`；Worker 不得读取或写入该文件。每行事件都使用连续
+`sequence`、稳定 `event_key` 和规范 UTC `occurred_at`，覆盖 run/source、章节窗口、
+每个 cycle/attempt、人工复核，以及 assemble/verify/install/archive 阶段。重复写入同一
+语义事件是幂等的；同 key 不同载荷、缺失前置事件、时间倒退、半行或事件丢失均
+fail closed。
+
+新 run 的 `<run>/reports/run-metrics.json` 使用 `schema_version: 2`，由已经校验的
+`events.jsonl` 确定性投影，至少包含：
+
+- `total_ms`：`run_started` 到 `archive` 完成的墙钟跨度；
+- `human_wait_ms`：每段 `manual_review_entered` 到 `manual_review_resumed` 的总和；
+- `active_ms`：`total_ms - human_wait_ms`，表示非人工等待墙钟时间，不是 CPU 或模型推理时间；
+- `phase_durations`、`windows`：source、章节窗口和四个终态阶段的耗时与窗口计数；
+- `ai_units`：跨全部 cycle 的 planned/done/attempts/corrections；
+- `attempt_timing.issued_to_observed_ms`：Controller 签发到观察到输出的周转时间，
+  包含调度、排队、Worker 执行和文件交付，不得解释为纯模型推理时间；
+- `attempt_timing.observed_to_decision_ms`：Controller 观察输出到接受/拒绝的校验时间；
+- `candidate_counts.chapter_candidates`：accepted 章节 YAML 中四类候选数组的出现次数，
+  不是去重实体数，也不读取旧 candidate registry；`final_records` 继续统计最终五文件记录数；
+- `timing_events_hash`：规范 `events.jsonl` 字节的哈希。
+
+归档回执绑定 `events.jsonl`、`run-metrics.json`、`timing_events_hash` 和
+`metrics_hash`；归档后 `status` 会复验版本、事件、metrics 与回执的一致性，失败返回
+`TIMING_EVIDENCE_INVALID`。没有 `timing_contract_version` 的既有 v7/遗留 run 不迁移、
+不补写时间文件，继续只读兼容。Worker job/output 和公开 `run` / `status` 返回结构不变。
+
 ## Worker 调度
 
 - `producer: chapter-worker`：派发章节 Worker。它只读取 job 的

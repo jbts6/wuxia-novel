@@ -317,6 +317,13 @@ source_refs:
 - 工作区验证检查五文件精确 shape、YAML 数组、ID、枚举、摘要覆盖、嵌套技法、引用闭环、accepted 不可变性、报告新鲜度与零未决人工复核。章节数不少于 5 且四类实体去重总数不超过 9 时以 `LOW_RECALL` 阻断安装。
 - 安装使用兄弟暂存和目录交换，失败时恢复旧数据。安装回执绑定语义版本、源哈希、验证报告哈希、最终数据哈希、章节列表、精确五文件集合及每个文件的原始 SHA-256；已安装验证不回退到工作运行。
 - 正常运行不得在仓库根目录或 `.kb-scratch` 创建章节碎片、临时清洗/转交脚本、原始传输文件或修复日志；失败稿与 revision 只能留在 run 私有目录。
+- 新 run 固定使用 `timing_contract_version: 1`。Controller 独占只追加的
+  `events.jsonl`，按连续 sequence、稳定 event key 和规范 UTC 记录 run/source、窗口、
+  全 cycle attempt、人工复核及 assemble/verify/install/archive。schema 2
+  `run-metrics.json` 只能从已校验事件与 accepted/final YAML 确定性投影；
+  `active_ms` 是扣除人工等待的墙钟时间，签发到观察是包含调度与文件交付的端到端周转，
+  二者都不得标为模型推理时间。归档回执绑定事件哈希与 metrics 文件哈希；旧 run 不迁移，
+  Worker 和公开 `status` 合同不变。
 
 ### 4. 校验与错误矩阵
 
@@ -338,6 +345,10 @@ source_refs:
 - 章节数不少于 5 且四类实体去重总数不超过 9 -> `LOW_RECALL`；阻断安装与归档，短篇豁免。
 - 五文件缺失、多余、畸形、schema 无效，或 `source_hash` / `final_data_hash` 过期 -> 验证失败。
 - 安装移动前后的任意失败 -> 恢复旧 `data/` 与 review report；不能留下半安装状态。
+- 新 run 的事件缺失、半行、时间倒退、重复 key 或生命周期不闭合 ->
+  `TIMING_EVENTS_INVALID`；未知 timing version -> `TIMING_CONTRACT_UNSUPPORTED`；同 key
+  不同载荷 -> `TIMING_EVENT_CONFLICT`；归档事件、metrics 与回执哈希不一致 ->
+  `TIMING_EVIDENCE_INVALID`。任何错误都不得从旧 progress 时间戳猜测或补造事件。
 
 ### 5. 好/基准/坏 示例
 
@@ -371,6 +382,9 @@ source_refs:
   初始化清理，以及恢复 run 完成 assembly/install/archive。
 - 验证与安装：覆盖五文件精确 shape、`hashFinalData` 一致性、低召回、报告新鲜度、原子回滚、安装回执与已安装只读验证。
 - 端到端：六章跨过首个窗口并完成安装；断言恰好五个 YAML、`reports/game-kb-review.json`、无 `.kb-scratch`、无根目录章节碎片或运输辅助脚本。
+- 时间证据：覆盖无重试、自动 attempt 2、人工确认新 cycle，精确断言总时长、人工等待、
+  活跃墙钟、阶段/窗口/attempt 周转、跨 cycle correction、accepted 候选计数与事件哈希；
+  覆盖事件/metrics 篡改拒绝、旧 run 字节不变，以及 21 章和 1000 章投影性能预算。
 
 ### 7. 错 vs 对
 
