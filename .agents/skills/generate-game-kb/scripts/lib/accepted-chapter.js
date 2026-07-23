@@ -3,10 +3,12 @@
 const { deriveSourceRefs } = require('./grounding');
 const { normalizeTypeArray } = require('./type-taxonomy');
 
-function acceptedSourceRefs(refs, expected) {
+function acceptedSourceRefs(refs, expected, fieldPath, normalizations) {
   return deriveSourceRefs(refs, {
     chapterNumber: expected.number,
-    chapterText: expected.chapterText
+    chapterText: expected.chapterText,
+    fieldPath,
+    normalizations
   });
 }
 
@@ -16,7 +18,12 @@ function normalizeAcceptedEntity(category, record, index, expected, typeCategori
     local_key: `${category.slice(0, -1)}:${record.name}`
   };
   if (Array.isArray(entity.source_refs)) {
-    entity.source_refs = acceptedSourceRefs(entity.source_refs, expected);
+    entity.source_refs = acceptedSourceRefs(
+      entity.source_refs,
+      expected,
+      `$.${category}[${index}].source_refs`,
+      normalizations
+    );
   }
   if (typeCategories.has(category) && Array.isArray(entity.types)) {
     const result = normalizeTypeArray(category, entity.types, `$.${category}[${index}].types`);
@@ -43,7 +50,14 @@ function buildAcceptedChapter(draft, expected, { candidateArrays, typeCategories
   chapter.chapter_summary = {
     ...draft.chapter_summary,
     ...(Array.isArray(draft.chapter_summary?.source_refs)
-      ? { source_refs: acceptedSourceRefs(draft.chapter_summary.source_refs, expected) }
+      ? {
+          source_refs: acceptedSourceRefs(
+            draft.chapter_summary.source_refs,
+            expected,
+            '$.chapter_summary.source_refs',
+            normalizations
+          )
+        }
       : {})
   };
   chapter.normalizations = normalizations;

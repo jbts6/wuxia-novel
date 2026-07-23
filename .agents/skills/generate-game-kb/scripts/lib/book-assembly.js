@@ -228,13 +228,17 @@ function collisionReview(category, name, members, chapterNumbers) {
   };
 }
 
-function chapterTypeNormalizations(chapter) {
-  return (chapter.normalizations || []).map(normalization => {
-    const match = /^\$\.(skills|items|factions)\[(\d+)\]\.types\[\d+\]$/u.exec(normalization.field_path);
+function chapterNormalizations(chapter, predicate) {
+  return (chapter.normalizations || []).filter(predicate).map(normalization => {
+    const match = /^\$\.(characters|skills|items|factions)\[(\d+)\]\./u
+      .exec(normalization.field_path);
     const category = match?.[1];
     const index = Number(match?.[2]);
     const entity = category && Number.isInteger(index) ? chapter?.[category]?.[index] : null;
-    const refs = sortedSourceRefs(entity?.source_refs || []);
+    const summary = normalization.field_path.startsWith('$.chapter_summary.');
+    const refs = sortedSourceRefs(
+      entity?.source_refs || (summary ? chapter.chapter_summary?.source_refs : []) || []
+    );
     return {
       category: category || null,
       canonical_name: entity ? String(entity.name).normalize('NFKC').trim() : null,
@@ -338,10 +342,18 @@ function assembleDeterministicBook({ manifest, chapters }) {
   const reviewWarnings = [];
   const manualReview = [];
   const typeNormalizations = [];
+  const groundingNormalizations = [];
   const relationProvenance = [];
 
   for (const chapter of orderedChapters) {
-    typeNormalizations.push(...chapterTypeNormalizations(chapter));
+    typeNormalizations.push(...chapterNormalizations(
+      chapter,
+      normalization => /\.types\[\d+\]$/u.test(normalization.field_path)
+    ));
+    groundingNormalizations.push(...chapterNormalizations(
+      chapter,
+      normalization => normalization.normalization_rule?.startsWith('grounding.')
+    ));
     book.chapter_summaries.push({
       chapter: chapter.chapter,
       title: chapter.title,
@@ -355,7 +367,11 @@ function assembleDeterministicBook({ manifest, chapters }) {
 
   return {
     book,
-    deterministic_audit: { field_decisions: fieldDecisions, type_normalizations: typeNormalizations },
+    deterministic_audit: {
+      field_decisions: fieldDecisions,
+      type_normalizations: typeNormalizations,
+      grounding_normalizations: groundingNormalizations
+    },
     relation_provenance: relationProvenance,
     review_warnings: reviewWarnings,
     manual_review: manualReview

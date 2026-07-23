@@ -247,6 +247,53 @@ describe('assembleDeterministicBook', () => {
     }
   });
 
+  it('separates grounding typography audits from type normalizations', () => {
+    const result = assembleDeterministicBook({
+      manifest,
+      chapters: [makeChapter(1, {
+        items: [makeTyped('items', '飞刀', ['武器'])],
+        normalizations: [
+          {
+            field_path: '$.items[0].types[0]',
+            original_value: 'weapon',
+            normalized_value: '武器',
+            normalization_rule: 'items.weapon'
+          },
+          {
+            field_path: '$.items[0].source_refs[0].text',
+            original_value: '飞刀出现.',
+            normalized_value: '飞刀出现。',
+            normalization_rule: 'grounding.typography-fold.v1'
+          }
+        ]
+      })]
+    });
+
+    assert.deepEqual(
+      result.deterministic_audit.type_normalizations.map(row => row.normalization_rule),
+      ['items.weapon']
+    );
+    assert.equal(result.deterministic_audit.grounding_normalizations.length, 1);
+    assert.deepEqual(
+      {
+        category: result.deterministic_audit.grounding_normalizations[0].category,
+        canonical_name: result.deterministic_audit.grounding_normalizations[0].canonical_name,
+        field_path: result.deterministic_audit.grounding_normalizations[0].field_path,
+        original_value: result.deterministic_audit.grounding_normalizations[0].original_value,
+        normalized_value: result.deterministic_audit.grounding_normalizations[0].normalized_value,
+        normalization_rule: result.deterministic_audit.grounding_normalizations[0].normalization_rule
+      },
+      {
+        category: 'items',
+        canonical_name: '飞刀',
+        field_path: '$.items[0].source_refs[0].text',
+        original_value: '飞刀出现.',
+        normalized_value: '飞刀出现。',
+        normalization_rule: 'grounding.typography-fold.v1'
+      }
+    );
+  });
+
   it('blocks distinct same-name identities within one chapter', () => {
     const distinct = assembleDeterministicBook({
       manifest,

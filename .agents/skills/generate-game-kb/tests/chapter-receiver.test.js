@@ -161,6 +161,33 @@ describe('chapter-receiver', () => {
     });
   });
 
+  it('recovers unique source typography and records the accepted normalization', () => {
+    const issued = prepareIssuedChapter();
+    const draft = v7WorkerDraft();
+    draft.items[0].source_refs[0].text = '甲服下回生丹.';
+    writeYaml(issued.job.output_file, draft);
+
+    const result = receiveAvailableChapterOutputs(issued);
+
+    assert.equal(result.received[0].status, 'accepted');
+    const accepted = yaml.load(fs.readFileSync(
+      path.join(issued.paths.chapters, 'chapter_001.yaml'),
+      'utf8'
+    ));
+    assert.deepEqual(accepted.items[0].source_refs[0], {
+      chapter: 1,
+      text: '甲服下回生丹。',
+      line_start: 2,
+      line_end: 2
+    });
+    assert.deepEqual(accepted.normalizations, [{
+      field_path: '$.items[0].source_refs[0].text',
+      original_value: '甲服下回生丹.',
+      normalized_value: '甲服下回生丹。',
+      normalization_rule: 'grounding.typography-fold.v1'
+    }]);
+  });
+
   it('skips units without output files without consuming an attempt', () => {
     const issued = prepareIssuedChapter();
     const result = receiveAvailableChapterOutputs(issued);

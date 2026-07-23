@@ -11,25 +11,83 @@ const GROUNDING_ERROR_CODES = new Set([
   'SOURCE_NAME_NOT_FOUND'
 ]);
 
+const TYPOGRAPHY_FOLD = Object.freeze({
+  '。': '.',
+  '“': '"',
+  '”': '"',
+  '「': '"',
+  '」': '"',
+  '『': '"',
+  '』': '"',
+  '‘': "'",
+  '’': "'"
+});
+
+const TYPOGRAPHY_NORMALIZATION_RULE = 'grounding.typography-fold.v1';
+
 function issue(code, path, target = '') {
   return { code, path, target };
 }
 
-function normalizeEvidenceText(text) {
+function normalizeCompatibleText(text) {
+  return Array.from(String(text ?? '').normalize('NFC'), character => {
+    const compatible = character.normalize('NFKC');
+    return Array.from(compatible).length === 1 ? compatible : character;
+  }).join('');
+}
+
+function normalizeSourceText(text) {
   return String(text ?? '')
     .replace(/^\uFEFF/, '')
     .replace(/\r\n?/g, '\n')
-    .normalize('NFKC')
+    .split('\n')
+    .map(normalizeCompatibleText)
+    .join('\n');
+}
+
+function normalizeEvidenceText(text) {
+  return normalizeSourceText(text)
     .replace(/\s+/gu, ' ')
     .trim();
 }
 
 function sourceLines(text) {
-  return String(text ?? '')
-    .replace(/^\uFEFF/, '')
-    .replace(/\r\n?/g, '\n')
-    .normalize('NFKC')
-    .split('\n');
+  return normalizeSourceText(text).split('\n');
+}
+
+function foldTypography(text) {
+  return Array.from(text, character => TYPOGRAPHY_FOLD[character] ?? character).join('');
+}
+
+function allMatchOffsets(text, target) {
+  const offsets = [];
+  let offset = text.indexOf(target);
+  while (offset >= 0) {
+    offsets.push(offset);
+    offset = text.indexOf(target, offset + 1);
+  }
+  return offsets;
+}
+
+function locateNormalizedQuote(sourceText, submittedText) {
+  const exactOffset = sourceText.indexOf(submittedText);
+  if (exactOffset >= 0) {
+    return {
+      mode: 'exact',
+      startOffset: exactOffset,
+      text: sourceText.slice(exactOffset, exactOffset + submittedText.length)
+    };
+  }
+
+  const foldedText = foldTypography(submittedText);
+  const offsets = allMatchOffsets(foldTypography(sourceText), foldedText);
+  if (offsets.length !== 1) return null;
+  const startOffset = offsets[0];
+  return {
+    mode: 'typography',
+    startOffset,
+    text: sourceText.slice(startOffset, startOffset + submittedText.length)
+  };
 }
 
 function normalizedChapterIndex(text) {
@@ -60,24 +118,37 @@ function normalizedChapterIndex(text) {
   return { lines, normalized, lineByOffset };
 }
 
-function locateSourceRange(index, normalizedText) {
-  const startOffset = index.normalized.indexOf(normalizedText);
-  if (startOffset < 0) return null;
-  const endOffset = startOffset + normalizedText.length - 1;
+function locateSourceMatch(index, normalizedText) {
+  const match = locateNormalizedQuote(index.normalized, normalizedText);
+  if (!match) return null;
+  const endOffset = match.startOffset + match.text.length - 1;
   return {
-    line_start: index.lineByOffset[startOffset],
+    ...match,
+    line_start: index.lineByOffset[match.startOffset],
     line_end: index.lineByOffset[endOffset]
   };
 }
 
-function deriveSourceRefs(refs, { chapterNumber, chapterText }) {
+function deriveSourceRefs(refs, {
+  chapterNumber, chapterText, fieldPath = '$.source_refs', normalizations = null
+}) {
   const index = normalizedChapterIndex(chapterText);
-  return (Array.isArray(refs) ? refs : []).map(ref => {
-    const text = normalizeEvidenceText(ref?.text);
+  return (Array.isArray(refs) ? refs : []).map((ref, refIndex) => {
+    const submittedText = normalizeEvidenceText(ref?.text);
+    const match = locateSourceMatch(index, submittedText);
+    const text = match?.text ?? submittedText;
+    if (match?.mode === 'typography' && Array.isArray(normalizations)) {
+      normalizations.push({
+        field_path: `${fieldPath}[${refIndex}].text`,
+        original_value: submittedText,
+        normalized_value: text,
+        normalization_rule: TYPOGRAPHY_NORMALIZATION_RULE
+      });
+    }
     return {
       chapter: chapterNumber,
       text,
-      ...locateSourceRange(index, text)
+      ...(match ? { line_start: match.line_start, line_end: match.line_end } : {})
     };
   });
 }
@@ -149,19 +220,27 @@ function validateGroundedSourceRef(ref, {
   const normalizedText = normalizeEvidenceText(ref.text);
   const normalizedRef = { chapter: ref.chapter, text: normalizedText };
   let span = null;
+  let match = null;
   if (lineRangeMode === 'derive') {
-    Object.assign(normalizedRef, locateSourceRange(chapterIndex, normalizedText));
+    match = locateSourceMatch(chapterIndex, normalizedText);
+    if (match) {
+      normalizedRef.text = match.text;
+      normalizedRef.line_start = match.line_start;
+      normalizedRef.line_end = match.line_end;
+    }
   } else {
     for (const field of ['line_start', 'line_end']) {
       if (ref[field] !== undefined) normalizedRef[field] = ref[field];
     }
     span = validateLineRange(ref, refPath, chapterIndex.lines, errors);
     if (errors.length > 0) return { errors, normalizedRef, evidence: null };
+    match = locateNormalizedQuote(span ?? chapterIndex.normalized, normalizedText);
+    if (match) normalizedRef.text = match.text;
   }
-  if (!(span ?? chapterIndex.normalized).includes(normalizedText)) {
+  if (!match) {
     errors.push(issue('SOURCE_QUOTE_NOT_FOUND', `${refPath}.text`, normalizedText));
   }
-  return { errors, normalizedRef, evidence: errors.length === 0 ? normalizedText : null };
+  return { errors, normalizedRef, evidence: errors.length === 0 ? normalizedRef.text : null };
 }
 
 function validateGroundedRecord(record, {
