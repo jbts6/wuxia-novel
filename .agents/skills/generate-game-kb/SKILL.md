@@ -76,8 +76,9 @@ job 的 `input_file`、`output_file`、`producer`、`cycle` 和 `attempt`，
 | `manual_review` | 停止自动推进，向用户报告失败单元 |
 | `complete` | 五文件已验证、安装并归档，结束 |
 
-固定窗口最多包含五章。窗口中的全部章节 accepted 前，Controller 不会签发下一
-窗口。
+固定窗口默认最多包含十章（`progress.max_active_units`，新建 run 为 10）。
+窗口中的全部章节 accepted 前，Controller 不会签发下一窗口。既有 run 若 progress
+未写入该字段，继续按 5 章窗口兼容，避免中途改合同破坏对齐。
 
 `manual_review` 若来自章节 attempt 失败，使用 `retry-unit`；若父 run 存在
 `reports/reference-recovery.json`，在用户确认后使用 `recover-relations`。后者

@@ -44,6 +44,7 @@ describe('chapter-progress', () => {
     const progress = createProgress(manifestWithChapters(3));
     assert.equal(progress.schema_version, 7);
     assert.equal(progress.semantic_contract_version, 7);
+    assert.equal(progress.max_active_units, 10);
     assert.deepEqual(progress.active_units, []);
     assert.deepEqual(progress.units['chapter:001'], {
       status: 'pending',

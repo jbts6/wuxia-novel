@@ -201,8 +201,10 @@ describe('chapter-work', () => {
     assert.equal(second.controlled_fields.power_rank.allowed_values.includes('伪造等级'), false);
   });
 
-  it('does not refill a partially completed five-unit window', () => {
-    const first = issueNextWindow({ paths, manifest, progress: createProgress(manifest) });
+  it('does not refill a partially completed fixed window', () => {
+    const first = issueNextWindow({
+      paths, manifest, progress: createProgress(manifest, { max_active_units: 5 })
+    });
     assert.equal(first.jobs.length, 5);
     const acceptedOne = transitionProgress(first.progress, {
       type: 'accepted', unit: 'chapter:001', output_hash: 'sha256:one', manifest, paths
@@ -216,7 +218,7 @@ describe('chapter-work', () => {
 
   it('issues chapter six only after the first fixed window is accepted', () => {
     let progress = issueNextWindow({
-      paths, manifest, progress: createProgress(manifest)
+      paths, manifest, progress: createProgress(manifest, { max_active_units: 5 })
     }).progress;
     for (let number = 1; number <= 5; number += 1) {
       const unit = `chapter:${String(number).padStart(3, '0')}`;
@@ -227,6 +229,16 @@ describe('chapter-work', () => {
     const second = issueNextWindow({ paths, manifest, progress });
     assert.equal(second.jobs.length, 5);
     assert.equal(second.jobs[0].unit, 'chapter:006');
+  });
+
+  it('defaults new runs to a ten-unit window', () => {
+    const first = issueNextWindow({
+      paths, manifest, progress: createProgress(manifest)
+    });
+    assert.equal(first.progress.max_active_units, 10);
+    assert.equal(first.jobs.length, 10);
+    assert.equal(first.jobs[0].unit, 'chapter:001');
+    assert.equal(first.jobs[9].unit, 'chapter:010');
   });
 
   it('returns stable public job metadata and writes immutable chapter input', () => {

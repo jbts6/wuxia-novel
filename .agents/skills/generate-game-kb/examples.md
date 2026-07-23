@@ -9,7 +9,7 @@
 node .agents/skills/generate-game-kb/scripts/flow.js run "C:\git\wuxia-novel\古龙\剑神一笑" --run run-jian-shen-yi-xiao-v7 --json
 ```
 
-首次调用返回最多五个 job：
+首次调用返回最多十个 job（`max_active_units` 默认 10；旧 run 无该字段时仍为 5）：
 
 ```json
 {

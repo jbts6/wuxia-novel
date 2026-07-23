@@ -12,6 +12,7 @@ const { ensureAcceptedArtifact } = require('./candidate-ledger');
 const { atomicWriteJson, writeImmutableFile, writeImmutableJson } = require('./io');
 const { assertStagingIdentity } = require('./paths');
 const { windowSequenceFor } = require('./chapter-work');
+const { maxActiveUnits } = require('./chapter-progress');
 const { recordRunTimingEvent } = require('./timing-events');
 
 const MECHANICAL_ERROR_CODES = new Set([
@@ -155,7 +156,7 @@ function acceptObservedOutput({ paths, manifest, progress, unit, raw, outputHash
   if (closesActiveWindow(progress, unit)) {
     recordRunTimingEvent(paths, {
       type: 'window_closed',
-      window_sequence: windowSequenceFor(progress.active_units)
+      window_sequence: windowSequenceFor(progress.active_units, maxActiveUnits(progress))
     });
   }
   const next = transitionProgress(progress, {

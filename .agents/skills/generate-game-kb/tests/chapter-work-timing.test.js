@@ -47,7 +47,7 @@ function timingFixture() {
 
 test('records each fixed window once and every automatic attempt across retries', () => {
   const { paths, manifest } = timingFixture();
-  let progress = createProgress(manifest);
+  let progress = createProgress(manifest, { max_active_units: 5 });
   const first = issueNextWindow({ paths, manifest, progress });
   progress = first.progress;
   let events = readTimingEvents(paths.events);

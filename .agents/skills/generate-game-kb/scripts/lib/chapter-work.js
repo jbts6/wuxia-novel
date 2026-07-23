@@ -7,7 +7,7 @@ const { GameKbError } = require('./errors');
 const { readJson, stableHash, writeImmutableJson } = require('./io');
 const { chapterAttemptPaths } = require('./paths');
 const {
-  MAX_ACTIVE_UNITS,
+  maxActiveUnits,
   assertProgressInvariant,
   transitionProgress
 } = require('./chapter-progress');
@@ -157,12 +157,13 @@ function writeJobInput(paths, job, input) {
   writeImmutableJson(job.input_file, input, 'UNIT_ALREADY_ACTIVE');
 }
 
-function windowSequenceFor(units) {
+function windowSequenceFor(units, maxUnits) {
   const first = Number(String(units[0] || '').split(':')[1]);
   if (!Number.isInteger(first) || first < 1) {
     throw new GameKbError('ACTIVE_WINDOW_INVALID', 'Cannot derive timing window sequence', { units });
   }
-  return Math.floor((first - 1) / MAX_ACTIVE_UNITS) + 1;
+  const max = Number.isInteger(maxUnits) && maxUnits >= 1 ? maxUnits : maxActiveUnits(null);
+  return Math.floor((first - 1) / max) + 1;
 }
 
 function recordIssuedJobs(paths, jobs, windowSequence) {
@@ -194,14 +195,15 @@ function issueJobs({ paths, manifest, progress, units, windowSequence }) {
 function issueNextWindow({ paths, manifest, progress }) {
   assertProgressInvariant(progress, manifest, paths);
   if (progress.active_units.length > 0) return { progress, jobs: [] };
-  const window = pendingUnitsInOrder(progress, manifest).slice(0, MAX_ACTIVE_UNITS);
+  const max = maxActiveUnits(progress);
+  const window = pendingUnitsInOrder(progress, manifest).slice(0, max);
   if (window.length === 0) return { progress, jobs: [] };
   return issueJobs({
     paths,
     manifest,
     progress,
     units: window,
-    windowSequence: windowSequenceFor(window)
+    windowSequence: windowSequenceFor(window, max)
   });
 }
 

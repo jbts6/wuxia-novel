@@ -90,7 +90,7 @@ test('recovery progress windows only the selected sparse chapters', () => {
       number, title: `第${number}章`, file, input_hash: `sha256:chapter-${number}`
     });
   }
-  const progress = createProgress(manifest);
+  const progress = createProgress(manifest, { max_active_units: 5 });
   progress.recovery_units = [
     'chapter:002', 'chapter:004', 'chapter:006',
     'chapter:008', 'chapter:010', 'chapter:012'

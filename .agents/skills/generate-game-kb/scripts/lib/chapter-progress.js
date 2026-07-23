@@ -7,10 +7,25 @@ const { assertCurrentWorkerContract } = require('./chapter-worker-contract');
 const { stableHash } = require('./io');
 const { chapterAttemptPaths } = require('./paths');
 
-const MAX_ACTIVE_UNITS = 5;
+/** New runs default to 10 concurrent chapter jobs per book. */
+const DEFAULT_MAX_ACTIVE_UNITS = 10;
+/**
+ * Existing runs that predate `progress.max_active_units` keep window size 5,
+ * so mid-flight fixed windows remain valid after this skill upgrade.
+ */
+const LEGACY_MAX_ACTIVE_UNITS = 5;
+/** @deprecated Prefer maxActiveUnits(progress). Alias of DEFAULT for exports/tests. */
+const MAX_ACTIVE_UNITS = DEFAULT_MAX_ACTIVE_UNITS;
 const MAX_ATTEMPTS_PER_CYCLE = 2;
 const UNIT_STATUSES = new Set(['pending', 'active', 'rejected', 'accepted']);
 const PRODUCERS = new Set(['chapter-worker', 'main-agent-repair', 'carry-forward']);
+
+function maxActiveUnits(progress) {
+  if (progress && Number.isInteger(progress.max_active_units) && progress.max_active_units >= 1) {
+    return progress.max_active_units;
+  }
+  return LEGACY_MAX_ACTIVE_UNITS;
+}
 
 function unitName(number) {
   return `chapter:${String(number).padStart(3, '0')}`;
@@ -47,12 +62,17 @@ function emptyUnitState() {
   };
 }
 
-function createProgress(manifest) {
+function createProgress(manifest, options = {}) {
   const units = {};
   for (const unit of manifestUnits(manifest)) units[unit] = emptyUnitState();
+  const configured = options.max_active_units;
+  const max = Number.isInteger(configured) && configured >= 1
+    ? configured
+    : DEFAULT_MAX_ACTIVE_UNITS;
   return {
     schema_version: 7,
     semantic_contract_version: 7,
+    max_active_units: max,
     active_units: [],
     units
   };
@@ -158,9 +178,12 @@ function assertProgressShape(progress, orderedUnits) {
 }
 
 function assertActiveWindow(progress, orderedExecutionUnits) {
+  const max = maxActiveUnits(progress);
   const active = progress.active_units;
-  if (active.length > MAX_ACTIVE_UNITS || new Set(active).size !== active.length) {
-    invariant('active_units exceeds the fixed window or contains duplicates', { active_units: active });
+  if (active.length > max || new Set(active).size !== active.length) {
+    invariant('active_units exceeds the fixed window or contains duplicates', {
+      active_units: active, max_active_units: max
+    });
   }
   const activeIndexes = active.map(unit => orderedExecutionUnits.indexOf(unit));
   if (activeIndexes.some(index => index < 0)) {
@@ -168,11 +191,11 @@ function assertActiveWindow(progress, orderedExecutionUnits) {
   }
   if (active.length > 0) {
     const start = activeIndexes[0];
-    const expectedWindow = orderedExecutionUnits.slice(start, start + MAX_ACTIVE_UNITS);
-    if (start % MAX_ACTIVE_UNITS !== 0
+    const expectedWindow = orderedExecutionUnits.slice(start, start + max);
+    if (start % max !== 0
       || JSON.stringify(active) !== JSON.stringify(expectedWindow)) {
       invariant('active_units is not the earliest complete fixed window', {
-        active_units: active, expected_window: expectedWindow
+        active_units: active, expected_window: expectedWindow, max_active_units: max
       });
     }
   }
@@ -281,8 +304,11 @@ function requireActiveUnit(progress, event) {
 }
 
 function applyIssuedWindow(progress, event) {
-  if (!Array.isArray(event.jobs) || event.jobs.length === 0 || event.jobs.length > MAX_ACTIVE_UNITS) {
-    invariant('Issued jobs are empty or exceed the fixed window', { jobs: event.jobs });
+  const max = maxActiveUnits(progress);
+  if (!Array.isArray(event.jobs) || event.jobs.length === 0 || event.jobs.length > max) {
+    invariant('Issued jobs are empty or exceed the fixed window', {
+      jobs: event.jobs, max_active_units: max
+    });
   }
   for (const job of event.jobs) {
     const state = progress.units[job.unit];
@@ -354,10 +380,13 @@ function transitionProgress(current, event) {
 }
 
 module.exports = {
+  DEFAULT_MAX_ACTIVE_UNITS,
+  LEGACY_MAX_ACTIVE_UNITS,
   MAX_ACTIVE_UNITS,
   MAX_ATTEMPTS_PER_CYCLE,
   assertActiveWorkerContracts,
   assertProgressInvariant,
   createProgress,
+  maxActiveUnits,
   transitionProgress
 };
