@@ -16,8 +16,14 @@ const {
   SEMANTIC_PROFILE
 } = require('./semantic-contract');
 const { EMPTY_DURATIONS } = require('./timing');
+const { TIMING_CONTRACT_VERSION, appendTimingEvent } = require('./timing-events');
 
 const ACCEPTED_SERIALIZATION_READ_COMMANDS = new Set(['status', 'verify', 'archive-run']);
+
+function ensureRunStartedEvent(paths, metadata) {
+  if (metadata.timing_contract_version !== TIMING_CONTRACT_VERSION) return;
+  appendTimingEvent(paths.events, { type: 'run_started' }, { occurredAt: metadata.started_at });
+}
 
 function assertAcceptedSerialization(metadata, command = 'continue') {
   if (metadata?.accepted_serialization === ACCEPTED_SERIALIZATION) return;
@@ -125,6 +131,22 @@ function ensureRunDirectories(paths) {
   }
 }
 
+function initialRunMetadata(runId, sourceFile, sourceHash) {
+  return {
+    schema_version: 1,
+    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
+    semantic_profile: SEMANTIC_PROFILE,
+    timing_contract_version: TIMING_CONTRACT_VERSION,
+    accepted_serialization: ACCEPTED_SERIALIZATION,
+    run_id: runId,
+    source_file: sourceFile,
+    source_hash: sourceHash,
+    status: 'active',
+    started_at: new Date().toISOString(),
+    phase_durations: { ...EMPTY_DURATIONS }
+  };
+}
+
 function createOrResumeRun(novelDir, options = {}) {
   const novel = path.resolve(novelDir);
   const { sourceFile, sourceHash } = sourceState(novel);
@@ -147,6 +169,7 @@ function createOrResumeRun(novelDir, options = {}) {
       });
     }
     ensureRunDirectories(paths);
+    ensureRunStartedEvent(paths, metadata);
     return {
       run_id: runId,
       run_dir: paths.run,
@@ -159,20 +182,10 @@ function createOrResumeRun(novelDir, options = {}) {
   }
   fs.mkdirSync(paths.run, { recursive: true });
   ensureRunDirectories(paths);
-  const metadata = {
-    schema_version: 1,
-    semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
-    semantic_profile: SEMANTIC_PROFILE,
-    accepted_serialization: ACCEPTED_SERIALIZATION,
-    run_id: runId,
-    source_file: sourceFile,
-    source_hash: sourceHash,
-    status: 'active',
-    started_at: new Date().toISOString(),
-    phase_durations: { ...EMPTY_DURATIONS }
-  };
+  const metadata = initialRunMetadata(runId, sourceFile, sourceHash);
   atomicWriteJson(paths.runJson, metadata);
   initializeArtifactManifest(paths);
+  ensureRunStartedEvent(paths, metadata);
   return {
     run_id: runId,
     run_dir: paths.run,

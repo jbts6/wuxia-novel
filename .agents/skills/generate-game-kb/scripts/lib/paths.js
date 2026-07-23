@@ -29,6 +29,7 @@ function pathsFor(novelDir, runId, options = {}) {
     runId: id,
     run,
     runJson: path.join(run, 'run.json'),
+    events: path.join(run, 'events.jsonl'),
     manifest: path.join(run, 'manifest.json'),
     artifactManifest: path.join(run, 'artifact-manifest.json'),
     progress: path.join(run, 'progress.json'),

@@ -10,9 +10,11 @@ const { pathsFor } = require('../scripts/lib/paths');
 const { createOrResumeRun, resolveRun } = require('../scripts/lib/run');
 const { SEMANTIC_CONTRACT_VERSION } = require('../scripts/lib/semantic-contract');
 const { prepareNovel } = require('../scripts/lib/source');
+const { TIMING_CONTRACT_VERSION, readTimingEvents } = require('../scripts/lib/timing-events');
 
 const RUN_SCOPED_PATHS = [
   'runJson',
+  'events',
   'manifest',
   'artifactManifest',
   'progress',
@@ -55,7 +57,11 @@ test('fast-path metadata and artifact paths are scoped below the explicit run id
   assert.equal(metadata.run_id, 'run-a');
   assert.equal(metadata.semantic_contract_version, SEMANTIC_CONTRACT_VERSION);
   assert.equal(metadata.semantic_profile, 'chapter-direct-v1');
+  assert.equal(metadata.timing_contract_version, TIMING_CONTRACT_VERSION);
   assert.match(metadata.source_hash, /^sha256:[a-f0-9]{64}$/);
+  assert.deepEqual(readTimingEvents(pathsFor(novel, 'run-a').events).map(event => event.type), [
+    'run_started'
+  ]);
 
   const firstPaths = pathsFor(novel, 'run-a');
   const secondPaths = pathsFor(novel, 'run-b');
@@ -105,6 +111,8 @@ test('a single matching current run resumes without changing started_at', () => 
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
   const first = createOrResumeRun(novel, { runId: 'run-a' });
   const firstMetadata = readJson(path.join(first.run_dir, 'run.json'));
+  const events = pathsFor(novel, 'run-a').events;
+  const firstEvents = fs.readFileSync(events, 'utf8');
 
   const resumed = createOrResumeRun(novel, { runId: 'run-a' });
   const resumedMetadata = readJson(path.join(resumed.run_dir, 'run.json'));
@@ -112,6 +120,8 @@ test('a single matching current run resumes without changing started_at', () => 
   assert.equal(resumed.resumed, true);
   assert.equal(resumedMetadata.started_at, firstMetadata.started_at);
   assert.equal(resumed.source_hash, first.source_hash);
+  assert.equal(fs.readFileSync(events, 'utf8'), firstEvents);
+  assert.equal(readTimingEvents(events).length, 1);
 });
 
 test('changed source cannot resume an existing current run', () => {
