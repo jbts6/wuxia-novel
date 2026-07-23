@@ -1,8 +1,13 @@
 'use strict';
 
 const { GameKbError } = require('./errors');
+const {
+  CHARACTER_LEVELS,
+  POWER_RANK_CONTRACT,
+  POWER_RANKS
+} = require('./semantic-contract');
 
-const WORKER_CONTRACT_VERSION = 3;
+const WORKER_CONTRACT_VERSION = 4;
 
 const YAML_SKELETON = `characters:
   - name: "<chapter_text 中逐字出现的人物名>"
@@ -90,6 +95,30 @@ function createWorkerContract() {
       items: ['description'],
       factions: ['description']
     },
+    controlled_fields: {
+      character_level: {
+        fields: ['characters[].level'],
+        allowed_values: [...CHARACTER_LEVELS],
+        nullable: true,
+        meaning: '人物在全书中的叙事重要度，不是武功、职位或身份。',
+        insufficient_evidence_action: 'null',
+        invalid_value_action: 'reject'
+      },
+      power_rank: {
+        fields: ['characters[].rank', 'skills[].rank'],
+        allowed_values: [...POWER_RANKS],
+        nullable: true,
+        character_rule: POWER_RANK_CONTRACT.character_rule,
+        skill_rule: POWER_RANK_CONTRACT.skill_rule,
+        evidence_priority: [...POWER_RANK_CONTRACT.evidence_priority],
+        scale: POWER_RANK_CONTRACT.scale.map(entry => ({ ...entry })),
+        non_rank_examples: ['职位', '门派职务', '称号', '社会身份'],
+        identity_rule:
+          '职位、门派职务、称号和社会身份写入 characters[].identities，不得写入 rank。',
+        insufficient_evidence_action: 'null',
+        invalid_value_action: 'reject'
+      }
+    },
     forbidden_fields: {
       top_level: [
         'schema_version', 'chapter', 'title', 'source_hash', 'unit', 'cycle',
@@ -156,7 +185,9 @@ function createWorkerContract() {
         'required_fields_recursive',
         'forbidden_fields_recursive',
         'source_refs_recursive',
-        'non_empty_summary'
+        'non_empty_summary',
+        'controlled_rank_and_level_values',
+        'positions_titles_and_social_roles_belong_in_identities'
       ],
       producers: {
         'chapter-worker': [

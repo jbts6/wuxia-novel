@@ -311,6 +311,10 @@ function validateWorkerChapterDraft(draft, expected) {
       if (typeof record.name !== 'string' || record.name.trim() === '') {
         errors.push(issue('NAME_REQUIRED', `${label}.name`));
       }
+      if (category === 'characters' || category === 'skills') {
+        validatePowerRank(record, label, errors);
+      }
+      if (category === 'characters') validateCharacterLevel(record, label, errors);
       if (V7_TYPES_CATEGORIES.has(category) && record.types !== undefined) {
         const typeResult = normalizeTypeArray(category, record.types, `$.${label}.types`);
         errors.push(...typeResult.errors);

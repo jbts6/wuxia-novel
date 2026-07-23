@@ -131,6 +131,33 @@ describe('validateWorkerChapterDraft', () => {
     assert.ok(errors.some(issue => issue.code === 'TYPE_VALUE_UNKNOWN'));
   });
 
+  it('rejects invalid character level and position-like rank values', () => {
+    const draft = v7WorkerDraft();
+    draft.characters[0].level = '主角';
+    draft.characters[0].rank = '帮主';
+    draft.skills[0].rank = '掌门绝学';
+
+    assert.deepEqual(
+      validateWorkerChapterDraft(draft, expectedChapter())
+        .filter(issue => ['CHARACTER_LEVEL_INVALID', 'POWER_RANK_INVALID'].includes(issue.code)),
+      [
+        { code: 'POWER_RANK_INVALID', path: 'characters[0].rank', target: '帮主' },
+        { code: 'CHARACTER_LEVEL_INVALID', path: 'characters[0].level', target: '主角' },
+        { code: 'POWER_RANK_INVALID', path: 'skills[0].rank', target: '掌门绝学' }
+      ]
+    );
+  });
+
+  it('accepts controlled rank and level values while keeping positions in identities', () => {
+    const draft = v7WorkerDraft();
+    draft.characters[0].identities = ['帮主'];
+    draft.characters[0].level = '重要';
+    draft.characters[0].rank = '登堂入室';
+    draft.skills[0].rank = '略有小成';
+
+    assert.deepEqual(validateWorkerChapterDraft(draft, expectedChapter()), []);
+  });
+
   it('accepts relationship names resolved by canonical name or a unique alias', () => {
     const draft = v7WorkerDraft();
     draft.characters[0].skills = ['玄门内功'];

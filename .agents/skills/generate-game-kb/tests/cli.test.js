@@ -97,6 +97,6 @@ test('status rejects an active job with a stale worker contract', () => {
     run_id: 'run-stale-worker',
     unit: 'chapter:001',
     actual_version: 1,
-    expected_version: 3
+    expected_version: 4
   });
 });

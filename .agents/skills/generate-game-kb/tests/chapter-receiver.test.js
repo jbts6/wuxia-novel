@@ -83,7 +83,7 @@ describe('chapter-receiver', () => {
   it('rejects a stale worker contract before reading staging YAML', () => {
     const issued = prepareIssuedChapter();
     writeYaml(issued.job.output_file, v7WorkerDraft());
-    replaceWorkerContractVersion(issued, 1);
+    replaceWorkerContractVersion(issued, 3);
 
     assert.throws(
       () => receiveAvailableChapterOutputs(issued),
@@ -92,8 +92,8 @@ describe('chapter-receiver', () => {
         assert.deepEqual(error.details, {
           run_id: 'run-recv',
           unit: 'chapter:001',
-          actual_version: 1,
-          expected_version: 3
+          actual_version: 3,
+          expected_version: 4
         });
         return true;
       }
@@ -240,6 +240,30 @@ describe('chapter-receiver', () => {
       });
       assert.equal(retry.job.producer, 'chapter-worker');
     }
+  });
+
+  it('rejects invalid rank and level before writing an accepted artifact', () => {
+    const issued = prepareIssuedChapter();
+    const bad = v7WorkerDraft();
+    bad.characters[0].level = '主角';
+    bad.characters[0].rank = '帮主';
+    bad.skills[0].rank = '掌门绝学';
+    writeYaml(issued.job.output_file, bad);
+
+    const result = receiveAvailableChapterOutputs(issued);
+
+    assert.equal(result.received[0].status, 'rejected');
+    assert.equal(result.received[0].repair_allowed, false);
+    assert.deepEqual(
+      result.received[0].errors
+        .filter(error => ['CHARACTER_LEVEL_INVALID', 'POWER_RANK_INVALID'].includes(error.code)),
+      [
+        { code: 'POWER_RANK_INVALID', path: 'characters[0].rank', target: '帮主' },
+        { code: 'CHARACTER_LEVEL_INVALID', path: 'characters[0].level', target: '主角' },
+        { code: 'POWER_RANK_INVALID', path: 'skills[0].rank', target: '掌门绝学' }
+      ]
+    );
+    assert.equal(fs.existsSync(path.join(issued.paths.chapters, 'chapter_001.yaml')), false);
   });
 
   it('rejects evidence that is absent from the source chapter', () => {

@@ -18,6 +18,9 @@
   由 controller 根据章节原文确定性生成。
 - `skills/items/factions` 使用闭合的 `types` 数组，不使用 legacy `type`。
 - `worker_contract.output.yaml_skeleton` 是完整字段骨架；不得只依据顶层键猜测嵌套结构。
+- `worker_contract.controlled_fields` 是 `level/rank` 的唯一允许值和语义来源；
+  证据不足时写 `null`，职位、门派职务、称号和社会身份写入
+  `characters[].identities`，不得写入 `rank`。
 - 写完后重新读取 `output_file`，执行 `worker_contract.preflight.common` 以及当前
   producer 对应的全部检查。必须递归检查每个实体、technique、章节摘要和所有
   `source_refs`，不能只检查 YAML 顶层。
@@ -40,6 +43,9 @@
   `source_refs[].text` 中；仅在章节别处出现不能通过证据检查。
 - 执行 `chapter_summary.summary.trim() !== ""`，并保证摘要至少有一条逐字引用。
 - `types` 只能来自输入的闭合 `taxonomies`；未知值不得猜测。
+- `characters[].level`、`characters[].rank`、`skills[].rank` 只能使用
+  `worker_contract.controlled_fields` 的允许值或 `null`，并遵守其中人物、武功和
+  身份归属规则。
 - `characters[].skills/factions` 与 `skills[].factions` 的每个名称必须精确匹配
   本次输出中对应类别的候选名；否则补提取有据候选或不写该关系，不能留下悬空引用。
 
@@ -55,7 +61,7 @@
 
 1. 只写了 controller 指定的 `output_file`。
 2. 输出是 `worker_contract.output` 指定的单文档 YAML，不是 envelope，也没有 Markdown 围栏。
-3. 所有嵌套对象满足 `required_fields/optional_fields/forbidden_fields`，且递归检查了 `source_refs`。
+3. 所有嵌套对象满足 `required_fields/optional_fields/forbidden_fields`，且递归检查了 `source_refs` 和 `controlled_fields`。
 4. `chapter-worker` 已完成逐字名称、逐字引用、非空摘要和闭合 taxonomy 检查；
    `main-agent-repair` 已证明只改了 allowlist 机械错误。
 5. 没有正式 ID、旧 `type`、controller 状态或其他章节内容。

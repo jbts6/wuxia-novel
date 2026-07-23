@@ -23,6 +23,11 @@ const {
   WORKER_CONTRACT_VERSION,
   createWorkerContract
 } = require('../scripts/lib/chapter-worker-contract');
+const {
+  CHARACTER_LEVELS,
+  POWER_RANK_CONTRACT,
+  POWER_RANKS
+} = require('../scripts/lib/semantic-contract');
 
 function manifestWithChapters(count, root = fs.mkdtempSync(path.join(os.tmpdir(), 'game-kb-source-'))) {
   fs.mkdirSync(root, { recursive: true });
@@ -50,7 +55,7 @@ function temporaryRunPaths() {
 }
 
 function assertSelfContainedWorkerContract(contract, producer) {
-  assert.equal(contract.version, 3);
+  assert.equal(contract.version, 4);
   assert.equal(contract.output.format, 'yaml-single-document');
   assert.equal(contract.output.markdown_fences, false);
   assert.deepEqual(contract.output.top_level_fields, [
@@ -80,6 +85,35 @@ function assertSelfContainedWorkerContract(contract, producer) {
   assert.deepEqual(contract.optional_fields.source_ref, []);
   assert.deepEqual(contract.derived_fields.source_ref, ['chapter', 'line_start', 'line_end']);
   assert.doesNotMatch(contract.output.yaml_skeleton, /line_start|line_end/);
+
+  assert.deepEqual(contract.controlled_fields.character_level.fields, ['characters[].level']);
+  assert.deepEqual(contract.controlled_fields.character_level.allowed_values, CHARACTER_LEVELS);
+  assert.equal(contract.controlled_fields.character_level.nullable, true);
+  assert.match(contract.controlled_fields.character_level.meaning, /叙事重要度/);
+  assert.equal(contract.controlled_fields.character_level.insufficient_evidence_action, 'null');
+  assert.equal(contract.controlled_fields.character_level.invalid_value_action, 'reject');
+
+  assert.deepEqual(contract.controlled_fields.power_rank.fields, [
+    'characters[].rank', 'skills[].rank'
+  ]);
+  assert.deepEqual(contract.controlled_fields.power_rank.allowed_values, POWER_RANKS);
+  assert.equal(contract.controlled_fields.power_rank.nullable, true);
+  assert.deepEqual(contract.controlled_fields.power_rank.scale, POWER_RANK_CONTRACT.scale);
+  assert.equal(
+    contract.controlled_fields.power_rank.character_rule,
+    POWER_RANK_CONTRACT.character_rule
+  );
+  assert.equal(contract.controlled_fields.power_rank.skill_rule, POWER_RANK_CONTRACT.skill_rule);
+  assert.deepEqual(
+    contract.controlled_fields.power_rank.evidence_priority,
+    POWER_RANK_CONTRACT.evidence_priority
+  );
+  assert.deepEqual(contract.controlled_fields.power_rank.non_rank_examples, [
+    '职位', '门派职务', '称号', '社会身份'
+  ]);
+  assert.match(contract.controlled_fields.power_rank.identity_rule, /identities/);
+  assert.equal(contract.controlled_fields.power_rank.insufficient_evidence_action, 'null');
+  assert.equal(contract.controlled_fields.power_rank.invalid_value_action, 'reject');
 
   for (const field of [
     'schema_version', 'chapter', 'title', 'source_hash', 'unit', 'cycle',
@@ -130,7 +164,8 @@ function assertSelfContainedWorkerContract(contract, producer) {
   for (const check of [
     'reread_output_yaml', 'single_document', 'exact_top_level_fields',
     'required_fields_recursive', 'forbidden_fields_recursive',
-    'source_refs_recursive', 'non_empty_summary'
+    'source_refs_recursive', 'non_empty_summary', 'controlled_rank_and_level_values',
+    'positions_titles_and_social_roles_belong_in_identities'
   ]) assert.ok(contract.preflight.common.includes(check), check);
   assert.ok(Array.isArray(contract.preflight.producers[producer]));
   assert.ok(contract.preflight.producers[producer].length > 0);
@@ -199,11 +234,22 @@ describe('chapter-work', () => {
   it('creates an isolated worker contract object for every job input', () => {
     const first = createWorkerContract();
     const second = createWorkerContract();
-    assert.equal(WORKER_CONTRACT_VERSION, 3);
+    assert.equal(WORKER_CONTRACT_VERSION, 4);
     assert.notStrictEqual(first, second);
     assert.notStrictEqual(first.preflight, second.preflight);
+    assert.notStrictEqual(first.controlled_fields, second.controlled_fields);
+    assert.notStrictEqual(
+      first.controlled_fields.power_rank.allowed_values,
+      second.controlled_fields.power_rank.allowed_values
+    );
+    assert.notStrictEqual(
+      first.controlled_fields.power_rank.scale[0],
+      second.controlled_fields.power_rank.scale[0]
+    );
     first.preflight.common.push('mutated');
+    first.controlled_fields.power_rank.allowed_values.push('伪造等级');
     assert.equal(second.preflight.common.includes('mutated'), false);
+    assert.equal(second.controlled_fields.power_rank.allowed_values.includes('伪造等级'), false);
   });
 
   it('does not refill a partially completed five-unit window', () => {

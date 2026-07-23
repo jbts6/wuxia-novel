@@ -108,7 +108,7 @@ test('recover-relations creates an immutable derived run and only reopens affect
 
   const input = readJson(recovered.jobs[0].input_file);
   assert.equal(input.producer, 'chapter-worker');
-  assert.equal(input.worker_contract.version, 3);
+  assert.equal(input.worker_contract.version, 4);
   assert.equal(input.recovery_context.parent_run, parentPaths.runId);
   assert.equal(input.recovery_context.report_hash, receipt.report_hash);
   assert.equal(fs.existsSync(input.recovery_context.parent_accepted_draft), true);

@@ -96,7 +96,8 @@ job 的 `input_file`、`output_file`、`producer`、`cycle` 和 `attempt`，
 派发提示必须只要求读取 `input_file`，不能要求 Worker 自行寻找
 `.claude/agents/`、`schemas.md` 或其他隐式 Skill 上下文。写完后必须按
 `worker_contract.preflight` 递归检查实体、technique、摘要及所有
-`source_refs`，确认每个名称被自身证据覆盖、所有关系名称能解析到对应候选，再
+`source_refs`，并按 `controlled_fields` 检查 `level/rank`，确认每个名称被自身
+证据覆盖、所有关系名称能解析到对应候选，再
 报告完成。Worker 不执行 Shell、Node、Python 或 BAT 命令，也不创建辅助脚本、
 中间文本或校验日志。
 
@@ -144,9 +145,10 @@ chapter_summary:
   一次性实体也应保留。
 - 每个实体与章节摘要至少有一条当前章节的 `source_refs`，其中 `text` 必须
   在本章原文逐字存在，并包含实体名称。不得依赖记忆或其他章节。
-- 人物 `level` 只允许：核心、重要、次要、龙套、背景。
-- 人物和武功 `rank` 可为 `null`；非空时使用八级表。证据不足时保持
-  `null`，不要猜测。
+- 人物 `level`、人物 `rank` 和武功 `rank` 的允许值、八级标准及全书时间线
+  语义只读取 job 的 `worker_contract.controlled_fields`。证据不足时保持 `null`。
+- 职位、门派职务、称号和社会身份写入 `characters[].identities`，不得写入
+  `rank`；身份光环不能单独支持战力等级。
 - `skills/items/factions` 使用 `types: string[]`。Controller 只做一对一
   机械别名归一化；例如 `poison` 归一化为 `毒功`。未知值以
   `TYPE_VALUE_UNKNOWN` 拒绝，不做相似度猜测。
@@ -170,7 +172,7 @@ factions.yaml
 chapter_summaries.yaml
 ```
 
-`assembly-report.json` 绑定确定性字段决策、类型归一化和最终数据哈希；
+`assembly-report.json` 绑定确定性字段决策、类型归一化、grounding 归一化和最终数据哈希；
 `game-kb-review.json` 只记录非阻塞 warning；`verification-report.json` 是
 安装前硬门禁。验证报告直接绑定确定性审计与复核哈希；安装回执绑定源、终态、
 复核与验证哈希；归档回执再绑定 assembly、安装和 artifact manifest 哈希。
