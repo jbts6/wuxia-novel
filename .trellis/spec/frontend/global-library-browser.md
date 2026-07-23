@@ -139,3 +139,14 @@ const factionNames = resolveIds(character.factions, maps.factionMap);
 ```
 
 The strict boundary owns parsing once, derived state comes only from current normalized entities, and unresolved non-null IDs fail explicitly.
+
+## Contract-Aware Presentation
+
+`libraryStatusPresentation.ts` exports contract-aware display functions that both `Library.tsx` and `LibraryCard.tsx` share:
+
+- `validationStatusText(book)` returns `v7 安装验证通过` for a passing `generate-game-kb-v7` book, `vN 安装合同待迁移` for `generate-game-kb-legacy`, and otherwise uses the static status labels (`G1-G5 通过`, `校验失败`, `待新版验证`, `未校验`).
+- `contentCoverageText(coverage)` returns `详情覆盖 X/Y` for all coverage states. Content coverage is informational, not a completion gate.
+
+The filter label for incomplete content is `详情未覆盖` (not `内容待补全`). The table column header is `详情覆盖`.
+
+Validation warnings (`validationWarnings`) are displayed under the independent `安装验证提示` heading, separately from review warnings and blocking `待处理项`. Long verifier messages use `break-words` inside the status sheet. The action button sends `validationRunId`; v7 failures without a trusted run ID show no ambiguous status action.

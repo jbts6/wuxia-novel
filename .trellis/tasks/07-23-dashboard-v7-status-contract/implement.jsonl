@@ -1,1 +1,5 @@
-{"_example": "Fill with {\"file\": \"<path>\", \"reason\": \"<why>\"}. Put spec/research files only — no code paths. Run `python .trellis/scripts/get_context.py --mode packages` to list available specs. Delete this line once real entries are added."}
+{"file": ".trellis/spec/backend/library-status-api.md", "reason": "Dashboard 扫描器与状态 API 的合同定义，v7 适配器必须遵循"}
+{"file": ".trellis/spec/backend/error-handling.md", "reason": "v7 验证失败、回执缺失等错误路径的处理规范"}
+{"file": ".trellis/spec/frontend/type-safety.md", "reason": "新增 validationContract 字段的类型约束"}
+{"file": ".trellis/spec/frontend/component-guidelines.md", "reason": "状态标签与建议动作组件的编写规范"}
+{"file": ".trellis/spec/guides/cross-layer-thinking-guide.md", "reason": "本次修改横跨 server adapter 与前端展示层，需遵循跨层数据流规范"}

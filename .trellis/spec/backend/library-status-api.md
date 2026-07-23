@@ -10,6 +10,7 @@ Use this contract when changing the Dashboard's local knowledge-base discovery, 
 GET /api/library/status
 GET /api/library/book-data?path=<author>/<book>
 GET /api/library/review-report?path=<author>/<book>
+POST /api/library/execute-action
 ```
 
 ```ts
@@ -37,6 +38,18 @@ type ReviewSummary = {
   status: ReviewStatus;
   warningCount: number;
   reportPath: string | null;
+};
+
+type ValidationContract =
+  | 'none'
+  | 'generate-kb-gates'
+  | 'generate-game-kb-legacy'
+  | 'generate-game-kb-v7';
+
+type ExecuteActionRequest = {
+  bookPath: string;
+  actionType: string;
+  validationRunId: string | null;
 };
 ```
 
@@ -123,6 +136,9 @@ interface ReviewReport {
 | Review report hash mismatch | `review.status = stale`; browseability unchanged, current-contract completion false |
 | Review report malformed or shape-invalid | `review.status = invalid`; detail endpoint `422`, browseability unchanged |
 | One book fails inspection | Other books remain in the status response |
+| A generate-game-kb receipt declares semantic contract 7 | Use the v7 verifier and `generate-game-kb-v7` projection |
+| A generate-game-kb receipt declares another semantic contract | Return `generate-game-kb-legacy`, `legacy-unproven`, and an `UNSUPPORTED_SEMANTIC_CONTRACT` warning; never relabel it as v7 or fall back to G1-G5 |
+| A v7 diagnostic action has no installed `validationRunId` | Do not offer or execute an ambiguous `flow.js status` command |
 
 ## 6. Good / Base / Bad Cases
 
@@ -134,6 +150,9 @@ interface ReviewReport {
 - Bad summary: `chapter_summaries.yaml` cannot parse; the book is incomplete and non-browseable, an error names the file, and the four entity counts retain their independently validated values.
 - Bad review: the five YAML files remain browseable, but a stale or invalid current-contract report prevents `completed: true` and is never silently repaired.
 - Stale sibling: `characters.json` is present alongside missing or invalid `characters.yaml`; the book remains non-browseable based on the YAML failure.
+- Good v7 action: the installed receipt run ID is projected as `validationRunId`, and both the displayed command and API executor produce `flow.js status <book> --run <run-id>` from one invocation builder.
+- Base legacy install: a semantic contract v6 receipt is visible as `generate-game-kb-legacy` / `legacy-unproven`, without G1-G5 or v7 actions.
+- Bad action: a missing receipt leaves `validationRunId=null`; the Dashboard shows the verifier failure but does not guess which run to inspect.
 
 ## 7. Tests Required
 
@@ -147,6 +166,9 @@ interface ReviewReport {
 - Scanner test: review summary covers `missing`, `current`, `stale`, and `invalid`; current-contract non-current states keep the book browseable but incomplete, while legacy missing remains complete.
 - API test: `/review-report` serves only the fixed file, synthesizes a missing report, rejects malformed/extra-field reports, rejects unsafe or unknown paths, and rejects non-GET methods.
 - Component or API presentation test: chapter summaries are required data but are not included in the four entity counts or content-coverage categories.
+- Adapter/scanner test: semantic contract 7 and non-7 receipts project to different `validationContract` values; non-7 never enters G1-G5.
+- Action/API test: command presentation and `execFile` receive the same script path and ordered arguments, including `--run <validationRunId>`.
+- Action test: missing `validationRunId` produces no v7 diagnostic action.
 
 ## 8. Wrong vs Correct
 
@@ -169,3 +191,49 @@ const characterCount = validateDataFile('characters', value)
 The table may summarize character, skill, and item counts for density. The detail sheet is the authoritative four-category count view; chapter summaries and window coverage belong to separate views.
 
 Review status is likewise a projection, not permission to mutate data. The status scan returns only summary metadata; the fixed detail endpoint reads the current report on explicit demand.
+
+## 9. Dual-Contract Validation
+
+`LibraryBookStatus` carries a `validationContract` field that identifies which validation pipeline produced the result:
+
+```ts
+type ValidationContract =
+  | 'none'
+  | 'generate-kb-gates'
+  | 'generate-game-kb-legacy'
+  | 'generate-game-kb-v7';
+```
+
+### Contract Selection Priority
+
+The three report paths identify the `generate-game-kb` pipeline, not the semantic contract version. When any marker exists, the adapter takes precedence and the legacy G1-G5 branch is skipped entirely. A readable receipt with `semantic_contract_version === 7` selects `generate-game-kb-v7`; another numeric version selects `generate-game-kb-legacy` and emits `UNSUPPORTED_SEMANTIC_CONTRACT`. Missing or malformed receipts remain verifier failures and never fall back to G1-G5.
+
+### v7 Authoritative Verifier
+
+`inspectInstalledGameKb(bookDirectory)` in `dashboard/server/gameKbValidation.ts` delegates to `generate-game-kb`'s `verifyInstalled` function, which validates five YAML files, the verification report, the review report, and the install receipt with hash bindings. The Dashboard does not duplicate hash or schema rules. A `V7_VERIFIER_UNAVAILABLE` blocking error is returned when the module cannot be loaded.
+
+The adapter projects the installed receipt `run_id` as `validationRunId`. A v7 diagnostic action is available only when that value is non-null. `buildActionInvocation` is the single source for both the copied command and API `execFile` arguments, preventing argument-order drift.
+
+### v7 Completion Rules
+
+A v7 book is `completed: true` when `browseable && validationStatus === 'passed' && review.completionReady`. Content coverage state (`index-only`, `partial`, `complete`) is informational and does not block v7 completion.
+
+### Warning Semantics
+
+`validationWarnings` carries non-blocking warnings from the v7 adapter (e.g., missing `id_plan_hash`). Warnings never downgrade `validationStatus` from `passed` to `failed`; only `blockingErrors` do.
+
+### Wrong vs Correct Contract Selection
+
+```ts
+// Wrong: report names are shared by more than one generate-game-kb version.
+const contract = hasInstallReport ? 'generate-game-kb-v7' : 'generate-kb-gates';
+
+// Correct: markers choose the pipeline; the receipt chooses its semantic version.
+const contract = semanticContractVersion === 7
+  ? 'generate-game-kb-v7'
+  : 'generate-game-kb-legacy';
+```
+
+### Legacy Compatibility
+
+Books without generate-game-kb markers continue using `quality_report.json` G1-G5 gates. Legacy generate-game-kb receipts never use G1-G5. Legacy generate-kb completion requires `contentCoverage.state === 'complete'` in addition to `validationStatus === 'passed'` and `review.completionReady`.
