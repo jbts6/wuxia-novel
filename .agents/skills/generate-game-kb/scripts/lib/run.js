@@ -22,6 +22,11 @@ const ACCEPTED_SERIALIZATION_READ_COMMANDS = new Set(['status', 'verify', 'archi
 
 function ensureRunStartedEvent(paths, metadata) {
   if (metadata.timing_contract_version !== TIMING_CONTRACT_VERSION) return;
+  if (!fs.existsSync(paths.events) && fs.existsSync(paths.manifest)) {
+    throw new GameKbError('TIMING_EVENTS_INVALID', 'Timing event file is missing after source prepare', {
+      run_id: metadata.run_id
+    });
+  }
   appendTimingEvent(paths.events, { type: 'run_started' }, { occurredAt: metadata.started_at });
 }
 
