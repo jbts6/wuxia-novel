@@ -99,6 +99,51 @@ function recordChapterReviewEvent(paths, progress, units, type) {
   }
 }
 
+function runTimedPhase(paths, phase, operation, completed = () => true) {
+  recordRunTimingEvent(paths, { type: 'phase_started', phase });
+  const result = operation();
+  if (completed(result)) recordRunTimingEvent(paths, { type: 'phase_completed', phase });
+  return result;
+}
+
+function completeV7Run(novelDir, run, paths, progress, warnings) {
+  const assembly = runTimedPhase(
+    paths,
+    'assemble',
+    () => assembleRun({ paths }),
+    result => result.status !== 'manual_review'
+  );
+  if (assembly.status === 'manual_review') {
+    return publicRunResult(run, {
+      status: 'manual_review', progress, jobs: [], manual_review: assembly.manual_review
+    }, warnings);
+  }
+  runTimedPhase(paths, 'verify', () => {
+    const { verifyFinal } = require('./lib/verify');
+    const workspace = verifyFinal(paths);
+    if (!workspace.passed) {
+      throw new GameKbError('WORKSPACE_VERIFICATION_FAILED', 'Workspace verification failed', workspace);
+    }
+    return workspace;
+  });
+  runTimedPhase(paths, 'install', () => {
+    installVerifiedData(novelDir, { runId: run.run_id });
+    const { verifyInstalled } = require('./lib/install');
+    const installed = verifyInstalled(novelDir);
+    if (!installed.passed) {
+      throw new GameKbError('INSTALLED_VERIFICATION_FAILED', 'Installed verification failed', installed);
+    }
+    return installed;
+  });
+  recordRunTimingEvent(paths, { type: 'phase_started', phase: 'archive' });
+  archiveRun(novelDir, run.run_id);
+  return publicRunResult(
+    run,
+    { status: 'complete', progress, jobs: [], manual_review: null },
+    warnings
+  );
+}
+
 function v7RunPipeline(novelDir, requestedRun) {
   const { assertActiveWorkerContracts } = require('./lib/chapter-progress');
   const { receiveAvailableChapterOutputs } = require('./lib/chapter-receiver');
@@ -128,32 +173,7 @@ function v7RunPipeline(novelDir, requestedRun) {
   }
 
   if (next.status === 'ready-to-assemble') {
-    const assembly = assembleRun({ paths });
-    if (assembly.status === 'manual_review') {
-      return publicRunResult(run, {
-        status: 'manual_review',
-        progress: next.progress,
-        jobs: [],
-        manual_review: assembly.manual_review
-      }, warnings);
-    }
-    const { verifyFinal } = require('./lib/verify');
-    const workspace = verifyFinal(paths);
-    if (!workspace.passed) {
-      throw new GameKbError('WORKSPACE_VERIFICATION_FAILED', 'Workspace verification failed', workspace);
-    }
-    installVerifiedData(novelDir, { runId: run.run_id });
-    const { verifyInstalled } = require('./lib/install');
-    const installed = verifyInstalled(novelDir);
-    if (!installed.passed) {
-      throw new GameKbError('INSTALLED_VERIFICATION_FAILED', 'Installed verification failed', installed);
-    }
-    archiveRun(novelDir, run.run_id);
-    return publicRunResult(
-      run,
-      { status: 'complete', progress: next.progress, jobs: [], manual_review: null },
-      warnings
-    );
+    return completeV7Run(novelDir, run, paths, next.progress, warnings);
   }
 
   return publicRunResult(run, next, warnings);
@@ -163,6 +183,9 @@ function v7Status(novelDir, requestedRun) {
   const { activeJobMetadata } = require('./lib/chapter-work');
   const { assertActiveWorkerContracts } = require('./lib/chapter-progress');
   const run = resolveRunReadOnly(novelDir, requestedRun);
+  if (run.status === 'archived') {
+    require('./lib/archive-integrity').verifyArchivedTimingEvidence(run.run_dir);
+  }
   const paths = pathsFor(novelDir, run.run_id);
   if (run.semantic_contract_version !== 7 || !fs.existsSync(paths.progress)) {
     return publicRunResult(run, {

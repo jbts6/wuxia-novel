@@ -13,6 +13,7 @@ const {
   writeAllWorkerOutputs,
   writeWorkerOutput
 } = require('./helpers');
+const { readTimingEvents } = require('../scripts/lib/timing-events');
 
 const REPOSITORY_ROOT = path.resolve(__dirname, '..', '..', '..', '..');
 
@@ -63,6 +64,25 @@ test('six chapters cross the first window and install five YAML plus review repo
     'chapter_summaries.yaml', 'characters.yaml', 'factions.yaml', 'items.yaml', 'skills.yaml'
   ]);
   assert.equal(fs.existsSync(path.join(novel, 'reports', 'game-kb-review.json')), true);
+  const archiveDir = path.join(novel, '_archive', 'generate-game-kb', result.run_id);
+  const metrics = JSON.parse(fs.readFileSync(
+    path.join(archiveDir, 'reports', 'run-metrics.json'),
+    'utf8'
+  ));
+  const events = readTimingEvents(path.join(archiveDir, 'events.jsonl'));
+  assert.equal(metrics.schema_version, 2);
+  assert.equal(metrics.human_wait_ms, 0);
+  assert.equal(metrics.active_ms, metrics.total_ms);
+  assert.deepEqual(metrics.ai_units.chapter, {
+    planned: 6, done: 6, attempts: 6, corrections: 0
+  });
+  assert.equal(metrics.candidate_counts.chapter_candidates, 24);
+  assert.equal(metrics.windows.issued, 2);
+  assert.equal(metrics.windows.closed, 2);
+  for (const phase of ['assemble', 'verify', 'install', 'archive']) {
+    assert.equal(events.filter(event => event.event_key === `phase-started:${phase}`).length, 1);
+    assert.equal(events.filter(event => event.event_key === `phase-completed:${phase}`).length, 1);
+  }
   assertCleanWorkspace(novel, rootSnapshot);
 });
 

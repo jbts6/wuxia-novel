@@ -9,6 +9,10 @@ const { ensureAcceptedArtifact, initializeArtifactManifest } = require('../scrip
 const { atomicWriteJson, readJson } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
 const { SEMANTIC_CONTRACT_VERSION, SEMANTIC_PROFILE } = require('../scripts/lib/run');
+const {
+  TIMING_CONTRACT_VERSION,
+  appendTimingEvent
+} = require('../scripts/lib/timing-events');
 
 function acceptedChapter(number) {
   const text = `第${number}章证据。`;
@@ -59,6 +63,7 @@ function createV7Workspace(options = {}) {
       file: path.join(paths.sourceChapters, `chapter_${String(number).padStart(3, '0')}.txt`)
     };
   });
+  const timingStartedAt = '2026-07-22T00:00:00.000Z';
   atomicWriteJson(paths.runJson, {
     run_id: runId,
     semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
@@ -67,7 +72,11 @@ function createV7Workspace(options = {}) {
     deep: false,
     status: 'active',
     source_hash: sourceHash,
-    created_at: '2026-07-22T00:00:00.000Z'
+    created_at: timingStartedAt,
+    ...(options.timing ? {
+      timing_contract_version: TIMING_CONTRACT_VERSION,
+      started_at: timingStartedAt
+    } : {})
   });
   atomicWriteJson(paths.manifest, { source_hash: sourceHash, chapters });
   initializeArtifactManifest(paths);
@@ -90,7 +99,47 @@ function createV7Workspace(options = {}) {
       { status: 'accepted', attempt: 1, cycle: 1 }
     ]))
   });
+  if (options.timing) {
+    appendTimingEvent(paths.events, { type: 'run_started' }, { occurredAt: timingStartedAt });
+    appendTimingEvent(paths.events, { type: 'source_prepare_started' }, {
+      occurredAt: '2026-07-22T00:00:01.000Z'
+    });
+    appendTimingEvent(paths.events, { type: 'source_prepared' }, {
+      occurredAt: '2026-07-22T00:00:02.000Z'
+    });
+    appendTimingEvent(paths.events, { type: 'window_issued', window_sequence: 1 }, {
+      occurredAt: '2026-07-22T00:00:03.000Z'
+    });
+    for (const chapter of chapters) {
+      const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
+      const fields = { unit, cycle: 1, attempt: 1, producer: 'chapter-worker' };
+      appendTimingEvent(paths.events, { type: 'attempt_issued', ...fields }, {
+        occurredAt: '2026-07-22T00:00:03.000Z'
+      });
+    }
+    for (const chapter of chapters) {
+      const unit = `chapter:${String(chapter.number).padStart(3, '0')}`;
+      const fields = { unit, cycle: 1, attempt: 1, producer: 'chapter-worker' };
+      appendTimingEvent(paths.events, { type: 'attempt_observed', ...fields }, {
+        occurredAt: '2026-07-22T00:00:04.000Z'
+      });
+      appendTimingEvent(paths.events, { type: 'attempt_accepted', ...fields }, {
+        occurredAt: '2026-07-22T00:00:05.000Z'
+      });
+    }
+    appendTimingEvent(paths.events, { type: 'window_closed', window_sequence: 1 }, {
+      occurredAt: '2026-07-22T00:00:06.000Z'
+    });
+    appendTimingEvent(paths.events, { type: 'phase_started', phase: 'assemble' }, {
+      occurredAt: '2026-07-22T00:00:07.000Z'
+    });
+  }
   assembleRun({ paths });
+  if (options.timing) {
+    appendTimingEvent(paths.events, { type: 'phase_completed', phase: 'assemble' }, {
+      occurredAt: '2026-07-22T00:00:08.000Z'
+    });
+  }
   return { novel, runId, paths, manifest: readJson(paths.manifest) };
 }
 

@@ -4,14 +4,13 @@ const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const { stableHash } = require('./io');
 const { GameKbError } = require('./errors');
 const { atomicWriteFile, atomicWriteJson, readJson } = require('./io');
 const { pathsFor } = require('./paths');
-const { assertAcceptedArtifacts, readArtifactManifest } = require('./candidate-ledger');
-const { buildRunMetrics, derivePhaseDurations } = require('./timing');
-const { SEMANTIC_CONTRACT_VERSION, assertSemanticContract } = require('./run');
-const { inspectWorkspaceFinal } = require('./verify');
+const { buildEventRunMetrics, buildRunMetrics, derivePhaseDurations } = require('./timing');
+const { assertSemanticContract } = require('./run');
+const { recordRunTimingEvent } = require('./timing-events');
+const archiveIntegrity = require('./archive-integrity');
 
 const ARCHIVE_ID_PATTERN = /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/;
 
@@ -192,53 +191,114 @@ function archiveExisting(novelDir, options = {}) {
   }
 }
 
-function verifyRunArtifacts(paths) {
-  const manifest = readArtifactManifest(paths);
-  const mismatches = [];
-  for (const entry of manifest.entries) {
-    const file = path.join(paths.run, ...entry.relative_path.split('/'));
-    if (!fs.existsSync(file) || !fs.statSync(file).isFile()) {
-      mismatches.push({ relative_path: entry.relative_path, expected_hash: entry.content_hash, actual_hash: null });
-      continue;
-    }
-    const actual = sha256File(file);
-    if (actual !== entry.content_hash) {
-      mismatches.push({ relative_path: entry.relative_path, expected_hash: entry.content_hash, actual_hash: actual });
-    }
-  }
-  if (mismatches.length > 0) {
-    throw new GameKbError('ACCEPTED_ARTIFACT_MUTATED', 'Run contains mutated accepted artifacts', { mismatches });
-  }
-  return manifest;
-}
-
-function assertInstalledIdentity(metadata, installed, runId) {
-  const requested = {
-    semantic_contract_version: metadata.semantic_contract_version ?? null,
-    source_hash: metadata.source_hash ?? null,
-    final_data_hash: metadata.final_data_hash ?? null
-  };
-  const actual = {
-    semantic_contract_version: installed.semantic_contract_version ?? null,
-    source_hash: installed.source_hash ?? null,
-    final_data_hash: installed.final_data_hash ?? null
-  };
-  const mismatches = Object.keys(requested)
-    .filter(key => requested[key] !== actual[key])
-    .map(key => ({ field: key, requested: requested[key], installed: actual[key] }));
-  if (mismatches.length > 0) {
-    throw new GameKbError(
-      'ARCHIVE_INSTALLED_IDENTITY_MISMATCH',
-      'Requested run does not match the installed data identity',
-      { run_id: runId, requested, installed: actual, mismatches }
-    );
-  }
-}
-
 function maybeArchiveFault(options, point) {
   if (typeof options.injectFault === 'function') options.injectFault(point);
   if (options.faultAt === point) {
     throw new GameKbError('ARCHIVE_FAULT_INJECTED', `Injected archive fault at ${point}`, { point });
+  }
+}
+
+function archiveTimestamp(options) {
+  const value = typeof options.now === 'function' ? options.now() : new Date();
+  const parsed = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(parsed.valueOf())) {
+    throw new GameKbError('TIMING_EVENTS_INVALID', 'Archive completion timestamp is invalid');
+  }
+  return parsed.toISOString();
+}
+
+function previousArchiveState(paths) {
+  return {
+    runJson: fs.readFileSync(paths.runJson),
+    metrics: fs.existsSync(paths.runMetrics) ? fs.readFileSync(paths.runMetrics) : null,
+    events: fs.existsSync(paths.events) ? fs.readFileSync(paths.events) : null
+  };
+}
+
+function restoreArchiveFile(file, content) {
+  if (content === null) fs.rmSync(file, { force: true });
+  else atomicWriteFile(file, content);
+}
+
+function writeArchiveMetrics(paths, metadata, archivedAt) {
+  if (metadata.timing_contract_version !== undefined
+    && metadata.timing_contract_version !== 1) {
+    throw new GameKbError('TIMING_CONTRACT_UNSUPPORTED', 'Timing contract version is unsupported', {
+      timing_contract_version: metadata.timing_contract_version
+    });
+  }
+  if (metadata.timing_contract_version === 1) {
+    recordRunTimingEvent(paths, { type: 'phase_completed', phase: 'archive' }, {
+      occurredAt: archivedAt
+    });
+    const metrics = buildEventRunMetrics(paths, metadata, archivedAt);
+    atomicWriteJson(paths.runMetrics, metrics);
+    return metrics.phase_durations;
+  }
+  const progress = fs.existsSync(paths.progress) ? readJson(paths.progress) : { units: {} };
+  const durations = derivePhaseDurations(metadata, progress, archivedAt);
+  const metrics = buildRunMetrics(paths, metadata, progress, archivedAt);
+  atomicWriteJson(paths.runMetrics, { ...metrics, phase_durations: durations });
+  return durations;
+}
+
+function rollbackArchive(paths, archiveDir, previous) {
+  if (!fs.existsSync(paths.run) && fs.existsSync(archiveDir)) {
+    fs.renameSync(archiveDir, paths.run);
+  }
+  if (!fs.existsSync(paths.run)) return;
+  restoreArchiveFile(paths.runJson, previous.runJson);
+  restoreArchiveFile(paths.runMetrics, previous.metrics);
+  restoreArchiveFile(paths.events, previous.events);
+  fs.rmSync(path.join(paths.run, 'archive-receipt.json'), { force: true });
+}
+
+function removeEmptyRunParents(paths) {
+  const runsDir = path.dirname(paths.run);
+  if (fs.existsSync(runsDir) && fs.readdirSync(runsDir).length === 0) fs.rmdirSync(runsDir);
+  const workDir = path.dirname(runsDir);
+  if (fs.existsSync(workDir) && fs.readdirSync(workDir).length === 0) fs.rmdirSync(workDir);
+}
+
+function completeArchiveTransaction(context, paths, archiveDir, options) {
+  const previous = previousArchiveState(paths);
+  fs.mkdirSync(path.dirname(archiveDir), { recursive: true });
+  try {
+    fs.renameSync(paths.run, archiveDir);
+    maybeArchiveFault(options, 'after_move');
+    const archivedPaths = archiveIntegrity.relocateRunPaths(paths, archiveDir);
+    archiveIntegrity.verifyRunArtifacts(archivedPaths);
+    maybeArchiveFault(options, 'after_archive_verification');
+    const archivedAt = archiveTimestamp(options);
+    const durations = writeArchiveMetrics(archivedPaths, context.metadata, archivedAt);
+    atomicWriteJson(archivedPaths.runJson, {
+      ...context.metadata,
+      status: 'archived',
+      archived_at: archivedAt,
+      phase_durations: durations
+    });
+    maybeArchiveFault(options, 'after_metadata_write');
+    maybeArchiveFault(options, 'after_timing_write');
+    const receipt = archiveIntegrity.buildArchiveReceipt(
+      context, archivedPaths, archiveDir, archivedAt
+    );
+    atomicWriteJson(path.join(archiveDir, 'archive-receipt.json'), receipt);
+    maybeArchiveFault(options, 'after_receipt_write');
+    archiveIntegrity.verifyArchivedTimingEvidence(archiveDir);
+    removeEmptyRunParents(paths);
+    return receipt;
+  } catch (error) {
+    try {
+      rollbackArchive(paths, archiveDir, previous);
+    } catch (rollbackError) {
+      throw new GameKbError('ARCHIVE_ROLLBACK_FAILED', 'Run archive failed and rollback was incomplete', {
+        cause: error.message,
+        rollback_cause: rollbackError.message
+      });
+    }
+    throw new GameKbError('ARCHIVE_MOVE_FAILED', 'Run archive failed and was rolled back', {
+      cause: error.message
+    });
   }
 }
 
@@ -255,173 +315,12 @@ function archiveRun(novelDir, runId, options = {}) {
   assertSemanticContract(metadata, 'archive-run');
   const archiveDir = path.join(novel, '_archive', 'generate-game-kb', runId);
   if (fs.existsSync(archiveDir)) {
-    throw new GameKbError('ARCHIVE_PATH_COLLISION', 'Run archive destination already exists', { archive_dir: archiveDir });
-  }
-  const { INSTALL_RECEIPT, verifyInstalled } = require('./install');
-  const installed = verifyInstalled(novel);
-  if (!installed.passed) {
-    throw new GameKbError('INSTALLED_VERIFICATION_REQUIRED', 'verify --installed must pass before archive-run', installed);
-  }
-  assertInstalledIdentity(metadata, installed, runId);
-  const manifest = readJson(paths.manifest);
-  const assembly = readJson(paths.assemblyReport);
-  const verification = readJson(paths.verificationReport);
-  const installedReceiptFile = path.join(novel, 'reports', INSTALL_RECEIPT);
-  const installedReceipt = readJson(installedReceiptFile);
-  const assemblyReportHash = sha256File(paths.assemblyReport);
-  const verificationReportHash = sha256File(paths.verificationReport);
-  const installReceiptHash = sha256File(installedReceiptFile);
-  const reviewReportHash = sha256File(paths.reviewReport);
-  const idPlanHash = stableHash(readJson(paths.finalIdPlan));
-  const migrationReceiptHash = fs.existsSync(paths.chapterImportReceipt)
-    ? sha256File(paths.chapterImportReceipt)
-    : null;
-  const expectedHash = assembly?.final_data_hash;
-  const workspace = inspectWorkspaceFinal(paths, {
-    chapters: manifest.chapters,
-    expectedHash
-  });
-  const blockingErrors = [...workspace.blocking_errors];
-  const warnings = [];
-  if (typeof expectedHash !== 'string' || expectedHash === '') {
-    blockingErrors.push({ code: 'ASSEMBLY_FINAL_HASH_MISSING', path: paths.assemblyReport, target: '' });
-  }
-  if (verification?.passed !== true) {
-    blockingErrors.push({ code: 'VERIFICATION_NOT_PASSED', path: paths.verificationReport, target: '' });
-  }
-  if (verification?.source_hash !== manifest.source_hash) {
-    blockingErrors.push({
-      code: 'VERIFICATION_SOURCE_HASH_STALE',
-      path: paths.verificationReport,
-      target: verification?.source_hash ?? ''
+    throw new GameKbError('ARCHIVE_PATH_COLLISION', 'Run archive destination already exists', {
+      archive_dir: archiveDir
     });
   }
-  if (verification?.final_data_hash !== expectedHash) {
-    blockingErrors.push({
-      code: 'VERIFICATION_FINAL_HASH_STALE',
-      path: paths.verificationReport,
-      target: verification?.final_data_hash ?? ''
-    });
-  }
-  const reportBindings = [
-    ['ASSEMBLY_SOURCE_HASH_STALE', assembly?.source_hash, manifest.source_hash, paths.assemblyReport],
-    ['ASSEMBLY_REVIEW_HASH_STALE', assembly?.review_report_hash, reviewReportHash, paths.assemblyReport],
-    ['VERIFICATION_REVIEW_HASH_STALE', verification?.review_report_hash, reviewReportHash, paths.verificationReport],
-    ['INSTALL_SOURCE_HASH_STALE', installedReceipt?.source_hash, manifest.source_hash, installedReceiptFile],
-    ['INSTALL_FINAL_HASH_STALE', installedReceipt?.final_data_hash, expectedHash, installedReceiptFile],
-    ['INSTALL_VERIFICATION_HASH_STALE', installedReceipt?.verification_report_hash, verificationReportHash, installedReceiptFile],
-    ['INSTALL_REVIEW_HASH_STALE', installedReceipt?.review_report_hash, reviewReportHash, installedReceiptFile]
-  ];
-  for (const [code, actual, expected, reportPath] of reportBindings) {
-    if (actual !== expected) blockingErrors.push({ code, path: reportPath, target: actual ?? '' });
-  }
-  if (metadata.verification_report_hash !== verificationReportHash) {
-    warnings.push({
-      code: 'VERIFICATION_REPORT_HASH_MISMATCH',
-      path: paths.verificationReport,
-      target: metadata.verification_report_hash ?? ''
-    });
-  }
-  if (metadata.id_plan_hash !== idPlanHash) {
-    warnings.push({
-      code: 'ID_PLAN_HASH_MISMATCH',
-      path: paths.finalIdPlan,
-      target: metadata.id_plan_hash ?? ''
-    });
-  }
-  if ((metadata.migration_receipt_hash ?? null) !== migrationReceiptHash) {
-    warnings.push({
-      code: 'MIGRATION_RECEIPT_HASH_MISMATCH',
-      path: paths.chapterImportReceipt,
-      target: metadata.migration_receipt_hash ?? ''
-    });
-  }
-  if (blockingErrors.length > 0) {
-    throw new GameKbError(
-      'ARCHIVE_WORKSPACE_FINAL_INVALID',
-      'Current workspace final data must match assembly and verification evidence before archive-run',
-      {
-        run_id: runId,
-        expected_final_data_hash: expectedHash ?? null,
-        actual_final_data_hash: workspace.final_data_hash,
-        blocking_errors: blockingErrors,
-        warnings
-      }
-    );
-  }
-  assertAcceptedArtifacts(paths);
-  const artifactManifest = verifyRunArtifacts(paths);
-  const archivedAt = new Date().toISOString();
-  const progress = fs.existsSync(paths.progress) ? readJson(paths.progress) : { units: {} };
-  const durations = derivePhaseDurations(metadata, progress, archivedAt);
-  const metrics = buildRunMetrics(paths, metadata, progress, archivedAt);
-  const previousRunJson = fs.readFileSync(paths.runJson);
-  const previousMetrics = fs.existsSync(paths.runMetrics) ? fs.readFileSync(paths.runMetrics) : null;
-  fs.mkdirSync(path.dirname(archiveDir), { recursive: true });
-  try {
-    atomicWriteJson(paths.runMetrics, { ...metrics, phase_durations: durations });
-    atomicWriteJson(paths.runJson, {
-      ...metadata,
-      status: 'archived',
-      archived_at: archivedAt,
-      phase_durations: durations
-    });
-    maybeArchiveFault(options, 'after_metadata_write');
-    fs.renameSync(paths.run, archiveDir);
-    maybeArchiveFault(options, 'after_move');
-    const archivedManifest = path.join(archiveDir, 'artifact-manifest.json');
-    verifyRunArtifacts({ ...paths, run: archiveDir, artifactManifest: archivedManifest });
-    maybeArchiveFault(options, 'after_archive_verification');
-    const receipt = {
-      schema_version: 1,
-      semantic_contract_version: SEMANTIC_CONTRACT_VERSION,
-      status: 'archived',
-      run_id: runId,
-      archive_dir: archiveDir,
-      archived_at: archivedAt,
-      artifact_manifest_hash: sha256File(archivedManifest),
-      assembly_report_hash: assemblyReportHash,
-      verification_report_hash: verificationReportHash,
-      install_receipt_hash: installReceiptHash,
-      review_report_hash: reviewReportHash,
-      source_hash: manifest.source_hash,
-      final_data_hash: expectedHash,
-      id_plan_hash: idPlanHash,
-      migration_receipt_hash: migrationReceiptHash,
-      warnings,
-      artifact_count: artifactManifest.entries.length,
-      metrics_hash: sha256File(path.join(archiveDir, 'reports', 'run-metrics.json'))
-    };
-    atomicWriteJson(path.join(archiveDir, 'archive-receipt.json'), receipt);
-    maybeArchiveFault(options, 'after_receipt_write');
-    const runsDir = path.dirname(paths.run);
-    if (fs.existsSync(runsDir) && fs.readdirSync(runsDir).length === 0) fs.rmdirSync(runsDir);
-    const workDir = path.dirname(runsDir);
-    if (fs.existsSync(workDir) && fs.readdirSync(workDir).length === 0) fs.rmdirSync(workDir);
-    return receipt;
-  } catch (error) {
-    let rollbackError = null;
-    try {
-      if (!fs.existsSync(paths.run) && fs.existsSync(archiveDir)) {
-        fs.renameSync(archiveDir, paths.run);
-      }
-      if (fs.existsSync(paths.run)) {
-        atomicWriteFile(paths.runJson, previousRunJson);
-        if (previousMetrics === null) fs.rmSync(paths.runMetrics, { force: true });
-        else atomicWriteFile(paths.runMetrics, previousMetrics);
-        fs.rmSync(path.join(paths.run, 'archive-receipt.json'), { force: true });
-      }
-    } catch (recoveryError) {
-      rollbackError = recoveryError;
-    }
-    if (rollbackError) {
-      throw new GameKbError('ARCHIVE_ROLLBACK_FAILED', 'Run archive failed and rollback was incomplete', {
-        cause: error.message,
-        rollback_cause: rollbackError.message
-      });
-    }
-    throw new GameKbError('ARCHIVE_MOVE_FAILED', 'Run archive failed and was rolled back', { cause: error.message });
-  }
+  const context = archiveIntegrity.collectArchiveEvidence(novel, paths, metadata, runId);
+  return completeArchiveTransaction({ ...context, metadata }, paths, archiveDir, options);
 }
 
 function archiveAbandoned(novelDir, runId) {
@@ -462,5 +361,5 @@ module.exports = {
   assertCleanNovelRoot,
   buildArchivePlan,
   sha256File,
-  verifyRunArtifacts
+  verifyRunArtifacts: archiveIntegrity.verifyRunArtifacts
 };
