@@ -1569,3 +1569,37 @@ Recovered remediated worker guards, hardened Claude workflow handoff, restored c
 ### Next Steps
 
 - None - task complete
+
+
+## Session 32: 同步 Dashboard game-kb 状态合同
+
+**Date**: 2026-07-23
+**Task**: 同步 Dashboard game-kb 状态合同
+**Branch**: `main`
+
+### Summary
+
+审核并修复 Dashboard 对 generate-game-kb v7、旧 v6 回执和旧 generate-kb 合同的状态识别；补齐安装验证提示与带 runId 的状态动作；完成 202 项测试、类型检查、lint、构建和七部作品真实数据验证。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `69ecfa64` | (see git log) |
+| `044daee7` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
