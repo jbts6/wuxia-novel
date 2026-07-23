@@ -5,7 +5,7 @@
     - 暗器
   factions: []
   rank: null
-  description: 以手或长鞭精准弹射骰子的投掷技艺；无名少年以鞭梢将骰子嵌入墙壁，楚留香则以手指弹骰连续撞碎。
+  description: 第二人所擅且被无花归入忍术组成的暗器手段。
   techniques: []
 - id: skill_bai_bu_shen_quan
   name: 百步神拳
@@ -13,21 +13,29 @@
   types:
     - 拳法
   factions:
-    - faction_shao_lin
+    - faction_shao_lin_si
   rank: null
-  description: 少林拳法，拳风雄浑猛烈，能隔空击敌。
-  techniques:
-    - name: 隔山打牛
-      description: 以拳风隔空传递劲力的运用方式。
+  description: null
+  techniques: []
+- id: skill_bi_sha_zhi_jian
+  name: 必杀之剑
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 天枫十四郎乌袍金丝大字与其所持长刀之杀招称谓，与迎风一刀斩相连，号称剑出必杀、挡者无赦。
+  techniques: []
 - id: skill_dan_xin_shu
   name: 丹心术
   aliases: []
   types:
-    - 奇门
+    - 毒功
+    - 其他
   factions:
     - faction_yi_he_gu
   rank: null
-  description: 以紫雾中的亮星引发雷轰般爆裂，使树干焦黑、枝叶迅速枯黄。
+  description: 紫雾夹紫星卷来，可震劈大树、焦炭树心并令叶枯死。
   techniques: []
 - id: skill_dao_fa
   name: 刀法
@@ -36,7 +44,7 @@
     - 刀法
   factions: []
   rank: null
-  description: 无名黑衣少年以缅刀施展的泼辣阳刚刀术。
+  description: 天枫十四郎被称为来自东瀛的刀法名家。
   techniques: []
 - id: skill_dong_ying_jian_fa
   name: 东瀛剑法
@@ -45,7 +53,7 @@
     - 剑法
   factions: []
   rank: null
-  description: null
+  description: 东瀛剑客天枫十四郎所用的诡异剑法，有其独有门户；任慈曾欲与之一决高下。
   techniques: []
 - id: skill_fei_huan_tao_yue_xing_yun_bu_yu
   name: 飞环套月,行云布雨
@@ -54,7 +62,17 @@
     - 鞭法
   factions: []
   rank: null
-  description: 黑衣少年纵横大漠的鞭法，以长鞭化出层层虚实难辨的圈套困敌。
+  description: 黑衣少年鞭法，大圈套小圈、虚虚实实，曾纵横大漠未遇敌手。
+  techniques: []
+- id: skill_fei_xiu_gong
+  name: 飞袖功
+  aliases: []
+  types:
+    - 外功
+  factions:
+    - faction_shao_lin_si
+  rank: null
+  description: null
   techniques: []
 - id: skill_fen_guang_zhuo_ying
   name: 分光捉影
@@ -63,7 +81,7 @@
     - 身法
   factions: []
   rank: null
-  description: 楚留香可用来凌空捉取兵刃或暗器的精妙手法，但面对带毒鬼爪时不能直接施展。
+  description: 楚留香的高明身法，能捉暗器、抄断签，并在交手中连变闪避。
   techniques: []
 - id: skill_feng_ping_zhang
   name: 风萍掌
@@ -73,14 +91,15 @@
   factions:
     - faction_shao_lin
   rank: null
-  description: 少林外家掌法，掌势诡异飘忽、虚多于实，以巧取胜而非单纯凭借力量。
+  description: 少林外家绝技，掌势诡异飘忽、以巧取胜，虚多于实；无花在交手中所换第三种功夫。
   techniques: []
 - id: skill_ji_feng_shi_san_ci
   name: 急风十三刺
   aliases: []
   types:
     - 剑法
-  factions: []
+  factions:
+    - faction_gai_bang
   rank: null
   description: null
   techniques: []
@@ -91,18 +110,18 @@
     - 剑法
   factions: []
   rank: null
-  description: 中原一点红以手腕发力施展的迅急毒辣剑术，剑势变化难测。
+  description: 无花自天枫十四郎所学武功之一，与忍术并提；幼时难成，赖武功秘笈。
   techniques: []
 - id: skill_kong_chan_shu
   name: 空蝉术
   aliases: []
   types:
-    - 身法
-    - 奇门
+    - 易容
+    - 其他
   factions:
     - faction_yi_he_gu
   rank: null
-  description: 危急时借钉入石壁的丝线卸去坠势，从绝崖下方荡落脱身。
+  description: 伊贺逃脱之术；楚留香抓住的只是假发与蜡黄面具，其人借丝线荡落崖下。
   techniques: []
 - id: skill_kong_shou_ru_bai_ren
   name: 空手入白刃
@@ -111,7 +130,7 @@
     - 擒拿
   factions: []
   rank: null
-  description: null
+  description: 张啸林（楚留香）为夺一点红自刺之剑而展开的徒手对兵刃武功。
   techniques: []
 - id: skill_liu_yun_tie_xiu
   name: 流云铁袖
@@ -121,7 +140,16 @@
   factions:
     - faction_wu_dang
   rank: null
-  description: 武当绝技，以衣袖作为攻防利器；正文又指出少林袖功同样刚猛强劲。
+  description: null
+  techniques: []
+- id: skill_mi_yao
+  name: 迷药
+  aliases: []
+  types:
+    - 毒功
+  factions: []
+  rank: null
+  description: 无花解说忍术组成时所列举的迷药手段。
   techniques: []
 - id: skill_nei_jia_xin_fa
   name: 内家心法
@@ -130,7 +158,17 @@
     - 心法
   factions: []
   rank: null
-  description: null
+  description: 无花比较东瀛武功时提及的中土内家心法，谓柳生流、一刀流以静制动后发制人与之相似。
+  techniques: []
+- id: skill_qi_xing_fei_huan
+  name: 七星飞环
+  aliases: []
+  types:
+    - 暗器
+  factions:
+    - faction_tian_xing_bang
+  rank: null
+  description: 天星帮门下标志性暗器或武功，左又铮手指上套有精钢乌金戒指。
   techniques: []
 - id: skill_qing_gong
   name: 轻功
@@ -139,57 +177,59 @@
     - 轻功
   factions: []
   rank: null
-  description: 黑珍珠自信可用于跟踪南宫灵、但被楚留香认为仍不足以不被察觉的轻身功夫。
+  description: 本章中与第二神秘人及楚留香水性身法相关的身法能力；亦被无花列为忍术组成之一。
   techniques: []
 - id: skill_ren_shu
   name: 忍术
   aliases: []
   types:
-    - 奇门
-    - 身法
+    - 其他
   factions:
     - faction_yi_he
+    - faction_yi_he_gu
   rank: null
-  description: 传自东瀛、能令施术者在敌人面前突然消失的神秘武功；刺杀宋刚的神秘人借紫烟施展类似手段脱身。
-  techniques: []
+  description: 传自伊贺的神秘武功，无花指其为轻功、暗器、迷药与易容术的混合；据说二十年前有伊贺忍者在闽南居住三年，中土通此术者或出其间。
+  techniques:
+    - name: 死卷术
+      description: 银环飞套折树，可如影随形追击。
+    - name: 丹心术
+      description: 紫雾紫星毁树焦心。
+    - name: 空蝉术
+      description: 弃假发面具脱身。
 - id: skill_ren_shu_mi_ji
   name: 忍术秘技
   aliases: []
   types:
-    - 奇门
+    - 其他
   factions: []
   rank: null
-  description: 楚留香认为神秘凶手所掌握的东瀛武士秘技，其来历可能与天枫十四郎有关。
+  description: null
   techniques: []
 - id: skill_ru_yi_ba_da
   name: 如意八打
   aliases: []
   types:
-    - 奇门
-  factions: []
+    - 其他
+  factions:
+    - faction_gai_bang
   rank: null
   description: null
-  techniques:
-    - name: 点穴棒
-      description: null
-    - name: 判官笔
-      description: null
-    - name: 分水刺
-      description: null
+  techniques: []
 - id: skill_shao_lin_shen_quan
   name: 少林神拳
   aliases: []
   types:
     - 拳法
   factions:
+    - faction_shao_lin_si
     - faction_shao_lin
   rank: null
-  description: 无花施展的少林拳法，拳势刚猛并带有霹雳般的冲击力。
+  description: 名震天下的少林本门拳法，无花开手所用，隐浑拳势并含降龙伏虎等精华；刚猛惊人。
   techniques:
     - name: 隐浑拳势
-      description: 少林神拳第一着所用的拳势，配合霹雳之威形成惊天动地的力量。
+      description: 无花第一着所用本门拳法之势，再衬霹雳之威。
     - name: 降龙伏虎
-      description: 无花连续击出的少林神拳变化，拳劲刚猛且每一拳都蕴含该拳法精华。
+      description: 少林神拳精华招式之一，无花连击中施展。
 - id: skill_shen_fa
   name: 身法
   aliases: []
@@ -197,18 +237,26 @@
     - 身法
   factions: []
   rank: null
-  description: 中原一点红追击张啸林时展现的快速移动身法。
+  description: null
+  techniques: []
+- id: skill_shi_san_jian
+  name: 十三剑
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 中原一点红的连环杀手剑招，宣称朱砂帮门下无人能躲过；一瞬间可连续刺出。
   techniques: []
 - id: skill_si_juan_shu
   name: 死卷术
   aliases: []
   types:
-    - 奇门
     - 暗器
   factions:
     - faction_yi_he_gu
   rank: null
-  description: 忍术九大秘功之一，以飞旋来去的银环套击目标，能折断碗口粗的树木。
+  description: 忍术九大秘功之一；银光飞环套树折树，可活转追人，被楚留香以乌星击破。
   techniques: []
 - id: skill_tan_zhi_shen_tong
   name: 弹指神通
@@ -217,7 +265,16 @@
     - 指法
   factions: []
   rank: null
-  description: 以内家指力弹出锐风，专攻对手肩胛下的穴位，命中可使半身无法动弹。
+  description: 内家指法，无花变拳为指弹出一缕锐风，指向楚留香右胛下期门、将台诸穴。
+  techniques: []
+- id: skill_tie_zhang
+  name: 铁掌
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: null
   techniques: []
 - id: skill_tui_na
   name: 推拿
@@ -236,16 +293,27 @@
   factions:
     - faction_xue_sha_wu_gui
   rank: null
-  description: 截断受害者手足并分置各处的残酷杀人手法，被冷秋魂认为是血煞五鬼的招牌。
+  description: null
   techniques: []
-- id: skill_xia_du
-  name: 下毒
+- id: skill_yi_he_mi_ji
+  name: 伊贺秘技
   aliases: []
   types:
-    - 毒功
-  factions: []
+    - 其他
+  factions:
+    - faction_yi_he_gu
   rank: null
-  description: null
+  description: 南宫灵向天枫十四郎提及欲一睹之伊贺绝技。
+  techniques: []
+- id: skill_yi_he_ren_shu
+  name: 伊贺忍术
+  aliases: []
+  types:
+    - 其他
+  factions:
+    - faction_yi_he_gu
+  rank: null
+  description: 南宫灵称天下高手中精通者几无；楚留香断定对方忍术非本门武功。
   techniques: []
 - id: skill_yi_rong_shu
   name: 易容术
@@ -254,17 +322,17 @@
     - 易容
   factions: []
   rank: null
-  description: 改变容貌的技艺；李红袖认为苏蓉蓉尤其擅长此术。
+  description: 冷秋魂评点楚留香以张啸林身份出现时的易容；亦被无花列为忍术组成之一。
   techniques: []
 - id: skill_ying_feng_yi_dao_zhan
   name: 迎风一刀斩
   aliases: []
   types:
     - 刀法
-  factions:
-    - faction_yi_he_gu
+    - 剑法
+  factions: []
   rank: null
-  description: 以静制动、后发先至的必杀刀法，凝聚施展者全力攻向对手露出的空门。
+  description: 天枫十四郎所夸剑道精华，以静制动、先以刀鞘欺敌再必杀一斩；楚留香纵下石梁再翻身反扑避过。
   techniques: []
 - id: skill_yun_di_fei_xing
   name: 云底飞星
@@ -273,7 +341,7 @@
     - 暗器
   factions: []
   rank: null
-  description: 借斗篷遮蔽发射七星针的暗器绝技，为大漠神龙昔年纵横天下的平生绝技。
+  description: 大漠神龙平生绝技，扯斗篷间以七星针击出。
   techniques: []
 - id: skill_zhu_sha_zhang
   name: 朱砂掌
@@ -282,7 +350,6 @@
     - 掌法
   factions:
     - faction_zhu_sha_men
-    - faction_zhu_sha_bang
   rank: null
-  description: 在左又铮胸口留下紫红掌印并导致其死亡的掌法。
+  description: 掌法门派武功，能在胸口留下紫红掌印致人死命。
   techniques: []

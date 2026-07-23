@@ -2,23 +2,25 @@
   name: 白玉魔
   aliases:
     - 白玉魔丐
+    - 姑苏魔丐
   identities:
+    - 白师叔
+    - 姑苏恶丐
     - 姑苏魔丐
     - 武林恶丐
-  level: 次要
+  level: 重要
   rank: null
-  description: 使用独创兵器捉魂如意钵向楚留香索命；败势后从画卷认出叶淑贞，并带楚留香前往丐帮香堂。
+  description: 持狼牙棒、天生神力，欲害秋灵素，被楚留香卸去兵刃后奔逃；南宫灵曾故意将其引向秋灵素住处。
   factions:
     - faction_gai_bang
   skills: []
-- id: char_cao_bu_xing
-  name: 曹不兴
+- id: char_cha_bo_shi
+  name: 茶博士
   aliases: []
-  identities:
-    - 画家
-  level: null
+  identities: []
+  level: 龙套
   rank: null
-  description: 孙学圃回忆自己盛名时所获比较的古代画家。
+  description: 仙游茶馆中人，传话请楚留香去见角落客官。
   factions: []
   skills: []
 - id: char_cheng_san
@@ -27,39 +29,50 @@
   identities: []
   level: null
   rank: null
-  description: 把自称关外大参药商的豪客张啸林带入赌场见冷秋魂。
+  description: null
   factions: []
+  skills: []
+- id: char_chi_ni
+  name: 痴尼
+  aliases:
+    - 女尼
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_wu_yi_an
   skills: []
 - id: char_chu_liu_xiang
   name: 楚留香
   aliases:
-    - 盗帅
     - 张啸林
+    - 赵二哥
+    - 张兄
+    - 盗帅
     - 楚香帅
-    - 香帅
   identities:
     - 盗帅
     - 楚香帅
+    - 楚公子
   level: 核心
   rank: null
-  description: 从垂死女尼留下的“无”字推想梧桐树线索，却因乌衣庵被焚而失去证据；随后在快意堂看出无名少年的飞骆驼标记，以骰子赌局替冷秋魂解围并胜出。
+  description: 本章以张啸林之名对峙一点红，下水制住失理智的一点红后往琴声寻去；与无花论及忍术与闽南线索，又回快意堂以张啸林身份见冷秋魂，并赶往迎宾楼先后寻访、查验天鹰子行囊与遇害现场。
   factions: []
   skills:
     - skill_qing_gong
     - skill_kong_shou_ru_bai_ren
     - skill_yi_rong_shu
-    - skill_an_qi
     - skill_fen_guang_zhuo_ying
     - skill_shen_fa
     - skill_tui_na
 - id: char_ci_xin_da_shi
   name: 慈心大师
   aliases: []
-  identities:
-    - 少林前任掌门
+  identities: []
   level: 背景
   rank: null
-  description: 已经仙逝的少林前任掌门，其后本应由天峰大师继承门户。
+  description: 昔日仙去后本该由天峰大师持掌少林门户。
   factions:
     - faction_song_shan_shao_lin
   skills: []
@@ -69,7 +82,7 @@
   identities: []
   level: 背景
   rank: null
-  description: 昔年纵横天下的高手，云底飞星是其平生绝技。
+  description: 昔年纵横天下，平生绝技云底飞星曾令无数武林高手丧命。
   factions: []
   skills:
     - skill_yun_di_fei_xing
@@ -79,44 +92,56 @@
     - 梅花剑
   identities:
     - 梅花剑
-    - 大内高手
-  level: 背景
+  level: 龙套
   rank: null
-  description: 七年前在北京铁狮子胡同与钱麻子结怨的江湖人物。
-  factions:
-    - faction_da_nei
+  description: 大内高手，与雀子鹤一同为邱小侯防守九龙杯而未果。
+  factions: []
   skills: []
 - id: char_feng_feng
   name: 冯风
   aliases: []
   identities:
     - 朱砂掌门人
-  level: null
+  level: 背景
   rank: null
-  description: 三十七年前的朱砂掌门人，曾因二女儿猝死亲赴皖南向天星帮兴师问罪。
+  description: 昔日朱砂掌门人，其女嫁天星帮刑堂香主后病故，曾赴皖南兴师问罪。
   factions:
     - faction_zhu_sha_men
-  skills: []
-- id: char_feng_gu_niang
-  name: 冯姑娘
-  aliases: []
-  identities:
-    - 冯风二女儿
-    - 天星帮刑堂香主妻子
-  level: null
-  rank: null
-  description: 冯风的二女儿，嫁给天星帮刑堂香主两年后因急病去世。
-  factions: []
-  skills: []
+  skills:
+    - skill_zhu_sha_zhang
 - id: char_feng_tian_he
   name: 冯天和
   aliases:
     - 夜游神
-  identities: []
+    - 冯兄
+  identities:
+    - 夜游神
+  level: 次要
+  rank: null
+  description: 满面虬髯的江湖人，与钱麻子他乡遇故知，在仙游茶馆同席喝茶。
+  factions: []
+  skills: []
+- id: char_gai_bang_zhang_lao
+  name: 丐帮长老
+  aliases: []
+  identities:
+    - 长老
+  level: 次要
+  rank: null
+  description: 面容凝重的丐帮长老；与秃鹰等候楚留香，追问凶手与尸身，惹得楚留香暴怒。
+  factions:
+    - faction_gai_bang
+  skills: []
+- id: char_ge_zhang_lao
+  name: 葛长老
+  aliases: []
+  identities:
+    - 长老
   level: 龙套
   rank: null
-  description: 钱麻子在闽南茶馆偶遇的旧友，与楚留香同席饮茶。
-  factions: []
+  description: null
+  factions:
+    - faction_gai_bang
   skills: []
 - id: char_gong_nan_yan
   name: 宫南燕
@@ -126,7 +151,7 @@
     - 神水宫弟子
   level: null
   rank: null
-  description: 前来追查天一神水失窃的神水宫弟子，透露宫中一名年轻女子怀孕后自尽，并限楚留香一个月内查明真相。
+  description: 神水宫中人，初以冷姑娘自居，限楚留香一个月内查出盗神水之人，否则神水宫将来寻他。
   factions:
     - faction_shen_shui_gong
   skills: []
@@ -134,121 +159,167 @@
   name: 公孙护法
   aliases: []
   identities:
-    - 丐帮护法
-  level: 背景
+    - 护法
+  level: 龙套
   rank: null
-  description: 负责依丐帮家法处置失职值班弟子的护法。
+  description: null
   factions:
     - faction_gai_bang
   skills: []
-- id: char_hei_zhen_zhu
-  name: 黑珍珠
-  aliases: []
+- id: char_hei_yi_shao_nian
+  name: 黑衣少年
+  aliases:
+    - 黑斗篷
   identities:
-    - 札木合之子
-    - 少年
+    - 沙漠之王的子侄
   level: 重要
   rank: null
-  description: 告知楚留香可由黑马带路找到自己；在大明湖得知南宫灵将带楚留香去见任夫人后，答应两日后继续等候消息。
+  description: 使长鞭与七星针，施展云底飞星及飞环套月、行云布雨鞭法，性情高傲拗强。
+  factions: []
+  skills:
+    - skill_fei_huan_tao_yue_xing_yun_bu_yu
+    - skill_yun_di_fei_xing
+    - skill_dao_fa
+    - skill_qing_gong
+- id: char_hei_zhen_zhu
+  name: 黑珍珠
+  aliases:
+    - 黑衣少年
+  identities: []
+  level: 重要
+  rank: null
+  description: 黑衣少年，约楚留香以黑马为信在大明湖相见，欲暗随南宫灵寻任夫人，并答应两天后仍在湖边等候。
   factions: []
   skills:
     - skill_qing_gong
 - id: char_huang_xiu_cai
   name: 黄秀才
   aliases: []
-  identities:
-    - 秀才
-  level: null
+  identities: []
+  level: 背景
   rank: null
-  description: 楚留香的钱财分配对象，获付一千两丧葬费。
+  description: 楚留香曾替其付丧葬费之人。
   factions: []
   skills: []
+- id: char_hui_mei_seng_ren
+  name: 灰眉僧人
+  aliases:
+    - 灰眉大师
+  identities:
+    - 少林监寺大师
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_shao_lin_si
+  skills:
+    - skill_bai_bu_shen_quan
+    - skill_shao_lin_shen_quan
+- id: char_hui_pao_seng_ren
+  name: 灰袍僧人
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_shao_lin_si
+  skills:
+    - skill_fei_xiu_gong
 - id: char_jin_ban_hua
   name: 金伴花
   aliases: []
   identities:
-    - 北京豪富世家公子
-  level: null
+    - 北京城的豪富世家公子
+  level: 次要
   rank: null
-  description: 白玉美人的主人，收到楚留香预告盗宝的短笺后请来三位高手防守。
+  description: 京城豪富世家公子，藏有京城四宝中最珍贵的玉美人，被楚留香盗走。
   factions: []
   skills: []
 - id: char_leng_qiu_hun
   name: 冷秋魂
   aliases:
-    - 少庄主
+    - 杀手玉郎
+    - 粉面孟尝冷秋魂
     - 冷公子
   identities:
+    - 快意堂的主管
+    - 朱砂帮的掌门弟子
     - 杀手玉郎
     - 粉面孟尝
-    - 快意堂主管
-    - 朱砂帮掌门弟子
-    - 西门千弟子
+    - 少庄主
+    - 朱砂帮门下掌权最重的一人
+    - 冷公子爷
     - 冷公子
-    - 朱砂门掌权者
-    - 快意堂庄家
-  level: 次要
+  level: 重要
   rank: null
-  description: 在快意堂与无名黑衣少年赌骰子，以六粒一点取得最低点数，却被对方以长鞭弹骰只留一点反胜，后由楚留香出面解围。
+  description: 快意堂中人，被属下尊为冷公子爷；放走沈珊姑与天星帮，向楚留香告知济南城中海南剑派高手与天鹰子落脚迎宾楼，后又接待来访的天鹰子并约午后回拜。
   factions:
-    - faction_kuai_yi_tang
     - faction_zhu_sha_bang
     - faction_zhu_sha_men
+  skills: []
+- id: char_li_gu_niang
+  name: 李姑娘
+  aliases:
+    - 李琦
+  identities:
+    - 黄山世家中仅存的李琦
+  level: 重要
+  rank: null
+  description: 离开天枫十四郎后疑重返中土，江湖传言其杀死华山四剑为父兄复仇；武功精进却始终瞒着天枫十四郎，事后销声匿迹。
+  factions:
+    - faction_huang_shan_shi_jia
   skills: []
 - id: char_li_hong_xiu
   name: 李红袖
   aliases: []
-  identities: []
+  identities:
+    - 神醋宫的掌门人
   level: 重要
   rank: null
-  description: 与楚留香、宋甜儿同船的少女，负责记录钱财分配，并凭丰富的江湖知识辨认左又铮身份和死因线索。
-  factions: []
+  description: 与宋甜儿玩笑打闹，被宋甜儿戏称为神醋宫掌门人；提醒楚留香一月后宫南燕或将以剑相向。
+  factions:
+    - faction_shen_cu_gong
   skills: []
 - id: char_li_qi
   name: 李琦
   aliases:
+    - 李琦姑娘
     - 李姑娘
-  identities:
-    - 黄山世家剑派最后一人
-    - 天枫十四郎之妻
-    - 黄山世家遗孤
-  level: 重要
+  identities: []
+  level: null
   rank: null
-  description: 黄山世家惨败后仅存之人，负伤东渡扶桑，被天枫十四郎救治后与他结为夫妇，并生下两个孩子。
+  description: null
   factions:
     - faction_huang_shan_shi_jia
   skills: []
 - id: char_li_tuo_zi
   name: 李驼子
   aliases: []
-  identities:
-    - 海边渔村居民
-  level: 背景
+  identities: []
+  level: 龙套
   rank: null
-  description: 住在鲁东红石崖附近渔村，可带黑珍珠前往楚留香的船。
+  description: 鲁东红石崖海边渔村中人，可带人到楚留香船上。
   factions: []
   skills: []
 - id: char_ling_jiu_zi
   name: 灵鹫子
   aliases: []
   identities:
-    - 海南三剑之一
-    - 出家人
-    - 秋灵素旧日追求者
-  level: 次要
+    - 海南三剑
+  level: 重要
   rank: null
-  description: 海南三剑之一，以狠毒剑法闻名；杀死西门千后，自己被利刃劈开头颅。
+  description: 收到秋灵素信件的四人之一，蛰居海隅，关联海南剑派，被算准与另三人同时到达并赴死。
   factions:
     - faction_hai_nan_jian_pai
-    - faction_hai_nan_san_jian
   skills: []
 - id: char_ling_su
   name: 灵素
   aliases: []
   identities: []
-  level: null
+  level: 背景
   rank: null
-  description: null
+  description: 天鹰子所藏粉红信笺的署名女子，信中以慧剑斩相思，嘱其断绝情丝。
   factions: []
   skills: []
 - id: char_ma_bai_wan
@@ -258,73 +329,85 @@
     - 山西四通钱庄大老板
   level: null
   rank: null
-  description: 苏蓉蓉准备的六十三号身份资料所记录人物，供楚留香伪装选择。
+  description: 楚留香六十三号易容资料中的山西钱庄大老板角色，衣服寒酸，特征怪异，楚留香拒扮。
   factions:
-    - faction_si_tong_qian_zhuang
+    - faction_shan_xi_si_tong_qian_zhuang
   skills: []
 - id: char_nan_gong_ling
   name: 南宫灵
   aliases:
     - 南宫帮主
+    - 南宫兄
   identities:
-    - 丐帮新任帮主
-    - 新任龙头帮主
+    - 新任帮主
     - 丐帮帮主
+    - 帮主
+    - 龙头帮主
     - 丐帮新帮主
-    - 任老帮主义子
     - 丐帮弟子
-    - 帮主的惟一继承人
-    - 天枫十四郎遗孤
-    - 天枫十四郎之子
-  level: 重要
+    - 弟子
+    - 丐帮帮主继承人
+    - 丐帮的新任帮主
+    - 南宫帮主
+  level: 核心
   rank: null
-  description: 丐帮帮主，以酒宴接待楚留香；得知札木合死亡后答应带他去见任夫人，并在去尼山途中透露自己是孤儿、受任老帮主养育。
+  description: 由任慈抚养传授武功，近三年下毒控制帮主与秋灵素，代送四封信并算准四人同时赴死；又与神秘人密谋以天一神水害任慈，并设计阻楚留香见秋灵素。
   factions:
     - faction_gai_bang
   skills:
     - skill_ru_yi_ba_da
     - skill_ji_feng_shi_san_ci
+    - skill_tie_zhang
     - skill_dao_fa
     - skill_shen_fa
+- id: char_qi_lu_si_xiong
+  name: 齐鲁四雄
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions: []
+  skills: []
 - id: char_qian_ma_zi
   name: 钱麻子
   aliases:
     - 满天星
-  identities: []
+    - 钱兄
+  identities:
+    - 满天星
   level: 次要
   rank: null
-  description: 曾受楚留香救命之恩，每年搜寻名茶赠送天峰大师以报旧恩。
+  description: 麻面大汉，七年前受楚留香所救，每年寻茶献给天峰大师；将茶叶托楚转送。
   factions: []
   skills: []
 - id: char_qiu_ling_su
   name: 秋灵素
   aliases:
+    - 秋夫人
     - 灵素
     - 叶淑贞
     - 任夫人
+    - 秋灵索
   identities:
-    - 秋夫人
     - 魔女
     - 任慈之妻
-    - 前丐帮帮主夫人
     - 任夫人
-    - 丐帮帮主夫人
-    - 丐帮昔日帮主的夫人
+    - 下毒能手
+    - 帮主夫人
   level: 重要
   rank: null
-  description: 容貌足以令人为之疯狂的女子，曾请孙学圃绘制四幅画像并在完成后挖去其双眼；左又铮、西门千和灵鹫子均为她痴迷。
+  description: 二十年前绝色女子，令孙学圃挖目、多位成名男子神魂颠倒；沈珊姑所持画像与西门千屋中画像为同一人，名字与短笺"灵素"相合。
   factions:
     - faction_gai_bang
-  skills:
-    - skill_xia_du
+  skills: []
 - id: char_qiu_xiao_hou
   name: 邱小侯
   aliases: []
-  identities:
-    - 侯爷
-  level: null
+  identities: []
+  level: 龙套
   rank: null
-  description: 九龙杯的原主人，虽把杯子锁入密室并请大内高手防守，仍被楚留香盗走。
+  description: 卷帘子胡同侯爷，家传九龙杯被楚留香取走。
   factions: []
   skills: []
 - id: char_que_zi_he
@@ -333,12 +416,10 @@
     - 双掌翻天
   identities:
     - 双掌翻天
-    - 大内高手
-  level: 背景
+  level: 龙套
   rank: null
-  description: 七年前在北京铁狮子胡同与钱麻子结怨的江湖人物。
-  factions:
-    - faction_da_nei
+  description: 大内高手，曾受邱小侯之请防守九龙杯，仍未能保住。
+  factions: []
   skills: []
 - id: char_ren_ci
   name: 任慈
@@ -347,78 +428,83 @@
     - 任老头子
     - 任帮主
   identities:
-    - 丐帮故去的老帮主
-    - 昔日丐帮帮主
-    - 丐帮老帮主
-    - 秋灵素之夫
+    - 老帮主
+    - 昔日丐帮的帮主
     - 任老帮主
-    - 丐帮的帮主
     - 丐帮帮主
-    - 丐帮昔日帮主
+    - 帮主
   level: 重要
   rank: null
-  description: 以打狗棒击败已负重伤的天枫十四郎，受托抚养南宫灵；后来长期陪伴容貌被毁的秋灵素，并最终被南宫灵所害。
+  description: 近三年被南宫灵下毒致手脚软瘫、形同废人，又被软禁；二十年前曾于闽南边境杀死东瀛剑客天枫十四郎。
   factions:
     - faction_gai_bang
   skills: []
 - id: char_ren_fu_ren
   name: 任夫人
-  aliases: []
+  aliases:
+    - 秋灵素
   identities:
-    - 任老帮主夫人
-  level: null
+    - 帮主夫人
+    - 夫人
+  level: 重要
   rank: null
-  description: 楚留香要查访的任老帮主遗孀，守节隐居在难以寻访之处，南宫灵答应带他前往。
+  description: 居对崖茅舍；天枫十四郎称之为秋灵素，声言任慈死后不许他人再见；章末跪于香案前，语声温柔优雅，接见南宫灵与楚留香。
   factions:
     - faction_gai_bang
   skills: []
 - id: char_ren_lao_bang_zhu
   name: 任老帮主
-  aliases:
-    - 任老头子
+  aliases: []
   identities:
-    - 丐帮前任帮主
-    - 丐帮老帮主
-    - 南宫灵养父
-    - 丐帮昔日帮主
-    - 丐帮帮主
+    - 老帮主
+    - 任老帮主
+    - 帮主
   level: 重要
   rank: null
-  description: 秋灵素的亡夫，缠绵病榻多年却突然死亡；白玉魔曾为找他报仇等待二十年。
+  description: 天峰大师欲带回天枫十四郎遗孤时相遇，天枫十四郎死在其手；无花亦欲借神水使其死得不着痕迹。
   factions:
     - faction_gai_bang
+  skills: []
+- id: char_rong_er
+  name: 蓉儿
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 楚留香责问无花为何要杀她；无花料定楚留香会派她去神水宫打听，并推断大明湖边约会之人即是她。
+  factions: []
   skills: []
 - id: char_sha_mo_zhi_wang
   name: 沙漠之王
   aliases: []
   identities:
-    - 黑衣少年之父
-    - 大漠游侠
+    - 沙漠之王
   level: null
   rank: null
-  description: 无名黑衣少年的父亲，势力遍及关内各省；收到秋灵素求援信后入关，每日以鸽书联络，十多日前突然音讯中断。
+  description: null
   factions: []
   skills: []
 - id: char_sha_tian_yi
   name: 沙天义
   aliases: []
   identities:
-    - 双义镖局总镖头
+    - 总镖头
   level: 背景
   rank: null
-  description: 双义镖局总镖头，其女儿曾被齐鲁四雄绑走。
+  description: null
   factions:
     - faction_shuang_yi_biao_ju
   skills: []
 - id: char_shan_gu
   name: 珊姑
-  aliases: []
-  identities:
+  aliases:
     - 三姑娘
-    - 天星帮弟子
-  level: null
+    - 三妹
+  identities:
+    - 女刺客
+  level: 次要
   rank: null
-  description: 姓沈的天星帮女刺客，潜入张啸林房间套取情报，反被制住并送交冷秋魂审问。
+  description: 天星帮女弟子，自屋顶潜入企图以色诱刺探张啸林，反被点麻后送交冷秋魂拷问，供出姓名与门派。
   factions:
     - faction_tian_xing_bang
   skills: []
@@ -426,22 +512,20 @@
   name: 沈珊姑
   aliases: []
   identities:
-    - 宋刚师妹
-    - 天星帮弟子
-  level: 次要
+    - 天星帮师妹
+  level: 重要
   rank: null
-  description: 为寻找失踪的大师兄左又铮，携其珍藏的美人画像找到孙学圃，持匕首逼问画中女子的身份。
+  description: 紫衫少妇，天星帮中人，被赶出济南城后独往贫民窟寻孙学圃，以匕首逼问画像中女子来历，欲为失踪大师兄寻人报复。
   factions:
     - faction_tian_xing_bang
   skills: []
 - id: char_sheng_si_pan
   name: 生死判
   aliases: []
-  identities:
-    - 江湖高手
-  level: null
+  identities: []
+  level: 次要
   rank: null
-  description: 持一对判官笔参与防守玉美人的黑衣人。
+  description: 黑衣人，使一对精钢判官笔，据称能打遍人身穴道，与万无敌、秃鹰共守玉美人。
   factions: []
   skills: []
 - id: char_shi_guan_yin
@@ -450,95 +534,148 @@
   identities: []
   level: null
   rank: null
-  description: 秋灵素口中武功极高、心肠冷酷的女人，因魔镜称秋灵素最美，便逼她在死亡与毁容之间选择。
+  description: null
   factions: []
   skills: []
 - id: char_si_tu_jing
   name: 司徒静
   aliases: []
-  identities:
-    - 神水宫女子
+  identities: []
   level: null
   rank: null
-  description: 神水宫中性情文静、偶尔抚琴的女子，曾有身孕并为守住所爱之人的秘密而死。
+  description: null
   factions:
     - faction_shen_shui_gong
+  skills: []
+- id: char_si_tu_zhang_lao
+  name: 司徒长老
+  aliases: []
+  identities:
+    - 丐帮长老
+  level: 背景
+  rank: null
+  description: 当年陪任慈赴闽南边境应战天枫十四郎的唯一随行者，如今早已死去。
+  factions:
+    - faction_gai_bang
   skills: []
 - id: char_song_gang
   name: 宋刚
   aliases:
+    - 宋二瓢把子
+    - 宋二先生
     - 天强星
   identities:
     - 天强星
-    - 天星帮二瓢把子
-  level: 次要
+    - 天星帮二师兄
+  level: 龙套
   rank: null
-  description: 天星帮中人、沈珊姑的二师兄；为救师妹答应退出济南，正要说明关键书信内容时遭暗杀。
+  description: 天星帮二师兄，指套乌金钢环，率众至快意堂欲救沈珊姑，为保师妹立誓永离济南，欲述书信内容时遭暗算身亡。
   factions:
     - faction_tian_xing_bang
+  skills:
+    - skill_qing_gong
+- id: char_song_hu_fa
+  name: 宋护法
+  aliases: []
+  identities:
+    - 护法
+  level: 龙套
+  rank: null
+  description: null
+  factions:
+    - faction_gai_bang
   skills: []
 - id: char_song_tian_er
   name: 宋甜儿
   aliases:
     - 甜儿
-    - 甜姑娘
-  identities:
-    - 南国姑娘
+  identities: []
   level: 重要
   rank: null
-  description: 在船舱中听楚留香与李红袖议论尸案，并透露苏蓉蓉有亲属身在神水宫。
+  description: 楚留香船上南国少女，喜说家乡话，负责做饭，怕见死人。
   factions: []
   skills: []
-- id: char_su_rong_rong
+- id: char_su
+  name: 苏
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 楚留香托黑珍珠转告的少女，姓苏，约于两天后黄昏至大明湖。
+  factions: []
+  skills: []
+- id: char_su_rong_rong_gopagjml
   name: 苏蓉蓉
   aliases:
-    - 蓉蓉
     - 蓉姐
-    - 苏容容
-    - 苏姑娘
+    - 蓉蓉
     - 蓉儿
-  identities:
-    - 苏姑娘
+  identities: []
   level: 重要
   rank: null
-  description: 接受楚留香委托，准备前往神水宫查问可出入宫中的男子及自尽少女的经历与遗物，并约定七日后在济南会合。
+  description: 应楚留香所托，天亮后动身去神水宫找表姑打听进出宫中的男人与自杀少女遗物，并约定七日后在济南大明湖风雨亭相会。
   factions: []
   skills:
     - skill_yi_rong_shu
+- id: char_su_rong_rong_ijeipigf
+  name: 苏容容
+  aliases:
+    - 苏蓉蓉
+    - 蓉蓉
+    - 苏姑娘
+  identities: []
+  level: 核心
+  rank: null
+  description: 楚留香极为看重之人；大明湖风雨亭遭四名自称朱砂帮弟子的绿袍人暗算，假死入湖，后易装渔翁与楚留香重逢。
+  factions: []
+  skills: []
+- id: char_su_xin
+  name: 素心
+  aliases:
+    - 素心大师
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
 - id: char_su_xin_da_shi
   name: 素心大师
   aliases:
     - 素心
   identities:
-    - 乌衣庵主持
+    - 住持
+    - 主持
     - 大师
   level: 次要
   rank: null
-  description: 乌衣庵主持、秋灵素的至交好友；楚留香找到乌衣庵时，发现她早已悬梁身亡，只剩枯骨。
+  description: 乌衣庵中人，被无花杀害；其痴呆徒弟临死前欲揭穿无花，只说出一个「无」字。
   factions:
     - faction_wu_yi_an
   skills: []
 - id: char_sun_xue_pu
   name: 孙学圃
   aliases:
+    - 孙秀才
+    - 孙老头
     - 孙先生
   identities:
-    - 孙秀才
     - 画师
-    - 算命人
+    - 秀才
+    - 名手
     - 人像画家
   level: 次要
   rank: null
-  description: 二十年前以人物画像闻名的盲画师，曾为秋灵素绘制四幅画像，完成后被她挖去双眼，后来在贫民窟以问卦批命为生。
+  description: 济南贫民窟白发瞎眼老头子，二十年前鼎鼎大名的画师，为秋灵素画四幅像后双目被挖，现以问卦批命为生。
   factions: []
   skills: []
 - id: char_tian_er
   name: 甜儿
   aliases: []
   identities: []
-  level: null
+  level: 背景
   rank: null
-  description: 苏蓉蓉曾为她买胭脂，楚留香临行前又托她准备几只鸡。
+  description: null
   factions: []
   skills: []
 - id: char_tian_feng_da_shi
@@ -546,30 +683,33 @@
   aliases:
     - 少林苦和尚
   identities:
-    - 少林南支掌门人
-    - 莆田少林寺方丈
-    - 少林掌门
-    - 少林高僧
+    - 少林南支的掌门人
+    - 蒲田少林寺的方丈大师
+    - 少林苦和尚
+    - 掌门师兄
+    - 高僧
   level: 重要
   rank: null
-  description: 少林掌门，嗜好品茶；在楚留香闯入禅房阻止饮茶后，承认二十年前曾与天枫十四郎交手，并开始讲述其伤心往事。
+  description: 少林南支掌门、莆田少林寺方丈，约二十年前接掌，博大宽厚不喜招摇；楚留香断定其为天枫十四郎托付长子之人。
   factions:
-    - faction_pu_tian_shao_lin_si
+    - faction_shao_lin_nan_zhi
+    - faction_pu_tian_shao_lin_si_bhmnbmjk
+    - faction_pu_tian_shao_lin_si_kadeenic
+    - faction_shao_lin_si
     - faction_shao_lin
   skills: []
 - id: char_tian_feng_shi_si_lang
   name: 天枫十四郎
   aliases: []
   identities:
-    - 伊贺忍侠
+    - 伊贺之忍侠
+    - 伊贺忍者
     - 东瀛剑客
     - 东瀛武士
-    - 东瀛刀法名家
-    - 扶桑武士
-    - 无花与南宫灵之父
+    - 来自东瀛的刀法名家
   level: 重要
   rank: null
-  description: 负内伤后仍依约挑战任慈，被打狗棒击中而伤势并发，当日死去；临死前曾将一件与南宫灵身世有关的事托付任慈。
+  description: 盘膝坐于断崖石梁，自称来自东瀛州伊贺谷，使死卷术、丹心术与迎风一刀斩阻路；自称二十余年前曾现身闽浙，为秋灵素与任慈有情恨往事；终以空蝉术弃假发面具逃脱，楚留香疑其并非真伊贺人。
   factions:
     - faction_yi_he_gu
   skills:
@@ -577,16 +717,21 @@
     - skill_dan_xin_shu
     - skill_ying_feng_yi_dao_zhan
     - skill_kong_chan_shu
+    - skill_ren_shu
+    - skill_bi_sha_zhi_jian
+    - skill_yi_he_ren_shu
     - skill_dong_ying_jian_fa
+    - skill_dao_fa
+    - skill_jian_fa
 - id: char_tian_hu_da_shi
   name: 天湖大师
   aliases: []
   identities:
-    - 少林大师
-    - 少林掌门人
-  level: 次要
+    - 大师
+    - 二师弟
+  level: 背景
   rank: null
-  description: 天峰大师的二师弟，承接天峰大师让出的少林掌门之位。
+  description: 天峰大师的二师弟，获让嵩山少林掌门之位。
   factions:
     - faction_shao_lin
     - faction_song_shan_shao_lin
@@ -594,95 +739,97 @@
 - id: char_tian_ying_zi
   name: 天鹰子
   aliases: []
-  identities: []
-  level: 次要
+  identities:
+    - 道长
+    - 名剑客
+  level: 重要
   rank: null
-  description: 掌握秘密关键却不自知，因楚留香前来寻访而被幕后之人杀死灭口。
+  description: 海南剑派中装束奇诡、佩剑狭窄的高手，落脚迎宾楼跨院；行囊中藏有灵素绝情书信，先去快意堂寻冷秋魂打听失踪同门，回院后被人点穴并以剑穿胸杀害，死时尚保持倒茶坐姿。
   factions:
     - faction_hai_nan_jian_pai
   skills: []
 - id: char_tu_ying
   name: 秃鹰
   aliases:
+    - 英老前辈
     - 吴老捕头
     - 白衣神耳
   identities:
-    - 江湖前辈
     - 天下第一名捕
-    - 捕头
+    - 吴老捕头
+    - 白衣神耳
     - 名捕
   level: 次要
   rank: null
-  description: 以耳力闻名的无耳老人，佩有合银铸造的白衣神耳，仍被楚留香用铜锣声调开。
+  description: 枯瘦矮小的秃顶老人，双耳被割后装上白衣神耳，耳力极强，云台一役后重出江湖欲见识楚留香。
   factions:
     - faction_liu_shan_men
   skills: []
 - id: char_wan_wu_di
   name: 万无敌
-  aliases: []
+  aliases:
+    - 万老镖头
   identities:
     - 铁掌金镖
     - 京城万胜镖局总镖头
-  level: null
+  level: 次要
   rank: null
-  description: 受邀守护玉美人的锦袍老人，识破楚留香留下的假玉雕却未能阻止真品失窃。
+  description: 京城万胜镖局总镖头，受金伴花之请看守玉美人。
   factions:
     - faction_wan_sheng_biao_ju
   skills: []
 - id: char_wang_biao_tou
   name: 王镖头
   aliases: []
-  identities:
-    - 龙虎镖局镖头
-  level: null
+  identities: []
+  level: 背景
   rank: null
-  description: 已故的龙虎镖局镖头，楚留香取来的钱财中有一万两用于救济其遗孀。
+  description: 龙虎镖局镖头，已故，其遗孀受楚留香救济。
   factions:
     - faction_long_hu_biao_ju
-  skills: []
-- id: char_wu_dao_zi
-  name: 吴道子
-  aliases: []
-  identities:
-    - 画家
-  level: null
-  rank: null
-  description: 孙学圃回忆自己盛名时所获比较的古代画家。
-  factions: []
   skills: []
 - id: char_wu_hua
   name: 无花
   aliases:
     - 妙僧
     - 无花大师
-    - 无花师兄
   identities:
-    - 佛门名士
-    - 少林弟子
     - 妙僧
-    - 少年僧人
-    - 无花大师
-    - 僧人
-    - 大师
-    - 少林僧人
-    - 天枫十四郎长子
-  level: 重要
+    - 少林弟子
+    - 佛门中的名士
+    - 贫僧
+    - 天枫十四郎的长子
+    - 南宫灵的兄长
+    - 出家人
+  level: 核心
   rank: null
-  description: 少林门下交游广阔且精通东瀛茶道的弟子，正在后院为天峰大师烹茶，楚留香赶到后将其所烹之茶倒掉。
+  description: 天枫十四郎长子、南宫灵兄长；盗天一神水，石梁扮天枫十四郎，杀宋刚、素心大师及南宫灵灭口，并多次欲杀楚留香与蓉儿；后山以少林神拳、弹指神通、风萍掌与暗器交手后认输。
   factions:
     - faction_shao_lin
+    - faction_shao_lin_si
   skills:
     - skill_shao_lin_shen_quan
     - skill_tan_zhi_shen_tong
     - skill_feng_ping_zhang
+    - skill_ren_shu
+    - skill_jian_fa
+- id: char_wu_hua_da_shi
+  name: 无花大师
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions: []
+  skills: []
 - id: char_wu_xiang
   name: 无相
   aliases: []
   identities:
-    - 少林未来掌门
+    - 未来的掌门
   level: null
   rank: null
-  description: 被天湖大师选为少林未来掌门。
+  description: 被少林天湖大师册立为未来掌门，才学被楚留香评为一无所及无花。
   factions:
     - faction_shao_lin
   skills: []
@@ -692,12 +839,11 @@
     - 杀手书生
   identities:
     - 杀手书生
+    - 朱砂门的长老
     - 朱砂门长老
-    - 冷秋魂之师
-    - 秋灵素旧日追求者
-  level: 次要
+  level: 重要
   rank: null
-  description: 接到一封信后离开济南，将信另封纸袋交给杨松保管；张啸林以大生意为由追查他的去处。
+  description: 收到秋灵素信件的四人之一，住处较近，金钱来得甚易，被南宫灵算准与另三人同时到达。
   factions:
     - faction_zhu_sha_men
   skills: []
@@ -707,144 +853,144 @@
   identities: []
   level: null
   rank: null
-  description: 张啸林前一晚寻乐并花费三万两的女子。
+  description: null
   factions: []
   skills: []
 - id: char_xuan_fa
   name: 玄法
   aliases: []
-  identities:
-    - 少林僧人
+  identities: []
   level: null
   rank: null
-  description: 楚留香闯入少林后，受命传警应变。
+  description: null
   factions:
-    - faction_shao_lin
+    - faction_shao_lin_si
   skills: []
 - id: char_xuan_miao
   name: 玄妙
   aliases: []
-  identities:
-    - 少林僧人
+  identities: []
   level: null
   rank: null
-  description: 楚留香闯入少林后，受命随年长的灰袍僧人追赶。
+  description: null
   factions:
-    - faction_shao_lin
+    - faction_shao_lin_si
   skills: []
 - id: char_xuan_tong
   name: 玄通
   aliases: []
-  identities:
-    - 少林僧人
+  identities: []
   level: null
   rank: null
-  description: 楚留香闯入少林后，受命随年长的灰袍僧人追赶。
+  description: null
   factions:
-    - faction_shao_lin
+    - faction_shao_lin_si
   skills: []
 - id: char_yang_song
   name: 杨松
   aliases:
     - 立地追魂手
   identities:
-    - 朱砂门人物
-    - 西门千师弟
-  level: null
+    - 立地追魂手
+  level: 背景
   rank: null
-  description: 替西门千保管信件，住处遭翻搜后被人截去手足分尸，信也随之失踪。
+  description: 与失踪者关系密切，已被杀灭口。
   factions:
     - faction_zhu_sha_men
   skills: []
 - id: char_yi_dian_hong
   name: 一点红
   aliases:
-    - 红兄
     - 中原一点红
+    - 红兄
   identities:
     - 杀人不流血,剑下一点红
     - 中原第一杀手
+    - 中原一点红
   level: 重要
   rank: null
-  description: 旁观楚留香与白玉魔交手，对捉魂如意钵的奇异变化十分好奇，后来跟随楚留香前往丐帮香堂前突然离去。
+  description: 以剑威胁张啸林却始终不愿下手；琴声入耳后理智失控狂攻，被张啸林诱入湖中点穴制住，后被架在树桠上待醒。
   factions: []
   skills:
     - skill_jian_fa
 - id: char_zha_mu_he
   name: 札木合
-  aliases: []
-  identities:
-    - 中土刀法第一名家
+  aliases:
     - 沙漠之王
+  identities:
     - 无影神刀
-    - 黑珍珠之父
-    - 秋灵素旧日追求者
+    - 沙漠之王
   level: 次要
   rank: null
-  description: 人称沙漠之王、以海量闻名的人物；楚留香告知南宫灵他已经死亡，并隐匿尸身以追查真凶。
+  description: 收到秋灵素所写信件的四人之一，远在沙漠，与灵鹫子、西门千、左又铮被算准同时到达并赴死。
   factions: []
   skills: []
 - id: char_zhang_xiao_lin
   name: 张啸林
-  aliases: []
+  aliases:
+    - 楚留香
+    - 盗帅
   identities:
-    - 关外大参药商身份
-  level: null
+    - 关外大参药商
+    - 采参帮的瓢把子
+    - 长白山一带最大的参药商
+    - 采参客
+    - 关外的大参药商
+    - 盗帅
+  level: 核心
   rank: null
-  description: 以长白山参药商身份豪赌并故意输给冷秋魂三十万两，借三百万两生意套问西门千行踪和信件去向。
-  factions: []
-  skills: []
+  description: 本章以张啸林之名周旋，被中原一点红识破为盗帅楚留香；不喜流血争杀，身法迅疾，能在一点红百余剑下仍不还手并微笑应对。
+  factions:
+    - faction_cai_can_bang
+  skills:
+    - skill_qing_gong
 - id: char_zhao_li_zheng
   name: 赵立正
   aliases: []
   identities: []
-  level: null
+  level: 背景
   rank: null
-  description: 楚留香的钱财分配对象，获付一千五百两喜酒聘礼。
+  description: 楚留香曾替其付喜酒聘礼之人。
   factions: []
   skills: []
 - id: char_zhong_yuan_yi_dian_hong
   name: 中原一点红
   aliases:
     - 一点红
-    - 红兄
   identities:
     - 中原第一快剑
     - 搜魂剑无影
-    - 受雇杀手
     - 职业杀手
     - 成名英雄
   level: 重要
   rank: null
-  description: 受天星帮雇佣对付朱砂帮的快剑杀手，以连环快剑追击张啸林，识破其为楚留香；因雇主出言侮辱而将其一剑杀死，随后拒绝攻击并非朱砂帮门下的楚留香。
+  description: 受天星帮雇来对付朱砂帮的快剑杀手，脸如死人、目碧声哑，以手腕发剑，出手毒辣；因张啸林非朱砂帮门下而罢手，并手刃辱骂自己的雇主。
   factions: []
   skills:
+    - skill_shi_san_jian
     - skill_jian_fa
-    - skill_shen_fa
     - skill_qing_gong
 - id: char_zhu_er
   name: 珠儿
   aliases: []
-  identities:
-    - 快意堂陪侍少女
+  identities: []
   level: null
   rank: null
-  description: 冷秋魂在快意堂招呼赌客时点名安排的陪侍少女。
-  factions:
-    - faction_kuai_yi_tang
+  description: 快意堂内陪侍豪客的少女，被冷秋魂点名劝输钱的客人去休息。
+  factions: []
   skills: []
 - id: char_zuo_you_zheng
   name: 左又铮
   aliases: []
   identities:
     - 七星夺魂
-    - 天星帮总瓢把子
+    - 总瓢把子
     - 天星帮掌门人
-    - 沈珊姑大师兄
-    - 秋灵素旧日追求者
-  level: 次要
+    - 大师兄
+  level: 重要
   rank: null
-  description: 沈珊姑的大师兄，终身不娶并痴恋秋灵素；收到一封信后离家失踪，其收藏的秋灵素画像成为沈珊姑追查线索。
+  description: 收到秋灵素信件的四人之一，住处较近，金钱来得甚易，被南宫灵算准与另三人同时到达。
   factions:
     - faction_tian_xing_bang
-  skills: []
+  skills:
+    - skill_qi_xing_fei_huan

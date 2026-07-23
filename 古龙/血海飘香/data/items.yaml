@@ -3,81 +3,101 @@
   aliases: []
   types:
     - 暗器
-  description: null
+  description: 四名绿袍人自袖中齐射，又多又快又近，用以袭杀风雨亭上的苏容容。
 - id: item_bai_yi_shen_er
   name: 白衣神耳
   aliases: []
   types:
     - 其他
-  description: 秃鹰所佩的合银假耳，传声能力极强，却也会放大铜锣震响。
+  description: 秃鹰双耳被割后所装合银假耳，传声力特强，耳力更胜从前。
 - id: item_bai_yu_mei_ren
   name: 白玉美人
-  aliases: []
+  aliases:
+    - 玉美人
   types:
     - 其他
-  description: 吴老捕头与楚留香谈话时提到的物品，楚留香猜测对方或为追查它而来。
+  description: 京城四宝中最珍贵的玉雕美人，被楚留香盗走。
+- id: item_bao_jian
+  name: 宝剑
+  aliases:
+    - 长剑
+    - 半截剑
+  types:
+    - 武器
+  description: null
+- id: item_bao_ma
+  name: 宝马
+  aliases: []
+  types:
+    - 坐骑
+  description: 原属黑珍珠之马，楚留香再借一用扬鞭而去。
 - id: item_bi_yu_chai
   name: 碧玉钗
   aliases: []
   types:
     - 饰品
-  description: null
+  description: 冷秋魂卧室内女子枕上堕下的碧玉钗。
 - id: item_can_tang
   name: 参汤
   aliases: []
   types:
     - 其他
-  description: null
+  description: 神秘人离去后南宫灵送来给任慈的参汤，实含秋灵素试不出的天一神水之毒。
+- id: item_cha_hu
+  name: 茶壶
+  aliases: []
+  types:
+    - 其他
+  description: 天鹰子遇害时仍提在手中的茶壶，茶水倒干流了一桌一身，说明刺客杀招之稳。
 - id: item_chang_bian
   name: 长鞭
   aliases: []
   types:
     - 武器
-  description: 无名黑衣少年所持的黑色六尺长鞭，可卷起骰子弹射，也能夺走冷秋魂的钢刀。
-- id: item_chang_jian
-  name: 长剑
-  aliases:
-    - 宝剑
-  types:
-    - 武器
-  description: null
-- id: item_chang_pao
-  name: 长袍
+  description: 黑衣少年掌中兵器，可卷成无数鞭圈施展套月鞭法。
+- id: item_chang_dao
+  name: 长刀
   aliases: []
   types:
-    - 防具
+    - 武器
+  description: 刀长五尺开外、狭长如剑，天枫十四郎以之施展迎风一刀斩。
+- id: item_chang_jian
+  name: 长剑
+  aliases: []
+  types:
+    - 武器
+  description: 一点红掌中兵刃，曾逼近张啸林咽喉，后又反刺自身并在湖岸与张啸林缠斗。
+- id: item_ci_guan
+  name: 瓷罐
+  aliases: []
+  types:
+    - 其他
   description: null
 - id: item_ci_ping
   name: 瓷瓶
   aliases: []
   types:
     - 其他
-  description: null
+  description: 任夫人香案上形状古拙、颜色苍劲的瓷瓶，香气氤氲。
 - id: item_da_feng_dao
   name: 大风刀
   aliases: []
   types:
     - 武器
-  description: 札木合使用的宝刀，位列海内十三件神兵利器之一，足以砍断海南派剑。
-- id: item_da_gou_bang
-  name: 打狗棒
-  aliases:
-    - 竹节杖
-  types:
-    - 武器
-  description: 历代丐帮帮主传统使用的竹节杖；任慈曾用它击飞天枫十四郎的剑并击中其胸口。
-- id: item_du_jiu
-  name: 毒酒
+  description: null
+- id: item_da_tie_qiu
+  name: 大铁球
   aliases: []
   types:
     - 其他
   description: null
-- id: item_du_she
-  name: 毒蛇
+- id: item_dao_qiao
+  name: 刀鞘
   aliases: []
   types:
-    - 异兽
-  description: null
+    - 武器
+    - 其他
+  description: 天枫十四郎左手反握，对峙中先以刀鞘直刺欺敌。
 - id: item_duan_jian
   name: 短剑
   aliases: []
@@ -89,109 +109,170 @@
   aliases: []
   types:
     - 其他
-  description: 关外烈酒，楚留香称札木合曾一日饮下三百碗。
+  description: 关外酒，楚留香述札木合曾连喝三百碗仍能走回去。
+- id: item_fei_huan
+  name: 飞环
+  aliases: []
+  types:
+    - 暗器
+  description: 死卷术所用银光飞环，可套折碗口粗树并呼啸飞回袖中。
+- id: item_fei_luo_tuo
+  name: 飞骆驼
+  aliases: []
+  types:
+    - 饰品
+  description: null
+- id: item_gang_dao
+  name: 钢刀
+  aliases: []
+  types:
+    - 武器
+  description: null
 - id: item_gu_hui_guan_zi
   name: 骨灰罐子
-  aliases:
-    - 瓷瓶
+  aliases: []
   types:
     - 其他
-  description: 秋灵素手中盛放任慈骨灰的瓷罐，她轻抚时从中感受到温暖。
+  description: null
 - id: item_gu_hui_ping
   name: 骨灰瓶
   aliases: []
   types:
     - 其他
-  description: null
+  description: 秋灵素抱紧在怀、欲纵身跃崖时所持之物。
 - id: item_gu_hui_ping_zi
   name: 骨灰瓶子
   aliases: []
   types:
     - 其他
-  description: 装着任老帮主骨灰、被秋灵素抱在手中的瓶子。
+  description: null
 - id: item_he_shi_bi
   name: 和氏璧
   aliases: []
   types:
-    - 其他
-  description: 传说中足以倾国的宝玉，被用来衬托无名少年赌注玉璧的珍贵。
-- id: item_hei_se_xiang_zi
-  name: 黑色箱子
-  aliases: []
-  types:
-    - 其他
-  description: 蒙面少女进入张啸林房间后试图打开的箱子。
-- id: item_hei_sha
-  name: 黑纱
-  aliases: []
-  types:
     - 饰品
   description: null
+- id: item_hei_sha
+  name: 黑纱
+  aliases:
+    - 面纱
+  types:
+    - 饰品
+  description: 任夫人蒙面所用，连眼睛一并遮住，令人难见其颠倒众生之容。
 - id: item_hua_fang
   name: 画舫
+  aliases: []
+  types:
+    - 其他
+  description: 楚留香所乘之船，黑珍珠掠上其上。
+- id: item_hua_juan
+  name: 画卷
   aliases: []
   types:
     - 其他
   description: null
 - id: item_hua_xiang
   name: 画像
-  aliases:
-    - 半身像
+  aliases: []
   types:
     - 其他
-  description: 西门千房中悬挂的绝美女子半身画像，其身份与西门千的关系不明。
+  description: null
+- id: item_huang_bu_bao_fu
+  name: 黄布包袱
+  aliases:
+    - 黄色包袱
+  types:
+    - 其他
+  description: 钱麻子背负，内装献给天峰大师的茶叶与竹筒。
 - id: item_huang_juan_jing_shu
   name: 黄绢经书
   aliases: []
   types:
+    - 秘籍
+  description: 天鹰子以丝线缚于内衣中的经书，内藏灵素所写粉红信笺。
+- id: item_huang_se_bao_fu
+  name: 黄色包袱
+  aliases: []
+  types:
     - 其他
+  description: 天鹰子跨院中的行囊，内有换洗衣物与黄绢经书。
+- id: item_jia_fa
+  name: 假发
+  aliases: []
+  types:
+    - 其他
+  description: 空蝉术所用，楚留香抓发时只得假发。
+- id: item_jian
+  name: 剑
+  aliases: []
+  types:
+    - 武器
   description: null
 - id: item_jiu_long_bei
   name: 九龙杯
   aliases: []
   types:
     - 其他
-  description: 邱小侯家传珍宝，虽锁在密室并由两名大内高手防守，仍被楚留香盗走。
+  description: 邱小侯家传宝物，曾被楚留香取走。
+- id: item_la_huang_mian_ju
+  name: 蜡黄面具
+  aliases: []
+  types:
+    - 其他
+  description: 附在假发上的面具，遮住天枫十四郎真容与汗色。
 - id: item_lang_ya_bang
   name: 狼牙棒
   aliases: []
   types:
     - 武器
-  description: 白玉魔在尼山后山逼迫秋灵素时所持的沉重兵刃。
+  description: 战场冲锋所用的沉重兵刃，白玉魔天生神力运用得心应手，后被楚留香手法震脱飞落悬崖。
 - id: item_liu_ye_dao
   name: 柳叶刀
   aliases: []
   types:
     - 武器
-  description: 珊姑遗落在房内、令张啸林判断她来自天星帮的刀。
+  description: 女刺客留下的兵器，张啸林据此判断对方属天星帮，并掷刀警告天星帮院落。
+- id: item_luo_zan
+  name: 落簪
+  aliases: []
+  types:
+    - 饰品
+  description: 秋灵素所遗，指引楚留香寻至悬崖。
 - id: item_mian_dao
   name: 缅刀
   aliases: []
   types:
     - 武器
-  description: 无名黑衣少年所持的百炼精钢兵刃，刀身可从怀中取出后迎风抖直。
+  description: null
 - id: item_mian_ju
   name: 面具
   aliases: []
   types:
-    - 饰品
-  description: 张啸林伪装身份时戴在脸上的面具，会使鼻子发痒。
+    - 其他
+  description: 楚留香自有之物，被他用来与无花所弃之七弦琴比较珍贵程度。
 - id: item_mo_jing
   name: 魔镜
   aliases: []
   types:
     - 其他
-  description: 江湖传说中石观音每日询问天下第一美人的镜子，其回答改变后引发了秋灵素的灾祸。
+  description: null
+- id: item_mu_ji
+  name: 木屐
+  aliases: []
+  types:
+    - 其他
+  description: 高齿乌木木屐，放在天枫十四郎面前承剑，对峙时被踢落绝崖。
 - id: item_pan_guan_bi
   name: 判官笔
   aliases:
     - 精钢判官笔
   types:
     - 武器
-  description: 生死判所持的一对精钢兵器，据说能攻击人体二百一十八处穴道。
-- id: item_pu_tao_jiu
-  name: 葡萄酒
-  aliases: []
+  description: 生死判所用的一对精钢判官笔，据称能打遍人身二百一十八处穴道。
+- id: item_ping_zi
+  name: 瓶子
+  aliases:
+    - 小瓶子
   types:
     - 其他
   description: null
@@ -200,168 +281,241 @@
   aliases: []
   types:
     - 其他
-  description: null
-- id: item_qi_xing_fei_huan
-  name: 七星飞环
-  aliases: []
-  types:
-    - 暗器
-  description: 左又铮佩戴的奇特精钢乌金环，也是李红袖辨认其身份的标志。
+  description: 无花舟上所抚之琴，琴音苍凉肃杀令一点红失控；闻一点红之名后被无花沉入湖中。
 - id: item_qi_xing_zhen
   name: 七星针
   aliases: []
   types:
     - 暗器
-  description: 藏在黑衣少年袖管中的七枚针形暗器，可配合云底飞星乘斗篷遮蔽发出。
+  description: 黑衣少年藏于袖管的七点寒星暗器，配合云底飞星击出。
 - id: item_qing_zhu_zhang
   name: 青竹杖
   aliases: []
   types:
     - 武器
-  description: 丐帮香堂众高手围攻一点红与无名少年时使用的兵刃之一。
+  description: null
 - id: item_ren_pi_mian_ju
   name: 人皮面具
   aliases: []
   types:
     - 其他
-  description: 楚留香采用张啸林伪装身份时，从一百十三号黑鲨皮口袋中取出的精巧面具。
+  description: 装在黑鲨皮口袋中的精巧易容面具，楚留香打开后准备化身张啸林。
 - id: item_ru_yi_zhua
   name: 如意爪
   aliases: []
   types:
     - 武器
-  description: 丐帮香堂众高手围攻一点红与无名少年时使用的兵刃之一。
+  description: null
+- id: item_san_she_geng
+  name: 三蛇羹
+  aliases: []
+  types:
+    - 其他
+  description: null
 - id: item_shu_xin
   name: 书信
   aliases: []
   types:
     - 其他
-  description: null
+  description: 自黄绢经书中落下的粉红信笺，署名为灵素，劝天鹰子斩断相思；非楚留香所寻的那封神秘书信。
 - id: item_shuang_tie_guai
   name: 双铁拐
   aliases: []
   types:
     - 武器
-  description: 丐帮香堂众高手围攻一点红与无名少年时使用的兵刃之一。
-- id: item_si_feng_xin
-  name: 四封信
+  description: null
+- id: item_shui_jing_ping_zi
+  name: 水晶瓶子
   aliases: []
   types:
     - 其他
-  description: null
+  description: 楚留香掌中小巧瓶子，拔塞后散出郁金香香气，供一路留下香迹迷惑行踪。
+- id: item_si_jin
+  name: 丝巾
+  aliases: []
+  types:
+    - 其他
+  description: 无花沉琴后用来擦干手的洁白丝巾。
+- id: item_si_xian
+  name: 丝线
+  aliases: []
+  types:
+    - 暗器
+    - 其他
+  description: 天枫十四郎自石梁坠落时甩出钉入石壁，借以荡落脱身。
 - id: item_tian_yi_shen_shui
   name: 天一神水
   aliases:
     - 重水
   types:
     - 其他
-  description: 从神水宫失窃的剧毒神水，失窃分量若使用得当足以杀死三十七名武林一流高手。
-- id: item_tiao_zhan_xin
-  name: 挑战信
+    - 丹药
+  description: 自神水宫盗出的毒物，渗入参汤使任慈全身肿胀；秋灵素以一流试毒手段亦难察觉。
+- id: item_tie_guan_yin
+  name: 铁观音
   aliases: []
   types:
     - 其他
-  description: null
-- id: item_tie_qiu
-  name: 铁球
-  aliases: []
-  types:
-    - 武器
-  description: 张啸林手中不断揉动、发出叮当声的两只大铁球。
+  description: 闽南名茶，楚留香在仙游茶馆所品。
 - id: item_tong_si
   name: 铜丝
   aliases: []
   types:
     - 其他
-  description: null
+  description: 楚留香用来打开天鹰子跨院门锁的细丝。
 - id: item_tou_zi
   name: 骰子
   aliases: []
   types:
     - 其他
-  description: 快意堂两场赌局所用的六粒赌具，也被双方作为展示精准劲力的投射物。
+  description: null
+- id: item_wu_du_tong_bo
+  name: 五毒铜钹
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_wu_gong_mi_ji
+  name: 武功秘笈
+  aliases: []
+  types:
+    - 秘籍
+  description: 楚留香推断天枫十四郎留给无花秘密收藏，连天峰大师都不知道，以传高深忍术与剑法。
 - id: item_wu_jin_gang_huan
   name: 乌金钢环
   aliases:
     - 星环
   types:
-    - 武器
-  description: 宋刚套在左手中指与无名指上的三枚奇特钢环，可随拳势取人性命。
+    - 暗器
+  description: 宋刚套在中指与无名指上的奇特乌金钢环，出拳时可取人性命。
 - id: item_wu_mu_fa_zan
   name: 乌木发簪
-  aliases:
-    - 乌簪
-    - 发簪
+  aliases: []
   types:
     - 饰品
-  description: 秋灵素留在蒲团上的线索，簪针指向茅舍后面被人从外面拴住的小门。
-- id: item_xiao_niu_pi_xue_zi
-  name: 小牛皮靴子
-  aliases:
-    - 靴子
+  description: null
+- id: item_wu_qiao_chang_jian
+  name: 乌鞘长剑
+  aliases: []
+  types:
+    - 武器
+  description: 置于天枫十四郎面前木屐上的奇特长剑，后作狭长如剑的长刀使出。
+- id: item_wu_si_kuan_pao
+  name: 乌丝宽袍
+  aliases: []
   types:
     - 防具
+    - 其他
+  description: 天枫十四郎所穿，面上金丝织狂草大字「必杀之剑，挡者无赦」。
+- id: item_wu_zan
+  name: 乌簪
+  aliases: []
+  types:
+    - 饰品
   description: null
-- id: item_xin
-  name: 信
+- id: item_xiao_niu_pi_xue_zi
+  name: 小牛皮靴子
   aliases: []
   types:
     - 其他
-  description: 西门千临行前收到、另封纸袋后交给杨松保管的关键书信，杨松遇害后失踪。
+  description: null
+- id: item_yan_zhi
+  name: 胭脂
+  aliases: []
+  types:
+    - 其他
+  description: null
 - id: item_yao_dao
   name: 腰刀
   aliases: []
   types:
     - 武器
-  description: 张啸林随身佩带、被冷秋魂突然抽出抵住其脖子的刀。
+  description: 一百十三号抽屉中镶着玉石的腰刀，属张啸林行头之一。
+- id: item_yao_shui
+  name: 药水
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_yin_huan
+  name: 银环
+  aliases: []
+  types:
+    - 暗器
+  description: 死卷术飞环之称，折树后飞回袖中。
+- id: item_yin_pai
+  name: 银牌
+  aliases: []
+  types:
+    - 饰品
+  description: null
 - id: item_yin_piao
   name: 银票
   aliases: []
   types:
     - 其他
-  description: 张啸林和冷秋魂在赌场下注所用的巨额票据。
+  description: null
 - id: item_yu_bi
   name: 玉璧
   aliases: []
   types:
+    - 饰品
     - 其他
-  description: 无名黑衣少年用来与冷秋魂赌人的无瑕宝玉，后又成为楚留香赌局的赌注。
-- id: item_yu_mei_ren
-  name: 玉美人
-  aliases:
-    - 白玉美人
-  types:
-    - 其他
-  description: 金伴花收藏的京城四宝之一，楚留香用假玉雕作诱饵盗走真品。
+  description: 楚留香与黑衣少年赌约中可取走之物。
 - id: item_yu_ru_yi
   name: 玉如意
   aliases: []
   types:
     - 饰品
-  description: 系在无花腰间丝条上的小物件，被楚留香无声取走后放入飞回的酒杯中。
-- id: item_zan
-  name: 簪
+  description: 无花系在腰间丝条上的小玉如意，被楚留香顺手取走后随酒杯飞回无花面前。
+- id: item_zhu_jie_zhang
+  name: 竹节杖
+  aliases:
+    - 打狗棒
+  types:
+    - 武器
+  description: null
+- id: item_zhu_tong
+  name: 竹筒
   aliases: []
   types:
-    - 饰品
-  description: null
+    - 其他
+  description: 钱麻子自黄布包袱取出，内装清香茶叶。
 - id: item_zhu_ye_qing
   name: 竹叶青
   aliases: []
   types:
     - 其他
-  description: 南宫灵备下款待楚留香的上好酒。
+  description: 南宫灵备下的上好酒，与楚留香等对饮。
 - id: item_zhuo_hun_ru_yi_bo
   name: 捉魂如意钵
   aliases:
     - 如意钵
   types:
     - 武器
-  description: 白玉魔独创的奇门兵器，钵身兼具倒刺与带毒伸缩鬼爪，机关发动后可借四尺链子骤增攻击距离。
-- id: item_zi_rong_chuang_lian
-  name: 紫绒窗帘
+  description: null
+- id: item_zi_ni_xiao_huo_lu
+  name: 紫泥小火炉
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_zi_tan_mu_xia
+  name: 紫檀木匣
   aliases:
-    - 窗帘
+    - 紫檀雕花木匣
+  types:
+    - 其他
+  description: 金伴花暗门中存放玉美人的紫檀雕花木匣。
+- id: item_zi_tan_mu_yi
+  name: 紫檀木椅
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_zi_tong_hu
+  name: 紫铜壶
+  aliases: []
   types:
     - 其他
   description: null
