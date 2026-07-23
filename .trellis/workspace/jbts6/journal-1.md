@@ -1490,3 +1490,40 @@ Recovered remediated worker guards, hardened Claude workflow handoff, restored c
 ### Next Steps
 
 - None - task complete
+
+
+## Session 30: v4 rank/grounding contract and 血海飘香 rebuild
+
+**Date**: 2026-07-23
+**Task**: v4 rank/grounding contract and 血海飘香 rebuild
+**Branch**: `fix/v7-rank-contract`
+
+### Summary
+
+完成 v4 rank/level 合同与严格排版 grounding；Worker 合同 v4 的 27 章《血海飘香》重跑 27/27 accepted，验证、安装、归档和 227 项测试通过，根目录无临时文件，旧 v3 run 树哈希未变。
+
+### Main Changes
+
+- Detailed change bullets were not supplied; see the summary above.
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `42a72926` | (see git log) |
+| `d15b82a3` | (see git log) |
+| `acd0b0b7` | (see git log) |
+| `52948ad3` | (see git log) |
+| `50d4167d` | (see git log) |
+
+### Testing
+
+- Validation was not recorded for this session.
+
+### Status
+
+[OK] **Completed**
+
+### Next Steps
+
+- None - task complete
