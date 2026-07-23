@@ -1,29 +1,521 @@
+- id: faction_an_xi_biao_ju
+  name: 安西镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 中原镖局派驻边地的势力之一，大镖师被打得丢了耳朵，与定远镖局争生意。
+- id: faction_bai_shui_gong
+  name: 白水宫
+  aliases: []
+  types:
+    - 其他
+  description: 昔年拥有五毒天水的所在，绝尘道长即死于此物。
+- id: faction_bao_bao_pai
+  name: 饱宝派
+  aliases: []
+  types:
+    - 门派
+  description: null
+- id: faction_bo_hai_bang
+  name: 渤海帮
+  aliases: []
+  types:
+    - 帮会
+  description: 据黑蜘蛛称，两月前与黄海帮火并，系罗九兄弟挑拨。
+- id: faction_chang_bai_jian_pai
+  name: 长白剑派
+  aliases: []
+  types:
+    - 门派
+  description: 关外剑派，冯天雨为其巨子。
+- id: faction_chuan_zhong_ba_yi
+  name: 川中八义
+  aliases: []
+  types:
+    - 组织
+  description: 江湖中赫赫有名的义士团体，本回出场杨平、海长波、海金波三人追杀司马烟。
+- id: faction_chuan_zhong_tang_men
+  name: 川中唐门
+  aliases:
+    - 唐门
+  types:
+    - 门派
+  description: 司马烟三年前与之结怨，恶人谷中人因此盼其到来。
+- id: faction_di_ling_gong
+  name: 地灵宫
+  aliases: []
+  types:
+    - 其他
+  description: 欧阳亭所建地下宫阙，曾诱天地五绝至此共创武功，终成其阴谋与方灵姬复仇的舞台。
+- id: faction_di_ling_zhuang
+  name: 地灵庄
+  aliases: []
+  types:
+    - 山庄
+  description: 赵庄主庄院，依山傍水气象宏大，深夜灯火中堆满搜购药材，铁无双等在此聚会。
+- id: faction_ding_yuan_biao_ju
+  name: 定远镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 与安西镖局同自中原派来的镖局，双方在客栈中相遇、同遭小仙女毒手。
+- id: faction_duan_jia
+  name: 段家
+  aliases: []
+  types:
+    - 家族
+  description: 镖银原主，父女对小鱼儿不错。
+- id: faction_e_mei
+  name: 峨嵋
+  aliases: []
+  types:
+    - 门派
+  description: 掌门神锡道长，暗中托人一路护持小鱼儿。
+- id: faction_e_mei_pai
+  name: 峨嵋派
+  aliases:
+    - 峨嵋
+    - 峨嵋剑派
+  types:
+    - 门派
+  description: 七大剑派之一，以剑法辛辣见长，神锡道长为当代掌门，门下三代弟子两千七百三十二人，掌门信物为铜符。
 - id: faction_e_ren_gu
   name: 恶人谷
   aliases: []
-  type: 帮派
-  description: |-
-    十大恶人盘踞之所,小鱼儿童年成长之地
-    驻地：loc_e_ren_gu
+  types:
+    - 其他
+    - 组织
+  description: 屠娇娇、李大嘴等人曾居之地，已离开；小鱼儿少时在此被养大，并曾有人将其带出恶人谷告知杀亲真相。
+- id: faction_gai_bang
+  name: 丐帮
+  aliases: []
+  types:
+    - 帮会
+  description: 天吃星昔日所属门派，其七大长老曾在半个时辰内被天吃星毒死。
+- id: faction_gu_jia_zhuang
+  name: 顾家庄
+  aliases: []
+  types:
+    - 山庄
+  description: 顾人玉一方庄园，小鱼儿要安排废武功的江别鹤父子去做园丁以避仇求生。
+- id: faction_hai_jia_ban
+  name: 海家班
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: faction_heng_jiang_yi_wo_huang_hua_feng
+  name: 横江一窝黄花蜂
+  aliases: []
+  types:
+    - 帮会
+  description: 长江上以黄绸、黄巾为识的劫道团伙，黄花蜂为首，在巫峡一带截船。
+- id: faction_hu_jia_bao
+  name: 胡家堡
+  aliases: []
+  types:
+    - 山庄
+  description: null
+- id: faction_hu_lin_qi_tai_sui
+  name: 虎林七太岁
+  aliases: []
+  types:
+    - 其他
+  description: 巴蜀东所属兄弟团伙，五名兄弟被张菁一夜杀尽，仅余巴蜀东一人。
+- id: faction_huai_nan_wang_jia
+  name: 淮南王家
+  aliases: []
+  types:
+    - 家族
+  description: 世代相传大力鹰爪神功的王家。
+- id: faction_huang_hai_bang
+  name: 黄海帮
+  aliases: []
+  types:
+    - 帮会
+  description: 据黑蜘蛛称，两月前与渤海帮火并，系罗九兄弟挑拨。
+- id: faction_jiang_nan_jin_shi_biao_ju
+  name: 江南金狮镖局
+  aliases:
+    - 金狮镖局
+  types:
+    - 镖局
+  description: null
+- id: faction_jin_shi_biao_ju
+  name: 金狮镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 江南第一家镖局，李明生之父为总镖头，李迪亦以金狮之号与城中武林相关。
+- id: faction_jiu_xiu_shan_zhuang
+  name: 九秀山庄
+  aliases: []
+  types:
+    - 山庄
+  description: 慕容九妹所属山庄，江玉郎以此身分向轩辕三光抬高其身价。
+- id: faction_jiu_xiu_zhuang
+  name: 九秀庄
+  aliases: []
+  types:
+    - 山庄
+  description: 慕容家所在山庄，众姑爷皆称九秀庄慕容家姑爷。
+- id: faction_jiu_you_men
+  name: 九幽门
+  aliases: []
+  types:
+    - 门派
+  description: 小鱼儿模仿阴九幽口气时所称九幽门下饿鬼日多，与半人半鬼阴九幽相关。
+- id: faction_kong_tong
+  name: 崆峒
+  aliases: []
+  types:
+    - 门派
+  description: 掌门人一帆大师，梅秋湖为其关山门弟子。
+- id: faction_kuai_dao_men
+  name: 快刀门
+  aliases: []
+  types:
+    - 门派
+  description: 据黑蜘蛛称，一月前与崂山帮恶斗，系罗九兄弟挑拨。
+- id: faction_kun_lun
+  name: 昆仑
+  aliases: []
+  types:
+    - 门派
+  description: 小鱼儿盛怒两掌所融两大门派掌法之一。
+- id: faction_kun_lun_pai
+  name: 昆仑派
+  aliases: []
+  types:
+    - 门派
+  description: 藏翼子感叹保持门派声名不易时联想到的本派，有日渐凋零之叹。
+- id: faction_kun_lun_qi_jian
+  name: 昆仑七剑
+  aliases: []
+  types:
+    - 其他
+    - 门派
+  description: 燕南天认定当今天下除昆仑七剑外鲜有能接住他那一剑之人。
+- id: faction_kun_lun_si_zi
+  name: 昆仑四子
+  aliases: []
+  types:
+    - 组织
+  description: 昆仑道人中的四子，受川中八义所请守在恶人谷外，其首为藏翼子。
+- id: faction_lao_shan_bang
+  name: 崂山帮
+  aliases: []
+  types:
+    - 帮会
+  description: 据黑蜘蛛称，一月前与快刀门恶斗，系罗九兄弟挑拨。
+- id: faction_li_jia_ban
+  name: 李家班
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: faction_li_jia_xiong_di
+  name: 李家兄弟
+  aliases: []
+  types:
+    - 家族
+  description: 关内追至草原的强盗团伙之一，围困桃花族人帐篷索要铁心男；马上刀鞭功夫被铁心男轻易击破。
+- id: faction_liang_he_lian_biao
+  name: 两河联镖
+  aliases: []
+  types:
+    - 镖局
+  description: 赵全海所属镖行组织，先接手段合肥运往关外的镖银生意。
+- id: faction_liang_he_shi_qi_jia_biao_ju
+  name: 两河十七家镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 赵全海任联盟总镖头的镖局联盟势力。
+- id: faction_luo_jia
+  name: 罗家
+  aliases: []
+  types:
+    - 家族
+  description: null
+- id: faction_mao_jia_xiong_di
+  name: 毛家兄弟
+  aliases:
+    - 峨嵋山上三根毛
+  types:
+    - 家族
+  description: 近十年来最狠毒角色，峨嵋山上三根毛：毛毛虫、毛公鸡、毛猩猩；李家兄弟之后现身，专为铁心男怀里之物而来。
+- id: faction_mei_hua_men
+  name: 梅花门
+  aliases: []
+  types:
+    - 门派
+  description: 海红珠、海四爹等所属门派，使梅花钩，为避仇曾做江湖卖艺。
 - id: faction_mu_rong_jia
   name: 慕容家
+  aliases:
+    - 慕容九姐妹
+    - 人间九秀
+  types:
+    - 家族
+  description: 慕容珊珊、慕容双、慕容九妹所属；秦剑、南宫柳为其女婿，众人以剑围攻疑似江别鹤者。
+- id: faction_mu_rong_jiu_zi_mei
+  name: 慕容九姊妹
+  aliases:
+    - 慕容姊妹
+  types:
+    - 家族
+  description: null
+- id: faction_mu_rong_shan_zhuang
+  name: 慕容山庄
   aliases: []
-  type: 家族
-  description: 慕容九与慕容双所属世家
+  types:
+    - 山庄
+  description: 慕容九妹坚称自己在此亲手杀死小鱼儿之处。
+- id: faction_nan_gong_shi_jia
+  name: 南宫世家
+  aliases: []
+  types:
+    - 世家
+  description: 慕容二姐夫一脉单传所出，武功高绝但二姐夫自小多病。
+- id: faction_peng_jia
+  name: 彭家
+  aliases: []
+  types:
+    - 世家
+  description: 传承三虎断门刀的历史悠久刀法世家，子弟曾败于雪花刀。
+- id: faction_qi_da_jian_pai
+  name: 七大剑派
+  aliases: []
+  types:
+    - 门派
+    - 组织
+  description: 江玉郎述萧咪咪情郎来历时提及，称其中包括七大剑派中的子弟，各授其一手武功。
+- id: faction_qi_lu_wu_hu
+  name: 齐鲁五虎
+  aliases: []
+  types:
+    - 组织
+  description: 黑道中有名的硬手，据赵香灵吹嘘曾被罗氏昆仲所赢。
+- id: faction_qian_li_xiang
+  name: 千里香
+  aliases: []
+  types:
+    - 商会
+  description: 太原大街金字招牌香料铺，燕南天驾车闯入将香料塞入棺中。
+- id: faction_qing_yu_tang
+  name: 庆余堂
+  aliases: []
+  types:
+    - 其他
+  description: 安庆皖南一带最大药铺，女孟尝安置小鱼儿于此管药库。
+- id: faction_ren_yi_san_xia
+  name: 仁义三侠
+  aliases: []
+  types:
+    - 组织
+  description: 海红珠、海四爹等三人自称的黑衣蒙面组合，下书约战双狮镖局。
+- id: faction_san_da_biao_ju
+  name: 三大镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 威远、镇远、宁远三大镖局，总镖头为沈轻虹。
+- id: faction_san_luo_cha
+  name: 三罗刹
+  aliases: []
+  types:
+    - 组织
+  description: 昔日江湖中闻名丧胆的组合，雪花刀柳玉如为其成员之一。
+- id: faction_san_xiang_biao_lian
+  name: 三湘镖联
+  aliases: []
+  types:
+    - 镖局
+  description: 厉峰所属三湘镖行组织，与两河联镖争段合肥镖银，后经铁无双调解拟联保。
+- id: faction_san_xiang_lian_biao
+  name: 三湘联镖
+  aliases: []
+  types:
+    - 镖局
+  description: null
+- id: faction_san_yuan_biao_ju
+  name: 三远镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 沈轻虹任总镖头的镖局，镖旗号称畅行大河两岸，本回镖银与红货遭劫。
+- id: faction_shao_lin
+  name: 少林
+  aliases: []
+  types:
+    - 门派
+    - 寺院
+  description: 江别鹤密室名单中标注的名门大派之一。
+- id: faction_shao_lin_pai
+  name: 少林派
+  aliases: []
+  types:
+    - 门派
+  description: 昔日领袖武林，本回提及未能根除阴九幽且弟子爱面子，声威渐落。
+- id: faction_shao_lin_si_shen_seng
+  name: 少林四神僧
+  aliases: []
+  types:
+    - 寺院
+  description: 被沈轻虹并提为不敢近恶人谷的名家之一。
+- id: faction_shen_quan_shi_jia
+  name: 神拳世家
+  aliases: []
+  types:
+    - 世家
+  description: null
+- id: faction_shi_da_e_ren
+  name: 十大恶人
+  aliases: []
+  types:
+    - 组织
+    - 其他
+  description: 小鱼儿所熟知的一群行事乖张的恶人总称，含杜杀、哈哈儿、屠娇娇、阴九幽、李大嘴、铁战、萧咪咪、轩辕三光、白开心及欧阳丁欧阳当兄弟。
 - id: faction_shi_er_xing_xiang
   name: 十二星相
   aliases: []
-  type: 帮派
-  description: 追杀江枫花月奴的神秘组织,含碧蛇神君等
+  types:
+    - 组织
+  description: 近三十年江湖最残酷狠毒的强盗团伙，极少下手但一旦盯上便难脱身；食鹿神君为其成员。
+- id: faction_shuang_shi_biao_ju
+  name: 双狮镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 李迪等人所在镖局，承接段合肥镖银，江玉郎似为其幕后主人。
+- id: faction_si_hai_chun
+  name: 四海春
+  aliases: []
+  types:
+    - 其他
+  description: 黑心贼曾在厨房下毒手、被江玉郎点穴的所在。
+- id: faction_tai_hu_qi_sha
+  name: 太湖七煞
+  aliases: []
+  types:
+    - 组织
+  description: 黑道中有名的硬手，据赵香灵吹嘘曾被罗氏昆仲重创。
+- id: faction_tang_men
+  name: 唐门
+  aliases: []
+  types:
+    - 门派
+  description: 川中暗器门派，此役有人栽在悬崖争夺中
+- id: faction_tian_nan_jian_pai
+  name: 天南剑派
+  aliases: []
+  types:
+    - 门派
+  description: 孙天南所掌剑派，与浙东邱门一方同气。
+- id: faction_tian_wai_tian
+  name: 天外天
+  aliases: []
+  types:
+    - 其他
+  description: 苏樱取药草之处，亦是小鱼儿与魏无牙交手之地；小鱼儿贬之为老鼠洞。
+- id: faction_tian_xiang_tang
+  name: 天香塘
+  aliases: []
+  types:
+    - 山庄
+    - 商会
+    - 其他
+  description: 赵香灵经营的商号势力，与段合肥商场仇深似海。
+- id: faction_wei_wu_biao_ju
+  name: 威武镖局
+  aliases: []
+  types:
+    - 镖局
+  description: 江湖镖局，其八大镖师据说曾同时丧生于鸡冠人绝招晨鸡啼星之下。
+- id: faction_wu_dang
+  name: 武当
+  aliases: []
+  types:
+    - 门派
+  description: 正派门派，掌法流行武林；江玉郎曾自称其门下弟子以蒙蔽路仲远。
+- id: faction_wu_dang_pai
+  name: 武当派
+  aliases: []
+  types:
+    - 门派
+  description: null
+- id: faction_wu_hu_duan_men_dao
+  name: 五虎断门刀
+  aliases: []
+  types:
+    - 门派
+  description: 南派刀法门派，掌门人为彭念祖。
+- id: faction_wu_tai_shan_ji_ming_si
+  name: 五台山鸡鸣寺
+  aliases: []
+  types:
+    - 寺院
+  description: 黄鸡大师所属寺院。
 - id: faction_wu_ya_men
   name: 无牙门
   aliases: []
-  type: 武林门派
-  description: 魏无牙所掌门派,与江家阴谋勾结
+  types:
+    - 门派
+  description: 本回高矮二人身上有「无牙门下士，可杀不可辱」字样；其主人自称为他们的主人，并展示无牙门下的神功。
+- id: faction_xia_wu_men
+  name: 下五门
+  aliases: []
+  types:
+    - 组织
+  description: 江湖门派系统，其最歹毒兵刃为五毒霹雳雷霆珠
+- id: faction_xiu_yu_gu
+  name: 绣玉谷
+  aliases: []
+  types:
+    - 山庄
+    - 其他
+  description: 与移花宫并称、令十二星相胆寒的所在。
+- id: faction_xuan_wu_gong
+  name: 玄武宫
+  aliases: []
+  types:
+    - 寺院
+  description: null
+- id: faction_yi_he_gu
+  name: 伊贺谷
+  aliases: []
+  types:
+    - 其他
+  description: null
 - id: faction_yi_hua_gong
   name: 移花宫
   aliases: []
-  type: 武林门派
-  description: |-
-    邀月与怜星所掌神秘门派,以明玉功与移花接玉闻名
-    驻地：loc_yi_hua_gong
+  types:
+    - 门派
+  description: 花无缺所属门派；门下以能与燕南天一战为荣，其剑法独创一格；燕南天指其宫主为杀害江小鱼父母之人。
+- id: faction_yin_qiang_shi_jia
+  name: 银枪世家
+  aliases: []
+  types:
+    - 世家
+  description: 邱清波所属世家。
+- id: faction_ying_zhao_men
+  name: 鹰爪门
+  aliases: []
+  types:
+    - 门派
+  description: 以鹰爪功夫闻名的门派，王一抓为当今第一名家。
+- id: faction_zhao_jia_zhuang
+  name: 赵家庄
+  aliases:
+    - 地灵庄
+  types:
+    - 山庄
+  description: 赵香灵所居庄子，龙蛇混杂，家丁中多有混混儿。
+- id: faction_zhe_dong_qiu_men
+  name: 浙东邱门
+  aliases: []
+  types:
+    - 世家
+  description: 枪法世家，邱清波七爷为当今掌门人。

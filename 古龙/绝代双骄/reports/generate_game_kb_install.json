@@ -1,12 +1,12 @@
 {
   "schema_version": 2,
-  "semantic_contract_version": 6,
-  "profile": "v4",
+  "semantic_contract_version": 7,
+  "deep": false,
   "installer": "generate-game-kb",
-  "run_id": "migration-v6-5fe885548f1374a4",
-  "source_hash": "sha256:6cfad35425a5c81e9b7e3add5e26cadffc43e4eaeced527cd8afef335d3489ff",
-  "final_data_hash": "sha256:369b1d1a944f4d9c3dd262faec28808f17fa12a7e48900fd788ef02e3220bad6",
-  "id_plan_hash": "sha256:a618e04f3a8c9efa506aa62c252ceaa033d25368ed8367d05295cf8e0b718a95",
+  "run_id": "run-2026-07-23T11-16-14-397Z-39924-541d9cbd",
+  "source_hash": "sha256:454ca354f28260894b1598eae21d1ba00d711eed8bcfdf9dc75cd3cbd0e93829",
+  "final_data_hash": "sha256:3b77e0e21f68d65df259f4d74ec9e16aa82eaaac5a61c56dd43a24f377d9df90",
+  "id_plan_hash": "sha256:9280875851f5d7f090b081583cfe0c7cd30e4f3bce2fb54d2b8efbc801589eb3",
   "migration_receipt_hash": "sha256:d61cc3eab4af472076df77defa4bc542050bab0036e6ffbe4a2939f7a319700d",
   "data_files": [
     "chapter_summaries.yaml",
@@ -16,658 +16,659 @@
     "skills.yaml"
   ],
   "data_file_hashes": {
-    "chapter_summaries.yaml": "sha256:4fab1d49c2c85bee53a3bc7fd798116e0589f8088f4716bed8bf41be69eb761b",
-    "characters.yaml": "sha256:dc7ec0359c7f0adfe645355ee9535130a2e6304e6808365500758ee36ba76740",
-    "factions.yaml": "sha256:103efe433ef2b077c8e32e076eef8735be74fcc756ea080ba3e406748449b3a6",
-    "items.yaml": "sha256:0dc9ed012e266447cc4a9c74c134b728c75d398dbdf66a0b8964fda23f963f40",
-    "skills.yaml": "sha256:ba0d5de8d5cb4bdf1c58b463d9b914cefb6d288469515106312ceca3a225faa1"
+    "chapter_summaries.yaml": "sha256:9be63e6844136a4534bef1907977588c2fa957e148617d409a04079a129257cc",
+    "characters.yaml": "sha256:96bc7b8213f52b76d8ce2d16b9bd382c8ae153d2dcda794770da86d450b77fb9",
+    "factions.yaml": "sha256:2dad9f246a68b66415cbe0e5eb560ef4694847a5b7903edefb2f32d11c579e0e",
+    "items.yaml": "sha256:202059f0bbbd33c7aca11cf29d1ab22ef7bc00beb9503db0f3ba579fa43dda07",
+    "skills.yaml": "sha256:06ecf9bd9e55ff7f04051a67f61b657b8cbe34f1fe1331a19c6a7a0493d33466"
   },
-  "verification_report_hash": "sha256:911831c38f255b1c5881a3d392c25e5a9b755659f38b5bd170fb03717a641d34",
+  "verification_report_hash": "sha256:f03d5d7fcf043e4ff97e13002fd55f6f555cc8189ed126da6e4a042e4c0b6da4",
+  "review_report_hash": "sha256:9416cd6b33113336c90e637dc1df8bb1152a747f4c1c151193716d893c910fcf",
   "chapters": [
     {
       "number": 1,
-      "title": "江湖中有耳朵的人，绝无一人没有听见过“玉郎”江枫和燕南天这两人的名字；江湖中有眼睛的人，也绝无一人不想瞧瞧江枫的绝世风采和燕南天的绝代神剑；只因为任何人都知道，世上绝没有一个少女能抵挡江枫的微微一笑，也绝没有一个英雄能抵挡燕南天的轻轻一剑！任何人都相信，燕南天的剑，非但能在百万军中取主帅之首级，也能将一根头发分成两根；而江枫的笑，却可令少女的心粉碎。",
-      "input_hash": "sha256:2bdba283c652d683f811fe1f0a8ffabcf97072c80261bbba66252a38cf487d9e"
+      "title": "第一回 名剑香花",
+      "input_hash": "sha256:a7bd9ca0a9e1c2f675dcd42f61053dccf47b6bbd44292f4eb71fb59dd3e5b413"
     },
     {
       "number": 2,
-      "title": "血！江枫脸上、身上，已无一处不是鲜血！",
-      "input_hash": "sha256:094b700d277c7a1d64b4d3bbd7177b50379468bf32935dfc1cc2ac1695697138"
+      "title": "第二回 刀下遗孤",
+      "input_hash": "sha256:f9c200cda95e7e7727e56f9a826c1aa1edc1a098efaf4ad47a867a133a2cfd80"
     },
     {
       "number": 3,
-      "title": "干净的石板街，简朴的房屋，淳善的人面……",
-      "input_hash": "sha256:3ebcb7a8eb76b4e3ce7fc0058aab480365d8e115936035c1a1cc027f18edfa3c"
+      "title": "第三回 第一神剑",
+      "input_hash": "sha256:79f48db548741996cb69640e18e8488ebc44c726d7810fc4551d67f977764d52"
     },
     {
       "number": 4,
-      "title": "暮霭苍茫。苍茫的暮色中，燕南天的身形，几乎已非肉眼所能分辨，他身形掠过时，最多也不过只能见到淡淡的灰影一闪。旧道上荒草漫漫，迎风飞舞，既不闻人声，亦不闻马蹄，天边新月升起，月光也不见掩去这其间的萧索之意。",
-      "input_hash": "sha256:feee2b44614da9ca691b6878e3d3d8e1e9c07b87d6fa86de5a28f968802791b2"
+      "title": "第四回 赤手歼魔",
+      "input_hash": "sha256:52a464e9e397c135be4e440fd90c3c165bf39c4dce834b022ddaa83aead4e00c"
     },
     {
       "number": 5,
-      "title": "和阗河滚滚的河水，在七月的残阳下发着光。",
-      "input_hash": "sha256:3a9c84b9a9810953c294c3716ff1f1d56efb9e14f0d049f938c35989d36b2aec"
+      "title": "第五回 恶人之谷",
+      "input_hash": "sha256:19b75ca422b378081b8847718bc1f75a2ec02035ffd431c04be4792ed4dad1a2"
     },
     {
       "number": 6,
-      "title": "一盏灯，灯光照着燕南天的脸。燕南天只觉得这盏灯似乎在他眼前不停地旋转，他想伸手掩住眼睛，但手脚却丝毫不能动弹。他头疼欲裂，喉咙里更似被火烧一般，他咬一咬牙用力瞪眼，瞧着这盏灯。——灯哪里在转？",
-      "input_hash": "sha256:5a18fbb3a23ab810f19ed814e90717451494fba001f55d6a8d378f9a685c00f1"
+      "title": "第六回 毒人毒计",
+      "input_hash": "sha256:df823ddc860ba0032a20eebefb264c7a0af373ba0de48e173918dacd57730474"
     },
     {
       "number": 7,
-      "title": "哈哈儿看了看燕南天倒下的身体，突然大笑道：“各位也莫要争了，我有了个好主意。”",
-      "input_hash": "sha256:ad966a0d96b7a64780ca46e923a3b9e3f434781837b060c483fa9eaea71dcb9c"
+      "title": "第七回 漏网之鱼",
+      "input_hash": "sha256:51a44e356d3698344fe43a40cbd2281932042aff8051bdebc3116bdd02f5cbcb"
     },
     {
       "number": 8,
-      "title": "小鱼儿渐渐长大了。",
-      "input_hash": "sha256:56c8c1d0d54f41afe3b456191575238ab8d4bd2848316e6d75b391b2d57da80b"
+      "title": "第八回 近墨者黑",
+      "input_hash": "sha256:37a1bc4f94b53a5af9f578d5cd8ac31d9b4f43e93de8353dbced5c1a0d55f290"
     },
     {
       "number": 9,
-      "title": "小鱼儿望了巴蜀东一眼道：“这也算坏事吗？……嘿，这种坏事简直只有赶骡车的粗汉才会做的。”",
-      "input_hash": "sha256:d3d660812cb15e5fe18e96e4992dad7b865a8d15e84c3a99300b525a343dc112"
+      "title": "第九回 青出于蓝",
+      "input_hash": "sha256:cea9a824bbfca74c1ffbeee82a80056ec345421ac015bf7fc7514de99392daaa"
     },
     {
       "number": 10,
-      "title": "一离开这屋子，两人就又变了。",
-      "input_hash": "sha256:d2512bab18766932bb817beaa3b53a0f293dd212cf1ceecb08e5011a5423812d"
+      "title": "第十回 谷外风光",
+      "input_hash": "sha256:197bfd037eb1cd82ce4ccba9710a7c8e25b22e1fbfc78360c11e30707f753814"
     },
     {
       "number": 11,
-      "title": "小鱼儿觉得有些失望，正咬着嘴唇发呆，突然一只手伸过来，拉着他就跑，那柔软温暖的小手，正是桃花。",
-      "input_hash": "sha256:821af026efa7e9901cd168f99d3f28c3285b4fc6ba85f0b6b6eb614f6b6c73c0"
+      "title": "第十一回 旁门左道",
+      "input_hash": "sha256:e9c874a10640192e0e11df8b30b58ae9a04b1abe722373ca964c89f7083390df"
     },
     {
       "number": 12,
-      "title": "小鱼儿拍掌大笑道：“‘疯狂一百零八打’，哈哈，果然是疯子才会使的拳法，只可惜这么漂亮的人，却学这种疯子的拳法，真叫人看着难受。”",
-      "input_hash": "sha256:a559eb622fc635ef38b220317ce953788f994825ed40dec52c16091ab8b4e007"
+      "title": "第十二回 意外风波",
+      "input_hash": "sha256:0c420249b18703c84100c0aec0aa2eb5d20bd608c0b88bc1d27a6dd6f851ce0f"
     },
     {
       "number": 13,
-      "title": "小鱼儿在暗中已瞧了许久，他瞧见李家兄弟在前面追铁心男，这毛家兄弟就在后面跟着李家兄弟。他们坐的那匹马又高又大，但走的步子却是又轻又快，一路在后面跟着李家兄弟，李家兄弟竟没人知道。",
-      "input_hash": "sha256:78f85e68b3c1f50a340bfa138bbb026ad1c86d5d5ad0e017ea70435a1505ea00"
+      "title": "第十三回 仙女惩凶",
+      "input_hash": "sha256:97a0aac0216943687ae7e109759b42805d4b394a8abb5c5cdba81d8b18a07f81"
     },
     {
       "number": 14,
-      "title": "红衣的人影，在星光下看来是那么窈窕，那么可爱。",
-      "input_hash": "sha256:53d4ba500e8423d2c6484a2a93ed5d0b075d557d246403807902f6ea6b71264a"
+      "title": "第十四回 倩女现形",
+      "input_hash": "sha256:2020b0767e3de5c5d1b1d4f0fde520c4cb484b650cc10a43e232c5c2ade43c81"
     },
     {
       "number": 15,
-      "title": "铁心男道：“不……不……唉，不错，兰花的兰。”",
-      "input_hash": "sha256:8718a992b700d7ad00ddc17668f91cfd0604a7b4d53ee59152374154a3a27f90"
+      "title": "第十五回 有惊无险",
+      "input_hash": "sha256:11b0a3e9a0e96601823629f5fd116ed606ccd2a52bef59c263df9ad460c0766c"
     },
     {
       "number": 16,
-      "title": "这语声冷而美，赫然竟是小仙女的声音。",
-      "input_hash": "sha256:804f7a29d311663b8c92b01bd62d329dc3cb470c5543f7e797d95419019e535c"
+      "title": "第十六回 弄巧反拙",
+      "input_hash": "sha256:5ef1fa90179f814016f6bb1fa41a36d18131226a628d1f7a8c15c1f2bde53ebb"
     },
     {
       "number": 17,
-      "title": "小鱼儿笑道：“大哥？……你个子比我还小，该叫我大哥才是。”",
-      "input_hash": "sha256:51498b0e4993cf9517fd7938cacec3bbf5798f6caebc85bd86beec930e194692"
+      "title": "第十七回 碧蛇神君",
+      "input_hash": "sha256:5c5a5588d12eae8ec4497c4004f924d391a632690a140abc5abb8cc0e52866c6"
     },
     {
       "number": 18,
-      "title": "这不是小仙女！",
-      "input_hash": "sha256:a2de2091ccb461efc7d25067ea2c2a4d9b8ecb1b68eed3746dd35e959affb2f0"
+      "title": "第十八回 慕容九妹",
+      "input_hash": "sha256:49d31cf13b6c5802a160de3c0b9221b9c1dc783815bd3279bf1c7b47bb83a338"
     },
     {
       "number": 19,
-      "title": "小鱼儿随着慕容九妹向一间间房子走过去，走完第八间，慕容九妹神情又大见温和，甚至连眼波都温柔起来，她觉得这“小鬼”实在并不如自己以前想像中那么可憎可厌，谈谈说说，不知不觉已到了第九间。",
-      "input_hash": "sha256:f847e2b4a8f008232d1c80c25c3a3d9d241443c302cf0b9fa86237af9c652ea7"
+      "title": "第十九回 爱恨情仇",
+      "input_hash": "sha256:f0adb7dde85db1372b429871c1b243c1453d917f43e456487d3dce0d37eebd11"
     },
     {
       "number": 20,
-      "title": "这样也不知道过了多久，是几个时辰？还是几天？休息的时候他就将怀中的药丸掏出来吃，既不觉饿，也不觉冷。但出去是无法出去的，他迟早也是要活活地被困死在这里，那么纵然练成了绝世的武功，又有何用？小鱼儿想到这里，便要自暴自弃，只是功夫一不练，就冷得厉害，他死活没关系，又何必在活着时多吃苦。",
-      "input_hash": "sha256:67b004a8bdffb323a5c16fe2b5c2e93cee2200ecad06c4fe99f973b73c06abc5"
+      "title": "第二十回 人心难测",
+      "input_hash": "sha256:683659a30a32a93cfc3609a76d56010300be86b0f120a3260e16b336a0a5b318"
     },
     {
       "number": 21,
-      "title": "小鱼儿中了黄牛、白羊在酒中放的迷药，身子无法动弹，只得叹口气，苦笑道：“看来当真是人不可貌相，你这条笨牛居然也有一肚子鬼主意，我可真做梦也未想到。”",
-      "input_hash": "sha256:3fbfd89879bd49fc9c11aea69f459c6cd99f47ac8486864c591c70f15903ac06"
+      "title": "第二十一回 尔奸我诈",
+      "input_hash": "sha256:9462c4c926615902440bd7ebcb6461919717f973e3493845553d84ec7a7a3220"
     },
     {
       "number": 22,
-      "title": "峨嵋山山势险峻，正是“高出五岳，秀甲九州”，尤其在后山，抬头望出，只觉万丈危崖似将临面压下，令人神魄俱为之飞越。",
-      "input_hash": "sha256:0c2783c3394901fde494cd8332cf910417c2a7e5291c1dbfd3574d813a7fee12"
+      "title": "第二十二回 阴错阳差",
+      "input_hash": "sha256:bf2a0b1969be33bf646c13a78a0361e2c35d252eaf6a91f1f3042f4cf17991ce"
     },
     {
       "number": 23,
-      "title": "黄鸡大师听说这里是峨嵋禁地，不由皱眉道：“当真是这里，你我还是快快退出才是。”",
-      "input_hash": "sha256:7f7376556cc269f4d3d24e37bcd5937325522fd2a4f024ad61b02988b4f4d9e1"
+      "title": "第二十三回 奇峰迭起",
+      "input_hash": "sha256:a6764a49a26ec1890855d729689889cefbee7abf818a51ed423458eeefc2745c"
     },
     {
       "number": 24,
-      "title": "在月光下，慕容九妹已瞧清了这“怪物”面目，却不是小鱼儿是谁？……却不赫然正是那已死在她手上的小鱼儿是谁？",
-      "input_hash": "sha256:728c7ee3f6b16adae2430365009dacac19e22e7d64e93119fd446351c844294d"
+      "title": "第二十四回 死中求活",
+      "input_hash": "sha256:1d9b665a73e205d54fd4e67cc11fc16fa108497b80016f82b8a9a63ec6b6e3a5"
     },
     {
       "number": 25,
-      "title": "小鱼儿大惊之下，扭头一瞧，才发现那竟不过是猴子，几十只猴子也不知是从哪里来的，竟都学着他的模样，身子爬在峭壁上，脑袋悄悄往外探。峨嵋山的猴子最多，又最喜欢学人模样，小鱼儿本就听人说过。",
-      "input_hash": "sha256:ea556a069dd60b3b2e451c7ec4a74aa7be7d68252465357a6afe37b56e97f5c9"
+      "title": "第二十五回 死里逃生",
+      "input_hash": "sha256:fc0817a4382268e0205eb0fcb541472907f36379484a27e493f6a5c0043cccd0"
     },
     {
       "number": 26,
-      "title": "碧绿的翡翠纵在黑暗中也耀眼得很，沈轻虹本来一直含笑瞧着小鱼儿，此刻也不免吃了一惊，献果神君更是要急疯了，一把抓住小鱼儿，道：“你……你这小疯子，你可知道你在做什么？”",
-      "input_hash": "sha256:7d045d205119fb42fe8174bed4e70abb026a0f29748e010e0b0b9371ef336b4d"
+      "title": "第二十六回 巧计脱困",
+      "input_hash": "sha256:875a03fc25d0f21bd0df93e8040a1f5979f94c0cef2566b229fd83b6387271b8"
     },
     {
       "number": 27,
-      "title": "一个轻衫绿裙，鬓边斜插着朵山茶花的少妇，盈盈走了进来。她步履是那么婀娜，腰肢是那么轻盈。她自那百丈危崖外走进来，当真就像是邻家的小媳妇跨过道门槛，就连那朵山茶花都还是稳稳地戴着，没有歪一点。",
-      "input_hash": "sha256:46462b21819221aa3a13fe8aad807678917db374a35ebe007a112a42e068d731"
+      "title": "第二十七回 脱困入困",
+      "input_hash": "sha256:2e45c316997a1413135c68e8be693485960af1f34c4d4edd4141a2e124ba0e72"
     },
     {
       "number": 28,
-      "title": "小鱼儿有个特别的脾气，随时随地都要开玩笑，但他这玩笑开得也并非没有用意，他想试试这株树是空心还是实心。",
-      "input_hash": "sha256:ec3c967a81013f801f861f20c593c0c3b5ea5b86e7e43b13893a414a0c979787"
+      "title": "第二十八回 穴里乾坤",
+      "input_hash": "sha256:5b576fd08b1d39b75f652a1ec93b6fc0bf366c5c317cb2465ae932594121922d"
     },
     {
       "number": 29,
-      "title": "绿裙少妇瞧着小鱼儿咯咯笑道：“天下第一个聪明人，世上真的没有一个人能骗得倒你么？”",
-      "input_hash": "sha256:1ed553a5a553d54a2a044613af7762307631d22c5320f4b20ace345326fc192e"
+      "title": "第二十九回 颠倒乾坤",
+      "input_hash": "sha256:3b09a5e7c2244dd621df0aabc85781b54d2ac5b447e6144432f38b7957cf8b26"
     },
     {
       "number": 30,
-      "title": "小鱼儿耳朵也贴上土壁，静静地听。地上面，果然已有声音传下来，各种声音。",
-      "input_hash": "sha256:9367fab6955ad49f7f930e84db1f70f10f4b42c792a01185f648bc5e2148501a"
+      "title": "第三十回 作法自毙",
+      "input_hash": "sha256:2b063d39acdfd1f2be12b7ef91c1d4cbe3aac2b30b702def86c825be52a06eb3"
     },
     {
       "number": 31,
-      "title": "但小鱼儿瞧见灯光一晃，已霍然转身，刚好接了他这一掌，两个人身子俱都一震，两个人都撞上土壁。",
-      "input_hash": "sha256:6b7f5305709b7fb8846239465d4e202e6bdb96871d3abca8e6059d552c8edd46"
+      "title": "第三十一回 柳暗花明",
+      "input_hash": "sha256:af836605bcc28a7769a7344345d407bcec26426b2a78a5ee89ffd139b0f95db4"
     },
     {
       "number": 32,
-      "title": "黄金的绞盘转动，黄金的墙壁果然随之移动，现出了道门户。江玉郎、小鱼儿人还未走进去，已有一片辉煌的光洒了出来。这金色的墙壁后，竟赫然全都是珠宝，数不清的珠宝，任何人做梦都想不到会有这么多的珠宝。",
-      "input_hash": "sha256:17a1009583b8a3667ae6a35ece790020f2ce66146640fe5aaa5adb77d1055258"
+      "title": "第三十二回 地下宝藏",
+      "input_hash": "sha256:6e69b6b4c377dc7beddb45797c368c6adb8447cad32c58d11bfc4effeaf58a4b"
     },
     {
       "number": 33,
-      "title": "现在，小鱼儿已在搬动那锡制的绞盘。",
-      "input_hash": "sha256:d0d465c348e692f8fbfef41fd016af5e6d50515e6ad3459c4ae6b0cc7314a923"
+      "title": "第三十三回 当代人杰",
+      "input_hash": "sha256:12ab4693b7e2a7f17ceec3af3f3d11ae2f06c6e21a0b14a6c72010c005b77646"
     },
     {
       "number": 34,
-      "title": "突听一人娇笑道：“不错，我可以为他证明，他全身上下，每分每寸都是男人，绝没有半分假。”",
-      "input_hash": "sha256:9c83f181a2a2eaf00a218f858b8ae98b550bdb5dd2fb44068685bb7df148e3c9"
+      "title": "第三十四回 盖世恶赌",
+      "input_hash": "sha256:d6367f79bc4993aa57f63c0eee0dccb2d2d7d19a500ed4cb4e48060e2493b513"
     },
     {
       "number": 35,
-      "title": "那跟班站了起来，拍了拍自己衣裳，道：“所以小人从里到外，从头到脚，身上一粒扣子也没有。”",
-      "input_hash": "sha256:aa3415efd407791510ba7e77a575ebea196b0f2443e9b63b724750ef97e7a07c"
+      "title": "第三十五回 智得铜符",
+      "input_hash": "sha256:9284eae3a4148e8cfda5446543406aa7b0864111f1e5400ea74b87e640f64572"
     },
     {
       "number": 36,
-      "title": "他转过身子，竟头也不回的去了。",
-      "input_hash": "sha256:c5be3a9e32df4d71501c3100b708e21e8d6210e9e156a8b0c88e8c4884ce4832"
+      "title": "第三十六回 貌合神离",
+      "input_hash": "sha256:2f965072448bbbaa015889870e4dc7a85f65acbef88b1f7de8255fede37ec2ec"
     },
     {
       "number": 37,
-      "title": "船走得果然很慢，小鱼儿一路不住地问：“这是什么地方？……这里到了什么地方？”",
-      "input_hash": "sha256:8233a13838ca41f0d728e3614ccc5467d84db2b7b4ac1785e1137ce085ce8b7a"
+      "title": "第三十七回 惊险重重",
+      "input_hash": "sha256:18422519c2f66602af552e48261ab5fe6dcef69b466f3a2549378adf001b2505"
     },
     {
       "number": 38,
-      "title": "小鱼儿埋头苦吃了半个时辰，才总算放下筷子，摸着肚子笑道：“肚兄肚兄，今日我总算对得起你了吧！”",
-      "input_hash": "sha256:8af05485b2da1cb25b05768e7113d8df4bfb2cd62f14e00421542178b8784123"
+      "title": "第三十八回 江南大侠",
+      "input_hash": "sha256:37867e05445080d01f6621fd4c850b482e1ecc1c220e76bc5ea67b23f982e3ef"
     },
     {
       "number": 39,
-      "title": "江别鹤微笑道：“在下要轩辕先生做的事，方才不是已做过了么？轩辕先生的赌注既已付清，为何还要说这样的话。”",
-      "input_hash": "sha256:a2e536c1fb8283970a757e73daf77e36310f8c28a0b4dea76ace538e6067d271"
+      "title": "第三十九回 假仁假义",
+      "input_hash": "sha256:85a59e90c9cd8baf3edb88ed430c9c89ef644936520f334a7b65553868c2fc1e"
     },
     {
       "number": 40,
-      "title": "小鱼儿果然被送到江别鹤卧房的床上。",
-      "input_hash": "sha256:884dc185966b7470adafcb16d6ea10b4aba6c0ca4993438081db88fc74791a2b"
+      "title": "第四十回 冤家路窄",
+      "input_hash": "sha256:ec87d2f1a9ffbbfdcf4136c51f4ea046930f1a695e0ed42ef989d8ce6608cb2c"
     },
     {
       "number": 41,
-      "title": "门外是条走廊，走廊的尽头有间小屋，屋里有炉火，火上烧着壶水，老人正蹲在壶边，等着水沸。他动也不动地蹲在那里，显得那么安详，那么宁静。",
-      "input_hash": "sha256:2f604c43923ceb67f81cc4b30ecc81dfc2b650da1749e36f73233219b9242025"
+      "title": "第四十一回 流浪江湖",
+      "input_hash": "sha256:0a18da52af3e8344813c189cd3ad8b8eabe931f47b41277174031bffcddf77c4"
     },
     {
       "number": 42,
-      "title": "小鱼儿一口气奔出数里，在荒凉的江岸倒卧下来。今夜，又是满天星光。",
-      "input_hash": "sha256:cce751ea89362fc5faa68b38c4e1f1d11bbddfad8b8125ab71c435cabf457534"
+      "title": "第四十二回 巧识阴谋",
+      "input_hash": "sha256:104b5043cefd56a259e676ec16916a41175682b66ad2e7601ad5be16c3cc5a1f"
     },
     {
       "number": 43,
-      "title": "小鱼儿远远在江岸旁的草丛中蹲了下来，但却不肯走。他实在穷极无聊，实在想瞧瞧热闹。",
-      "input_hash": "sha256:feb449024e9f56b84301d32527c968050ecc0c2074776708cfd9c0556c9464d2"
+      "title": "第四十三回 奇峰迭起",
+      "input_hash": "sha256:1d5cf94d84d1b2c4204b4402678edf053260b44b04a9cb5308ffc054c6a0de48"
     },
     {
       "number": 44,
-      "title": "第二天，还是个晴天，太阳还是照得很暖和。小鱼儿又躺在那张椅子上晒太阳。",
-      "input_hash": "sha256:8540f18df7fcf5dd17d0b1d1013f7d826a770854b4a767105ed7f6a03f8c2532"
+      "title": "第四十四回 扑朔迷离",
+      "input_hash": "sha256:ef702fd5bd45f9a40bbdfce14ee6c42a9a5480188f1b3844640f3f12c53786ff"
     },
     {
       "number": 45,
-      "title": "小鱼儿掠过几重屋脊，便又瞧见那三匹急驰的健马。",
-      "input_hash": "sha256:bfd225ed034893c55e424367c9a814763f7bdfb9af4956af5e667e99ab4d1c02"
+      "title": "第四十五回 暗藏奸诈",
+      "input_hash": "sha256:d1c6629a809f357bf3e463fd134455c0137c83fd66c0679c88c8c7db06db5e1e"
     },
     {
       "number": 46,
-      "title": "一时之间，小鱼儿心里已打了十七八个转，正是又惊又疑，只是他纵然不信，事实却又偏偏摆在眼前。",
-      "input_hash": "sha256:0e145e65268fa2cc46a82c580a555fd7a0307417f0d44db3a244289b7cfcd090"
+      "title": "第四十六回 巧识毒计",
+      "input_hash": "sha256:52ea44984652b9fc1a951633744a9691aa83e4a59baf5f95fcee27c7fc16fc46"
     },
     {
       "number": 47,
-      "title": "这时那花无缺才自轿中缩回头来，原来那轿中正是铁心兰，他已将解药喂入铁心兰嘴里。",
-      "input_hash": "sha256:7108158c9f0561cd8f9c3ff9a0628e244e719b6986b68c4301bc195ce6dd423c"
+      "title": "第四十七回 计中之计",
+      "input_hash": "sha256:22b6d314e1dd5eee2d68a427a54490e565fbea884b11e9d1efbde77db10f126d"
     },
     {
       "number": 48,
-      "title": "段合肥父女入了地灵庄，地灵庄上上下下精神俱都一震，一个个喜笑颜开，几年来的闷气这下才算出了。赵香灵虽然也觉得这件事做得有些不妥，但瞧见多年来的大对头已成了自己的阶下囚，也不由得心怀大畅。",
-      "input_hash": "sha256:f6e3b50278ea1c1e60a4c9cb14cc908246d0de25b1e0f2b34d9ea74edd2096fb"
+      "title": "第四十八回 揭发奸谋",
+      "input_hash": "sha256:a1e7fd032af63e2b9ac9e0317230da55817635d2c218fb946d4bb0e12afb0cf3"
     },
     {
       "number": 49,
-      "title": "江别鹤怒道：“铁英雄若非自刎，难道还是江某下的手不成？”他顿了一顿，冷笑接道：“江某若要下手，早已下手，又何必等到此刻？”",
-      "input_hash": "sha256:00c2403e5a16b2e06ee6054938252059fcfcd49490f5a1c43f4aa64b7152c89e"
+      "title": "第四十九回 幽灵之谜",
+      "input_hash": "sha256:820cf3c1d8c77c30e42d3ded252f3035e50bec70eee1c26ce1104d415151f9b3"
     },
     {
       "number": 50,
-      "title": "这间屋子乃是间小小的阁楼，但布置的却极为精雅。厚厚的地毡，织着琥珀的花纹，人走在上面，绝不会发出丝毫声音。",
-      "input_hash": "sha256:8a2b81609be93121c37aa5ad70f127c5794f3f6ee4b75326069c282ff21d91c2"
+      "title": "第五十回 意料之外",
+      "input_hash": "sha256:3cf41a3a2b3c0ea8a2d0e781661ef1d29a3be8022239dcd42b28f6a73ede6ccc"
     },
     {
       "number": 51,
-      "title": "铁无双的棺木，就放在大厅中央，赵香灵哭丧着脸站在一旁，居然为他披麻戴孝，活脱脱一副孝子的模样。",
-      "input_hash": "sha256:ad9b789345ab5ec89552a4306398f5eb990e9d32322a975d38260c374635a1cf"
+      "title": "第五十一回 假仁假义",
+      "input_hash": "sha256:8e6b74455dfde709c32ad93551b4e68f21c80f7414ea8f96039806c1ee30ed59"
     },
     {
       "number": 52,
-      "title": "罗九兄弟怔了怔，指了指那阁楼，道：“兄台今夜难道不睡在上面？”",
-      "input_hash": "sha256:c3b23a38d70556c96cdd612ef15ebedc3b364c9afe46aab6138b929915984c70"
+      "title": "第五十二回 装傻装疯",
+      "input_hash": "sha256:2d233f1f4fee28b7fc9b83f55c0104c47058344579ca27e33d4911442e0de9f6"
     },
     {
       "number": 53,
-      "title": "若换了两年前，小鱼儿不死在拳下，也要死在剑下，但现在的小鱼儿，却已非昔日吴下阿蒙。",
-      "input_hash": "sha256:a3033777ce68d48e18a4251239d70e82fddf5e0d70a9f8423b5e3032c2f6919d"
+      "title": "第五十三回 栽赃嫁祸",
+      "input_hash": "sha256:2ef9f58feba59aea2db7aa330250d84e29ac8ecc7d42d0f53ed31d255ac0e333"
     },
     {
       "number": 54,
-      "title": "小鱼儿悄声道：“有人来抓咱们了，准备逃吧！”",
-      "input_hash": "sha256:4353f748e7bb86c92634cc026e2cb7b10afa903d10d0a4686ffbc0f844acab05"
+      "title": "第五十四回 略施巧计",
+      "input_hash": "sha256:b18aa721105cd6b9a7a78336c474c0e1b18abaea108e87b15c5ad35ed35ab97c"
     },
     {
       "number": 55,
-      "title": "慕容九妹全身都笼罩在黑色的披风里，连头也被盖着，三姑娘也瞧不出她长得是何模样，迟疑了半晌，终于忍不住问道：“这人是谁？”",
-      "input_hash": "sha256:8f912155101d0863e65cc878edb5f9b5d88b481b6692369029bec4e271980483"
+      "title": "第五十五回 巧妙安排",
+      "input_hash": "sha256:68eca0f88f8d7a8c7f0d388e1807b783506bfdd47c3f6c171e11836476394c0b"
     },
     {
       "number": 56,
-      "title": "两张布条落下后，就连慕容珊珊心里也再无怀疑，小仙女和慕容双更是满面杀气，恨不得将江别鹤先宰了再说。",
-      "input_hash": "sha256:c04c2719dd2d708040807a7d69c687966b32a1a455608356a7f5cf9c4bfeb128"
+      "title": "第五十六回 作法自毙",
+      "input_hash": "sha256:5d149558539dd96d34af97abf644735d5b0c89e860770c99d4f10bc5309163a8"
     },
     {
       "number": 57,
-      "title": "小鱼儿见黑衣人闪电般一掌拍下，又是一惊，百忙中迎了一掌，喝道：“你才是江别鹤易容改扮的，骗得了谁？”",
-      "input_hash": "sha256:a2cd4342db33b343ba866e88f23c2eab39be06823a7b9c7544dca0d5629a9388"
+      "title": "第五十七回 意外之外",
+      "input_hash": "sha256:5ea587ca10b453aa37ca06af69372ff5f43eaf6e9d9723b58b791327be34a830"
     },
     {
       "number": 58,
-      "title": "小鱼儿道：“你这主意打得虽妙，谁知慕容九妹竟被我带走了，你要这面具也无用，所以乐得做个顺水人情，用它来救了我。”",
-      "input_hash": "sha256:645b1c9df65eb5b2b30b540d27521ee6b063ae8e5872280336a88d2ace863c20"
+      "title": "第五十八回 天降怪客",
+      "input_hash": "sha256:9180fe4e537a3a7271e0d2bfc2493446e631802c4fba53c18ab8249114c21d9f"
     },
     {
       "number": 59,
-      "title": "小鱼儿见屠娇娇提到铜先生时，说话吞吞吐吐，闷在心里，也不再追问。只见这辆大车也是由西往东而行，正和那些江湖朋友所走的方向一样。",
-      "input_hash": "sha256:9019c63df9c0bade756e9003de8b333e0ba9c41324db7abde19ef45cfb64ec5f"
+      "title": "第五十九回 惊人之变",
+      "input_hash": "sha256:af44bc8d267c00f37436016f8a4285fcad35114bf64eb55b365963a23ca323b5"
     },
     {
       "number": 60,
-      "title": "谁知那十八条大汉一推之后，花无缺非但未曾跌倒，连后退都没有后退，他身子竟又往下陷落了几寸。",
-      "input_hash": "sha256:b412dd2a5d38164a01bf0e8a2a05e272cf553bfecd0b6dff063bf2163689f0ce"
+      "title": "第六十回 天之骄子",
+      "input_hash": "sha256:40beda8f160dea2d33a3587f13aa2b01ecbf518db05b5abd1a5875e092072ae4"
     },
     {
       "number": 61,
-      "title": "欧阳兄弟方才还是滔滔不绝，能说会道，此刻见了杜杀，竟连几个字都说不清楚。",
-      "input_hash": "sha256:3fdf08f6a17631e6952ac989fa8c2492df29bc9676b67876283e7932a518f923"
+      "title": "第六十一回 阴狠毒辣",
+      "input_hash": "sha256:2a399e592a7e0517080678301a3712c5ace77690ebf1612e77b4805b374e71a9"
     },
     {
       "number": 62,
-      "title": "小鱼儿根本全不管别人用什么眼光瞧他，提着衣襟越跑越快，片刻间便已追上了花无缺的马车。",
-      "input_hash": "sha256:983f5d6b0a44aee8a7786b91e77d07bbb945f799302118734d015949352878b1"
+      "title": "第六十二回 情有独钟",
+      "input_hash": "sha256:7e11e88f8c4abe5cee527d4e75468af157a55e8a1ecd6d4fe01b691f8bb07eb6"
     },
     {
       "number": 63,
-      "title": "花无缺和铁心兰正发愣间，只见那穷汉目中光芒一闪，道：“我正是燕南天！”",
-      "input_hash": "sha256:17bb944278e3fe4bb36ada3b12167e0f4e173779289d60217168e3f6e76efc2f"
+      "title": "第六十三回 剑气冲霄",
+      "input_hash": "sha256:cd3773f5a44697f76ecd402ecd40fe385780a532bb22a01fa82059c9e56e0886"
     },
     {
       "number": 64,
-      "title": "花无缺默然瞧了他许久，缓缓转过身子，似乎不愿被小鱼儿瞧见自己面上的变化。",
-      "input_hash": "sha256:2e3281538189d61ad63051a9530b75e6aa020fbb43813713a0a39a28e1dc2bc7"
+      "title": "第六十四回 神掌挫敌",
+      "input_hash": "sha256:2fa2e90343ddf4c9decb7095e2d20bd8379c825e2d46f3ec356e9ff0e2a68d7e"
     },
     {
       "number": 65,
-      "title": "只见江别鹤垂首走出了门，身法立即变快，四顾无人，一闪就出了院子，小鱼儿眼珠子一转，也悄悄自屋檐上溜开。",
-      "input_hash": "sha256:0df83e1c364f4b9297cf0b676507310f58a0c96667bbb20ac2043037a880202d"
+      "title": "第六十五回 神出鬼没",
+      "input_hash": "sha256:e1045c5e186f9285c100bb203da510b1575b95f4f7d5eb9f4da0a64dcf11bf54"
     },
     {
       "number": 66,
-      "title": "花无缺面上变了颜色，只道他将向小鱼儿下手，谁知他竟长啸着扑入树林，举手一掌，将一棵树生生震断。",
-      "input_hash": "sha256:a61c1913a659134bb5de159ea9d00ba38c1cbdfab59eaeda0adfb252878e9546"
+      "title": "第六十六回 高深莫测",
+      "input_hash": "sha256:e1cba698c989d21a3e3e37901c4b5df13cf641563862576712fd3244b6aca61b"
     },
     {
       "number": 67,
-      "title": "花无缺默然半晌，仰天叹道：“我永远也不会恨你，我虽然不能和你……和你在一起，但我终生都会将你当妹妹一样看待的。”",
-      "input_hash": "sha256:48ff993c63b48fd3d242da63d06a530ce883d74edb0063594e4e074354c7d3ab"
+      "title": "第六十七回 义薄云天",
+      "input_hash": "sha256:fe5e1ca9e85ba438bdc79b897869845db9961e2f3839dbcc287a591393f0c931"
     },
     {
       "number": 68,
-      "title": "燕南天与花无缺并肩走出了花林。",
-      "input_hash": "sha256:99580d255b9160b785c4125c9e15d717de0ac7a627bfd74274a4077fe4befeb6"
+      "title": "第六十八回 暗藏奸诈",
+      "input_hash": "sha256:025d03ca216d79ee13a29dd6bf4fd5bb7619dd8a896e57b31089bf284dd899d2"
     },
     {
       "number": 69,
-      "title": "江别鹤静静坐了半晌，瞪大了眼睛，瞧着燕南天和花无缺伏在桌上，已是动也不动。",
-      "input_hash": "sha256:93b8c05de67df241e48c25210f97ee48895ad6abca248da5c21c3eec97d009d3"
+      "title": "第六十九回 千钧一发",
+      "input_hash": "sha256:e7caee9418d344bddf5022a8899580bc50b9f0d6f5f954eb0f64f7c0b2302a32"
     },
     {
       "number": 70,
-      "title": "铜先生厉声道：“但你却为他笑了，是么？”",
-      "input_hash": "sha256:b05961491e095e845f61ad6f3ecadd7111d1b542653d593955dedc91ba8aedec"
+      "title": "第七十回 死里求生",
+      "input_hash": "sha256:e2e53add88e56db32ef5f418dc374fe4c715760f823cca5f27e755c71183eacb"
     },
     {
       "number": 71,
-      "title": "铁萍姑根本就没有接触过男人，她青春的火焰，本已抑制得太久了，更何况一个人到了生死边缘时，理智本就最容易崩溃。",
-      "input_hash": "sha256:f78188b1615cd78d03c1403b6617eaaf824041d949895c2aa0024c9be4a43146"
+      "title": "第七十一回 柳暗花明",
+      "input_hash": "sha256:8f27ba4b54189c1113bb37c1fd89634543a54d3a5681c47b47e471119c705948"
     },
     {
       "number": 72,
-      "title": "小鱼儿暗中吃了一惊，却大笑道：“你若想以慕容九妹来要挟我。",
-      "input_hash": "sha256:3f3bbb9dcc83814b241b4b8a8e8dee826ff096a3570c359e75c97d650dcc3015"
+      "title": "第七十二回 峰回路转",
+      "input_hash": "sha256:78437ef598a89355a285a86b582ae2c795afa4622da18f336813187e2f62f482"
     },
     {
       "number": 73,
-      "title": "花无缺听小鱼儿说慕容九妹已被江玉郎带走，不由怔了怔，道：“慕容姑娘？……慕容姑娘也和他在一起么？”",
-      "input_hash": "sha256:19692baa47b9344fab80b5717c6c2d344cf7bafdabd0f5ba0ca123760b4eb6e2"
+      "title": "第七十三回 口蜜腹剑",
+      "input_hash": "sha256:18bad079e66613bd5e193648a0d445bf637d779f215a73480f98bf70aafa0259"
     },
     {
       "number": 74,
-      "title": "小厅里的光线黯得很，这一高一矮两个人，站在灰蒙蒙的光影里，竟带着种说不出的邪气。",
-      "input_hash": "sha256:7647ed8d5a640a6c5dfe313d544b67030bb1d5ef8d650e1e1efbf217c3f289bb"
+      "title": "第七十四回 人面兽心",
+      "input_hash": "sha256:113f707b9dc7343354d32440a55400a3d2bde100c6903872c06f446a8668507a"
     },
     {
       "number": 75,
-      "title": "这人的身形也不算十分高大，但看来却魁伟如同山岳。",
-      "input_hash": "sha256:c261a2130f1fa7f826fd184e4a2bc00ff1a6b2046ecd1e8719b11c3ea5f7c952"
+      "title": "第七十五回 南天大侠",
+      "input_hash": "sha256:22bc2737ed80af10c720bcae4a29b709779d99f2d502d82bf7188b811843dc5e"
     },
     {
       "number": 76,
-      "title": "现在，“南天大侠”路仲远已安葬了。在这清凉的小镇上，安葬的仪式虽然是不可避免的十分简单，但却也是十分隆重的。",
-      "input_hash": "sha256:816c00ef20e09daa6738644479efc25505903f8fef8a053e1d79b1492e181c3a"
+      "title": "第七十六回 无牙门下",
+      "input_hash": "sha256:c6d3916d0ed87393ce1130c0792619e85a1f2178336232aa10fb550a69e3aacc"
     },
     {
       "number": 77,
-      "title": "铁心兰见那满面流血的人不是花无缺，虽然松了口气，但瞧见这比豺狼更凶悍的人，瞧见这残酷而诡秘的情况，身子仍不禁发起抖来。",
-      "input_hash": "sha256:2f089dbf4bb076d15809d4b85188025699032fb0b270c16428678184674a3061"
+      "title": "第七十七回 萍水相逢",
+      "input_hash": "sha256:8d71805928be91f73e071753f3e8069a17d0450dc9dc3eda4b938d04315826d0"
     },
     {
       "number": 78,
-      "title": "花无缺的轻功纵然妙绝天下，怎奈这老虎既不必用眼睛看，也不必用耳朵听，它只要用鼻子一嗅，无论什么人走进这后院，都休想瞒住它——那黑衣人既然已入了后院，此刻只怕已凶多吉少了。",
-      "input_hash": "sha256:073bd7d5382fe1a36d2617012455a63d77dc4904c14eee8fc530183371a8ab99"
+      "title": "第七十八回 冤家路窄",
+      "input_hash": "sha256:fd16c0a1f3e7036f92e2c7fe222eb70e4c57e02dcef9473431362a0a7fa478c2"
     },
     {
       "number": 79,
-      "title": "江玉郎吐了吐舌头，笑道：“你真是会多心，有了你这么漂亮的老婆，我还会打别人的主意么？”他搂起铁萍姑的脖子，在她面颊上亲了亲。",
-      "input_hash": "sha256:a4048095e3396ad406d2be0d8b788fb7b818d11546d423744954465896fa91a2"
+      "title": "第七十九回 山君夫人",
+      "input_hash": "sha256:5a4ffef21739dd6ce6aa3d1d60c9a3aa75decada32b6dccca5534b3ceefae07d"
     },
     {
       "number": 80,
-      "title": "花无缺眼见着白山君从这扇门里走出去，他本来也可以跟着走出去的，但他却只怔在那里，动弹不得。",
-      "input_hash": "sha256:7bab607e536b028976498e7df1bc5a1a22ad95f2db7e50db3902642344739c34"
+      "title": "第八十回 义无反顾",
+      "input_hash": "sha256:4686e0955875b1e81d2ea0dcaf8be3eb0afd117d9a54dad3d8566159d1ace68d"
     },
     {
       "number": 81,
-      "title": "江玉郎见花无缺缓缓向自己走来，终于狞笑道：“好，你既然要死，我就索性成全了你吧！杀个把人，想来也不会妨碍我享受的兴致的。”",
-      "input_hash": "sha256:7de0a535441f79aa09fd3bf72f7382552c2ac6606dab4e9cb5ab0f9fdb5f193f"
+      "title": "第八十一回 生死两难",
+      "input_hash": "sha256:7a6274412c68f1a4c186964cbb8b268f34aa5f948ea72c36fa3cb64bcc077cac"
     },
     {
       "number": 82,
-      "title": "花无缺和白夫人已走了。大厅里更沉寂，更阴森，曙色斜照着尸身上的鲜血，鲜血竟被映成了惨碧颜色。",
-      "input_hash": "sha256:a515f7341f1dcc9089043703c9c7a84003f3aa9c3448762bd2da294cc88f5ba9"
+      "title": "第八十二回 温柔陷阱",
+      "input_hash": "sha256:e19305d1764535a0ef13aa12f5fa785f9d86b8a745519a5065d6dc7df5c279b7"
     },
     {
       "number": 83,
-      "title": "第二天花无缺醒来时，笑声果然已停顿了，只觉得全身软软的没有丝毫力气，躺在床上竟连坐都坐不起来。",
-      "input_hash": "sha256:36a81a4a9357163aaeec70714b57386e3683f012077fd634081e32f344646308"
+      "title": "第八十三回 自作自受",
+      "input_hash": "sha256:d7e21f2398e68c752016d4405d8e21614a1e3c4b199ab22b80255f2710501cc2"
     },
     {
       "number": 84,
-      "title": "苏樱笑道：“只因有病的吃了这药，病势立刻加重十倍，没有病的吃了这药，也立刻百病俱生，而且全身都疼得要命……”",
-      "input_hash": "sha256:3662a151c89c942c037271a5395e0b6c453efbd90014a42a308d3c41be353798"
+      "title": "第八十四回 意外之变",
+      "input_hash": "sha256:be8e0f39cd7b8522d4524f1dbf27728e18bc116ac3f00343d9158c30228fb297"
     },
     {
       "number": 85,
-      "title": "苏樱“噗哧”一笑，过了半晌，悠悠道：“但你若非遇见我，你这天下第一的聪明人，还是一样活不了，你……你该怎么样感激我才是？”",
-      "input_hash": "sha256:cf9b258e0ff729843cb221bc738ee20f8b9e6f4ffb153d0294d148e6591e7bf9"
+      "title": "第八十五回 色胆包天",
+      "input_hash": "sha256:eb79249158b274c17b38e819b9287cb7023528b1b099ffa8f32dd0e627144f51"
     },
     {
       "number": 86,
-      "title": "那人道：“到了你自然就知道的。”",
-      "input_hash": "sha256:1dd5cf4f020245da97b8ea4961e14d01c7b5a4312e43dadf33f14e4ba8e0e89e"
+      "title": "第八十六回 利令智昏",
+      "input_hash": "sha256:ac86b27456bddd16c29237727d8dee492f7ef5e7377fdf474735fb25f3a576e9"
     },
     {
       "number": 87,
-      "title": "魏麻衣听小鱼儿要他放屁，心中一想，这倒也有理，只好放了个屁，要知内功高明的人，本可随意控制自己身体里的气脉，放个屁并非难事。苏樱早已掩住鼻子，转过身去，肩头不停地在动，像是忍不住要笑，小鱼儿却仍是一本正经，道：“这个屁要脱下裤子来放才算的。”",
-      "input_hash": "sha256:0187001cf0c5655146856a53fc0bb0aad6af3b9e062364e3ed59e7997bb199ee"
+      "title": "第八十七回 汝奸我诈",
+      "input_hash": "sha256:d0e82ba57ee25742cb266f342be58c3c5157f404e431efa42cc5f6484737dffb"
     },
     {
       "number": 88,
-      "title": "李大嘴却立刻大笑道：“你也学会了屠娇娇的一手？也来挑拨离间了？”",
-      "input_hash": "sha256:d36063381e32c45c18346b6b2afebbb3a95cb92622cf2d841635dc6b21d3eb15"
+      "title": "第八十八回 飘忽无踪",
+      "input_hash": "sha256:58e8425c9bdf2e50e8a486f3605eacfaaf0f6203def1294a37e2ec5290cd5ebc"
     },
     {
       "number": 89,
-      "title": "白夫人一直在含笑旁观，这时才走过来，拍拍白山君的肩头，笑道：“够了够了，你难道真想假戏真做，来个假公济私，混水摸鱼不成？这出戏再唱下去，我可要吃醋了。”",
-      "input_hash": "sha256:c023dd3cc211eef5048073f5c4a088bc4d21b908e704b65da557f6ab99462df0"
+      "title": "第八十九回 守株待兔",
+      "input_hash": "sha256:658325db285b2b1f84155ead2b4a220edaeb873de1064dcec7048160249f0aff"
     },
     {
       "number": 90,
-      "title": "胡药师接着道：“我对消息机关之学总是学不会，所以也不敢胡乱走动，就找了地方躲起来，过了半晌，就瞧见魏麻衣将一个小伙子骗到我躲着的树林里去，而且还将那小伙子点了穴道，吊了起来。”",
-      "input_hash": "sha256:73b33dc0a59fb1a0f02779f7293aaf530a88fcef91f2962f5fa2313f57316545"
+      "title": "第九十回 巧计安排",
+      "input_hash": "sha256:eefbd4200b1925931d42461b1896737bcce1bbf4b95000f7672072ff38a6ddaa"
     },
     {
       "number": 91,
-      "title": "一提起江玉郎，铁萍姑的心立刻就沉了下去，她虽不愿小鱼儿上当，但却更不忍让江玉郎死，铁萍姑再也不敢开口。",
-      "input_hash": "sha256:23ca356cf598526b1b0ca1d2257370904e58b0d9085d44cc5c701a7d720ccad2"
+      "title": "第九十一回 将计就计",
+      "input_hash": "sha256:bae23ad52b822800b54693e4f7c9c86a47863107525a4c0940ab8602c1992857"
     },
     {
       "number": 92,
-      "title": "胡药师和铁萍姑俱是又惊又奇，但小鱼儿见了江玉郎，却只觉气往上冲，别的什么都不再顾及。",
-      "input_hash": "sha256:74b88a22f1db01b2b882d9ad3c20ee53a825f0697079eb896ae6cc2b931d57b5"
+      "title": "第九十二回 各逞机锋",
+      "input_hash": "sha256:53353fb778f0cc382b4528cb16c399121e7e37c0eafcc4498948160b9aeea4bc"
     },
     {
       "number": 93,
-      "title": "溪水左边，有片树林，白夫人穿过树林，匆匆而行。",
-      "input_hash": "sha256:607cec7b0ecf71e9f26c3e8ffef3439551ef4e416b663ce8a7c1d8f09ec36b95"
+      "title": "第九十三回 奸狡无匹",
+      "input_hash": "sha256:a7a7e65fa675b6719996b9a6e9931edd502e44148613132e605445c2e467206c"
     },
     {
       "number": 94,
-      "title": "苏樱虽然不知道这四人就是顶顶大名的白开心、哈哈儿、屠娇娇和李大嘴，但却是见过这四人的。",
-      "input_hash": "sha256:a9dd071bee7bbbbc20230b0fbf0dfc035e0d55532516662a9542e6bac396a282"
+      "title": "第九十四回 机智绝伦",
+      "input_hash": "sha256:45855bf2f8f625043f14862f7ed3809f8189cc71ab81e72a55597bd67de15892"
     },
     {
       "number": 95,
-      "title": "苏樱见花无缺的身形已向前蹿去，忽然又道：“和你关在一起的那个人，叫江玉郎，你认不认得他？”",
-      "input_hash": "sha256:0212449c30d7e174c4b04c6d46227f3321c1211faff726dd2d28459e75ef1955"
+      "title": "第九十五回 阴险毒辣",
+      "input_hash": "sha256:31ada9fc120ce812e8077c8b6f2d0befdab0d20cb6881a230a2c9b9990e6801b"
     },
     {
       "number": 96,
-      "title": "她不开口，江玉郎的手就不敢停，只见他一张又白又俊的脸，恍眼间就变得像猪肝一样，顺着嘴角往下直淌鲜血。",
-      "input_hash": "sha256:f8e80b70627c9939ff449cb43870ae119cb61a5f6e2004253ad41f91fde34b3f"
+      "title": "第九十六回 奸狡诡诈",
+      "input_hash": "sha256:e890b70201a3e04038b1ab641206bc2a446ba884d000e64e96c2df9dafc8a9c0"
     },
     {
       "number": 97,
-      "title": "屠娇娇瞪眼道：“有什么麻烦？”",
-      "input_hash": "sha256:2b5face815eb0703c3e9a2c48a75b009d70450122206bedd77700e46f2c57ed6"
+      "title": "第九十七回 胸有成竹",
+      "input_hash": "sha256:615c8126e47f6bdc839f80603243cbea0a87cf41534645c0432bb79d4e40b8a9"
     },
     {
       "number": 98,
-      "title": "小鱼儿这才真的吃了一惊，用了全力，一跃而起，想凌空抱起苏樱的身子，但苏樱下坠之势却实在太猛，小鱼儿武功纵已今非昔比，还是接不住的，只听“噗通”一声，两个人同时掉在水里。",
-      "input_hash": "sha256:d22f89a36ec871febf9f7fc309b0d1baa3a8a869efb39df598596d70f22d2411"
+      "title": "第九十八回 生死两难",
+      "input_hash": "sha256:f5a488af79acc5386ddb973f4a73643dce783ebe7d0e222bd558f5027af4b19c"
     },
     {
       "number": 99,
-      "title": "“想不到小鱼儿竞有这么大的本事，他死了后，竟连移花宫主都会为他伤心。”",
-      "input_hash": "sha256:aa052f9ea17b1182b024bb593f9517ec6d648786e453cbd8a48b9a638d9546c4"
+      "title": "第九十九回 水落石出",
+      "input_hash": "sha256:49fbb9f5af880ba12173840773b3993f0b435fd7cdd5fe8c0b2e9d5bce2a4da5"
     },
     {
       "number": 100,
-      "title": "铁萍姑道：“我懂了。”",
-      "input_hash": "sha256:994eb11ce1fd6237de68ed897956d2dc6dcbd580a814b1300e5c142947eeb1c5"
+      "title": "第一百回 双骄再聚",
+      "input_hash": "sha256:268ea100cb20e63cb50d10250ea36737617b495f515adcfed9ac3cbfe4a17091"
     },
     {
       "number": 101,
-      "title": "苏樱讶然道：“你到了那边树林，难道没有人来接你么？你是不是找错了地方？”",
-      "input_hash": "sha256:df1e78adff3a798affe547d5ef31c202d8fc4155384508836c2802331de7dd14"
+      "title": "第一百零一回 意外之变",
+      "input_hash": "sha256:584f594ad3e1a4c4dc360eb6567207ad02d453c0586ec12c18a49fc55dd24a2b"
     },
     {
       "number": 102,
-      "title": "小鱼儿道：“无论如何，魏无牙总算对你不错，你也承认他是你的干爹，现在移花宫主要去找他，你非但不着急，反而来带路，这是什么道理？”",
-      "input_hash": "sha256:a8c1995ff18a992591fcc4656cac20b374fb0d0fe6fc662bd939871623ae69f2"
+      "title": "第一〇二回 奇峰再起",
+      "input_hash": "sha256:68bbbb123804b3a0372293f26f6cfd2dbe09b0e5d0dd1cbd4a49af4b8c7c641b"
     },
     {
       "number": 103,
-      "title": "铁心兰恰巧又站在花无缺和小鱼儿中间，她连头也不敢抬起，神情看来是那么悲惨，那么可怜。",
-      "input_hash": "sha256:77035df058f8c38032b551f4ac972525b16e3c8a4ddc620471e56bf09a6a5997"
+      "title": "第一〇三回 莫测高深",
+      "input_hash": "sha256:810c0a5af98c6e7f5b720fff8c2b2b5125e852da21b1cc0b5cf387ad9cdd5a40"
     },
     {
       "number": 104,
-      "title": "小鱼儿大笑道：“你说的话，有谁会相信？就算你要将她们活活葬在这里，你也可以找别人来发动这机关，为什么自己要来陪葬呢？”",
-      "input_hash": "sha256:37f56cea761de7f5b8d16bf2b6e5c13815c7a5c5fdbafc6832d544d24529cb88"
+      "title": "第一〇四回 见利忘义",
+      "input_hash": "sha256:2493f816743cace576f296825ebff88c9f90899d7255e870e84d7da92c56dbf6"
     },
     {
       "number": 105,
-      "title": "苏樱忽然问道：“这位燕大侠是不是已经将江别鹤杀死了呢？”",
-      "input_hash": "sha256:e41d9b87eb9de062e511a58c9a4ca5d5593fa6cb5aee435168869228751146fe"
+      "title": "第一〇五回 勾心斗角",
+      "input_hash": "sha256:258161f615df9abcef212a77bbcde9255dcd411f7ad08beeb86a3c1b76ca0792"
     },
     {
       "number": 106,
-      "title": "苏樱本来已经快急疯了，此刻面上却露出了微笑。原来就在小鱼儿最危险的时候，他忽然发现了移花宫主，这姐妹两人竟也在远处过起招来。她们所用的招式一正一反，一攻一守，每一招击出时都很慢，像是生怕别人瞧不清楚。",
-      "input_hash": "sha256:57350e89eb14ad9fa5320b121728ec84a1a3d5ba6f6b24fe47c472497883ea96"
+      "title": "第一〇六回 难以捉摸",
+      "input_hash": "sha256:fda6f6358d0e80ce2845039b351936ab2a0b0e5217b11a48a506cb5fe5180833"
     },
     {
       "number": 107,
-      "title": "永远高高在上，令人不可仰视的移花宫主，终于也渐渐变得和别人同样平凡。小鱼儿到这时候，才觉得她们原来也是个人，也有人的各种需要，也有人的各种情感，甚至也有眼泪。现在，她们会不会将那秘密说出来？",
-      "input_hash": "sha256:84791adf1a0514cbdb2cec16a356437e9e8b8acd05491e8e33bc9da5c5846290"
+      "title": "第一〇七回 人性弱点",
+      "input_hash": "sha256:5b0162b28436a136662d496e10eed0c300147252c3ae015947c90dcfec2f6a8c"
     },
     {
       "number": 108,
-      "title": "她现在也终于知道魏无牙的计划，果然周密，果然绝无漏洞。这计划中最妙的地方，就是他虽然留下了出路，别人却无法走得出去，他虽然留下了食物，别人却再也休想吃得到嘴。那是一笼看到都恶心的活老鼠。",
-      "input_hash": "sha256:fb9af9526d827168e69495056e2df146742ea16dd03ace7d0b275cdbc0853a42"
+      "title": "第一零八回 计脱围困",
+      "input_hash": "sha256:92371feb183ec17ccbced27bbe99e81213f15095ada36531e3e5d0098e4249ce"
     },
     {
       "number": 109,
-      "title": "邀月宫主几乎连头都已垂了下去。",
-      "input_hash": "sha256:65fb8988cd76836b6274e2a52011e4b6b6049cacceaeb80443438d7502bdc9ea"
+      "title": "第一零九回 明玉神功",
+      "input_hash": "sha256:8a160eb3dd8383f064df3b1a898e91a29d8d272c85c8954145b4178ddc417eae"
     },
     {
       "number": 110,
-      "title": "花无缺并没有找到铁心兰。铁心兰竟忽然神秘地消失了。",
-      "input_hash": "sha256:3dbb3392c81867daea52e55da6db3749e2fd63a6e151d59975de40a82101cebe"
+      "title": "第一一零回 恶人恶计",
+      "input_hash": "sha256:31d2dcbd5a45ad9e1a7965a0222f0c86f975b4de9617fd2541511d7d805aa2a7"
     },
     {
       "number": 111,
-      "title": "屠娇娇道：“魏无牙既能将她们困在里面，必定早已计划周详，那山洞里就绝不会有任何吃喝的东西留下来。”",
-      "input_hash": "sha256:dad95297824365bec0e1aab604e6819566e7a143b55de51ff6fff24a77a92c60"
+      "title": "第一一一回 奇异赌场",
+      "input_hash": "sha256:3f9f33c5f59e715a851b8b2f0aef181973278268baccfb17cd01f196dbdb2999"
     },
     {
       "number": 112,
-      "title": "人丛中立刻爆发出一片欢呼，有人大笑道：“七点，是单，我赢了。”",
-      "input_hash": "sha256:e97197214285c1ef23d2ccd6ee3e6c4c69e09bb631f6ec0b21aca6767f2648a2"
+      "title": "第一一二回 惊人豪赌",
+      "input_hash": "sha256:668c99d16b30104e1fb8cc3e2d6fbb1e1d08c629308d59333ccb63bcb46ffdf9"
     },
     {
       "number": 113,
-      "title": "只见轩辕三光满面红光，开心得直搓手笑道：“姑娘们这次押多少？”",
-      "input_hash": "sha256:cfb6b359eb2bd80c1768781fc4f4c7df4c766e8a1bb8a2bdc015fe16604282ba"
+      "title": "第一一三回 情有独钟",
+      "input_hash": "sha256:86cce87d9cba96f9ea3686a9253dadd7e2b403d11202a0128112a8a2901a9eed"
     },
     {
       "number": 114,
-      "title": "银子一搬走，赌场里的人立刻也跟着散了。轩辕三光望着已然发白的天空，长长伸了个懒腰，喃喃道：“格老子，真他妈的是天光、人光、钱光，反正弄不到鸟蛋精光，老子也睡不着觉。”他忽然发现赌场里的人竟还没有走光，还剩下四个人，有两个人躺在地上，像是已睡着了。",
-      "input_hash": "sha256:3b0de74748939e11433d29abc49454c10fc67ef7e2935da1735a02573e9dcf5e"
+      "title": "第一一四回 邪不敌正",
+      "input_hash": "sha256:7df2edeef6a8cb7519da3b518d508ea49be582dc555e11cb84b3fee8cc73d209"
     },
     {
       "number": 115,
-      "title": "躲在门后偷看的屠娇娇见燕南天上了江玉郎的当，不由也笑了，喃喃道：“我早已知道燕南天必定要上他的当，我猜的果然不错。”",
-      "input_hash": "sha256:995b3a6ff0f7594e86001a4e02fd28769b30beee296d0499b74d7c0a973ad80b"
+      "title": "第一一五回 恶人再聚",
+      "input_hash": "sha256:20586f16f9bbbc606244fbb67fa02596e6ec112829fe5e304fb41775a7872ee6"
     },
     {
       "number": 116,
-      "title": "李大嘴忽然一拍巴掌，道：“我们倒忘了一件事。慕容家的人最讲究排场，怎么会在这种穷乡僻壤办喜事呢？我们总该去打听打听，他们走了没有，准备在哪里办喜事？”",
-      "input_hash": "sha256:fe210b91e0f0eb590fb742d0aaed7f39e87698655361272dc6dd928ec5bc0a80"
+      "title": "第一一六回 鬼童复出",
+      "input_hash": "sha256:9787bc5962f6adc19c81d265cff6d98ba390ae7005d5564b11de6a5d91565a69"
     },
     {
       "number": 117,
-      "title": "据说“鬼童子”最善于隐迹藏形，他若想打听你的秘密，就算藏在你的椅子下面，你都休想能发觉到他。但此人五十年前便已成名，近三四十年来已没有人再听到过他的消息，据说他又已远走扶桑，去领略那里的异国风光去了。又有人说，因为扶桑岛上的人，大多是矮子，所以他住在那里，觉得开心些。此人竟又忽然现身，来意实在难测。",
-      "input_hash": "sha256:6f7f3ec39efef7ef74bc558021546692e1cfc377753143a05ff40240cfacf8c8"
+      "title": "第一一七回 狂狮铁战",
+      "input_hash": "sha256:22187d79c674711342b2170ff769d83a2f0ef6b28e16f004d16f0653404eb18b"
     },
     {
       "number": 118,
-      "title": "谁知铁心兰却立刻道：“我……我不是这意思。”",
-      "input_hash": "sha256:615a13b3612f8fe7925af5b0ad1fd635cbcc7fae62ab24cdb4d17d16bfadad66"
+      "title": "第一一八回 大众情人",
+      "input_hash": "sha256:4c65192d122b01ca98a7e2460bab6a5815dcb54955d325eb123f6bbda7b18883"
     },
     {
       "number": 119,
-      "title": "“恶赌鬼”轩辕三光，关心小鱼儿的生死，怕他说话耽误了开山的时间，忙向“狂狮”铁战道：“幸好这里人多，人多好做事，也许还来得及。”",
-      "input_hash": "sha256:c28c788ce80b2c7b793c7fc300b0bb1a56998710f9330da0f61940baead8ed0e"
+      "title": "第一一九回 幸脱死劫",
+      "input_hash": "sha256:023d74fda87009885af64c25027f94be95c94944b6c9ea521adc802b2231ba33"
     },
     {
       "number": 120,
-      "title": "听到“燕南天”这名字，屠娇娇、李大嘴等人只恨不得背上生出对翅膀来，快快飞到十万八千里之外。慕容姊妹也不禁俱都为之动容。",
-      "input_hash": "sha256:1ce368b1eeeb4b47185325051b7d24acfb74106dec186166d16f6d447d375e3a"
+      "title": "第一二零回 神功绝学",
+      "input_hash": "sha256:20631fa36321a492627a3ce28efc48326bcb4f495a9d572613f948fd80d8a952"
     },
     {
       "number": 121,
-      "title": "俞子牙将“嫁衣神功”之练法，向众人解说道：“只因这种功夫太过猛烈，所以练到六七成时，就要将炼成的功力全都毁去，然后再从头练过。”",
-      "input_hash": "sha256:935d7d15cf1e1f7225352e47c8f83897038761efc3e23ff503fae427344f634b"
+      "title": "第一二一回 互相残杀",
+      "input_hash": "sha256:6fccb0848996f7ba38f2c6489e7a905e383bf4fef171039a38c5ef92ad011d53"
     },
     {
       "number": 122,
-      "title": "白开心果然已死了。",
-      "input_hash": "sha256:352605d773777c9fe68c60a592aab4f95a537b0f20513b662f34c7fd137ba389"
+      "title": "第一二二回 兔死狗烹",
+      "input_hash": "sha256:9e2d5157abdb96ad548513adc03dd8f38806a0e6ca1cea35c7d6ae35137655f6"
     },
     {
       "number": 123,
-      "title": "李大嘴听了小鱼儿的话，长叹了一声，喃喃道：“恩情，恩情……‘十大恶人’养大的孩子，居然口口声声不忘记恩情，看来‘十大恶人’早就该改行做别人的保姆才是。”",
-      "input_hash": "sha256:a6cffca7885712072528609e37dc1f5f9dd9070c11bc43b808851740552556ba"
+      "title": "第一二三回 善恶一线",
+      "input_hash": "sha256:c4dcb56084ea22c67f65e41de67fa618a5ce9e229fab51f4f98d4f9ba33bfcfc"
     },
     {
       "number": 124,
-      "title": "铁萍姑和胡药师已护送着李大嘴遗体走了。临走的时候，铁萍姑似乎想对小鱼儿说什么，但几次欲言又止，终于什么话都没有说。小鱼儿却知道她是想问问江玉郎的下落，而她毕竟还是没有问出来，可见她对江玉郎已死了心。",
-      "input_hash": "sha256:01ab20449e26c65f9666b4626b43825645a5286a0e3c78f0a2e9a269afbd2229"
+      "title": "第一二四回 生死两难",
+      "input_hash": "sha256:ec2689026a2d1f996d3173d968d640be8ea3336d1656b716ee432a39567af20b"
     },
     {
       "number": 125,
-      "title": "一阵风吹过，天地间仿佛忽然充满了肃杀之意。",
-      "input_hash": "sha256:c4d0f25fba45edc543e2027f84d44ed1b3d6763a73be78350be6bddbe3d43ac6"
+      "title": "第一二五回 生死之搏",
+      "input_hash": "sha256:dd6d0704e248c87f42057d2559f00c19179efb6c607eca489c1633d4d16e98c2"
     },
     {
       "number": 126,
-      "title": "白云飘渺。",
-      "input_hash": "sha256:5eab000df0201607c0e8c743fc16e4f87a96a373e8ad0b8525a744c0a06ad0ff"
+      "title": "第一二六回 生离死别",
+      "input_hash": "sha256:08482769ea3be7c6128adde53f395983a25a64f37efebdfc3bdb9cd5956d8e3e"
     },
     {
       "number": 127,
-      "title": "夺剑的人竟是万春流。他叹息了一声，缓缓道：“一个人若是要死，那是谁也拦不住的。”",
-      "input_hash": "sha256:276976071f1c436135c10d3d4fb2585703f66446d5116fd941b78e466989df3f"
+      "title": "第一二七回 真相大白",
+      "input_hash": "sha256:cc7a7bc829da8cdd90c8eb1c952ad0e7172a069bc07ed483624639c982c3e0ca"
     }
   ],
-  "archive_root": "C:\\git\\wuxia-novel\\古龙\\绝代双骄\\_archive\\2026-07-20T04-25-18-362Z-pre-generate-game-kb",
-  "archive_data": null,
-  "backup_path": null,
+  "archive_root": "C:\\git\\wuxia-novel\\古龙\\绝代双骄\\_archive\\2026-07-23T16-04-38-244Z-pre-generate-game-kb",
+  "archive_data": "C:\\git\\wuxia-novel\\古龙\\绝代双骄\\_archive\\2026-07-23T16-04-38-244Z-pre-generate-game-kb\\data",
+  "backup_path": "C:\\git\\wuxia-novel\\古龙\\绝代双骄\\_archive\\2026-07-23T16-04-38-244Z-pre-generate-game-kb\\data",
   "previous_final_data_hash": null,
   "backup_final_data_hash": null,
-  "original_data_state": "missing",
+  "original_data_state": "nonempty",
   "preserved_entries": [],
   "removed_stale_markers": [],
-  "started_at": "2026-07-20T04:25:18.362Z",
-  "installed_at": "2026-07-20T04:25:18.405Z"
+  "started_at": "2026-07-23T16:04:38.244Z",
+  "installed_at": "2026-07-23T16:04:38.304Z"
 }

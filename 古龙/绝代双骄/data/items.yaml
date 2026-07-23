@@ -1,79 +1,1841 @@
+- id: item_an_qi
+  name: 暗器
+  aliases: []
+  types:
+    - 暗器
+  description: 谷外伏击中射出的长短不齐、形式各异的暗器，险些伤及燕南天怀中婴儿。
+- id: item_an_qi_nang
+  name: 暗器囊
+  aliases: []
+  types:
+    - 暗器
+  description: 内装毒针、铁蒺藜与毒砂的囊袋，显示唐门中人亦栽在此
+- id: item_an_qing_zi
+  name: 暗青子
+  aliases: []
+  types:
+    - 暗器
+  description: 罗九自轿中发出的暗器，紫衣大汉称轿子里暗青子扎手。
+- id: item_ba_bao_fan
+  name: 八宝饭
+  aliases: []
+  types:
+    - 其他
+  description: 安庆小苏州所制点心，慕容珊珊点名要趁热吃，花无缺衔回。
+- id: item_bai_bing_bai_teng_cui_sheng_wan
+  name: 百病百疼催生丸
+  aliases: []
+  types:
+    - 丹药
+  description: 苏樱实际喂给江玉郎的药，令其痛感剧增、全身无力。
+- id: item_bai_cai
+  name: 白菜
+  aliases:
+    - 小白马
+  types:
+    - 坐骑
+  description: null
+- id: item_bai_he
+  name: 白鹤
+  aliases: []
+  types:
+    - 异兽
+  description: 红顶雪羽，昂然走在苏樱前面。
+- id: item_bai_zai_kong_ling_shi_ru
+  name: 百载空灵石乳
+  aliases: []
+  types:
+    - 丹药
+  description: 苏樱以机关木人奉上的玉杯中饮品，水色如乳，用以待客。
+- id: item_bao_jian
+  name: 宝剑
+  aliases: []
+  types:
+    - 武器
+  description: 魏无牙据有、能将青玉石削成椅子并劈开石椅的削铁如泥之剑。
+- id: item_ben_cao
+  name: 本草
+  aliases: []
+  types:
+    - 其他
+  description: 密室书架上异常干净的书,中间挖空成盒,内藏人皮面具与小瓶。
 - id: item_bi_shou
   name: 匕首
   aliases: []
-  type: 武器
-  description: |-
-    近身使用的匕首,出现在突袭、暗杀与近战描写中。
-    贴身短兵,暗战与近身搏杀常用
-    来历：常见兵器
-    效果：近身刺杀;伤害
+  types:
+    - 武器
+  description: 魏麻衣所持碧绿匕首，后被小鱼儿夺过反指其咽喉。
+- id: item_bi_si_she
+  name: 碧丝蛇
+  aliases:
+    - 碧丝
+    - 附骨之蛆
+    - 蛇美人
+  types:
+    - 异兽
+  description: 碧蛇神君衣袖中滑出的细小碧蛇，红信闪缩、滑行如风，用以威慑并监控小鱼儿，乱动即咬。
+- id: item_bi_xue_zhao_dan_qing
+  name: 碧血照丹青
+  aliases: []
+  types:
+    - 武器
+  description: 上古神兵，墨绿色短剑，长一尺七寸，分量极重、寒气透心；邀月宫主令花无缺试砍后留给花无缺。
+- id: item_bi_xue_zhao_dan_xin
+  name: 碧血照丹心
+  aliases: []
+  types:
+    - 武器
+  description: 本章万春流夺下并捧还邀月宫主之剑，花无缺既已不用。
+- id: item_bian_zi
+  name: 鞭子
+  aliases:
+    - 皮鞭
+    - 长鞭
+  types:
+    - 武器
+  description: 黑衣人右手所持、又黑又亮、份量不轻的鞭子。
+- id: item_biao_yin
+  name: 镖银
+  aliases: []
+  types:
+    - 其他
+  description: 段家被劫之镖银；小鱼儿指为江玉郎所劫并转移藏处，又写进给江别鹤的假信。
+- id: item_bu_dai
+  name: 布带
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_bu_tiao
+  name: 布条
+  aliases: []
+  types:
+    - 其他
+  description: 落下后令众人更信黑衣人身份；南宫柳见梁上布条而失声。
+- id: item_bu_zhi
+  name: 卜纸
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_cai_dao
+  name: 菜刀
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_cang_bao_de_mi_tu
+  name: 藏宝的秘图
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_cang_bao_mi_tu
+  name: 藏宝秘图
+  aliases:
+    - 藏宝图
+  types:
+    - 其他
+  description: 燕南天苦心所绘惟一一张藏宝地图，本章却出现多份，引得江湖人齐聚峨嵋后山。
+- id: item_cang_bao_tu
+  name: 藏宝图
+  aliases:
+    - 藏宝秘图
+  types:
+    - 其他
+    - 秘籍
+  description: 燕南天入谷前留下，可指向其生前搜集的古玩珍宝与无敌剑谱隐密藏处；小仙女、黑蜘蛛等皆曾为之而来。
+- id: item_cang_bao_zhi_tu
+  name: 藏宝之图
+  aliases:
+    - 藏宝图
+  types:
+    - 其他
+  description: 江湖误传铁战所得之物；铁战兴趣实在无名岛，并曾让女儿带另一份藏宝图引开他人。
+- id: item_cang_jian_pu
+  name: 藏剑谱
+  aliases: []
+  types:
+    - 秘籍
+  description: 传为燕南天所留，十二星相因此盯上相关之人。
+- id: item_chang_bian
+  name: 长鞭
+  aliases: []
+  types:
+    - 武器
+  description: 独眼大汉迎面抽来之鞭，铁心男提住鞭梢反将对方凌空摔出，后又用以点倒偷袭者。
+- id: item_chang_dao
+  name: 长刀
+  aliases: []
+  types:
+    - 武器
+  description: 地上长刀，邀月宫主用以划伤双生子之一面颊。
+- id: item_chang_jian
+  name: 长剑
+  aliases: []
+  types:
+    - 武器
+  description: 燕南天所持长剑，曾一剑将同炉所炼之剑砍成两段，又被三道人交叉架住。
+- id: item_chang_suo
+  name: 长索
+  aliases:
+    - 绳子
+  types:
+    - 其他
+  description: 自崖上垂下的粗索，被用以诱人攀爬；内藏毒针并被划断一半，先后令献果神君与沈轻虹坠落。
+- id: item_chi_ren_shi
+  name: 吃人石
+  aliases:
+    - 魔石
+  types:
+    - 其他
+  description: null
+- id: item_chou_yao
+  name: 臭药
+  aliases: []
+  types:
+    - 其他
+    - 丹药
+  description: 屠娇娇给小鱼儿的极臭之药，用来对付爱嗅人的李大嘴。
+- id: item_da_chang
+  name: 大氅
+  aliases:
+    - 风氅
+  types:
+    - 其他
+  description: 三姑娘之氅，小鱼儿披上后与其大模大样自廊上走出偏门。
+- id: item_da_gu
+  name: 大鼓
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_da_hong_dou_peng
+  name: 大红斗篷
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_da_xiang_zi
+  name: 大箱子
+  aliases:
+    - 箱子
+  types:
+    - 其他
+  description: null
+- id: item_dai_zi
+  name: 带子
+  aliases: []
+  types:
+    - 其他
+  description: 魏麻衣用来将小鱼儿吊在树上的带子。
+- id: item_dan_huang_juan_ce
+  name: 淡黄绢册
+  aliases:
+    - 秘笈
+    - 绢册
+  types:
+    - 秘籍
+  description: 五大高手心血结晶，萧咪咪搜得后视为至宝，落水时被江玉郎骗走。
+- id: item_dan_yao
+  name: 丹药
+  aliases:
+    - 药丸
+  types:
+    - 丹药
+  description: null
+- id: item_di_tu
+  name: 地图
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_dou_peng
+  name: 斗篷
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_du_dao
+  name: 毒刀
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_du_dou
+  name: 肚兜
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_du_men_mi_yao
+  name: 独门迷药
+  aliases: []
+  types:
+    - 丹药
+  description: 天吃星用以入菜的迷药，燕南天误食后真气难提、神力尽失而昏厥。
+- id: item_du_sha
+  name: 毒砂
+  aliases: []
+  types:
+    - 暗器
+  description: 暗器囊中的一大堆毒砂
+- id: item_du_yao
+  name: 毒药
+  aliases: []
+  types:
+    - 其他
+    - 丹药
+  description: 无牙门黑衣人藏在牙齿里、服后口鼻五官渗出惨碧色血水的毒药。
+- id: item_du_zhen
+  name: 毒针
+  aliases: []
+  types:
+    - 暗器
+  description: 留在花无缺气穴中的针，用药力偏开笑穴后仍须以内力逼出。
+- id: item_duan_dao
+  name: 短刀
+  aliases:
+    - 匕首
+  types:
+    - 武器
+  description: 挂于床头、镶珠柄的短刀，小鱼儿抽出以自尽相胁花无缺。
+- id: item_duan_jian
+  name: 短剑
+  aliases: []
+  types:
+    - 武器
+  description: 江别鹤袖中长不过一尺、鞘色不起眼的短剑,出鞘时剑气森冷、削铁如泥。
+- id: item_dun_pai
+  name: 盾牌
+  aliases: []
+  types:
+    - 防具
+  description: 段宅武师用来护住前胸以抗暗器、挥刀迎敌的防具。
+- id: item_duo_ming_dan
+  name: 夺命丹
+  aliases: []
+  types:
+    - 丹药
+  description: 江别鹤秘室书匣中的珍贵毒药之一。
+- id: item_e_po_cao
+  name: 恶婆草
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_fei_cui
+  name: 翡翠
+  aliases: []
+  types:
+    - 饰品
+  description: 小鱼儿抛出的碧绿珍宝，价值可比大屋肥牛
+- id: item_fei_cui_bi_yan_hu
+  name: 翡翠鼻烟壶
+  aliases: []
+  types:
+    - 饰品
+  description: 山石后钻出的四人中，蓬头垢面、衣衫褴褛者手中所持的贵重物件。
+- id: item_fei_cui_xia_zi
+  name: 翡翠匣子
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_fei_dao
+  name: 飞刀
+  aliases: []
+  types:
+    - 暗器
+  description: 魏无牙墙角机关所射暗器，刀上有剧毒；小鱼儿故意踩中机关挨刀，以免死在魏无牙手上。
+- id: item_fei_feng
+  name: 飞凤
+  aliases: []
+  types:
+    - 武器
+  description: 龙凤双飞鸳鸯剑中又轻又巧、刃薄如纸的雌剑
+- id: item_feng_lu
+  name: 风吕
+  aliases: []
+  types:
+    - 其他
+  description: 白凌霄家中东瀛传来的大澡盆，桶下可生火，江玉郎在其中浸泡许久。
+- id: item_fu_tou
+  name: 斧头
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_fu_zi
+  name: 附子
+  aliases: []
+  types:
+    - 丹药
+  description: 地灵庄花厅角落堆满的药材之一，属大寒大热类，与解药相关。
+- id: item_gan_lian_zi
+  name: 干莲子
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_gang_dao
+  name: 钢刀
+  aliases: []
+  types:
+    - 武器
+  description: 江枫所使钢刀，本回黄衣人与黑面君先后用以砍向车中婴儿，刀锋被无形暗器击损。
+- id: item_gang_gou
+  name: 钢钩
+  aliases: []
+  types:
+    - 武器
+  description: 杜杀右手所装钢钩，曾划伤魏麻衣手掌，后又欲钩其咽喉。
+- id: item_gang_zhuo
+  name: 钢啄
+  aliases: []
+  types:
+    - 武器
+  description: 鸡冠人所使钢啄，本回在怜星宫主引偏下插入黑面君胸膛。
+- id: item_gong_jian
+  name: 弓箭
+  aliases: []
+  types:
+    - 武器
+  description: 慕容双抢过欲射藏身之人。
+- id: item_gou_pi_gao_yao
+  name: 狗皮膏药
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_guan_cai
+  name: 棺材
+  aliases: []
+  types:
+    - 其他
+  description: 燕南天购两口上好棺材，亲手将江枫与月奴入殓并以赤手钉棺。
+- id: item_guan_cai_gai
+  name: 棺材盖
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_gui_lian
+  name: 鬼脸
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_gui_tou_dao
+  name: 鬼头刀
+  aliases: []
+  types:
+    - 武器
+  description: 李家兄弟手下偷袭铁心男所用兵器，两把鬼头刀直砍其脖子。
+- id: item_han_yan_dai
+  name: 旱烟袋
+  aliases: []
+  types:
+    - 其他
+  description: 女孟尝手持的又粗又长的旱烟袋。
+- id: item_he_huan_jiu
+  name: 合欢酒
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_hei_jin
+  name: 黑巾
+  aliases: []
+  types:
+    - 其他
+  description: 荷露包头所用黑巾，回报时揉在手中，被花无缺夺过。
+- id: item_hei_sha_cui_ming_wan
+  name: 黑煞催命丸
+  aliases: []
+  types:
+    - 丹药
+  description: null
+- id: item_hei_shi
+  name: 黑石
+  aliases: []
+  types:
+    - 其他
+  description: 被苏樱称为一类宝物，亦难吸出已入穴甚深的毒针。
+- id: item_hei_tie_xiang_zi
+  name: 黑铁箱子
+  aliases: []
+  types:
+    - 其他
+  description: 洞中两口生锈黑铁箱，内装珠光宝气的红货。
+- id: item_hong_huo
+  name: 红货
+  aliases: []
+  types:
+    - 其他
+  description: 沈轻虹本欲声东击西护送的镖货，实已被十二星相夺去。
+- id: item_hong_tou_guan_cai
+  name: 红头棺材
+  aliases: []
+  types:
+    - 异兽
+  description: null
+- id: item_hong_yi_shang
+  name: 红衣裳
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_hong_ying_qiang
+  name: 红缨枪
+  aliases: []
+  types:
+    - 武器
+  description: 黄巾包头大汉所持兵刃之一。
 - id: item_hou_er_jiu
   name: 猴儿酒
   aliases: []
-  type: 其他
-  description: |-
-    小鱼儿设计让猴子送来的猴儿酒,众人痛饮,是收束卷的标志性道具。
-    猴子所献美酒,终局欢乐场景核心道具
-    来历：猴子自酿
-    效果：酒力强劲可醉人;特殊
+  types:
+    - 其他
+  description: 猴子自酿之酒；小鱼儿设法使猴子将酒送到山上供众人饮用。
+- id: item_hu_tou_gou
+  name: 虎头钩
+  aliases: []
+  types:
+    - 武器
+  description: 猴群抛入洞中的成对钩兵
+- id: item_hu_wei_yin_zhen
+  name: 虎尾银针
+  aliases: []
+  types:
+    - 暗器
+  description: 白夫人点中阴九幽血海穴所用暗器。
+- id: item_hua_gu_dan
+  name: 化骨丹
+  aliases: []
+  types:
+    - 丹药
+  description: 白开心提出，众人一度怀疑尸体被其消灭。
+- id: item_huang_jin_yao_shi
+  name: 黄金钥匙
+  aliases:
+    - 黄金色的钥匙
+  types:
+    - 其他
+  description: null
+- id: item_huang_juan
+  name: 黄绢
+  aliases:
+    - 绢卷
+    - 丝卷
+  types:
+    - 秘籍
+  description: 铜先生自怀中取出抛给小鱼儿，上有三招可破解移花宫武功的图解与文字说明。
+- id: item_huo_dao_huo_shi
+  name: 火刀火石
+  aliases: []
+  types:
+    - 其他
+  description: 苏樱以机关自书架间伸出，用于点燃铜灯。
+- id: item_huo_hong_de_bian_zi
+  name: 火红的鞭子
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_huo_lao_shu
+  name: 活老鼠
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_huo_yao
+  name: 火药
+  aliases: []
+  types:
+    - 其他
+  description: 假作襁褓中孩子抛出，实包火药，燕南天指尖触热掷回炸塌半屋。
+- id: item_huo_zhe_zi
+  name: 火折子
+  aliases:
+    - 火折
+  types:
+    - 其他
+  description: 碧蛇神君以三百两银子向老火鸦购买，号称燃上一天一夜也不会熄灭，洞中却屡次熄灭。
+- id: item_ji_huang_tong
+  name: 机簧筒
+  aliases: []
+  types:
+    - 其他
+  description: 黑蜘蛛特制装置，用以收藏并弹射蛛丝。
+- id: item_ji_ming_wu_gu_fan_hun_xiang
+  name: 鸡鸣五鼓返魂香
+  aliases: []
+  types:
+    - 丹药
+  description: 铁心兰讨来的香药，引起花无缺怀疑并暗中跟踪
+- id: item_ji_zhua_lian
+  name: 鸡爪镰
+  aliases: []
+  types:
+    - 武器
+  description: 花衣人所使外门兵刃，精钢所铸，江湖闻名丧胆；本回被怜星宫主夺下并咬断。
+- id: item_ji_zui_zhuo
+  name: 鸡嘴啄
+  aliases:
+    - 钢啄
+  types:
+    - 武器
+  description: 司晨客所持奇形兵刃，似花锄、如钢啄，招式如公鸡啄米，专取穴道。
+- id: item_jia_ren_rou
+  name: 假人肉
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_jia_yin_zi
+  name: 假银子
+  aliases: []
+  types:
+    - 其他
+  description: 白开心灌铅的假银，用以骗买山东老乡的思乡馆。
+- id: item_jian
+  name: 剑
+  aliases: []
+  types:
+    - 武器
+  description: 慕容姐妹与黑衣人交手所用兵刃；黑衣人曾抛却掌中剑反制慕容珊珊。
+- id: item_jian_dao
+  name: 尖刀
+  aliases:
+    - 匕首
+  types:
+    - 武器
+  description: 小鱼儿攀崖时所持，被猴群扑扰后坠落深渊。
+- id: item_jiang_shi_san
+  name: 僵尸散
+  aliases: []
+  types:
+    - 丹药
+  description: 半人半鬼之毒，黄牛、白羊服下有毒解药后中此散，全身肉硬不能动，半个时辰内几乎变成僵尸。
+- id: item_jiao_bei_jiu
+  name: 交杯酒
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_jiao_pan
+  name: 绞盘
+  aliases: []
+  types:
+    - 其他
+  description: 八角密室中大大小小机关绞盘，小鱼儿扳动后石板墙转出门户。
+- id: item_jie_du
+  name: 解毒
+  aliases: []
+  types:
+    - 丹药
+  description: 碧蛇神君怀中紫檀木小匣所贴黄纸签之名，与迷魂、蛇粮匣并排。
+- id: item_jie_du_yao
+  name: 解毒药
+  aliases: []
+  types:
+    - 丹药
+  description: null
+- id: item_jie_wan_jian_dao
+  name: 解腕尖刀
+  aliases: []
+  types:
+    - 武器
+  description: 小鱼儿从地上拾起的尖刀，用来在自己身上划出九道新疤以凑满一百。
 - id: item_jie_yao
   name: 解药
   aliases: []
-  type: 丹药
-  description: |-
-    与毒药成对出现的解药,推动脱困、救人与交易情节。
-    对治毒药的解药,多次救人转机
-    来历：医毒两端
-    效果：解除毒性;增益
+  types:
+    - 丹药
+  description: 黄牛、白羊将十二星相解药喂予小鱼儿解开迷药；小鱼儿怀中小瓶'解药'实为有毒，二人抢食后中僵尸散。
+- id: item_jie_zhi
+  name: 戒指
+  aliases: []
+  types:
+    - 饰品
+  description: 苏樱戴于手上，藏有又尖又细的银针。
+- id: item_jin_bei_tie_tai_gong
+  name: 金背铁胎弓
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_jin_chai
+  name: 金钗
+  aliases: []
+  types:
+    - 饰品
+  description: 女子用金钗，出现在荒祠肉锅中，小仙女指认属宛儿。
+- id: item_jin_chuang_yao
+  name: 金创药
+  aliases: []
+  types:
+    - 丹药
+  description: 燕南天怀中所携，用于敷治爪伤弱燕。
+- id: item_jin_ding_zi
+  name: 金锭子
+  aliases: []
+  types:
+    - 其他
+  description: 江玉郎以姑丈名义捧给铁萍姑的十几个黄澄澄金锭，解其无银付账之窘。
+- id: item_jin_ye_zi
+  name: 金叶子
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_jin_yi
+  name: 锦衣
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_jing_gang_chang_jian
+  name: 精钢长剑
+  aliases: []
+  types:
+    - 武器
+  description: 雷老大腰悬的精钢长剑，被燕南天锈剑迎击后折成半截。
+- id: item_jiu_bei
+  name: 酒杯
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_jiu_chi_yin_si_chang_bian
+  name: 九尺银丝长鞭
+  aliases: []
+  types:
+    - 武器
+  description: 沈轻虹手中兵器，鞭影化银光护体并配合银星暗器。
+- id: item_jiu_fu_tu_hua
+  name: 九幅图画
+  aliases:
+    - 九张图
+    - 九张画
+  types:
+    - 秘籍
+  description: null
+- id: item_jiu_guan_zi
+  name: 酒罐子
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_jiu_hu_lu
+  name: 酒葫芦
+  aliases: []
+  types:
+    - 其他
+  description: 轩辕三光随身特大酒葫芦，装的酒极凶，后递给小鱼儿对饮。
+- id: item_jiu_huan_dao
+  name: 九环刀
+  aliases: []
+  types:
+    - 武器
+  description: 约五十斤重的沉重刀兵，先声足以夺人
+- id: item_jiu_ping
+  name: 酒瓶
+  aliases: []
+  types:
+    - 其他
+  description: 石椅上与洞中多有酒瓶，屠娇娇嗅过后断言无毒。
+- id: item_jiu_tan
+  name: 酒坛
+  aliases: []
+  types:
+    - 其他
+  description: 出口被堵后小鱼儿打开自饮的酒坛。
+- id: item_jiu_tan_zi
+  name: 酒坛子
+  aliases: []
+  types:
+    - 其他
+  description: 地洞中的酒坛，江玉郎曾拎起将酒浇在小鱼儿头上，后被摔碎。
+- id: item_jiu_xian_shen_long_gui_jian_chou
+  name: 九现神龙鬼见愁
+  aliases:
+    - 金龙鞭
+    - 鬼见愁
+  types:
+    - 武器
+  description: 形似金龙的奇门兵刃，兼具黏刃、制软兵刃、点穴、咬剑、霹雳火器、子午问心钉与龙鳞激射等九种妙用；普天之下仅两件，后被小鱼儿砍得稀烂。
+- id: item_juan_ce
+  name: 绢册
+  aliases: []
+  types:
+    - 其他
+  description: 枕头旁浅黄绢册，方灵姬临终手笔，揭开地灵宫与欧阳亭灭杀天地五绝的全部秘密。
+- id: item_kai_shan_ju_fu
+  name: 开山巨斧
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_kong_ming_deng
+  name: 孔明灯
+  aliases: []
+  types:
+    - 其他
+  description: 竹子制成，巧妙嵌在山石间避风处，灯下石刻指引入恶人谷之路。
+- id: item_li_fu
+  name: 利斧
+  aliases: []
+  types:
+    - 其他
+  description: 李大嘴藏起的开山工具之一。
+- id: item_lian_zi_yin_qiang
+  name: 链子银枪
+  aliases: []
+  types:
+    - 武器
+  description: 猴群抛入洞中的成名兵刃之一
+- id: item_ling_yang_de_jiao
+  name: 羚羊的角
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_ling_yao
+  name: 灵药
+  aliases: []
+  types:
+    - 丹药
+  description: 移花宫灵药，据花无缺言仍无法化解冰雪精英凝成的寒毒。
+- id: item_liu_xing_chui
+  name: 流星锤
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_liu_ye_dao
+  name: 柳叶刀
+  aliases: []
+  types:
+    - 武器
+  description: 铁心兰所持鸳鸯双刀，两柄先后被花无缺折断
+- id: item_long_feng_shuang_fei_yuan_yang_jian
+  name: 龙凤双飞鸳鸯剑
+  aliases: []
+  types:
+    - 武器
+  description: 龙凤剑客的成名双剑，此役雌雄拆散
+- id: item_lu_wei
+  name: 芦苇
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_lun_che
+  name: 轮车
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_lun_yi
+  name: 轮椅
+  aliases: []
+  types:
+    - 其他
+  description: 魏无牙所坐轮椅。
+- id: item_luo_zi
+  name: 骡子
+  aliases: []
+  types:
+    - 坐骑
+  description: null
+- id: item_ma_bi_yao
+  name: 麻痹药
+  aliases:
+    - 麻药
+  types:
+    - 丹药
+  description: 万春流配炼的麻痹药，可令人全身麻痹、呼吸停止如死人；小鱼儿用以装死。
+- id: item_ma_bian
+  name: 马鞭
+  aliases: []
+  types:
+    - 武器
+  description: 青衣大汉段贵闯进院子时所拿手持物，状如赶车之用。
 - id: item_ma_che
   name: 马车
   aliases: []
-  type: 其他
-  description: |-
-    江枫开篇所赶破旧马车,载花月奴奔逃,遇十二星相阻截。
-    开篇江枫所赶破旧马车,托载花月奴
-    来历：逃难所用
+  types:
+    - 其他
+  description: null
+- id: item_ma_dai
+  name: 麻袋
+  aliases: []
+  types:
+    - 其他
+  description: 哈哈儿背上所负，内有蠕动呻吟、喜欢挨打之人。
+- id: item_man_tou
+  name: 馒头
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_mei_hua_gou
+  name: 梅花钩
+  aliases: []
+  types:
+    - 武器
+  description: 仁义三侠黑包袱中的青光兵刃，钩头作梅花状，招式含刺、夺、绞、削。
+- id: item_mei_ren_lei
+  name: 美人泪
+  aliases: []
+  types:
+    - 其他
+  description: 江别鹤秘室书匣中的珍贵毒药之一。
+- id: item_meng_hu
+  name: 猛虎
+  aliases:
+    - 老虎
+    - 小猫
+  types:
+    - 异兽
+  description: 后院花厅中白夫人所驯之虎，嗅觉极灵，闻声即待扑起，经白夫人柔声呵斥后驯坐如猫。
+- id: item_mi_hun
+  name: 迷魂
+  aliases: []
+  types:
+    - 丹药
+  description: 碧蛇神君怀中紫檀木小匣所贴黄纸签之名，与解毒、蛇粮匣并排。
+- id: item_mi_hun_yao
+  name: 迷魂药
+  aliases: []
+  types:
+    - 丹药
+  description: null
+- id: item_mi_ji
+  name: 秘笈
+  aliases: []
+  types:
+    - 秘籍
+  description: 小鱼儿昼夜揣摩其上武功奥秘的秘本。
+- id: item_mi_jian
+  name: 秘件
+  aliases: []
+  types:
+    - 其他
+  description: 记载无名岛方位，称找到该岛可向岛上人学武、回中土可无敌于天下。
+- id: item_mi_xiang
+  name: 迷香
+  aliases: []
+  types:
+    - 其他
+  description: 昨夜有人吹入江别鹤卧房企图行刺所遗的香气。
 - id: item_mi_yao
   name: 迷药
+  aliases:
+    - 迷魂汤
+  types:
+    - 丹药
+    - 其他
+  description: 黄牛、白羊下在酒中制住小鱼儿，碧蛇神君称乃其独门炼制，药效使其半个时辰内无法动用真气。
+- id: item_mian_ju
+  name: 面具
   aliases: []
-  type: 丹药
-  description: |-
-    用于迷晕、绑架或脱困的迷药,江湖阴谋线常见。
-    迷晕对手的药物,阴谋常用
-    来历：阴损手段
-    效果：使人昏迷或神智不清;控制
+  types:
+    - 其他
+  description: 屠娇娇照慕容九妹之脸预先做好，以便短时间扮成其模样。
+- id: item_mian_tie_ruan_dao
+  name: 缅铁软刀
+  aliases:
+    - 缅刀
+  types:
+    - 武器
+  description: 巴蜀东腰间兵器，可迎风抖得笔直，后被宋三夺去交给小鱼儿，小鱼儿又转送老西。
+- id: item_ming_zhu
+  name: 明珠
+  aliases: []
+  types:
+    - 其他
+    - 饰品
+  description: 荷露发髻上的明珠，星光下闪烁，为小鱼儿追踪线索。
+- id: item_mo_yu_mei_hua
+  name: 墨玉梅花
+  aliases:
+    - 黑色的梅花
+  types:
+    - 饰品
+  description: 移花宫信物，黑色梅花；少妇出示后一度令十二星相众人僵住惧退。
+- id: item_mu_ou
+  name: 木偶
+  aliases: []
+  types:
+    - 其他
+  description: 圆桌上假充孩子的诱饵，诱燕南天入屋后四面暗器齐发。
+- id: item_mu_tou_ren
+  name: 木头人
+  aliases:
+    - 木童
+  types:
+    - 其他
+  description: 苏樱机关所出的小小木头人，托茶盘奉上玉杯。
+- id: item_ni_wan_zi
+  name: 泥丸子
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_ning_shen_yao
+  name: 宁神药
+  aliases: []
+  types:
+    - 丹药
+  description: 白夫人给花无缺服用的强烈宁神药，药力发作后使其昏昏欲睡。
+- id: item_niu_jin_tie_xian
+  name: 牛筋铁线
+  aliases: []
+  types:
+    - 其他
+  description: 捆住燕南天的十三道铁线，被其振臂寸寸挣断。
+- id: item_niu_rou_ti_jin
+  name: 牛肉蹄筋
+  aliases: []
+  types:
+    - 其他
+  description: 小鱼儿谎称曾可在其中下毒，实则牛肉无毒，借此恐吓黄牛、白羊。
+- id: item_nu_er_hong
+  name: 女儿红
+  aliases: []
+  types:
+    - 其他
+    - 丹药
+  description: 江玉郎所下之毒，毒发时人倒地发抖、身子缩成一团。
+- id: item_nuo_mi_gao
+  name: 糯米糕
+  aliases: []
+  types:
+    - 其他
+  description: 小鱼儿在地洞中食用的食物。
+- id: item_nuo_mi_wan_zi
+  name: 糯米丸子
+  aliases: []
+  types:
+    - 其他
+  description: 与炸鸡一同由白夫人送来。
+- id: item_pai_jiu
+  name: 牌九
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_pan_guan_bi
+  name: 判官笔
+  aliases: []
+  types:
+    - 武器
+  description: 玉面神判怀中一对精巧兵器，发亮笔杆雕花，曾点向小鱼儿天突穴，笔尖被酒杯套住，后落到轩辕三光手里。
+- id: item_pi_bian
+  name: 皮鞭
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_pi_bian_zi
+  name: 皮鞭子
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_pi_feng
+  name: 披风
+  aliases: []
+  types:
+    - 防具
+  description: 慕容九妹通身笼罩的黑色披风。
+- id: item_pi_xue
+  name: 皮靴
+  aliases: []
+  types:
+    - 其他
+    - 防具
+  description: 小鱼儿所穿，慕容双刺中其碧泉穴时因皮靴而伤势不重。
+- id: item_ping_yang_zhi_hu
+  name: 平阳之虎
+  aliases: []
+  types:
+    - 异兽
+  description: null
+- id: item_po_tie_xiang_zi
+  name: 破铁箱子
+  aliases:
+    - 箱子
+  types:
+    - 其他
+  description: 黑色笨重铁箱，漆以仇人之血调成，十大恶人视作无价之宝，疑落魏无牙之手。
+- id: item_po_wan
+  name: 破碗
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_qi_bu_duan_chang
+  name: 七步断肠
+  aliases: []
+  types:
+    - 其他
+  description: 江别鹤秘室书匣中的珍贵毒药之一。
+- id: item_qi_dian_yin_xing
+  name: 七点银星
+  aliases:
+    - 银星
+    - 七点寒星
+  types:
+    - 暗器
+  description: 江别鹤暗器，暴雨般洒出钉地；小鱼儿震地弹起借以脱身，花无缺以掌力尽数收入掌心。
+- id: item_qi_qiao_nang
+  name: 七巧囊
+  aliases: []
+  types:
+    - 暗器
+  description: 慕容九妹随身宝贝，小仙女激她使出其中物事。
+- id: item_qian
+  name: 铅
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_qian_ceng_gao
+  name: 千层糕
+  aliases: []
+  types:
+    - 其他
+  description: 安庆小苏州所制点心，慕容珊珊被迫趁热吞下，觉其发苦。
+- id: item_qian_li_ma
+  name: 千里马
+  aliases: []
+  types:
+    - 坐骑
+  description: null
+- id: item_qing_ling_zhen_tong_wan
+  name: 清灵镇痛丸
+  aliases: []
+  types:
+    - 丹药
+  description: 苏樱声称可止疼大补的丸药名，实则并未给江玉郎服下。
+- id: item_qing_suo
+  name: 情锁
+  aliases: []
+  types:
+    - 其他
+  description: 旁门左道的锁具,将小鱼儿与江玉郎锁在一起;鄂中巧匠难开,却被小鱼儿以细铜丝拨开。
+- id: item_qing_tong_mian_ju
+  name: 青铜面具
+  aliases: []
+  types:
+    - 其他
+    - 防具
+    - 饰品
+  description: 铜先生所戴狰狞面具，夜色中闪光。
+- id: item_qing_tong_mian_zhao
+  name: 青铜面罩
+  aliases:
+    - 青铜面具
+  types:
+    - 防具
+  description: null
+- id: item_qing_yu_shi
+  name: 青玉石
+  aliases: []
+  types:
+    - 其他
+  description: 石质极坚，天下无双，被用来雕成洞中大石椅。
+- id: item_qing_yu_shi_yi
+  name: 青玉石椅
+  aliases: []
+  types:
+    - 其他
+  description: 魏无牙处被一剑劈开的青玉石椅，小鱼儿先以为是魏无牙自劈以吸引注意，后知或为燕南天神剑所为。
+- id: item_qing_zhu
+  name: 青竹
+  aliases: []
+  types:
+    - 武器
+  description: null
+- id: item_qun_zi
+  name: 裙子
+  aliases: []
+  types:
+    - 其他
+  description: null
 - id: item_ren_pi_mian_ju
   name: 人皮面具
   aliases: []
-  type: 其他
-  description: |-
-    用于易容假扮的人皮面具,推动身份错位与奸谋情节。
-    易容用的人皮面具,身份诡计道具
-    来历：江湖易容
-    效果：改变面容身份;特殊
-- id: item_tong_fu
-  name: 铜符
+  types:
+    - 其他
+  description: 薄软黏黏如豆腐皮般的易容面具，小鱼儿自姓屠之人处偷得，藏于绣花小布袋中。
+- id: item_ren_shen
+  name: 人参
   aliases: []
-  type: 其他
-  description: |-
-    书中关键信物铜符,小鱼儿等人智取或争夺,用于机关、身份或阴谋线索。
-    智得铜符相关的关键信物,牵动多方争夺
-    来历：江湖权谋与机关相关
-    效果：开启机关或证明权柄;特殊
+  types:
+    - 其他
+  description: 苏樱端给屋后之人的补品，对方拒食后被她泼出窗外。
+- id: item_rou_gui
+  name: 肉桂
+  aliases: []
+  types:
+    - 丹药
+  description: 地灵庄花厅中堆满的寒热药材之一。
+- id: item_ruan_jian
+  name: 软剑
+  aliases: []
+  types:
+    - 武器
+  description: 藏于假死蛇身与碧蛇神君腰间，剑上剧毒，可迎风抖直。
+- id: item_san_huan_jian
+  name: 三环剑
+  aliases: []
+  types:
+    - 武器
+  description: 当今天下十七柄名剑之一，剑柄有三圈与'剑在人在,剑亡人亡'金丝
+- id: item_san_hun_shui
+  name: 散魂水
+  aliases: []
+  types:
+    - 其他
+  description: 江别鹤秘室书匣中的珍贵毒药之一。
+- id: item_shan_cha_hua
+  name: 山茶花
+  aliases: []
+  types:
+    - 饰品
+  description: 绿裙少妇鬓边斜插的山茶花，自百丈危崖外走进来时仍稳稳戴着。
+- id: item_she_liang
+  name: 蛇粮
+  aliases: []
+  types:
+    - 其他
+  description: 碧蛇神君怀中紫檀小匣所装之物，可引走缠在小鱼儿身上的蛇美人。
+- id: item_shen_long
+  name: 神龙
+  aliases: []
+  types:
+    - 武器
+  description: 龙凤双飞鸳鸯剑中的雄剑，此役不知去向
+- id: item_sheng_zi
+  name: 绳子
+  aliases: []
+  types:
+    - 其他
+  description: 当年沈轻虹与献果神君自悬崖垂入山洞所用，后被火折子烧毁。
+- id: item_shi_guan
+  name: 石棺
+  aliases:
+    - 青石棺材
+  types:
+    - 其他
+  description: 曾被小鱼儿当作厕所，旁有地洞出水，是逃生关键。
+- id: item_shi_men
+  name: 石门
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_shi_xiang
+  name: 石像
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_shi_yi
+  name: 石椅
+  aliases: []
+  types:
+    - 其他
+  description: 洞中央用一整块石头雕塑成的巨大石椅，比玉更晶莹，坐上温暖如春；已被人一剑劈成两半。
+- id: item_shou_kao
+  name: 手铐
+  aliases: []
+  types:
+    - 其他
+  description: 又黑又重，将小鱼儿右手与江玉郎左手铐在一起。
+- id: item_shou_tao
+  name: 手套
+  aliases: []
+  types:
+    - 其他
+  description: 杜杀所戴、以百毒之血淬金炼成的芒刺手套，划破皮肉即可见血封喉。
+- id: item_shu_xia
+  name: 书匣
+  aliases: []
+  types:
+    - 其他
+  description: 江别鹤秘室中装着一瓶瓶珍贵毒药的匣子。
+- id: item_shui_jing_duan_chang_san
+  name: 水晶断肠散
+  aliases: []
+  types:
+    - 丹药
+  description: null
+- id: item_si_lu
+  name: 丝履
+  aliases: []
+  types:
+    - 其他
+  description: 小鱼儿在华丽居室中找到并套上的柔软丝履。
+- id: item_si_pa
+  name: 丝帕
+  aliases: []
+  types:
+    - 其他
+  description: 铜先生取出盖在小鱼儿脸上，欲挡其烦言；小鱼儿取笑其香气。
+- id: item_su_nu_dan
+  name: 素女丹
+  aliases: []
+  types:
+    - 丹药
+  description: 小鱼儿已服下的丹药，与仙子香并用可解万毒。
+- id: item_tian_jue_di_mie_tou_gu_chuan_xin_zhen
+  name: 天绝地灭透骨穿心针
+  aliases:
+    - 天绝地灭透骨针
+  types:
+    - 暗器
+  description: 钉入乌黑骷髅骨骼的细如牛芒银针，被江玉郎称作天下第一暗器；所附针筒在本章已空。
+- id: item_tian_jue_di_mie_tou_gu_zhen
+  name: 天绝地灭透骨针
+  aliases: []
+  types:
+    - 暗器
+  description: 歹毒暗器，一发一百三十根；小鱼儿以空针筒诈称仍有三套透骨针吓退江玉郎。
+- id: item_tie_chan
+  name: 铁铲
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_tie_dan
+  name: 铁胆
+  aliases: []
+  types:
+    - 暗器
+  description: 猴群抛入洞中的三枚铁胆
+- id: item_tie_guo
+  name: 铁锅
+  aliases: []
+  types:
+    - 其他
+  description: 荒祠火上所吊大铁锅，内煮肉并藏金钗，被小仙女以剑尖挑起泼翻。
+- id: item_tie_ji_li
+  name: 铁蒺藜
+  aliases: []
+  types:
+    - 暗器
+  description: 暗器囊中七枚黝黑无光的铁蒺藜
+- id: item_tie_jian
+  name: 铁剑
+  aliases:
+    - 锈剑
+  types:
+    - 武器
+  description: 燕南天所持兵刃，段贵见时已生锈；交手中刚猛平实，终将花无缺银剑震飞。
+- id: item_tie_lian
+  name: 铁链
+  aliases: []
+  types:
+    - 其他
+  description: 系于白夫人颈上、另一端钉入墙内的锁链，使其无法离开黄幔后。
+- id: item_tie_lian_zi
+  name: 铁莲子
+  aliases: []
+  types:
+    - 暗器
+  description: 史云姑所用暗器，形似莲子，雨点般击中黄巾大汉使之血流满面、兵刃脱手。
+- id: item_tie_long
+  name: 铁笼
+  aliases: []
+  types:
+    - 其他
+  description: 黑衣人左手提着、用于捕捉并塞满老鼠的铁笼。
+- id: item_tie_qiao
+  name: 铁锹
+  aliases: []
+  types:
+    - 其他
+  description: 与利斧同为开山用具。
+- id: item_tie_tai_gong
+  name: 铁胎弓
+  aliases: []
+  types:
+    - 武器
+  description: 祠堂外伏下的强弓，据称共一百四十张。
+- id: item_tie_tong
+  name: 铁筒
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_tong_deng
+  name: 铜灯
+  aliases: []
+  types:
+    - 其他
+  description: 轩辕三光身侧岩石上的灯盏，江玉郎将其移到自身身后，使灯光照向对方面前肉块以操纵赌局。
+- id: item_tong_gui_lian
+  name: 铜鬼脸
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_tong_jing
+  name: 铜镜
+  aliases: []
+  types:
+    - 其他
+  description: 客栈桌上铜镜，铁萍姑见后才发觉自己模样可怕。
+- id: item_tong_qian
+  name: 铜钱
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_tong_shao_zi
+  name: 铜勺子
+  aliases:
+    - 铜勺
+  types:
+    - 其他
+  description: null
+- id: item_tong_si
+  name: 铜丝
+  aliases: []
+  types:
+    - 其他
+  description: 小鱼儿藏在头发里的极细铜丝,用来拨开情锁。
+- id: item_tou_gu_zhen
+  name: 透骨针
+  aliases: []
+  types:
+    - 暗器
+  description: 小鱼儿怀里暗器，被萧咪咪搜走。
 - id: item_tou_zi
   name: 骰子
   aliases: []
-  type: 其他
-  description: |-
-    赌博用骰子,与奇异赌场、惊人豪赌等回目相关。
-    赌场豪赌用具,轩辕三光等涉赌情节
-    来历：赌场
+  types:
+    - 其他
+  description: null
+- id: item_wan_lian
+  name: 挽联
+  aliases: []
+  types:
+    - 其他
+  description: 白开心假借李大嘴名头送给铁无双的挽联。
+- id: item_wu_du_pi_li_lei_ting_zhu
+  name: 五毒霹雳雷霆珠
+  aliases:
+    - 五毒珠
+  types:
+    - 武器
+    - 暗器
+  description: 下五门最歹毒兵刃，形似流星锤，铜球内藏暗器
+- id: item_wu_du_tian_shui
+  name: 五毒天水
+  aliases:
+    - 五毒水
+    - 天水
+  types:
+    - 暗器
+    - 其他
+  description: 昔年白水宫之物，沾身半个时辰便周身溃烂而死；江玉郎曾以满筒此物威胁小鱼儿。
+- id: item_wu_gong_mi_ji
+  name: 武功秘笈
+  aliases: []
+  types:
+    - 秘籍
+  description: 铁屋书房矮几上柔绢书册所录最高深武功，小鱼儿与江玉郎观后自觉旧学一文不值。
+- id: item_wu_gou_jian
+  name: 吴钩剑
+  aliases: []
+  types:
+    - 武器
+  description: 近年江湖已不多见的兵刃，能用者无一不是高手
+- id: item_wu_gu_jian
+  name: 乌骨箭
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_wu_ling_jian
+  name: 乌翎箭
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_wu_se_da_san
+  name: 五色大伞
+  aliases: []
+  types:
+    - 其他
+  description: 自绿裙少妇背后撑出、以无数细绳系着的巨型五色伞状物，兜风减缓下落之势。
+- id: item_wu_xi_ni_wa_wa
+  name: 无锡泥娃娃
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_xi_jiao
+  name: 犀角
+  aliases: []
+  types:
+    - 丹药
+  description: 地灵庄花厅中堆满的寒热药材之一。
+- id: item_xi_lian
+  name: 喜联
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_xi_tie_xing
+  name: 吸铁星
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_xian_zi_xiang
+  name: 仙子香
+  aliases: []
+  types:
+    - 其他
+    - 丹药
+  description: 花无缺所携外敷解药，可与素女丹合用解万毒
+- id: item_xiang_chang
+  name: 香肠
+  aliases: []
+  types:
+    - 其他
+  description: 地洞中小鱼儿食用并拿来调侃萧咪咪的食物。
+- id: item_xiang_dai
+  name: 香袋
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_xiang_lu
+  name: 香炉
+  aliases: []
+  types:
+    - 其他
+  description: 小鱼儿预先系线钉于梁上，拉动后滚落并带下写字白布。
+- id: item_xiao_bai_cai
+  name: 小白菜
+  aliases:
+    - 白马
+    - 小白马
+    - 白菜兄
+  types:
+    - 坐骑
+  description: 与小鱼儿有缘的小白马，被呼为小白菜、白菜兄，能载小鱼儿与铁心兰同行。
+- id: item_xiao_bai_ma
+  name: 小白马
+  aliases:
+    - 小白菜
+  types:
+    - 坐骑
+  description: 白衣少年所骑小白马，交手时骇得跑开，后被小鱼儿拉回；小鱼儿结尾牵马暗中去看热闹。
+- id: item_xiao_dan_wan
+  name: 小弹丸
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_xiao_dao
+  name: 小刀
+  aliases: []
+  types:
+    - 武器
+  description: 绿裙少妇藏于裙中的小刀，落地后用以割断伞绳。
+- id: item_xiao_hun_san
+  name: 销魂散
+  aliases: []
+  types:
+    - 其他
+  description: 江别鹤秘室书匣中的珍贵毒药之一。
+- id: item_xiao_hun_zhen
+  name: 销魂针
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_xiao_shi_zi
+  name: 小石子
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_xing_chen_tie
+  name: 星辰帖
+  aliases: []
+  types:
+    - 其他
+  description: 载有与十二星相约战具名的帖子。
+- id: item_xiong_dan
+  name: 熊胆
+  aliases: []
+  types:
+    - 丹药
+  description: 地灵庄花厅中堆满的寒热药材之一。
+- id: item_xiu_hua_du_dou
+  name: 绣花肚兜
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_xiu_hua_xiao_bu_dai
+  name: 绣花小布袋
+  aliases: []
+  types:
+    - 其他
+  description: 陈旧褪色的绣花小布袋，内装人皮面具、胡子、银粉与画笔等易容之物，小鱼儿从一个姓屠的人那里偷来。
+- id: item_xiu_hua_xie
+  name: 绣花鞋
+  aliases: []
+  types:
+    - 其他
+  description: 上方洞口所见纤细女足所穿，助二人认出萧咪咪。
+- id: item_xue_po_jing
+  name: 雪魄精
+  aliases: []
+  types:
+    - 其他
+  description: 天山毒药，中毒者肌肉似冻僵、脸呈死灰色，临死前反觉如烈火焚烧；小鱼儿据此辨出赵全海、厉峰所中之毒并留下解药药方。
+- id: item_xun_lu
+  name: 驯鹿
+  aliases: []
+  types:
+    - 异兽
+  description: 依依跟在苏樱身后。
+- id: item_yan_nan_tian_cang_bao_tu
+  name: 燕南天藏宝图
+  aliases: []
+  types:
+    - 其他
+  description: 与铁心兰处所得同质的藏宝图纸;小鱼儿以灰尘抹出压痕,证实伪造者正是江别鹤。
+- id: item_yan_zhi_ma
+  name: 胭脂马
+  aliases: []
+  types:
+    - 坐骑
+  description: 火红色坐骑，载顾人玉与黑衣女子急驰离去。
+- id: item_yang_pi_zhi
+  name: 羊皮纸
+  aliases: []
+  types:
+    - 其他
+  description: 发黄又薄又韧，即藏宝图载体，被小鱼儿吞入腹中。
+- id: item_yang_yao
+  name: 痒药
+  aliases: []
+  types:
+    - 其他
+  description: 苏樱涂在新衣上的药物，使人奇痒难当，过几天才会慢慢褪去。
+- id: item_yao_cao
+  name: 药草
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_yao_qin
+  name: 瑶琴
+  aliases: []
+  types:
+    - 其他
+  description: null
 - id: item_yao_wan
   name: 药丸
   aliases: []
-  type: 丹药
-  description: |-
-    书中出现的药丸,或为疗伤或为毒计组成部分。
-    各类丸药,疗伤或施毒相关
-    来历：医药
-    效果：药理作用视丸种而定;增益
+  types:
+    - 丹药
+  description: 苏樱给江玉郎服下之物；有病者病势加重十倍，无病者亦百病俱生且剧痛，据称并非毒药故无解药。
+- id: item_yi_di_feng_hou
+  name: 一滴封喉
+  aliases: []
+  types:
+    - 其他
+  description: 江别鹤秘室书匣中的珍贵毒药之一。
+- id: item_yin_jian
+  name: 银剑
+  aliases: []
+  types:
+    - 武器
+  description: 花无缺怀中所藏兵刃，剑身狭窄细长逾五尺，银光流动，交手中被燕南天铁剑震得脱手飞去。
+- id: item_yin_piao
+  name: 银票
+  aliases: []
+  types:
+    - 其他
+  description: 密室中数目大得骇人的一叠银票。
+- id: item_yin_qiang
+  name: 银枪
+  aliases: []
+  types:
+    - 武器
+  description: 邱清波所用兵刃，混战中点向啸云居士胸膛。
+- id: item_yin_si
+  name: 银丝
+  aliases: []
+  types:
+    - 暗器
+  description: 黑蜘蛛袖中飞出的一线银丝，搭上古柏借以银丝飞蛛脱身。
+- id: item_yin_xing
+  name: 银星
+  aliases: []
+  types:
+    - 暗器
+  description: 自银鞭银光中暴射的暗器，击倒金丝猿并逼退群敌。
+- id: item_yin_zhen
+  name: 银针
+  aliases: []
+  types:
+    - 暗器
+  description: 魏麻衣射向树梢的银雨暗器中的银针，曾留在装鬼者白麻冠上。
+- id: item_yin_zi
+  name: 银子
+  aliases: []
+  types:
+    - 其他
+  description: 江玉郎被指抢自段合肥、后被黑衣人身上搜出若干的银子。
+- id: item_ying_tao
+  name: 樱桃
+  aliases:
+    - 胭脂马
+  types:
+    - 坐骑
+  description: null
+- id: item_you_si_zhen
+  name: 游丝针
+  aliases: []
+  types:
+    - 暗器
+  description: null
+- id: item_you_zi
+  name: 柚子
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_yu_guan
+  name: 玉冠
+  aliases: []
+  types:
+    - 饰品
+  description: 花无缺束发玉冠，被燕南天剑气震断。
+- id: item_yu_yi
+  name: 玉椅
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_yue_bai_zhong_yi
+  name: 月白中衣
+  aliases: []
+  types:
+    - 其他
+  description: 苏樱出场时所穿，在淡淡阳光下极显动人。
+- id: item_zao_zi
+  name: 枣子
+  aliases: []
+  types:
+    - 其他
+  description: 铁心兰所称铁无双送来的两粒枣子，吃后全身发冷昏迷。
+- id: item_zha_ji
+  name: 炸鸡
+  aliases: []
+  types:
+    - 其他
+  description: 白夫人偷偷包起送来，供救人者充饥。
+- id: item_zhang_men_tong_fu
+  name: 掌门铜符
+  aliases:
+    - 铜符
+    - 铜牌
+  types:
+    - 其他
+  description: 峨嵋掌门信物，铜符到处本门子弟伏首听命，亦为轩辕三光与神锡道长、小鱼儿连番豪赌之注，终由小鱼儿归还神锡道长。
+- id: item_zhen_tong
+  name: 针筒
+  aliases: []
+  types:
+    - 其他
+  description: 小鱼儿试图取出以对付萧咪咪的器具。
+- id: item_zhen_zhu
+  name: 珍珠
+  aliases: []
+  types:
+    - 饰品
+  description: 小鱼儿劝献果神君继续抛出的珍宝
+- id: item_zhu_chai
+  name: 珠钗
+  aliases: []
+  types:
+    - 饰品
+  description: 苏樱从头上拔下交给铁心兰，作为投奔干爹住处的信物。
+- id: item_zhu_feng
+  name: 珠凤
+  aliases: []
+  types:
+    - 饰品
+  description: null
+- id: item_zhu_hua
+  name: 珠花
+  aliases: []
+  types:
+    - 饰品
+  description: null
+- id: item_zhu_lou
+  name: 竹篓
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_zhu_si
+  name: 蛛丝
+  aliases: []
+  types:
+    - 暗器
+  description: 传为南海千年神蛛所结，又坚又韧，藏于机簧筒中供黑蜘蛛施展轻功。
+- id: item_zhu_ye_qing
+  name: 竹叶青
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_zi_duan_pao_zi
+  name: 紫缎袍子
+  aliases: []
+  types:
+    - 其他
+  description: null
+- id: item_zi_jin_dao
+  name: 紫金刀
+  aliases: []
+  types:
+    - 武器
+  description: 李迪腰边兵器，曾借给小鱼儿又钉入桌面；后被轩辕三光拔起砍分茶几蜡烛，再钉入梁上。
+- id: item_zi_jin_ding
+  name: 紫金锭
+  aliases: []
+  types:
+    - 其他
+    - 丹药
+  description: 邱清波腰边绣囊中的紫金锭，被他用作与轩辕三光猜单双的赌具。
+- id: item_zi_tan_da_yi
+  name: 紫檀大椅
+  aliases: []
+  types:
+    - 其他
+  description: 花厅中沉重座椅，花无缺献技时人椅俱起，似黏于身。
+- id: item_zi_wu_wen_xin_ding
+  name: 子午问心钉
+  aliases: []
+  types:
+    - 暗器
+  description: 九现神龙鬼见愁龙嘴可射出的暗器，共一十三口，见血封喉，子不过午。

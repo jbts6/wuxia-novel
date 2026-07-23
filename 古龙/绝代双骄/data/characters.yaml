@@ -1,340 +1,2971 @@
-- id: char_bi_she_shen_jun
-  name: 碧蛇神君
+- id: char_ba_shu_dong
+  name: 巴蜀东
+  aliases:
+    - 巴二弟
+    - 杀虎太岁
+  identities:
+    - 杀虎太岁
+  level: 次要
+  rank: null
+  description: 逃入恶人谷的鹰鼻汉子，自称杀虎太岁，虎林七太岁仅存一人，因兄弟作恶得罪多方仇家。
+  factions:
+    - faction_hu_lin_qi_tai_sui
+    - faction_e_ren_gu
+  skills:
+    - skill_sha_hu_san_jue_shou
+- id: char_bai_fu_ren
+  name: 白夫人
+  aliases:
+    - 马亦云
+  identities:
+    - 白夫人
+    - 白山君之妻
+    - 马亦云
+    - 白开心之妻
+    - 白老虎的女人
+  level: 重要
+  rank: null
+  description: 白开心之妻；假哭求杜杀相救，露体诱其不备而刺中其胸口；后与阴九幽夹击李大嘴，再以虎尾银针点阴九幽血海穴，最后踢晕李大嘴。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills:
+    - skill_qing_gong
+- id: char_bai_kai_xin
+  name: 白开心
+  aliases:
+    - 损人不利己
+    - 胡说
+  identities:
+    - 损人不利己
+    - 十大恶人
+    - 白老大
+  level: 重要
+  rank: null
+  description: 外号损人不利己，化名胡说栽赃黑蜘蛛吃人；于思乡馆会'李大嘴'，自承害人取乐，被小鱼儿诱使再写一封约秦剑南宫柳三更至段合肥家后院的害人信。
+  factions:
+    - faction_shi_da_e_ren
+  skills:
+    - skill_qing_gong
+    - skill_shen_fa
+- id: char_bai_lao_hu
+  name: 白老虎
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 曾被鬼童子所救，伤未愈时众人已到。
+  factions: []
+  skills: []
+- id: char_bai_ling_xiao
+  name: 白凌霄
+  aliases:
+    - 白公子
+  identities:
+    - 绿袍灵剑客
+    - 绿袍美剑客
+    - 荆州总镇将军的公子
+  level: 次要
+  rank: null
+  description: 脸色惨白的绿衫少年，宜昌接应江玉郎的纨绔之一，宴会中打回小鱼儿筷子。
+  factions: []
+  skills:
+    - skill_san_shi_liu_lu_hui_feng_jian
+- id: char_bai_shan_jun
+  name: 白山君
+  aliases:
+    - 白大哥
+  identities:
+    - 十二星相
+    - 山君
+    - 白老前辈
+    - 白夫人的老公
+  level: 次要
+  rank: null
+  description: 与白夫人带江玉郎、铁萍姑在谷外等候，急欲得知移花接玉秘密，却被苏樱拒绝。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills:
+    - skill_hu_zhua_zhua_xin
+    - skill_qing_gong
+- id: char_bai_yang
+  name: 白羊
   aliases: []
   identities:
     - 十二星相
+  level: 重要
+  rank: null
+  description: 十二星相之一，与黄牛联手迷昏小鱼儿，反被假毒与有毒解药所制，中僵尸散后倒地哼哼。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills: []
+- id: char_bai_yi_ren
+  name: 白衣人
+  aliases:
+    - 移花宫主
+    - 小宫主
+  identities:
+    - 移花宫主
+    - 小宫主
+  level: null
+  rank: null
+  description: 现身拷问铁萍姑小鱼儿下落，逼江玉郎自残后命其看守铁萍姑，随即离去寻小鱼儿。
+  factions:
+    - faction_yi_hua_gong
+  skills: []
+- id: char_bai_yi_shao_nian
+  name: 白衣少年
+  aliases: []
+  identities:
+    - 川中第一高手
+  level: 重要
+  rank: null
+  description: null
+  factions: []
+  skills:
+    - skill_feng_kuang_yi_bai_ling_ba_da
+- id: char_bai_yi_shao_nu
+  name: 白衣少女
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 花无缺身后及身边多名白衣少女，曾抱起慕容九妹并随铁心兰冲出。
+  factions:
+    - faction_yi_hua_gong
+  skills: []
+- id: char_bi_she_shen_jun
+  name: 碧蛇神君
+  aliases:
+    - 食鹿神君
+  identities:
+    - 青海之灵
+    - 碧蛇神君
+    - 十二星相中的碧蛇神君
+  level: 重要
+  rank: null
+  description: 自窗缝滑入，识破僵尸散，以独门迷药与碧丝蛇胁持小鱼儿，逼问藏宝并蒙头带往峨嵋后山；弃黄牛、白羊不救。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills: []
+- id: char_cang_yi_zi
+  name: 藏翼子
+  aliases: []
+  identities:
+    - 昆仑四子之首
   level: 次要
   rank: null
-  description: |-
-    生平：十二星相之一,开篇追杀江枫花月奴。
-    性格：冷厉;杀手;狠厉;神秘;冷酷;执行;危险
-    十二星相中人,开篇追杀江枫
+  description: 昆仑四子之首，与道友守在恶人谷外阻挡司马烟，误袭燕南天后劝其勿孤身入谷。
+  factions:
+    - faction_kun_lun_si_zi
+    - faction_kun_lun_pai
+  skills: []
+- id: char_ceng_lun
+  name: 曾伦
+  aliases:
+    - 荡魔刀
+  identities:
+    - 荡魔刀
+  level: 龙套
+  rank: null
+  description: 沈轻虹据五十斤九环刀推测可能到场的高手
   factions: []
   skills: []
+- id: char_chang_feng
+  name: 常风
+  aliases: []
+  identities:
+    - 病虎
+  level: 背景
+  rank: null
+  description: 巴蜀东得罪的仇家之一。
+  factions: []
+  skills: []
+- id: char_chen_feng_chao
+  name: 陈凤超
+  aliases:
+    - 美玉剑客
+    - 陈风超
+  identities:
+    - 大姑爷
+    - 美玉剑客
+  level: 次要
+  rank: null
+  description: 表示喜酒可稍后再喝，久闻小鱼儿大名欲见一面。
+  factions:
+    - faction_mu_rong_jia
+  skills: []
+- id: char_da_gong_zhu
+  name: 大宫主
+  aliases: []
+  identities:
+    - 大宫主
+  level: null
+  rank: null
+  description: 未现身；铁萍姑称若大宫主来到，江玉郎与她皆难活命。
+  factions:
+    - faction_yi_hua_gong
+  skills: []
+- id: char_da_tou_gui
+  name: 大头鬼
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 小鱼儿猜测巴蜀东仇家时顺口提起的名字。
+  factions: []
+  skills: []
+- id: char_da_zhang_gui
+  name: 大掌柜
+  aliases: []
+  identities:
+    - 大掌柜
+  level: 龙套
+  rank: null
+  description: null
+  factions:
+    - faction_qing_yu_tang
+  skills: []
+- id: char_da_zui_lang
+  name: 大嘴狼
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_ding_jia_xiong_di
+  name: 丁家兄弟
+  aliases: []
+  identities:
+    - 江南双剑
+  level: 背景
+  rank: null
+  description: 巴蜀东得罪的仇家之一。
+  factions: []
+  skills: []
+- id: char_du_da_ge
+  name: 杜大哥
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_du_lao_da
+  name: 杜老大
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 章末车窗外露出冷漠苍白的脸，欧阳兄弟见之惊恐缩成一团。
+  factions:
+    - faction_shi_da_e_ren
+  skills:
+    - skill_xue_shou_zuan_xin
 - id: char_du_sha
   name: 杜杀
   aliases:
     - 血手
+    - 杜老大
+    - 杜伯伯
+    - 杜叔叔
+    - 杜大叔
+    - 血手杜杀
+    - 杜大哥
   identities:
+    - 血手
+    - 杜老大
     - 十大恶人
   level: 重要
   rank: null
-  description: |-
-    生平：十大恶人,血手,杀性重。
-    性格：短促凶狠;杀神;嗜杀;冷酷;直接;危险;寡言
-    十大恶人,血手杜杀,好杀
+  description: 白袍瘦长、面色苍白的魔头，曾点燕南天四处穴道；以追魂血手对战，右腕被燕南天折断后仍硬气不屈。
+  factions:
+    - faction_e_ren_gu
+    - faction_shi_da_e_ren
+  skills:
+    - skill_zhui_hun_xue_shou
+    - skill_dian_xue_shou_fa
+- id: char_du_yan_da_han
+  name: 独眼大汉
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 李家兄弟中虬髯独眼者，率众围帐篷索铁心男怀里之物，持长鞭出手反被铁心男摔出。
+  factions:
+    - faction_li_jia_xiong_di
+  skills: []
+- id: char_duan_fu
+  name: 段富
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 送江别鹤到客栈访客的车夫，仅被段贵提及。
   factions: []
   skills: []
-- id: char_gui_tong
-  name: 鬼童
+- id: char_duan_gu_niang
+  name: 段姑娘
   aliases: []
-  identities:
-    - 对手
+  identities: []
   level: 次要
   rank: null
-  description: |-
-    生平：阴邪少年型对手,复出制造冲突。
-    性格：阴声;鬼气;阴邪;狡黠;残忍;稚嫩可怕;难测
-    鬼童,阴邪少年型对手
+  description: null
   factions: []
   skills: []
+- id: char_duan_gui
+  name: 段贵
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 赶车送花公子出城的车夫，回报花无缺遇麻烦并带江别鹤至花林，因多言被江别鹤以短剑杀害。
+  factions: []
+  skills: []
+- id: char_duan_he_fei
+  name: 段合肥
+  aliases: []
+  identities:
+    - 财阀
+    - 段老爷
+    - 段老爷子
+    - 大富翁
+  level: 重要
+  rank: null
+  description: 三姑娘之父，其宏阔宅院为本回江别鹤、花无缺居停及小鱼儿逃窜之所；因镖银被劫事与江别鹤有关。
+  factions:
+    - faction_shuang_shi_biao_ju
+  skills: []
+- id: char_duan_lao_ye_zi
+  name: 段老爷子
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions:
+    - faction_duan_jia
+  skills: []
+- id: char_duan_san_gu
+  name: 段三姑
+  aliases: []
+  identities:
+    - 三姑娘
+  level: null
+  rank: null
+  description: 段合肥之女，被罗三自后院拉出并推上轿子劫走。
+  factions: []
+  skills: []
+- id: char_duan_san_gu_niang
+  name: 段三姑娘
+  aliases:
+    - 三姑娘
+  identities: []
+  level: 次要
+  rank: null
+  description: 接小鱼儿信后闯庆余堂见他，确认江玉郎不在；答应留意其归期并约今夜起更后园小门相候。
+  factions: []
+  skills: []
+- id: char_e_du_gui
+  name: 恶赌鬼
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 十大恶人之一，据说渐渐欲改邪归正。
+  factions:
+    - faction_shi_da_e_ren
+  skills: []
+- id: char_er_zhang_gui
+  name: 二掌柜
+  aliases: []
+  identities:
+    - 二掌柜
+  level: 龙套
+  rank: null
+  description: null
+  factions:
+    - faction_qing_yu_tang
+  skills: []
+- id: char_fang_ling_ji
+  name: 方灵姬
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 江南望族遗孤，为报灭门之仇嫁给仇人欧阳亭，终以毒酒与其共死，临终留下绢册揭开地灵宫秘密。
+  factions:
+    - faction_di_ling_gong
+  skills: []
+- id: char_feng_tian_yu
+  name: 冯天雨
+  aliases: []
+  identities:
+    - 关外神龙剑
+  level: 次要
+  rank: null
+  description: 长白剑派巨子，剑法之快号称关外无双，黑衣持剑入洞与雪花刀交手并争夺宝藏。
+  factions:
+    - faction_chang_bai_jian_pai
+  skills: []
+- id: char_feng_xiao_yu
+  name: 风啸雨
+  aliases: []
+  identities:
+    - 江南剑客
+  level: 背景
+  rank: null
+  description: 被沈轻虹提及亦不敢近恶人谷的江湖名家。
+  factions: []
+  skills: []
+- id: char_gu_lao_si
+  name: 顾老四
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_gu_ren_yu
+  name: 顾人玉
+  aliases:
+    - 顾小妹
+    - 玉面神拳
+    - 人玉
+    - 神拳
+    - 顾公子
+    - 顾少爷
+  identities:
+    - 玉面神拳
+    - 顾二公子
+    - 神拳世家的公子
+    - 神拳
+  level: 重要
+  rank: null
+  description: 随黑衣女子至丧礼，一格震飞虬髯大汉，出手隐有宗匠气派，后与黑衣女子联骑离去；亦为慕容家准姑爷。
+  factions:
+    - faction_mu_rong_jia
+    - faction_shen_quan_shi_jia
+    - faction_gu_jia_zhuang
+  skills:
+    - skill_gu_jia_shen_quan
+    - skill_gu_ren_yu_jia_chuan_shen_quan
+- id: char_gu_yue_yan
+  name: 古月言
+  aliases:
+    - 古老弟
+    - 胡说
+  identities: []
+  level: 次要
+  rank: null
+  description: 黑蜘蛛新交朋友，姓古名月言，黑蜘蛛称其为古老弟；名拆为「胡说」，疑与李大嘴有关，本章未现身。
+  factions: []
+  skills: []
+- id: char_gui_tong_zi
+  name: 鬼童子
+  aliases:
+    - 白日鬼
+  identities:
+    - 奇侠
+    - 忍术的惟一传人
+  level: 重要
+  rank: null
+  description: 来无影去无踪；暗中察知计划后通知铁战赶来，并讲述铁战上岛学武与众人重入红尘的缘由。
+  factions:
+    - faction_yi_he_gu
+  skills:
+    - skill_qing_gong
+    - skill_ren_shu
+    - skill_yin_ji_cang_xing
 - id: char_ha_ha_er
   name: 哈哈儿
   aliases:
-    - 笑面虎
+    - 笑弥陀
+    - 笑里藏刀
+    - 笑伯伯
+    - 笑里藏刀小弥陀
+    - 胖乌龟
   identities:
+    - 笑弥陀
+    - 笑里藏刀
+    - 笑里藏刀小弥陀
+    - 和尚
     - 十大恶人
   level: 重要
   rank: null
-  description: |-
-    生平：十大恶人,常笑,实则阴险,笑里藏刀。
-    性格：呵呵假笑;笑面虎;阴险;假笑;多疑;狠毒;圆滑
-    十大恶人,笑面虎,笑里藏刀
-  factions: []
+  description: 恶人谷中引见众魔头、主导嘲讽与毒计的笑面人，危急时滚入地道；后与屠娇娇等设计诱燕南天上门，并抛火药襁褓暗算。
+  factions:
+    - faction_e_ren_gu
+    - faction_shi_da_e_ren
+  skills:
+    - skill_fa_sui_xi_nao
+    - skill_xiao_li_cang_dao_san_an_qi
+- id: char_hai_chang_bo
+  name: 海长波
+  aliases: []
+  identities:
+    - 三义士
+  level: 次要
+  rank: null
+  description: 川中八义三义士，向燕南天详述恶人谷中魔头及阴九幽逃出生天之事。
+  factions:
+    - faction_chuan_zhong_ba_yi
   skills: []
 - id: char_hai_hong_zhu
   name: 海红珠
   aliases: []
   identities:
-    - 配角女性
-  level: 次要
+    - 台柱
+    - 小女儿
+    - 仁义三侠
+  level: 重要
   rank: null
-  description: |-
-    生平：出现于江枫相关或中段情节的女性角色。
-    性格：柔弱;柔弱;多情;敏感;被动;清丽
-    江枫相关情节中的女性角色
-  factions: []
+  description: 小鱼儿离开后心念所系的纯洁女孩子，本章仅作回忆提及。
+  factions:
+    - faction_hai_jia_ban
+    - faction_mei_hua_men
+    - faction_ren_yi_san_xia
   skills: []
-- id: char_hua_wu_que
-  name: 花无缺
+- id: char_hai_jin_bo
+  name: 海金波
   aliases: []
   identities:
-    - 双骄之一,移花宫抚养
-  level: 核心
+    - 七义士
+  level: 次要
   rank: null
-  description: |-
-    生平：与小鱼儿为双胞胎,由移花宫主邀月抚养,修炼明玉功,温文尔雅。奉宫命行走江湖,与小鱼儿多次交锋后相认,挣脱移花宫与江家布局。
-    性格：温文有礼,正气;君子之风;仁义;克制;温文;重诺;内心挣扎;自尊
-    移花宫抚养长大的双骄之一,玉面郎君,仁义君子
+  description: 川中八义七义士，与杨平、海长波同追司马烟至恶人谷外。
+  factions:
+    - faction_chuan_zhong_ba_yi
+  skills: []
+- id: char_hai_si_die
+  name: 海四爹
+  aliases:
+    - 四爹
+  identities:
+    - 戏班子的主人
+    - 仁义三侠
+  level: 次要
+  rank: null
+  description: 仁义三侠中高大黑衣人，撕下黑巾后身份暴露，武功难敌江玉郎。
+  factions:
+    - faction_hai_jia_ban
+    - faction_mei_hua_men
+    - faction_ren_yi_san_xia
+  skills: []
+- id: char_han_di_zi
+  name: 韩笛子
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_he_guan_jun
+  name: 何冠军
+  aliases: []
+  identities:
+    - 轻烟上九霄
+  level: 次要
+  rank: null
+  description: 又高又瘦如竹竿的少年，轻功江南第一的鬼影子何无双之子。
+  factions: []
+  skills: []
+- id: char_he_lu
+  name: 荷露
+  aliases:
+    - 荷露姐
+  identities:
+    - 移花宫的侍女
+  level: 重要
+  rank: null
+  description: 花无缺身边白衣少女，抱起晕迷的慕容九妹，并邀铁心兰同行。
+  factions:
+    - faction_yi_hua_gong
+  skills:
+    - skill_yi_hua_jie_yu
+- id: char_he_wu_shuang
+  name: 何无双
+  aliases:
+    - 鬼影子
+  identities:
+    - 鬼影子
+  level: 次要
+  rank: null
+  description: 号称轻功江南第一，飞扑暗器袭击轩辕三光，反被其一口酒喷退撞墙。
+  factions: []
+  skills:
+    - skill_qing_gong
+    - skill_an_qi
+- id: char_hei_gou_xing
+  name: 黑狗星
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 十二星相成员，向金猿星呈上装有宋德扬人头的檀木匣子。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills: []
+- id: char_hei_mian_jun
+  name: 黑面君
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 十二星相中人，极胖、满头汗珠，一拳可碎车门；识得绣玉谷移花宫与移花接玉，却仍一再回马劫杀江枫夫妇。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills:
+    - skill_shen_zhu_hua_xiang
+- id: char_hei_quan_xing
+  name: 黑犬星
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 十二星相成员，首当燕南天冲杀，双拳击胸无效，施无影脚反被撕成两半。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills:
+    - skill_wu_ying_jiao
+- id: char_hei_xin_zei
+  name: 黑心贼
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 曾在四海春厨房被江玉郎点死穴，小鱼儿假扮其亡魂吓人。
+  factions: []
+  skills: []
+- id: char_hei_yi_ren
+  name: 黑衣人
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 蒙面与慕容姐妹交锋，抛剑反挟慕容珊珊；后揭开黑巾露出虬髯，否认是江别鹤并冲向小鱼儿藏身处。
+  factions: []
+  skills:
+    - skill_jian_fa
+    - skill_qing_gong
+- id: char_hei_zhi_zhu
+  name: 黑蜘蛛
+  aliases:
+    - 老黑
+    - 黑衣人
+    - 黑瘦汉子
+    - 黑老弟
+  identities: []
+  level: 重要
+  rank: null
+  description: 黑衣伏于屋脊遥望慕容九妹，自称暗随罗九兄弟数月欲揭其挑拨武林自相残杀之秘；邀小鱼儿赴荒祠会友，吃人肉后洒脱不吐，被小仙女等人当众质疑。
+  factions: []
+  skills:
+    - skill_shen_zhu_ling_kong_yin_si_du_xu
+    - skill_fei_yan_zou_bi
+    - skill_yin_si_fei_zhu
+- id: char_hu_yao_shi
+  name: 胡药师
+  aliases:
+    - 蟾宫落药
+    - 兔二爷
+    - 捣药师
+  identities:
+    - 十二星相中的兔子
+  level: 次要
+  rank: null
+  description: 困于山腹，潮退后找到通长江出口；误以为中小鱼儿之毒，被苏樱点破后逃出山洞。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills:
+    - skill_suo_zi_suo_gu_gong
+- id: char_hua_wu_que
+  name: 花无缺
+  aliases:
+    - 无缺公子
+    - 花公子
+    - 花少爷
+    - 江无缺
+  identities:
+    - 移花宫惟一的传人
+    - 公子
+    - 无缺公子
+    - 花公子
+    - 移花宫传人
+    - 移花宫门下
+    - 移花宫的门下
+    - 弟子
+    - 徒弟
+    - 移花宫的传人
+    - 移花宫主的传人
+  level: 核心
+  rank: 出神入化
+  description: 向铁心兰表明终生视其为妹、不恨江小鱼；受托告知燕南天江小鱼被铜先生拘禁；与燕南天空手对决以刚猛招式宣泄悲愤并护铁心兰，终被燕南天以人质互换方式扣留，自愿留下。
+  factions:
+    - faction_yi_hua_gong
+  skills:
+    - skill_qing_gong
+    - skill_nei_li
+    - skill_yi_hua_jie_yu
+    - skill_jin_ji_du_li
+    - skill_han_fu_xi_shui
+    - skill_jian_fa
+    - skill_shen_fa
+    - skill_you_feng_lai_yi
+- id: char_hua_xi_xiang
+  name: 花惜香
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 珠冠花衫、眉清目秀的少年，玉面神判之子，在玉楼东为江玉郎洗尘接风。
   factions: []
   skills: []
 - id: char_hua_yue_nu
   name: 花月奴
-  aliases: []
+  aliases:
+    - 月奴
   identities:
-    - 移花宫主之妹,双骄之母
+    - 宫女
   level: 重要
   rank: null
-  description: |-
-    生平：移花宫相关,与江枫私奔生下双骄,遭追杀,命运悲壮,开启移花宫恩怨。
-    性格：温柔而决绝;深情悲壮;深情;刚烈;叛逆;柔中带刚;护子
-    移花宫主之妹,双骄之母,为爱私奔
+  description: 移花宫宫女，江枫之妻，孪生子之母；本回为护夫护子力战，后被邀月宫主赐死。
   factions:
     - faction_yi_hua_gong
   skills: []
-- id: char_jiang_bie_he
-  name: 江别鹤
+- id: char_huang_hua_feng
+  name: 黄花蜂
+  aliases:
+    - 黄衫大汉
+    - 黄衫客
+  identities: []
+  level: 次要
+  rank: null
+  description: 横江一窝黄花蜂首领，黄衣黄巾虬髯，误攻史老头之船后连连赔罪，称二十年前史老前辈威震水路。
+  factions:
+    - faction_heng_jiang_yi_wo_huang_hua_feng
+  skills: []
+- id: char_huang_ji_da_shi
+  name: 黄鸡大师
   aliases: []
   identities:
-    - 江玉郎之父,伪君子
+    - 五台黄鸡大师
+  level: 次要
+  rank: null
+  description: 五台山鸡鸣寺黄衣僧人，身材魁伟，与王一抓四掌相交生死相拼。
+  factions:
+    - faction_wu_tai_shan_ji_ming_si
+  skills: []
+- id: char_huang_niu
+  name: 黄牛
+  aliases: []
+  identities:
+    - 十二星相
   level: 重要
   rank: null
-  description: |-
-    生平：江家核心,外示仁义内藏奸诈,与无牙门等勾结,终被揭穿。
-    性格：冠冕堂皇;伪君子;伪善;阴险;贪婪;体面;狠毒
-    江玉郎之父,伪君子,武林败类
+  description: 十二星相之一，与白羊合谋以迷药制住小鱼儿欲夺藏宝，反中小鱼儿假毒计，后服下有毒解药中僵尸散，被碧蛇神君弃之不救。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills: []
+- id: char_huang_yi_ren
+  name: 黄衣人
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 花衣人之一，赤面横肉、黄衣鸡胸，欲斩杀车中婴儿，钢刀两度被无形暗器击断，后被怜星宫主瞬间击毙。
+  factions: []
+  skills: []
+- id: char_hui_bian_fu
+  name: 灰蝙蝠
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 蒙灰面具的盲人高手，杀死金陵三剑与猫头鹰，企图灭口时被小鱼儿头上毒蛇咬伤身亡。
+  factions: []
+  skills: []
+- id: char_ji_guan_ren
+  name: 鸡冠人
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 花衣人中为首者，使鸡爪镰与钢啄，绝招晨鸡啼星；本回与黑面君互残，死于草丛。
+  factions: []
+  skills:
+    - skill_chen_ji_ti_xing
+- id: char_jiang_bie_he
+  name: 江别鹤
+  aliases:
+    - 江大侠
+    - 江南大侠
+    - 江兄
+    - 江大爷
+    - 江琴
+  identities:
+    - 江南大侠
+    - 领袖江南武林的盟主
+    - 江大侠
+    - 大侠
+    - 书童
+  level: 核心
+  rank: null
+  description: 假醉试探后欲暗害燕南天与花无缺，一掌被燕南天震飞；自称江琴，以江琴下落为质换取燕南天永不伤他，扬长而去；见铜先生与江小鱼同行后疑四人结党，欲寻老虎夫妻等帮手。
+  factions: []
+  skills:
+    - skill_yi_rong
+    - skill_an_qi
+    - skill_jian_fa
+    - skill_fen_hua_fu_liu
+    - skill_shen_fa
+- id: char_jiang_bo_mu
+  name: 江伯母
+  aliases: []
+  identities:
+    - 移花宫的门下
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_yi_hua_gong
+  skills: []
+- id: char_jiang_er_di
+  name: 江二弟
+  aliases:
+    - 江二爷
+  identities: []
+  level: 重要
+  rank: null
+  description: 燕南天结义二弟，遣散家人后约燕南天在废道相见，似在躲避强仇大敌。
   factions: []
   skills: []
 - id: char_jiang_feng
   name: 江枫
   aliases:
     - 玉郎
+    - 江公子
+    - 江二弟
   identities:
-    - 玉郎,双骄之父
-  level: 重要
+    - 天下第一美男子
+    - 风流公子
+  level: 核心
   rank: null
-  description: |-
-    生平：号玉郎,与花月奴相爱,生下双胞胎。遭十二星相追杀,托孤燕南天,开篇殉难,成为全书身世线起点。
-    性格：文雅急切;风流而悲壮;风流;重情;机敏;刚烈;护妻
-    玉郎,双骄之父,风流剑客,开篇殉难
+  description: 出生豪富世家的天下第一美男子，江湖称玉郎；本回携妻弃家逃亡，为护妻儿与十二星相恶斗。
+  factions: []
+  skills: []
+- id: char_jiang_qin
+  name: 江琴
+  aliases: []
+  identities:
+    - 书童
+  level: 重要
+  rank: 平平无奇
+  description: 燕南天此番入谷声称要找之人，谷中众魔均称不识其名，屠娇娇指燕南天必受人骗。
+  factions: []
+  skills: []
+- id: char_jiang_xiao_yu
+  name: 江小鱼
+  aliases:
+    - 小鱼儿
+  identities: []
+  level: 核心
+  rank: null
+  description: 夜中与花无缺同行，自称此时不愿见燕南天，决意另赴龟山；于客栈抱起重伤的路仲远，识破其假冒身份并代述原委，誓为路仲远向江玉郎复仇。
   factions: []
   skills: []
 - id: char_jiang_yu_lang
   name: 江玉郎
-  aliases: []
+  aliases:
+    - 玉郎
+    - 小色鬼
+    - 轿夫
+    - 江公子
+    - 江兄
+    - 蒋平
   identities:
-    - 铁心兰之父
-  level: 重要
+    - 江大少爷
+    - 江大侠的公子
+    - 江少侠
+    - 轿夫
+    - 花丛圣手
+    - 风流种子
+    - 江南大侠的少爷
+    - 武当门下弟子
+    - 弟子
+    - 夫婿
+  level: 核心
   rank: null
-  description: |-
-    生平：江别鹤之子,外貌俊美常与花无缺对照,参与江家阴谋,父女情与恶行撕裂。
-    性格：油滑体面;金玉其外;阴险;自负;伪善;好色;心机
-    铁心兰之父,江别鹤之子,外貌俊美内心阴险
+  description: 萧咪咪地下宫中被折磨的少年，自称姓江名玉郎，来此一年；表面懦弱，背地满脸杀机。毒杀轻衫少年引开萧咪咪，藏身自挖粪坑地道洞中；连环踢反扑小鱼儿失败后穴道被点，暂与小鱼儿同躲。
+  factions:
+    - faction_shuang_shi_biao_ju
+  skills:
+    - skill_shen_fa
+    - skill_zhang_fa
+    - skill_qing_gong
+    - skill_zhuang_shi_duan_wan
+    - skill_fei_ying_bo_tu
+    - skill_wu_dang_zhang_fa
+    - skill_ti_si_ren_bu_pei_ming_tian_xia_wu_shuang_mo_jiao
+- id: char_jin_ling_san_jian
+  name: 金陵三剑
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 衣衫华丽、握名剑的三人，在宝藏洞口附近遭灰蝙蝠杀害，尸身尚软。
   factions: []
   skills: []
+- id: char_jin_yuan_xing
+  name: 金猿星
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 十二星相之一，金袍瘦小如猴，以人头与镖银要挟，被燕南天挖目后仍以镖银自保。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills: []
+- id: char_jiu_ya_tou
+  name: 九丫头
+  aliases:
+    - 九妹
+  identities: []
+  level: null
+  rank: null
+  description: 曾与顾人玉有婚事牵连，被提及不会嫁给顾人玉。
+  factions: []
+  skills: []
+- id: char_jue_chen_dao_zhang
+  name: 绝尘道长
+  aliases: []
+  identities:
+    - 滇边第一剑客
+  level: 背景
+  rank: null
+  description: 昔年滇边第一剑客，据江玉郎称死于五毒天水。
+  factions: []
+  skills: []
+- id: char_lao_huo_ya
+  name: 老火鸦
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 向碧蛇神君售出号称燃上一天一夜也不会熄灭的火折子。
+  factions: []
+  skills: []
+- id: char_lao_long_zi
+  name: 老聋子
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 江府中人，被江别鹤怀疑是装聋作哑的狂狮铁战
+  factions: []
+  skills: []
+- id: char_lao_xi
+  name: 老西
+  aliases:
+    - 醋坛子
+  identities: []
+  level: 龙套
+  rank: null
+  description: 恶人谷中人，被小鱼儿呼为醋坛子，获赠缅刀。
+  factions:
+    - faction_e_ren_gu
+  skills: []
+- id: char_lei_lao_da
+  name: 雷老大
+  aliases: []
+  identities:
+    - 保镖
+  level: 龙套
+  rank: 略有小成
+  description: 锦衣大汉，一脸大麻子，镖局中人，被燕南天以锈剑断剑并骗去千两银子。
+  factions:
+    - faction_san_da_biao_ju
+  skills: []
+- id: char_lei_xiao_hu
+  name: 雷啸虎
+  aliases:
+    - 雷老大
+  identities: []
+  level: 次要
+  rank: null
+  description: 追随沈轻虹赴约的义士，吞下献果桃子，与巨犬互咬至奄奄一息。
+  factions:
+    - faction_san_yuan_biao_ju
+  skills: []
+- id: char_li_a_niu
+  name: 李阿牛
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_li_da_ge
+  name: 李大哥
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_li_da_yuan
+  name: 李大元
+  aliases: []
+  identities:
+    - 少林俗家弟子
+  level: 背景
+  rank: null
+  description: 少林俗家弟子，曾遭阴九幽暗算。
+  factions:
+    - faction_shao_lin_pai
+  skills: []
+- id: char_li_da_zui
+  name: 李大嘴
+  aliases:
+    - 不吃人头
+    - 李叔叔
+    - 大嘴兄
+    - 李老前辈
+    - 李大叔
+    - 大嘴狼
+  identities:
+    - 不吃人头
+    - 十大恶人
+  level: 重要
+  rank: null
+  description: 嗜食人肉的魔头，言语三句不离吃人；燕南天破线后逃得最慢，后又欲吃所谓燕南天弟媳尸身，并以棺材掷人。
+  factions:
+    - faction_e_ren_gu
+    - faction_shi_da_e_ren
+  skills:
+    - skill_gua_gu_dao
+- id: char_li_di
+  name: 李迪
+  aliases:
+    - 金狮子
+    - 金狮
+  identities:
+    - 总镖头
+    - 金狮
+  level: 次要
+  rank: null
+  description: 号金狮，拔紫金刀逼小鱼儿，认出轩辕三光后色变，后能屈能伸唤小二上菜。
+  factions:
+    - faction_jiang_nan_jin_shi_biao_ju
+    - faction_jin_shi_biao_ju
+    - faction_shuang_shi_biao_ju
+  skills: []
+- id: char_li_feng
+  name: 厉峰
+  aliases:
+    - 衡山鹰
+  identities:
+    - 总镖头
+  level: 次要
+  rank: null
+  description: 江湖人称衡山鹰，属三湘镖联，与赵全海争段合肥镖银，席间同样中毒。
+  factions:
+    - faction_san_xiang_biao_lian
+  skills: []
+- id: char_li_jia_xiong_di
+  name: 李家兄弟
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_li_lao_da
+  name: 李老大
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: null
+  factions:
+    - faction_li_jia_ban
+  skills:
+    - skill_fan_jin_dou
+- id: char_li_lao_shi
+  name: 李老实
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_li_ming_sheng
+  name: 李明生
+  aliases:
+    - 红衫金刀
+  identities:
+    - 红衫金刀
+    - 金狮镖局总镖头的长公子
+  level: 次要
+  rank: null
+  description: 又高又大的黑大汉，金狮镖局长公子，掌中紫金刀，在宜昌与江玉郎会合。
+  factions:
+    - faction_jin_shi_biao_ju
+    - faction_shuang_shi_biao_ju
+  skills:
+    - skill_dao_fa
+- id: char_li_ting
+  name: 李挺
+  aliases:
+    - 紫面狮
+  identities:
+    - 江南金狮镖局的大镖头
+    - 紫面狮
+  level: 次要
+  rank: null
+  description: 双狮镖局中人，被黑衣女子梅花钩招式逼得手忙脚乱。
+  factions:
+    - faction_jiang_nan_jin_shi_biao_ju
+    - faction_shuang_shi_biao_ju
+  skills:
+    - skill_ying_gong
+    - skill_shui_xing
 - id: char_lian_xing
   name: 怜星
   aliases: []
-  identities:
-    - 移花宫副宫主
-  level: 重要
+  identities: []
+  level: 背景
   rank: null
-  description: |-
-    生平：与姐邀月共掌移花宫,对花无缺亦有关照,性情相对邀月温和,仍深陷宫门权谋。
-    性格：柔中带刚;阴柔;相对温和;聪慧;矛盾;重情;宫规束缚
-    移花宫副宫主,邀月之妹,性情相对温和
+  description: 移花宫宫主之一。
   factions:
     - faction_yi_hua_gong
   skills: []
-- id: char_luo_jiu
-  name: 罗九
+- id: char_lian_xing_gong_zhu
+  name: 怜星宫主
   aliases: []
   identities:
-    - 龙套
+    - 移花宫的二宫主
+    - 二宫主
+    - 移花宫主
+    - 怜星宫主
+    - 宫主
+  level: 核心
+  rank: 登峰造极
+  description: 不知何时站在甬道尽头冷眼旁观；命花无缺去追回铁心兰；称洞中已无人；以轻功跟在小鱼儿身后。
+  factions:
+    - faction_yi_hua_gong
+  skills:
+    - skill_ming_yu_gong
+- id: char_liu_he_ren
+  name: 柳鹤人
+  aliases:
+    - 洞庭才子
+  identities:
+    - 七姑爷
+    - 洞庭才子
+  level: 次要
+  rank: null
+  description: null
+  factions:
+    - faction_mu_rong_jia
+  skills: []
+- id: char_liu_yu_ru
+  name: 柳玉如
+  aliases:
+    - 雪花刀
+  identities:
+    - 雪花刀
+    - 三罗刹其中之一
+  level: 次要
+  rank: null
+  description: 昔日江湖闻名丧胆的三罗刹之一，刀法出神入化，白衣持柳叶刀入洞寻宝，与冯天雨交手后又与赵全海叙旧。
+  factions:
+    - faction_san_luo_cha
+  skills: []
+- id: char_long_da_ge
+  name: 龙大哥
+  aliases: []
+  identities: []
   level: 龙套
   rank: null
-  description: |-
-    生平：中段市井/江湖场景人物。
-    性格：市井;圆滑;市井;势利;健谈;胆小
-    中段情节中的市井江湖人物
+  description: null
   factions: []
+  skills: []
+- id: char_long_feng_jian_ke
+  name: 龙凤剑客
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 龙凤双飞鸳鸯剑的主人，此役龙拆凤散遭人毒手
+  factions: []
+  skills: []
+- id: char_lu_qun_shao_fu
+  name: 绿裙少妇
+  aliases:
+    - 姓萧的
+  identities:
+    - 女王
+  level: 重要
+  rank: null
+  description: 轻衫绿裙、鬓插山茶花的少妇，以柔言巧计诱献果神君与沈轻虹上索坠崖，自称从不亲自动手杀人，后以五色大伞携小鱼儿跳下绝壑。
+  factions: []
+  skills: []
+- id: char_lu_shan_shao_nian
+  name: 绿衫少年
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_lu_zhong_da
+  name: 路仲达
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 欧阳丁声称抢走屠娇娇所托一批东西之人，被众人视为死无对证的借口。
+  factions: []
+  skills: []
+- id: char_lu_zhong_yuan
+  name: 路仲远
+  aliases:
+    - 路大侠
+  identities:
+    - 南天大侠
+  level: 背景
+  rank: null
+  description: 假冒燕南天重出江湖的大侠，曾受挫于魏无牙后洗手归隐，得燕南天武功秘诀并经万春流改容；于客栈击杀魏白衣、为慕容九妹行功时遭江玉郎与铁萍姑暗算，重伤濒死并道出真相。
+  factions: []
+  skills: []
+- id: char_luo_jiu
+  name: 罗九
+  aliases:
+    - 罗九兄弟
+    - 欧阳兄弟
+  identities:
+    - 罗九爷
+  level: 重要
+  rank: null
+  description: 怂恿赵香灵先下手绑架段合肥父女，于段宅以暗器与毒辣掌力连伤武师，谈笑间完成绑架。
+  factions:
+    - faction_luo_jia
+  skills:
+    - skill_shuang_pan_zhang
+    - skill_da_hong_quan
+    - skill_qing_gong
+    - skill_yi_rong
+- id: char_luo_ming_dao
+  name: 骆明道
+  aliases:
+    - 神眼书生
+  identities:
+    - 神眼书生
+    - 五姊夫
+    - 五姑爷
+  level: 次要
+  rank: null
+  description: null
+  factions:
+    - faction_mu_rong_jia
+  skills:
+    - skill_qing_gong
+- id: char_luo_san
+  name: 罗三
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 罗氏昆仲中的弟弟，当众演示大洪拳以示武功平平，实则八面玲珑、深藏不露。
+  factions:
+    - faction_luo_jia
+  skills:
+    - skill_da_hong_quan
+- id: char_mao_gong_ji
+  name: 毛公鸡
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 峨嵋山上三根毛之一，身子比毛毛虫大一倍、脖子细长、头尖嘴如锥，说话声如杀鸡。
+  factions:
+    - faction_mao_jia_xiong_di
+  skills: []
+- id: char_mao_jia_xiong_di
+  name: 毛家兄弟
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_mao_mao_chong
+  name: 毛毛虫
+  aliases:
+    - 嚼心蛀肺
+  identities: []
+  level: 次要
+  rank: null
+  description: 峨嵋山上三根毛之一，外号嚼心蛀肺，形貌畸形多毛，声音令人恶心，近十年来最狠毒角色之一。
+  factions:
+    - faction_mao_jia_xiong_di
+  skills: []
+- id: char_mao_tou_ying
+  name: 猫头鹰
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 与灰蝙蝠相交二十年的搭档，眼大而亮，在洞中欲杀小鱼儿，黑暗中被灰蝙蝠击毙。
+  factions: []
+  skills: []
+- id: char_mao_xing_xing
+  name: 毛猩猩
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 峨嵋山上三根毛之一，身形如猩猩，无颈、毛黑粗，仅见野兽般发光的眼睛，自称毛猩猩。
+  factions:
+    - faction_mao_jia_xiong_di
+  skills: []
+- id: char_mei_hua_gong_zi
+  name: 梅花公子
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills:
+    - skill_qing_gong
+- id: char_mei_qiu_hu
+  name: 梅秋湖
+  aliases: []
+  identities:
+    - 一帆大师关山门的弟子
+  level: 次要
+  rank: null
+  description: 矮胖嘻笑但双目有神，似为五纨绔中武功最强者，崆峒掌门一帆大师关山门弟子。
+  factions:
+    - faction_kong_tong
+  skills: []
+- id: char_mei_yu_jian_ke
+  name: 美玉剑客
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 慕容九妹所称大姐夫之名号，被认为勉强配得上其大姐。
+  factions: []
+  skills: []
+- id: char_mei_zhong_liang
+  name: 梅仲良
+  aliases:
+    - 梅花公子
+  identities:
+    - 四姑爷
+    - 梅花公子
+  level: 次要
+  rank: null
+  description: null
+  factions:
+    - faction_mu_rong_jia
   skills: []
 - id: char_mi_shi_ba
   name: 祢十八
   aliases: []
-  identities:
-    - 配角
+  identities: []
   level: 次要
   rank: null
-  description: |-
-    生平：后期与众人饮酒笑谈的配角。
-    性格：豪爽;酒友;豪爽;贪杯;随和;乐天;义气
-    后期酒友型配角
+  description: 与俞子牙、萧女史一同思索失踪之谜，后表示不信移花宫主功夫已天下无敌。
   factions: []
   skills: []
-- id: char_mu_rong_jiu
-  name: 慕容九
-  aliases:
-    - 慕容九妹
-  identities:
-    - 慕容家女
+- id: char_mu_fu_ren
+  name: 木夫人
+  aliases: []
+  identities: []
   level: 重要
   rank: null
-  description: |-
-    生平：慕容家女,曾神智失常,与小鱼儿等有重要情节纠葛。
-    性格：时而失常时而清澈;清丽悲苦;敏感;脆弱;重情;执拗;清丽
-    慕容九妹,神智曾失常,后为关键女角
+  description: 黑袍、沉香木面具女子，与铜先生齐名；自称要找令铜先生满意的地方而来迟；与铜先生争辩对江枫的感情及幼时被推断腿往事，称对方为大姐。
+  factions: []
+  skills: []
+- id: char_mu_rong_ba_niang
+  name: 慕容八娘
+  aliases:
+    - 八妹
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_mu_rong_jiu_zi_mei
+    - faction_mu_rong_jia
+  skills: []
+- id: char_mu_rong_da_gu_niang
+  name: 慕容大姑娘
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: null
   factions:
     - faction_mu_rong_jia
   skills: []
-- id: char_mu_rong_shuang
-  name: 慕容双
+- id: char_mu_rong_da_jie
+  name: 慕容大姐
   aliases: []
-  identities:
-    - 慕容九之兄
+  identities: []
   level: 次要
   rank: null
-  description: |-
-    生平：慕容九之兄,慕容家传人,参与家事与江湖纠葛。
-    性格：沉重感慨;世家子弟;沉重;护妹;传统;矛盾;刚毅
-    慕容九之兄,慕容家传人
+  description: 建议船上有贵客应赶快回去，凡事先征询夫婿。
+  factions: []
+  skills: []
+- id: char_mu_rong_jiu_gu_niang
+  name: 慕容九姑娘
+  aliases:
+    - 九姑娘
+    - 九妹
+  identities:
+    - 九姑娘
+  level: 重要
+  rank: null
+  description: null
+  factions:
+    - faction_mu_rong_jia
+  skills: []
+- id: char_mu_rong_jiu_mei
+  name: 慕容九妹
+  aliases:
+    - 九姑娘
+    - 慕容九姑娘
+    - 九丫头
+    - 慕容姑娘
+    - 梦姑娘
+    - 九妹
+  identities:
+    - 九秀山庄的慕容九妹姑娘
+  level: 重要
+  rank: null
+  description: 阁楼上沉睡的慕容家九姑娘，最听黑蜘蛛的话；小鱼儿要其写八十万两白银赎金字条，欲将藏匿之事栽赃江别鹤。
+  factions:
+    - faction_mu_rong_jia
+    - faction_mu_rong_shan_zhuang
+    - faction_jiu_xiu_shan_zhuang
+    - faction_mu_rong_jiu_zi_mei
+  skills:
+    - skill_hua_shi_shen_gong
+- id: char_mu_rong_liu_niang
+  name: 慕容六娘
+  aliases:
+    - 六姊
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_mu_rong_jiu_zi_mei
+    - faction_mu_rong_jia
+  skills: []
+- id: char_mu_rong_qi_niang
+  name: 慕容七娘
+  aliases:
+    - 七娘
+    - 紫衣少妇
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions:
+    - faction_mu_rong_jiu_zi_mei
+    - faction_mu_rong_jia
+  skills: []
+- id: char_mu_rong_shan_shan
+  name: 慕容珊珊
+  aliases:
+    - 大奶奶
+  identities:
+    - 夫人
+    - 三姑娘
+    - 移花宫弟子
+  level: 重要
+  rank: null
+  description: 与姐妹合围黑衣人，使出分花拂柳眩敌，反被掐住咽喉为人质，后劝姐妹勿轻易松手。
+  factions:
+    - faction_mu_rong_jia
+    - faction_yi_hua_gong
+  skills:
+    - skill_jian_fa
+    - skill_an_qi
+    - skill_qing_gong
+- id: char_mu_rong_shuang
+  name: 慕容双
+  aliases:
+    - 慕容二姑娘
+    - 姨奶奶
+    - 二姊
+  identities: []
+  level: 重要
+  rank: null
+  description: 认定武功高者为江别鹤，怒围小鱼儿并逼其受检脸，后随九妹呼声追去。
+  factions:
+    - faction_mu_rong_jia
+    - faction_mu_rong_jiu_zi_mei
+  skills:
+    - skill_jian_fa
+    - skill_an_qi
+    - skill_qing_gong
+    - skill_gong_jian
+- id: char_mu_rong_yong
+  name: 慕容永
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 慕容九妹之父，轩辕三光闻九姑娘落在江玉郎手中时点名提及。
+  factions:
+    - faction_jiu_xiu_shan_zhuang
+    - faction_mu_rong_jia
+  skills: []
+- id: char_mu_rong_zi_mei
+  name: 慕容姊妹
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 在场旁观，暗叹铁心兰可怜，又闻小鱼儿之名为之动容。
+  factions: []
+  skills: []
+- id: char_nan_gong_liu
+  name: 南宫柳
+  aliases:
+    - 南宫公子
+  identities:
+    - 南宫世家的传人
+    - 慕容家的女婿
+    - 二姑爷
+  level: 重要
+  rank: null
+  description: 冷眼旁观点出小鱼儿破绽穴位供人攻刺，后判明其非江别鹤并指点其旁骛太多、出手未浑然圆通。
+  factions:
+    - faction_nan_gong_shi_jia
+    - faction_mu_rong_jia
+    - faction_jiu_xiu_zhuang
+  skills: []
+- id: char_nan_guo_sheng
+  name: 南郭生
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_ning_si_bu_chi_kui
+  name: 宁死不吃亏
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 欧阳孪生兄弟之一，与拼命占便宜一胞双生，十大恶人中并算一人。
+  factions:
+    - faction_shi_da_e_ren
+  skills: []
+- id: char_nu_meng_chang
+  name: 女孟尝
+  aliases:
+    - 段三姑娘
+    - 三姑娘
+  identities:
+    - 女孟尝
+    - 三姑娘
+  level: 重要
+  rank: null
+  description: 段合肥独生女，救起落水小鱼儿并安置于庆余堂，告知镖银失踪。
+  factions:
+    - faction_qing_yu_tang
+  skills: []
+- id: char_ou_yang_dang
+  name: 欧阳当
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 欧阳兄弟之一，与欧阳丁同被诱上马车遭擒，矢口否认认得屠娇娇并赌咒。
+  factions:
+    - faction_shi_da_e_ren
+  skills: []
+- id: char_ou_yang_ding
+  name: 欧阳丁
+  aliases:
+    - 罗九
+  identities: []
+  level: 次要
+  rank: null
+  description: 欧阳兄弟之一，被小鱼儿引上屠娇娇马车后遭车垫下之人擒住双臂，推说旧物被路仲达所抢。
+  factions:
+    - faction_shi_da_e_ren
+  skills: []
+- id: char_ou_yang_lao_zhe
+  name: 欧阳老者
+  aliases:
+    - 欧阳大哥
+  identities: []
+  level: 龙套
+  rank: null
+  description: 颔下胡子已不短的老者，劝安西、定远两镖局中人莫窝里反、同仇敌忾。
+  factions: []
+  skills: []
+- id: char_ou_yang_ting
+  name: 欧阳亭
+  aliases: []
+  identities:
+    - 当世人杰
+    - 一代人杰
+  level: 重要
+  rank: null
+  description: 江湖中享誉最隆的侠士与高手之一，建造地灵宫并诱杀天地五绝，终与方灵姬共饮毒酒而死。
+  factions:
+    - faction_di_ling_gong
+  skills: []
+- id: char_ou_yang_xiong_di
+  name: 欧阳兄弟
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 原十大恶人成员，已死；恶人欲寻人顶替其位。
+  factions:
+    - faction_shi_da_e_ren
+  skills: []
+- id: char_pang_zi
+  name: 胖子
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_peng_lao_ban
+  name: 彭老板
+  aliases: []
+  identities:
+    - 四海春老板
+  level: 龙套
+  rank: null
+  description: 四海春饭馆老板，发现小鱼儿炒菜手艺后令其掌勺。
+  factions: []
+  skills: []
+- id: char_peng_nian_zu
+  name: 彭念祖
+  aliases: []
+  identities:
+    - 掌门人
+  level: null
+  rank: null
+  description: 南派五虎断门刀掌门人，本章仅被罗九提及，本人未出场。
+  factions:
+    - faction_wu_hu_duan_men_dao
+  skills:
+    - skill_wu_hu_duan_men_dao
+- id: char_peng_tian_shou
+  name: 彭天寿
+  aliases: []
+  identities:
+    - 金刀无敌
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_pin_ming_zhan_pian_yi
+  name: 拼命占便宜
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 欧阳孪生兄弟之一，十大恶人中被算作一人的双生子，富可敌国。
+  factions:
+    - faction_shi_da_e_ren
+  skills: []
+- id: char_ping_zi
+  name: 瓶子
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_qian_er
+  name: 钱二
+  aliases:
+    - 钱二哥
+  identities: []
+  level: 龙套
+  rank: 初窥门径
+  description: 镖局中人，闻十二星相约战而怯，劝走并称沈轻虹从容就义。
+  factions:
+    - faction_san_da_biao_ju
+    - faction_san_yuan_biao_ju
+  skills: []
+- id: char_qian_lao_da
+  name: 钱老大
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_qin_jian
+  name: 秦剑
+  aliases: []
+  identities:
+    - 两广武林的盟主
+    - 江湖中的才子
+    - 慕容家的女婿
+    - 三姑爷
+  level: 重要
+  rank: null
+  description: 与南宫柳旁观战局，称菁妹高出顾人玉一筹；被小鱼儿设计约明夜三更再会，又将成白开心第二封假信的收件目标。
+  factions:
+    - faction_mu_rong_jia
+    - faction_jiu_xiu_zhuang
+  skills:
+    - skill_jian_fa
+- id: char_qing_yi_fu_ren
+  name: 青衣妇人
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 随紫衣少女入房，将碗筷收走。
+  factions: []
+  skills: []
+- id: char_qiu_qi_ye
+  name: 邱七爷
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions:
+    - faction_yin_qiang_shi_jia
+  skills: []
+- id: char_qiu_qing_bo
+  name: 邱清波
+  aliases:
+    - 邱七爷
+  identities:
+    - 浙东邱门的当今掌门人
+    - 邱清波七爷
+    - 邱公子
+    - 世家子弟
+  level: 次要
+  rank: null
+  description: 世家子弟邱公子，被轩辕三光逼赌以妻为注，宁可以掌拍天灵自杀，也不肯丢人。
+  factions:
+    - faction_zhe_dong_qiu_men
+    - faction_yin_qiang_shi_jia
+  skills: []
+- id: char_qiu_ran_lao_ren
+  name: 虬髯老人
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_san_gu_niang
+  name: 三姑娘
+  aliases:
+    - 段三姑娘
+    - 老三
+  identities: []
+  level: 重要
+  rank: null
+  description: 段合肥之女，力大且出手快，先制住闯入闺房的小鱼儿，却谎称贼人已逃并设计调开江别鹤与花无缺，再披大氅送其出门。
+  factions: []
+  skills: []
+- id: char_shan_dong_lao_xiang
+  name: 山东老乡
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 思乡馆店主，被小鱼儿差去买笔墨纸张贴告示；后被白开心以灌铅假银子骗走店面。
+  factions: []
+  skills: []
+- id: char_she_lao_qi
+  name: 蛇老七
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_shen_qing_hong
+  name: 沈轻虹
+  aliases: []
+  identities:
+    - 总镖头
+    - 飞花满天,落地无声
+    - 洛阳沈轻虹
+    - 镖头
+    - 保镖
+  level: 重要
+  rank: 登堂入室
+  description: 十四年前以'飞花满天,落地无声'闻名的镖头，金蝉脱壳藏红货于山洞，烧断绳子与献果神君同困十四年。
+  factions:
+    - faction_san_da_biao_ju
+    - faction_san_yuan_biao_ju
+  skills:
+    - skill_fei_hua_man_tian
+- id: char_shen_shou_jiang
+  name: 神手匠
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 能制作天绝地灭透骨针的工匠，小鱼儿以需找他重制说明该暗器珍贵。
+  factions: []
+  skills: []
+- id: char_shen_xi_dao_zhang
+  name: 神锡道长
+  aliases: []
+  identities:
+    - 道长
+    - 峨嵋掌门
+  level: 重要
+  rank: 炉火纯青
+  description: 峨嵋掌门，白袜蓝袍清瘦道人，以护山之责向轩辕三光索头，却以掌门铜符作注并连砍三剑仍落败，后得小鱼儿归还铜符。
+  factions:
+    - faction_e_mei_pai
+    - faction_e_mei
+  skills: []
+- id: char_shen_yan_shu_sheng
+  name: 神眼书生
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills:
+    - skill_qing_gong
+- id: char_shen_yang
+  name: 沈洋
+  aliases:
+    - 追魂夺命三环剑客
+    - 三环剑客
+  identities:
+    - 追魂夺命三环剑客
+    - 三环剑客
+  level: 次要
+  rank: null
+  description: 三环剑标记的成名剑客，死于悬崖争夺珍宝一役
+  factions: []
+  skills:
+    - skill_san_huan_tao_yue
+- id: char_shi_chi
+  name: 诗痴
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_shi_lao_tou
+  name: 史老头
+  aliases: []
+  identities:
+    - 白发艄翁
+  level: 重要
+  rank: null
+  description: 为小鱼儿撑船掌舵，巫峡遇袭时清啸长竿击退数十大汉；江湖中人知其二十年前称霸长江与水路，却拒说真名。
+  factions: []
+  skills: []
+- id: char_shi_shu_yun
+  name: 史蜀云
+  aliases:
+    - 云姑
+    - 史姑娘
+  identities: []
+  level: 次要
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_shi_yun_gu
+  name: 史云姑
+  aliases:
+    - 云姑
+  identities: []
+  level: 次要
+  rank: null
+  description: 史老头孙女，换青布短衫裤助行船；截杀时以铁莲子暗器击伤黄巾大汉。
+  factions: []
+  skills: []
+- id: char_shou_zi
+  name: 瘦子
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_si_chen_ke
+  name: 司晨客
+  aliases:
+    - 红衣鸡冠
+    - 鸡冠人
+  identities: []
+  level: 次要
+  rank: null
+  description: 十二星相中人，身长不足五尺、瘦小枯干，着火红衣裳，使鸡嘴啄，与鸡尾以啄抓合击。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills: []
+- id: char_si_ma_yan
+  name: 司马烟
+  aliases:
+    - 穿肠剑
+    - 司马兄
+  identities:
+    - 穿肠剑
+  level: 重要
+  rank: null
+  description: 川中八义一路追杀的恶贼，本欲投奔恶人谷；谷中人原以为来者是他，实则认错了燕南天。
+  factions:
+    - faction_e_ren_gu
+    - faction_shi_da_e_ren
+  skills:
+    - skill_yi_rong_zhi_shu
+    - skill_chuan_chang_du_yao_jian
+- id: char_song_de_yang
+  name: 宋德扬
+  aliases:
+    - 双鞭
+  identities:
+    - 副总镖头
+  level: 次要
+  rank: null
+  description: 三远镖局副总镖头，本欲加急护送红货，人头却被十二星相装匣示众。
+  factions:
+    - faction_san_yuan_biao_ju
+  skills: []
+- id: char_song_san
+  name: 宋三
+  aliases:
+    - 宋三哥
+    - 闷雷刀宋三哥
+  identities:
+    - 闷雷刀
+  level: 次要
+  rank: null
+  description: 恶人谷中人，右臂已断，身法较巴蜀东轻灵，畏惧小鱼儿，后被屠娇娇销魂掌所伤。
+  factions:
+    - faction_e_ren_gu
+  skills: []
+- id: char_su_gu_niang
+  name: 苏姑娘
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
   factions: []
   skills: []
 - id: char_su_ying
   name: 苏樱
-  aliases: []
+  aliases:
+    - 苏姑娘
+    - 樱儿
   identities:
-    - 小鱼儿妻子之一
+    - 少女
+    - 魏老头的命根子
   level: 核心
   rank: null
-  description: |-
-    生平：后期与小鱼儿结为夫妇,聪慧妩媚,收束卷有猴儿酒等欢乐场面。
-    性格：娇嗔机智;娇媚灵动;聪慧;妩媚;娇俏;重情;机敏
-    小鱼儿妻子之一,聪慧妩媚,后期重要女角
+  description: 年华未满双十的白衣少女，山居幽谷，自言普天之下仅有三人能救花无缺且她为其中之一，以机关待客并给药令其沉睡，实欲套问移花接玉之秘。
+  factions: []
+  skills:
+    - skill_xiao_xi_ji_guan_zhi_xue
+- id: char_sun_lao_san
+  name: 孙老三
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: 初窥门径
+  description: 瘦小枯干、满面精悍的汉子，镖局中人。
+  factions:
+    - faction_san_da_biao_ju
+  skills: []
+- id: char_sun_tian_nan
+  name: 孙天南
+  aliases: []
+  identities:
+    - 掌天南剑派
+    - 天南剑客
+  level: 次要
+  rank: 登堂入室
+  description: 武林高手，与王一抓突袭轩辕三光，被一拳击飞出窗外，胸口十八根骨头断尽。
+  factions:
+    - faction_tian_nan_jian_pai
+  skills: []
+- id: char_sun_xiao_mei
+  name: 孙小妹
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 十来岁女孩子，与江玉郎亲热作态，催其赴玉楼东吃饭。
+  factions: []
+  skills: []
+- id: char_tao_hua
+  name: 桃花
+  aliases: []
+  identities: []
+  level: 重要
+  rank: null
+  description: 草原牧人少女，被小鱼儿气走后发现族人帐篷遭关内强盗围困，赶来求小鱼儿相救；与铁心男同返营地。
+  factions: []
+  skills: []
+- id: char_tian_ba
+  name: 田八
+  aliases: []
+  identities:
+    - 江北一条龙
+  level: 背景
+  rank: null
+  description: 巴蜀东得罪的仇家之一。
+  factions: []
+  skills: []
+- id: char_tian_chi_xing
+  name: 天吃星
+  aliases: []
+  identities:
+    - 天吃星
+  level: 次要
+  rank: null
+  description: 昔日丐帮中人，曾半个时辰毒死本门七大长老，现为恶人谷中做菜之人，擅以独门迷药入菜。
+  factions:
+    - faction_gai_bang
+    - faction_e_ren_gu
+  skills: []
+- id: char_tie_jian_he_shang
+  name: 铁肩和尚
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 五台山和尚，据李大嘴自述曾被其吃了三天。
+  factions: []
+  skills: []
+- id: char_tie_ping_gu
+  name: 铁萍姑
+  aliases:
+    - 萍儿
+    - 铁姑娘
+  identities:
+    - 移花宫门下
+  level: 核心
+  rank: null
+  description: 侍铜先生的女子，圆脸少女之姊；趁铜先生入定之机，击昏换班紫衣少女，打开复壁窄门带小鱼儿入地道逃亡。
+  factions:
+    - faction_yi_hua_gong
+  skills:
+    - skill_qing_gong
+    - skill_shen_fa
+- id: char_tie_ru_long
+  name: 铁如龙
+  aliases:
+    - 金刀
+    - 金刀手
+    - 铁镖头
+  identities:
+    - 铁镖头金刀手
+    - 金刀
+  level: 次要
+  rank: null
+  description: 昔年与沈轻虹争总镖头之位的好友，断手被猴投入洞中
+  factions: []
+  skills: []
+- id: char_tie_wu_shuang
+  name: 铁无双
+  aliases:
+    - 铁老前辈
+    - 铁英雄
+    - 铁老英雄
+  identities:
+    - 爱才如命
+    - 三湘武林盟主
+    - 领袖三湘武林的盟主
+    - 铁老前辈
+    - 铁老英雄
+    - 三湘名侠
+  level: 重要
+  rank: null
+  description: 三湘武林盟主，白发银髯，外表仁义、人皆信其"爱才如命"，实与赵庄主等夜聚地灵庄，为铁心兰中毒的幕后下毒者。
   factions: []
   skills: []
 - id: char_tie_xin_lan
   name: 铁心兰
-  aliases: []
+  aliases:
+    - 铁姑娘
+    - 小兰
   identities:
-    - 小鱼儿挚爱
+    - 铁姑娘
+    - 姑娘
+    - 花无缺未过门的妻子
+    - 苏樱的姐姐
+    - 铁大侠女
   level: 核心
   rank: null
-  description: |-
-    生平：江玉郎之女,与小鱼儿相爱,历经江家阴谋与江湖磨难,性格温柔而坚韧。
-    性格：柔和恳切;外柔内刚;温柔;坚韧;重情;善良;隐忍
-    小鱼儿挚爱,江玉郎之女,温柔坚韧
+  description: 赤身在溪中，衣服曾被白夫人骗走；得苏樱归还破衣后与苏樱结为姐妹，谈及对小鱼儿及另一男子的感情，并独自持珠钗往槐树林投奔苏樱干爹。
   factions: []
-  skills: []
+  skills:
+    - skill_dao_fa
+- id: char_tie_xin_nan
+  name: 铁心男
+  aliases:
+    - 白衣少年
+    - 铁心兰
+  identities: []
+  level: 重要
+  rank: null
+  description: 白衣少年，使疯狂一百零八打；被小鱼儿以计点倒后拜其为师，自报名铁心男；为救桃花族人挺身而出，击退李家兄弟，却遇上毛家兄弟。
+  factions: []
+  skills:
+    - skill_feng_kuang_yi_bai_ling_ba_da
 - id: char_tie_zhan
   name: 铁战
   aliases:
     - 狂狮
+    - 狂师铁战
+    - 铁疯子
+    - 铁大侠
   identities:
-    - 狂狮铁战
-  level: 次要
+    - 狂狮
+    - 十大恶人
+    - 狂师
+  level: 重要
   rank: null
-  description: |-
-    生平：号狂狮,勇猛好斗,后期重要对手型角色。
-    性格：暴烈;狂狮;勇猛;好斗;直率;暴躁;重面子
-    狂狮铁战,勇猛武者
+  description: 本章斥邀月宫主并与萧女史等并立；闻铁心兰服毒后扼住花无缺；后与轩辕三光去买酒未果。
+  factions:
+    - faction_shi_da_e_ren
+    - faction_e_ren_gu
+  skills:
+    - skill_qing_gong
+- id: char_tong_xian_sheng
+  name: 铜先生
+  aliases: []
+  identities:
+    - 江湖中第一位奇人
+    - 武林前辈
+  level: 重要
+  rank: null
+  description: 拘禁江小鱼，先藏其于树梢，被小鱼儿言语纠缠得头疼；百丈之内飞花落叶瞒不过他，终抱小鱼儿改换藏处并踢开其下半身穴道令其随行。
+  factions: []
+  skills:
+    - skill_qing_gong
+- id: char_tu_da_jie
+  name: 屠大姐
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_tu_gua_fu
+  name: 屠寡妇
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
   factions: []
   skills: []
 - id: char_tu_jiao_jiao
   name: 屠娇娇
   aliases:
-    - 人屠
+    - 不男不女
+    - 小屠
+    - 屠姑姑
+    - 屠大姐
+    - 小娇儿
+    - 女诸葛
   identities:
+    - 不男不女
     - 十大恶人
   level: 重要
   rank: null
-  description: |-
-    生平：恶人谷十大恶人之一,人称人屠,身份气质暧昧,对小鱼儿感情复杂。
-    性格：阴柔狠话;半男半女;狠厉;痴情;矛盾;残忍;护短
-    十大恶人,人屠,半男半女,对小鱼儿有情
-  factions: []
-  skills: []
+  description: 离恶人谷后扮成罗九楼下傻丫头及慕容九妹现身；为寻回当年交托欧阳兄弟之财物而出谷，并已识破罗九兄弟即欧阳兄弟。
+  factions:
+    - faction_e_ren_gu
+    - faction_shi_da_e_ren
+  skills:
+    - skill_yi_rong_zhi_shu
+    - skill_yi_rong_shu
+    - skill_xiao_hun_mei_ren_gong
+    - skill_xiao_hun_zhang
+    - skill_yi_rong
+    - skill_qing_gong
 - id: char_wan_chun_liu
   name: 万春流
+  aliases:
+    - 万神医
+    - 万某
+    - 万叔叔
+    - 万大叔
+    - 万老伯
+  identities:
+    - 万神医
+    - 神医
+    - 一代神医
+  level: 重要
+  rank: null
+  description: 昔年恶人、自称已改过自新者；居所堆满药草、炉火炼药，燕南天见其医道高明而放过。
+  factions:
+    - faction_e_ren_gu
+  skills:
+    - skill_yi_shu
+- id: char_wan_er
+  name: 宛儿
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 黑蜘蛛猜为慕容姑娘陪嫁贴身侍女；被白开心偷去宰杀，用以误导慕容家姑爷以为九妹已被吃掉。
+  factions:
+    - faction_mu_rong_jia
+  skills: []
+- id: char_wang_bai_wan
+  name: 王百万
+  aliases:
+    - 王陵川
+    - 张得旺
+  identities:
+    - 土财主
+  level: 龙套
+  rank: null
+  description: 城中土财主，自称张得旺，被轩辕三光逼赌猜铜板，输掉后愿以当铺米店抵账。
+  factions: []
+  skills: []
+- id: char_wang_da_li
+  name: 王大立
   aliases: []
   identities:
-    - 医者
+    - 跟班
+  level: 龙套
+  rank: null
+  description: 自称身上一粒扣子也没有的跟班，赌赢轩辕三光百万家财后笑嘻嘻离去，被轩辕三光称为从头精到脚的赌鬼。
+  factions: []
+  skills: []
+- id: char_wang_tie_bi
+  name: 王铁臂
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills:
+    - skill_dan_dao_po_hua_qiang
+- id: char_wang_yi_zhua
+  name: 王一抓
+  aliases: []
+  identities:
+    - 视人如鸡
+    - 鹰爪门的第一名家
+  level: 次要
+  rank: 登堂入室
+  description: 武林高手，掌色近死黑，与孙天南突袭轩辕三光仍被一拳击退，终因内伤喷血倒地认输身亡。
+  factions:
+    - faction_ying_zhao_men
+    - faction_huai_nan_wang_jia
+  skills:
+    - skill_da_li_ying_zhao_shen_gong
+- id: char_wei
+  name: 魏
+  aliases: []
+  identities:
+    - 义父
+    - 干爹
+  level: null
+  rank: null
+  description: 苏樱的义父、干爹，住在山上槐树林里；人长得凶恶但心肠好，尤其疼苏樱。
+  factions: []
+  skills: []
+- id: char_wei_bai_yi
+  name: 魏白衣
+  aliases: []
+  identities:
+    - 无牙门下
+  level: null
+  rank: null
+  description: 无牙门下弟子，武功诡秘狠毒，与江玉郎交手后施放碧焰，被冒充燕南天的路仲远震伤，服毒自尽前称无牙门下士可杀不可辱。
+  factions:
+    - faction_wu_ya_men
+  skills: []
+- id: char_wei_huang_yi
+  name: 魏黄衣
+  aliases: []
+  identities:
+    - 无牙门下
   level: 次要
   rank: null
-  description: |-
-    生平：医道中人,出现于关键疗伤与终局相关情节。
-    性格：医者口吻;医者;冷静;仁心;无奈;专业;超然
-    医道高手,关键情节中的医者
+  description: null
+  factions:
+    - faction_wu_ya_men
+  skills: []
+- id: char_wei_lao_tou
+  name: 魏老头
+  aliases:
+    - 魏老大
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills:
+    - skill_xiao_xi_ji_guan_zhi_xue
+- id: char_wei_ma_yi
+  name: 魏麻衣
+  aliases:
+    - 麻衣人
+  identities:
+    - 首徒
+    - 无常紊命
+    - 魏无牙门下武功最高的弟子
+    - 无牙门下
+    - 弟子
+    - 魏老大的大徒弟
+  level: 重要
+  rank: null
+  description: 魏无牙门下武功最高的弟子，点穴吊起小鱼儿，欲逼苏樱吐露移花接玉秘密。
+  factions: []
+  skills: []
+- id: char_wei_qing_yi
+  name: 魏青衣
+  aliases: []
+  identities:
+    - 无牙门下
+  level: 次要
+  rank: null
+  description: null
+  factions:
+    - faction_wu_ya_men
+  skills: []
+- id: char_wei_shi_ba
+  name: 魏十八
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 被魏麻衣所杀之人，苏樱称其曾欺负自己。
   factions: []
   skills: []
 - id: char_wei_wu_ya
   name: 魏无牙
-  aliases: []
+  aliases:
+    - 老头子
   identities:
-    - 无牙门主
+    - 子鼠
+    - 师父
   level: 重要
   rank: null
-  description: |-
-    生平：无牙门主,江湖阴谋家,与江别鹤等勾结。
-    性格：阴冷算计;阴谋家;阴谋;阴狠;野心;冷静;毒辣
-    无牙门主,阴谋家,与江家勾结
+  description: 天外天主人，旁门杂学精通，布下十八道机关；二十年前已是天下有数高手，十二星相赖其横行；与小鱼儿大战，武功极高出手先立不败。
   factions:
+    - faction_shi_er_xing_xiang
     - faction_wu_ya_men
   skills: []
+- id: char_wu_gu_dao_ren
+  name: 无骨道人
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: null
+  factions: []
+  skills:
+    - skill_suo_zi_suo_gu_gong
+- id: char_wu_que_gong_zi
+  name: 无缺公子
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 小鱼儿出道江湖以来曾见过的风神迷人人物，用以对照江别鹤。
+  factions: []
+  skills: []
+- id: char_xian_guo_shen_jun
+  name: 献果神君
+  aliases:
+    - 猴老兄
+    - 老猴子
+  identities:
+    - 十二星相中人
+    - 献果神君
+  level: 重要
+  rank: null
+  description: 十二星相中人，容貌似猴，与沈轻虹互困山洞十四年，靠驱猴抛果维生，自称红货本属己有。
+  factions:
+    - faction_shi_er_xing_xiang
+  skills: []
+- id: char_xiao_bai_long
+  name: 小白龙
+  aliases: []
+  identities:
+    - 六姑爷
+  level: 次要
+  rank: null
+  description: null
+  factions:
+    - faction_mu_rong_jia
+  skills: []
+- id: char_xiao_man
+  name: 小蛮
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 高声唤顾人玉进来。
+  factions: []
+  skills: []
+- id: char_xiao_mi_mi
+  name: 萧咪咪
+  aliases:
+    - 迷死人不赔命
+    - 绿裙少妇
+    - 萧姑娘
+  identities:
+    - 迷死人不赔命
+    - 皇上
+    - 娘娘
+  level: 重要
+  rank: null
+  description: 地下宫殿主人，点小鱼儿为皇后，自称三十七岁，被指为十大恶人之一。据江玉郎称其武功极高，有七百余情郎各授一手武功；轻衫少年尽死时外出查探秘密出口。
+  factions:
+    - faction_shi_da_e_ren
+  skills:
+    - skill_mi_tang_gong_fu
+- id: char_xiao_nu_shi
+  name: 萧女史
+  aliases:
+    - 吹箫女史
+  identities:
+    - 女史
+  level: 次要
+  rank: null
+  description: 本章与铁战等并立对抗邀月宫主；感慨世界可爱，并与祢十八互调笑意。
+  factions: []
+  skills:
+    - skill_e_huang_shi_ba_bian
+- id: char_xiao_xian_nu
+  name: 小仙女
+  aliases:
+    - 张菁
+    - 张箐
+    - 菁妹
+  identities: []
+  level: 重要
+  rank: null
+  description: 掌法出手奇快，识破小鱼儿伪装后连击不休；被小鱼儿装败反制点穴，初尝受欺之苦后遭放走；实为张菁/张箐，为安慰母亲而夺藏宝图。
+  factions:
+    - faction_mu_rong_jia
+  skills:
+    - skill_jian_fa
+    - skill_an_qi
+    - skill_qing_gong
 - id: char_xiao_yu_er
   name: 小鱼儿
   aliases:
     - 江小鱼
+    - 小鬼
+    - 鱼兄
+    - 海小呆
+    - 小呆
+    - 俞大师傅
+    - 幽灵
+    - 李大嘴
+    - 王三
+    - 小鱼
+    - 小鱼公子
   identities:
-    - 双骄之一,恶人谷长大
+    - 小少爷
+    - 惊天动地玉王子
+    - 玉老前辈
+    - 皇后
+    - 伙计
+    - 小魔星
+    - 天下第一聪明人
   level: 核心
+  rank: 出神入化
+  description: 以移花接木夺小仙女之剑迫顾人玉变招，又黏黑蜘蛛身后搅局，逼其银丝飞蛛带己脱身；继而拖黑蜘蛛下水、约南宫柳秦剑再战，并布局以牙还牙栽赃江别鹤，易容李大嘴诱白开心写假信。
+  factions:
+    - faction_e_ren_gu
+    - faction_hai_jia_ban
+    - faction_qing_yu_tang
+    - faction_shi_da_e_ren
+  skills:
+    - skill_dian_xue_jie_mai
+    - skill_yi_rong_gai_ban
+    - skill_dian_xue_shou_fa
+    - skill_fan_jin_dou
+    - skill_yi_xue_da_fa
+    - skill_qing_gong
+    - skill_qing_shen_gong_fu
+    - skill_yi_rong_shu
+    - skill_yi_hua_jie_mu
+    - skill_duan_yu_fen_jin
+    - skill_yuan_yang_shuang_fei_jiao
+    - skill_chong_tian_pao
+    - skill_an_qi
+    - skill_shen_fa
+    - skill_yi_hua_jie_yu
+    - skill_fei_long_da_ba_shi
+    - skill_qian_jin_zhui
+    - skill_sha_shou_san_zhao
+- id: char_xiao_yun_ju_shi
+  name: 啸云居士
+  aliases: []
+  identities:
+    - 一叱开山
+  level: 次要
   rank: null
-  description: |-
-    生平：本名江小鱼,与花无缺为双胞胎。自幼在恶人谷由十大恶人抚养,习得诸般阴损机谋与武功。出谷后闯荡江湖,与铁心兰、苏樱等结缘,与花无缺既对立又相认,终揭江家与移花宫之局。
-    性格：玩笑机锋,反将一军;外嬉皮内重情;机智狡黠;重情重义;油滑善辩;嫉恶如仇;玩世不恭;心软
-    江枫与花月奴之子,恶人谷长大,机智多谋的双骄之一
+  description: 气功独步海内的蓝衣老人，与黄鸡大师数十年生死交情，一叱可震得人耳麻。
+  factions: []
+  skills: []
+- id: char_xiao_zi_chun
+  name: 萧子春
+  aliases:
+    - 玉面神判
+  identities:
+    - 玉面神判
+  level: 次要
+  rank: null
+  description: 江湖人称玉面神判，点穴名家，用判官笔点小鱼儿天突穴时被窗外飞来酒杯套住笔尖。
+  factions: []
+  skills:
+    - skill_dian_xue
+- id: char_xiong_lao_ban
+  name: 熊老板
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 在四海春吃饭并拍手叫好的食客，间接促成小鱼儿掌勺。
+  factions: []
+  skills: []
+- id: char_xu_lao_da
+  name: 徐老大
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 镖局中人称呼的汉子，推测打他们的丫头像是在别处受了气。
   factions: []
   skills: []
 - id: char_xuan_yuan_san_guang
   name: 轩辕三光
-  aliases: []
+  aliases:
+    - 恶赌鬼
+    - 赌鬼
   identities:
+    - 恶赌鬼
+    - 见人就赌
     - 十大恶人
   level: 重要
+  rank: 出神入化
+  description: 名震天下的恶赌鬼，见人就赌，武功极高，随手两拳击退王一抓与孙天南，又以脚不离地之赌法咬腕赢下神锡道长，智取掌门铜符后却败给小鱼儿。
+  factions:
+    - faction_shi_da_e_ren
+  skills:
+    - skill_ruan_gong
+    - skill_qi_gong
+    - skill_qing_gong
+- id: char_yan_da_xia
+  name: 燕大侠
+  aliases: []
+  identities:
+    - 燕大侠
+  level: 重要
   rank: null
-  description: |-
-    生平：十大恶人,赌徒,钱财常输光,后期仍出场。
-    性格：赌徒口吻;赌徒;嗜赌;懊丧;义气;口无遮拦;好面子
-    十大恶人,嗜赌如命,常输光
+  description: 被提及为魏无牙苦练二十年武功、布下机关所要对付的对象之一。
   factions: []
   skills: []
 - id: char_yan_nan_tian
   name: 燕南天
   aliases:
-    - 第一神剑
+    - 燕大侠
+    - 燕神剑
+    - 燕伯伯
+    - 药罐子
+    - 燕老前辈
+    - 燕南天大侠
+    - 燕大伯
   identities:
-    - 第一神剑
+    - 天下第一剑客
+    - 江湖第一神剑
+    - 燕大侠
+    - 燕南天大侠
+    - 天下第一神剑
+    - 药罐子
+    - 剑客
+    - 大侠
+    - 一代名侠
   level: 核心
-  rank: null
-  description: |-
-    生平：江湖第一神剑,与江枫为挚友。江枫夫妇遇难后誓护双骄,贯穿全书行侠仗义,剑气冲霄。
-    性格：沉稳简短;大侠风骨;侠义;沉稳;少言;重诺;刚烈;护幼
-    第一神剑,江枫挚友,守护双骄的大侠
+  rank: 出神入化
+  description: 被十三道牛筋铁线捆住并点穴后醒来，破线起身吓退众魔，折断杜杀右腕；寻子过程中连遭木偶暗器、火药襁褓等毒计，终因屠娇娇假扮弟媳尸身点中四处大穴倒地。
   factions: []
   skills:
-    - skill_shen_jian
+    - skill_qing_gong
+    - skill_jian_fa
+    - skill_jia_yi_shen_gong
+- id: char_yang_ping
+  name: 杨平
+  aliases: []
+  identities:
+    - 大义士
+    - 川中八义之首
+  level: 次要
+  rank: null
+  description: 川中八义之首，国字脸通天鼻，与海长波、海金波追司马烟至和阗河畔，并请来昆仑道人把守谷口。
+  factions:
+    - faction_chuan_zhong_ba_yi
+  skills: []
+- id: char_yang_ting
+  name: 杨霆
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 五毒霹雳雷霆珠的主人，江湖中人见人怕的角色，此役送命
+  factions:
+    - faction_xia_wu_men
+  skills: []
+- id: char_yao_guan_zi
+  name: 药罐子
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 万叔叔屋中如木头人般终日吃药、从不开口的人。
+  factions:
+    - faction_e_ren_gu
+  skills: []
 - id: char_yao_yue
   name: 邀月
-  aliases:
-    - 移花宫主
-  identities:
-    - 移花宫主
-  level: 核心
+  aliases: []
+  identities: []
+  level: 背景
   rank: null
-  description: |-
-    生平：移花宫主,与妹怜星共掌移花宫。抚养花无缺,以宫规与明玉功塑造其,对江湖布局深远。
-    性格：命令式,冷厉;宫主威仪;冷酷;多谋;控制欲;深情扭曲;威严;决断
-    移花宫主,抚养花无缺,冷酷多谋
+  description: 移花宫宫主之一，万春流称江湖中除其与怜星外难有女子能在恶人谷来去自如。
   factions:
     - faction_yi_hua_gong
   skills: []
+- id: char_yao_yue_gong_zhu
+  name: 邀月宫主
+  aliases:
+    - 移花宫主
+    - 铜先生
+  identities:
+    - 大宫主
+    - 移花宫主
+    - 铜先生
+    - 严师
+    - 养母
+    - 邀月宫主
+    - 宫主
+  level: 核心
+  rank: 出神入化
+  description: 与花无缺凝视被劈开的石椅，取出碧血照丹青令其试劈，论剑指出功力之外手法巧快与气势的道理，并将剑留给花无缺。
+  factions:
+    - faction_yi_hua_gong
+  skills:
+    - skill_yi_hua_jie_yu
+    - skill_ming_yu_gong
+- id: char_ye_du_zi
+  name: 野犊子
+  aliases: []
+  identities:
+    - 六儿子
+  level: 次要
+  rank: null
+  description: null
+  factions:
+    - faction_hai_jia_ban
+  skills:
+    - skill_fan_jin_dou
+- id: char_yi_fan_da_shi
+  name: 一帆大师
+  aliases: []
+  identities:
+    - 崆峒掌门人
+  level: 背景
+  rank: null
+  description: 当今崆峒掌门人，梅秋湖为其关山门弟子，本人未出场。
+  factions:
+    - faction_kong_tong
+  skills: []
+- id: char_yi_hua_gong_zhu
+  name: 移花宫主
+  aliases:
+    - 铜先生
+    - 木夫人
+    - 大宫主
+  identities:
+    - 移花宫主
+    - 宫主
+  level: 核心
+  rank: null
+  description: 姐妹两人被困于魏无牙封死的巨石门户内，容貌与苏樱有七分相似；二十多年前曾拒魏无牙求亲。
+  factions:
+    - faction_yi_hua_gong
+  skills:
+    - skill_qing_gong
+    - skill_ming_yu_gong
+    - skill_yi_hua_gong_zhang_fa
+- id: char_yin_da_ge
+  name: 阴大哥
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: null
+  factions: []
+  skills: []
+- id: char_yin_jiu_you
+  name: 阴九幽
+  aliases:
+    - 半人半鬼
+    - 阴老九
+    - 阴公
+    - 活鬼
+  identities:
+    - 半人半鬼
+    - 阴公
+  level: 重要
+  rank: null
+  description: 自命轻身功夫天下无双、专于暗中下毒手的魔头，曾暗算少林俗家弟子李大元，自阴冥谷逃出后据说入了恶人谷。
+  factions:
+    - faction_e_ren_gu
+    - faction_shi_da_e_ren
+    - faction_jiu_you_men
+  skills:
+    - skill_qing_gong
+    - skill_yin_feng_sou_hun_shou
+- id: char_yin_lao_jiu
+  name: 阴老九
+  aliases:
+    - 阴九幽
+  identities: []
+  level: null
+  rank: null
+  description: 十大恶人之一，本章中已被白夫人一方除掉，仅在叙述与对白中被提及。
+  factions:
+    - faction_shi_da_e_ren
+  skills: []
+- id: char_yin_shu_shu
+  name: 阴叔叔
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 身上似有寒气，小鱼儿见他最害怕，无人见了笑得出。
+  factions:
+    - faction_e_ren_gu
+  skills: []
+- id: char_yu_mian_shen_pan
+  name: 玉面神判
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 花惜香之父，宜昌武林大豪之一，受神锡道长所托为小鱼儿接风并道破托付之人。
+  factions: []
+  skills: []
+- id: char_yu_zi_ya
+  name: 俞子牙
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 本章随萧女史、祢十八等站到一排，对抗邀月宫主。
+  factions: []
+  skills: []
+- id: char_yuan_lian_shao_nu
+  name: 圆脸少女
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 铁萍姑嫡亲妹妹，因被小鱼儿逗笑遭铜先生反手一掌击飞毙命。
+  factions:
+    - faction_yi_hua_gong
+  skills: []
+- id: char_yue_nu
+  name: 月奴
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 铜先生提及曾将江枫带走，自此铜先生不再信任任何人。
+  factions: []
+  skills: []
+- id: char_zhang_chang_gui
+  name: 张长贵
+  aliases: []
+  identities:
+    - 大师傅
+  level: 龙套
+  rank: null
+  description: 四海春饭馆圆脸大师傅，收留小鱼儿洗碗并常拉他喝酒聊天。
+  factions: []
+  skills: []
+- id: char_zhang_jing
+  name: 张菁
+  aliases:
+    - 小仙子
+    - 小仙女
+  identities:
+    - 小仙女
+  level: 重要
+  rank: null
+  description: 外号小仙女，红衣，派镖局中人四处找人，疑心重，曾用快刀试探易容者。
+  factions: []
+  skills:
+    - skill_bian_fa
+- id: char_zhang_san_niang
+  name: 张三娘
+  aliases:
+    - 玉娘子
+  identities:
+    - 玉娘子
+  level: 背景
+  rank: null
+  description: 小仙女之母，昔日江湖有名美人，号玉娘子；相传与藏珍主人燕南天关系密切。
+  factions: []
+  skills: []
+- id: char_zhao_gang
+  name: 赵刚
+  aliases:
+    - 生死判
+  identities:
+    - 生死判
+  level: 次要
+  rank: null
+  description: 判官笔刻'不义者亡'的打穴名家，兵刃落入猿猴之手
+  factions: []
+  skills: []
+- id: char_zhao_quan_hai
+  name: 赵全海
+  aliases:
+    - 赵总镖头
+  identities:
+    - 两河十七家镖局的联盟总镖头
+    - 气拔山河铜拳铁掌震中州
+    - 两河十七家镖局的总镖头
+    - 气拔山河,铜拳铁掌震中州
+    - 赵总镖头
+  level: 次要
+  rank: null
+  description: 两河十七家镖局联盟总镖头，持火把入洞寻宝，被小鱼儿唬住并改称其为玉老前辈。
+  factions:
+    - faction_liang_he_shi_qi_jia_biao_ju
+    - faction_liang_he_lian_biao
+  skills: []
+- id: char_zhao_xiang_ling
+  name: 赵香灵
+  aliases:
+    - 赵庄主
+  identities:
+    - 赵庄主
+    - 庄主
+  level: 次要
+  rank: null
+  description: 天香塘地灵庄庄主，宴请铁无双与罗氏昆仲，一夜多次收到匿名送来的珍贵解药，次日被江别鹤、花无缺当面质问。
+  factions:
+    - faction_tian_xiang_tang
+    - faction_zhao_jia_zhuang
+    - faction_di_ling_zhuang
+  skills: []
+- id: char_zhao_zhuang_zhu
+  name: 赵庄主
+  aliases: []
+  identities:
+    - 赵庄主
+  level: 次要
+  rank: null
+  description: 地灵庄主人，又高又瘦马脸鹰鼻，深夜于花厅设酒招待宾客，厅中堆满搜购的寒热药材。
+  factions:
+    - faction_di_ling_zhuang
+  skills: []
+- id: char_zhu_ge_yun
+  name: 诸葛云
+  aliases: []
+  identities: []
+  level: 背景
+  rank: null
+  description: 江别鹤故友,举家迁往鲁东后将庄院送给江别鹤。
+  factions: []
+  skills: []
+- id: char_zi_ran_lao_dao
+  name: 紫髯老道
+  aliases: []
+  identities: []
+  level: null
+  rank: null
+  description: 被路仲远视为江玉郎之师，路仲远因信其门下而托付守护。
+  factions: []
+  skills: []
+- id: char_zi_shi_zi
+  name: 紫狮子
+  aliases: []
+  identities: []
+  level: 龙套
+  rank: null
+  description: 被小鱼儿点出在云汉上岸，并指其勾结强盗来抢船害命。
+  factions: []
+  skills: []
+- id: char_zi_yi_shao_nu
+  name: 紫衣少女
+  aliases: []
+  identities: []
+  level: 次要
+  rank: null
+  description: 面色冷峻，带青衣妇人入房收碗并令铁萍姑换班；被铁萍姑一掌切昏倒地。
+  factions: []
+  skills: []
+- id: char_zuo_chun_sheng
+  name: 左春生
+  aliases:
+    - 万花剑
+  identities:
+    - 八姑爷
+    - 万花剑
+  level: 次要
+  rank: null
+  description: null
+  factions:
+    - faction_mu_rong_jia
+  skills:
+    - skill_qing_gong

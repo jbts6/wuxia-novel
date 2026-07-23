@@ -1,3 +1,101 @@
+- id: skill_an_qi
+  name: 暗器
+  aliases: []
+  types:
+    - 暗器
+  factions:
+    - faction_mu_rong_jia
+  rank: null
+  description: 江别鹤追击时预先扣于手中，反手挥出数点银星袭向小鱼儿后背。
+  techniques: []
+- id: skill_ba_gua_you_shen_zhang
+  name: 八卦游身掌
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_bei_pai_tan_tui
+  name: 北派谭腿
+  aliases: []
+  types:
+    - 腿法
+  factions: []
+  rank: null
+  description: null
+  techniques:
+    - name: 卧鱼八式
+      description: null
+- id: skill_bian_fa
+  name: 鞭法
+  aliases: []
+  types:
+    - 鞭法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_chen_ji_ti_xing
+  name: 晨鸡啼星
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 鸡冠人不到性命交关不轻易使出的杀手，鸡嘴啄化为星雨，洒向对手前胸八处大穴；据说曾令威武镖局八大镖师同时丧生。
+  techniques: []
+- id: skill_chong_tian_pao
+  name: 冲天炮
+  aliases: []
+  types:
+    - 拳法
+  factions: []
+  rank: null
+  description: null
+  techniques:
+    - name: 冲天炮
+      description: null
+- id: skill_chuan_chang_du_yao_jian
+  name: 穿肠毒药剑
+  aliases: []
+  types:
+    - 剑法
+    - 毒功
+  factions: []
+  rank: null
+  description: 司马烟在江湖上的恶名相关武功，有'杀人如捣蒜'之说。
+  techniques: []
+- id: skill_da_hong_quan
+  name: 大洪拳
+  aliases: []
+  types:
+    - 拳法
+  factions: []
+  rank: 平平无奇
+  description: 罗九昨夜曾施展的拳法，与其本日所露阴毒手段形成对照。
+  techniques: []
+- id: skill_da_li_ying_zhao_shen_gong
+  name: 大力鹰爪神功
+  aliases: []
+  types:
+    - 爪法
+  factions:
+    - faction_huai_nan_wang_jia
+    - faction_ying_zhao_men
+  rank: null
+  description: 淮南王家世代相传的鹰爪武功，七十年前已名扬天下，为鹰爪门本门绝学。
+  techniques: []
+- id: skill_dan_dao_po_hua_qiang
+  name: 单刀破花枪
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: null
+  techniques: []
 - id: skill_dao_fa
   name: 刀法
   aliases: []
@@ -5,9 +103,7 @@
     - 刀法
   factions: []
   rank: null
-  description: |-
-    书中刀客所用刀术总称
-    效果：书中刀客所用刀术总称;伤害
+  description: 铁心兰用以夜袭与拦截花无缺的刀术
   techniques: []
 - id: skill_dian_xue
   name: 点穴
@@ -16,171 +112,819 @@
     - 点穴
   factions: []
   rank: null
-  description: |-
-    江湖通用制敌救人手段,众角常用
-    效果：点穴制敌或救治;控制
-    战斗风格：制穴封脉
+  description: 玉面神判等点穴名家以判官笔点穴伤人，所点天突为必死大穴。
   techniques: []
-- id: skill_du_shou
-  name: 毒手
+- id: skill_dian_xue_jie_mai
+  name: 点血截脉
+  aliases:
+    - 点血
+  types:
+    - 点穴
+  factions: []
+  rank: null
+  description: 小鱼儿所述神秘武功，与点穴一字之差；点穴部位固定为死，点血则截断流动血脉为活。本回小鱼儿借对方自己按压而施展。
+  techniques: []
+- id: skill_dian_xue_shou_fa
+  name: 点穴手法
   aliases: []
   types:
+    - 点穴
+  factions: []
+  rank: null
+  description: 小鱼儿点住江玉郎穴道所用手法，江玉郎自称解不开，亦非某一派可辨。
+  techniques:
+    - name: 睡穴
+      description: 小鱼儿假醒后欲再点江玉郎睡穴，被对方识破。
+- id: skill_du_sha_zhang
+  name: 毒砂掌
+  aliases: []
+  types:
+    - 掌法
     - 毒功
   factions: []
   rank: null
-  description: |-
-    恶人谷/阴损人物常用的毒手手段总称
-    效果：以毒伤人;减益
-    战斗风格：阴毒突袭
+  description: 小鱼儿据滚烫饭碗推断假扮老婆子者双手恐练过此类毒掌功夫。
   techniques: []
-- id: skill_du_zhen
-  name: 毒针
+- id: skill_duan_yu_fen_jin
+  name: 断玉分金
   aliases: []
   types:
-    - 暗器
+    - 掌法
   factions: []
   rank: null
-  description: |-
-    阴毒暗器毒针
-    效果：阴毒暗器毒针;伤害
+  description: 小鱼儿自黑蜘蛛身后冲出，双掌左右斜斜分击，逼退顾人玉与小仙女以便脱身。
   techniques: []
-- id: skill_fei_hua
-  name: 飞花
+- id: skill_e_huang_shi_ba_bian
+  name: 娥皇十八变
   aliases: []
-  types:
-    - 暗器
+  types: []
   factions: []
   rank: null
-  description: |-
-    移花宫相关飞花手法/暗器描写
-    效果：移花宫相关飞花手法/暗器描写;伤害
+  description: null
   techniques: []
-- id: skill_hua_gu
-  name: 化骨
-  aliases: []
-  types:
-    - 毒功
-  factions: []
-  rank: null
-  description: |-
-    书中出现的化骨类阴毒手段
-    效果：化骨伤人;伤害
-    战斗风格：阴毒
-  techniques: []
-- id: skill_jian_qi
-  name: 剑气
+- id: skill_e_mei_jian_fa
+  name: 峨嵋剑法
   aliases: []
   types:
     - 剑法
+  factions:
+    - faction_e_mei_pai
+  rank: null
+  description: null
+  techniques: []
+- id: skill_fa_sui_xi_nao
+  name: 伐髓洗脑
+  aliases: []
+  types:
+    - 其他
   factions: []
   rank: null
-  description: |-
-    燕南天等剑客所发剑气
-    效果：燕南天等剑客所发剑气;伤害
+  description: 哈哈儿的折磨之术。
+  techniques: []
+- id: skill_fan_jin_dou
+  name: 翻筋斗
+  aliases: []
+  types:
+    - 身法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_fei_hua_man_tian
+  name: 飞花满天
+  aliases: []
+  types:
+    - 暗器
+  factions:
+    - faction_san_yuan_biao_ju
+  rank: null
+  description: 沈轻虹以银鞭洒出满天银光后暴射银星的杀手暗器招式。
+  techniques: []
+- id: skill_fei_long_da_ba_shi
+  name: 飞龙大八式
+  aliases: []
+  types:
+    - 外功
+  factions:
+    - faction_kun_lun_pai
+  rank: null
+  description: null
+  techniques: []
+- id: skill_fei_long_shi
+  name: 飞龙式
+  aliases: []
+  types:
+    - 腿法
+  factions:
+    - faction_bao_bao_pai
+  rank: null
+  description: null
+  techniques: []
+- id: skill_fei_yan_zou_bi
+  name: 飞檐走壁
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_fei_ying_bo_tu
+  name: 飞鹰搏兔
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_fen_hua_fu_liu
+  name: 分花拂柳
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_feng_kuang_yi_bai_ling_ba_da
+  name: 疯狂一百零八打
+  aliases: []
+  types:
+    - 拳法
+  factions: []
+  rank: null
+  description: 白衣少年所使拳法，被小鱼儿评为疯子才会使的拳法，威力惊人，较杜杀、阴九幽、李大嘴、屠娇娇诸人武功风格更厉害。
+  techniques: []
+- id: skill_ge_shan_da_niu
+  name: 隔山打牛
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: 小鱼儿猜想花无缺或会以一类劈空掌力震裂车门，实际并未使用。
+  techniques: []
+- id: skill_gong_jian
+  name: 弓箭
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 慕容双擅长，持弓欲射藏匿者。
+  techniques: []
+- id: skill_gu_jia_shen_quan
+  name: 顾家神拳
+  aliases:
+    - 神拳
+  types:
+    - 拳法
+  factions:
+    - faction_shen_quan_shi_jia
+  rank: null
+  description: 顾人玉所传拳法，被小仙女嘲为顾家神拳传人。
+  techniques: []
+- id: skill_gu_ren_yu_jia_chuan_shen_quan
+  name: 顾人玉家传神拳
+  aliases: []
+  types:
+    - 拳法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_gua_gu_dao
+  name: 刮骨刀
+  aliases: []
+  types:
+    - 刀法
+  factions: []
+  rank: null
+  description: 李大嘴自夸的折磨手段。
+  techniques: []
+- id: skill_han_fu_xi_shui
+  name: 寒凫戏水
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: null
+  description: 花无缺以两段树枝点地掠行，片刻来回数里，罗袜点尘不染。
+  techniques: []
+- id: skill_hu_zhua_zhua_xin
+  name: 虎爪抓心
+  aliases: []
+  types:
+    - 爪法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_hua_shi_shen_gong
+  name: 化石神功
+  aliases: []
+  types:
+    - 内功
+    - 外功
+  factions:
+    - faction_mu_rong_shan_zhuang
+  rank: null
+  description: null
+  techniques:
+    - name: 入门第一步
+      description: null
+    - name: 功成二转
+      description: null
+    - name: 第三转
+      description: null
+    - name: 功成九转
+      description: null
+- id: skill_jia_yi_shen_gong
+  name: 嫁衣神功
+  aliases: []
+  types:
+    - 内功
+    - 心法
+  factions: []
+  rank: 登峰造极
+  description: 功力猛烈，须练至六七成毁去再从头练过，方可锋芒尽挫而威力不减、收发由心；燕南天因恶人谷被毁功而事半功倍练成。
+  techniques: []
+- id: skill_jian_fa
+  name: 剑法
+  aliases: []
+  types:
+    - 剑法
+  factions:
+    - faction_mu_rong_jia
+    - faction_yi_hua_gong
+  rank: null
+  description: 本章花无缺以移花宫剑法七剑虚招炫目诱敌，燕南天则以刚猛平实之剑法压倒之；双方一柔一刚对决。
+  techniques:
+    - name: 分花拂柳
+      description: 慕容珊珊所使，重在眩乱眼目以便他人出手，虚可转实。
+- id: skill_jin_ji_du_li
+  name: 金鸡独立
+  aliases: []
+  types:
+    - 身法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_kun_lun_da_jiu_shi
+  name: 昆仑大九式
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: null
+  techniques:
+    - name: 悬崖勒马
+      description: null
+- id: skill_liu_xing_bu
+  name: 流星步
+  aliases: []
+  types:
+    - 身法
+  factions:
+    - faction_wu_dang_pai
+  rank: null
+  description: null
+  techniques: []
+- id: skill_liu_xing_chui
+  name: 流星锤
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: null
+  techniques:
+    - name: 云里捉月
+      description: null
+- id: skill_mi_tang_gong_fu
+  name: 迷汤功夫
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 萧咪咪的魅惑之术。
   techniques: []
 - id: skill_ming_yu_gong
   name: 明玉功
-  aliases: []
+  aliases:
+    - 明玉神功
   types:
     - 内功
-  factions: []
-  rank: null
-  description: |-
-    移花宫绝学,花无缺等修炼的根基内功
-    修炼：由浅入深,可与移花接玉配合
-    效果：强健体魄,提升内力与抗击打;增益
-    战斗风格：以内御外,后发制人
+    - 心法
+  factions:
+    - faction_yi_hua_gong
+  rank: 登峰造极
+  description: 共分九层；第六层可与当代一流高手争衡，第八层号称无敌于天下，练至最后一层时面容呈透明异象。邀月、怜星二十年前已至第八层，本章邀月于绝境中练成第九层。
   techniques: []
-- id: skill_nei_gong
-  name: 内功
+- id: skill_nei_li
+  name: 内力
   aliases: []
   types:
     - 内功
   factions: []
   rank: null
-  description: |-
-    内力根基的通称,与明玉功等专名并列出现
-    效果：内力支撑外功;增益
-    战斗风格：以内御外
+  description: 花无缺以双掌合拢，将弹起的七点银星尽数吸入掌心的惊人内力。
+  techniques: []
+- id: skill_qi_bu_yin_feng_zhang
+  name: 七步阴风掌
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: 小鱼儿口中所编绝传秘技之名，称七步外中掌则走不出七步；后自承世上根本没有此掌法。
+  techniques: []
+- id: skill_qi_gong
+  name: 气功
+  aliases: []
+  types:
+    - 内功
+  factions: []
+  rank: null
+  description: 轩辕三光以如霹雳的喝声显露的气功。
+  techniques: []
+- id: skill_qian_jin_zhui
+  name: 千斤坠
+  aliases: []
+  types:
+    - 身法
+  factions:
+    - faction_shao_lin
+  rank: null
+  description: null
   techniques: []
 - id: skill_qing_gong
   name: 轻功
   aliases: []
   types:
     - 轻功
+  factions:
+    - faction_mu_rong_jia
+  rank: 出神入化
+  description: 仁义三侠与江边诸人展示的身法根基；小鱼儿亦以飘忽身法避开江玉郎连掌。
+  techniques: []
+- id: skill_qing_shen_gong_fu
+  name: 轻身功夫
+  aliases: []
+  types:
+    - 轻功
   factions: []
   rank: null
-  description: |-
-    逃遁追踪所依身法总称
-    效果：身法迅捷;增益
-    战斗风格：飘忽来去
+  description: 花无缺评价暗中逃逸者（小鱼儿）的轻身之术，称纵非中原第一亦难能可贵。
   techniques: []
-- id: skill_shen_jian
-  name: 神剑
+- id: skill_ren_shu
+  name: 忍术
+  aliases: []
+  types:
+    - 其他
+  factions:
+    - faction_yi_he_gu
+  rank: null
+  description: null
+  techniques: []
+- id: skill_ruan_gong
+  name: 软功
+  aliases: []
+  types:
+    - 外功
+  factions: []
+  rank: 出神入化
+  description: 轩辕三光所展软功，腰似可断、身如甘蔗对折，能在脚不离地的约束下连续避开神锡道长连环三剑。
+  techniques: []
+- id: skill_san_hu_duan_men_dao
+  name: 三虎断门刀
+  aliases: []
+  types:
+    - 刀法
+  factions:
+    - faction_peng_jia
+  rank: null
+  description: 历史悠久的彭家刀法，其子弟曾败在雪花刀柳玉如手下。
+  techniques: []
+- id: skill_san_huan_tao_yue
+  name: 三环套月
   aliases: []
   types:
     - 剑法
   factions: []
   rank: null
-  description: |-
-    燕南天所擅,江湖号称第一神剑
-    效果：剑气凌厉,一剑可定生死;伤害
-    战斗风格：一剑制敌,简捷凌厉
+  description: 三环剑客沈洋使出的成名一招
   techniques: []
-- id: skill_tie_zhang
-  name: 铁掌
+- id: skill_san_shi_liu_lu_hui_feng_jian
+  name: 三十六路回风剑
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 白凌霄所擅剑法，江玉郎介绍时称神鬼莫测。
+  techniques: []
+- id: skill_sha_hu_san_jue_shou
+  name: 杀虎三绝手
+  aliases: []
+  types:
+    - 刀法
+  factions: []
+  rank: null
+  description: 巴蜀东成名绝技，刀法干净利落，又快又稳又狠。
+  techniques: []
+- id: skill_sha_shou_san_zhao
+  name: 杀手三招
   aliases: []
   types:
     - 掌法
   factions: []
   rank: null
-  description: |-
-    铁掌刚猛外功
-    效果：铁掌刚猛外功;伤害
+  description: null
   techniques: []
-- id: skill_yi_hua_jie_mu
-  name: 移花接木
+- id: skill_shen_fa
+  name: 身法
+  aliases: []
+  types:
+    - 身法
+  factions: []
+  rank: null
+  description: 花无缺与燕南天交手时身法极轻灵，围敌飞驰，虽仍盛却未能扭转下风。
+  techniques: []
+- id: skill_shen_zhu_hua_xiang
+  name: 神猪化象
+  aliases: []
+  types:
+    - 拳法
+  factions: []
+  rank: null
+  description: 黑面君一生武功精华，双拳连环、灵动飘忽，直捣对手胸腹，江湖中曾令多人粉身碎骨。
+  techniques: []
+- id: skill_shen_zhu_ling_kong_yin_si_du_xu
+  name: 神蛛凌空,银丝渡虚
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: null
+  description: 黑蜘蛛独门轻功：袖中机簧筒射出蛛丝银针钉物，人随丝至，来去飘忽。
+  techniques: []
+- id: skill_shuang_pan_zhang
+  name: 双盘掌
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: 平平无奇
+  description: 江湖中最常见的把式，罗九当众施展以示武功寻常。
+  techniques: []
+- id: skill_shui_xing
+  name: 水性
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_si_liang_bo_qian_jin
+  name: 四两拨千斤
   aliases: []
   types:
     - 内功
-  factions: []
+  factions:
+    - faction_wu_dang
   rank: null
-  description: |-
-    与移花接玉并见的移花宫相关武学称谓
-    效果：移花接木式内力/武学嫁接;特殊
-    战斗风格：借力夺功
+  description: null
   techniques: []
-- id: skill_yi_hua_jie_yu
-  name: 移花接玉
+- id: skill_suo_zi_suo_gu_gong
+  name: 锁子缩骨功
   aliases: []
   types:
-    - 内功
+    - 其他
   factions: []
   rank: null
-  description: |-
-    移花宫奇功,可嫁接内力与武学精髓
-    效果：转移或嫁接他人内力武学;特殊
-    战斗风格：借力打力,夺人武学之长
+  description: null
   techniques: []
-- id: skill_yin_sun
-  name: 阴损
+- id: skill_ti_si_ren_bu_pei_ming_tian_xia_wu_shuang_mo_jiao
+  name: 踢死人不赔命,天下无双魔脚
+  aliases: []
+  types:
+    - 腿法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_wu_dang_zhang_fa
+  name: 武当掌法
+  aliases: []
+  types:
+    - 掌法
+  factions:
+    - faction_wu_dang
+  rank: null
+  description: 武林中流行的武当正宗掌法，江玉郎以此对敌魏白衣，出手清妙灵动并抢得先机。
+  techniques: []
+- id: skill_wu_gui_ban_yun_fa
+  name: 五鬼搬运法
   aliases: []
   types:
     - 奇门
   factions: []
   rank: null
-  description: |-
-    恶人谷阴损招数总称
-    效果：恶人谷阴损招数总称;伤害
+  description: 小鱼儿调侃镖银无声失踪时所提的手法。
   techniques: []
-- id: skill_zhang_li
-  name: 掌力
+- id: skill_wu_hu_duan_men_dao
+  name: 五虎断门刀
+  aliases: []
+  types:
+    - 刀法
+  factions:
+    - faction_wu_hu_duan_men_dao
+  rank: null
+  description: 南派刀法门派所传刀法，掌门人为彭念祖。
+  techniques: []
+- id: skill_wu_ya_men_xia_de_shen_gong
+  name: 无牙门下的神功
+  aliases: []
+  types:
+    - 其他
+  factions:
+    - faction_wu_ya_men
+  rank: null
+  description: 无牙门所示神功；本回演示一种碧森森、不燃烧却能毁物开洞的火焰，并伴以惊人行踪。
+  techniques: []
+- id: skill_wu_ying_jiao
+  name: 无影脚
+  aliases: []
+  types:
+    - 腿法
+  factions:
+    - faction_hu_jia_bao
+  rank: null
+  description: 北派腿法真传，被黑犬星对燕南天使出，仍被燕南天伸手抓住。
+  techniques: []
+- id: skill_xiao_hun_mei_ren_gong
+  name: 销魂美人功
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 屠娇娇自夸的折磨之术。
+  techniques: []
+- id: skill_xiao_hun_zhang
+  name: 销魂掌
   aliases: []
   types:
     - 掌法
   factions: []
   rank: null
-  description: |-
-    对决中浑厚掌力描写
-    效果：对决中浑厚掌力描写;伤害
+  description: 屠娇娇所擅掌法，可使人身无伤痕却不能动弹。
+  techniques: []
+- id: skill_xiao_li_cang_dao_san_an_qi
+  name: 笑里藏刀三暗器
+  aliases: []
+  types:
+    - 暗器
+  factions: []
+  rank: null
+  description: 哈哈儿的绝招，以暗藏短箭射出伤敌；本章中射杀白开心。
+  techniques: []
+- id: skill_xiao_xi_ji_guan_zhi_xue
+  name: 消息机关之学
+  aliases: []
+  types:
+    - 奇门
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_xue_shou_zuan_xin
+  name: 血手钻心
+  aliases: []
+  types:
+    - 其他
+  factions: []
+  rank: null
+  description: 杜老大的折磨之术，与伐髓洗脑并称难以消受。
+  techniques: []
+- id: skill_yang_jia_qiang
+  name: 杨家枪
+  aliases: []
+  types:
+    - 枪法
+  factions: []
+  rank: null
+  description: 北派枪法，段宅武师中有其嫡传弟子使出。
+  techniques:
+    - name: 凤点头
+      description: 杨家枪招式，被罗九一眼识出至少约有十五年火候。
+- id: skill_yi_hua_gong_zhang_fa
+  name: 移花宫掌法
+  aliases: []
+  types:
+    - 掌法
+  factions:
+    - faction_yi_hua_gong
+  rank: null
+  description: null
+  techniques: []
+- id: skill_yi_hua_jie_mu
+  name: 移花接木
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: 小鱼儿沿剑脊一抹夺剑改向，普普通通一招在其手中化腐朽为神奇，与移花接玉异曲同工。
+  techniques: []
+- id: skill_yi_hua_jie_yu
+  name: 移花接玉
+  aliases:
+    - 移花接玉功
+  types:
+    - 掌法
+    - 内功
+    - 外功
+    - 其他
+  factions:
+    - faction_yi_hua_gong
+  rank: null
+  description: 本回魏麻衣一心想学、苏樱几乎说出其秘密，小鱼儿却故意拦住，称若知对方武功秘密再打便无意思。
+  techniques: []
+- id: skill_yi_hua_miao_shou
+  name: 移花妙手
+  aliases: []
+  types:
+    - 掌法
+  factions:
+    - faction_yi_hua_gong
+  rank: null
+  description: null
+  techniques: []
+- id: skill_yi_rong
+  name: 易容
+  aliases:
+    - 易容之法
+  types:
+    - 易容
+  factions: []
+  rank: null
+  description: 屠娇娇用以假扮魏无牙，被魏麻衣以魏无牙天生残废、从不自己走路为由识破。
+  techniques:
+    - name: 易容之法
+      description: 罗九兄弟以养肥改变面貌的易容法子。
+- id: skill_yi_rong_gai_ban
+  name: 易容改扮
+  aliases: []
+  types:
+    - 易容
+  factions: []
+  rank: null
+  description: 小鱼儿自认尚未十分到家、却足以唬人的易容改扮功夫，配合人皮面具、胡子与银粉使用。
+  techniques: []
+- id: skill_yi_rong_shu
+  name: 易容术
+  aliases: []
+  types:
+    - 易容
+  factions: []
+  rank: null
+  description: 屠娇娇鬼神不知的易容之能，可扮十六七岁少女，更能假扮浮肿艳尸贴近得手。
+  techniques: []
+- id: skill_yi_rong_zhi_shu
+  name: 易容之术
+  aliases:
+    - 易容
+  types:
+    - 易容
+  factions: []
+  rank: null
+  description: 屠娇娇已臻化境的易容之术；司马烟亦精于此道，曾令川中三义误认燕南天。
+  techniques: []
+- id: skill_yi_shu
+  name: 医术
+  aliases: []
+  types:
+    - 医术
+  factions: []
+  rank: null
+  description: 万春流改过自新后所务，屋中药草与炼药器具令见多识广的燕南天亦难尽识。
+  techniques: []
+- id: skill_yi_xue_da_fa
+  name: 移穴大法
+  aliases: []
+  types:
+    - 点穴
+  factions: []
+  rank: null
+  description: 武功中极深奥的移穴之法，可使穴道位置旁移；小鱼儿尚未炉火纯青，但足以化解黑衣人对神枢穴的点穴。
+  techniques: []
+- id: skill_yin_feng_sou_hun_shou
+  name: 阴风搜魂手
+  aliases: []
+  types:
+    - 爪法
+  factions: []
+  rank: null
+  description: 阴九幽欲用来折磨燕南天的武功。
+  techniques: []
+- id: skill_yin_ji_cang_xing
+  name: 隐迹藏形
+  aliases: []
+  types:
+    - 身法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_yin_si_fei_zhu
+  name: 银丝飞蛛
+  aliases: []
+  types:
+    - 轻功
+  factions: []
+  rank: null
+  description: 黑蜘蛛独步江湖的轻功，袖中银丝连环搭树，身形如电掠城而去。
+  techniques: []
+- id: skill_ying_gong
+  name: 硬功
+  aliases: []
+  types:
+    - 外功
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_ying_zhao_gong
+  name: 鹰爪功
+  aliases: []
+  types:
+    - 爪法
+  factions: []
+  rank: null
+  description: 铁屋中两具骷髅恶斗所显武功，一掌可直透胁骨。
+  techniques: []
+- id: skill_you_feng_lai_yi
+  name: 有凤来仪
+  aliases: []
+  types:
+    - 剑法
+  factions: []
+  rank: null
+  description: 花无缺试劈石椅时所使剑招，右持剑、左足前踏，剑光如匹练。
+  techniques: []
+- id: skill_yuan_yang_shuang_fei_jiao
+  name: 鸳鸯双飞脚
+  aliases: []
+  types:
+    - 腿法
+  factions: []
+  rank: null
+  description: null
+  techniques:
+    - name: 鸳鸯双飞脚
+      description: null
+- id: skill_zhan_yi_shi_ba_die
+  name: 沾衣十八跌
+  aliases: []
+  types:
+    - 其他
+  factions:
+    - faction_shao_lin
+  rank: null
+  description: null
+  techniques: []
+- id: skill_zhang_fa
+  name: 掌法
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: 江玉郎连出十四掌，招势轻灵迅急如落花缤纷。
+  techniques: []
+- id: skill_zhuang_shi_duan_wan
+  name: 壮士断腕
+  aliases: []
+  types:
+    - 掌法
+  factions: []
+  rank: null
+  description: null
+  techniques: []
+- id: skill_zhui_hun_xue_shou
+  name: 追魂血手
+  aliases: []
+  types:
+    - 掌法
+    - 毒功
+  factions: []
+  rank: null
+  description: 杜杀成名绝技，配合百毒淬金手套出招，血红掌影先声夺人；与燕南天对拳时右腕被折。
   techniques: []
