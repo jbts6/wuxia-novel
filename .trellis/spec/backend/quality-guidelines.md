@@ -258,10 +258,10 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
 - 章节采用固定五章窗口，持久化不变量是 `active_units.length <= 5`。首个窗口没有全部 accepted 之前不补位；重复 `run` 返回 `waiting` 与 `jobs: []`。窗口全部 accepted 后，下一次 `run` 才签发后续窗口。
 - 每个 job 恰好包含 `unit`、`cycle`、`attempt`、`producer`、`input_file`、`output_file` 与 `input_hash`。Worker 读取控制器生成的不可变 JSON input，并直接把单章 YAML 写到该 job 唯一的 `output_file`。
 - 每个不可变 JSON input 都携带由 `createWorkerContract()` 新建的
-  `worker_contract`（当前 `version: 3`）。它内嵌完整五字段 YAML skeleton、
-  required/optional/nullable/forbidden 字段、逐字证据、闭合 taxonomy、关系闭环与
-  producer-specific recursive preflight；跨宿主派发只依赖该 input，不依赖
-  `.claude/agents/`、`schemas.md` 或隐式 Skill 上下文。
+  `worker_contract`（当前 `version: 4`）。它内嵌完整五字段 YAML skeleton、
+  required/optional/nullable/forbidden 字段、逐字证据、闭合 taxonomy、关系闭环、
+  受控 `level`/`rank` 枚举及 producer-specific recursive preflight；跨宿主派发只依赖
+  该 input，不依赖 `.claude/agents/`、`schemas.md` 或隐式 Skill 上下文。
 - Worker YAML 顶层恰好是 `characters`、`skills`、`items`、`factions` 与 `chapter_summary`。Worker 不复制章节身份、哈希、attempt、最终 ID 或控制器路径；这些字段只由控制器在接收时注入。
 - Controller 在每次 `run` 开始时扫描当前 staging 输出，执行 path confinement、YAML 解析、精确字段、闭合枚举、源证据与章节身份校验。成功后写入规范 accepted YAML、登记 artifact ledger，并移走原始稿；accepted 字节和哈希在后续阶段不可变。
 - 类型只允许受控 taxonomy 或类别内显式 alias。alias key 仅做 NFKC、小写化并移除空白、下划线和连字符；未知值以 `TYPE_VALUE_UNKNOWN` 拒绝，不做编辑距离、子串或跨类别猜测。`poison` 的明确合同是 `毒功`。
@@ -274,6 +274,13 @@ node .agents/skills/generate-game-kb/scripts/flow.js archive-abandoned <novel-di
   `chapter/line_start/line_end`。Controller 以 NFKC、换行和空白规范化后的全文命中
   为准，将最早命中位置映射回原始行区间并写入 accepted YAML；已签发旧 job
   自报的行号会被忽略和覆盖，不能把有效引用误判为 `SOURCE_QUOTE_NOT_FOUND`。
+- Controller 先尝试 exact grounding；仅在 exact 失败时对白名单的一对一排版字形
+  (`。`/`.`、中文或西式引号) 做 folding，并要求当前章节唯一命中。成功时回填源文本
+  标点并记录 `grounding.typography-fold.v1` 审计；`、`、破折号、省略号、零/多命中
+  和措辞改写继续返回 `SOURCE_QUOTE_NOT_FOUND`。该审计与 `type_normalizations` 分开。
+- 人物 `level` 只允许 `核心`、`重要`、`次要`、`龙套`、`背景`；人物和武功 `rank`
+  使用受控战力枚举，证据不足保持 `null`，职位、称号和门派职务归入 `identities`。
+  非法值在章节接收阶段以 `CHARACTER_LEVEL_INVALID` 或 `POWER_RANK_INVALID` 拒绝。
 
 ```yaml
 # Worker output
