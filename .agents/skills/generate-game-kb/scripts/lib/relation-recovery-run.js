@@ -17,6 +17,7 @@ const { pathsFor } = require('./paths');
 const { hashReferenceRecoveryReport } = require('./reference-recovery');
 const { createOrResumeRun, resolveRunReadOnly, sourceState } = require('./run');
 const { prepareNovel } = require('./source');
+const { captureWorkerRootBaseline } = require('./worker-side-effects');
 
 function recoveryError(code, message, details = {}) {
   throw new GameKbError(code, message, details);
@@ -204,6 +205,7 @@ function resumeRecovery(child, childPaths, parentRun, reportHash) {
 function initializeRecoveryRun({
   novelDir, parentRun, parentPaths, manifest, artifactManifest, report, child, childPaths
 }) {
+  captureWorkerRootBaseline(childPaths);
   const childManifest = prepareNovel(novelDir, { runId: child.run_id });
   if (childManifest.source_hash !== report.source_hash
     || stableHash(childManifest.chapters.map(chapter => ({

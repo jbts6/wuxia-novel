@@ -52,16 +52,16 @@
 
 ## Acceptance Criteria
 
-- [ ] 新建 v3 run 的 job 内嵌合同版本等于当前 `WORKER_CONTRACT_VERSION`。
-- [ ] 旧合同 job 被 `WORKER_CONTRACT_STALE_RESTART_REQUIRED` 阻断，旧 run 文件保持原样。
-- [ ] v3 Worker 提示明确禁止命令执行和任何 `output_file` 外写入，并将权威校验归属 Controller。
-- [ ] Codex `PreToolUse` 在全项目范围阻断 Bash 与 `apply_patch` 写入根目录 `.tmp-*`，同时允许嵌套目录中的正常临时文件和 Worker 指定的 `output_file`。
-- [ ] Claude 对等 Hook 能阻断相同越界写入。
-- [ ] 删除历史根目录临时文件或将其移入诊断目录不会被 Hook 阻断。
-- [ ] 绕过 Hook 创建的根目录新临时文件被 Controller 捕获并隔离，`run` 返回警告后继续接收合法 YAML。
-- [ ] 基线损坏或隔离失败时 Controller 以 `WORKER_SIDE_EFFECT_GUARD_FAILED` 停止且不吞掉错误。
-- [ ] 正常 v3 单章 fixture 完成接收，根目录基线不变，Controller 正确派生证据行区间。
-- [ ] 全量 `generate-game-kb` 测试、Hook 单元测试、生产 JS 语法检查和 `git diff --check` 通过。
+- [x] 新建 v3 run 的 job 内嵌合同版本等于当前 `WORKER_CONTRACT_VERSION`。
+- [x] 旧合同 job 被 `WORKER_CONTRACT_STALE_RESTART_REQUIRED` 阻断，旧 run 文件保持原样。
+- [x] v3 Worker 提示明确禁止命令执行和任何 `output_file` 外写入，并将权威校验归属 Controller。
+- [x] Codex `PreToolUse` 在全项目范围阻断 Bash 与 `apply_patch` 写入根目录 `.tmp-*`，同时允许嵌套目录中的正常临时文件和 Worker 指定的 `output_file`。
+- [x] Claude 对等 Hook 能阻断相同越界写入。
+- [x] 删除历史根目录临时文件或将其移入诊断目录不会被 Hook 阻断。
+- [x] 绕过 Hook 创建的根目录新临时文件被 Controller 捕获并隔离，`run` 返回警告后继续接收合法 YAML。
+- [x] 基线损坏或隔离失败时 Controller 以 `WORKER_SIDE_EFFECT_GUARD_FAILED` 停止且不吞掉错误。
+- [x] 正常 v3 单章 fixture 完成接收，根目录基线不变，Controller 正确派生证据行区间。
+- [x] 全量 `generate-game-kb` 测试、Hook 单元测试、生产 JS 语法检查和 `git diff --check` 通过。
 
 ## Out Of Scope
 

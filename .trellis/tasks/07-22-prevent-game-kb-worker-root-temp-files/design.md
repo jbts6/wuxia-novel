@@ -24,7 +24,7 @@
 
 ### D3. 自动隔离优先于硬失败
 
-根目录临时文件不会改变 Worker YAML 的语义。成功移动并留下诊断收据后，Controller 继续正常接收；只有无法可靠恢复仓库状态时才停止。
+根目录临时文件不会改变 Worker YAML 的语义。成功移动并留下诊断收据后，Controller 继续正常接收；中途失败则写入包含已移动项和失败项的收据后停止。
 
 ### D4. 使用 run 级基线
 
@@ -58,10 +58,10 @@
 Hook 识别：
 
 - Write/Edit 类事件的明确目标路径；
-- `apply_patch` 的 `Add File`、`Update File` 目标；
+- `apply_patch` 的 `Add File`、`Update File`、`Move to` 目标；
 - 命令字符串中带明确根目录临时路径的重定向或创建/复制/移动目标。
 
-只拒绝仓库根目录直接子项且 basename 匹配 `^\.(tmp|temp)-` 的写入。读取、删除、移出根目录、嵌套目录写入和正常 `output_file` 放行。命令解析只覆盖测试固定的明确形式，不尝试理解变量展开或完整 Shell 语法。
+只拒绝仓库根目录直接子项且 basename 匹配 `^\.(tmp|temp)-` 的写入。读取、删除、移出根目录、嵌套目录写入和正常 `output_file` 放行。命令解析只在引号外按简单命令分隔符切段，覆盖测试固定的明确形式；不尝试理解变量展开、子 Shell 或完整 Shell 语法。
 
 命中时输出宿主支持的 `PreToolUse` deny JSON。非法事件 JSON 明确报错；无关或无法确定为写入的事件放行，由 Controller 兜底。
 
@@ -82,13 +82,15 @@ Hook 识别：
   -> 记录现有 .tmp-* / .temp-* basename 集合
 
 后续 run，当前活动输出可接收时
+  -> 先以只读方式验证活动 job 的 Worker 合同
   -> 当前集合减去 run 基线
   -> 无新增：正常接收
   -> 有新增：移动到 diagnostics/worker-leaks/<incident>/
              写 incident.json
              返回 WORKER_SIDE_EFFECT_QUARANTINED warning
              继续接收 YAML
-  -> 无法读取基线或移动失败：抛 WORKER_SIDE_EFFECT_GUARD_FAILED
+  -> 无法读取基线：抛 WORKER_SIDE_EFFECT_GUARD_FAILED
+  -> 移动中途失败：写 failed incident 收据后抛 WORKER_SIDE_EFFECT_GUARD_FAILED
 ```
 
 检查只在当前活动 job 的现有输出已经达到可接收条件时运行，避免用户提前调用 `run` 时移动仍在运行的 Worker 文件。基线覆盖整个 run；历史名称不处理。静态 Hook 未识别的动态写入只要最终留下匹配条目，就会在此收敛。
@@ -112,7 +114,7 @@ Hook 识别：
 
 ## 6. 测试策略
 
-1. 合同测试：当前 v3 正常，旧版本在 `run`、`status` 和接收前被稳定错误码阻断。
-2. Hook 测试：明确写入被拒绝；读取、清理、嵌套目录和不确定命令放行。
-3. Controller 测试：历史基线不动，新增临时文件被隔离并继续接收，隔离失败才停止。
+1. 合同测试：当前 v3 正常，旧版本在 `run`、`status` 和接收前被稳定错误码阻断，且合同失败前不隔离文件。
+2. Hook 测试：明确写入和简单复合命令被拒绝；引号内控制字符、读取、清理、嵌套目录和不确定命令放行。
+3. Controller 测试：历史基线不动，新增临时文件被隔离并继续接收，部分隔离失败留下 failed incident 收据后停止。
 4. 回归测试：正常单章接收、行区间派生和全量 game-kb 测试不变。

@@ -58,6 +58,24 @@ function createProgress(manifest) {
   };
 }
 
+function readPersistedJobInput(unitNameValue, state) {
+  try {
+    return JSON.parse(fs.readFileSync(state.input_file, 'utf8'));
+  } catch (error) {
+    invariant('Persisted job input is not valid JSON', {
+      unit: unitNameValue,
+      error: error.message
+    });
+  }
+}
+
+function assertJobInputContract(unitNameValue, input, paths) {
+  assertCurrentWorkerContract(input.worker_contract, {
+    run_id: paths.runId,
+    unit: unitNameValue
+  });
+}
+
 function assertJobMetadata(unitNameValue, state, manifest, paths) {
   if (!PRODUCERS.has(state.producer)
     || typeof state.input_hash !== 'string' || !state.input_hash.startsWith('sha256:')) {
@@ -85,12 +103,7 @@ function assertJobMetadata(unitNameValue, state, manifest, paths) {
     });
   }
   if (!fs.existsSync(state.input_file)) return;
-  let input;
-  try {
-    input = JSON.parse(fs.readFileSync(state.input_file, 'utf8'));
-  } catch (error) {
-    invariant('Persisted job input is not valid JSON', { unit: unitNameValue, error: error.message });
-  }
+  const input = readPersistedJobInput(unitNameValue, state);
   if (stableHash(input) !== state.input_hash
     || input.unit !== unitNameValue
     || input.cycle !== state.cycle
@@ -102,10 +115,7 @@ function assertJobMetadata(unitNameValue, state, manifest, paths) {
       input_file: state.input_file
     });
   }
-  assertCurrentWorkerContract(input.worker_contract, {
-    run_id: paths.runId,
-    unit: unitNameValue
-  });
+  assertJobInputContract(unitNameValue, input, paths);
   if (state.producer === 'chapter-worker') {
     const chapter = manifest.chapters.find(entry => unitName(entry.number) === unitNameValue);
     if (!chapter || input.source_hash !== chapter.input_hash) {
@@ -250,6 +260,18 @@ function assertProgressInvariant(progress, manifest, paths) {
   return true;
 }
 
+function assertActiveWorkerContracts(paths, progress) {
+  if (!Array.isArray(progress?.active_units) || !progress?.units) return true;
+  for (const unitNameValue of progress.active_units) {
+    const state = progress.units[unitNameValue];
+    if (!state || state.producer === 'carry-forward'
+      || typeof state.input_file !== 'string' || !fs.existsSync(state.input_file)) continue;
+    const input = readPersistedJobInput(unitNameValue, state);
+    assertJobInputContract(unitNameValue, input, paths);
+  }
+  return true;
+}
+
 function requireActiveUnit(progress, event) {
   const unit = progress.units[event.unit];
   if (!unit || !progress.active_units.includes(event.unit)) {
@@ -334,6 +356,7 @@ function transitionProgress(current, event) {
 module.exports = {
   MAX_ACTIVE_UNITS,
   MAX_ATTEMPTS_PER_CYCLE,
+  assertActiveWorkerContracts,
   assertProgressInvariant,
   createProgress,
   transitionProgress

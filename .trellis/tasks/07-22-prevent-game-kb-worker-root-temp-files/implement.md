@@ -35,19 +35,19 @@ node --check .agents/skills/generate-game-kb/scripts/flow.js
 
 ### 测试先行
 
-- [ ] 新增 `tests/root-temp-guard.test.js`，覆盖两个宿主的明确路径、`apply_patch` 和字面量命令写入。
-- [ ] 证明读取、删除、移出根目录、嵌套目录和无法静态确定的命令不会误拦截。
-- [ ] 新增 `tests/worker-side-effects.test.js`，覆盖 run 基线、隔离告警、继续接收与隔离失败。
-- [ ] 覆盖提前调用 `run` 时不移动仍可能被活动 Worker 使用的临时文件。
+- [x] 新增 `tests/root-temp-guard.test.js`，覆盖两个宿主的明确路径、`apply_patch` 和字面量命令写入。
+- [x] 证明读取、删除、移出根目录、嵌套目录和无法静态确定的命令不会误拦截。
+- [x] 新增 `tests/worker-side-effects.test.js`，覆盖 run 基线、隔离告警、继续接收与隔离失败。
+- [x] 覆盖提前调用 `run` 时不移动仍可能被活动 Worker 使用的临时文件。
 
 ### 实现
 
-- [ ] 新增 `scripts/lib/root-temp-guard.js` 和 `scripts/root-temp-hook.js`。
-- [ ] 在 `.codex/hooks.json` 与 `.claude/settings.json` 注册同一全项目 `PreToolUse` 入口。
-- [ ] 在 `scripts/lib/paths.js` 增加基线与诊断路径。
-- [ ] 新增 `scripts/lib/worker-side-effects.js`，实现 run 级基线、隔离和 incident 收据。
-- [ ] 在 `scripts/flow.js` 的新 run 创建与接收路径接入收敛逻辑，并只在发生隔离时返回可选 `warnings`。
-- [ ] 确认未修改 `.gitignore`，也未处理历史临时文件。
+- [x] 新增 `scripts/lib/root-temp-guard.js` 和 `scripts/root-temp-hook.js`。
+- [x] 在 `.codex/hooks.json` 与 `.claude/settings.json` 注册同一全项目 `PreToolUse` 入口。
+- [x] 在 `scripts/lib/paths.js` 增加基线与诊断路径。
+- [x] 新增 `scripts/lib/worker-side-effects.js`，实现 run 级基线、隔离和 incident 收据。
+- [x] 在 `scripts/flow.js` 的新 run 创建与接收路径接入收敛逻辑，并只在发生隔离时返回可选 `warnings`。
+- [x] 确认未修改 `.gitignore`，也未处理历史临时文件。
 
 ### 验证与提交
 
@@ -62,15 +62,15 @@ node -e "JSON.parse(require('fs').readFileSync('.codex/hooks.json','utf8')); JSO
 
 ## 最终质量门禁
 
-- [ ] 执行 `.trellis/spec/backend/quality-guidelines.md` 的适用检查。
-- [ ] 运行全部 `.agents/skills/generate-game-kb/tests/*.test.js`。
-- [ ] 对本次修改的生产 JavaScript 执行 `node --check`。
-- [ ] 执行 `git diff --check`。
-- [ ] 确认用户已有的根目录 `.tmp-*` 和其他无关变更没有进入提交。
-- [ ] 用新 v3 fixture 完成签发、Worker 输出和接收；根目录新增临时文件被自动隔离且无需第二次 `run`。
+- [x] 执行 `.trellis/spec/backend/quality-guidelines.md` 的适用检查。
+- [x] 运行全部 `.agents/skills/generate-game-kb/tests/*.test.js`。
+- [x] 对本次修改的生产 JavaScript 执行 `node --check`。
+- [x] 执行 `git diff --check`。
+- [x] 确认用户已有的根目录 `.tmp-*` 和其他无关变更没有进入提交。
+- [x] 用新 v3 fixture 完成签发、Worker 输出和接收；根目录新增临时文件被自动隔离且无需第二次 `run`。
 
 ## 开始实现前检查
 
-- [ ] 用户审阅并批准精简后的三个规划文件。
-- [ ] 执行 `python ./.trellis/scripts/task.py start 07-22-prevent-game-kb-worker-root-temp-files`。
-- [ ] 通过 `trellis-before-dev` 加载 backend 规范和任务上下文。
+- [x] 用户审阅并批准精简后的三个规划文件。
+- [x] 执行 `python ./.trellis/scripts/task.py start 07-22-prevent-game-kb-worker-root-temp-files`。
+- [x] 通过 `trellis-before-dev` 加载 backend 规范和任务上下文。

@@ -11,6 +11,10 @@ const { installVerifiedData } = require('./lib/install');
 const { readJson } = require('./lib/io');
 const { pathsFor } = require('./lib/paths');
 const {
+  captureWorkerRootBaseline,
+  reconcileWorkerRootTemps
+} = require('./lib/worker-side-effects');
+const {
   createOrResumeRun,
   resolveRun,
   resolveRunReadOnly
@@ -43,7 +47,7 @@ function saveChapterProgress(paths, progress) {
   fs.writeFileSync(paths.progress, `${JSON.stringify(progress, null, 2)}\n`, 'utf8');
 }
 
-function publicRunResult(run, next) {
+function publicRunResult(run, next, warnings = []) {
   const progress = next.progress || null;
   const units = progress?.units && typeof progress.units === 'object'
     ? Object.values(progress.units)
@@ -68,11 +72,13 @@ function publicRunResult(run, next) {
     } : null,
     manual_review: Array.isArray(next.manual_review) && next.manual_review.length > 0
       ? next.manual_review
-      : null
+      : null,
+    ...(warnings.length > 0 ? { warnings } : {})
   };
 }
 
 function v7RunPipeline(novelDir, requestedRun) {
+  const { assertActiveWorkerContracts } = require('./lib/chapter-progress');
   const { receiveAvailableChapterOutputs } = require('./lib/chapter-receiver');
   const { advanceChapterWork } = require('./lib/chapter-work');
   const { prepareNovel } = require('./lib/source');
@@ -85,11 +91,14 @@ function v7RunPipeline(novelDir, requestedRun) {
   }
   const paths = pathsFor(novelDir, run.run_id);
   if (!run.resumed) {
+    captureWorkerRootBaseline(paths);
     prepareNovel(novelDir, { runId: run.run_id });
   }
   const manifest = readJson(paths.manifest);
   let progress = loadChapterProgress(paths, manifest);
 
+  assertActiveWorkerContracts(paths, progress);
+  const warnings = reconcileWorkerRootTemps(paths, progress);
   const received = receiveAvailableChapterOutputs({ paths, manifest, progress });
   progress = received.progress;
 
@@ -104,7 +113,7 @@ function v7RunPipeline(novelDir, requestedRun) {
         progress: next.progress,
         jobs: [],
         manual_review: assembly.manual_review
-      });
+      }, warnings);
     }
     const { verifyFinal } = require('./lib/verify');
     const workspace = verifyFinal(paths);
@@ -118,15 +127,19 @@ function v7RunPipeline(novelDir, requestedRun) {
       throw new GameKbError('INSTALLED_VERIFICATION_FAILED', 'Installed verification failed', installed);
     }
     archiveRun(novelDir, run.run_id);
-    return publicRunResult(run, { status: 'complete', progress: next.progress, jobs: [], manual_review: null });
+    return publicRunResult(
+      run,
+      { status: 'complete', progress: next.progress, jobs: [], manual_review: null },
+      warnings
+    );
   }
 
-  return publicRunResult(run, next);
+  return publicRunResult(run, next, warnings);
 }
 
 function v7Status(novelDir, requestedRun) {
   const { activeJobMetadata } = require('./lib/chapter-work');
-  const { assertProgressInvariant } = require('./lib/chapter-progress');
+  const { assertActiveWorkerContracts } = require('./lib/chapter-progress');
   const run = resolveRunReadOnly(novelDir, requestedRun);
   const paths = pathsFor(novelDir, run.run_id);
   if (run.semantic_contract_version !== 7 || !fs.existsSync(paths.progress)) {
@@ -137,9 +150,8 @@ function v7Status(novelDir, requestedRun) {
       manual_review: null
     });
   }
-  const manifest = readJson(paths.manifest);
   const progress = readJson(paths.progress);
-  assertProgressInvariant(progress, manifest, paths);
+  assertActiveWorkerContracts(paths, progress);
   const chapterReview = Object.entries(progress.units)
     .filter(([, state]) => state.status === 'rejected' && state.attempt >= 2)
     .map(([unit]) => unit);

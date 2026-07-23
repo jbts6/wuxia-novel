@@ -34,7 +34,7 @@
 - G1-G5 必须报告独立的 PASS/FAIL 结果与原因。完成要求每个门禁都通过。
 - `build-publish <novel-dir> --draft <publish-draft>` 只接受 `schema_version`、活跃的 `run_id`、活跃的 `semantic_audit_hash` 和 `token_plan`。`report_inputs` 字段无效；验证、交叉验证和质量报告都由控制器基于投影出的暂存数据生成。
 - 报告生成器必须以显式的暂存 `dataRoot` 和期望的 `final_data_hash` 调用验证与交叉验证，再从当前源、阶段、召回、语义、最终数据和报告证据中推导 G1-G5。AI 草稿提供的报告对象永远不是门禁证据。
-- 作为生产工作流一部分、由仓库维护的自动化必须使用 Python（`.py`）。PowerShell（`.ps1`）仅允许作为针对中间产物的、一次性的 Windows 本地辅助脚本；生产命令、技能、测试和发布路径不得依赖它。
+- 生产工作流自动化必须沿用所属模块的既有运行时；`generate-kb` 与 `generate-game-kb` 的 Controller、Hook 和紧耦合辅助逻辑使用 Node.js，不得仅为统一语言再引入第二套实现。没有既有运行时归属的独立仓库自动化默认使用 Python（`.py`）。PowerShell（`.ps1`）仅允许作为针对中间产物的、一次性的 Windows 本地辅助脚本；生产命令、技能、测试和发布路径不得依赖它。
 
 ---
 
@@ -54,6 +54,56 @@
 - 确认全部三次扫描覆盖每个窗口，且最终缺口审计未发现有效新增。
 - 确认 G4 报告按类别列出候选、keep/merge/redirect 决策、拒绝项及原因。
 - 确认没有任何基线分数、数量阈值或总评分可被当作完整性的证明。
+
+## 场景：game-kb 章节 Worker 文件边界
+
+### 1. 范围 / 触发条件
+
+- 触发：修改 `generate-game-kb` v7 章节 Worker 派发、接收、Hook 或恢复路径。
+- 目标：Worker 只产生 Controller 指定的单个 YAML；仓库根目录已有临时文件不迁移，run 期间新增的 `.tmp-*` / `.temp-*` 文件必须可审计地隔离。
+
+### 2. 签名
+
+- `captureWorkerRootBaseline(paths) -> void`：新 run 创建时记录根目录临时文件名称。
+- `reconcileWorkerRootTemps(paths, progress) -> warning[]`：活动输出具备接收条件时隔离新增条目；基线或隔离失败抛 `WORKER_SIDE_EFFECT_GUARD_FAILED`。
+- `.agents/skills/generate-game-kb/scripts/root-temp-hook.js`：从 stdin 读取 `PreToolUse` 事件，命中明确根目录临时写入时输出 deny 结果。
+
+### 3. 合同
+
+- `paths.workerRootBaseline`：`<run>/diagnostics/worker-root-baseline.json`，包含 `version`、`repository_root`、`entries[]`。
+- `paths.workerLeaks`：`<run>/diagnostics/worker-leaks/<incident>/`，保存被移动的原文件和 `incident.json`；成功收据为 `status: quarantined`，中途失败收据为 `status: failed` 并记录 `paths`、`moved`、`failed_path`、`error`。
+- 正常 `run` 返回结构不增加字段；发生隔离时才附加 `warnings[]`，每项包含 `code: WORKER_SIDE_EFFECT_QUARANTINED`、`paths[]` 和相对 run 的 `incident_file`。
+- Hook deny 使用 `hookSpecificOutput.permissionDecision = "deny"`；Hook 不承诺解析动态 Shell 路径，Controller 是结果兜底。
+
+### 4. 校验与错误矩阵
+
+| 条件 | 行为 |
+| --- | --- |
+| Worker input 的 `worker_contract.version` 不等于当前版本 | `WORKER_CONTRACT_STALE_RESTART_REQUIRED`，要求新 run |
+| 根目录临时条目在 run 基线中 | 保留，不处理 |
+| 新增条目且全部可移动 | 移入 `worker-leaks`，返回 `WORKER_SIDE_EFFECT_QUARANTINED`，继续接收 YAML |
+| Worker 合同过期且存在新增临时项 | 先返回合同错误，不移动临时项、不创建 incident |
+| 基线损坏或无法读取 | `WORKER_SIDE_EFFECT_GUARD_FAILED`，停止接收 |
+| 隔离中途失败 | 写入 failed incident 收据，返回 `WORKER_SIDE_EFFECT_GUARD_FAILED`，停止接收 |
+| Hook 无法静态判断为写入 | 放行，由 Controller 检查最终文件集合 |
+
+### 5. 正常 / 基线 / 错误案例
+
+- 正常：Worker 读取 `input_file`，写 `output_file`，递归重读 YAML；根目录集合不变。
+- 基线：run 创建前已有 `.tmp-old.txt`，后续 run 始终保留该文件且不产生告警。
+- 错误：Worker 绕过 Hook 创建 `.tmp-worker.js`；Controller 将它移动到 run 诊断目录并在同一次 `run` 继续处理合法输出。
+
+### 6. 必测断言
+
+- Hook：根目录 Write/Edit、`apply_patch`、简单管道/命令列表和明确重定向被拒绝；引号内控制字符、读取、删除、移出根目录和嵌套目录同名写入放行。
+- Controller：基线文件被创建；新增文件被移动；历史文件不动；合同错误发生在隔离前；成功/失败 incident 可审计；告警 incident 在 run 完成归档后仍可定位；损坏基线停止。
+- Worker：旧合同在 `run`、`status` 和接收前返回稳定错误码；当前合同保持 accepted/final 数据结构不变。
+
+### 7. 错误与正确做法
+
+错误：为 Worker 提供 `scratch_dir`，或在 Hook 中实现完整 Bash/PowerShell 解析器并把它当作唯一安全边界。
+
+正确：Worker 保持单文件合同；Hook 只拦截明确写入；Controller 以 run 级基线和可恢复隔离作为权威兜底。
 
 ## 场景：溯源知识库门禁
 

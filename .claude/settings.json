@@ -55,6 +55,15 @@
             "timeout": 30
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .agents/skills/generate-game-kb/scripts/root-temp-hook.js",
+            "timeout": 5
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
