@@ -13,6 +13,7 @@ const {
 } = require('./chapter-progress');
 const { TYPE_TAXONOMIES } = require('./type-taxonomy');
 const { createWorkerContract } = require('./chapter-worker-contract');
+const { recordRunTimingEvent } = require('./timing-events');
 
 function unitName(number) {
   return `chapter:${String(number).padStart(3, '0')}`;
@@ -156,10 +157,34 @@ function writeJobInput(paths, job, input) {
   writeImmutableJson(job.input_file, input, 'UNIT_ALREADY_ACTIVE');
 }
 
-function issueJobs({ paths, manifest, progress, units }) {
+function windowSequenceFor(units) {
+  const first = Number(String(units[0] || '').split(':')[1]);
+  if (!Number.isInteger(first) || first < 1) {
+    throw new GameKbError('ACTIVE_WINDOW_INVALID', 'Cannot derive timing window sequence', { units });
+  }
+  return Math.floor((first - 1) / MAX_ACTIVE_UNITS) + 1;
+}
+
+function recordIssuedJobs(paths, jobs, windowSequence) {
+  if (windowSequence) {
+    recordRunTimingEvent(paths, { type: 'window_issued', window_sequence: windowSequence });
+  }
+  for (const job of jobs) {
+    recordRunTimingEvent(paths, {
+      type: 'attempt_issued',
+      unit: job.unit,
+      cycle: job.cycle,
+      attempt: job.attempt,
+      producer: job.producer
+    });
+  }
+}
+
+function issueJobs({ paths, manifest, progress, units, windowSequence }) {
   const prepared = units.map(unit => jobFromState({ paths, manifest, progress, unit }));
   for (const { job, input } of prepared) writeJobInput(paths, job, input);
   const jobs = prepared.map(entry => entry.job);
+  recordIssuedJobs(paths, jobs, windowSequence);
   const next = transitionProgress(progress, {
     type: 'issue-window', jobs, manifest, paths
   });
@@ -171,7 +196,13 @@ function issueNextWindow({ paths, manifest, progress }) {
   if (progress.active_units.length > 0) return { progress, jobs: [] };
   const window = pendingUnitsInOrder(progress, manifest).slice(0, MAX_ACTIVE_UNITS);
   if (window.length === 0) return { progress, jobs: [] };
-  return issueJobs({ paths, manifest, progress, units: window });
+  return issueJobs({
+    paths,
+    manifest,
+    progress,
+    units: window,
+    windowSequence: windowSequenceFor(window)
+  });
 }
 
 function issueRetryJob({ paths, manifest, progress, unit }) {
@@ -230,4 +261,10 @@ function activeJobMetadata(paths, progress) {
   });
 }
 
-module.exports = { activeJobMetadata, advanceChapterWork, issueNextWindow, issueRetryJob };
+module.exports = {
+  activeJobMetadata,
+  advanceChapterWork,
+  issueNextWindow,
+  issueRetryJob,
+  windowSequenceFor
+};

@@ -5,8 +5,10 @@ const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 
-const { makeNovel, makeNovelDirectory } = require('./helpers');
+const { makeNovel, makeNovelDirectory, runFlow } = require('./helpers');
 const { prepareNovel, splitChapters } = require('../scripts/lib/source');
+const { pathsFor } = require('../scripts/lib/paths');
+const { readTimingEvents } = require('../scripts/lib/timing-events');
 
 test('prepare splits CRLF Chinese chapter headings and hashes normalized content', () => {
   const novel = makeNovel('试书', '第一章 起始\r\n甲。\r\n第二章 转折\r\n乙。');
@@ -16,6 +18,10 @@ test('prepare splits CRLF Chinese chapter headings and hashes normalized content
   assert.equal(fs.readFileSync(manifest.chapters[0].file, 'utf8'), '第一章 起始\n甲。\n');
   assert.match(manifest.source_hash, /^sha256:[a-f0-9]{64}$/);
   assert.match(manifest.chapters[0].input_hash, /^sha256:[a-f0-9]{64}$/);
+  const events = readTimingEvents(pathsFor(novel, manifest.run_id).events);
+  assert.deepEqual(events.map(event => event.type), [
+    'run_started', 'source_prepare_started', 'source_prepared'
+  ]);
 });
 
 test('prepare treats a headingless novella as one chapter', () => {
@@ -90,10 +96,30 @@ test('prepare refreshes unissued chapters into v7 pending progress without trans
 test('prepare does not rewrite unchanged chapter files', async () => {
   const novel = makeNovel('试书', '第一章 起始\n甲。\n');
   const first = prepareNovel(novel);
+  const events = pathsFor(novel, first.run_id).events;
+  const eventBytes = fs.readFileSync(events, 'utf8');
   const mtime = fs.statSync(first.chapters[0].file).mtimeMs;
   await new Promise(resolve => setTimeout(resolve, 20));
   const second = prepareNovel(novel);
 
   assert.equal(second.chapters[0].input_hash, first.chapters[0].input_hash);
   assert.equal(fs.statSync(second.chapters[0].file).mtimeMs, mtime);
+  assert.equal(fs.readFileSync(events, 'utf8'), eventBytes);
+});
+
+test('run recovery completes a persisted source preparation event without duplicating its start', () => {
+  const novel = makeNovel('试书', '第一章 起始\n甲。\n');
+  const manifest = prepareNovel(novel);
+  const eventsFile = pathsFor(novel, manifest.run_id).events;
+  const events = readTimingEvents(eventsFile);
+  fs.writeFileSync(eventsFile, `${events.slice(0, 2).map(event => JSON.stringify(event)).join('\n')}\n`);
+
+  const resumed = runFlow(['run', novel, '--run', manifest.run_id, '--json']);
+  assert.equal(resumed.status, 0, resumed.stderr);
+  const recovered = readTimingEvents(eventsFile);
+  assert.deepEqual(recovered.slice(0, 3).map(event => event.type), [
+    'run_started', 'source_prepare_started', 'source_prepared'
+  ]);
+  assert.equal(recovered[2].occurred_at, manifest.prepared_at);
+  assert.equal(recovered.filter(event => event.type === 'source_prepare_started').length, 1);
 });

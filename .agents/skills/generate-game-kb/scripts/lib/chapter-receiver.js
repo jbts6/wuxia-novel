@@ -11,6 +11,8 @@ const { sha256 } = require('./source');
 const { ensureAcceptedArtifact } = require('./candidate-ledger');
 const { atomicWriteJson, writeImmutableFile, writeImmutableJson } = require('./io');
 const { assertStagingIdentity } = require('./paths');
+const { windowSequenceFor } = require('./chapter-work');
+const { recordRunTimingEvent } = require('./timing-events');
 
 const MECHANICAL_ERROR_CODES = new Set([
   'YAML_CODE_FENCE',
@@ -120,6 +122,7 @@ function rejectObservedOutput({ paths, manifest, progress, unit, raw, outputHash
   archiveRawDraft(paths, unit, state, raw);
   archiveErrors(paths, unit, state, outputHash, errors);
   const repairAllowed = isMechanicalOnly(errors);
+  recordAttemptEvent(paths, 'attempt_rejected', unit, state);
   const next = transitionProgress(progress, {
     type: 'rejected',
     unit,
@@ -148,6 +151,13 @@ function acceptObservedOutput({ paths, manifest, progress, unit, raw, outputHash
   const acceptedFile = path.join(paths.chapters, `${unit.replaceAll(':', '_')}.yaml`);
   ensureAcceptedArtifact(paths, acceptedFile, outputHash, accepted);
   archiveRawDraft(paths, unit, state, raw);
+  recordAttemptEvent(paths, 'attempt_accepted', unit, state);
+  if (closesActiveWindow(progress, unit)) {
+    recordRunTimingEvent(paths, {
+      type: 'window_closed',
+      window_sequence: windowSequenceFor(progress.active_units)
+    });
+  }
   const next = transitionProgress(progress, {
     type: 'accepted', unit, output_hash: outputHash, manifest, paths
   });
@@ -165,6 +175,66 @@ function acceptObservedOutput({ paths, manifest, progress, unit, raw, outputHash
   };
 }
 
+function recordAttemptEvent(paths, type, unit, state) {
+  recordRunTimingEvent(paths, {
+    type,
+    unit,
+    cycle: state.cycle,
+    attempt: state.attempt,
+    producer: state.producer
+  });
+}
+
+function closesActiveWindow(progress, unit) {
+  return progress.active_units.every(name => (
+    name === unit || progress.units[name].status === 'accepted'
+  ));
+}
+
+function expectedChapter(manifest, unit) {
+  const chapter = manifest.chapters.find(entry => (
+    `chapter:${String(entry.number).padStart(3, '0')}` === unit
+  ));
+  if (!chapter) throw new GameKbError('UNIT_NOT_FOUND', `Unknown active chapter unit: ${unit}`, { unit });
+  return {
+    number: chapter.number,
+    title: chapter.title,
+    inputHash: chapter.input_hash,
+    chapterText: fs.readFileSync(chapter.file, 'utf8')
+  };
+}
+
+function evaluateObservedOutput(raw, expected) {
+  const parsed = parseWorkerYaml(raw);
+  if (parsed.errors.length > 0) return { errors: parsed.errors, accepted: null };
+  const validationErrors = normalizeValidationErrors(
+    parsed.draft,
+    validateWorkerChapterDraft(parsed.draft, expected)
+  );
+  if (validationErrors.length > 0) return { errors: validationErrors, accepted: null };
+  const normalized = normalizeAcceptedChapterDraft(parsed.draft, expected);
+  return { errors: normalized.errors, accepted: normalized.chapter };
+}
+
+function receiveObservedUnit({ paths, manifest, progress, unit }) {
+  const state = progress.units[unit];
+  if (state.status !== 'active') return null;
+  const outputFile = assertStagingIdentity(paths, state.output_file);
+  if (!fs.existsSync(outputFile)) return null;
+  recordAttemptEvent(paths, 'attempt_observed', unit, state);
+  const raw = fs.readFileSync(outputFile, 'utf8');
+  const outputHash = sha256(raw);
+  const evaluated = evaluateObservedOutput(raw, expectedChapter(manifest, unit));
+  if (evaluated.errors.length > 0) {
+    return rejectObservedOutput({
+      paths, manifest, progress, unit, raw, outputHash, errors: evaluated.errors
+    });
+  }
+  return acceptObservedOutput({
+    paths, manifest, progress, unit, raw, outputHash, accepted: evaluated.accepted
+  });
+}
+
 function receiveAvailableChapterOutputs({ paths, manifest, progress }) {
   assertProgressInvariant(progress, manifest, paths);
   cleanupPersistedReplays(paths, progress);
@@ -172,82 +242,10 @@ function receiveAvailableChapterOutputs({ paths, manifest, progress }) {
   let current = progress;
 
   for (const unit of [...current.active_units]) {
-    const state = current.units[unit];
-    if (state.status !== 'active') continue;
-    const outputFile = assertStagingIdentity(paths, state.output_file);
-    if (!fs.existsSync(outputFile)) continue;
-
-    const raw = fs.readFileSync(outputFile, 'utf8');
-    const outputHash = sha256(raw);
-    const chapter = manifest.chapters.find(entry => (
-      `chapter:${String(entry.number).padStart(3, '0')}` === unit
-    ));
-    if (!chapter) {
-      throw new GameKbError('UNIT_NOT_FOUND', `Unknown active chapter unit: ${unit}`, { unit });
-    }
-    const expected = {
-      number: chapter.number,
-      title: chapter.title,
-      inputHash: chapter.input_hash,
-      chapterText: fs.readFileSync(chapter.file, 'utf8')
-    };
-
-    const parsed = parseWorkerYaml(raw);
-    if (parsed.errors.length > 0) {
-      const rejected = rejectObservedOutput({
-        paths, manifest, progress: current, unit, raw, outputHash, errors: parsed.errors
-      });
-      current = rejected.progress;
-      received.push(rejected.record);
-      continue;
-    }
-
-    const validationErrors = normalizeValidationErrors(
-      parsed.draft,
-      validateWorkerChapterDraft(parsed.draft, expected)
-    );
-    if (validationErrors.length > 0) {
-      const rejected = rejectObservedOutput({
-        paths,
-        manifest,
-        progress: current,
-        unit,
-        raw,
-        outputHash,
-        errors: validationErrors
-      });
-      current = rejected.progress;
-      received.push(rejected.record);
-      continue;
-    }
-
-    const normalized = normalizeAcceptedChapterDraft(parsed.draft, expected);
-    if (normalized.errors.length > 0) {
-      const rejected = rejectObservedOutput({
-        paths,
-        manifest,
-        progress: current,
-        unit,
-        raw,
-        outputHash,
-        errors: normalized.errors
-      });
-      current = rejected.progress;
-      received.push(rejected.record);
-      continue;
-    }
-
-    const accepted = acceptObservedOutput({
-      paths,
-      manifest,
-      progress: current,
-      unit,
-      raw,
-      outputHash,
-      accepted: normalized.chapter
-    });
-    current = accepted.progress;
-    received.push(accepted.record);
+    const result = receiveObservedUnit({ paths, manifest, progress: current, unit });
+    if (!result) continue;
+    current = result.progress;
+    received.push(result.record);
   }
 
   return { progress: current, received };

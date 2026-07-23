@@ -11,8 +11,13 @@ const { createProgress } = require('../scripts/lib/chapter-progress');
 const { issueNextWindow, issueRetryJob, advanceChapterWork } = require('../scripts/lib/chapter-work');
 const { receiveAvailableChapterOutputs } = require('../scripts/lib/chapter-receiver');
 const { initializeArtifactManifest, readArtifactManifest } = require('../scripts/lib/candidate-ledger');
-const { stableHash } = require('../scripts/lib/io');
+const { atomicWriteJson, stableHash } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
+const {
+  TIMING_CONTRACT_VERSION,
+  appendTimingEvent,
+  readTimingEvents
+} = require('../scripts/lib/timing-events');
 const { v7WorkerDraft } = require('./helpers');
 
 const CHAPTER_TEXT = [
@@ -43,6 +48,13 @@ function prepareIssuedChapter({ chapterCount = 1 } = {}) {
   fs.mkdirSync(novel, { recursive: true });
   const paths = pathsFor(novel, 'run-recv');
   fs.mkdirSync(paths.run, { recursive: true });
+  const startedAt = new Date(Date.now() - 1_000).toISOString();
+  atomicWriteJson(paths.runJson, {
+    run_id: paths.runId,
+    timing_contract_version: TIMING_CONTRACT_VERSION,
+    started_at: startedAt
+  });
+  appendTimingEvent(paths.events, { type: 'run_started' }, { occurredAt: startedAt });
   initializeArtifactManifest(paths);
   const manifest = manifestWithChapters(chapterCount, path.join(root, 'source'));
   const issued = issueNextWindow({ paths, manifest, progress: createProgress(manifest) });
@@ -121,6 +133,14 @@ describe('chapter-receiver', () => {
     assert.equal(entry.relative_path, 'accepted/chapters/chapter_001.yaml');
     assert.equal(entry.input_hash, result.received[0].output_hash);
     assert.equal(JSON.parse(fs.readFileSync(issued.paths.progress, 'utf8')).units['chapter:001'].status, 'accepted');
+    assert.deepEqual(readTimingEvents(issued.paths.events).map(event => event.type), [
+      'run_started',
+      'window_issued',
+      'attempt_issued',
+      'attempt_observed',
+      'attempt_accepted',
+      'window_closed'
+    ]);
   });
 
   it('accepts exact quotes with wrong worker line spans and derives accepted spans', () => {
@@ -212,6 +232,9 @@ describe('chapter-receiver', () => {
       unit: 'chapter:001'
     });
     assert.equal(retry.job.producer, 'main-agent-repair');
+    assert.deepEqual(readTimingEvents(issued.paths.events).slice(-3).map(event => event.type), [
+      'attempt_observed', 'attempt_rejected', 'attempt_issued'
+    ]);
     const input = JSON.parse(fs.readFileSync(retry.job.input_file, 'utf8'));
     assert.equal(Object.hasOwn(input, 'chapter_text'), false);
     assert.equal(input.rejected_draft, draftPath(issued.paths));
@@ -309,6 +332,7 @@ describe('chapter-receiver', () => {
     fs.writeFileSync(issued.job.output_file, raw, 'utf8');
     const first = receiveAvailableChapterOutputs(issued);
     const before = fs.readFileSync(errorPath(issued.paths), 'utf8');
+    const eventBytes = fs.readFileSync(issued.paths.events, 'utf8');
     fs.writeFileSync(issued.job.output_file, raw, 'utf8');
     const replay = receiveAvailableChapterOutputs({
       paths: issued.paths,
@@ -319,6 +343,7 @@ describe('chapter-receiver', () => {
     assert.deepEqual(replay.progress, first.progress);
     assert.equal(fs.existsSync(issued.job.output_file), false);
     assert.equal(fs.readFileSync(errorPath(issued.paths), 'utf8'), before);
+    assert.equal(fs.readFileSync(issued.paths.events, 'utf8'), eventBytes);
   });
 
   it('attempt two failure stops the run in manual review', () => {
@@ -340,6 +365,10 @@ describe('chapter-receiver', () => {
       progress: retry.progress
     });
     assert.equal(second.progress.units['chapter:001'].attempt, 2);
+    const events = readTimingEvents(issued.paths.events);
+    assert.equal(events.filter(event => event.type === 'attempt_issued').length, 2);
+    assert.equal(events.filter(event => event.type === 'attempt_observed').length, 2);
+    assert.equal(events.filter(event => event.type === 'attempt_rejected').length, 2);
     assert.equal(
       advanceChapterWork({
         paths: issued.paths,

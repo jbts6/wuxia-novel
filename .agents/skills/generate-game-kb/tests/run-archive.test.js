@@ -10,6 +10,7 @@ const { createProgress } = require('../scripts/lib/chapter-progress');
 const { atomicWriteJson } = require('../scripts/lib/io');
 const { pathsFor } = require('../scripts/lib/paths');
 const { sourceState } = require('../scripts/lib/run');
+const { readTimingEvents } = require('../scripts/lib/timing-events');
 const { makeNovel, runFlow } = require('./helpers');
 
 function snapshotTree(root) {
@@ -114,6 +115,59 @@ test('retry-unit requires confirmation and manual review', () => {
     '--unit', 'chapter:001', '--confirm', '--json'
   ]);
   assert.equal(jsonResult(active).code, 'RETRY_UNIT_NOT_REVIEWABLE');
+});
+
+test('confirmed manual review records resume before issuing the new cycle', () => {
+  const novelDir = makeNovel('复核运行', '第一章 起始\n复核运行证据。\n');
+  const runId = 'run-manual-timing';
+  const first = runFlow(['run', novelDir, '--run', runId, '--json']);
+  assert.equal(first.status, 0, first.stderr);
+  const firstJob = jsonResult(first).jobs[0];
+  fs.writeFileSync(firstJob.output_file, 'characters: []\n', 'utf8');
+
+  const second = runFlow(['run', novelDir, '--run', runId, '--json']);
+  assert.equal(second.status, 0, second.stderr);
+  const secondJob = jsonResult(second).jobs[0];
+  assert.equal(secondJob.cycle, 1);
+  assert.equal(secondJob.attempt, 2);
+  fs.writeFileSync(secondJob.output_file, 'characters: []\n', 'utf8');
+
+  const stopped = runFlow(['run', novelDir, '--run', runId, '--json']);
+  assert.equal(stopped.status, 0, stopped.stderr);
+  assert.equal(jsonResult(stopped).status, 'manual_review');
+  const paths = pathsFor(novelDir, runId);
+  assert.equal(
+    readTimingEvents(paths.events).filter(event => event.type === 'manual_review_entered').length,
+    1
+  );
+
+  const retried = runFlow([
+    'retry-unit', novelDir, '--run', runId,
+    '--unit', 'chapter:001', '--confirm', '--json'
+  ]);
+  assert.equal(retried.status, 0, retried.stderr);
+  const output = jsonResult(retried);
+  assert.equal(output.job.cycle, 2);
+  assert.equal(output.job.attempt, 1);
+  const events = readTimingEvents(paths.events);
+  assert.deepEqual(events.slice(-2).map(event => event.type), [
+    'manual_review_resumed', 'attempt_issued'
+  ]);
+  assert.deepEqual(
+    events.slice(-2).map(event => [event.unit, event.cycle, event.attempt, event.producer]),
+    [
+      ['chapter:001', 1, 2, 'chapter-worker'],
+      ['chapter:001', 2, 1, 'chapter-worker']
+    ]
+  );
+
+  const eventBytes = fs.readFileSync(paths.events, 'utf8');
+  const duplicate = runFlow([
+    'retry-unit', novelDir, '--run', runId,
+    '--unit', 'chapter:001', '--confirm', '--json'
+  ]);
+  assert.equal(jsonResult(duplicate).code, 'RETRY_UNIT_NOT_REVIEWABLE');
+  assert.equal(fs.readFileSync(paths.events, 'utf8'), eventBytes);
 });
 
 test('archive-abandoned preserves legacy bytes without conversion', () => {

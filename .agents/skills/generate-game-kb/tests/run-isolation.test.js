@@ -124,6 +124,20 @@ test('a single matching current run resumes without changing started_at', () => 
   assert.equal(readTimingEvents(events).length, 1);
 });
 
+test('a new timing-contract run fails closed when its event file is lost after prepare', () => {
+  const novel = makeNovel('试书', '第一章 起始\n正文。\n');
+  const created = createOrResumeRun(novel, { runId: 'run-a' });
+  prepareNovel(novel, { runId: created.run_id });
+  const events = pathsFor(novel, created.run_id).events;
+  fs.rmSync(events);
+
+  assert.throws(
+    () => createOrResumeRun(novel, { runId: created.run_id }),
+    error => error.code === 'TIMING_EVENTS_INVALID'
+  );
+  assert.equal(fs.existsSync(events), false);
+});
+
 test('changed source cannot resume an existing current run', () => {
   const novel = makeNovel('试书', '第一章 起始\n正文。\n');
   createOrResumeRun(novel, { runId: 'run-a' });

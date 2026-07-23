@@ -48,6 +48,9 @@ test('writer owns sequence, canonical UTC time, stable keys, and idempotent repl
 
 test('same stable key with different semantic payload fails closed', () => {
   const file = eventFile();
+  appendTimingEvent(file, { type: 'run_started' }, {
+    now: () => '2026-07-23T07:00:00.000Z'
+  });
   const event = {
     type: 'attempt_issued',
     unit: 'chapter:024',
@@ -77,6 +80,35 @@ test('writer rejects caller-owned sequence, key, timestamp, or unrelated fields'
       error => error.code === 'TIMING_EVENTS_INVALID'
     );
   }
+});
+
+test('run_started is the required first lifecycle event', () => {
+  const file = eventFile();
+  assert.throws(
+    () => appendTimingEvent(file, { type: 'source_prepare_started' }),
+    error => error.code === 'TIMING_EVENTS_INVALID'
+  );
+  fs.writeFileSync(file, `${JSON.stringify({
+    schema_version: 1,
+    sequence: 1,
+    event_key: 'source-prepare-started',
+    type: 'source_prepare_started',
+    occurred_at: '2026-07-23T07:00:00.000Z'
+  })}\n`, 'utf8');
+  assert.throws(() => readTimingEvents(file), error => error.code === 'TIMING_EVENTS_INVALID');
+});
+
+test('dependent lifecycle events require their persisted predecessor', () => {
+  const file = eventFile();
+  appendTimingEvent(file, { type: 'run_started' }, {
+    occurredAt: '2026-07-23T07:00:00.000Z'
+  });
+  assert.throws(
+    () => appendTimingEvent(file, { type: 'source_prepared' }, {
+      occurredAt: '2026-07-23T07:00:01.000Z'
+    }),
+    error => error.code === 'TIMING_EVENTS_INVALID'
+  );
 });
 
 test('reader rejects partial lines, broken sequence, invalid binding, and time reversal', async t => {

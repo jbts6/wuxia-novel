@@ -10,6 +10,7 @@ const { archiveAbandoned, archiveRun } = require('./lib/archive');
 const { installVerifiedData } = require('./lib/install');
 const { readJson } = require('./lib/io');
 const { pathsFor } = require('./lib/paths');
+const { recordRunTimingEvent } = require('./lib/timing-events');
 const {
   captureWorkerRootBaseline,
   reconcileWorkerRootTemps
@@ -77,6 +78,27 @@ function publicRunResult(run, next, warnings = []) {
   };
 }
 
+function assertV7Run(run, action) {
+  if (!run.semantic_contract_version || run.semantic_contract_version >= 7) return;
+  throw new GameKbError('LEGACY_SEMANTIC_CONTRACT', `Cannot ${action} a legacy run`, {
+    run_id: run.run_id,
+    version: run.semantic_contract_version
+  });
+}
+
+function recordChapterReviewEvent(paths, progress, units, type) {
+  for (const unit of units) {
+    const state = progress.units[unit];
+    recordRunTimingEvent(paths, {
+      type,
+      unit,
+      cycle: state.cycle,
+      attempt: state.attempt,
+      producer: state.producer
+    });
+  }
+}
+
 function v7RunPipeline(novelDir, requestedRun) {
   const { assertActiveWorkerContracts } = require('./lib/chapter-progress');
   const { receiveAvailableChapterOutputs } = require('./lib/chapter-receiver');
@@ -84,17 +106,14 @@ function v7RunPipeline(novelDir, requestedRun) {
   const { prepareNovel } = require('./lib/source');
 
   const run = createOrResumeRun(novelDir, { runId: requestedRun });
-  if (run.semantic_contract_version && run.semantic_contract_version < 7) {
-    throw new GameKbError('LEGACY_SEMANTIC_CONTRACT', 'Cannot run a legacy contract version', {
-      run_id: run.run_id, version: run.semantic_contract_version
-    });
-  }
+  assertV7Run(run, 'run');
   const paths = pathsFor(novelDir, run.run_id);
   if (!run.resumed) {
     captureWorkerRootBaseline(paths);
     prepareNovel(novelDir, { runId: run.run_id });
   }
   const manifest = readJson(paths.manifest);
+  recordRunTimingEvent(paths, { type: 'source_prepared' }, { occurredAt: manifest.prepared_at });
   let progress = loadChapterProgress(paths, manifest);
 
   assertActiveWorkerContracts(paths, progress);
@@ -104,6 +123,9 @@ function v7RunPipeline(novelDir, requestedRun) {
 
   const next = advanceChapterWork({ paths, manifest, progress });
   saveChapterProgress(paths, next.progress);
+  if (next.status === 'manual_review') {
+    recordChapterReviewEvent(paths, next.progress, next.manual_review, 'manual_review_entered');
+  }
 
   if (next.status === 'ready-to-assemble') {
     const assembly = assembleRun({ paths });
@@ -176,9 +198,7 @@ function v7RetryUnit(novelDir, requestedRun, args) {
     throw new GameKbError('CONFIRM_REQUIRED', 'retry-unit requires --confirm');
   }
   const run = resolveRun(novelDir, requestedRun);
-  if (run.semantic_contract_version && run.semantic_contract_version < 7) {
-    throw new GameKbError('LEGACY_SEMANTIC_CONTRACT', 'Cannot retry a legacy run', { run_id: run.run_id });
-  }
+  assertV7Run(run, 'retry');
   const paths = pathsFor(novelDir, run.run_id);
   const manifest = readJson(paths.manifest);
   const progress = loadChapterProgress(paths, manifest);
@@ -186,6 +206,7 @@ function v7RetryUnit(novelDir, requestedRun, args) {
   if (!state || (state.status !== 'rejected' || state.attempt < 2)) {
     throw new GameKbError('RETRY_UNIT_NOT_REVIEWABLE', `Unit ${unit} is not in manual_review`, { unit, status: state?.status });
   }
+  recordChapterReviewEvent(paths, progress, [unit], 'manual_review_resumed');
   const { transitionProgress } = require('./lib/chapter-progress');
   const reset = transitionProgress(progress, { type: 'retry-unit', unit, manifest });
   const result = issueRetryJob({ paths, manifest, progress: reset, unit });

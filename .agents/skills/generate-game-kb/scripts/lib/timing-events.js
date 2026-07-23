@@ -121,6 +121,30 @@ function validatePersistedEvent(event, index, previousAt, seenKeys) {
   return occurredAt;
 }
 
+function predecessorKey(event) {
+  const suffix = `${event.unit}:${event.cycle}:${event.attempt}`;
+  if (event.type === 'source_prepared') return 'source-prepare-started';
+  if (event.type === 'window_closed') return `window-issued:${event.window_sequence}`;
+  if (event.type === 'attempt_observed') return `attempt-issued:${suffix}`;
+  if (event.type === 'attempt_accepted' || event.type === 'attempt_rejected') {
+    return `attempt-observed:${suffix}`;
+  }
+  if (event.type === 'manual_review_entered') return `attempt-rejected:${suffix}`;
+  if (event.type === 'manual_review_resumed') return `manual-review-entered:${suffix}`;
+  if (event.type === 'phase_completed') return `phase-started:${event.phase}`;
+  return null;
+}
+
+function assertLifecyclePredecessor(events, event) {
+  const required = predecessorKey(event);
+  if (required && !events.some(previous => previous.event_key === required)) {
+    throw timingError('Timing event is missing its lifecycle predecessor', {
+      event_key: timingEventKey(event),
+      required_event_key: required
+    });
+  }
+}
+
 function readTimingEvents(file) {
   if (!fs.existsSync(file)) return [];
   const content = fs.readFileSync(file, 'utf8');
@@ -138,7 +162,11 @@ function readTimingEvents(file) {
       throw timingError('Timing event line is not valid JSON', { sequence: index + 1, cause: error.message });
     }
     previousAt = validatePersistedEvent(event, index, previousAt, seenKeys);
+    assertLifecyclePredecessor(events, event);
     events.push(event);
+  }
+  if (events[0]?.type !== 'run_started') {
+    throw timingError('Timing event lifecycle must begin with run_started', { file });
   }
   return events;
 }
@@ -147,6 +175,9 @@ function appendTimingEvent(file, input, options = {}) {
   const payload = semanticPayload(input, true);
   const eventKey = timingEventKey(payload);
   const events = readTimingEvents(file);
+  if (events.length === 0 && payload.type !== 'run_started') {
+    throw timingError('Timing event lifecycle must begin with run_started', { event_key: eventKey });
+  }
   const existing = events.find(event => event.event_key === eventKey);
   if (existing) {
     if (JSON.stringify(semanticPayload(existing)) !== JSON.stringify(payload)) {
@@ -156,6 +187,7 @@ function appendTimingEvent(file, input, options = {}) {
     }
     return { appended: false, event: existing };
   }
+  assertLifecyclePredecessor(events, payload);
   const now = options.now ? options.now() : new Date();
   const occurredAt = canonicalUtc(options.occurredAt ?? now);
   const previous = events.at(-1);
@@ -178,11 +210,29 @@ function timingEventsHash(file) {
   return stableHash(fs.readFileSync(file, 'utf8'));
 }
 
+function recordRunTimingEvent(paths, input, options = {}) {
+  if (!paths?.runJson || !fs.existsSync(paths.runJson)) return { appended: false, event: null };
+  let metadata;
+  try {
+    metadata = JSON.parse(fs.readFileSync(paths.runJson, 'utf8'));
+  } catch (error) {
+    throw timingError('Run metadata cannot be read for timing events', { cause: error.message });
+  }
+  if (metadata.timing_contract_version === undefined) return { appended: false, event: null };
+  if (metadata.timing_contract_version !== TIMING_CONTRACT_VERSION) {
+    throw new GameKbError('TIMING_CONTRACT_UNSUPPORTED', 'Timing contract version is unsupported', {
+      timing_contract_version: metadata.timing_contract_version
+    });
+  }
+  return appendTimingEvent(paths.events, input, options);
+}
+
 module.exports = {
   EVENT_SCHEMA_VERSION,
   TIMING_CONTRACT_VERSION,
   appendTimingEvent,
   readTimingEvents,
+  recordRunTimingEvent,
   timingEventKey,
   timingEventsHash
 };

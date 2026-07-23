@@ -8,6 +8,7 @@ const { GameKbError } = require('./errors');
 const { atomicWriteJson, writeFileIfChanged } = require('./io');
 const { pathsFor } = require('./paths');
 const { createProgress } = require('./chapter-progress');
+const { recordRunTimingEvent } = require('./timing-events');
 
 const CHAPTER_HEADING = /^第[零〇一二三四五六七八九十百千两\d]+(?:章|回|节|卷)(?:\s+.*|[^\s]*)?$/;
 const BARE_CHAPTER_HEADING = /^(?:[一二三四五六七八九十]{1,3}|\d{1,3})$/;
@@ -99,6 +100,7 @@ function prepareNovel(novelDir, options = {}) {
     ? { run_id: options.runId }
     : require('./run').createOrResumeRun(novelDir, options);
   const paths = pathsFor(novelDir, run.run_id);
+  recordRunTimingEvent(paths, { type: 'source_prepare_started' });
   const sourceFile = discoverSource(paths.novel);
   const source = normalizeSource(fs.readFileSync(sourceFile, 'utf8'));
   const chapters = splitChapters(source, path.basename(paths.novel));
@@ -115,6 +117,7 @@ function prepareNovel(novelDir, options = {}) {
     };
   });
 
+  const preparedAt = new Date().toISOString();
   const manifest = {
     schema_version: 1,
     run_id: run.run_id,
@@ -124,10 +127,11 @@ function prepareNovel(novelDir, options = {}) {
     source_hash: sha256(source),
     source_char_count: cjkCharCount(source),
     chapters: manifestChapters,
-    prepared_at: new Date().toISOString()
+    prepared_at: preparedAt
   };
   atomicWriteJson(paths.manifest, manifest);
   atomicWriteJson(paths.progress, createProgress(manifest));
+  recordRunTimingEvent(paths, { type: 'source_prepared' }, { occurredAt: preparedAt });
   return manifest;
 }
 
