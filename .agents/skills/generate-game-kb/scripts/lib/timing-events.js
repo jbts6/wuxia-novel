@@ -227,10 +227,129 @@ function recordRunTimingEvent(paths, input, options = {}) {
   return appendTimingEvent(paths.events, input, options);
 }
 
+function durationMs(start, end) {
+  const value = Date.parse(end.occurred_at) - Date.parse(start.occurred_at);
+  if (!Number.isFinite(value) || value < 0) {
+    throw timingError('Timing event duration is invalid', {
+      start: start.event_key,
+      end: end.event_key
+    });
+  }
+  return value;
+}
+
+function durationSummary(values) {
+  if (values.length === 0) {
+    return { count: 0, total_ms: 0, min_ms: 0, max_ms: 0, average_ms: 0 };
+  }
+  const total = values.reduce((sum, value) => sum + value, 0);
+  return {
+    count: values.length,
+    total_ms: total,
+    min_ms: Math.min(...values),
+    max_ms: Math.max(...values),
+    average_ms: total / values.length
+  };
+}
+
+function requiredEvent(byKey, key) {
+  const event = byKey.get(key);
+  if (!event) throw timingError('Timing projection requires a completed lifecycle', { event_key: key });
+  return event;
+}
+
+function buildWindowMetrics(events, byKey) {
+  const issued = events.filter(event => event.type === 'window_issued');
+  const durations = [];
+  let closed = 0;
+  for (const start of issued) {
+    const end = byKey.get(`window-closed:${start.window_sequence}`);
+    if (!end) continue;
+    closed += 1;
+    durations.push(durationMs(start, end));
+  }
+  return {
+    issued: issued.length,
+    closed,
+    unclosed: issued.length - closed,
+    wall_ms: durationSummary(durations)
+  };
+}
+
+function buildAttemptTiming(events, byKey) {
+  const issued = events.filter(event => event.type === 'attempt_issued');
+  const turnaround = [];
+  const validation = [];
+  for (const start of issued) {
+    const suffix = `${start.unit}:${start.cycle}:${start.attempt}`;
+    const observed = requiredEvent(byKey, `attempt-observed:${suffix}`);
+    const decisions = [
+      byKey.get(`attempt-accepted:${suffix}`),
+      byKey.get(`attempt-rejected:${suffix}`)
+    ].filter(Boolean);
+    if (decisions.length !== 1) {
+      throw timingError('Observed attempt requires exactly one decision', { attempt: suffix });
+    }
+    turnaround.push(durationMs(start, observed));
+    validation.push(durationMs(observed, decisions[0]));
+  }
+  return {
+    attempts: issued.length,
+    issued_to_observed_ms: durationSummary(turnaround),
+    observed_to_decision_ms: durationSummary(validation)
+  };
+}
+
+function humanWaitMs(events, byKey) {
+  return events.filter(event => event.type === 'manual_review_entered')
+    .reduce((total, start) => {
+      const suffix = `${start.unit}:${start.cycle}:${start.attempt}`;
+      return total + durationMs(start, requiredEvent(byKey, `manual-review-resumed:${suffix}`));
+    }, 0);
+}
+
+function terminalPhaseMs(byKey, phase) {
+  return durationMs(
+    requiredEvent(byKey, `phase-started:${phase}`),
+    requiredEvent(byKey, `phase-completed:${phase}`)
+  );
+}
+
+function buildTimingProjection(events) {
+  if (!Array.isArray(events) || events.length === 0) throw timingError('Timing projection requires events');
+  const byKey = new Map(events.map(event => [event.event_key, event]));
+  const runStarted = requiredEvent(byKey, 'run-started');
+  const archiveCompleted = requiredEvent(byKey, 'phase-completed:archive');
+  const windows = buildWindowMetrics(events, byKey);
+  const totalMs = durationMs(runStarted, archiveCompleted);
+  const waitMs = humanWaitMs(events, byKey);
+  if (waitMs > totalMs) throw timingError('Human wait exceeds total run duration');
+  return {
+    total_ms: totalMs,
+    human_wait_ms: waitMs,
+    active_ms: totalMs - waitMs,
+    phase_durations: {
+      prepare_ms: durationMs(
+        requiredEvent(byKey, 'source-prepare-started'),
+        requiredEvent(byKey, 'source-prepared')
+      ),
+      chapter_extraction_ms: windows.wall_ms.total_ms,
+      assemble_ms: terminalPhaseMs(byKey, 'assemble'),
+      verify_ms: terminalPhaseMs(byKey, 'verify'),
+      install_ms: terminalPhaseMs(byKey, 'install'),
+      archive_ms: terminalPhaseMs(byKey, 'archive'),
+      total_ms: totalMs
+    },
+    windows,
+    attempt_timing: buildAttemptTiming(events, byKey)
+  };
+}
+
 module.exports = {
   EVENT_SCHEMA_VERSION,
   TIMING_CONTRACT_VERSION,
   appendTimingEvent,
+  buildTimingProjection,
   readTimingEvents,
   recordRunTimingEvent,
   timingEventKey,

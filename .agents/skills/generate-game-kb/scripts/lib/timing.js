@@ -4,6 +4,13 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const { readJson, readYaml } = require('./io');
+const { GameKbError } = require('./errors');
+const {
+  TIMING_CONTRACT_VERSION,
+  buildTimingProjection,
+  readTimingEvents,
+  timingEventsHash
+} = require('./timing-events');
 
 const EMPTY_DURATIONS = Object.freeze({
   prepare_ms: 0,
@@ -146,8 +153,66 @@ function buildRunMetrics(paths, metadata, progress, endedAt) {
   };
 }
 
+function countChapterCandidates(chaptersDirectory) {
+  if (!chaptersDirectory || !fs.existsSync(chaptersDirectory)) return 0;
+  return fs.readdirSync(chaptersDirectory)
+    .filter(name => name.endsWith('.yaml'))
+    .sort()
+    .reduce((total, name) => {
+      const chapter = readYaml(path.join(chaptersDirectory, name));
+      return total + ['characters', 'skills', 'items', 'factions']
+        .reduce((sum, field) => sum + (Array.isArray(chapter?.[field]) ? chapter[field].length : 0), 0);
+    }, 0);
+}
+
+function eventAiUnitMetrics(events) {
+  const issued = events.filter(event => event.type === 'attempt_issued');
+  const planned = new Set(issued.map(event => event.unit));
+  const done = new Set(events
+    .filter(event => event.type === 'attempt_accepted')
+    .map(event => event.unit));
+  const chapter = {
+    planned: planned.size,
+    done: done.size,
+    attempts: issued.length,
+    corrections: Math.max(0, issued.length - planned.size)
+  };
+  return { chapter, total: { ...chapter } };
+}
+
+function buildEventRunMetrics(paths, metadata, generatedAt) {
+  if (metadata?.timing_contract_version !== TIMING_CONTRACT_VERSION) {
+    throw new GameKbError('TIMING_CONTRACT_UNSUPPORTED', 'Event metrics require timing contract version 1', {
+      timing_contract_version: metadata?.timing_contract_version ?? null
+    });
+  }
+  const events = readTimingEvents(paths.events);
+  const projection = buildTimingProjection(events);
+  return {
+    schema_version: 2,
+    timing_contract_version: TIMING_CONTRACT_VERSION,
+    timing_events_hash: timingEventsHash(paths.events),
+    run_id: metadata.run_id || paths.runId,
+    semantic_profile: metadata.semantic_profile || null,
+    generated_at: generatedAt,
+    total_ms: projection.total_ms,
+    human_wait_ms: projection.human_wait_ms,
+    active_ms: projection.active_ms,
+    phase_durations: projection.phase_durations,
+    ai_units: eventAiUnitMetrics(events),
+    windows: projection.windows,
+    attempt_timing: projection.attempt_timing,
+    max_ai_input_bytes: maxAiInputBytes(paths),
+    candidate_counts: {
+      chapter_candidates: countChapterCandidates(paths.chapters),
+      final_records: countFinalRecords(paths.finalData)
+    }
+  };
+}
+
 module.exports = {
   EMPTY_DURATIONS,
+  buildEventRunMetrics,
   buildRunMetrics,
   derivePhaseDurations
 };
