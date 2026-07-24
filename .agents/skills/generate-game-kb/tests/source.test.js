@@ -62,6 +62,21 @@ test('split recognizes a sequential series of bare Chinese numeral chapter headi
   assert.equal(chapters[1].content, '二\n乙。\n');
 });
 
+test('split recognizes volume-prefixed chapter headings', () => {
+  const chapters = splitChapters(
+    '卷一 第一章 相依为命\n甲。\n卷一 第二章 大祸临头\n乙。\n卷二 第一章 老奸巨猾\n丙。\n',
+    '大唐双龙传'
+  );
+
+  assert.equal(chapters.length, 3);
+  assert.deepEqual(chapters.map(chapter => chapter.title), [
+    '卷一 第一章 相依为命',
+    '卷一 第二章 大祸临头',
+    '卷二 第一章 老奸巨猾'
+  ]);
+  assert.equal(chapters[2].content, '卷二 第一章 老奸巨猾\n丙。\n');
+});
+
 test('prepare refreshes unissued chapters into v7 pending progress without transport paths', () => {
   const novel = makeNovel('试书', '尚未识别章节。\n');
   const first = prepareNovel(novel);

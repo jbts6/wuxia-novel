@@ -10,7 +10,8 @@ const { pathsFor } = require('./paths');
 const { createProgress } = require('./chapter-progress');
 const { recordRunTimingEvent } = require('./timing-events');
 
-const CHAPTER_HEADING = /^第[零〇一二三四五六七八九十百千两\d]+(?:章|回|节|卷)(?:\s+.*|[^\s]*)?$/;
+// Supports plain "第一章 标题" and volume-prefixed Huang Yi style "卷一 第一章 标题".
+const CHAPTER_HEADING = /^(?:卷[零〇一二三四五六七八九十百千两\d]+\s+)?第[零〇一二三四五六七八九十百千两\d]+(?:章|回|节|卷)(?:\s+.*|[^\s]*)?$/;
 const BARE_CHAPTER_HEADING = /^(?:[一二三四五六七八九十]{1,3}|\d{1,3})$/;
 const CHINESE_DIGITS = Object.freeze({ 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9 });
 
