@@ -1,8 +1,8 @@
 @Karpathy.md
 
-# context-mode + RTK — MANDATORY routing rules
+# context-mode — MANDATORY routing rules
 
-context-mode MCP tools and RTK available. Rules protect context window from flooding. One unrouted command dumps 56 KB into context.
+context-mode MCP tools available. Rules protect context window from flooding. One unrouted command dumps 56 KB into context.
 
 ## Think in Code — MANDATORY
 
@@ -23,17 +23,15 @@ Use: `mcp__context-mode__ctx_fetch_and_index(url, source)` then `mcp__context-mo
 
 ## REDIRECTED — use sandbox
 
-### Shell — ALWAYS prefix with rtk
-Shell ONLY for: `git`, `mkdir`, `rm`, `mv`, `cd`, `ls`, `npm install`, `pip install`.
-**ALWAYS prefix with `rtk`** for token savings: `rtk git status`, `rtk ls .`, `rtk grep "pattern" .`, etc.
-See `RTK.md` for full command mapping. For unsupported commands or >20 lines output: `mcp__context-mode__ctx_batch_execute(commands, queries)` or `mcp__context-mode__ctx_execute(language: "shell", code: "...")`
+### Shell
+Shell for: `git`, `mkdir`, `rm`, `mv`, `cd`, `ls`, `npm install`, `pip install`, and other needed system commands.
+For large or noisy output (>20 lines): use `mcp__context-mode__ctx_batch_execute(commands, queries)` or `mcp__context-mode__ctx_execute(language: "shell", code: "...")` so only derived answers enter context.
 
 ### File reading (for analysis)
 Reading to **edit** → reading correct. Reading to **analyze/explore/summarize** → `mcp__context-mode__ctx_execute_file(path, language, code)`.
-Use `rtk read <file>` instead of `cat` in shell.
 
 ### grep / search (large results)
-Use `rtk grep "pattern" .` in shell, or `mcp__context-mode__ctx_execute(language: "shell", code: "rtk grep ...")` in sandbox.
+Prefer dedicated search tools, or `mcp__context-mode__ctx_execute(language: "shell", code: "...")` for large greps.
 
 ## Tool selection
 
