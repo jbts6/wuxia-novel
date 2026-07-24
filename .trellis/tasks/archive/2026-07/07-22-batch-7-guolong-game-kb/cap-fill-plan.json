@@ -1,0 +1,97 @@
+{
+  "at": "2026-07-24T02:32:40.583Z",
+  "plan": [
+    {
+      "book": "侠骨",
+      "unit": "chapter:052",
+      "cycle": 1,
+      "attempt": 1,
+      "producer": "chapter-worker",
+      "hasOut": false,
+      "input": "C:\\git\\wuxia-novel\\梁羽生\\侠骨丹心\\.game-kb-work\\runs\\run-2026-07-23T16-29-52-980Z-42092-2ec7e144\\tasks\\chapter_052\\cycle_01\\attempt_01.json",
+      "output": "C:\\git\\wuxia-novel\\梁羽生\\侠骨丹心\\.game-kb-work\\runs\\run-2026-07-23T16-29-52-980Z-42092-2ec7e144\\staging\\chapter_052\\cycle_01\\attempt_01.yaml"
+    },
+    {
+      "book": "绝塞",
+      "unit": "chapter:009",
+      "cycle": 1,
+      "attempt": 2,
+      "producer": "chapter-worker",
+      "hasOut": false,
+      "input": "C:\\git\\wuxia-novel\\梁羽生\\绝塞传烽录\\.game-kb-work\\runs\\run-2026-07-23T16-29-54-809Z-40820-68d348a1\\tasks\\chapter_009\\cycle_01\\attempt_02.json",
+      "output": "C:\\git\\wuxia-novel\\梁羽生\\绝塞传烽录\\.game-kb-work\\runs\\run-2026-07-23T16-29-54-809Z-40820-68d348a1\\staging\\chapter_009\\cycle_01\\attempt_02.yaml"
+    }
+  ],
+  "xiagu": {
+    "status": "jobs",
+    "progress": {
+      "accepted": 50,
+      "total": 52
+    },
+    "need": [
+      {
+        "unit": "chapter:051",
+        "cycle": 1,
+        "attempt": 1,
+        "producer": "chapter-worker",
+        "hasOut": true,
+        "input": "C:\\git\\wuxia-novel\\梁羽生\\侠骨丹心\\.game-kb-work\\runs\\run-2026-07-23T16-29-52-980Z-42092-2ec7e144\\tasks\\chapter_051\\cycle_01\\attempt_01.json",
+        "output": "C:\\git\\wuxia-novel\\梁羽生\\侠骨丹心\\.game-kb-work\\runs\\run-2026-07-23T16-29-52-980Z-42092-2ec7e144\\staging\\chapter_051\\cycle_01\\attempt_01.yaml"
+      },
+      {
+        "unit": "chapter:052",
+        "cycle": 1,
+        "attempt": 1,
+        "producer": "chapter-worker",
+        "hasOut": false,
+        "input": "C:\\git\\wuxia-novel\\梁羽生\\侠骨丹心\\.game-kb-work\\runs\\run-2026-07-23T16-29-52-980Z-42092-2ec7e144\\tasks\\chapter_052\\cycle_01\\attempt_01.json",
+        "output": "C:\\git\\wuxia-novel\\梁羽生\\侠骨丹心\\.game-kb-work\\runs\\run-2026-07-23T16-29-52-980Z-42092-2ec7e144\\staging\\chapter_052\\cycle_01\\attempt_01.yaml"
+      }
+    ]
+  },
+  "juesai": {
+    "status": "jobs",
+    "progress": {
+      "accepted": 9,
+      "total": 17
+    },
+    "need": [
+      {
+        "unit": "chapter:009",
+        "cycle": 1,
+        "attempt": 2,
+        "producer": "chapter-worker",
+        "hasOut": false,
+        "input": "C:\\git\\wuxia-novel\\梁羽生\\绝塞传烽录\\.game-kb-work\\runs\\run-2026-07-23T16-29-54-809Z-40820-68d348a1\\tasks\\chapter_009\\cycle_01\\attempt_02.json",
+        "output": "C:\\git\\wuxia-novel\\梁羽生\\绝塞传烽录\\.game-kb-work\\runs\\run-2026-07-23T16-29-54-809Z-40820-68d348a1\\staging\\chapter_009\\cycle_01\\attempt_02.yaml"
+      }
+    ]
+  },
+  "huanjian": {
+    "status": "jobs",
+    "progress": {
+      "accepted": 0,
+      "total": 2
+    },
+    "need": [
+      {
+        "unit": "chapter:001",
+        "cycle": 1,
+        "attempt": 1,
+        "producer": "chapter-worker",
+        "hasOut": true,
+        "input": "C:\\git\\wuxia-novel\\梁羽生\\幻剑灵旗\\.game-kb-work\\runs\\run-2026-07-23T16-29-55-430Z-38804-7e02c92f\\tasks\\chapter_001\\cycle_01\\attempt_01.json",
+        "output": "C:\\git\\wuxia-novel\\梁羽生\\幻剑灵旗\\.game-kb-work\\runs\\run-2026-07-23T16-29-55-430Z-38804-7e02c92f\\staging\\chapter_001\\cycle_01\\attempt_01.yaml"
+      },
+      {
+        "unit": "chapter:002",
+        "cycle": 1,
+        "attempt": 1,
+        "producer": "chapter-worker",
+        "hasOut": true,
+        "input": "C:\\git\\wuxia-novel\\梁羽生\\幻剑灵旗\\.game-kb-work\\runs\\run-2026-07-23T16-29-55-430Z-38804-7e02c92f\\tasks\\chapter_002\\cycle_01\\attempt_01.json",
+        "output": "C:\\git\\wuxia-novel\\梁羽生\\幻剑灵旗\\.game-kb-work\\runs\\run-2026-07-23T16-29-55-430Z-38804-7e02c92f\\staging\\chapter_002\\cycle_01\\attempt_01.yaml"
+      }
+    ]
+  }
+}
