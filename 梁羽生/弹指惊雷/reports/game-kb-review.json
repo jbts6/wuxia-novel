@@ -1,0 +1,44 @@
+{
+  "report_version": 1,
+  "source_hash": "sha256:e7a61a9c8453121c80df1b57c195e0c45ab2382534a8c0c2b3efe8265ec7668a",
+  "final_data_hash": "sha256:67d344f504eeaf5206bb854e542c9f4e5da4ce27d099478a190c6804ef34fa58",
+  "summary": {
+    "warning_count": 1,
+    "by_code": {
+      "GENERIC_CANDIDATE_FILTERED": 1
+    },
+    "by_category": {
+      "characters": 1
+    }
+  },
+  "entries": [
+    {
+      "code": "GENERIC_CANDIDATE_FILTERED",
+      "severity": "warning",
+      "category": "characters",
+      "name": "店小二",
+      "chapter_numbers": [
+        15
+      ],
+      "source_refs": [
+        {
+          "chapter": 15,
+          "text": "店小二过来道:\"客官还要添酒吗?\"",
+          "line_start": 14,
+          "line_end": 14
+        },
+        {
+          "chapter": 15,
+          "text": "店小二登时翻起白眼,一脸鄙弃的神情",
+          "line_start": 20,
+          "line_end": 20
+        }
+      ],
+      "member_refs": [
+        "ch015:character:店小二"
+      ],
+      "reason": "confirmed_generic_name",
+      "resolution": "filtered"
+    }
+  ]
+}
